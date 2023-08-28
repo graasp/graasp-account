@@ -1,20 +1,22 @@
-import React, { useState } from "react";
-import PropTypes from "prop-types";
+import React, { useMemo, useState } from 'react';
+
+import PropTypes from 'prop-types';
 
 const LayoutContext = React.createContext();
 
 const LayoutContextProvider = ({ children }) => {
   const [isMainMenuOpen, setIsMainMenuOpen] = useState(true);
 
+  const value = useMemo(
+    () => ({
+      isMainMenuOpen,
+      setIsMainMenuOpen,
+    }),
+    [isMainMenuOpen, setIsMainMenuOpen],
+  );
+
   return (
-    <LayoutContext.Provider
-      value={{
-        isMainMenuOpen,
-        setIsMainMenuOpen,
-      }}
-    >
-      {children}
-    </LayoutContext.Provider>
+    <LayoutContext.Provider value={value}>{children}</LayoutContext.Provider>
   );
 };
 

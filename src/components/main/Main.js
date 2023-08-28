@@ -1,63 +1,41 @@
-import React, { useContext } from "react";
-import Drawer from "@material-ui/core/Drawer";
-import clsx from "clsx";
-import { makeStyles } from "@material-ui/core/styles";
-import { CssBaseline } from "@material-ui/core";
-import PropTypes from "prop-types";
-import { HEADER_HEIGHT, LEFT_MENU_WIDTH } from "../../config/constants";
-import MainMenu from "./MainMenu";
-import Header from "../layout/Header";
-import { LayoutContext } from "../context/LayoutContext";
+import React, { useContext } from 'react';
 
-const useStyles = makeStyles((theme) => ({
-  root: {
-    display: "flex",
-  },
-  menuButton: {},
-  hide: {
-    display: "none",
-  },
-  drawer: {
-    width: LEFT_MENU_WIDTH,
-    flexShrink: 0,
-  },
-  drawerPaper: {
-    width: LEFT_MENU_WIDTH,
-  },
-  drawerHeader: {
-    display: "flex",
-    alignItems: "center",
-    padding: theme.spacing(0, 1),
-    // necessary for content to be below app bar
-    ...theme.mixins.toolbar,
-    justifyContent: "flex-end",
-  },
-  content: {
-    position: "relative",
-    padding: theme.spacing(1),
-    flexGrow: 1,
-    transition: theme.transitions.create("margin", {
-      easing: theme.transitions.easing.sharp,
-      duration: theme.transitions.duration.leavingScreen,
-    }),
-    marginLeft: -LEFT_MENU_WIDTH,
-    height: "100vh",
-  },
-  contentShift: {
-    transition: theme.transitions.create("margin", {
-      easing: theme.transitions.easing.easeOut,
-      duration: theme.transitions.duration.enteringScreen,
-    }),
-    marginLeft: 0,
-  },
-  appBarBlank: {
-    height: HEADER_HEIGHT,
-  },
+import { CssBaseline, styled } from '@mui/material';
+import Drawer from '@mui/material/Drawer';
+
+import { DRAWER_WIDTH } from '@graasp/ui';
+
+import PropTypes from 'prop-types';
+
+import { HEADER_HEIGHT, LEFT_MENU_WIDTH } from '../../config/constants';
+import { LayoutContext } from '../context/LayoutContext';
+import Header from '../layout/Header';
+import MainMenu from './MainMenu';
+
+const Blank = styled('main')(() => ({ height: HEADER_HEIGHT }));
+
+const StyledMain = styled('main')(({ theme, isMainMenuOpen }) => ({
+  position: 'relative',
+  padding: theme.spacing(3),
+  flexGrow: 1,
+  transition: theme.transitions.create('margin', {
+    easing: theme.transitions.easing.sharp,
+    duration: theme.transitions.duration.leavingScreen,
+  }),
+  marginLeft: -LEFT_MENU_WIDTH,
+  height: '100vh',
+  ...(isMainMenuOpen
+    ? {
+        transition: theme.transitions.create('margin', {
+          easing: theme.transitions.easing.easeOut,
+          duration: theme.transitions.duration.enteringScreen,
+        }),
+        marginLeft: 0,
+      }
+    : {}),
 }));
 
 const Main = ({ children }) => {
-  const classes = useStyles();
-
   const { isMainMenuOpen, setIsMainMenuOpen } = useContext(LayoutContext);
 
   const toggleDrawer = (isOpen) => {
@@ -65,31 +43,24 @@ const Main = ({ children }) => {
   };
 
   return (
-    <div className={classes.root}>
+    <div style={{ display: 'flex' }}>
       <CssBaseline />
       <Header toggleMenu={toggleDrawer} isMenuOpen={isMainMenuOpen} />
       <Drawer
-        className={classes.drawer}
+        sx={{ width: DRAWER_WIDTH }}
         variant="persistent"
         open={isMainMenuOpen}
-        classes={{
-          paper: classes.drawerPaper,
-        }}
       >
-        <div className={classes.appBarBlank} />
-        <div role="presentation" className={classes.list}>
+        <Blank />
+        <div role="presentation">
           <MainMenu />
         </div>
       </Drawer>
 
-      <main
-        className={clsx(classes.content, {
-          [classes.contentShift]: isMainMenuOpen,
-        })}
-      >
-        <div className={classes.appBarBlank} />
+      <StyledMain isMainMenuOpen={isMainMenuOpen}>
+        <Blank />
         {children}
-      </main>
+      </StyledMain>
     </div>
   );
 };

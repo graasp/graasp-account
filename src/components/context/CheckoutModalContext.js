@@ -1,26 +1,28 @@
-import React, { useState } from "react";
+import React, { useState } from 'react';
+import { useTranslation } from 'react-i18next';
+import { useNavigate } from 'react-router';
+
 import {
   Dialog,
   DialogActions,
   DialogContent,
   DialogTitle,
   Typography,
-} from "@material-ui/core";
-import Button from "@material-ui/core/Button";
-import { MUTATION_KEYS } from "@graasp/query-client";
-import { useTranslation } from "react-i18next";
-import PropTypes from "prop-types";
-import { useHistory } from "react-router";
-import { useMutation } from "../../config/queryClient";
-import { SUBSCRIPTIONS_PATH } from "../../config/paths";
+} from '@mui/material';
+import Button from '@mui/material/Button';
+
+import PropTypes from 'prop-types';
+
+import { SUBSCRIPTIONS_PATH } from '../../config/paths';
+import { mutations } from '../../config/queryClient';
 
 const CheckoutModal = ({ cardId, priceId, planName }) => {
   const [open, setOpen] = useState(false);
 
   const { t } = useTranslation();
-  const history = useHistory();
+  const navigate = useNavigate();
 
-  const { mutate: changePlan } = useMutation(MUTATION_KEYS.CHANGE_PLAN);
+  const { mutate: changePlan } = mutations.useChangePlan();
 
   const onOpen = () => {
     setOpen(true);
@@ -29,7 +31,7 @@ const CheckoutModal = ({ cardId, priceId, planName }) => {
   const onConfirm = () => {
     changePlan({ planId: priceId, cardId });
     setOpen(false);
-    history.push(SUBSCRIPTIONS_PATH);
+    navigate(SUBSCRIPTIONS_PATH);
   };
 
   const onClose = () => {
@@ -40,20 +42,20 @@ const CheckoutModal = ({ cardId, priceId, planName }) => {
     <>
       <Dialog open={open} onClose={onClose} maxWidth="sm" fullWidth>
         <DialogTitle>{`${t(
-          "Checkout - Subscribing to"
+          'Checkout - Subscribing to',
         )} ${planName}`}</DialogTitle>
         <DialogContent>
           <Typography>
-            {t("Please confirm that you wish to subscribe to this plan.")}
+            {t('Please confirm that you wish to subscribe to this plan.')}
           </Typography>
-          <Typography>{t("You will be charged upon confirmation.")}</Typography>
+          <Typography>{t('You will be charged upon confirmation.')}</Typography>
         </DialogContent>
         <DialogActions>
           <Button onClick={onClose} color="primary">
-            {t("Cancel")}
+            {t('Cancel')}
           </Button>
           <Button onClick={onConfirm} color="primary">
-            {t("Confirm")}
+            {t('Confirm')}
           </Button>
         </DialogActions>
       </Dialog>
@@ -65,7 +67,7 @@ const CheckoutModal = ({ cardId, priceId, planName }) => {
         disabled={!priceId}
         onClick={onOpen}
       >
-        {t("Subscribe")}
+        {t('Subscribe')}
       </Button>
     </>
   );

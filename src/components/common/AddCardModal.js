@@ -1,35 +1,40 @@
-import React, { useState } from "react";
+/* eslint-disable @typescript-eslint/no-unused-vars */
+
+/* eslint-disable no-unused-vars */
+import React, { useState } from 'react';
+import { useTranslation } from 'react-i18next';
+
+import AddIcon from '@mui/icons-material/Add';
 import {
   Dialog,
   DialogActions,
   DialogContent,
   DialogTitle,
-  ListItem,
+  ListItemButton,
   ListItemIcon,
   ListItemText,
   Typography,
-} from "@material-ui/core";
-import Button from "@material-ui/core/Button";
-import AddIcon from "@material-ui/icons/Add";
-import { CardElement, useElements, useStripe } from "@stripe/react-stripe-js";
-import { DATA_KEYS, MUTATION_KEYS } from "@graasp/query-client";
-import { useTranslation } from "react-i18next";
-import { hooks, queryClient, useMutation } from "../../config/queryClient";
+} from '@mui/material';
+import Button from '@mui/material/Button';
+
+import { CardElement, useElements, useStripe } from '@stripe/react-stripe-js';
+
+import { hooks, mutations } from '../../config/queryClient';
 
 const CARD_ELEMENT_OPTIONS = {
   style: {
     base: {
-      color: "#32325d",
+      color: '#32325d',
       fontFamily: '"Helvetica Neue", Helvetica, sans-serif',
-      fontSmoothing: "antialiased",
-      fontSize: "16px",
-      "::placeholder": {
-        color: "#aab7c4",
+      fontSmoothing: 'antialiased',
+      fontSize: '16px',
+      '::placeholder': {
+        color: '#aab7c4',
       },
     },
     invalid: {
-      color: "#fa755a",
-      iconColor: "#fa755a",
+      color: '#fa755a',
+      iconColor: '#fa755a',
     },
   },
 };
@@ -41,37 +46,40 @@ const AddCardModal = () => {
   const [hasError, setHasError] = useState(false);
 
   const { data: member } = hooks.useCurrentMember();
-  const mutation = useMutation(MUTATION_KEYS.CREATE_SETUP_INTENT);
+  const { mutate: createSetupIntent } = mutations.useCreateSetupIntent();
 
-  const stripe = useStripe();
-  const elements = useElements();
+  // const stripe = useStripe();
+  // const elements = useElements();
 
   const onSubmit = async (event) => {
     event.preventDefault();
 
-    if (!stripe || !elements) {
-      return;
-    }
+    // if (!stripe || !elements) {
+    //   return;
+    // }
 
-    mutation.mutate(undefined, {
-      onSuccess: async ({ clientSecret }) => {
-        const result = await stripe.confirmCardSetup(clientSecret, {
-          payment_method: {
-            card: elements.getElement(CardElement),
-            billing_details: {
-              name: member.name,
-            },
-          },
-        });
+    // createSetupIntent(
+    //   { stripe },
+    //   {
+    //     onSuccess: async ({ clientSecret }) => {
+    //       const result = await stripe.confirmCardSetup(clientSecret, {
+    //         payment_method: {
+    //           card: elements.getElement(CardElement),
+    //           billing_details: {
+    //             name: member.name,
+    //           },
+    //         },
+    //       });
 
-        if (result.error) {
-          setHasError(true);
-        } else {
-          queryClient.invalidateQueries(DATA_KEYS.CARDS_KEY);
-          setOpen(false);
-        }
-      },
-    });
+    //       if (result.error) {
+    //         setHasError(true);
+    //       } else {
+    //         queryClient.invalidateQueries(DATA_KEYS.CARDS_KEY);
+    //         setOpen(false);
+    //       }
+    //     },
+    //   }
+    // );
   };
 
   const onClose = () => {
@@ -81,31 +89,31 @@ const AddCardModal = () => {
   return (
     <>
       <Dialog open={open} onClose={onClose} maxWidth="sm" fullWidth>
-        <DialogTitle>{t("Add Card")}</DialogTitle>
+        <DialogTitle>{t('Add Card')}</DialogTitle>
         <DialogContent>
-          <Typography>{t("Enter your card details.")}</Typography>
+          <Typography>{t('Enter your card details.')}</Typography>
           <CardElement options={CARD_ELEMENT_OPTIONS} />
           {hasError ? (
             <Typography color="error">
-              {t("Invalid Card Credentials, Please retry.")}
+              {t('Invalid Card Credentials, Please retry.')}
             </Typography>
           ) : null}
         </DialogContent>
         <DialogActions>
           <Button onClick={onClose} color="primary">
-            {t("Cancel")}
+            {t('Cancel')}
           </Button>
           <Button onClick={onSubmit} color="primary">
-            {t("Submit")}
+            {t('Submit')}
           </Button>
         </DialogActions>
       </Dialog>
-      <ListItem button onClick={() => setOpen(true)}>
+      <ListItemButton onClick={() => setOpen(true)}>
         <ListItemIcon>
           <AddIcon />
         </ListItemIcon>
-        <ListItemText>{t("Add Card")}</ListItemText>
-      </ListItem>
+        <ListItemText>{t('Add Card')}</ListItemText>
+      </ListItemButton>
     </>
   );
 };

@@ -1,28 +1,24 @@
-import React from "react";
-import { ReactComponent as VisaIcon } from "payment-icons/min/flat/visa.svg";
-import { ReactComponent as MasterCardIcon } from "payment-icons/min/flat/mastercard.svg";
-import { ReactComponent as DefaultCardIcon } from "payment-icons/min/flat/default.svg";
-import PropTypes from "prop-types";
-import { makeStyles } from "@material-ui/core";
+import React from 'react';
 
-const useStyles = makeStyles(() => ({
-  icon: {
-    height: 35,
-    width: "auto",
-    marginRight: 10,
-  },
-}));
+import { ReactComponent as DefaultCardIcon } from 'payment-icons/min/flat/default.svg';
+import { ReactComponent as MasterCardIcon } from 'payment-icons/min/flat/mastercard.svg';
+import { ReactComponent as VisaIcon } from 'payment-icons/min/flat/visa.svg';
+import PropTypes from 'prop-types';
+
+const styles = {
+  height: 35,
+  width: 'auto',
+  marginRight: 10,
+};
 
 const CardIcon = ({ brand }) => {
-  const classes = useStyles();
-
   switch (brand) {
-    case "visa":
-      return <VisaIcon className={classes.icon} />;
-    case "mastercard":
-      return <MasterCardIcon className={classes.icon} />;
+    case 'visa':
+      return <VisaIcon sx={styles} />;
+    case 'mastercard':
+      return <MasterCardIcon sx={styles} />;
     default:
-      return <DefaultCardIcon className={classes.icon} />;
+      return <DefaultCardIcon sx={styles} />;
   }
 };
 

@@ -1,9 +1,12 @@
-import React from "react";
-import { List, ListItem, ListItemIcon, ListItemText } from "@material-ui/core";
-import PropTypes from "prop-types";
-import { hooks } from "../../config/queryClient";
-import AddCardModal from "./AddCardModal";
-import CardIcon from "./CardIcon";
+import React from 'react';
+
+import { List, ListItem, ListItemIcon, ListItemText } from '@mui/material';
+
+import PropTypes from 'prop-types';
+
+import { hooks } from '../../config/queryClient';
+import AddCardModal from './AddCardModal';
+import CardIcon from './CardIcon';
 
 const { useCards } = hooks;
 

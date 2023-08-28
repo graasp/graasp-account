@@ -1,45 +1,36 @@
-import React, { useState } from "react";
-import Button from "@material-ui/core/Button";
-import Card from "@material-ui/core/Card";
-import CardActions from "@material-ui/core/CardActions";
-import CardContent from "@material-ui/core/CardContent";
-import CardHeader from "@material-ui/core/CardHeader";
-import CssBaseline from "@material-ui/core/CssBaseline";
-import Grid from "@material-ui/core/Grid";
-import Typography from "@material-ui/core/Typography";
-import { makeStyles } from "@material-ui/core/styles";
-import Container from "@material-ui/core/Container";
-import { useTranslation } from "react-i18next";
-import { Link } from "react-router-dom";
-import { FormControl, Select } from "@material-ui/core";
-import { List } from "immutable";
-import Main from "./Main";
-import { formatCurrency } from "../../utils/currency";
-import { hooks } from "../../config/queryClient";
-import { PAYMENT_CONFIRM_PATH } from "../../config/paths";
-import { DEFAULT_CURRENCY } from "../../config/constants";
+import React, { useState } from 'react';
+import { useTranslation } from 'react-i18next';
+import { Link } from 'react-router-dom';
+
+import { FormControl, Select, styled } from '@mui/material';
+import Button from '@mui/material/Button';
+import Card from '@mui/material/Card';
+import CardActions from '@mui/material/CardActions';
+import CardContent from '@mui/material/CardContent';
+import CardHeader from '@mui/material/CardHeader';
+import Container from '@mui/material/Container';
+import CssBaseline from '@mui/material/CssBaseline';
+import Grid from '@mui/material/Grid';
+import Typography from '@mui/material/Typography';
+
+import { List } from 'immutable';
+
+import { DEFAULT_CURRENCY } from '../../config/constants';
+import { PAYMENT_CONFIRM_PATH } from '../../config/paths';
+import { hooks } from '../../config/queryClient';
+import { formatCurrency } from '../../utils/currency';
+import Main from './Main';
+
+const StyledCardHeader = styled(CardHeader)(({ theme }) => ({
+  backgroundColor:
+    theme.palette.type === 'light'
+      ? theme.palette.grey[200]
+      : theme.palette.grey[700],
+}));
 
 const { usePlans, useOwnPlan } = hooks;
 
-const useStyles = makeStyles((theme) => ({
-  container: {
-    padding: theme.spacing(8, 0, 6),
-  },
-  cardHeader: {
-    backgroundColor:
-      theme.palette.type === "light"
-        ? theme.palette.grey[200]
-        : theme.palette.grey[700],
-  },
-  cardPricing: {
-    display: "flex",
-    justifyContent: "center",
-    marginBottom: theme.spacing(2),
-  },
-}));
-
 const Subscriptions = () => {
-  const classes = useStyles();
   const { t } = useTranslation();
 
   const { data: plans = List() } = usePlans();
@@ -51,16 +42,16 @@ const Subscriptions = () => {
   const currencies =
     plans?.get(0)?.prices?.map((price) => price.currency) ?? [];
 
-  const isSubscribed = (plan) => plan.id === currentPlan?.get("id");
+  const isSubscribed = (plan) => plan.id === currentPlan?.get('id');
 
   const getSubscribeButtonText = (plan) => {
     if (isSubscribed(plan)) {
-      return t("Subscribed");
+      return t('Subscribed');
     }
-    if (plan.level < currentPlan?.get("level")) {
-      return t("Downgrade");
+    if (plan.level < currentPlan?.get('level')) {
+      return t('Downgrade');
     }
-    return t("Upgrade");
+    return t('Upgrade');
   };
 
   const handleChange = (event) => {
@@ -70,7 +61,7 @@ const Subscriptions = () => {
   return (
     <Main>
       <CssBaseline />
-      <Container maxWidth="sm" component="main" className={classes.container}>
+      <Container maxWidth="sm" component="main" p={2}>
         <Typography
           component="h1"
           variant="h2"
@@ -78,7 +69,7 @@ const Subscriptions = () => {
           color="textPrimary"
           gutterBottom
         >
-          {t("Subscriptions")}
+          {t('Subscriptions')}
         </Typography>
         <Typography
           variant="h5"
@@ -86,7 +77,7 @@ const Subscriptions = () => {
           color="textSecondary"
           component="p"
         >
-          {t("Choose the plan most suitable for your needs")}
+          {t('Choose the plan most suitable for your needs')}
         </Typography>
       </Container>
       <Container maxWidth="md" component="main">
@@ -102,24 +93,29 @@ const Subscriptions = () => {
           {plans.sort().map((plan) => (
             <Grid item key={plan.title} sm={12} md={6} lg={4}>
               <Card>
-                <CardHeader
+                <StyledCardHeader
                   title={plan.name}
                   subheader={plan.subheader}
-                  titleTypographyProps={{ align: "center" }}
-                  subheaderTypographyProps={{ align: "center" }}
-                  className={classes.cardHeader}
+                  titleTypographyProps={{ align: 'center' }}
+                  subheaderTypographyProps={{ align: 'center' }}
                 />
                 <CardContent>
-                  <div className={classes.cardPricing}>
+                  <div
+                    style={{
+                      display: 'flex',
+                      justifyContent: 'center',
+                      marginBottom: 10,
+                    }}
+                  >
                     <Typography component="h2" variant="h3" color="textPrimary">
                       {formatCurrency(
                         plan.prices.find(
-                          ({ currency: curr }) => curr === currency
-                        )
+                          ({ currency: curr }) => curr === currency,
+                        ),
                       )}
                     </Typography>
                     <Typography variant="h6" color="textSecondary">
-                      {t("/mo")}
+                      {t('/mo')}
                     </Typography>
                   </div>
                   <Typography variant="subtitle1" align="center">

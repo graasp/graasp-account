@@ -1,14 +1,16 @@
-import React from "react";
-import ReactDOM from "react-dom";
-import "./index.css";
-import Root from "./components/Root";
-import * as serviceWorker from "./serviceWorker";
+import React from 'react';
+import ReactDOM from 'react-dom/client';
+import 'react-toastify/dist/ReactToastify.css';
 
-ReactDOM.render(
+import Root from './components/Root';
+import './index.css';
+import * as serviceWorker from './serviceWorker';
+
+const root = ReactDOM.createRoot(document.getElementById('root'));
+root.render(
   <React.StrictMode>
     <Root />
   </React.StrictMode>,
-  document.getElementById("root")
 );
 
 // If you want your app to work offline and load faster, you can change

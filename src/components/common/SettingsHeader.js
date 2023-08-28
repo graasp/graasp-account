@@ -1,48 +1,50 @@
-import React, { useState } from "react";
-import { makeStyles } from "@material-ui/core/styles";
-import Typography from "@material-ui/core/Typography";
-import Avatar from "@material-ui/core/Avatar";
-import Menu from "@material-ui/core/Menu";
-import Tooltip from "@material-ui/core/Tooltip";
-import Box from "@material-ui/core/Box";
-import { useHistory } from "react-router";
-import { useTranslation } from "react-i18next";
-import truncate from "lodash.truncate";
-import { MUTATION_KEYS, API_ROUTES } from "@graasp/query-client";
-import MenuItem from "@material-ui/core/MenuItem";
-import { hooks, useMutation } from "../../config/queryClient";
+import { useState } from 'react';
+import { useTranslation } from 'react-i18next';
+import { useNavigate } from 'react-router';
+
+import { styled } from '@mui/material';
+import Avatar from '@mui/material/Avatar';
+import Box from '@mui/material/Box';
+import Menu from '@mui/material/Menu';
+import MenuItem from '@mui/material/MenuItem';
+import Tooltip from '@mui/material/Tooltip';
+import Typography from '@mui/material/Typography';
+
+import { API_ROUTES } from '@graasp/query-client';
+
+import truncate from 'lodash.truncate';
+
 import {
   AUTHENTICATION_HOST,
   USERNAME_MAX_LENGTH,
-} from "../../config/constants";
+} from '../../config/constants';
+import { HOME_PATH } from '../../config/paths';
+import { hooks, mutations } from '../../config/queryClient';
 import {
   HEADER_USER_ID,
   USER_MENU_SIGN_OUT_OPTION_ID,
-} from "../../config/selectors";
-import Loader from "./Loader";
-import { HOME_PATH } from "../../config/paths";
+} from '../../config/selectors';
+import Loader from './Loader';
 
-const useStyles = makeStyles((theme) => ({
-  wrapper: {
-    display: "flex",
-    alignItems: "center",
-    "&:hover": {
-      cursor: "pointer",
-    },
+const StyledBox = styled(Box)(() => ({
+  display: 'flex',
+  alignItems: 'center',
+  '&:hover': {
+    cursor: 'pointer',
   },
-  username: {
-    margin: theme.spacing(0, 2),
-    maxWidth: 100,
-  },
+}));
+
+const UsernameTitle = styled(Typography)(({ theme }) => ({
+  margin: theme.spacing(0, 2),
+  maxWidth: 100,
 }));
 
 const SettingsHeader = () => {
   const { data: user, isLoading } = hooks.useCurrentMember();
-  const classes = useStyles();
-  const { push } = useHistory();
   const { t } = useTranslation();
   const [anchorEl, setAnchorEl] = useState(null);
-  const { mutate: signOut } = useMutation(MUTATION_KEYS.SIGN_OUT);
+  const { mutate: signOut } = mutations.useSignOut();
+  const navigate = useNavigate();
 
   const handleClick = (event) => {
     setAnchorEl(event.currentTarget);
@@ -58,55 +60,55 @@ const SettingsHeader = () => {
   };
 
   const goToProfile = () => {
-    push(HOME_PATH);
+    navigate(HOME_PATH);
   };
 
   const renderMenu = () => {
-    if (!user || user.isEmpty()) {
+    if (!user) {
       return (
         <MenuItem
           component="a"
           href={`${AUTHENTICATION_HOST}/${API_ROUTES.SIGN_IN_ROUTE}`}
         >
-          {t("Sign In")}
+          {t('Sign In')}
         </MenuItem>
       );
     }
 
-    return (
-      <>
-        <MenuItem onClick={goToProfile}>{t("Profile")}</MenuItem>
-        <MenuItem onClick={handleSignOut} id={USER_MENU_SIGN_OUT_OPTION_ID}>
-          {t("Sign Out")}
-        </MenuItem>
-      </>
-    );
+    return [
+      <MenuItem key="profile" onClick={goToProfile}>
+        {t('Profile')}
+      </MenuItem>,
+      <MenuItem
+        key="signout"
+        onClick={handleSignOut}
+        id={USER_MENU_SIGN_OUT_OPTION_ID}
+      >
+        {t('Sign Out')}
+      </MenuItem>,
+    ];
   };
 
   if (isLoading) {
     return <Loader />;
   }
 
-  const username = user?.get("name");
+  const username = user?.get('name');
   // todo: necessary broken image to display a letter
-  const avatarImage = "a missing avatar";
+  const avatarImage = 'a missing avatar';
 
   return (
     <>
-      <Box
-        className={classes.wrapper}
-        onClick={handleClick}
-        id={HEADER_USER_ID}
-      >
-        <Tooltip title={username ?? t("You are not signed in.")}>
-          <Avatar className={classes.avatar} alt={username} src={avatarImage} />
+      <StyledBox onClick={handleClick} id={HEADER_USER_ID}>
+        <Tooltip title={username ?? t('You are not signed in.')}>
+          <Avatar alt={username} src={avatarImage} />
         </Tooltip>
         {username && (
-          <Typography variant="subtitle1" className={classes.username}>
+          <UsernameTitle variant="subtitle1">
             {truncate(username, { length: USERNAME_MAX_LENGTH })}
-          </Typography>
+          </UsernameTitle>
         )}
-      </Box>
+      </StyledBox>
       <Menu
         anchorEl={anchorEl}
         keepMounted

@@ -1,40 +1,21 @@
-import React, { useState } from "react";
-import { useParams } from "react-router";
-import CssBaseline from "@material-ui/core/CssBaseline";
-import Typography from "@material-ui/core/Typography";
-import { makeStyles } from "@material-ui/core/styles";
-import Grid from "@material-ui/core/Grid";
-import {
-  CardContent,
-  CardHeader,
-  FormControl,
-  Select,
-} from "@material-ui/core";
-import { useTranslation } from "react-i18next";
-import Main from "./Main";
-import { hooks } from "../../config/queryClient";
-import CheckoutModal from "../context/CheckoutModalContext";
-import CardList from "../common/CardList";
-import { formatCurrency } from "../../utils/currency";
+import React, { useState } from 'react';
+import { useTranslation } from 'react-i18next';
+import { useParams } from 'react-router';
+
+import { CardContent, CardHeader, FormControl, Select } from '@mui/material';
+import CssBaseline from '@mui/material/CssBaseline';
+import Grid from '@mui/material/Grid';
+import Typography from '@mui/material/Typography';
+
+import { hooks } from '../../config/queryClient';
+import { formatCurrency } from '../../utils/currency';
+import CardList from '../common/CardList';
+import CheckoutModal from '../context/CheckoutModalContext';
+import Main from './Main';
 
 const { useCurrentCustomer, usePlan } = hooks;
 
-const useStyles = makeStyles((theme) => ({
-  container: {
-    padding: theme.spacing(2, 0, 4),
-  },
-  cardListContainer: {
-    alignItems: "center",
-  },
-  cardPricing: {
-    display: "flex",
-    justifyContent: "center",
-    marginBottom: theme.spacing(2),
-  },
-}));
-
 const PayementConfirmation = () => {
-  const classes = useStyles();
   const { t } = useTranslation();
 
   const { data: customer } = useCurrentCustomer();
@@ -47,17 +28,17 @@ const PayementConfirmation = () => {
   const handleChange = (event) => {
     setCurrency(
       plan
-        ?.get("prices")
-        .find(({ currency: curr }) => curr === event.target.value)
+        ?.get('prices')
+        .find(({ currency: curr }) => curr === event.target.value),
     );
   };
 
   const [selectedCardId, setSelectedCardId] = React.useState(
-    customer?.get("defaultCard") ?? null
+    customer?.get('defaultCard') ?? null,
   );
 
-  if (!selectedCardId && customer && customer.get("defaultCard")) {
-    setSelectedCardId(customer.get("defaultCard"));
+  if (!selectedCardId && customer && customer.get('defaultCard')) {
+    setSelectedCardId(customer.get('defaultCard'));
   }
 
   if (!plan) {
@@ -65,7 +46,7 @@ const PayementConfirmation = () => {
   }
 
   if (!currency) {
-    setCurrency(plan.get("prices")[0]);
+    setCurrency(plan.get('prices')[0]);
     return null;
   }
 
@@ -81,10 +62,10 @@ const PayementConfirmation = () => {
         color="textPrimary"
         gutterBottom
       >
-        {t("Payment Options")}
+        {t('Payment Options')}
       </Typography>
 
-      <Grid container className={classes.container}>
+      <Grid container p={2}>
         <FormControl fullWidth>
           <Select
             id="id"
@@ -92,7 +73,7 @@ const PayementConfirmation = () => {
             value={currency.currency}
             onChange={handleChange}
           >
-            {plan.get("prices").map(({ currency: curr }) => (
+            {plan.get('prices').map(({ currency: curr }) => (
               <option value={curr}>{curr}</option>
             ))}
           </Select>
@@ -101,35 +82,40 @@ const PayementConfirmation = () => {
         <Grid item xs={6}>
           <>
             <CardHeader
-              title={plan.get("name")}
-              subheader={plan.get("subheader")}
-              titleTypographyProps={{ align: "center" }}
-              subheaderTypographyProps={{ align: "center" }}
-              className={classes.cardHeader}
+              title={plan.get('name')}
+              subheader={plan.get('subheader')}
+              titleTypographyProps={{ align: 'center' }}
+              subheaderTypographyProps={{ align: 'center' }}
             />
             <CardContent>
-              <div className={classes.cardPricing}>
+              <div
+                style={{
+                  display: 'flex',
+                  justifyContent: 'center',
+                  marginBottom: 10,
+                }}
+              >
                 <Typography component="h2" variant="h3" color="textPrimary">
                   {formatCurrency(currency)}
                 </Typography>
                 <Typography variant="h6" color="textSecondary">
-                  {t("/mo")}
+                  {t('/mo')}
                 </Typography>
               </div>
               <Typography variant="subtitle1" align="center">
-                {plan.get("description")}
+                {plan.get('description')}
               </Typography>
             </CardContent>
           </>
         </Grid>
-        <Grid item xs={6} className={classes.container}>
+        <Grid item xs={6} p={2}>
           <Typography
             variant="h5"
             align="center"
             color="textSecondary"
             component="p"
           >
-            {t("Choose your payment option")}
+            {t('Choose your payment option')}
           </Typography>
 
           <CardList
@@ -141,17 +127,17 @@ const PayementConfirmation = () => {
 
       <CheckoutModal
         cardId={
-          selectedCardId !== customer?.get("defaultCard")
+          selectedCardId !== customer?.get('defaultCard')
             ? selectedCardId
             : undefined
         }
         priceId={currency.id}
-        planName={plan.get("name")}
+        planName={plan.get('name')}
       />
 
       <Typography align="center" color="textPrimary" gutterBottom>
         {t(
-          "All payments are securely processed by Stripe. View Stripe's terms and privacy policies."
+          "All payments are securely processed by Stripe. View Stripe's terms and privacy policies.",
         )}
       </Typography>
     </Main>

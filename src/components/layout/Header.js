@@ -1,52 +1,37 @@
-import React from "react";
-import { Link } from "react-router-dom";
-import PropTypes from "prop-types";
-import { makeStyles } from "@material-ui/core/styles";
-import MenuIcon from "@material-ui/icons/Menu";
-import MenuOpenIcon from "@material-ui/icons/MenuOpen";
-import IconButton from "@material-ui/core/IconButton";
-import { AppBar, Toolbar, Typography } from "@material-ui/core";
-import { GraaspLogo } from "@graasp/ui";
-import {
-  APP_NAME,
-  GRAASP_LOGO_HEADER_HEIGHT,
-  HEADER_HEIGHT,
-} from "../../config/constants";
-import SettingsHeader from "../common/SettingsHeader";
-import { HEADER_APP_BAR_ID } from "../../config/selectors";
-import { HOME_PATH } from "../../config/paths";
+import { Link } from 'react-router-dom';
 
-const useStyles = makeStyles((theme) => ({
-  header: {
-    display: "flex",
-    justifyContent: "space-between",
-    zIndex: theme.zIndex.drawer + 1,
-  },
-  headerLeft: {
-    display: "flex",
-    justifyContent: "space-between",
-    alignItems: "center",
-  },
-  logo: {
-    fill: "white",
-  },
-  title: {
-    margin: theme.spacing(0, 2),
-  },
-  link: {
-    textDecoration: "none",
-    color: "inherit",
-    display: "flex",
-    alignItems: "center",
-  },
-  appBarBlank: {
-    height: HEADER_HEIGHT,
-  },
+import MenuIcon from '@mui/icons-material/Menu';
+import MenuOpenIcon from '@mui/icons-material/MenuOpen';
+import { AppBar, Toolbar, Typography, styled } from '@mui/material';
+import IconButton from '@mui/material/IconButton';
+
+import { GraaspLogo } from '@graasp/ui';
+
+import PropTypes from 'prop-types';
+
+import { APP_NAME, GRAASP_LOGO_HEADER_HEIGHT } from '../../config/constants';
+import { HOME_PATH } from '../../config/paths';
+import { HEADER_APP_BAR_ID } from '../../config/selectors';
+import SettingsHeader from '../common/SettingsHeader';
+
+const StyledToolbar = styled(Toolbar)(({ theme }) => ({
+  display: 'flex',
+  justifyContent: 'space-between',
+  zIndex: theme.zIndex.drawer + 1,
+}));
+const StyledDiv = styled('div')(() => ({
+  display: 'flex',
+  justifyContent: 'space-between',
+  alignItems: 'center',
+}));
+const StyledLink = styled(Link)(() => ({
+  textDecoration: 'none',
+  color: 'inherit',
+  display: 'flex',
+  alignItems: 'center',
 }));
 
 const Header = ({ isMenuOpen, toggleMenu }) => {
-  const classes = useStyles();
-
   const renderMenuIcon = () => {
     if (isMenuOpen) {
       return (
@@ -64,21 +49,21 @@ const Header = ({ isMenuOpen, toggleMenu }) => {
 
   return (
     <AppBar position="fixed" id={HEADER_APP_BAR_ID}>
-      <Toolbar className={classes.header}>
-        <div className={classes.headerLeft}>
+      <StyledToolbar>
+        <StyledDiv>
           {renderMenuIcon()}
-          <Link to={HOME_PATH} className={classes.link}>
+          <StyledLink to={HOME_PATH}>
             <GraaspLogo
+              sx={{ fill: 'white' }}
               height={GRAASP_LOGO_HEADER_HEIGHT}
-              className={classes.logo}
             />
-            <Typography variant="h6" color="inherit" className={classes.title}>
+            <Typography variant="h6" color="inherit" m={2}>
               {APP_NAME}
             </Typography>
-          </Link>
-        </div>
+          </StyledLink>
+        </StyledDiv>
         <SettingsHeader />
-      </Toolbar>
+      </StyledToolbar>
     </AppBar>
   );
 };

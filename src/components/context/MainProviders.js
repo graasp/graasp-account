@@ -1,6 +1,8 @@
-import React from "react";
-import PropTypes from "prop-types";
-import { LayoutContextProvider } from "./LayoutContext";
+import React from 'react';
+
+import PropTypes from 'prop-types';
+
+import { LayoutContextProvider } from './LayoutContext';
 
 const ModalProviders = ({ children }) => (
   <LayoutContextProvider>{children}</LayoutContextProvider>

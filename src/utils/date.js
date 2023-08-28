@@ -1,4 +1,4 @@
-import { DEFAULT_LOCALE } from "../config/constants";
+import { DEFAULT_LOCALE } from '../config/constants';
 
 // eslint-disable-next-line import/prefer-default-export
 export const formatDate = (d) => {
