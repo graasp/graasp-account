@@ -10,7 +10,7 @@ import Typography from '@mui/material/Typography';
 import { hooks } from '../../config/queryClient';
 import { formatCurrency } from '../../utils/currency';
 import CardList from '../common/CardList';
-import CheckoutModal from '../context/CheckoutModalContext';
+import CheckoutModal from './CheckoutModal';
 import Main from './Main';
 
 const { useCurrentCustomer, usePlan } = hooks;

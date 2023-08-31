@@ -3,10 +3,7 @@ import { EmailFrequency } from '@graasp/sdk';
 import env from '../env.json';
 
 const {
-  API_HOST: ENV_API_HOST,
   SHOW_NOTIFICATIONS: ENV_SHOW_NOTIFICATIONS,
-  AUTHENTICATION_HOST: ENV_AUTHENTICATION_HOST,
-  GRAASP_COMPOSE_HOST: ENV_GRAASP_COMPOSE_HOST,
   NODE_ENV: ENV_NODE_ENV,
 } = env;
 
@@ -23,7 +20,7 @@ export const NODE_ENV =
   ENV.DEVELOPMENT;
 
 export const API_HOST =
-  ENV_API_HOST || process.env.REACT_APP_API_HOST || 'http://localhost:3112';
+  process.env.REACT_APP_API_HOST || 'http://localhost:3112';
 
 export const SHOW_NOTIFICATIONS =
   ENV_SHOW_NOTIFICATIONS ||
@@ -31,14 +28,8 @@ export const SHOW_NOTIFICATIONS =
   false;
 
 export const AUTHENTICATION_HOST =
-  ENV_AUTHENTICATION_HOST ||
   process.env.REACT_APP_AUTHENTICATION_HOST ||
   'http://localhost:3112';
-
-export const GRAASP_COMPOSE_HOST =
-  ENV_GRAASP_COMPOSE_HOST ||
-  process.env.REACT_APP_GRAASP_COMPOSE_HOST ||
-  'http://localhost:3111';
 
 export const SIGN_IN_PATH =
   process.env.REACT_APP_GRAASP_AUTH_HOST || 'http://localhost:3001';
@@ -75,3 +66,5 @@ export const THUMBNAIL_SETTING_MAX_HEIGHT = 200;
 
 export const AVATAR_ICON_HEIGHT = 30;
 export const FILE_UPLOAD_MAX_FILES = 15;
+
+export const ADMIN_CONTACT = 'admin@graasp.org';

@@ -1,3 +1,4 @@
 {
-  "translations": {}
+  "STORAGE_INFO":"Graasp provides a limited free storage for its users. In a near future, user plans will be available to unlock more data storage. If you are interested, let us know by contacting <0>{{email}}</0>.",
+  "STORAGE_TITLE":"Storage"
 }

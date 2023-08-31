@@ -7,12 +7,10 @@ import IconButton from '@mui/material/IconButton';
 
 import { GraaspLogo } from '@graasp/ui';
 
-import PropTypes from 'prop-types';
-
 import { APP_NAME, GRAASP_LOGO_HEADER_HEIGHT } from '../../config/constants';
 import { HOME_PATH } from '../../config/paths';
 import { HEADER_APP_BAR_ID } from '../../config/selectors';
-import SettingsHeader from '../common/SettingsHeader';
+import UserSwitchWrapper from '../common/UserSwitchWrapper';
 
 const StyledToolbar = styled(Toolbar)(({ theme }) => ({
   display: 'flex',
@@ -31,7 +29,12 @@ const StyledLink = styled(Link)(() => ({
   alignItems: 'center',
 }));
 
-const Header = ({ isMenuOpen, toggleMenu }) => {
+type Props = {
+  isMenuOpen: boolean;
+  toggleMenu: (state: boolean) => void;
+};
+
+const Header = ({ isMenuOpen, toggleMenu }: Props): JSX.Element => {
   const renderMenuIcon = () => {
     if (isMenuOpen) {
       return (
@@ -62,15 +65,11 @@ const Header = ({ isMenuOpen, toggleMenu }) => {
             </Typography>
           </StyledLink>
         </StyledDiv>
-        <SettingsHeader />
+        <UserSwitchWrapper />
       </StyledToolbar>
     </AppBar>
   );
 };
 
-Header.propTypes = {
-  toggleMenu: PropTypes.func.isRequired,
-  isMenuOpen: PropTypes.bool.isRequired,
-};
 
 export default Header;

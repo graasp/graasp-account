@@ -1,3 +1,4 @@
 {
-  "translations": {}
+  "STORAGE_INFO":"Graasp offre un stockage gratuit limité à ces utilisateurs.Dans un futur proche, des abonnements seront disponibles pour débloquer plus de stockage. En cas d'intérêt, contactez-nous sur notre adresse <0>{{email}}</0>.",
+  "STORAGE_TITLE":"Stockage"
 }

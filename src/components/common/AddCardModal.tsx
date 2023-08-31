@@ -1,7 +1,7 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
 
 /* eslint-disable no-unused-vars */
-import React, { useState } from 'react';
+import  { MouseEventHandler, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 
 import AddIcon from '@mui/icons-material/Add';
@@ -39,7 +39,7 @@ const CARD_ELEMENT_OPTIONS = {
   },
 };
 
-const AddCardModal = () => {
+const AddCardModal = ():JSX.Element => {
   const { t } = useTranslation();
 
   const [open, setOpen] = useState(false);
@@ -51,7 +51,7 @@ const AddCardModal = () => {
   // const stripe = useStripe();
   // const elements = useElements();
 
-  const onSubmit = async (event) => {
+  const onSubmit:MouseEventHandler<HTMLButtonElement>  = async (event) => {
     event.preventDefault();
 
     // if (!stripe || !elements) {

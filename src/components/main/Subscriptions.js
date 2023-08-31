@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { Link } from 'react-router-dom';
 
@@ -85,7 +85,9 @@ const Subscriptions = () => {
           <FormControl fullWidth>
             <Select native value={currency} onChange={handleChange}>
               {currencies.map((curr) => (
-                <option value={curr}>{curr}</option>
+                <option key={curr} value={curr}>
+                  {curr}
+                </option>
               ))}
             </Select>
           </FormControl>

@@ -1,10 +1,15 @@
-import React, { useMemo, useState } from 'react';
+import React, { Dispatch, useMemo, useState } from 'react';
 
-import PropTypes from 'prop-types';
 
-const LayoutContext = React.createContext();
+type ContextType = {
+  isMainMenuOpen:boolean, setIsMainMenuOpen:Dispatch<boolean>
+}
 
-const LayoutContextProvider = ({ children }) => {
+const LayoutContext = React.createContext<ContextType>({
+  isMainMenuOpen:true, setIsMainMenuOpen:()=>{}
+});
+
+const LayoutContextProvider = ({ children }:{children: React.ReactNode}):JSX.Element => {
   const [isMainMenuOpen, setIsMainMenuOpen] = useState(true);
 
   const value = useMemo(
@@ -20,12 +25,5 @@ const LayoutContextProvider = ({ children }) => {
   );
 };
 
-LayoutContextProvider.propTypes = {
-  children: PropTypes.node,
-};
-
-LayoutContextProvider.defaultProps = {
-  children: null,
-};
 
 export { LayoutContext, LayoutContextProvider };

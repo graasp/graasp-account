@@ -4,7 +4,6 @@ import { MAX_FILE_SIZE, MAX_THUMBNAIL_SIZE } from '@graasp/sdk';
 
 import Uppy from '@uppy/core';
 import XHRUpload from '@uppy/xhr-upload';
-import { filesize } from 'filesize';
 
 import { API_HOST, FILE_UPLOAD_MAX_FILES } from '../config/constants';
 
@@ -93,6 +92,3 @@ export const configureAvatarUppy = ({
     buildEndpoint: (id) =>
       `${API_HOST}/${API_ROUTES.buildUploadAvatarRoute(id)}`,
   });
-
-export const humanFileSize = (size) =>
-  filesize(size, { base: 2, standard: 'jedec' });

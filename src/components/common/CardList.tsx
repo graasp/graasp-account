@@ -1,8 +1,7 @@
-import React from 'react';
+import React, { MouseEventHandler } from 'react';
 
-import { List, ListItem, ListItemIcon, ListItemText } from '@mui/material';
+import { List,  ListItemButton, ListItemIcon, ListItemText } from '@mui/material';
 
-import PropTypes from 'prop-types';
 
 import { hooks } from '../../config/queryClient';
 import AddCardModal from './AddCardModal';
@@ -10,14 +9,18 @@ import CardIcon from './CardIcon';
 
 const { useCards } = hooks;
 
-const CardList = ({ handleCardSelection, selected }) => {
+type Props = {
+    handleCardSelection: (card:any)=>MouseEventHandler<HTMLDivElement> ,
+    selected: string
+}
+
+const CardList = ({ handleCardSelection, selected }:Props):JSX.Element => {
   const { data: cards = [] } = useCards();
 
   return (
     <List component="nav">
-      {cards.map((card) => (
-        <ListItem
-          button
+      {cards.map((card:any) => (
+        <ListItemButton
           onClick={handleCardSelection(card)}
           selected={card.id === selected}
           key={card.id}
@@ -29,21 +32,11 @@ const CardList = ({ handleCardSelection, selected }) => {
             {card?.brand?.toUpperCase()} <br />
             •••• •••• •••• {card?.lastFourDigits}
           </ListItemText>
-        </ListItem>
+        </ListItemButton>
       ))}
       <AddCardModal />
     </List>
   );
-};
-
-CardList.propTypes = {
-  handleCardSelection: PropTypes.func,
-  selected: PropTypes.string,
-};
-
-CardList.defaultProps = {
-  handleCardSelection: null,
-  selected: null,
 };
 
 export default CardList;

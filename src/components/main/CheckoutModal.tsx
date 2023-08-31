@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import  { useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useNavigate } from 'react-router';
 
@@ -11,12 +11,14 @@ import {
 } from '@mui/material';
 import Button from '@mui/material/Button';
 
-import PropTypes from 'prop-types';
-
 import { SUBSCRIPTIONS_PATH } from '../../config/paths';
 import { mutations } from '../../config/queryClient';
 
-const CheckoutModal = ({ cardId, priceId, planName }) => {
+type Props = {
+  cardId:string, priceId:string, planName:string
+}
+
+const CheckoutModal = ({ cardId, priceId, planName }:Props):JSX.Element => {
   const [open, setOpen] = useState(false);
 
   const { t } = useTranslation();
@@ -73,10 +75,5 @@ const CheckoutModal = ({ cardId, priceId, planName }) => {
   );
 };
 
-CheckoutModal.propTypes = {
-  cardId: PropTypes.string.isRequired,
-  priceId: PropTypes.string.isRequired,
-  planName: PropTypes.string.isRequired,
-};
 
 export default CheckoutModal;

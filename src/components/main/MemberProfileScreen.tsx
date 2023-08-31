@@ -1,5 +1,3 @@
-import React from 'react';
-
 import FileCopyIcon from '@mui/icons-material/FileCopy';
 import {
   Alert,
@@ -10,6 +8,7 @@ import {
   Typography,
 } from '@mui/material';
 
+import { formatDate } from '@graasp/sdk';
 import { ACCOUNT } from '@graasp/translations';
 import { Loader } from '@graasp/ui';
 
@@ -18,12 +17,11 @@ import {
   DEFAULT_LANG,
   DEFAULT_MEMBER_PROFILE_SAVE_ACTIONS_SETTING,
 } from '../../config/constants';
-import { useAccountTranslation } from '../../config/i18n';
+import i18n, { useAccountTranslation } from '../../config/i18n';
 import notifier from '../../config/notifier';
 import { hooks, mutations } from '../../config/queryClient';
 import { COPY_MEMBER_ID_TO_CLIPBOARD } from '../../types/clipboard';
 import { copyToClipboard } from '../../utils/clipboard';
-import { formatDate } from '../../utils/date';
 import DeleteMemberDialog from './DeleteMemberDialog';
 import EmailPreferenceSwitch from './EmailPreferenceSwitch';
 import LanguageSwitch from './LanguageSwitch';
@@ -95,7 +93,9 @@ const MemberProfileScreen = (): JSX.Element => {
               <Typography>{t(ACCOUNT.PROFILE_CREATED_AT_TITLE)}</Typography>
             </Grid>
             <Grid item xs={8}>
-              <Typography>{formatDate(member.createdAt)}</Typography>
+              <Typography>
+                {formatDate(member.createdAt, { locale: i18n.language })}
+              </Typography>
             </Grid>
           </Grid>
           <Grid container alignItems="center">

@@ -1,4 +1,3 @@
-import React from 'react';
 import { Route, BrowserRouter as Router, Routes } from 'react-router-dom';
 
 import { CustomInitialLoader, withAuthorization } from '@graasp/ui';
@@ -8,14 +7,16 @@ import {
   AVATAR_SETTINGS_PATH,
   HOME_PATH,
   PASSWORD_SETTINGS_PATH,
+  SUBSCRIPTIONS_PATH,
 } from '../config/paths';
 import { hooks } from '../config/queryClient';
 import MainProviders from './context/MainProviders';
 import AvatarSettings from './main/AvatarSettings';
 import MemberProfileScreen from './main/MemberProfileScreen';
 import PasswordSettings from './main/PasswordSettings';
+import StockageScreen from './main/StockageScreen';
 
-export const App = () => {
+export const App = (): JSX.Element => {
   const { data: currentMember, isLoading } = hooks.useCurrentMember();
 
   if (isLoading) {
@@ -39,6 +40,10 @@ export const App = () => {
     AvatarSettings,
     withAuthorizationProps,
   );
+  const StockageWithAutorization = withAuthorization(
+    StockageScreen,
+    withAuthorizationProps,
+  );
   return (
     <MainProviders>
       <Router>
@@ -52,11 +57,12 @@ export const App = () => {
             path={AVATAR_SETTINGS_PATH}
             element={<AvatarSettingsWithAutorization />}
           />
-          {/* <Route
+          <Route
             path={SUBSCRIPTIONS_PATH}
-            exact
-            element={<SubscriptionsWithAutorization />}
+            element={<StockageWithAutorization />}
           />
+
+          {/* 
           <Route
             path={PAYMENT_OPTIONS_PATH}
             exact

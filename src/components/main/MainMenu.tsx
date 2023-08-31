@@ -1,6 +1,8 @@
 import { useLocation, useNavigate } from 'react-router';
 
 import AccountCircleIcon from '@mui/icons-material/AccountCircle';
+import CameraAltIcon from '@mui/icons-material/CameraAlt';
+import DataUsageIcon from '@mui/icons-material/DataUsage';
 import PasswordIcon from '@mui/icons-material/Password';
 import { ListItemButton } from '@mui/material';
 import List from '@mui/material/List';
@@ -14,9 +16,8 @@ import {
   AVATAR_SETTINGS_PATH,
   HOME_PATH,
   PASSWORD_SETTINGS_PATH,
+  SUBSCRIPTIONS_PATH,
 } from '../../config/paths';
-
-import CameraAltIcon from '@mui/icons-material/CameraAlt';
 
 const MainMenu = (): JSX.Element => {
   const { t } = useAccountTranslation();
@@ -58,6 +59,16 @@ const MainMenu = (): JSX.Element => {
         </ListItemIcon>
 
         <ListItemText primary={t('Password')} />
+      </ListItemButton>
+      <ListItemButton
+        onClick={() => goTo(SUBSCRIPTIONS_PATH)}
+        selected={pathname === SUBSCRIPTIONS_PATH}
+      >
+        <ListItemIcon>
+          <DataUsageIcon />
+        </ListItemIcon>
+
+        <ListItemText primary={t('Stockage')} />
       </ListItemButton>
       {/* <ListItemButton
         button

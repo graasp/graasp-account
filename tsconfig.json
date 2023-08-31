@@ -21,9 +21,6 @@
       "isolatedModules": true,
       "noEmit": true,
       "jsx": "react-jsx",
-      "types": [
-        "vite/client",
-      ],
       "baseUrl": "./src",
       "paths": {
         "@/*": [
@@ -33,11 +30,6 @@
     },
     "include": [
       "src"
-    ],
-    "references": [
-      {
-        "path": "./tsconfig.node.json"
-      }
     ]
   }
   
