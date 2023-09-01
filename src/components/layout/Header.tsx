@@ -5,9 +5,9 @@ import MenuOpenIcon from '@mui/icons-material/MenuOpen';
 import { AppBar, Toolbar, Typography, styled } from '@mui/material';
 import IconButton from '@mui/material/IconButton';
 
-import { GraaspLogo } from '@graasp/ui';
+import { GraaspLogo, Platform, PlatformSwitch, defaultHostsMapper, usePlatformNavigation } from '@graasp/ui';
 
-import { APP_NAME, GRAASP_LOGO_HEADER_HEIGHT } from '../../config/constants';
+import { APP_NAME, GRAASP_LOGO_HEADER_HEIGHT, HOST_MAP } from '../../config/constants';
 import { HOME_PATH } from '../../config/paths';
 import { HEADER_APP_BAR_ID } from '../../config/selectors';
 import UserSwitchWrapper from '../common/UserSwitchWrapper';
@@ -34,7 +34,31 @@ type Props = {
   toggleMenu: (state: boolean) => void;
 };
 
+// small converter for HOST_MAP into a usePlatformNavigation mapper
+export const platformsHostsMap = defaultHostsMapper({
+  [Platform.Builder]: HOST_MAP.builder,
+  [Platform.Player]: HOST_MAP.player,
+  [Platform.Library]: HOST_MAP.library,
+  [Platform.Analytics]: HOST_MAP.analytics,
+});
+
 const Header = ({ isMenuOpen, toggleMenu }: Props): JSX.Element => {
+  const getNavigationEvents = usePlatformNavigation(platformsHostsMap);
+  const platformProps = {
+    [Platform.Builder]: {
+      ...getNavigationEvents(Platform.Builder),
+    },
+    [Platform.Player]: {
+      ...getNavigationEvents(Platform.Player),
+    },
+    [Platform.Library]: {
+      ...getNavigationEvents(Platform.Library),
+    },
+    [Platform.Analytics]: {
+      ...getNavigationEvents(Platform.Analytics),
+    },
+  };
+
   const renderMenuIcon = () => {
     if (isMenuOpen) {
       return (
@@ -64,6 +88,8 @@ const Header = ({ isMenuOpen, toggleMenu }: Props): JSX.Element => {
               {APP_NAME}
             </Typography>
           </StyledLink>
+          <PlatformSwitch
+        platformsProps={platformProps} />
         </StyledDiv>
         <UserSwitchWrapper />
       </StyledToolbar>

@@ -8,9 +8,9 @@ import fr from '../langs/fr.json';
 
 const i18n = buildI18n().use(initReactI18next);
 
-export const BUILDER_NAMESPACE = 'account';
-i18n.addResourceBundle('en', BUILDER_NAMESPACE, en);
-i18n.addResourceBundle('fr', BUILDER_NAMESPACE, fr);
+export const ACCOUNT_NAMESPACE = 'account';
+i18n.addResourceBundle('en', ACCOUNT_NAMESPACE, en);
+i18n.addResourceBundle('fr', ACCOUNT_NAMESPACE, fr);
 
 export const useCommonTranslation = () => useTranslation(namespaces.common);
 export const useAccountTranslation = () => useTranslation(namespaces.account);
