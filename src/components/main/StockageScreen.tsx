@@ -88,6 +88,10 @@ const StockageScreen = (): JSX.Element => {
                 ]}
               />
             </Typography>
+
+            <Alert severity="info" sx={{ mt: 2, mb: 1 }}>
+              {t('STOCKAGE_INFO')}
+            </Alert>
           </Stack>
         </Stack>
         <Stack direction="row" alignItems="center" spacing={2}>

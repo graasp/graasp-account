@@ -33,5 +33,6 @@
   "PASSWORD_SETTINGS_NEW_CONFIRM_LABEL": "Confirmer le mot de passe",
   "PASSWORD_SETTINGS_CONFIRM_BUTTON": "Changer le mot de passe",
   "PASSWORD_SETTINGS_CONFIRM_INFORMATION": "Le mot de passe doit au moins contenir 8 caractères dont un chiffre, une lettre minuscule et une lettre majuscule.",
-  "PASSWORD_SETTINGS_REQUEST_RESET_BUTTON": "Réinitialiser le mot de passe"
+  "PASSWORD_SETTINGS_REQUEST_RESET_BUTTON": "Réinitialiser le mot de passe",
+  "STOCKAGE_INFO": "Le stockage comprend tous les fichiers téléversés comme des fichiers PDF, images, vidéos, audio, etc. Les dossiers, applications et les  documents Graasp ne sont pas inclus."
 }
