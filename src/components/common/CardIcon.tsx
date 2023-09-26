@@ -1,11 +1,9 @@
 // eslint-disable-next-line @typescript-eslint/ban-ts-comment
 // @ts-ignore
 import { ReactComponent as DefaultCardIcon } from 'payment-icons/min/flat/default.svg';
-
 // eslint-disable-next-line @typescript-eslint/ban-ts-comment
 // @ts-ignore
 import { ReactComponent as MasterCardIcon } from 'payment-icons/min/flat/mastercard.svg';
-
 // eslint-disable-next-line @typescript-eslint/ban-ts-comment
 // @ts-ignore
 import { ReactComponent as VisaIcon } from 'payment-icons/min/flat/visa.svg';
@@ -16,7 +14,7 @@ const styles = {
   marginRight: 10,
 };
 
-const CardIcon = ({ brand }:{brand?:string}):JSX.Element=> {
+const CardIcon = ({ brand }: { brand?: string }): JSX.Element => {
   switch (brand) {
     case 'visa':
       return <VisaIcon sx={styles} />;
@@ -26,6 +24,5 @@ const CardIcon = ({ brand }:{brand?:string}):JSX.Element=> {
       return <DefaultCardIcon sx={styles} />;
   }
 };
-
 
 export default CardIcon;

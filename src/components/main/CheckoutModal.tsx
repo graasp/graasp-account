@@ -1,4 +1,4 @@
-import  { useState } from 'react';
+import { useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useNavigate } from 'react-router';
 
@@ -15,10 +15,12 @@ import { SUBSCRIPTIONS_PATH } from '../../config/paths';
 import { mutations } from '../../config/queryClient';
 
 type Props = {
-  cardId:string, priceId:string, planName:string
-}
+  cardId: string;
+  priceId: string;
+  planName: string;
+};
 
-const CheckoutModal = ({ cardId, priceId, planName }:Props):JSX.Element => {
+const CheckoutModal = ({ cardId, priceId, planName }: Props): JSX.Element => {
   const [open, setOpen] = useState(false);
 
   const { t } = useTranslation();
@@ -74,6 +76,5 @@ const CheckoutModal = ({ cardId, priceId, planName }:Props):JSX.Element => {
     </>
   );
 };
-
 
 export default CheckoutModal;

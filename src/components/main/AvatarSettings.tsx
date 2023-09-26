@@ -3,8 +3,6 @@ import { FormEventHandler, useEffect, useRef, useState } from 'react';
 import Grid from '@mui/material/Grid';
 import Typography from '@mui/material/Typography';
 
-import { ACCOUNT } from '@graasp/translations';
-
 // eslint-disable-next-line import/no-extraneous-dependencies
 import Uppy from '@uppy/core';
 
@@ -117,11 +115,9 @@ const AvatarSettings = (): JSX.Element | null => {
       )}
       <Grid container spacing={3} direction="column" alignItems="flex-start">
         <Grid item sm={6}>
-          <Typography variant="h5">
-            {t(ACCOUNT.PROFILE_AVATAR_TITLE)}
-          </Typography>
+          <Typography variant="h5">{t('PROFILE_AVATAR_TITLE')}</Typography>
           <Typography variant="body1">
-            {t(ACCOUNT.PROFILE_AVATAR_INFORMATION)}
+            {t('PROFILE_AVATAR_INFORMATION')}
           </Typography>
           <input
             type="file"

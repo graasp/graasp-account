@@ -9,7 +9,6 @@ import {
 } from '@mui/material';
 
 import { formatDate } from '@graasp/sdk';
-import { ACCOUNT } from '@graasp/translations';
 import { Loader } from '@graasp/ui';
 
 import {
@@ -69,7 +68,7 @@ const MemberProfileScreen = (): JSX.Element => {
           {/* todo: display only as light user */}
           <Grid container alignItems="center">
             <Grid item xs={4}>
-              <Typography>{t(ACCOUNT.PROFILE_MEMBER_ID_TITLE)}</Typography>
+              <Typography>{t('PROFILE_MEMBER_ID_TITLE')}</Typography>
             </Grid>
             <Grid item xs={8}>
               <Typography>
@@ -82,7 +81,7 @@ const MemberProfileScreen = (): JSX.Element => {
           </Grid>
           <Grid container alignItems="center">
             <Grid item xs={4}>
-              <Typography>{t(ACCOUNT.PROFILE_EMAIL_TITLE)}</Typography>
+              <Typography>{t('PROFILE_EMAIL_TITLE')}</Typography>
             </Grid>
             <Grid item xs={8}>
               <Typography>{member.email}</Typography>
@@ -90,7 +89,7 @@ const MemberProfileScreen = (): JSX.Element => {
           </Grid>
           <Grid container alignItems="center">
             <Grid item xs={4}>
-              <Typography>{t(ACCOUNT.PROFILE_CREATED_AT_TITLE)}</Typography>
+              <Typography>{t('PROFILE_CREATED_AT_TITLE')}</Typography>
             </Grid>
             <Grid item xs={8}>
               <Typography>
@@ -100,7 +99,7 @@ const MemberProfileScreen = (): JSX.Element => {
           </Grid>
           <Grid container alignItems="center">
             <Grid item xs={4}>
-              <Typography>{t(ACCOUNT.PROFILE_LANGUAGE_TITLE)}</Typography>
+              <Typography>{t('PROFILE_LANGUAGE_TITLE')}</Typography>
             </Grid>
             <Grid item xs={8}>
               <LanguageSwitch
@@ -111,9 +110,7 @@ const MemberProfileScreen = (): JSX.Element => {
           </Grid>
           <Grid container alignItems="center">
             <Grid item xs={4}>
-              <Typography>
-                {t(ACCOUNT.PROFILE_EMAIL_FREQUENCY_TITLE)}
-              </Typography>
+              <Typography>{t('PROFILE_EMAIL_FREQUENCY_TITLE')}</Typography>
             </Grid>
             <Grid item xs={8}>
               <EmailPreferenceSwitch
@@ -124,7 +121,7 @@ const MemberProfileScreen = (): JSX.Element => {
           </Grid>
           <Grid container alignItems="center">
             <Grid item xs={4}>
-              <Typography>{t(ACCOUNT.PROFILE_SAVE_ACTIONS_TITLE)}</Typography>
+              <Typography>{t('PROFILE_SAVE_ACTIONS_TITLE')}</Typography>
             </Grid>
             <Grid item xs={8}>
               <Tooltip title={translateAccount('SAVE_ACTIONS_TOGGLE_TOOLTIP')}>

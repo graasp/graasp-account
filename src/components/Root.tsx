@@ -18,6 +18,8 @@ import App from './App';
 
 const Root = (): JSX.Element => (
   <QueryClientProvider client={queryClient}>
+    {/* eslint-disable-next-line @typescript-eslint/ban-ts-comment */}
+    {/* @ts-ignore */}
     <I18nextProvider i18n={i18nConfig}>
       <ThemeProvider theme={theme}>
         <ToastContainer />

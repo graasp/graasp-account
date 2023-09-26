@@ -14,7 +14,7 @@ import { COMMON } from '@graasp/translations';
 import { Button } from '@graasp/ui';
 
 import { THUMBNAIL_ASPECT } from '../../config/constants';
-import { useAccountTranslation } from '../../config/i18n';
+import { useAccountTranslation, useCommonTranslation } from '../../config/i18n';
 import notifier from '../../config/notifier';
 import { getCroppedImg } from '../../utils/image';
 
@@ -34,7 +34,7 @@ const CropModal = ({
   const [crop, setCrop] = useState<PixelCrop>();
   const imageRef = useRef<HTMLImageElement>();
   const { t } = useAccountTranslation();
-  const { t: translateCommon } = useAccountTranslation();
+  const { t: translateCommon } = useCommonTranslation();
 
   const makeClientCrop = async (newCrop: PixelCrop) => {
     if (imageRef.current && newCrop.width && newCrop.height) {

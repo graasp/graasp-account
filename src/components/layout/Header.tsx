@@ -5,9 +5,19 @@ import MenuOpenIcon from '@mui/icons-material/MenuOpen';
 import { AppBar, Toolbar, Typography, styled } from '@mui/material';
 import IconButton from '@mui/material/IconButton';
 
-import { GraaspLogo, Platform, PlatformSwitch, defaultHostsMapper, usePlatformNavigation } from '@graasp/ui';
+import {
+  GraaspLogo,
+  Platform,
+  PlatformSwitch,
+  defaultHostsMapper,
+  usePlatformNavigation,
+} from '@graasp/ui';
 
-import { APP_NAME, GRAASP_LOGO_HEADER_HEIGHT, HOST_MAP } from '../../config/constants';
+import {
+  APP_NAME,
+  GRAASP_LOGO_HEADER_HEIGHT,
+  HOST_MAP,
+} from '../../config/constants';
 import { HOME_PATH } from '../../config/paths';
 import { HEADER_APP_BAR_ID } from '../../config/selectors';
 import UserSwitchWrapper from '../common/UserSwitchWrapper';
@@ -88,14 +98,12 @@ const Header = ({ isMenuOpen, toggleMenu }: Props): JSX.Element => {
               {APP_NAME}
             </Typography>
           </StyledLink>
-          <PlatformSwitch
-        platformsProps={platformProps} />
+          <PlatformSwitch platformsProps={platformProps} />
         </StyledDiv>
         <UserSwitchWrapper />
       </StyledToolbar>
     </AppBar>
   );
 };
-
 
 export default Header;

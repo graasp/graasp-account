@@ -5,7 +5,7 @@ import Grid from '@mui/material/Grid';
 import Typography from '@mui/material/Typography';
 
 import { isPasswordStrong } from '@graasp/sdk';
-import { ACCOUNT, FAILURE_MESSAGES } from '@graasp/translations';
+import { FAILURE_MESSAGES } from '@graasp/translations';
 
 import { useAccountTranslation } from '../../config/i18n';
 import { mutations } from '../../config/queryClient';
@@ -87,30 +87,30 @@ const PasswordSettings = (): JSX.Element => {
       <Grid container spacing={1} direction="column">
         <Grid item xs={12}>
           <Typography variant="h5">
-            {translateAccount(ACCOUNT.PASSWORD_SETTINGS_TITLE)}
+            {translateAccount('PASSWORD_SETTINGS_TITLE')}
           </Typography>
           <Typography variant="body1">
-            {translateAccount(ACCOUNT.PASSWORD_SETTINGS_CONFIRM_INFORMATION)}
+            {translateAccount('PASSWORD_SETTINGS_CONFIRM_INFORMATION')}
           </Typography>
         </Grid>
         <Grid container spacing={2} my={1}>
           <Grid item xs={12} sm={12}>
             <TextField
               required
-              label={translateAccount(ACCOUNT.PASSWORD_SETTINGS_CURRENT_LABEL)}
+              label={translateAccount('PASSWORD_SETTINGS_CURRENT_LABEL')}
               variant="outlined"
               value={currentPassword}
               onChange={handleCurrentPasswordInput}
               type="password"
             />
             <Typography variant="subtitle2">
-              {translateAccount(ACCOUNT.PASSWORD_SETTINGS_CURRENT_INFORMATION)}
+              {translateAccount('PASSWORD_SETTINGS_CURRENT_INFORMATION')}
             </Typography>
           </Grid>
           <Grid item xs={12}>
             <TextField
               required
-              label={translateAccount(ACCOUNT.PASSWORD_SETTINGS_NEW_LABEL)}
+              label={translateAccount('PASSWORD_SETTINGS_NEW_LABEL')}
               variant="outlined"
               value={newPassword}
               error={Boolean(newPasswordError)}
@@ -121,9 +121,7 @@ const PasswordSettings = (): JSX.Element => {
             />
             <TextField
               required
-              label={translateAccount(
-                ACCOUNT.PASSWORD_SETTINGS_NEW_CONFIRM_LABEL,
-              )}
+              label={translateAccount('PASSWORD_SETTINGS_NEW_CONFIRM_LABEL')}
               variant="outlined"
               value={confirmPassword}
               error={Boolean(confirmPasswordError)}
@@ -141,7 +139,7 @@ const PasswordSettings = (): JSX.Element => {
               // TO DO:
               // onClick={() => handleChangePassword()}
             >
-              {translateAccount(ACCOUNT.PASSWORD_SETTINGS_REQUEST_RESET_BUTTON)}
+              {translateAccount('PASSWORD_SETTINGS_REQUEST_RESET_BUTTON')}
             </Button>
             <Button
               variant="contained"
@@ -149,7 +147,7 @@ const PasswordSettings = (): JSX.Element => {
               onClick={() => handleChangePassword()}
               sx={{ my: 1 }}
             >
-              {translateAccount(ACCOUNT.PASSWORD_SETTINGS_CONFIRM_BUTTON)}
+              {translateAccount('PASSWORD_SETTINGS_CONFIRM_BUTTON')}
             </Button>
           </Grid>
         </Grid>

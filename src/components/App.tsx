@@ -1,8 +1,10 @@
+import { useEffect } from 'react';
+import { useTranslation } from 'react-i18next';
 import { Route, BrowserRouter as Router, Routes } from 'react-router-dom';
 
 import { CustomInitialLoader, withAuthorization } from '@graasp/ui';
 
-import { SIGN_IN_PATH } from '../config/constants';
+import { GRAASP_AUTH_HOST } from '../config/constants';
 import {
   AVATAR_SETTINGS_PATH,
   HOME_PATH,
@@ -18,6 +20,14 @@ import StockageScreen from './main/StockageScreen';
 
 export const App = (): JSX.Element => {
   const { data: currentMember, isLoading } = hooks.useCurrentMember();
+  const { i18n } = useTranslation();
+
+  useEffect(() => {
+    if (currentMember?.extra?.lang !== i18n.language) {
+      i18n.changeLanguage(currentMember?.extra?.lang ?? 'en');
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [currentMember]);
 
   if (isLoading) {
     return <CustomInitialLoader />;
@@ -25,7 +35,7 @@ export const App = (): JSX.Element => {
 
   const withAuthorizationProps = {
     currentMember,
-    redirectionLink: SIGN_IN_PATH,
+    redirectionLink: GRAASP_AUTH_HOST,
   };
 
   const MemberProfileWithAutorization = withAuthorization(

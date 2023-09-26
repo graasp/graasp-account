@@ -2,10 +2,8 @@ import { Context, EmailFrequency } from '@graasp/sdk';
 
 import env from '../env.json';
 
-const {
-  SHOW_NOTIFICATIONS: ENV_SHOW_NOTIFICATIONS,
-  NODE_ENV: ENV_NODE_ENV,
-} = env;
+const { SHOW_NOTIFICATIONS: ENV_SHOW_NOTIFICATIONS, NODE_ENV: ENV_NODE_ENV } =
+  env;
 
 export const APP_NAME = 'Graasp Account';
 
@@ -20,26 +18,23 @@ export const NODE_ENV =
   ENV.DEVELOPMENT;
 
 export const API_HOST =
-  process.env.REACT_APP_API_HOST || 'http://localhost:3112';
+  import.meta.env.VITE_GRAASP_API_HOST || 'http://localhost:3112';
 
 export const SHOW_NOTIFICATIONS =
   ENV_SHOW_NOTIFICATIONS ||
   process.env.REACT_APP_SHOW_NOTIFICATIONS === 'true' ||
   false;
 
-  export const GRAASP_AUTH_HOST =
+export const GRAASP_AUTH_HOST =
   import.meta.env.VITE_GRAASP_AUTH_HOST || 'http://localhost:3001';
-  export const GRAASP_BUILDER_HOST =
-    import.meta.env.VITE_GRAASP_BUILDER_HOST || 'http://localhost:3111';
+export const GRAASP_BUILDER_HOST =
+  import.meta.env.VITE_GRAASP_BUILDER_HOST || 'http://localhost:3111';
 export const GRAASP_PLAYER_HOST =
   import.meta.env.VITE_GRAASP_PLAYER_HOST || 'http://localhost:3112';
 export const GRAASP_LIBRARY_HOST =
   import.meta.env.VITE_GRAASP_LIBRARY_HOST || 'http://localhost:3005';
 export const GRAASP_ANALYZER_HOST =
   import.meta.env.VITE_GRAASP_ANALYZER_HOST || 'http://localhost:3113';
-
-export const SIGN_IN_PATH =
-  process.env.REACT_APP_GRAASP_AUTH_HOST || 'http://localhost:3001';
 
 export const DEFAULT_LOCALE = 'en-US';
 export const DEFAULT_LANG = 'en';
@@ -75,7 +70,6 @@ export const AVATAR_ICON_HEIGHT = 30;
 export const FILE_UPLOAD_MAX_FILES = 15;
 
 export const ADMIN_CONTACT = 'admin@graasp.org';
-
 
 export const HOST_MAP = {
   [Context.Builder]: GRAASP_BUILDER_HOST,

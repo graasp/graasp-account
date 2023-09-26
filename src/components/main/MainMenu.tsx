@@ -38,7 +38,7 @@ const MainMenu = (): JSX.Element => {
           <AccountCircleIcon />
         </ListItemIcon>
 
-        <ListItemText primary={t('Profile')} />
+        <ListItemText primary={t('MAIN_MENU_PROFILE')} />
       </ListItemButton>
       <ListItemButton
         onClick={() => goTo(AVATAR_SETTINGS_PATH)}
@@ -48,7 +48,7 @@ const MainMenu = (): JSX.Element => {
           <CameraAltIcon />
         </ListItemIcon>
 
-        <ListItemText primary={t('Avatar')} />
+        <ListItemText primary={t('MAIN_MENU_AVATAR')} />
       </ListItemButton>
       <ListItemButton
         onClick={() => goTo(PASSWORD_SETTINGS_PATH)}
@@ -58,7 +58,7 @@ const MainMenu = (): JSX.Element => {
           <PasswordIcon />
         </ListItemIcon>
 
-        <ListItemText primary={t('Password')} />
+        <ListItemText primary={t('MAIN_MENU_PASSWORD')} />
       </ListItemButton>
       <ListItemButton
         onClick={() => goTo(SUBSCRIPTIONS_PATH)}
@@ -68,7 +68,7 @@ const MainMenu = (): JSX.Element => {
           <DataUsageIcon />
         </ListItemIcon>
 
-        <ListItemText primary={t('Stockage')} />
+        <ListItemText primary={t('MAIN_MENU_STOCKAGE')} />
       </ListItemButton>
       {/* <ListItemButton
         button

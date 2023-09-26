@@ -7,7 +7,6 @@ import DialogContent from '@mui/material/DialogContent';
 import DialogContentText from '@mui/material/DialogContentText';
 import DialogTitle from '@mui/material/DialogTitle';
 
-import { ACCOUNT } from '@graasp/translations';
 import { Button } from '@graasp/ui';
 
 import { useAccountTranslation } from '../../config/i18n';
@@ -34,11 +33,11 @@ const DeleteMemberDialog = ({ id }: Props): JSX.Element => {
         aria-describedby={alertDialogDescription}
       >
         <DialogTitle id={alertDialogTitle}>
-          {translateAccount(ACCOUNT.PROFILE_DELETE_ACCOUNT_MODAL_TITLE)}
+          {translateAccount('PROFILE_DELETE_ACCOUNT_MODAL_TITLE')}
         </DialogTitle>
         <DialogContent>
           <DialogContentText id={alertDialogDescription}>
-            {translateAccount(ACCOUNT.PROFILE_DELETE_ACCOUNT_MODAL_INFORMATION)}
+            {translateAccount('PROFILE_DELETE_ACCOUNT_MODAL_INFORMATION')}
           </DialogContentText>
         </DialogContent>
         <DialogActions>
@@ -49,9 +48,7 @@ const DeleteMemberDialog = ({ id }: Props): JSX.Element => {
             autoFocus
             variant="text"
           >
-            {translateAccount(
-              ACCOUNT.PROFILE_DELETE_ACCOUNT_MODAL_CONFIRM_BUTTON,
-            )}
+            {translateAccount('PROFILE_DELETE_ACCOUNT_MODAL_CONFIRM_BUTTON')}
           </Button>
         </DialogActions>
       </Dialog>
@@ -65,7 +62,7 @@ const DeleteMemberDialog = ({ id }: Props): JSX.Element => {
         <Grid item xs={8}>
           <Grid item xs={12}>
             <Typography variant="h5">
-              {translateAccount(ACCOUNT.PROFILE_DELETE_ACCOUNT_TITLE)}
+              {translateAccount('PROFILE_DELETE_ACCOUNT_TITLE')}
             </Typography>
           </Grid>
           <Grid
@@ -83,10 +80,10 @@ const DeleteMemberDialog = ({ id }: Props): JSX.Element => {
               color="error"
               onClick={() => setOpen(true)}
             >
-              {translateAccount(ACCOUNT.PROFILE_DELETE_ACCOUNT_BUTTON)}
+              {translateAccount('PROFILE_DELETE_ACCOUNT_BUTTON')}
             </Button>
             <Typography variant="caption">
-              {translateAccount(ACCOUNT.PROFILE_DELETE_ACCOUNT_INFORMATION)}
+              {translateAccount('PROFILE_DELETE_ACCOUNT_INFORMATION')}
             </Typography>
           </Grid>
         </Grid>
