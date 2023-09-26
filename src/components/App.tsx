@@ -9,6 +9,7 @@ import {
   AVATAR_SETTINGS_PATH,
   HOME_PATH,
   PASSWORD_SETTINGS_PATH,
+  STORAGE_PATH,
   SUBSCRIPTIONS_PATH,
 } from '../config/paths';
 import { hooks } from '../config/queryClient';
@@ -67,10 +68,7 @@ export const App = (): JSX.Element => {
             path={AVATAR_SETTINGS_PATH}
             element={<AvatarSettingsWithAutorization />}
           />
-          <Route
-            path={SUBSCRIPTIONS_PATH}
-            element={<StockageWithAutorization />}
-          />
+          <Route path={STORAGE_PATH} element={<StockageWithAutorization />} />
 
           {/* 
           <Route
