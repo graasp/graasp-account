@@ -10,7 +10,6 @@ import {
   HOME_PATH,
   PASSWORD_SETTINGS_PATH,
   STORAGE_PATH,
-  SUBSCRIPTIONS_PATH,
 } from '../config/paths';
 import { hooks } from '../config/queryClient';
 import MainProviders from './context/MainProviders';
