@@ -54,6 +54,7 @@ export const App = (): JSX.Element => {
     StockageScreen,
     withAuthorizationProps,
   );
+
   return (
     <MainProviders>
       <Router>
@@ -69,7 +70,7 @@ export const App = (): JSX.Element => {
           />
           <Route path={STORAGE_PATH} element={<StockageWithAutorization />} />
 
-          {/* 
+          {/*
           <Route
             path={PAYMENT_OPTIONS_PATH}
             exact

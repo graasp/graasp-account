@@ -1,29 +1,12 @@
 import { Context, EmailFrequency } from '@graasp/sdk';
 
-import env from '../env.json';
-
-const { SHOW_NOTIFICATIONS: ENV_SHOW_NOTIFICATIONS, NODE_ENV: ENV_NODE_ENV } =
-  env;
-
-export const APP_NAME = 'Graasp Account';
-
-export const ENV = {
-  DEVELOPMENT: 'development',
-};
-
-export const NODE_ENV =
-  ENV_NODE_ENV ||
-  process.env.REACT_APP_NODE_ENV ||
-  process.env.NODE_ENV ||
-  ENV.DEVELOPMENT;
+export const APP_NAME = 'Graasp';
 
 export const API_HOST =
-  import.meta.env.VITE_GRAASP_API_HOST || 'http://localhost:3112';
+  import.meta.env.VITE_GRAASP_API_HOST || 'http://localhost:3000';
 
 export const SHOW_NOTIFICATIONS =
-  ENV_SHOW_NOTIFICATIONS ||
-  process.env.REACT_APP_SHOW_NOTIFICATIONS === 'true' ||
-  false;
+  import.meta.env.VITE_SHOW_NOTIFICATIONS === 'true' || true;
 
 export const GRAASP_AUTH_HOST =
   import.meta.env.VITE_GRAASP_AUTH_HOST || 'http://localhost:3001';
@@ -39,7 +22,7 @@ export const GRAASP_ANALYZER_HOST =
 export const DEFAULT_LOCALE = 'en-US';
 export const DEFAULT_LANG = 'en';
 
-export const STRIPE_PK = process.env.REACT_APP_STRIPE_PUBLISHABLE_KEY;
+export const STRIPE_PK = import.meta.env.VITE_STRIPE_PUBLISHABLE_KEY;
 
 export const USERNAME_MAX_LENGTH = 30;
 

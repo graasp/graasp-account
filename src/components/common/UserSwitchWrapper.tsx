@@ -27,6 +27,7 @@ const UserSwitchWrapper = ({ ButtonContent }: Props): JSX.Element => {
       renderAvatar={renderAvatar}
       profilePath={HOME_PATH}
       redirectPath={GRAASP_AUTH_HOST}
+      userMenuItems={[]}
     />
   );
 };
