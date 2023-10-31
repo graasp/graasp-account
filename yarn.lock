@@ -5457,9 +5457,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"cypress@npm:13.2.0":
-  version: 13.2.0
-  resolution: "cypress@npm:13.2.0"
+"cypress@npm:13.4.0":
+  version: 13.4.0
+  resolution: "cypress@npm:13.4.0"
   dependencies:
     "@cypress/request": ^3.0.0
     "@cypress/xvfb": ^1.2.4
@@ -5506,7 +5506,7 @@ __metadata:
     yauzl: ^2.10.0
   bin:
     cypress: bin/cypress
-  checksum: 7647814f07626bd63e7b8dc4d066179fa40bf492c588bbc2626d983a2baab6cb77c29958dc92442f277e0a8e94866decc51c4de306021739c47e32baf5970219
+  checksum: d64495105a61ed1fb41a5189d5015cfa80314c84d1004595e9c4019eedd394f83509409b6f8489a18e92ea96c6b66ffbb918f41ab97c3eaed34abe107c0846aa
   languageName: node
   linkType: hard
 
@@ -7469,7 +7469,7 @@ __metadata:
     "@vitejs/plugin-react": 4.1.0
     concurrently: 8.2.1
     connected-react-router: 6.9.3
-    cypress: 13.2.0
+    cypress: 13.4.0
     env-cmd: 10.1.0
     eslint: ^8.50.0
     eslint-config-airbnb: 19.0.4
@@ -7502,7 +7502,7 @@ __metadata:
     stylis-plugin-rtl: 2.1.1
     typescript: 5.2.2
     uuid: 9.0.1
-    vite: 4.4.9
+    vite: 4.5.0
     vite-plugin-checker: 0.6.2
     vite-plugin-istanbul: 5.0.0
     wait-on: 7.0.1
@@ -13391,9 +13391,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"vite@npm:4.4.9":
-  version: 4.4.9
-  resolution: "vite@npm:4.4.9"
+"vite@npm:4.5.0":
+  version: 4.5.0
+  resolution: "vite@npm:4.5.0"
   dependencies:
     esbuild: ^0.18.10
     fsevents: ~2.3.2
@@ -13427,7 +13427,7 @@ __metadata:
       optional: true
   bin:
     vite: bin/vite.js
-  checksum: c511024ceae39c68c7dbf2ac4381ee655cd7bb62cf43867a14798bc835d3320b8fa7867a336143c30825c191c1fb4e9aa3348fce831ab617e96203080d3d2908
+  checksum: 06f1a4c858e4dc4c04a10466f4ccacea30c5a9f8574e5ba3deb9d03fa20e80ca6797f02dad97a988da7cdef96238dbc69c3b6a538156585c74722d996223619e
   languageName: node
   linkType: hard
 
