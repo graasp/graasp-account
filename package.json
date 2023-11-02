@@ -12,11 +12,10 @@
     "@emotion/cache": "11.11.0",
     "@emotion/react": "11.11.1",
     "@emotion/styled": "11.11.0",
-    "@graasp/chatbox": "2.0.1",
-    "@graasp/query-client": "1.11.1",
-    "@graasp/sdk": "1.9.2",
-    "@graasp/translations": "1.19.4",
-    "@graasp/ui": "3.7.0",
+    "@graasp/query-client": "github:graasp/graasp-query-client#433-remove-immutable",
+    "@graasp/sdk": "github:graasp/graasp-sdk#remove-frontend",
+    "@graasp/translations": "1.19.2",
+    "@graasp/ui": "github:graasp/graasp-ui#remove-immutable",
     "@mui/icons-material": "5.14.16",
     "@mui/lab": "5.0.0-alpha.151",
     "@mui/material": "5.14.16",
@@ -126,6 +125,9 @@
     "vite-plugin-checker": "0.6.2",
     "vite-plugin-istanbul": "5.0.0",
     "wait-on": "7.0.1"
+  },
+  "resolutions": {
+    "@graasp/sdk": "github:graasp/graasp-sdk#remove-frontend"
   },
   "packageManager": "yarn@3.6.3"
 }
