@@ -14,6 +14,7 @@ const {
 } = configureQueryClient({
   API_HOST,
   notifier,
+  defaultQueryOptions: {},
 });
 export {
   useQueryClient,
