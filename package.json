@@ -12,7 +12,7 @@
     "@emotion/cache": "11.11.0",
     "@emotion/react": "11.11.1",
     "@emotion/styled": "11.11.0",
-    "@graasp/query-client": "2.0.0",
+    "@graasp/query-client": "2.0.1",
     "@graasp/sdk": "2.0.0",
     "@graasp/translations": "1.19.4",
     "@graasp/ui": "4.0.0",
@@ -30,6 +30,7 @@
     "@uppy/status-bar": "^3.2.4",
     "@uppy/tus": "3.3.0",
     "@uppy/xhr-upload": "3.4.0",
+    "axios": "0.27.2",
     "connected-react-router": "6.9.3",
     "filesize": "^10.0.12",
     "http-status-codes": "2.3.0",
@@ -124,5 +125,5 @@
     "vite-plugin-checker": "0.6.2",
     "vite-plugin-istanbul": "5.0.0"
   },
-  "packageManager": "yarn@3.6.3"
+  "packageManager": "yarn@4.0.1"
 }
