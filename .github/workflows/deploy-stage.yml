@@ -18,7 +18,7 @@ jobs:
 
     steps:
       - name: Checkout code
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
         with:
           ref: ${{ github.event.client_payload.tag }}
 
@@ -49,6 +49,6 @@ jobs:
           build-folder: 'build'
           aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID_STAGE }}
           aws-region: ${{ secrets.AWS_REGION_STAGE }}
-          aws-s3-bucket-name: ${{ secrets.AWS_S3_BUCKET_NAME_GRAASP_ACCOUNTE_STAGE }}
+          aws-s3-bucket-name: ${{ secrets.AWS_S3_BUCKET_NAME_GRAASP_ACCOUNT_STAGE }}
           aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY_STAGE }}
           cloudfront-distribution-id: ${{ secrets.CLOUDFRONT_DISTRIBUTION_GRAASP_ACCOUNT_STAGE }}

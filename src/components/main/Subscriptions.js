@@ -13,8 +13,6 @@ import CssBaseline from '@mui/material/CssBaseline';
 import Grid from '@mui/material/Grid';
 import Typography from '@mui/material/Typography';
 
-import { List } from 'immutable';
-
 import { DEFAULT_CURRENCY } from '../../config/constants';
 import { PAYMENT_CONFIRM_PATH } from '../../config/paths';
 import { hooks } from '../../config/queryClient';
@@ -33,7 +31,7 @@ const { usePlans, useOwnPlan } = hooks;
 const Subscriptions = () => {
   const { t } = useTranslation();
 
-  const { data: plans = List() } = usePlans();
+  const { data: plans = [] } = usePlans();
 
   const { data: currentPlan } = useOwnPlan();
 

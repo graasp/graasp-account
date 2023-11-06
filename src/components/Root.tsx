@@ -5,7 +5,6 @@ import { ThemeProvider } from '@mui/material/styles';
 
 import { theme } from '@graasp/ui';
 
-import { ENV, NODE_ENV } from '../config/constants';
 import i18nConfig from '../config/i18n';
 import {
   QueryClientProvider,
@@ -18,8 +17,6 @@ import App from './App';
 
 const Root = (): JSX.Element => (
   <QueryClientProvider client={queryClient}>
-    {/* eslint-disable-next-line @typescript-eslint/ban-ts-comment */}
-    {/* @ts-ignore */}
     <I18nextProvider i18n={i18nConfig}>
       <ThemeProvider theme={theme}>
         <ToastContainer />
@@ -28,7 +25,7 @@ const Root = (): JSX.Element => (
         {/* </Elements> */}
       </ThemeProvider>
     </I18nextProvider>
-    {NODE_ENV === ENV.DEVELOPMENT && <ReactQueryDevtools initialIsOpen />}
+    {import.meta.env.DEV && <ReactQueryDevtools initialIsOpen />}
   </QueryClientProvider>
 );
 

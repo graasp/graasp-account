@@ -14,7 +14,7 @@ const config = ({ mode }: { mode: string }): UserConfigExport => {
   return defineConfig({
     base: '/',
     server: {
-      port: parseInt(process.env.VITE_PORT || '3001', 10),
+      port: parseInt(process.env.VITE_PORT || '3114', 10),
       // only auto open the app when in dev mode
       open: mode === 'dev',
       watch: {
@@ -58,9 +58,6 @@ const config = ({ mode }: { mode: string }): UserConfigExport => {
       alias: {
         '@': resolve(__dirname, 'src'),
       },
-    },
-    define: {
-      'process.env.REACT_APP_GRAASP_ASSETS_URL': `"${process.env.VITE_GRAASP_ASSETS_URL}"`,
     },
   });
 };

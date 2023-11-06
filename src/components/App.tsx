@@ -8,17 +8,17 @@ import { GRAASP_AUTH_HOST } from '../config/constants';
 import {
   AVATAR_SETTINGS_PATH,
   HOME_PATH,
+  LIBRARY_PROFILE_PATH,
   PASSWORD_SETTINGS_PATH,
   STORAGE_PATH,
-  LIBRARY_PROFILE_PATH,
 } from '../config/paths';
 import { hooks } from '../config/queryClient';
 import MainProviders from './context/MainProviders';
 import AvatarSettings from './main/AvatarSettings';
+import LibraryProfileScreen from './main/LibraryProfileScreen';
 import MemberProfileScreen from './main/MemberProfileScreen';
 import PasswordSettings from './main/PasswordSettings';
 import StockageScreen from './main/StockageScreen';
-import LibraryProfileScreen from './main/LibraryProfileScreen';
 
 export const App = (): JSX.Element => {
   const { data: currentMember, isLoading } = hooks.useCurrentMember();
@@ -79,7 +79,7 @@ export const App = (): JSX.Element => {
           />
           <Route path={STORAGE_PATH} element={<StockageWithAutorization />} />
 
-          {/* 
+          {/*
           <Route
             path={PAYMENT_OPTIONS_PATH}
             exact
