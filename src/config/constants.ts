@@ -18,7 +18,7 @@ export const NODE_ENV =
   ENV.DEVELOPMENT;
 
 export const API_HOST =
-  import.meta.env.VITE_GRAASP_API_HOST || 'http://localhost:3112';
+  import.meta.env.VITE_GRAASP_API_HOST || 'http://localhost:3000';
 
 export const SHOW_NOTIFICATIONS =
   ENV_SHOW_NOTIFICATIONS ||

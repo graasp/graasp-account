@@ -8,6 +8,7 @@
   "MAIN_MENU_AVATAR": "Avatar",
   "MAIN_MENU_PASSWORD": "Password",
   "MAIN_MENU_STOCKAGE": "Stockage",
+  "MAIN_MENU_LIBRARY_PROFILE": "Library Profile",
   "SAVE_ACTIONS_TOGGLE_TOOLTIP": "Coming soon!",
 
   "PROFILE_TITLE": "Profile",
@@ -39,5 +40,20 @@
   "PASSWORD_SETTINGS_CONFIRM_INFORMATION": "Make sure it is at least 8 characters including a number, a lowercase letter and an uppercase letter.",
   "PASSWORD_SETTINGS_REQUEST_RESET_BUTTON": "Request a reset",
 
-  "STOCKAGE_INFO": "Storage takes into account all uploaded files such as PDF, images, videos, audio, etc. Folders, apps and Graasp documents are not included."
+  "STOCKAGE_INFO": "Storage takes into account all uploaded files such as PDF, images, videos, audio, etc. Folders, apps and Graasp documents are not included.",
+
+  "LIBRARY_PROFILE_TITLE": "Library Profile Setting",
+  "LIBRARY_PROFILE_LINKEDIN_LINK": "Linkedin Link",
+  "LIBRARY_PROFILE_LINKEDIN_LINK_ERROR_MSG": "Linkedin Link is not a valid url",
+  "LIBRARY_PROFILE_TWITTER_LINK": "Twitter Link",
+  "LIBRARY_PROFILE_TWITTER_LINK_ERROR_MSG": "Twitter Link is not a valid url",
+
+  "LIBRARY_PROFILE_FACEBOOK_LINK": "Facebook Link",
+  "LIBRARY_PROFILE_FACEBOOK_LINK_ERROR_MSG": "facebook Link is not a valid url",
+
+  "LIBRARY_PROFILE_BIO": "Bio",
+  "LIBRARY_PROFILE_BIO_ERROR_MSG": "Bio is a required field",
+
+  "LIBRARY_PROFILE_VISIBILITY": "Are you want to have your profile visible to other?",
+  "LIBRARY_PROFILE_SUBMIT_TEXT": "Save Changes"
 }

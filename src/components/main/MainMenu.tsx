@@ -4,6 +4,7 @@ import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 import CameraAltIcon from '@mui/icons-material/CameraAlt';
 import DataUsageIcon from '@mui/icons-material/DataUsage';
 import PasswordIcon from '@mui/icons-material/Password';
+import ProfileIcon from '@mui/icons-material/Person2';
 import { ListItemButton } from '@mui/material';
 import List from '@mui/material/List';
 import ListItemIcon from '@mui/material/ListItemIcon';
@@ -15,6 +16,7 @@ import { useAccountTranslation } from '../../config/i18n';
 import {
   AVATAR_SETTINGS_PATH,
   HOME_PATH,
+  LIBRARY_PROFILE_PATH,
   PASSWORD_SETTINGS_PATH,
   STORAGE_PATH,
 } from '../../config/paths';
@@ -69,6 +71,16 @@ const MainMenu = (): JSX.Element => {
         </ListItemIcon>
 
         <ListItemText primary={t('MAIN_MENU_STOCKAGE')} />
+      </ListItemButton>
+      <ListItemButton
+        onClick={() => goTo(LIBRARY_PROFILE_PATH)}
+        selected={pathname === LIBRARY_PROFILE_PATH}
+      >
+        <ListItemIcon>
+          <ProfileIcon />
+        </ListItemIcon>
+
+        <ListItemText primary={t('MAIN_MENU_LIBRARY_PROFILE')} />
       </ListItemButton>
       {/* <ListItemButton
         button

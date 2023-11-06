@@ -10,6 +10,7 @@ import {
   HOME_PATH,
   PASSWORD_SETTINGS_PATH,
   STORAGE_PATH,
+  LIBRARY_PROFILE_PATH,
 } from '../config/paths';
 import { hooks } from '../config/queryClient';
 import MainProviders from './context/MainProviders';
@@ -17,6 +18,7 @@ import AvatarSettings from './main/AvatarSettings';
 import MemberProfileScreen from './main/MemberProfileScreen';
 import PasswordSettings from './main/PasswordSettings';
 import StockageScreen from './main/StockageScreen';
+import LibraryProfileScreen from './main/LibraryProfileScreen';
 
 export const App = (): JSX.Element => {
   const { data: currentMember, isLoading } = hooks.useCurrentMember();
@@ -54,6 +56,10 @@ export const App = (): JSX.Element => {
     StockageScreen,
     withAuthorizationProps,
   );
+  const LibraryProfileWithAutorization = withAuthorization(
+    LibraryProfileScreen,
+    withAuthorizationProps,
+  );
   return (
     <MainProviders>
       <Router>
@@ -66,6 +72,10 @@ export const App = (): JSX.Element => {
           <Route
             path={AVATAR_SETTINGS_PATH}
             element={<AvatarSettingsWithAutorization />}
+          />
+          <Route
+            path={LIBRARY_PROFILE_PATH}
+            element={<LibraryProfileWithAutorization />}
           />
           <Route path={STORAGE_PATH} element={<StockageWithAutorization />} />
 
