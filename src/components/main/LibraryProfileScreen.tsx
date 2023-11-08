@@ -1,15 +1,19 @@
-import React, { useState } from 'react';
+import React, { FormEvent, useState } from 'react';
 
+import FacebookIcon from '@mui/icons-material/Facebook';
+import LinkedInIcon from '@mui/icons-material/LinkedIn';
+import TwitterIcon from '@mui/icons-material/Twitter';
 import { LoadingButton } from '@mui/lab';
 import {
   Checkbox,
   FormControlLabel,
   Grid,
+  IconButton,
+  InputAdornment,
   TextField,
   Typography,
 } from '@mui/material';
 
-// import { TextEditor } from '@graasp/ui';
 import { useAccountTranslation } from '@/config/i18n';
 
 import Main from './Main';
@@ -45,14 +49,14 @@ const LibraryProfileScreen = (): JSX.Element => {
   });
 
   const [isLoading, setIsLoading] = useState(false);
-  const saveSettings = (e: any) => {
+  const saveSettings = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     // here should go settings submit
     console.log(form);
     setIsLoading(true);
   };
 
-  const onInputChange = (e: any) => {
+  const onInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, type } = e.target;
     setDirtyFields({ ...dirtyFields, [name]: true });
     if (type === 'checkbox') {
@@ -67,20 +71,14 @@ const LibraryProfileScreen = (): JSX.Element => {
   return (
     <Main>
       <Grid container spacing={3}>
-        <Grid item xs={4} md={6} sm={12}>
+        <Grid item sm={12} md={6} lg={6}>
           <Typography variant="h4">{t('LIBRARY_PROFILE_TITLE')}</Typography>
+          <Typography variant="body1" sx={{ mt: 1, mb: 3 }}>
+            {t('LIBRARY_PROFILE_DESCRIPTION')}
+          </Typography>
           <form noValidate onSubmit={saveSettings}>
             <Grid container spacing={2}>
               <Grid item xs={12}>
-                {/* <TextEditor
-                  //   id={id}
-                  placeholderText="Bio"
-                  value="hello"
-                  edit
-                  //   onChange={onChange}
-                  showActions={false}
-                  maxHeight="300px"
-                /> */}
                 <TextField
                   label={t('LIBRARY_PROFILE_BIO')}
                   variant="outlined"
@@ -101,7 +99,7 @@ const LibraryProfileScreen = (): JSX.Element => {
                   value={form.bio}
                 />
               </Grid>
-              <Grid item xs={12} sm={6}>
+              <Grid item xs={12}>
                 <TextField
                   label={t('LIBRARY_PROFILE_LINKEDIN_LINK')}
                   variant="outlined"
@@ -119,9 +117,21 @@ const LibraryProfileScreen = (): JSX.Element => {
                   error={
                     dirtyFields.linkedinLink && !isValidUrl(form.linkedinLink)
                   }
+                  InputProps={{
+                    startAdornment: (
+                      <InputAdornment position="start">
+                        <IconButton
+                          aria-label="toggle password visibility"
+                          edge="end"
+                        >
+                          <LinkedInIcon />
+                        </IconButton>
+                      </InputAdornment>
+                    ),
+                  }}
                 />
               </Grid>
-              <Grid item xs={12} sm={6}>
+              <Grid item xs={12}>
                 <TextField
                   label={t('LIBRARY_PROFILE_TWITTER_LINK')}
                   variant="outlined"
@@ -139,6 +149,18 @@ const LibraryProfileScreen = (): JSX.Element => {
                   error={
                     dirtyFields.twitterLink && !isValidUrl(form.twitterLink)
                   }
+                  InputProps={{
+                    startAdornment: (
+                      <InputAdornment position="start">
+                        <IconButton
+                          aria-label="toggle password visibility"
+                          edge="end"
+                        >
+                          <TwitterIcon />
+                        </IconButton>
+                      </InputAdornment>
+                    ),
+                  }}
                 />
               </Grid>
               <Grid item xs={12}>
@@ -159,6 +181,18 @@ const LibraryProfileScreen = (): JSX.Element => {
                   error={
                     dirtyFields.facebookLink && !isValidUrl(form.facebookLink)
                   }
+                  InputProps={{
+                    startAdornment: (
+                      <InputAdornment position="start">
+                        <IconButton
+                          aria-label="toggle password visibility"
+                          edge="end"
+                        >
+                          <FacebookIcon />
+                        </IconButton>
+                      </InputAdornment>
+                    ),
+                  }}
                 />
               </Grid>
               <Grid item xs={12}>
@@ -176,7 +210,7 @@ const LibraryProfileScreen = (): JSX.Element => {
                 />
               </Grid>
 
-              <Grid item xs={6}>
+              <Grid item xs={12} lg={6}>
                 <LoadingButton
                   type="submit"
                   fullWidth
