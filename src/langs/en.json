@@ -56,5 +56,6 @@
   "LIBRARY_PROFILE_BIO_ERROR_MSG": "Bio is a required field",
 
   "LIBRARY_PROFILE_VISIBILITY": "Make this profile public",
-  "LIBRARY_PROFILE_SUBMIT_TEXT": "Save Changes"
+  "LIBRARY_PROFILE_SUBMIT_TEXT": "Save Changes",
+  "LIBRARY_PROFILE_CHECK_TEXT": "Check Profile"
 }

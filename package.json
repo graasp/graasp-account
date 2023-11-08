@@ -12,7 +12,7 @@
     "@emotion/cache": "11.11.0",
     "@emotion/react": "11.11.1",
     "@emotion/styled": "11.11.0",
-    "@graasp/query-client": "2.0.0",
+    "@graasp/query-client": "https://github.com/graasp/graasp-query-client.git#510-library-profile-mutations",
     "@graasp/sdk": "2.0.0",
     "@graasp/translations": "1.19.4",
     "@graasp/ui": "4.0.0",

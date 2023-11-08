@@ -1,10 +1,11 @@
-import React, { FormEvent, useState } from 'react';
+import React, { FormEvent, useEffect, useMemo, useState } from 'react';
 
 import FacebookIcon from '@mui/icons-material/Facebook';
 import LinkedInIcon from '@mui/icons-material/LinkedIn';
 import TwitterIcon from '@mui/icons-material/Twitter';
 import { LoadingButton } from '@mui/lab';
 import {
+  Box,
   Checkbox,
   FormControlLabel,
   Grid,
@@ -14,8 +15,10 @@ import {
   Typography,
 } from '@mui/material';
 
+import { GRAASP_LIBRARY_HOST } from '@/config/constants';
 import { useAccountTranslation } from '@/config/i18n';
 
+import { hooks, mutations } from '../../config/queryClient';
 import Main from './Main';
 
 const isValidUrl = (urlString: string) => {
@@ -30,30 +33,46 @@ const isValidUrl = (urlString: string) => {
   }
   return url.protocol === 'http:' || url.protocol === 'https:';
 };
+
+const initialDirtyFieldsState = {
+  bio: false,
+  linkedinLink: false,
+  twitterLink: false,
+  facebookLink: false,
+  visibility: false,
+};
 const LibraryProfileScreen = (): JSX.Element => {
   const { t } = useAccountTranslation();
 
-  const [form, setForm] = useState({
+  const { data, refetch } = hooks.useOwnProfile();
+  const {
+    mutate: saveProfile,
+    isLoading: isAddLoading,
+    isSuccess,
+  } = mutations.usePostProfile();
+  const {
+    mutate: editProfile,
+    isLoading: isEditLoading,
+    isSuccess: isEditSuccess,
+  } = mutations.useEditProfile();
+
+  const [profileData, setProfileData] = useState({
     bio: '',
     linkedinLink: '',
     twitterLink: '',
     facebookLink: '',
     visibility: false,
   });
-  const [dirtyFields, setDirtyFields] = useState({
-    bio: false,
-    linkedinLink: false,
-    twitterLink: false,
-    facebookLink: false,
-    visibility: false,
-  });
+  const [dirtyFields, setDirtyFields] = useState(initialDirtyFieldsState);
 
-  const [isLoading, setIsLoading] = useState(false);
   const saveSettings = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    // here should go settings submit
-    console.log(form);
-    setIsLoading(true);
+
+    if (data) {
+      editProfile(profileData);
+    } else {
+      saveProfile(profileData);
+    }
   };
 
   const onInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -61,21 +80,51 @@ const LibraryProfileScreen = (): JSX.Element => {
     setDirtyFields({ ...dirtyFields, [name]: true });
     if (type === 'checkbox') {
       const { checked } = e.target;
-      setForm({ ...form, [name]: checked });
+      setProfileData({ ...profileData, [name]: checked });
     } else {
       const { value } = e.target;
-      setForm({ ...form, [name]: value });
+      setProfileData({ ...profileData, [name]: value });
     }
   };
+
+  useEffect(() => {
+    setProfileData({
+      bio: data?.bio || '',
+      linkedinLink: data?.linkedinLink || '',
+      twitterLink: data?.twitterLink || '',
+      facebookLink: data?.facebookLink || '',
+      visibility: data?.visibility || false,
+    });
+  }, [data]);
+  useEffect(() => {
+    if (isSuccess || isEditSuccess) {
+      refetch();
+      setDirtyFields(initialDirtyFieldsState);
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [isSuccess, isEditSuccess]);
+
+  // to control button disable as if one of form values changed we can check other fields
+  const formChanged = useMemo(
+    () => Object.values(dirtyFields).some((ele) => ele),
+    [dirtyFields],
+  );
 
   return (
     <Main>
       <Grid container spacing={3}>
         <Grid item sm={12} md={6} lg={6}>
-          <Typography variant="h4">{t('LIBRARY_PROFILE_TITLE')}</Typography>
-          <Typography variant="body1" sx={{ mt: 1, mb: 3 }}>
-            {t('LIBRARY_PROFILE_DESCRIPTION')}
-          </Typography>
+          <Box sx={{ mt: 1, mb: 3 }}>
+            <Typography variant="h4">{t('LIBRARY_PROFILE_TITLE')}</Typography>
+            <Typography variant="body1">
+              {t('LIBRARY_PROFILE_DESCRIPTION')}
+            </Typography>
+            {data && (
+              <a href={`${GRAASP_LIBRARY_HOST}/members/${data?.member?.id}`}>
+                {t('LIBRARY_PROFILE_CHECK_TEXT')}
+              </a>
+            )}
+          </Box>
           <form noValidate onSubmit={saveSettings}>
             <Grid container spacing={2}>
               <Grid item xs={12}>
@@ -86,17 +135,17 @@ const LibraryProfileScreen = (): JSX.Element => {
                   type="text"
                   helperText={
                     dirtyFields.bio &&
-                    !form.bio.trim() &&
+                    !profileData.bio.trim() &&
                     t('LIBRARY_PROFILE_BIO_ERROR_MSG')
                   }
-                  error={dirtyFields.bio && !form.bio.trim()}
+                  error={dirtyFields.bio && !profileData.bio.trim()}
                   margin="dense"
                   fullWidth
                   multiline
                   rows={4}
                   required
                   name="bio"
-                  value={form.bio}
+                  value={profileData.bio}
                 />
               </Grid>
               <Grid item xs={12}>
@@ -108,14 +157,15 @@ const LibraryProfileScreen = (): JSX.Element => {
                   margin="dense"
                   fullWidth
                   name="linkedinLink"
-                  value={form.linkedinLink}
+                  value={profileData.linkedinLink}
                   helperText={
                     dirtyFields.linkedinLink &&
-                    !isValidUrl(form.linkedinLink) &&
+                    !isValidUrl(profileData.linkedinLink) &&
                     t('LIBRARY_PROFILE_LINKEDIN_LINK_ERROR_MSG')
                   }
                   error={
-                    dirtyFields.linkedinLink && !isValidUrl(form.linkedinLink)
+                    dirtyFields.linkedinLink &&
+                    !isValidUrl(profileData.linkedinLink)
                   }
                   InputProps={{
                     startAdornment: (
@@ -140,14 +190,15 @@ const LibraryProfileScreen = (): JSX.Element => {
                   margin="dense"
                   fullWidth
                   name="twitterLink"
-                  value={form.twitterLink}
+                  value={profileData.twitterLink}
                   helperText={
                     dirtyFields.twitterLink &&
-                    !isValidUrl(form.twitterLink) &&
+                    !isValidUrl(profileData.twitterLink) &&
                     t('LIBRARY_PROFILE_TWITTER_LINK_ERROR_MSG')
                   }
                   error={
-                    dirtyFields.twitterLink && !isValidUrl(form.twitterLink)
+                    dirtyFields.twitterLink &&
+                    !isValidUrl(profileData.twitterLink)
                   }
                   InputProps={{
                     startAdornment: (
@@ -172,14 +223,15 @@ const LibraryProfileScreen = (): JSX.Element => {
                   margin="dense"
                   fullWidth
                   name="facebookLink"
-                  value={form.facebookLink}
+                  value={profileData.facebookLink}
                   helperText={
                     dirtyFields.facebookLink &&
-                    !isValidUrl(form.facebookLink) &&
+                    !isValidUrl(profileData.facebookLink) &&
                     t('LIBRARY_PROFILE_FACEBOOK_LINK_ERROR_MSG')
                   }
                   error={
-                    dirtyFields.facebookLink && !isValidUrl(form.facebookLink)
+                    dirtyFields.facebookLink &&
+                    !isValidUrl(profileData.facebookLink)
                   }
                   InputProps={{
                     startAdornment: (
@@ -202,7 +254,7 @@ const LibraryProfileScreen = (): JSX.Element => {
                       value="allowExtraEmails"
                       color="primary"
                       name="visibility"
-                      checked={form.visibility}
+                      checked={profileData.visibility}
                       onChange={onInputChange}
                     />
                   }
@@ -217,12 +269,13 @@ const LibraryProfileScreen = (): JSX.Element => {
                   variant="contained"
                   color="primary"
                   disabled={
-                    !form.bio.trim() ||
-                    !isValidUrl(form.facebookLink) ||
-                    !isValidUrl(form.twitterLink) ||
-                    !isValidUrl(form.linkedinLink)
+                    !formChanged ||
+                    !profileData.bio.trim() ||
+                    !isValidUrl(profileData.facebookLink) ||
+                    !isValidUrl(profileData.twitterLink) ||
+                    !isValidUrl(profileData.linkedinLink)
                   }
-                  loading={isLoading}
+                  loading={isAddLoading || isEditLoading}
                 >
                   {t('LIBRARY_PROFILE_SUBMIT_TEXT')}
                 </LoadingButton>

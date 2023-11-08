@@ -50,5 +50,7 @@ export default ({
   // success notification
   else if (message) {
     toast.success(i18n.t(message));
+  } else if (payload?.message) {
+    toast.success(payload?.message);
   }
 };
