@@ -27,7 +27,6 @@ const getErrorMessageFromPayload = (
   payload?: Parameters<Notifier>[0]['payload'],
 ) => {
   if (payload?.error && payload.error instanceof AxiosError) {
-    console.log('------', payload);
     if (payload.error.isAxiosError) {
       return (
         payload.error.response?.data.message ??
@@ -52,7 +51,6 @@ export default ({
   switch (type) {
     // error messages
     case updatePasswordRoutine.FAILURE: {
-      console.log(payload);
       message = getErrorMessageFromPayload(payload);
       break;
     }
