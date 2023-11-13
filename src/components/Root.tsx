@@ -13,16 +13,12 @@ import {
 } from '../config/queryClient';
 import App from './App';
 
-// const stripe = loadStripe(STRIPE_PK);
-
 const Root = (): JSX.Element => (
   <QueryClientProvider client={queryClient}>
     <I18nextProvider i18n={i18nConfig}>
       <ThemeProvider theme={theme}>
         <ToastContainer />
-        {/* <Elements stripe={stripe}> */}
         <App />
-        {/* </Elements> */}
       </ThemeProvider>
     </I18nextProvider>
     {import.meta.env.DEV && <ReactQueryDevtools initialIsOpen />}

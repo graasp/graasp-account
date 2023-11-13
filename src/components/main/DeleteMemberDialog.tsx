@@ -41,7 +41,9 @@ const DeleteMemberDialog = ({ id }: Props): JSX.Element => {
           </DialogContentText>
         </DialogContent>
         <DialogActions>
-          <Button onClick={() => setOpen(false)} color="primary" />
+          <Button onClick={() => setOpen(false)} color="primary">
+            {translateAccount('PROFILE_DELETE_ACCOUNT_MODAL_CANCEL_BUTTON')}
+          </Button>
           <Button
             onClick={() => deleteMember({ id })}
             color="error"

@@ -2,6 +2,8 @@ import { useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
 import { Route, BrowserRouter as Router, Routes } from 'react-router-dom';
 
+import { Alert } from '@mui/material';
+
 import { CustomInitialLoader, withAuthorization } from '@graasp/ui';
 
 import { GRAASP_AUTH_HOST } from '../config/constants';
@@ -29,13 +31,11 @@ export const App = (): JSX.Element => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [currentMember]);
 
-  if (isLoading) {
-    return <CustomInitialLoader />;
-  }
-
+  const redirectionLink = new URL(GRAASP_AUTH_HOST);
+  redirectionLink.searchParams.set('url', window.location.toString());
   const withAuthorizationProps = {
     currentMember,
-    redirectionLink: GRAASP_AUTH_HOST,
+    redirectionLink: redirectionLink.toString(),
   };
 
   const MemberProfileWithAutorization = withAuthorization(
@@ -55,22 +55,26 @@ export const App = (): JSX.Element => {
     withAuthorizationProps,
   );
 
-  return (
-    <MainProviders>
-      <Router>
-        <Routes>
-          <Route path={HOME_PATH} element={<MemberProfileWithAutorization />} />
-          <Route
-            path={PASSWORD_SETTINGS_PATH}
-            element={<PasswordSettingsWithAutorization />}
-          />
-          <Route
-            path={AVATAR_SETTINGS_PATH}
-            element={<AvatarSettingsWithAutorization />}
-          />
-          <Route path={STORAGE_PATH} element={<StockageWithAutorization />} />
+  if (currentMember) {
+    return (
+      <MainProviders>
+        <Router>
+          <Routes>
+            <Route
+              path={HOME_PATH}
+              element={<MemberProfileWithAutorization />}
+            />
+            <Route
+              path={PASSWORD_SETTINGS_PATH}
+              element={<PasswordSettingsWithAutorization />}
+            />
+            <Route
+              path={AVATAR_SETTINGS_PATH}
+              element={<AvatarSettingsWithAutorization />}
+            />
+            <Route path={STORAGE_PATH} element={<StockageWithAutorization />} />
 
-          {/*
+            {/*
           <Route
             path={PAYMENT_OPTIONS_PATH}
             exact
@@ -80,10 +84,20 @@ export const App = (): JSX.Element => {
             path={`${PAYMENT_CONFIRM_PATH}/:id`}
             element={<PayementConfirmationWithAutorization />}
           /> */}
-        </Routes>
-      </Router>
-    </MainProviders>
+          </Routes>
+        </Router>
+      </MainProviders>
+    );
+  }
+
+  if (isLoading) {
+    return <CustomInitialLoader />;
+  }
+  const ErrorWithAuthorization = withAuthorization(
+    () => <Alert severity="error">Could not get member</Alert>,
+    withAuthorizationProps,
   );
+  return <ErrorWithAuthorization />;
 };
 
 export default App;
