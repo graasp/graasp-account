@@ -7259,6 +7259,7 @@ __metadata:
     react-router-dom: 6.16.0
     react-toastify: 9.1.3
     rollup-plugin-visualizer: ^5.9.2
+    social-links: ^1.14.0
     standard-version: 9.5.0
     stylis-plugin-rtl: 2.1.1
     typescript: 5.2.2
@@ -10899,6 +10900,13 @@ __metadata:
   version: 4.2.0
   resolution: "smart-buffer@npm:4.2.0"
   checksum: b5167a7142c1da704c0e3af85c402002b597081dd9575031a90b4f229ca5678e9a36e8a374f1814c8156a725d17008ae3bde63b92f9cfd132526379e580bec8b
+  languageName: node
+  linkType: hard
+
+"social-links@npm:^1.14.0":
+  version: 1.14.0
+  resolution: "social-links@npm:1.14.0"
+  checksum: d53e16f11bd913f151fdff201b5a75a8f1b657bfd607c0e488bb8b3b8ce53f9992a382b434ddb939e8f1c91a3ea0062c1775bd27dfb3afa9fff43cc32bb1be05
   languageName: node
   linkType: hard
 

@@ -60,3 +60,7 @@ export const HOST_MAP = {
   [Context.Player]: GRAASP_PLAYER_HOST,
   [Context.Analytics]: GRAASP_ANALYZER_HOST,
 };
+
+export const LINKEDIN_DOMAIN = 'linkedin';
+export const FACEBOOK_DOMAIN = 'facebook';
+export const TWITTER_DOMAIN = 'twitter';

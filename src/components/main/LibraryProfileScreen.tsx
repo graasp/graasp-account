@@ -15,23 +15,34 @@ import {
   Typography,
 } from '@mui/material';
 
-import { GRAASP_LIBRARY_HOST } from '@/config/constants';
+import { Config, SocialLinks } from 'social-links';
+
+import {
+  FACEBOOK_DOMAIN,
+  GRAASP_LIBRARY_HOST,
+  LINKEDIN_DOMAIN,
+  TWITTER_DOMAIN,
+} from '@/config/constants';
 import { useAccountTranslation } from '@/config/i18n';
 
 import { hooks, mutations } from '../../config/queryClient';
 import Main from './Main';
 
+const config: Config = {
+  usePredefinedProfiles: true,
+  trimInput: true,
+  allowQueryParams: false,
+};
+const socialLinks = new SocialLinks(config);
+
 const isValidUrl = (urlString: string) => {
-  let url;
+  const profileName = socialLinks.detectProfile(urlString);
+
   if (urlString === '') {
     return true;
   }
-  try {
-    url = new URL(urlString);
-  } catch (e) {
-    return false;
-  }
-  return url.protocol === 'http:' || url.protocol === 'https:';
+
+  return socialLinks.isValid(profileName, urlString);
 };
 
 const initialDirtyFieldsState = {
@@ -67,11 +78,27 @@ const LibraryProfileScreen = (): JSX.Element => {
 
   const saveSettings = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+    const { facebookLink, linkedinLink, twitterLink } = profileData;
+    const fbProfile = socialLinks.detectProfile(facebookLink);
+    const linkedinProfile = socialLinks.detectProfile(linkedinLink);
+    const twitterProfile = socialLinks.detectProfile(twitterLink);
 
+    const body = {
+      ...profileData,
+      facebookLink: facebookLink
+        ? socialLinks.getProfileId(fbProfile, facebookLink)
+        : '',
+      twitterLink: twitterLink
+        ? socialLinks.getProfileId(twitterProfile, twitterLink)
+        : '',
+      linkedinLink: linkedinLink
+        ? socialLinks.getProfileId(linkedinProfile, linkedinLink)
+        : '',
+    };
     if (data) {
-      editProfile(profileData);
+      editProfile(body);
     } else {
-      saveProfile(profileData);
+      saveProfile(body);
     }
   };
 
@@ -90,9 +117,15 @@ const LibraryProfileScreen = (): JSX.Element => {
   useEffect(() => {
     setProfileData({
       bio: data?.bio || '',
-      linkedinLink: data?.linkedinLink || '',
-      twitterLink: data?.twitterLink || '',
-      facebookLink: data?.facebookLink || '',
+      linkedinLink: data?.linkedinLink
+        ? socialLinks.sanitize(LINKEDIN_DOMAIN, data?.linkedinLink)
+        : '',
+      twitterLink: data?.twitterLink
+        ? socialLinks.sanitize(TWITTER_DOMAIN, data?.twitterLink)
+        : '',
+      facebookLink: data?.facebookLink
+        ? socialLinks.sanitize(FACEBOOK_DOMAIN, data?.facebookLink)
+        : '',
       visibility: data?.visibility || false,
     });
   }, [data]);
