@@ -21,6 +21,7 @@
   "PROFILE_DELETE_ACCOUNT_MODAL_TITLE": "Confirm deletion",
   "PROFILE_DELETE_ACCOUNT_MODAL_INFORMATION": "Your account will be deleted permanently.",
   "PROFILE_DELETE_ACCOUNT_MODAL_CONFIRM_BUTTON": "Delete Permanently",
+  "PROFILE_DELETE_ACCOUNT_MODAL_CANCEL_BUTTON": "Cancel",
 
   "PROFILE_DELETE_ACCOUNT_TITLE": "Delete my account",
   "PROFILE_DELETE_ACCOUNT_BUTTON": "Delete Account",
