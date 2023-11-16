@@ -6949,7 +6949,6 @@ __metadata:
     filesize: "npm:^10.0.12"
     http-status-codes: "npm:2.3.0"
     husky: "npm:8.0.3"
-    i18next: "npm:^23.6.0"
     immutable: "npm:4.3.4"
     lodash.truncate: "npm:4.4.2"
     node-fetch: "npm:2.7.0"
@@ -7240,15 +7239,6 @@ __metadata:
   dependencies:
     "@babel/runtime": "npm:^7.22.5"
   checksum: cf5ad02fdd0805cc92a5ae214818cca10590784dcefa063d9f2b1f1654da7c7842d320c95f2574674e2ac835eed118001b99e214901bb171af20d59c534534cf
-  languageName: node
-  linkType: hard
-
-"i18next@npm:^23.6.0":
-  version: 23.7.6
-  resolution: "i18next@npm:23.7.6"
-  dependencies:
-    "@babel/runtime": "npm:^7.23.2"
-  checksum: ae16654e08e10c38d4d17c6a28ae7cb4ac894f03bccfa7ae1637b6c6705937009d5f625f9cd0c3b664bec1acaa7116e5dda7a5e9fbbf41bf97260b49da2875e7
   languageName: node
   linkType: hard
 

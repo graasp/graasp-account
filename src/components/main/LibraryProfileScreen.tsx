@@ -9,9 +9,6 @@ import {
   Checkbox,
   FormControlLabel,
   Grid,
-  IconButton,
-  InputAdornment,
-  TextField,
   Typography,
 } from '@mui/material';
 
@@ -26,6 +23,7 @@ import {
 import { useAccountTranslation } from '@/config/i18n';
 
 import { hooks, mutations } from '../../config/queryClient';
+import TextFieldWithValidation from '../common/TextField';
 import Main from './Main';
 
 const config: Config = {
@@ -57,15 +55,15 @@ const LibraryProfileScreen = (): JSX.Element => {
 
   const { data, refetch } = hooks.useOwnProfile();
   const {
-    mutate: saveProfile,
+    mutate: postProfile,
     isLoading: isAddLoading,
     isSuccess,
   } = mutations.usePostProfile();
   const {
-    mutate: editProfile,
+    mutate: patchProfile,
     isLoading: isEditLoading,
     isSuccess: isEditSuccess,
-  } = mutations.useEditProfile();
+  } = mutations.usePatchProfile();
 
   const [profileData, setProfileData] = useState({
     bio: '',
@@ -96,9 +94,9 @@ const LibraryProfileScreen = (): JSX.Element => {
         : '',
     };
     if (data) {
-      editProfile(body);
+      patchProfile(body);
     } else {
-      saveProfile(body);
+      postProfile(body);
     }
   };
 
@@ -148,150 +146,99 @@ const LibraryProfileScreen = (): JSX.Element => {
       <Grid container spacing={3}>
         <Grid item sm={12} md={6} lg={6}>
           <Box sx={{ mt: 1, mb: 3 }}>
-            <Typography variant="h4">{t('LIBRARY_PROFILE_TITLE')}</Typography>
+            <Typography variant="h4">{t('PUBLIC_PROFILE_TITLE')}</Typography>
             <Typography variant="body1">
-              {t('LIBRARY_PROFILE_DESCRIPTION')}
+              {t('PUBLIC_PROFILE_DESCRIPTION')}
             </Typography>
             {data && (
               <a href={`${GRAASP_LIBRARY_HOST}/members/${data?.member?.id}`}>
-                {t('LIBRARY_PROFILE_CHECK_TEXT')}
+                {t('PUBLIC_PROFILE_CHECK_TEXT')}
               </a>
             )}
           </Box>
           <form noValidate onSubmit={saveSettings}>
             <Grid container spacing={2}>
               <Grid item xs={12}>
-                <TextField
-                  label={t('LIBRARY_PROFILE_BIO')}
-                  variant="outlined"
-                  onChange={onInputChange}
-                  type="text"
+                <TextFieldWithValidation
+                  name="bio"
+                  value={profileData.bio}
                   helperText={
                     dirtyFields.bio &&
                     !profileData.bio.trim() &&
-                    t('LIBRARY_PROFILE_BIO_ERROR_MSG')
+                    t('PUBLIC_PROFILE_BIO_ERROR_MSG')
                   }
-                  error={dirtyFields.bio && !profileData.bio.trim()}
-                  margin="dense"
-                  fullWidth
-                  multiline
-                  rows={4}
+                  isError={dirtyFields.bio && !profileData.bio.trim()}
+                  label={t('PUBLIC_PROFILE_BIO')}
+                  onChange={onInputChange}
                   required
-                  name="bio"
-                  value={profileData.bio}
+                  multiline
                 />
               </Grid>
               <Grid item xs={12}>
-                <TextField
-                  label={t('LIBRARY_PROFILE_LINKEDIN_LINK')}
-                  variant="outlined"
-                  onChange={onInputChange}
-                  type="text"
-                  margin="dense"
-                  fullWidth
+                <TextFieldWithValidation
+                  Icon={LinkedInIcon}
                   name="linkedinLink"
                   value={profileData.linkedinLink}
                   helperText={
                     dirtyFields.linkedinLink &&
                     !isValidUrl(profileData.linkedinLink) &&
-                    t('LIBRARY_PROFILE_LINKEDIN_LINK_ERROR_MSG')
+                    t('PUBLIC_PROFILE_LINKEDIN_LINK_ERROR_MSG')
                   }
-                  error={
+                  isError={
                     dirtyFields.linkedinLink &&
                     !isValidUrl(profileData.linkedinLink)
                   }
-                  InputProps={{
-                    startAdornment: (
-                      <InputAdornment position="start">
-                        <IconButton
-                          aria-label="toggle password visibility"
-                          edge="end"
-                        >
-                          <LinkedInIcon />
-                        </IconButton>
-                      </InputAdornment>
-                    ),
-                  }}
+                  label={t('PUBLIC_PROFILE_LINKEDIN_LINK')}
+                  onChange={onInputChange}
                 />
               </Grid>
               <Grid item xs={12}>
-                <TextField
-                  label={t('LIBRARY_PROFILE_TWITTER_LINK')}
-                  variant="outlined"
+                <TextFieldWithValidation
+                  Icon={TwitterIcon}
+                  label={t('PUBLIC_PROFILE_TWITTER_LINK')}
                   onChange={onInputChange}
-                  type="text"
-                  margin="dense"
-                  fullWidth
                   name="twitterLink"
                   value={profileData.twitterLink}
                   helperText={
                     dirtyFields.twitterLink &&
                     !isValidUrl(profileData.twitterLink) &&
-                    t('LIBRARY_PROFILE_TWITTER_LINK_ERROR_MSG')
+                    t('PUBLIC_PROFILE_TWITTER_LINK_ERROR_MSG')
                   }
-                  error={
+                  isError={
                     dirtyFields.twitterLink &&
                     !isValidUrl(profileData.twitterLink)
                   }
-                  InputProps={{
-                    startAdornment: (
-                      <InputAdornment position="start">
-                        <IconButton
-                          aria-label="toggle password visibility"
-                          edge="end"
-                        >
-                          <TwitterIcon />
-                        </IconButton>
-                      </InputAdornment>
-                    ),
-                  }}
                 />
               </Grid>
               <Grid item xs={12}>
-                <TextField
-                  label={t('LIBRARY_PROFILE_FACEBOOK_LINK')}
-                  variant="outlined"
+                <TextFieldWithValidation
+                  name="facebook"
+                  label={t('PUBLIC_PROFILE_FACEBOOK_LINK')}
                   onChange={onInputChange}
-                  type="text"
-                  margin="dense"
-                  fullWidth
-                  name="facebookLink"
-                  value={profileData.facebookLink}
+                  Icon={FacebookIcon}
                   helperText={
                     dirtyFields.facebookLink &&
                     !isValidUrl(profileData.facebookLink) &&
-                    t('LIBRARY_PROFILE_FACEBOOK_LINK_ERROR_MSG')
+                    t('PUBLIC_PROFILE_FACEBOOK_LINK_ERROR_MSG')
                   }
-                  error={
+                  isError={
                     dirtyFields.facebookLink &&
                     !isValidUrl(profileData.facebookLink)
                   }
-                  InputProps={{
-                    startAdornment: (
-                      <InputAdornment position="start">
-                        <IconButton
-                          aria-label="toggle password visibility"
-                          edge="end"
-                        >
-                          <FacebookIcon />
-                        </IconButton>
-                      </InputAdornment>
-                    ),
-                  }}
+                  value={profileData.facebookLink}
                 />
               </Grid>
               <Grid item xs={12}>
                 <FormControlLabel
                   control={
                     <Checkbox
-                      value="allowExtraEmails"
                       color="primary"
                       name="visibility"
                       checked={profileData.visibility}
                       onChange={onInputChange}
                     />
                   }
-                  label={t('LIBRARY_PROFILE_VISIBILITY')}
+                  label={t('PUBLIC_PROFILE_VISIBILITY')}
                 />
               </Grid>
 
@@ -310,7 +257,7 @@ const LibraryProfileScreen = (): JSX.Element => {
                   }
                   loading={isAddLoading || isEditLoading}
                 >
-                  {t('LIBRARY_PROFILE_SUBMIT_TEXT')}
+                  {t('PUBLIC_PROFILE_SUBMIT_TEXT')}
                 </LoadingButton>
               </Grid>
             </Grid>

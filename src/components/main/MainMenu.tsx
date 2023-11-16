@@ -16,8 +16,8 @@ import { useAccountTranslation } from '../../config/i18n';
 import {
   AVATAR_SETTINGS_PATH,
   HOME_PATH,
-  LIBRARY_PROFILE_PATH,
   PASSWORD_SETTINGS_PATH,
+  PUBLIC_PROFILE_PATH,
   STORAGE_PATH,
 } from '../../config/paths';
 
@@ -73,14 +73,14 @@ const MainMenu = (): JSX.Element => {
         <ListItemText primary={t('MAIN_MENU_STOCKAGE')} />
       </ListItemButton>
       <ListItemButton
-        onClick={() => goTo(LIBRARY_PROFILE_PATH)}
-        selected={pathname === LIBRARY_PROFILE_PATH}
+        onClick={() => goTo(PUBLIC_PROFILE_PATH)}
+        selected={pathname === PUBLIC_PROFILE_PATH}
       >
         <ListItemIcon>
           <ProfileIcon />
         </ListItemIcon>
 
-        <ListItemText primary={t('MAIN_MENU_LIBRARY_PROFILE')} />
+        <ListItemText primary={t('MAIN_MENU_PUBLIC_PROFILE')} />
       </ListItemButton>
       {/* <ListItemButton
         button

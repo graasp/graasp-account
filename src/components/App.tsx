@@ -10,8 +10,8 @@ import { GRAASP_AUTH_HOST } from '../config/constants';
 import {
   AVATAR_SETTINGS_PATH,
   HOME_PATH,
-  LIBRARY_PROFILE_PATH,
   PASSWORD_SETTINGS_PATH,
+  PUBLIC_PROFILE_PATH,
   STORAGE_PATH,
 } from '../config/paths';
 import { hooks } from '../config/queryClient';
@@ -79,7 +79,7 @@ export const App = (): JSX.Element => {
               element={<AvatarSettingsWithAutorization />}
             />
             <Route
-              path={LIBRARY_PROFILE_PATH}
+              path={PUBLIC_PROFILE_PATH}
               element={<LibraryProfileWithAutorization />}
             />
             <Route path={STORAGE_PATH} element={<StockageWithAutorization />} />

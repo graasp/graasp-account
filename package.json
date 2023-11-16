@@ -34,7 +34,6 @@
     "connected-react-router": "6.9.3",
     "filesize": "^10.0.12",
     "http-status-codes": "2.3.0",
-    "i18next": "^23.6.0",
     "immutable": "4.3.4",
     "lodash.truncate": "4.4.2",
     "node-fetch": "2.7.0",
@@ -125,6 +124,9 @@
     "vite": "4.5.0",
     "vite-plugin-checker": "0.6.2",
     "vite-plugin-istanbul": "5.0.0"
+  },
+  "resolutions": {
+    "react-i18next": "^13.3.1"
   },
   "packageManager": "yarn@4.0.1"
 }
