@@ -79,7 +79,7 @@ const StockageScreen = (): JSX.Element => {
               {/* { */}
               <Trans
                 t={t}
-                i18nKey="STORAGE_INFO"
+                i18nKey="STORAGE_TEXT"
                 values={{
                   email: ADMIN_CONTACT,
                 }}
@@ -90,7 +90,7 @@ const StockageScreen = (): JSX.Element => {
             </Typography>
 
             <Alert severity="info" sx={{ mt: 2, mb: 1 }}>
-              {t('STOCKAGE_INFO')}
+              {t('STORAGE_INFO')}
             </Alert>
           </Stack>
         </Stack>

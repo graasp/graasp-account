@@ -1,6 +1,8 @@
 {
-  "STORAGE_INFO": "Graasp provides a limited free storage for its users. In a near future, user plans will be available to unlock more data storage. If you are interested, let us know by contacting <0>{{email}}</0>.",
   "STORAGE_TITLE": "Storage",
+  "STORAGE_TEXT": "Graasp provides a limited free storage for its users. In a near future, user plans will be available to unlock more data storage. If you are interested, let us know by contacting <0>{{email}}</0>.",
+  "STORAGE_INFO": "Storage takes into account all uploaded files such as PDF, images, videos, audio, etc. Folders, apps and Graasp documents are not included.",
+
   "CROP_IMAGE_MODAL_CONTENT_TEXT": "Crop your chosen image to fit the image size requirements.",
   "CROP_IMAGE_MODAL_TITLE": "Crop Image",
   "CONFIRM_BUTTON": "Confirm",
@@ -38,7 +40,5 @@
   "PASSWORD_SETTINGS_CONFIRM_BUTTON": "Update password",
 
   "PASSWORD_SETTINGS_CONFIRM_INFORMATION": "Make sure it is at least 8 characters including a number, a lowercase letter and an uppercase letter.",
-  "PASSWORD_SETTINGS_REQUEST_RESET_BUTTON": "Request a reset",
-
-  "STOCKAGE_INFO": "Storage takes into account all uploaded files such as PDF, images, videos, audio, etc. Folders, apps and Graasp documents are not included."
+  "PASSWORD_SETTINGS_REQUEST_RESET_BUTTON": "Request a reset"
 }
