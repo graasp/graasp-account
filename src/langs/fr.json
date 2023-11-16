@@ -1,13 +1,16 @@
 {
-  "STORAGE_INFO": "Graasp offre un stockage gratuit limité à ces utilisateurs.Dans un futur proche, des abonnements seront disponibles pour débloquer plus de stockage. En cas d'intérêt, contactez-nous sur notre adresse <0>{{email}}</0>.",
   "STORAGE_TITLE": "Stockage",
+  "STORAGE_TEXT": "Graasp offre un stockage gratuit limité à ces utilisateurs.Dans un futur proche, des abonnements seront disponibles pour débloquer plus de stockage. En cas d'intérêt, contactez-nous sur notre adresse <0>{{email}}</0>.",
+  "STORAGE_INFO": "Le stockage comprend tous les fichiers téléversés comme des fichiers PDF, images, vidéos, audio, etc. Les dossiers, applications et les  documents Graasp ne sont pas inclus.",
+
   "CROP_IMAGE_MODAL_CONTENT_TEXT": "Couper l'image choisie pour correspondre aux critères de taille d'image.",
   "CROP_IMAGE_MODAL_TITLE": "Couper l'Image",
+
   "CONFIRM_BUTTON": "Confirmer",
   "MAIN_MENU_PROFILE": "Profil",
   "MAIN_MENU_AVATAR": "Avatar",
   "MAIN_MENU_PASSWORD": "Mot de Passe",
-  "MAIN_MENU_STOCKAGE": "Stockage",
+  "MAIN_MENU_STORAGE": "Stockage",
   "SAVE_ACTIONS_TOGGLE_TOOLTIP": "Prochainement !",
 
   "PROFILE_TITLE": "Profil",
@@ -34,6 +37,5 @@
   "PASSWORD_SETTINGS_NEW_CONFIRM_LABEL": "Confirmer le mot de passe",
   "PASSWORD_SETTINGS_CONFIRM_BUTTON": "Changer le mot de passe",
   "PASSWORD_SETTINGS_CONFIRM_INFORMATION": "Le mot de passe doit au moins contenir 8 caractères dont un chiffre, une lettre minuscule et une lettre majuscule.",
-  "PASSWORD_SETTINGS_REQUEST_RESET_BUTTON": "Réinitialiser le mot de passe",
-  "STOCKAGE_INFO": "Le stockage comprend tous les fichiers téléversés comme des fichiers PDF, images, vidéos, audio, etc. Les dossiers, applications et les  documents Graasp ne sont pas inclus."
+  "PASSWORD_SETTINGS_REQUEST_RESET_BUTTON": "Réinitialiser le mot de passe"
 }
