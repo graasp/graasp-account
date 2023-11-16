@@ -1,5 +1,14 @@
 # Changelog
 
+## [2.0.1](https://github.com/graasp/graasp-account/compare/v2.0.0...v2.0.1) (2023-11-16)
+
+
+### Bug Fixes
+
+* **trans:** storage translations ([#48](https://github.com/graasp/graasp-account/issues/48)) ([a6d6ba8](https://github.com/graasp/graasp-account/commit/a6d6ba87604a18bda05a01385616b0646c4d1e56))
+* update message and redirect to auth ([#46](https://github.com/graasp/graasp-account/issues/46)) ([2c8d3ef](https://github.com/graasp/graasp-account/commit/2c8d3ef50087e6b91133f841071818c72118a3a4))
+* use yarn 4, notify on password change ([#40](https://github.com/graasp/graasp-account/issues/40)) ([7fdde36](https://github.com/graasp/graasp-account/commit/7fdde36af4ec6aa44989a4062b1663628c62c037))
+
 ## [2.0.0](https://github.com/graasp/graasp-account/compare/v1.0.0...v2.0.0) (2023-11-03)
 
 
