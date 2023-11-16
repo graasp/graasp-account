@@ -68,7 +68,7 @@ const MainMenu = (): JSX.Element => {
           <DataUsageIcon />
         </ListItemIcon>
 
-        <ListItemText primary={t('MAIN_MENU_STOCKAGE')} />
+        <ListItemText primary={t('MAIN_MENU_STORAGE')} />
       </ListItemButton>
       {/* <ListItemButton
         button
