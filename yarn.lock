@@ -8256,7 +8256,7 @@ __metadata:
     react: "npm:18.2.0"
     react-dom: "npm:18.2.0"
     react-i18next: "npm:^13.3.1"
-    react-image-crop: "npm:9.1.1"
+    react-image-crop: "npm:10.1.8"
     react-router: "npm:6.16.0"
     react-router-dom: "npm:6.16.0"
     react-toastify: "npm:9.1.3"
@@ -11131,14 +11131,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"react-image-crop@npm:9.1.1":
-  version: 9.1.1
-  resolution: "react-image-crop@npm:9.1.1"
-  dependencies:
-    clsx: "npm:^1.1.1"
+"react-image-crop@npm:10.1.8":
+  version: 10.1.8
+  resolution: "react-image-crop@npm:10.1.8"
   peerDependencies:
     react: ">=16.13.1"
-  checksum: 806d809f965f111e3e792d99d316b2786f9d90113a6abcfc5b20f6156d669dbd194970eece39a6a490b42330e1b05f25bc4215ece7d41187d57e9eecaecebd99
+  checksum: aa76a8fdaf8b3d733bbd208522fa63f0796bac5c1ec6fc63f0088288b4d98e0ec6c3506e143e2e068ecbee8de813a394397a4d282b19a26f29cab7b54a128b91
   languageName: node
   linkType: hard
 
