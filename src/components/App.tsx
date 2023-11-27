@@ -17,9 +17,9 @@ import {
 import { hooks } from '../config/queryClient';
 import MainProviders from './context/MainProviders';
 import AvatarSettings from './main/AvatarSettings';
-import LibraryProfileScreen from './main/LibraryProfileScreen';
 import MemberProfileScreen from './main/MemberProfileScreen';
 import PasswordSettings from './main/PasswordSettings';
+import PublicProfileScreen from './main/PublicProfileScreen';
 import StockageScreen from './main/StockageScreen';
 
 export const App = (): JSX.Element => {
@@ -56,8 +56,8 @@ export const App = (): JSX.Element => {
     StockageScreen,
     withAuthorizationProps,
   );
-  const LibraryProfileWithAutorization = withAuthorization(
-    LibraryProfileScreen,
+  const PublicProfileWithAutorization = withAuthorization(
+    PublicProfileScreen,
     withAuthorizationProps,
   );
 
@@ -80,7 +80,7 @@ export const App = (): JSX.Element => {
             />
             <Route
               path={PUBLIC_PROFILE_PATH}
-              element={<LibraryProfileWithAutorization />}
+              element={<PublicProfileWithAutorization />}
             />
             <Route path={STORAGE_PATH} element={<StockageWithAutorization />} />
 

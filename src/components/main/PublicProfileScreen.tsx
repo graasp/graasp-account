@@ -50,7 +50,7 @@ const initialDirtyFieldsState = {
   facebookLink: false,
   visibility: false,
 };
-const LibraryProfileScreen = (): JSX.Element => {
+const PublicProfileScreen = (): JSX.Element => {
   const { t } = useAccountTranslation();
 
   const { data, refetch } = hooks.useOwnProfile();
@@ -58,12 +58,12 @@ const LibraryProfileScreen = (): JSX.Element => {
     mutate: postProfile,
     isLoading: isAddLoading,
     isSuccess,
-  } = mutations.usePostProfile();
+  } = mutations.usePostPublicProfile();
   const {
     mutate: patchProfile,
     isLoading: isEditLoading,
     isSuccess: isEditSuccess,
-  } = mutations.usePatchProfile();
+  } = mutations.usePatchPublicProfile();
 
   const [profileData, setProfileData] = useState({
     bio: '',
@@ -268,4 +268,4 @@ const LibraryProfileScreen = (): JSX.Element => {
   );
 };
 
-export default LibraryProfileScreen;
+export default PublicProfileScreen;

@@ -14,8 +14,8 @@ import {
 const {
   changePlanRoutine,
   updatePasswordRoutine,
-  postProfileRoutine,
-  patchProfileRoutine,
+  postPublicProfileRoutine,
+  patchPublicProfileRoutine,
 } = routines;
 
 type ErrorPayload = Parameters<Notifier>[0]['payload'] & {
@@ -68,11 +68,11 @@ export default ({
       message = getSuccessMessageFromPayload(payload);
       break;
     }
-    case postProfileRoutine.SUCCESS: {
+    case postPublicProfileRoutine.SUCCESS: {
       message = getSuccessMessageFromPayload(payload);
       break;
     }
-    case patchProfileRoutine.SUCCESS: {
+    case patchPublicProfileRoutine.SUCCESS: {
       message = getSuccessMessageFromPayload(payload);
       break;
     }
