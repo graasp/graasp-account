@@ -2231,7 +2231,7 @@ __metadata:
 
 "@graasp/query-client@https://github.com/graasp/graasp-query-client.git#510-library-profile-mutations":
   version: 2.0.1
-  resolution: "@graasp/query-client@https://github.com/graasp/graasp-query-client.git#commit=1328fc71d2d89c9c226ca2767771345c493ca550"
+  resolution: "@graasp/query-client@https://github.com/graasp/graasp-query-client.git#commit=abbfebe3901acc588e9b1113451f1f4dd06fccc7"
   dependencies:
     "@graasp/sdk": "npm:2.0.0"
     "@graasp/translations": "npm:1.19.4"
@@ -2243,7 +2243,7 @@ __metadata:
     uuid: "npm:9.0.1"
   peerDependencies:
     react: ^17.0.0 || ^18.0.0
-  checksum: 66ac31f0111a83bfd244e61ce2c804ca2f59eeed207fddcace9e90306298058670b81da675de9b78f6d1ccf3a3e3d46a0b1d0fd326f6180225cf751cd210a040
+  checksum: 6af92f12d290e0fb5c1d6a57cccea1dc998c0bd372d6fae3c23b6a4377b3bcde74ab70b6685a38431987d8fefd05d527f1cea07330b086b60afbe1ba87974ddb
   languageName: node
   linkType: hard
 

@@ -47,12 +47,12 @@
 
   "PUBLIC_PROFILE_TITLE": "Public Profile Setting",
   "PUBLIC_PROFILE_DESCRIPTION": "Personalize your public profile to let other users interested in your work know a bit more about you. You can make it private anytime.",
-  "PUBLIC_PROFILE_LINKEDIN_LINK": "LinkedIn Link",
+  "PUBLIC_PROFILE_LINKEDIN_LINK": "LinkedIn ID",
   "PUBLIC_PROFILE_LINKEDIN_LINK_ERROR_MSG": "LinkedIn Link is not a valid url",
-  "PUBLIC_PROFILE_TWITTER_LINK": "Twitter Link",
+  "PUBLIC_PROFILE_TWITTER_LINK": "Twitter ID",
   "PUBLIC_PROFILE_TWITTER_LINK_ERROR_MSG": "Twitter Link is not a valid url",
 
-  "PUBLIC_PROFILE_FACEBOOK_LINK": "Facebook Link",
+  "PUBLIC_PROFILE_FACEBOOK_LINK": "Facebook ID",
   "PUBLIC_PROFILE_FACEBOOK_LINK_ERROR_MSG": "facebook Link is not a valid url",
 
   "PUBLIC_PROFILE_BIO": "Bio",

@@ -45,9 +45,9 @@ const isValidUrl = (urlString: string) => {
 
 const initialDirtyFieldsState = {
   bio: false,
-  linkedinLink: false,
-  twitterLink: false,
-  facebookLink: false,
+  linkedinID: false,
+  twitterID: false,
+  facebookID: false,
   visibility: false,
 };
 const PublicProfileScreen = (): JSX.Element => {
@@ -67,30 +67,30 @@ const PublicProfileScreen = (): JSX.Element => {
 
   const [profileData, setProfileData] = useState({
     bio: '',
-    linkedinLink: '',
-    twitterLink: '',
-    facebookLink: '',
+    linkedinID: '',
+    twitterID: '',
+    facebookID: '',
     visibility: false,
   });
   const [dirtyFields, setDirtyFields] = useState(initialDirtyFieldsState);
 
   const saveSettings = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    const { facebookLink, linkedinLink, twitterLink } = profileData;
-    const fbProfile = socialLinks.detectProfile(facebookLink);
-    const linkedinProfile = socialLinks.detectProfile(linkedinLink);
-    const twitterProfile = socialLinks.detectProfile(twitterLink);
+    const { facebookID, linkedinID, twitterID } = profileData;
+    const fbProfile = socialLinks.detectProfile(facebookID);
+    const linkedinProfile = socialLinks.detectProfile(linkedinID);
+    const twitterProfile = socialLinks.detectProfile(twitterID);
 
     const body = {
       ...profileData,
-      facebookLink: facebookLink
-        ? socialLinks.getProfileId(fbProfile, facebookLink)
+      facebookID: facebookID
+        ? socialLinks.getProfileId(fbProfile, facebookID)
         : '',
-      twitterLink: twitterLink
-        ? socialLinks.getProfileId(twitterProfile, twitterLink)
+      twitterID: twitterID
+        ? socialLinks.getProfileId(twitterProfile, twitterID)
         : '',
-      linkedinLink: linkedinLink
-        ? socialLinks.getProfileId(linkedinProfile, linkedinLink)
+      linkedinID: linkedinID
+        ? socialLinks.getProfileId(linkedinProfile, linkedinID)
         : '',
     };
     if (data) {
@@ -115,14 +115,14 @@ const PublicProfileScreen = (): JSX.Element => {
   useEffect(() => {
     setProfileData({
       bio: data?.bio || '',
-      linkedinLink: data?.linkedinLink
-        ? socialLinks.sanitize(LINKEDIN_DOMAIN, data?.linkedinLink)
+      linkedinID: data?.linkedinID
+        ? socialLinks.sanitize(LINKEDIN_DOMAIN, data?.linkedinID)
         : '',
-      twitterLink: data?.twitterLink
-        ? socialLinks.sanitize(TWITTER_DOMAIN, data?.twitterLink)
+      twitterID: data?.twitterID
+        ? socialLinks.sanitize(TWITTER_DOMAIN, data?.twitterID)
         : '',
-      facebookLink: data?.facebookLink
-        ? socialLinks.sanitize(FACEBOOK_DOMAIN, data?.facebookLink)
+      facebookID: data?.facebookID
+        ? socialLinks.sanitize(FACEBOOK_DOMAIN, data?.facebookID)
         : '',
       visibility: data?.visibility || false,
     });
@@ -177,16 +177,16 @@ const PublicProfileScreen = (): JSX.Element => {
               <Grid item xs={12}>
                 <TextFieldWithValidation
                   Icon={LinkedInIcon}
-                  name="linkedinLink"
-                  value={profileData.linkedinLink}
+                  name="linkedinID"
+                  value={profileData.linkedinID}
                   helperText={
-                    dirtyFields.linkedinLink &&
-                    !isValidUrl(profileData.linkedinLink) &&
+                    dirtyFields.linkedinID &&
+                    !isValidUrl(profileData.linkedinID) &&
                     t('PUBLIC_PROFILE_LINKEDIN_LINK_ERROR_MSG')
                   }
                   isError={
-                    dirtyFields.linkedinLink &&
-                    !isValidUrl(profileData.linkedinLink)
+                    dirtyFields.linkedinID &&
+                    !isValidUrl(profileData.linkedinID)
                   }
                   label={t('PUBLIC_PROFILE_LINKEDIN_LINK')}
                   onChange={onInputChange}
@@ -197,35 +197,35 @@ const PublicProfileScreen = (): JSX.Element => {
                   Icon={TwitterIcon}
                   label={t('PUBLIC_PROFILE_TWITTER_LINK')}
                   onChange={onInputChange}
-                  name="twitterLink"
-                  value={profileData.twitterLink}
+                  name="twitterID"
+                  value={profileData.twitterID}
                   helperText={
-                    dirtyFields.twitterLink &&
-                    !isValidUrl(profileData.twitterLink) &&
+                    dirtyFields.twitterID &&
+                    !isValidUrl(profileData.twitterID) &&
                     t('PUBLIC_PROFILE_TWITTER_LINK_ERROR_MSG')
                   }
                   isError={
-                    dirtyFields.twitterLink &&
-                    !isValidUrl(profileData.twitterLink)
+                    dirtyFields.twitterID &&
+                    !isValidUrl(profileData.twitterID)
                   }
                 />
               </Grid>
               <Grid item xs={12}>
                 <TextFieldWithValidation
-                  name="facebook"
+                  name="facebookID"
                   label={t('PUBLIC_PROFILE_FACEBOOK_LINK')}
                   onChange={onInputChange}
                   Icon={FacebookIcon}
                   helperText={
-                    dirtyFields.facebookLink &&
-                    !isValidUrl(profileData.facebookLink) &&
+                    dirtyFields.facebookID &&
+                    !isValidUrl(profileData.facebookID) &&
                     t('PUBLIC_PROFILE_FACEBOOK_LINK_ERROR_MSG')
                   }
                   isError={
-                    dirtyFields.facebookLink &&
-                    !isValidUrl(profileData.facebookLink)
+                    dirtyFields.facebookID &&
+                    !isValidUrl(profileData.facebookID)
                   }
-                  value={profileData.facebookLink}
+                  value={profileData.facebookID}
                 />
               </Grid>
               <Grid item xs={12}>
@@ -251,9 +251,9 @@ const PublicProfileScreen = (): JSX.Element => {
                   disabled={
                     !formChanged ||
                     !profileData.bio.trim() ||
-                    !isValidUrl(profileData.facebookLink) ||
-                    !isValidUrl(profileData.twitterLink) ||
-                    !isValidUrl(profileData.linkedinLink)
+                    !isValidUrl(profileData.facebookID) ||
+                    !isValidUrl(profileData.twitterID) ||
+                    !isValidUrl(profileData.linkedinID)
                   }
                   loading={isAddLoading || isEditLoading}
                 >
