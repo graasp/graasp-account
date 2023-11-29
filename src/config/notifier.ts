@@ -68,14 +68,12 @@ export default ({
       message = getSuccessMessageFromPayload(payload);
       break;
     }
-    case postPublicProfileRoutine.SUCCESS: {
-      message = getSuccessMessageFromPayload(payload);
-      break;
-    }
+    case postPublicProfileRoutine.SUCCESS:
     case patchPublicProfileRoutine.SUCCESS: {
       message = getSuccessMessageFromPayload(payload);
       break;
     }
+
     // progress messages
     case changePlanRoutine.SUCCESS: {
       message = CHANGE_PLAN_SUCCESS_MESSAGE;

@@ -125,8 +125,5 @@
     "vite-plugin-checker": "0.6.2",
     "vite-plugin-istanbul": "5.0.0"
   },
-  "resolutions": {
-    "react-i18next": "^13.3.1"
-  },
   "packageManager": "yarn@4.0.1"
 }

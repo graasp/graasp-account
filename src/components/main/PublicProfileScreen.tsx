@@ -151,7 +151,7 @@ const PublicProfileScreen = (): JSX.Element => {
               {t('PUBLIC_PROFILE_DESCRIPTION')}
             </Typography>
             {data && (
-              <a href={`${GRAASP_LIBRARY_HOST}/members/${data?.member?.id}`}>
+              <a href={`${GRAASP_LIBRARY_HOST}/members/${data.member?.id}`}>
                 {t('PUBLIC_PROFILE_CHECK_TEXT')}
               </a>
             )}
@@ -205,8 +205,7 @@ const PublicProfileScreen = (): JSX.Element => {
                     t('PUBLIC_PROFILE_TWITTER_LINK_ERROR_MSG')
                   }
                   isError={
-                    dirtyFields.twitterID &&
-                    !isValidUrl(profileData.twitterID)
+                    dirtyFields.twitterID && !isValidUrl(profileData.twitterID)
                   }
                 />
               </Grid>
