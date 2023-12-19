@@ -1,5 +1,12 @@
 # Changelog
 
+## [2.0.2](https://github.com/graasp/graasp-account/compare/v2.0.1...v2.0.2) (2023-11-24)
+
+
+### Bug Fixes
+
+* update workflow vars in prod ([f1aa0bc](https://github.com/graasp/graasp-account/commit/f1aa0bc608b3d791f4b26d8384237592c8c0941e))
+
 ## [2.0.1](https://github.com/graasp/graasp-account/compare/v2.0.0...v2.0.1) (2023-11-16)
 
 
