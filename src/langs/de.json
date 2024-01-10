@@ -2,16 +2,15 @@
   "STORAGE_TITLE": "Speicher",
   "STORAGE_TEXT": "Graasp bietet seinen Nutzern einen begrenzten kostenlosen Speicherplatz. In naher Zukunft werden Benutzerpläne verfügbar sein, um mehr Datenspeicher freizuschalten. Wenn Sie daran interessiert sind, lassen Sie es uns wissen, indem Sie <0>{{email}}</0> kontaktieren.",
   "STORAGE_INFO": "Der Speicherplatz zählt alle hochgeladenen Dateien wie PDF, Bilder, Videos, Audio usw. Ordner, Apps und Graasp-Dokumente werden nicht gezählt.",
-
   "CROP_IMAGE_MODAL_CONTENT_TEXT": "Schneiden Sie das ausgewählte Bild auf die erforderliche Größe zu.",
   "CROP_IMAGE_MODAL_TITLE": "Bild beschneiden",
   "CONFIRM_BUTTON": "Bestätigen",
   "MAIN_MENU_PROFILE": "Profil",
   "MAIN_MENU_AVATAR": "Avatar",
   "MAIN_MENU_PASSWORD": "Passwort",
+  "MAIN_MENU_PUBLIC_PROFILE": "Öffentliches Profil",
   "MAIN_MENU_STORAGE": "Speicher",
   "SAVE_ACTIONS_TOGGLE_TOOLTIP": "Demnächst verfügbar!",
-
   "PROFILE_TITLE": "Profil",
   "PROFILE_MEMBER_ID_TITLE": "Benützer ID",
   "PROFILE_LANGUAGE_TITLE": "Sprache",
@@ -23,22 +22,29 @@
   "PROFILE_DELETE_ACCOUNT_MODAL_INFORMATION": "Ihr Konto wird dauerhaft gelöscht.",
   "PROFILE_DELETE_ACCOUNT_MODAL_CONFIRM_BUTTON": "Dauerhaft löschen",
   "PROFILE_DELETE_ACCOUNT_MODAL_CANCEL_BUTTON": "Abbrechen",
-
   "PROFILE_DELETE_ACCOUNT_TITLE": "Konto löschen",
   "PROFILE_DELETE_ACCOUNT_BUTTON": "Konto löschen",
   "PROFILE_DELETE_ACCOUNT_INFORMATION": "Die Löschung eines Kontos ist unwiderruflich. Bitte seien Sie vorsichtig.",
-
   "PROFILE_AVATAR_TITLE": "Profil Bild",
   "PROFILE_AVATAR_INFORMATION": "Profil Bild aktualisieren",
   "PROFILE_AVATAR_CURRENT_ALT": "Profil Bild",
-
   "PASSWORD_SETTINGS_TITLE": "Passwort ändern",
   "PASSWORD_SETTINGS_CURRENT_LABEL": "Aktuelles Passwort",
   "PASSWORD_SETTINGS_CURRENT_INFORMATION": "Lassen Sie dieses Feld leer, wenn Sie noch kein Passwort festgelegt haben.",
   "PASSWORD_SETTINGS_NEW_LABEL": "Neues Passwort",
   "PASSWORD_SETTINGS_NEW_CONFIRM_LABEL": "Passwort bestätigen",
   "PASSWORD_SETTINGS_CONFIRM_BUTTON": "Password ändern",
-
   "PASSWORD_SETTINGS_CONFIRM_INFORMATION": "Er muss aus mindestens 8 Zeichen bestehen, darunter eine Zahl, ein Kleinbuchstabe und ein Großbuchstabe.",
-  "PASSWORD_SETTINGS_REQUEST_RESET_BUTTON": "Reset anfordern"
+  "PASSWORD_SETTINGS_REQUEST_RESET_BUTTON": "Reset anfordern",
+  "STOCKAGE_INFO": "Bei der Speicherung werden alle hochgeladenen Dateien wie PDF, Bilder, Videos, Audio usw. berücksichtigt. Ordner, Apps und Graasp-Dokumente sind nicht enthalten.",
+  "PUBLIC_PROFILE_TITLE": "Öffentliche Profileinstellung",
+  "PUBLIC_PROFILE_DESCRIPTION": "Personalisieren Sie Ihr öffentliches Profil, damit andere an Ihrer Arbeit interessierte Benutzer etwas mehr über Sie erfahren. Sie können es jederzeit privat machen.",
+  "PUBLIC_PROFILE_LINKEDIN_LINK": "LinkedIn-ID",
+  "PUBLIC_PROFILE_LINKEDIN_LINK_ERROR_MSG": "Der LinkedIn-Link ist keine gültige URL",
+  "PUBLIC_PROFILE_TWITTER_LINK": "Twitter-ID",
+  "PUBLIC_PROFILE_TWITTER_LINK_ERROR_MSG": "Der Twitter-Link ist keine gültige URL",
+  "PUBLIC_PROFILE_FACEBOOK_LINK": "Facebook id",
+  "PUBLIC_PROFILE_FACEBOOK_LINK_ERROR_MSG": "Der Facebook-Link ist keine gültige URL",
+  "PUBLIC_PROFILE_BIO_ERROR_MSG": "Bio ist ein Pflichtfeld",
+  "PUBLIC_PROFILE_SUBMIT_TEXT": "Änderungen speichern"
 }
