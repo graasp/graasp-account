@@ -45,6 +45,9 @@
   "PUBLIC_PROFILE_TWITTER_LINK_ERROR_MSG": "Der Twitter-Link ist keine gültige URL",
   "PUBLIC_PROFILE_FACEBOOK_LINK": "Facebook id",
   "PUBLIC_PROFILE_FACEBOOK_LINK_ERROR_MSG": "Der Facebook-Link ist keine gültige URL",
+  "PUBLIC_PROFILE_BIO": "Biografie",
   "PUBLIC_PROFILE_BIO_ERROR_MSG": "Bio ist ein Pflichtfeld",
-  "PUBLIC_PROFILE_SUBMIT_TEXT": "Änderungen speichern"
+  "PUBLIC_PROFILE_VISIBILITY": "Profil öffentlich machen",
+  "PUBLIC_PROFILE_SUBMIT_TEXT": "Änderungen speichern",
+  "PUBLIC_PROFILE_CHECK_TEXT": "Zum Profil"
 }
