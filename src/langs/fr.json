@@ -37,10 +37,17 @@
   "PASSWORD_SETTINGS_CONFIRM_INFORMATION": "Le mot de passe doit au moins contenir 8 caractères dont un chiffre, une lettre minuscule et une lettre majuscule.",
   "PASSWORD_SETTINGS_REQUEST_RESET_BUTTON": "Réinitialiser le mot de passe",
   "STOCKAGE_INFO": "Le stockage prend en compte tous les fichiers téléchargés tels que les PDF, les images, les vidéos, l'audio, etc. Les dossiers, applications et documents Graasp ne sont pas inclus.",
+  "PUBLIC_PROFILE_TITLE": "Profil public",
   "PUBLIC_PROFILE_DESCRIPTION": "Personnalisez votre profil public pour permettre aux autres utilisateurs intéressés par votre travail d'en savoir un peu plus sur vous. Vous pouvez le rendre privé à tout moment.",
   "PUBLIC_PROFILE_LINKEDIN_LINK": "Identifiant LinkedIn",
+  "PUBLIC_PROFILE_LINKEDIN_LINK_ERROR_MSG": "Le lien LinkedIn n'est pas valide",
   "PUBLIC_PROFILE_TWITTER_LINK": "Identifiant Twitter",
+  "PUBLIC_PROFILE_TWITTER_LINK_ERROR_MSG": "Le lien Twitter n'est pas valide",
+  "PUBLIC_PROFILE_FACEBOOK_LINK": "Identifiant Facebook",
+  "PUBLIC_PROFILE_FACEBOOK_LINK_ERROR_MSG": "Le lien Facebook n'est pas valide",
   "PUBLIC_PROFILE_BIO": "Biographie",
+  "PUBLIC_PROFILE_BIO_ERROR_MSG": "Biographie est un champ obligatoire",
   "PUBLIC_PROFILE_VISIBILITY": "Rendre ce profil public",
-  "PUBLIC_PROFILE_SUBMIT_TEXT": "Sauvegarder les modifications"
+  "PUBLIC_PROFILE_SUBMIT_TEXT": "Sauvegarder les modifications",
+  "PUBLIC_PROFILE_CHECK_TEXT": "Voir le profil"
 }
