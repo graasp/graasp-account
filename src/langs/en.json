@@ -2,7 +2,6 @@
   "STORAGE_TITLE": "Storage",
   "STORAGE_TEXT": "Graasp provides a limited free storage for its users. In a near future, user plans will be available to unlock more data storage. If you are interested, let us know by contacting <0>{{email}}</0>.",
   "STORAGE_INFO": "Storage takes into account all uploaded files such as PDF, images, videos, audio, etc. Folders, apps and Graasp documents are not included.",
-
   "CROP_IMAGE_MODAL_CONTENT_TEXT": "Crop your chosen image to fit the image size requirements.",
   "CROP_IMAGE_MODAL_TITLE": "Crop Image",
   "CONFIRM_BUTTON": "Confirm",
@@ -12,7 +11,6 @@
   "MAIN_MENU_PUBLIC_PROFILE": "Public Profile",
   "MAIN_MENU_STORAGE": "Storage",
   "SAVE_ACTIONS_TOGGLE_TOOLTIP": "Coming soon!",
-
   "PROFILE_TITLE": "Profile",
   "PROFILE_MEMBER_ID_TITLE": "Member ID",
   "PROFILE_LANGUAGE_TITLE": "Language",
@@ -24,41 +22,34 @@
   "PROFILE_DELETE_ACCOUNT_MODAL_INFORMATION": "Your account will be deleted permanently.",
   "PROFILE_DELETE_ACCOUNT_MODAL_CONFIRM_BUTTON": "Delete Permanently",
   "PROFILE_DELETE_ACCOUNT_MODAL_CANCEL_BUTTON": "Cancel",
-
   "PROFILE_DELETE_ACCOUNT_TITLE": "Delete my account",
   "PROFILE_DELETE_ACCOUNT_BUTTON": "Delete Account",
   "PROFILE_DELETE_ACCOUNT_INFORMATION": "Once you delete an account, there is no going back. Please be certain.",
-
   "PROFILE_AVATAR_TITLE": "Profile Picture",
   "PROFILE_AVATAR_INFORMATION": "Update Profile picture",
   "PROFILE_AVATAR_CURRENT_ALT": "Profile Picture",
-
   "PASSWORD_SETTINGS_TITLE": "Change Password",
   "PASSWORD_SETTINGS_CURRENT_LABEL": "Current Password",
   "PASSWORD_SETTINGS_CURRENT_INFORMATION": "Leave this field empty if you do not already have a password set.",
   "PASSWORD_SETTINGS_NEW_LABEL": "New Password",
   "PASSWORD_SETTINGS_NEW_CONFIRM_LABEL": "Confirm Password",
   "PASSWORD_SETTINGS_CONFIRM_BUTTON": "Update password",
-
   "PASSWORD_SETTINGS_CONFIRM_INFORMATION": "Make sure it is at least 8 characters including a number, a lowercase letter and an uppercase letter.",
   "PASSWORD_SETTINGS_REQUEST_RESET_BUTTON": "Request a reset",
-
   "STOCKAGE_INFO": "Storage takes into account all uploaded files such as PDF, images, videos, audio, etc. Folders, apps and Graasp documents are not included.",
-
   "PUBLIC_PROFILE_TITLE": "Public Profile Setting",
   "PUBLIC_PROFILE_DESCRIPTION": "Personalize your public profile to let other users interested in your work know a bit more about you. You can make it private anytime.",
   "PUBLIC_PROFILE_LINKEDIN_LINK": "LinkedIn ID",
   "PUBLIC_PROFILE_LINKEDIN_LINK_ERROR_MSG": "LinkedIn Link is not a valid url",
   "PUBLIC_PROFILE_TWITTER_LINK": "Twitter ID",
   "PUBLIC_PROFILE_TWITTER_LINK_ERROR_MSG": "Twitter Link is not a valid url",
-
   "PUBLIC_PROFILE_FACEBOOK_LINK": "Facebook ID",
   "PUBLIC_PROFILE_FACEBOOK_LINK_ERROR_MSG": "facebook Link is not a valid url",
-
   "PUBLIC_PROFILE_BIO": "Bio",
   "PUBLIC_PROFILE_BIO_ERROR_MSG": "Bio is a required field",
-
   "PUBLIC_PROFILE_VISIBILITY": "Make this profile public",
   "PUBLIC_PROFILE_SUBMIT_TEXT": "Save Changes",
-  "PUBLIC_PROFILE_CHECK_TEXT": "Check Profile"
+  "PUBLIC_PROFILE_CHECK_TEXT": "Check Profile",
+  "PATCH_PROFILE": "Public profile successfully updated",
+  "POST_PROFILE": "Public profile successfully created"
 }

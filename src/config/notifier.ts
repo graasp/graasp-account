@@ -43,7 +43,7 @@ const getErrorMessageFromPayload = (
 };
 
 const getSuccessMessageFromPayload = (payload?: SuccessPayload) =>
-  i18n.t(payload?.message ?? 'The operation successfully proceeded');
+  payload?.message ?? 'The operation successfully proceeded';
 
 export default ({
   type,
@@ -70,7 +70,9 @@ export default ({
     }
     case postPublicProfileRoutine.SUCCESS:
     case patchPublicProfileRoutine.SUCCESS: {
-      message = getSuccessMessageFromPayload(payload);
+      message = i18n.t(
+        payload?.message ?? 'The operation successfully proceeded',
+      );
       break;
     }
 
