@@ -1799,21 +1799,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@graasp/sdk@npm:2.0.1":
-  version: 2.0.1
-  resolution: "@graasp/sdk@npm:2.0.1"
-  dependencies:
-    "@aws-sdk/client-s3": "npm:3.441.0"
-    "@graasp/etherpad-api": "npm:2.1.1"
-    date-fns: "npm:2.30.0"
-    fastify: "npm:4.24.3"
-    js-cookie: "npm:3.0.5"
-    uuid: "npm:9.0.1"
-    validator: "npm:13.11.0"
-  checksum: e711ed58168715fb412dffa116c9813256e16a9c9185572fd6e1fab41878b5b600514b1cc50d0595ec54853811d0a9752a92ccebf8127744766441b33f502a72
-  languageName: node
-  linkType: hard
-
 "@graasp/sdk@npm:2.1.0":
   version: 2.1.0
   resolution: "@graasp/sdk@npm:2.1.0"
@@ -7037,7 +7022,7 @@ __metadata:
     "@emotion/react": "npm:11.11.3"
     "@emotion/styled": "npm:11.11.0"
     "@graasp/query-client": "npm:2.2.1"
-    "@graasp/sdk": "npm:2.0.1"
+    "@graasp/sdk": "npm:2.1.0"
     "@graasp/translations": "npm:1.19.4"
     "@graasp/ui": "npm:4.0.1"
     "@mui/icons-material": "npm:5.14.16"
