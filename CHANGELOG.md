@@ -1,5 +1,27 @@
 # Changelog
 
+## [2.1.0](https://github.com/graasp/graasp-account/compare/v2.0.2...v2.1.0) (2024-01-10)
+
+
+### Features
+
+* build library profile page (UI) ([#41](https://github.com/graasp/graasp-account/issues/41)) ([c51d8f4](https://github.com/graasp/graasp-account/commit/c51d8f47cd0caf8a66e40d88432f219c2a985b26))
+
+
+### Bug Fixes
+
+* add translations for notifier profile update and creation ([#65](https://github.com/graasp/graasp-account/issues/65)) ([3db33c0](https://github.com/graasp/graasp-account/commit/3db33c03409415067edad3bab3751c55a264bd31))
+* **ar:** update ([#62](https://github.com/graasp/graasp-account/issues/62)) ([2fa7a04](https://github.com/graasp/graasp-account/commit/2fa7a0415ad7bbd7c0bd3f9a7044405ad76362eb))
+* **deps:** update dependency @emotion/react to v11.11.3 ([#60](https://github.com/graasp/graasp-account/issues/60)) ([d00ffb0](https://github.com/graasp/graasp-account/commit/d00ffb01d65dbf40ab88686c85d8eab51156bce0))
+* **deps:** update dependency @graasp/query-client to v2.2.1 ([#61](https://github.com/graasp/graasp-account/issues/61)) ([080d486](https://github.com/graasp/graasp-account/commit/080d486a49c529ef9e143e2e50abfd1782c28284))
+* **deps:** update dependency @graasp/ui to v4.0.1 ([#51](https://github.com/graasp/graasp-account/issues/51)) ([566d382](https://github.com/graasp/graasp-account/commit/566d382e37dd3c653fc90b9a0072b79426c5c67a))
+* **de:** update ([#59](https://github.com/graasp/graasp-account/issues/59)) ([597fe95](https://github.com/graasp/graasp-account/commit/597fe95cc2c2674e0599cfdc26d8aca0b3e7618d))
+* **es:** add language ([#67](https://github.com/graasp/graasp-account/issues/67)) ([72683af](https://github.com/graasp/graasp-account/commit/72683af88ddcd3cf51ac4a8cedd30e6ca3f9c7aa))
+* **fr:** update ([#58](https://github.com/graasp/graasp-account/issues/58)) ([d3ff94c](https://github.com/graasp/graasp-account/commit/d3ff94ce3c9f6df8c7d279b2cee8b9ee66b16447))
+* **it:** update ([#63](https://github.com/graasp/graasp-account/issues/63)) ([5833b00](https://github.com/graasp/graasp-account/commit/5833b00ce9c9a0728d0ae3b36cba988988dc5ada))
+* udpate release-please condition ([e1be130](https://github.com/graasp/graasp-account/commit/e1be13088779fc79a96deb87ef59472d0ce92ef9))
+* **ui:** remove IconButtons for start adornment in social links ([3db33c0](https://github.com/graasp/graasp-account/commit/3db33c03409415067edad3bab3751c55a264bd31))
+
 ## [2.0.2](https://github.com/graasp/graasp-account/compare/v2.0.1...v2.0.2) (2023-11-24)
 
 
