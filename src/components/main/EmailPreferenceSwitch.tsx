@@ -1,9 +1,9 @@
-import React from 'react';
-
 import { SelectChangeEvent } from '@mui/material';
 
 import { MemberExtra } from '@graasp/sdk';
 import { Select } from '@graasp/ui';
+
+import { useAccountTranslation } from '@/config/i18n';
 
 import { emailFrequency } from '../../config/constants';
 import { mutations } from '../../config/queryClient';
@@ -19,6 +19,7 @@ const EmailPreferenceSwitch = ({
   memberId,
   emailFreq,
 }: EmailPreferenceSwitchProps): JSX.Element => {
+  const { t } = useAccountTranslation();
   const { mutate: editMember } = mutations.useEditMember();
 
   const handleChange = (event: SelectChangeEvent<unknown>) => {
@@ -42,7 +43,7 @@ const EmailPreferenceSwitch = ({
       variant="standard"
       values={Object.entries(emailFrequency).map(([freq, name]) => ({
         value: freq,
-        text: name,
+        text: t(name),
       }))}
     />
   );

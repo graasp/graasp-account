@@ -38,10 +38,10 @@ export const DEFAULT_MEMBER_PROFILE_SAVE_ACTIONS_SETTING = true;
 export const DEFAULT_EMAIL_FREQUENCY = 'always';
 
 export const emailFrequency = {
-  [EmailFrequency.Always]: 'Always receive email notifications',
+  [EmailFrequency.Always]: 'ALWAYS_RECEIVE_EMAILS',
   // todo: schedule a digest of the notifications
   // daily: 'Receive email notifications once per day',
-  [EmailFrequency.Never]: 'Disable email notifications',
+  [EmailFrequency.Never]: 'DISABLE_EMAILS',
 };
 
 export const THUMBNAIL_ASPECT = 1;

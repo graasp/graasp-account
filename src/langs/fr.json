@@ -49,5 +49,7 @@
   "PUBLIC_PROFILE_BIO_ERROR_MSG": "Biographie est un champ obligatoire",
   "PUBLIC_PROFILE_VISIBILITY": "Rendre ce profil public",
   "PUBLIC_PROFILE_SUBMIT_TEXT": "Sauvegarder les modifications",
-  "PUBLIC_PROFILE_CHECK_TEXT": "Voir le profil"
+  "PUBLIC_PROFILE_CHECK_TEXT": "Voir le profil",
+  "ALWAYS_RECEIVE_EMAILS": "Toujours recevoir les notifications par email",
+  "DISABLE_EMAILS": "Désactiver les notifications par email"
 }
