@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { IconButton, InputAdornment, SvgIcon, TextField } from '@mui/material';
+import { InputAdornment, SvgIcon, TextField } from '@mui/material';
 
 interface Props {
   label: string;
@@ -44,9 +44,7 @@ const TextFieldWithValidation = ({
       Icon && {
         startAdornment: (
           <InputAdornment position="start">
-            <IconButton edge="end">
-              <Icon />
-            </IconButton>
+            <Icon />
           </InputAdornment>
         ),
       }

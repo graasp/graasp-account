@@ -21,7 +21,7 @@ const Root = (): JSX.Element => (
         <App />
       </ThemeProvider>
     </I18nextProvider>
-    {import.meta.env.DEV && <ReactQueryDevtools initialIsOpen />}
+    {import.meta.env.DEV && <ReactQueryDevtools />}
   </QueryClientProvider>
 );
 

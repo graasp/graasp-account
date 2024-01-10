@@ -1,5 +1,3 @@
-import React from 'react';
-
 import CloseIcon from '@mui/icons-material/Close';
 import { styled } from '@mui/material';
 import IconButton from '@mui/material/IconButton';
@@ -7,11 +5,8 @@ import Snackbar from '@mui/material/Snackbar';
 import SnackbarContent from '@mui/material/SnackbarContent';
 import { grey } from '@mui/material/colors';
 
-// eslint-disable-next-line import/no-extraneous-dependencies
 import Uppy from '@uppy/core';
-// eslint-disable-next-line import/no-extraneous-dependencies
 import { StatusBar as UppyStatusBar } from '@uppy/react';
-// eslint-disable-next-line import/no-extraneous-dependencies
 import '@uppy/status-bar/dist/style.css';
 
 const StyledSnackbarContent = styled(SnackbarContent)(() => ({
