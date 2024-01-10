@@ -43,7 +43,7 @@
   "PUBLIC_PROFILE_LINKEDIN_LINK_ERROR_MSG": "Der LinkedIn-Link ist keine gültige URL",
   "PUBLIC_PROFILE_TWITTER_LINK": "Twitter-ID",
   "PUBLIC_PROFILE_TWITTER_LINK_ERROR_MSG": "Der Twitter-Link ist keine gültige URL",
-  "PUBLIC_PROFILE_FACEBOOK_LINK": "Facebook id",
+  "PUBLIC_PROFILE_FACEBOOK_LINK": "Facebook-ID",
   "PUBLIC_PROFILE_FACEBOOK_LINK_ERROR_MSG": "Der Facebook-Link ist keine gültige URL",
   "PUBLIC_PROFILE_BIO": "Biografie",
   "PUBLIC_PROFILE_BIO_ERROR_MSG": "Bio ist ein Pflichtfeld",
