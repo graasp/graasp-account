@@ -9,6 +9,7 @@ import { CustomInitialLoader, withAuthorization } from '@graasp/ui';
 import { GRAASP_AUTH_HOST } from '../config/constants';
 import {
   AVATAR_SETTINGS_PATH,
+  DELETE_ACCOUNT_PATH,
   HOME_PATH,
   PASSWORD_SETTINGS_PATH,
   PUBLIC_PROFILE_PATH,
@@ -17,6 +18,7 @@ import {
 import { hooks } from '../config/queryClient';
 import MainProviders from './context/MainProviders';
 import AvatarSettings from './main/AvatarSettings';
+import DeleteAccountScreen from './main/DeleteAccountScreen';
 import MemberProfileScreen from './main/MemberProfileScreen';
 import PasswordSettings from './main/PasswordSettings';
 import PublicProfileScreen from './main/PublicProfileScreen';
@@ -60,6 +62,10 @@ export const App = (): JSX.Element => {
     PublicProfileScreen,
     withAuthorizationProps,
   );
+  const DeleteAccountWithAuthoriztion = withAuthorization(
+    DeleteAccountScreen,
+    withAuthorizationProps,
+  );
 
   if (currentMember) {
     return (
@@ -81,6 +87,10 @@ export const App = (): JSX.Element => {
             <Route
               path={PUBLIC_PROFILE_PATH}
               element={<PublicProfileWithAutorization />}
+            />
+            <Route
+              path={DELETE_ACCOUNT_PATH}
+              element={<DeleteAccountWithAuthoriztion />}
             />
             <Route path={STORAGE_PATH} element={<StockageWithAutorization />} />
 

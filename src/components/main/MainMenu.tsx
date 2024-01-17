@@ -3,6 +3,7 @@ import { useLocation, useNavigate } from 'react-router';
 import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 import CameraAltIcon from '@mui/icons-material/CameraAlt';
 import DataUsageIcon from '@mui/icons-material/DataUsage';
+import DeleteIcon from '@mui/icons-material/Delete';
 import PasswordIcon from '@mui/icons-material/Password';
 import ProfileIcon from '@mui/icons-material/Person2';
 import { ListItemButton } from '@mui/material';
@@ -15,6 +16,7 @@ import { DRAWER_WIDTH } from '@graasp/ui';
 import { useAccountTranslation } from '../../config/i18n';
 import {
   AVATAR_SETTINGS_PATH,
+  DELETE_ACCOUNT_PATH,
   HOME_PATH,
   PASSWORD_SETTINGS_PATH,
   PUBLIC_PROFILE_PATH,
@@ -81,6 +83,16 @@ const MainMenu = (): JSX.Element => {
         </ListItemIcon>
 
         <ListItemText primary={t('MAIN_MENU_PUBLIC_PROFILE')} />
+      </ListItemButton>
+      <ListItemButton
+        onClick={() => goTo(DELETE_ACCOUNT_PATH)}
+        selected={pathname === DELETE_ACCOUNT_PATH}
+      >
+        <ListItemIcon>
+          <DeleteIcon />
+        </ListItemIcon>
+
+        <ListItemText primary={t('MAIN_MENU_DELETE_ACCOUNT')} />
       </ListItemButton>
       {/* <ListItemButton
         button

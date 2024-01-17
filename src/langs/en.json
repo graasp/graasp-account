@@ -9,6 +9,7 @@
   "MAIN_MENU_AVATAR": "Avatar",
   "MAIN_MENU_PASSWORD": "Password",
   "MAIN_MENU_PUBLIC_PROFILE": "Public Profile",
+  "MAIN_MENU_DELETE_ACCOUNT": "Delete Account",
   "MAIN_MENU_STORAGE": "Storage",
   "SAVE_ACTIONS_TOGGLE_TOOLTIP": "Coming soon!",
   "PROFILE_TITLE": "Profile",
@@ -18,7 +19,7 @@
   "PROFILE_EMAIL_TITLE": "Email",
   "PROFILE_EMAIL_FREQUENCY_TITLE": "Email Frequency",
   "PROFILE_SAVE_ACTIONS_TITLE": "Enable Analytics",
-  "PROFILE_DELETE_ACCOUNT_MODAL_TITLE": "Confirm deletion",
+  "PROFILE_DELETE_ACCOUNT_MODAL_TITLE": "Confirm Deletion",
   "PROFILE_DELETE_ACCOUNT_MODAL_INFORMATION": "Your account will be deleted permanently.",
   "PROFILE_DELETE_ACCOUNT_MODAL_CONFIRM_BUTTON": "Delete Permanently",
   "PROFILE_DELETE_ACCOUNT_MODAL_CANCEL_BUTTON": "Cancel",
@@ -53,5 +54,9 @@
   "ALWAYS_RECEIVE_EMAILS": "Always receive email notifications",
   "DISABLE_EMAILS": "Disable email notifications",
   "PATCH_PROFILE": "Public profile successfully updated",
-  "POST_PROFILE": "Public profile successfully created"
+  "POST_PROFILE": "Public profile successfully created",
+  "DELETE_ACCOUNT_DETAILS": "Delete your account will permanently delete all your data, This can't be undone.",
+  "GO_TO_DELETE_ACCOUNT_PAGE": "Continue",
+  "PROFILE_DELETE_TYPE_CONFIRMATION_TEXT": "To confirm deletion, type \"{{text}}\" below:",
+  "DELETE": "delete"
 }

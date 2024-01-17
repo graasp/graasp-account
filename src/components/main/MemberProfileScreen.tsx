@@ -1,3 +1,5 @@
+import { Link } from 'react-router-dom';
+
 import FileCopyIcon from '@mui/icons-material/FileCopy';
 import {
   Alert,
@@ -11,6 +13,8 @@ import {
 import { formatDate } from '@graasp/sdk';
 import { Loader } from '@graasp/ui';
 
+import { DELETE_ACCOUNT_PATH } from '@/config/paths';
+
 import {
   DEFAULT_EMAIL_FREQUENCY,
   DEFAULT_LANG,
@@ -21,7 +25,6 @@ import notifier from '../../config/notifier';
 import { hooks, mutations } from '../../config/queryClient';
 import { COPY_MEMBER_ID_TO_CLIPBOARD } from '../../types/clipboard';
 import { copyToClipboard } from '../../utils/clipboard';
-import DeleteMemberDialog from './DeleteMemberDialog';
 import EmailPreferenceSwitch from './EmailPreferenceSwitch';
 import LanguageSwitch from './LanguageSwitch';
 import Main from './Main';
@@ -141,8 +144,13 @@ const MemberProfileScreen = (): JSX.Element => {
           </Grid>
         </Grid>
       </Grid>
-
-      <DeleteMemberDialog id={member?.id} />
+      <Grid my={3}>
+        <Typography variant="h6" color="red">
+          {t('MAIN_MENU_DELETE_ACCOUNT')}
+        </Typography>
+        <Typography variant="body1">{t('DELETE_ACCOUNT_DETAILS')}</Typography>
+        <Link to={DELETE_ACCOUNT_PATH}>{t('GO_TO_DELETE_ACCOUNT_PAGE')}</Link>
+      </Grid>
     </Main>
   );
 };
