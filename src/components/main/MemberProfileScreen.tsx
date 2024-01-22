@@ -146,7 +146,7 @@ const MemberProfileScreen = (): JSX.Element => {
       </Grid>
       <Grid my={3}>
         <Typography variant="h6" color="red">
-          {t('MAIN_MENU_DELETE_ACCOUNT')}
+          {t('PROFILE_DELETE_ACCOUNT_BUTTON')}
         </Typography>
         <Typography variant="body1">{t('DELETE_ACCOUNT_DETAILS')}</Typography>
         <Link to={DELETE_ACCOUNT_PATH}>{t('GO_TO_DELETE_ACCOUNT_PAGE')}</Link>

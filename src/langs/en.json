@@ -9,7 +9,7 @@
   "MAIN_MENU_AVATAR": "Avatar",
   "MAIN_MENU_PASSWORD": "Password",
   "MAIN_MENU_PUBLIC_PROFILE": "Public Profile",
-  "MAIN_MENU_DELETE_ACCOUNT": "Delete Account",
+  "MAIN_MENU_DESTRUCTIVE_SETTINGS": "Destructive Settings",
   "MAIN_MENU_STORAGE": "Storage",
   "SAVE_ACTIONS_TOGGLE_TOOLTIP": "Coming soon!",
   "PROFILE_TITLE": "Profile",
@@ -58,5 +58,6 @@
   "DELETE_ACCOUNT_DETAILS": "Delete your account will permanently delete all your data, This can't be undone.",
   "GO_TO_DELETE_ACCOUNT_PAGE": "Continue",
   "PROFILE_DELETE_TYPE_CONFIRMATION_TEXT": "To confirm deletion, type \"{{text}}\" below:",
-  "DELETE": "delete"
+  "DELETE": "delete",
+  "DESTRUCTIVE_SETTINGS_DETAILS": "Please be aware that the actions outlined here have potentially irreversible consequences. \n Ensure you thoroughly review any restrictions before proceeding, and only take action once you are certain."
 }

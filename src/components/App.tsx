@@ -18,7 +18,7 @@ import {
 import { hooks } from '../config/queryClient';
 import MainProviders from './context/MainProviders';
 import AvatarSettings from './main/AvatarSettings';
-import DeleteAccountScreen from './main/DeleteAccountScreen';
+import DestructiveSettingsScreen from './main/DestructiveSettingsScreen';
 import MemberProfileScreen from './main/MemberProfileScreen';
 import PasswordSettings from './main/PasswordSettings';
 import PublicProfileScreen from './main/PublicProfileScreen';
@@ -62,8 +62,8 @@ export const App = (): JSX.Element => {
     PublicProfileScreen,
     withAuthorizationProps,
   );
-  const DeleteAccountWithAuthoriztion = withAuthorization(
-    DeleteAccountScreen,
+  const DestructiveSettingsWithAuthoriztion = withAuthorization(
+    DestructiveSettingsScreen,
     withAuthorizationProps,
   );
 
@@ -90,7 +90,7 @@ export const App = (): JSX.Element => {
             />
             <Route
               path={DELETE_ACCOUNT_PATH}
-              element={<DeleteAccountWithAuthoriztion />}
+              element={<DestructiveSettingsWithAuthoriztion />}
             />
             <Route path={STORAGE_PATH} element={<StockageWithAutorization />} />
 

@@ -3,9 +3,9 @@ import { useLocation, useNavigate } from 'react-router';
 import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 import CameraAltIcon from '@mui/icons-material/CameraAlt';
 import DataUsageIcon from '@mui/icons-material/DataUsage';
-import DeleteIcon from '@mui/icons-material/Delete';
 import PasswordIcon from '@mui/icons-material/Password';
 import ProfileIcon from '@mui/icons-material/Person2';
+import ReportIcon from '@mui/icons-material/Report';
 import { ListItemButton } from '@mui/material';
 import List from '@mui/material/List';
 import ListItemIcon from '@mui/material/ListItemIcon';
@@ -89,10 +89,10 @@ const MainMenu = (): JSX.Element => {
         selected={pathname === DELETE_ACCOUNT_PATH}
       >
         <ListItemIcon>
-          <DeleteIcon />
+          <ReportIcon />
         </ListItemIcon>
 
-        <ListItemText primary={t('MAIN_MENU_DELETE_ACCOUNT')} />
+        <ListItemText primary={t('MAIN_MENU_DESTRUCTIVE_SETTINGS')} />
       </ListItemButton>
       {/* <ListItemButton
         button

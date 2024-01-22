@@ -6,4 +6,4 @@ export const PAYMENT_CONFIRM_PATH = '/payment/confirm';
 export const PASSWORD_SETTINGS_PATH = '/password';
 export const AVATAR_SETTINGS_PATH = '/avatar';
 export const PUBLIC_PROFILE_PATH = '/public-profile';
-export const DELETE_ACCOUNT_PATH = '/delete-account';
+export const DELETE_ACCOUNT_PATH = '/manage';
