@@ -1146,6 +1146,18 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@graasp/sdk@npm:3.5.0":
+  version: 3.5.0
+  resolution: "@graasp/sdk@npm:3.5.0"
+  dependencies:
+    date-fns: "npm:3.2.0"
+    js-cookie: "npm:3.0.5"
+    uuid: "npm:9.0.1"
+    validator: "npm:13.11.0"
+  checksum: dfbb9977904336214e411c93a33084fca8e07cb73145f655a070dfdb81a772d6a0412849ee07c8ee2e74497d59f960a8ef1989062a4e41d78ad5d22b24e8a8db
+  languageName: node
+  linkType: hard
+
 "@graasp/translations@npm:1.22.1":
   version: 1.22.1
   resolution: "@graasp/translations@npm:1.22.1"
@@ -5660,7 +5672,7 @@ __metadata:
     "@emotion/react": "npm:11.11.3"
     "@emotion/styled": "npm:11.11.0"
     "@graasp/query-client": "npm:2.3.0"
-    "@graasp/sdk": "npm:3.4.1"
+    "@graasp/sdk": "npm:3.5.0"
     "@graasp/translations": "npm:1.22.1"
     "@graasp/ui": "npm:4.3.1"
     "@mui/icons-material": "npm:5.15.5"
