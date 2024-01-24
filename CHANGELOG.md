@@ -1,5 +1,13 @@
 # Changelog
 
+## [2.1.1](https://github.com/graasp/graasp-account/compare/v2.1.0...v2.1.1) (2024-01-24)
+
+
+### Bug Fixes
+
+* **deps:** update dependency @graasp/sdk to v3.5.0 ([#81](https://github.com/graasp/graasp-account/issues/81)) ([c0cf734](https://github.com/graasp/graasp-account/commit/c0cf734c24a45f12c164a5bc0e715c70b94a70f1))
+* update dependencies and fix spanish issues ([#77](https://github.com/graasp/graasp-account/issues/77)) ([831982f](https://github.com/graasp/graasp-account/commit/831982f762ebfe70c4683200b34736b380d0481c))
+
 ## [2.1.0](https://github.com/graasp/graasp-account/compare/v2.0.2...v2.1.0) (2024-01-10)
 
 
