@@ -16,7 +16,7 @@ import { DRAWER_WIDTH } from '@graasp/ui';
 import { useAccountTranslation } from '../../config/i18n';
 import {
   AVATAR_SETTINGS_PATH,
-  DELETE_ACCOUNT_PATH,
+  MANAGE_ACCOUNT_PATH,
   HOME_PATH,
   PASSWORD_SETTINGS_PATH,
   PUBLIC_PROFILE_PATH,
@@ -85,8 +85,8 @@ const MainMenu = (): JSX.Element => {
         <ListItemText primary={t('MAIN_MENU_PUBLIC_PROFILE')} />
       </ListItemButton>
       <ListItemButton
-        onClick={() => goTo(DELETE_ACCOUNT_PATH)}
-        selected={pathname === DELETE_ACCOUNT_PATH}
+        onClick={() => goTo(MANAGE_ACCOUNT_PATH)}
+        selected={pathname === MANAGE_ACCOUNT_PATH}
       >
         <ListItemIcon>
           <Whatshot />

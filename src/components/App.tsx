@@ -9,7 +9,7 @@ import { CustomInitialLoader, withAuthorization } from '@graasp/ui';
 import { GRAASP_AUTH_HOST } from '../config/constants';
 import {
   AVATAR_SETTINGS_PATH,
-  DELETE_ACCOUNT_PATH,
+  MANAGE_ACCOUNT_PATH,
   HOME_PATH,
   PASSWORD_SETTINGS_PATH,
   PUBLIC_PROFILE_PATH,
@@ -89,7 +89,7 @@ export const App = (): JSX.Element => {
               element={<PublicProfileWithAutorization />}
             />
             <Route
-              path={DELETE_ACCOUNT_PATH}
+              path={MANAGE_ACCOUNT_PATH}
               element={<DestructiveSettingsWithAuthoriztion />}
             />
             <Route path={STORAGE_PATH} element={<StockageWithAutorization />} />

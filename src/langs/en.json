@@ -55,9 +55,9 @@
   "DISABLE_EMAILS": "Disable email notifications",
   "PATCH_PROFILE": "Public profile successfully updated",
   "POST_PROFILE": "Public profile successfully created",
-  "DELETE_ACCOUNT_DETAILS": "Delete your account will permanently delete all your data, This can't be undone.",
-  "GO_TO_DELETE_ACCOUNT_PAGE": "Continue",
-  "PROFILE_DELETE_TYPE_CONFIRMATION_TEXT": "To confirm deletion, type \"{{text}}\" below:",
+  "DELETE_ACCOUNT_DETAILS": "Deleting your account will permanently delete all your data, which cannot be undone.",
+  "GO_TO_MANAGE_ACCOUNT_PAGE": "Continue",
+  "PROFILE_DELETE_TYPE_CONFIRMATION_TEXT": "To confirm the deletion, type \"{{text}}\" below:",
   "DELETE": "delete",
   "DESTRUCTIVE_SETTINGS_DETAILS": "Please be aware that the actions outlined here have potentially irreversible consequences. \n Ensure you thoroughly review any restrictions before proceeding, and only take action once you are certain."
 }
