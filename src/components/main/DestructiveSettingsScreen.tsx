@@ -1,10 +1,8 @@
-import React from 'react';
-
-import { Box, Grid, Typography } from '@mui/material';
+import { Box, Stack, Typography } from '@mui/material';
 
 import { useAccountTranslation } from '@/config/i18n';
 
-import DeleteAccount from './DeleteAccount';
+import DeleteAccount from './DeleteMemberSection';
 import Main from './Main';
 
 const DestructiveSettingsScreen = (): JSX.Element => {
@@ -12,19 +10,17 @@ const DestructiveSettingsScreen = (): JSX.Element => {
 
   return (
     <Main>
-      <Grid container spacing={3}>
-        <Grid item xs={12} lg={8}>
-          <Box mb={4}>
-            <Typography variant="h4">
-              {translateAccount('MAIN_MENU_DESTRUCTIVE_SETTINGS')}
-            </Typography>
-            <Typography variant="body1">
-              {translateAccount('DESTRUCTIVE_SETTINGS_DETAILS')}
-            </Typography>
-          </Box>
-          <DeleteAccount />
-        </Grid>
-      </Grid>
+      <Stack spacing={3}>
+        <Box>
+          <Typography variant="h4">
+            {translateAccount('MAIN_MENU_DESTRUCTIVE_SETTINGS')}
+          </Typography>
+          <Typography variant="body1" maxWidth="80ch">
+            {translateAccount('DESTRUCTIVE_SETTINGS_DETAILS')}
+          </Typography>
+        </Box>
+        <DeleteAccount />
+      </Stack>
     </Main>
   );
 };
