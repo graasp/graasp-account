@@ -9,8 +9,8 @@ import { CustomInitialLoader, withAuthorization } from '@graasp/ui';
 import { GRAASP_AUTH_HOST } from '../config/constants';
 import {
   AVATAR_SETTINGS_PATH,
-  MANAGE_ACCOUNT_PATH,
   HOME_PATH,
+  MANAGE_ACCOUNT_PATH,
   PASSWORD_SETTINGS_PATH,
   PUBLIC_PROFILE_PATH,
   STORAGE_PATH,

@@ -16,8 +16,8 @@ import { DRAWER_WIDTH } from '@graasp/ui';
 import { useAccountTranslation } from '../../config/i18n';
 import {
   AVATAR_SETTINGS_PATH,
-  MANAGE_ACCOUNT_PATH,
   HOME_PATH,
+  MANAGE_ACCOUNT_PATH,
   PASSWORD_SETTINGS_PATH,
   PUBLIC_PROFILE_PATH,
   STORAGE_PATH,
