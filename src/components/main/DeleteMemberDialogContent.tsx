@@ -27,7 +27,9 @@ const DeleteMemberDialogContent = ({ id, closeModal }: Props): JSX.Element => {
 
   const { mutate: deleteMember } = mutations.useDeleteMember();
 
-  const confirmationDeleteTextToCompare = translateAccount('DELETE_CONFIRMATION_VALUE');
+  const confirmationDeleteTextToCompare = translateAccount(
+    'DELETE_CONFIRMATION_VALUE',
+  );
 
   return (
     <>
