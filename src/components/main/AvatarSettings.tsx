@@ -97,9 +97,7 @@ const AvatarSettings = (): JSX.Element | null => {
       }
       // remove waiting files
       uppy.cancelAll();
-
       uppy.addFile({
-        name: croppedImage.name,
         type: croppedImage.type,
         data: croppedImage,
       });

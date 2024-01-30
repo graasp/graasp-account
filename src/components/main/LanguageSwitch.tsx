@@ -33,6 +33,7 @@ const LanguageSwitch = ({ id, memberId, lang }: Props): JSX.Element => {
       id={id}
       defaultValue={lang}
       onChange={handleChange}
+      buildOptionId={(value) => value}
       values={Object.entries(langs).map(([value, text]) => ({ value, text }))}
     />
   );
