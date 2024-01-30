@@ -58,6 +58,6 @@
   "DELETE_ACCOUNT_DETAILS": "Deleting your account will permanently delete all your data, which cannot be undone.",
   "GO_TO_MANAGE_ACCOUNT_PAGE": "Continue",
   "PROFILE_DELETE_TYPE_CONFIRMATION_TEXT": "To confirm the deletion, type \"{{text}}\" below:",
-  "DELETE": "delete",
+  "DELETE_CONFIRMATION_VALUE": "delete",
   "DESTRUCTIVE_SETTINGS_DETAILS": "Please be aware that the actions outlined here have potentially irreversible consequences. Ensure you thoroughly review any restrictions before proceeding, and only take action once you are certain."
 }
