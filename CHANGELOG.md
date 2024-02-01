@@ -1,5 +1,17 @@
 # Changelog
 
+## [2.2.0](https://github.com/graasp/graasp-account/compare/v2.1.1...v2.2.0) (2024-02-01)
+
+
+### Features
+
+* create delete account page ([#74](https://github.com/graasp/graasp-account/issues/74)) ([d77c88a](https://github.com/graasp/graasp-account/commit/d77c88a03dd5750a8e6b7502c3e8be7c1bf6e12d))
+
+
+### Bug Fixes
+
+* use type module in package json ([493a243](https://github.com/graasp/graasp-account/commit/493a2432979be8160e5b9d7026a29e1968d13bc0))
+
 ## [2.1.1](https://github.com/graasp/graasp-account/compare/v2.1.0...v2.1.1) (2024-01-24)
 
 
