@@ -9,6 +9,7 @@
   "MAIN_MENU_AVATAR": "Avatar",
   "MAIN_MENU_PASSWORD": "Passwort",
   "MAIN_MENU_PUBLIC_PROFILE": "Öffentliches Profil",
+  "MAIN_MENU_DESTRUCTIVE_SETTINGS": "Zerstörerische Einstellungen",
   "MAIN_MENU_STORAGE": "Speicher",
   "SAVE_ACTIONS_TOGGLE_TOOLTIP": "Demnächst verfügbar!",
   "PROFILE_TITLE": "Profil",
@@ -49,5 +50,14 @@
   "PUBLIC_PROFILE_BIO_ERROR_MSG": "Bio ist ein Pflichtfeld",
   "PUBLIC_PROFILE_VISIBILITY": "Profil öffentlich machen",
   "PUBLIC_PROFILE_SUBMIT_TEXT": "Änderungen speichern",
-  "PUBLIC_PROFILE_CHECK_TEXT": "Zum Profil"
+  "PUBLIC_PROFILE_CHECK_TEXT": "Zum Profil",
+  "ALWAYS_RECEIVE_EMAILS": "Erhalten Sie immer E-Mail-Benachrichtigungen",
+  "DISABLE_EMAILS": "E-Mail-Benachrichtigungen deaktivieren",
+  "PATCH_PROFILE": "Öffentliches Profil erfolgreich aktualisiert",
+  "POST_PROFILE": "Öffentliches Profil erfolgreich erstellt",
+  "DELETE_ACCOUNT_DETAILS": "Durch das Löschen Ihres Kontos werden alle Ihre Daten dauerhaft gelöscht, was nicht rückgängig gemacht werden kann.",
+  "GO_TO_MANAGE_ACCOUNT_PAGE": "Weitermachen",
+  "PROFILE_DELETE_TYPE_CONFIRMATION_TEXT": "Um den Löschvorgang zu bestätigen, geben Sie unten „{{text}}“ ein:",
+  "DELETE_CONFIRMATION_VALUE": "löschen",
+  "DESTRUCTIVE_SETTINGS_DETAILS": "Bitte beachten Sie, dass die hier beschriebenen Maßnahmen möglicherweise irreversible Folgen haben. Stellen Sie sicher, dass Sie alle Einschränkungen gründlich prüfen, bevor Sie fortfahren, und ergreifen Sie erst dann Maßnahmen, wenn Sie sicher sind."
 }
