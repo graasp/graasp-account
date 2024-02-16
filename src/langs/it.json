@@ -9,6 +9,7 @@
   "MAIN_MENU_AVATAR": "Avatar",
   "MAIN_MENU_PASSWORD": "Parola d'ordine",
   "MAIN_MENU_PUBLIC_PROFILE": "Profilo pubblico",
+  "MAIN_MENU_DESTRUCTIVE_SETTINGS": "Impostazioni distruttive",
   "MAIN_MENU_STORAGE": "Magazzinaggio",
   "SAVE_ACTIONS_TOGGLE_TOOLTIP": "Prossimamente!",
   "PROFILE_TITLE": "Profilo",
@@ -49,5 +50,14 @@
   "PUBLIC_PROFILE_BIO_ERROR_MSG": "Il campo bio è obbligatorio",
   "PUBLIC_PROFILE_VISIBILITY": "Rendi pubblico questo profilo",
   "PUBLIC_PROFILE_SUBMIT_TEXT": "Salvare le modifiche",
-  "PUBLIC_PROFILE_CHECK_TEXT": "Controlla il profilo"
+  "PUBLIC_PROFILE_CHECK_TEXT": "Controlla il profilo",
+  "ALWAYS_RECEIVE_EMAILS": "Ricevi sempre notifiche via email",
+  "DISABLE_EMAILS": "Disabilita le notifiche e-mail",
+  "PATCH_PROFILE": "Profilo pubblico aggiornato con successo",
+  "POST_PROFILE": "Profilo pubblico creato con successo",
+  "DELETE_ACCOUNT_DETAILS": "L'eliminazione del tuo account eliminerà definitivamente tutti i tuoi dati, operazione che non può essere annullata.",
+  "GO_TO_MANAGE_ACCOUNT_PAGE": "Continua",
+  "PROFILE_DELETE_TYPE_CONFIRMATION_TEXT": "Per confermare l'eliminazione, digita \"{{text}}\" di seguito:",
+  "DELETE_CONFIRMATION_VALUE": "eliminare",
+  "DESTRUCTIVE_SETTINGS_DETAILS": "Tieni presente che le azioni qui descritte hanno conseguenze potenzialmente irreversibili. Assicurati di esaminare attentamente eventuali restrizioni prima di procedere e di agire solo quando sei sicuro."
 }
