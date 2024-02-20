@@ -1,5 +1,29 @@
 # Changelog
 
+## [2.3.0](https://github.com/graasp/graasp-account/compare/v2.2.0...v2.3.0) (2024-02-20)
+
+
+### Features
+
+* translate fr.json via GitLocalize ([#93](https://github.com/graasp/graasp-account/issues/93)) ([d4a406b](https://github.com/graasp/graasp-account/commit/d4a406bfd77733ba741ad06212d23f6f48aa0e0b))
+
+
+### Bug Fixes
+
+* add timestamp in html ([#89](https://github.com/graasp/graasp-account/issues/89)) ([f07bb91](https://github.com/graasp/graasp-account/commit/f07bb91ebabb73b3c7c0f9d6d33fff152158477e))
+* **arabic:** update translations ([#100](https://github.com/graasp/graasp-account/issues/100)) ([823a58d](https://github.com/graasp/graasp-account/commit/823a58d30121cb24e6b0a4c1676222182fa9ff0f))
+* **deps:** update dependency @graasp/query-client to v2.3.2 ([#80](https://github.com/graasp/graasp-account/issues/80)) ([a47ac46](https://github.com/graasp/graasp-account/commit/a47ac4654babb15fbe83aa9dd716710b473f16da))
+* **deps:** update dependency @graasp/query-client to v2.6.2 ([#99](https://github.com/graasp/graasp-account/issues/99)) ([518878e](https://github.com/graasp/graasp-account/commit/518878ebe00e4de9c894fc4b653659d2eb3620b9))
+* **deps:** update dependency @graasp/translations to v1.23.0 ([#71](https://github.com/graasp/graasp-account/issues/71)) ([15f8a3d](https://github.com/graasp/graasp-account/commit/15f8a3d6a14e105d36e1d896d6e9f4d88744ec8d))
+* **deps:** update dependency @graasp/ui to v4.7.0 ([#72](https://github.com/graasp/graasp-account/issues/72)) ([91f8c53](https://github.com/graasp/graasp-account/commit/91f8c536634c41e61279e30bb6bbc1d9d17cbf76))
+* **deps:** update dependency axios to v1.6.7 ([#91](https://github.com/graasp/graasp-account/issues/91)) ([d2aa00f](https://github.com/graasp/graasp-account/commit/d2aa00f13e6775f821cc440a7ce5e03dd811bb8f))
+* **deps:** update mui (non-major) ([#56](https://github.com/graasp/graasp-account/issues/56)) ([539bf23](https://github.com/graasp/graasp-account/commit/539bf23899d8756bff37624cc0145696801eca38))
+* **german:** update translations ([#94](https://github.com/graasp/graasp-account/issues/94)) ([432a6d1](https://github.com/graasp/graasp-account/commit/432a6d14543c17d470404b9553cf341e6bd46a48))
+* **italian:** update translations ([#95](https://github.com/graasp/graasp-account/issues/95)) ([b0ae431](https://github.com/graasp/graasp-account/commit/b0ae431e383fc30543cd81144047cfa1d29435c5))
+* remove unused components ([e2c0137](https://github.com/graasp/graasp-account/commit/e2c013776cf27cdcd2461edb87735843525d4051))
+* remove unused files ([68a9164](https://github.com/graasp/graasp-account/commit/68a9164bf739f1ea118b49b0341053dc9ca1ac01))
+* upgrade yarn to v4.1.0 ([99c88f6](https://github.com/graasp/graasp-account/commit/99c88f6d7382f69f6abacee222b3c06759163f36))
+
 ## [2.2.0](https://github.com/graasp/graasp-account/compare/v2.1.1...v2.2.0) (2024-02-01)
 
 
