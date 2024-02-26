@@ -1,6 +1,6 @@
 import { SelectChangeEvent } from '@mui/material';
 
-import { MemberExtra } from '@graasp/sdk';
+import { CompleteMember, EmailFrequency } from '@graasp/sdk';
 import { Select } from '@graasp/ui';
 
 import { useAccountTranslation } from '@/config/i18n';
@@ -11,7 +11,7 @@ import { mutations } from '../../config/queryClient';
 type EmailPreferenceSwitchProps = {
   id?: string;
   memberId: string;
-  emailFreq: MemberExtra['emailFreq'];
+  emailFreq: CompleteMember['extra']['emailFreq'];
 };
 
 const EmailPreferenceSwitch = ({
@@ -22,12 +22,12 @@ const EmailPreferenceSwitch = ({
   const { t } = useAccountTranslation();
   const { mutate: editMember } = mutations.useEditMember();
 
-  const handleChange = (event: SelectChangeEvent<unknown>) => {
+  const handleChange = (event: SelectChangeEvent<string>) => {
     if (event.target.value) {
       editMember({
         id: memberId,
         extra: {
-          emailFreq: event.target.value as MemberExtra['emailFreq'],
+          emailFreq: event.target.value as `${EmailFrequency}`,
         },
       });
     } else {
