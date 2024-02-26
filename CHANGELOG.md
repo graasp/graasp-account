@@ -1,5 +1,13 @@
 # Changelog
 
+## [2.3.1](https://github.com/graasp/graasp-account/compare/v2.3.0...v2.3.1) (2024-02-26)
+
+
+### Bug Fixes
+
+* update deps to use esm ([#108](https://github.com/graasp/graasp-account/issues/108)) ([5cc8466](https://github.com/graasp/graasp-account/commit/5cc84662d045152259cbf18cb8c4dfa908c23f8a))
+* update translation and make translation more gender neutral ([#107](https://github.com/graasp/graasp-account/issues/107)) ([434c52e](https://github.com/graasp/graasp-account/commit/434c52e8ae5c16d1c80ee689a2d42918c4040c5b))
+
 ## [2.3.0](https://github.com/graasp/graasp-account/compare/v2.2.0...v2.3.0) (2024-02-20)
 
 
