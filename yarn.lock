@@ -2353,16 +2353,16 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@stripe/react-stripe-js@npm:^1.16.5":
-  version: 1.16.5
-  resolution: "@stripe/react-stripe-js@npm:1.16.5"
+"@stripe/react-stripe-js@npm:^2.0.0":
+  version: 2.5.1
+  resolution: "@stripe/react-stripe-js@npm:2.5.1"
   dependencies:
     prop-types: "npm:^15.7.2"
   peerDependencies:
-    "@stripe/stripe-js": ^1.44.1
+    "@stripe/stripe-js": ^1.44.1 || ^2.0.0 || ^3.0.0
     react: ^16.8.0 || ^17.0.0 || ^18.0.0
     react-dom: ^16.8.0 || ^17.0.0 || ^18.0.0
-  checksum: 10/b6413e1122fac91834919cea2683c31a9ee2525ce90b78b86b0337e8f506aeff5049fb1fd097019b34e70d4bc6657b98ae40c352e433d01ec47d8ceae459dd15
+  checksum: 10/5fdd8a8ca68dd0af83a6a71d5c077cffabce1c134e5090b71f1ee8e0223a00d347a219775a3f94601c8caf544beed894416f3002ed35fc4079d05bd11edf32c5
   languageName: node
   linkType: hard
 
@@ -6958,7 +6958,7 @@ __metadata:
     "@mui/icons-material": "npm:5.15.10"
     "@mui/lab": "npm:5.0.0-alpha.165"
     "@mui/material": "npm:5.15.11"
-    "@stripe/react-stripe-js": "npm:^1.16.5"
+    "@stripe/react-stripe-js": "npm:^2.0.0"
     "@stripe/stripe-js": "npm:^1.54.2"
     "@testing-library/jest-dom": "npm:6.4.2"
     "@testing-library/react": "npm:14.2.1"
