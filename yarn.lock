@@ -2366,10 +2366,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@stripe/stripe-js@npm:^1.54.2":
-  version: 1.54.2
-  resolution: "@stripe/stripe-js@npm:1.54.2"
-  checksum: 10/52d6e814dd6e4979a050d9c06d8aa463f583138bb6b1aaf6e8856e92dcfa3ce7fd2231ce86882b44ffd0299b8e1d93f6c6dd9d1461b957ef2a6d548a801e506f
+"@stripe/stripe-js@npm:^3.0.0":
+  version: 3.0.6
+  resolution: "@stripe/stripe-js@npm:3.0.6"
+  checksum: 10/39b3f929ba8e1be3956c115559061c1a0628e3c9b4e87224107f4e3a24ba04e504210944b13fc3ea55982d207e128d537f0435754b4697091616cb6a27f86a59
   languageName: node
   linkType: hard
 
@@ -6959,7 +6959,7 @@ __metadata:
     "@mui/lab": "npm:5.0.0-alpha.165"
     "@mui/material": "npm:5.15.11"
     "@stripe/react-stripe-js": "npm:^1.16.5"
-    "@stripe/stripe-js": "npm:^1.54.2"
+    "@stripe/stripe-js": "npm:^3.0.0"
     "@testing-library/jest-dom": "npm:6.4.2"
     "@testing-library/react": "npm:14.2.1"
     "@testing-library/user-event": "npm:14.5.2"
