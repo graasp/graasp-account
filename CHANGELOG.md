@@ -1,5 +1,12 @@
 # Changelog
 
+## [2.3.2](https://github.com/graasp/graasp-account/compare/v2.3.1...v2.3.2) (2024-02-27)
+
+
+### Bug Fixes
+
+* update esm deps ([#117](https://github.com/graasp/graasp-account/issues/117)) ([bed6f61](https://github.com/graasp/graasp-account/commit/bed6f61214052e931b00dd67b77ccd2106669a9d))
+
 ## [2.3.1](https://github.com/graasp/graasp-account/compare/v2.3.0...v2.3.1) (2024-02-26)
 
 
