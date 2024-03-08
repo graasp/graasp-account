@@ -2,7 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import 'react-toastify/dist/ReactToastify.css';
 
-import Root from './components/Root';
+import Root from './Root';
 
 // import * as serviceWorker from './serviceWorker';
 

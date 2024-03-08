@@ -4,14 +4,11 @@ import { Alert, Skeleton, Stack, Typography, useTheme } from '@mui/material';
 
 import { FAILURE_MESSAGES } from '@graasp/translations';
 
-import { ADMIN_CONTACT } from '../../config/constants';
-import {
-  useAccountTranslation,
-  useMessagesTranslation,
-} from '../../config/i18n';
-import { hooks } from '../../config/queryClient';
-import { humanFileSize } from '../../utils/filesize';
-import Main from './Main';
+import Main from '@/components/main/Main';
+import { ADMIN_CONTACT } from '@/config/constants';
+import { useAccountTranslation, useMessagesTranslation } from '@/config/i18n';
+import { hooks } from '@/config/queryClient';
+import { humanFileSize } from '@/utils/filesize';
 
 const BAR_WIDTH = window.innerWidth / 3;
 const BAR_HEIGHT = 25;
@@ -72,7 +69,9 @@ const StockageScreen = (): JSX.Element => {
       <Stack spacing={2}>
         <Stack direction="column">
           <Stack>
-            <Typography variant="h5">{t('STORAGE_TITLE')}</Typography>
+            <Typography variant="h4" component="h1">
+              {t('STORAGE_TITLE')}
+            </Typography>
           </Stack>
           <Stack>
             <Typography variant="body1">

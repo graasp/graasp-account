@@ -7,9 +7,9 @@ import Typography from '@mui/material/Typography';
 import { isPasswordStrong } from '@graasp/sdk';
 import { FAILURE_MESSAGES } from '@graasp/translations';
 
-import { useAccountTranslation } from '../../config/i18n';
-import { mutations } from '../../config/queryClient';
-import Main from './Main';
+import Main from '@/components/main/Main';
+import { useAccountTranslation } from '@/config/i18n';
+import { mutations } from '@/config/queryClient';
 
 const PasswordSettings = (): JSX.Element => {
   const { t: translateAccount } = useAccountTranslation();
@@ -86,7 +86,7 @@ const PasswordSettings = (): JSX.Element => {
     <Main>
       <Grid container spacing={1} direction="column">
         <Grid item xs={12}>
-          <Typography variant="h5">
+          <Typography variant="h4" component="h1">
             {translateAccount('PASSWORD_SETTINGS_TITLE')}
           </Typography>
           <Typography variant="body1">

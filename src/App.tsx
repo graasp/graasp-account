@@ -6,7 +6,8 @@ import { Alert } from '@mui/material';
 
 import { CustomInitialLoader, withAuthorization } from '@graasp/ui';
 
-import { GRAASP_AUTH_HOST } from '../config/constants';
+import MainProviders from './components/context/MainProviders';
+import { GRAASP_AUTH_HOST } from './config/constants';
 import {
   AVATAR_SETTINGS_PATH,
   HOME_PATH,
@@ -14,15 +15,14 @@ import {
   PASSWORD_SETTINGS_PATH,
   PUBLIC_PROFILE_PATH,
   STORAGE_PATH,
-} from '../config/paths';
-import { hooks } from '../config/queryClient';
-import MainProviders from './context/MainProviders';
-import AvatarSettings from './main/AvatarSettings';
-import DestructiveSettingsScreen from './main/DestructiveSettingsScreen';
-import MemberProfileScreen from './main/MemberProfileScreen';
-import PasswordSettings from './main/PasswordSettings';
-import PublicProfileScreen from './main/PublicProfileScreen';
-import StockageScreen from './main/StockageScreen';
+} from './config/paths';
+import { hooks } from './config/queryClient';
+import AvatarSettingsScreen from './pages/AvatarSettingsScreen';
+import DestructiveSettingsScreen from './pages/DestructiveSettingsScreen';
+import MemberScreen from './pages/MemberScreen';
+import PasswordSettingsScreen from './pages/PasswordSettingsScreen';
+import PublicProfileScreen from './pages/PublicProfileScreen';
+import StorageScreen from './pages/StorageScreen';
 
 export const App = (): JSX.Element => {
   const { data: currentMember, isLoading } = hooks.useCurrentMember();
@@ -42,27 +42,27 @@ export const App = (): JSX.Element => {
     redirectionLink: redirectionLink.toString(),
   };
 
-  const MemberProfileWithAutorization = withAuthorization(
-    MemberProfileScreen,
+  const MemberProfileWithAuthorization = withAuthorization(
+    MemberScreen,
     withAuthorizationProps,
   );
-  const PasswordSettingsWithAutorization = withAuthorization(
-    PasswordSettings,
+  const PasswordSettingsWithAuthorization = withAuthorization(
+    PasswordSettingsScreen,
     withAuthorizationProps,
   );
-  const AvatarSettingsWithAutorization = withAuthorization(
-    AvatarSettings,
+  const AvatarSettingsWithAuthorization = withAuthorization(
+    AvatarSettingsScreen,
     withAuthorizationProps,
   );
-  const StockageWithAutorization = withAuthorization(
-    StockageScreen,
+  const StorageWithAuthorization = withAuthorization(
+    StorageScreen,
     withAuthorizationProps,
   );
-  const PublicProfileWithAutorization = withAuthorization(
+  const PublicProfileWithAuthorization = withAuthorization(
     PublicProfileScreen,
     withAuthorizationProps,
   );
-  const DestructiveSettingsWithAuthoriztion = withAuthorization(
+  const DestructiveSettingsWithAuthorization = withAuthorization(
     DestructiveSettingsScreen,
     withAuthorizationProps,
   );
@@ -74,36 +74,25 @@ export const App = (): JSX.Element => {
           <Routes>
             <Route
               path={HOME_PATH}
-              element={<MemberProfileWithAutorization />}
+              element={<MemberProfileWithAuthorization />}
             />
             <Route
               path={PASSWORD_SETTINGS_PATH}
-              element={<PasswordSettingsWithAutorization />}
+              element={<PasswordSettingsWithAuthorization />}
             />
             <Route
               path={AVATAR_SETTINGS_PATH}
-              element={<AvatarSettingsWithAutorization />}
+              element={<AvatarSettingsWithAuthorization />}
             />
             <Route
               path={PUBLIC_PROFILE_PATH}
-              element={<PublicProfileWithAutorization />}
+              element={<PublicProfileWithAuthorization />}
             />
             <Route
               path={MANAGE_ACCOUNT_PATH}
-              element={<DestructiveSettingsWithAuthoriztion />}
+              element={<DestructiveSettingsWithAuthorization />}
             />
-            <Route path={STORAGE_PATH} element={<StockageWithAutorization />} />
-
-            {/*
-          <Route
-            path={PAYMENT_OPTIONS_PATH}
-            exact
-            element={<PaymentOptionsWithAutorization />}
-          />
-          <Route
-            path={`${PAYMENT_CONFIRM_PATH}/:id`}
-            element={<PayementConfirmationWithAutorization />}
-          /> */}
+            <Route path={STORAGE_PATH} element={<StorageWithAuthorization />} />
           </Routes>
         </Router>
       </MainProviders>

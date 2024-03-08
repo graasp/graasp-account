@@ -5,13 +5,13 @@ import { ThemeProvider } from '@mui/material/styles';
 
 import { theme } from '@graasp/ui';
 
-import i18nConfig from '../config/i18n';
+import App from './App';
+import i18nConfig from './config/i18n';
 import {
   QueryClientProvider,
   ReactQueryDevtools,
   queryClient,
-} from '../config/queryClient';
-import App from './App';
+} from './config/queryClient';
 
 const Root = (): JSX.Element => (
   <QueryClientProvider client={queryClient}>

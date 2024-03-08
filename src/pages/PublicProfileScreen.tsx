@@ -14,6 +14,8 @@ import {
 
 import { Config, SocialLinks } from 'social-links';
 
+import TextFieldWithValidation from '@/components/common/TextField';
+import Main from '@/components/main/Main';
 import {
   FACEBOOK_DOMAIN,
   GRAASP_LIBRARY_HOST,
@@ -21,10 +23,7 @@ import {
   TWITTER_DOMAIN,
 } from '@/config/constants';
 import { useAccountTranslation } from '@/config/i18n';
-
-import { hooks, mutations } from '../../config/queryClient';
-import TextFieldWithValidation from '../common/TextField';
-import Main from './Main';
+import { hooks, mutations } from '@/config/queryClient';
 
 const config: Config = {
   usePredefinedProfiles: true,
@@ -146,7 +145,9 @@ const PublicProfileScreen = (): JSX.Element => {
       <Grid container spacing={3}>
         <Grid item sm={12} md={6} lg={6}>
           <Box sx={{ mt: 1, mb: 3 }}>
-            <Typography variant="h4">{t('PUBLIC_PROFILE_TITLE')}</Typography>
+            <Typography variant="h4" component="h1">
+              {t('PUBLIC_PROFILE_TITLE')}
+            </Typography>
             <Typography variant="body1">
               {t('PUBLIC_PROFILE_DESCRIPTION')}
             </Typography>

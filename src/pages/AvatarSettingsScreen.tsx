@@ -1,22 +1,24 @@
 import { FormEventHandler, useEffect, useRef, useState } from 'react';
 
+import { Dialog, Stack } from '@mui/material';
 import Grid from '@mui/material/Grid';
 import Typography from '@mui/material/Typography';
 
-// eslint-disable-next-line import/no-extraneous-dependencies
+import { ThumbnailSize } from '@graasp/sdk';
+import { Avatar } from '@graasp/ui';
+
 import Uppy from '@uppy/core';
 
-import {
-  THUMBNAIL_SETTING_MAX_HEIGHT,
-  THUMBNAIL_SETTING_MAX_WIDTH,
-} from '../../config/constants';
-import { useAccountTranslation } from '../../config/i18n';
-import { hooks, mutations } from '../../config/queryClient';
-import { configureAvatarUppy } from '../../utils/uppy';
-import CropModal, { CropProps } from './CropModal';
-import Main from './Main';
-import MemberAvatar from './MemberAvatar';
-import StatusBar from './StatusBar';
+import CropModal, {
+  CropProps,
+  MODAL_TITLE_ARIA_LABEL_ID,
+} from '@/components/main/CropModal';
+import Main from '@/components/main/Main';
+import StatusBar from '@/components/main/StatusBar';
+import { AVATAR_SIZE } from '@/config/constants';
+import { useAccountTranslation } from '@/config/i18n';
+import { hooks, mutations } from '@/config/queryClient';
+import { configureAvatarUppy } from '@/utils/uppy';
 
 const AvatarSettings = (): JSX.Element | null => {
   const inputRef = useRef<HTMLInputElement>(null);
@@ -27,6 +29,10 @@ const AvatarSettings = (): JSX.Element | null => {
   const { t } = useAccountTranslation();
   const { mutate: onUploadAvatar } = mutations.useUploadAvatar();
   const { data: user } = hooks.useCurrentMember();
+  const { data: avatarUrl, isLoading: isLoadingAvatar } = hooks.useAvatarUrl({
+    id: user?.id,
+    size: ThumbnailSize.Medium,
+  });
 
   const userId = user?.id;
 
@@ -111,37 +117,43 @@ const AvatarSettings = (): JSX.Element | null => {
       {uppy && (
         <StatusBar uppy={uppy} handleClose={handleClose} open={openStatusBar} />
       )}
-      <Grid container spacing={3} direction="column" alignItems="flex-start">
-        <Grid item sm={6}>
-          <Typography variant="h5">{t('PROFILE_AVATAR_TITLE')}</Typography>
-          <Typography variant="body1">
-            {t('PROFILE_AVATAR_INFORMATION')}
-          </Typography>
-          <input
-            type="file"
-            accept="image/*"
-            onInput={onSelectFile}
-            // onChange is successfully triggered in test
-            onChange={onSelectFile}
-            ref={inputRef}
-          />
-        </Grid>
+      <Stack spacing={3} direction="column" alignItems="flex-start">
+        <Typography variant="h4" component="h1">
+          {t('PROFILE_AVATAR_TITLE')}
+        </Typography>
+        <Typography variant="body1">
+          {t('PROFILE_AVATAR_INFORMATION')}
+        </Typography>
+        <input
+          type="file"
+          accept="image/*"
+          onInput={onSelectFile}
+          // onChange is successfully triggered in test
+          onChange={onSelectFile}
+          ref={inputRef}
+        />
         <Grid item sm={6} xs={12}>
-          <MemberAvatar
-            maxWidth={THUMBNAIL_SETTING_MAX_WIDTH}
-            maxHeight={THUMBNAIL_SETTING_MAX_HEIGHT}
-            id={userId}
-            component="image"
+          <Avatar
+            component="avatar"
+            isLoading={isLoadingAvatar}
+            url={avatarUrl}
+            alt={t('PROFILE_AVATAR_CURRENT_ALT')}
+            sx={{ width: AVATAR_SIZE, height: AVATAR_SIZE }}
           />
         </Grid>
-      </Grid>
+      </Stack>
       {fileSource && (
-        <CropModal
+        <Dialog
           open={showCropModal}
           onClose={onClose}
-          src={fileSource}
-          onConfirm={onConfirmCrop}
-        />
+          aria-labelledby={MODAL_TITLE_ARIA_LABEL_ID}
+        >
+          <CropModal
+            onClose={onClose}
+            src={fileSource}
+            onConfirm={onConfirmCrop}
+          />
+        </Dialog>
       )}
     </Main>
   );
