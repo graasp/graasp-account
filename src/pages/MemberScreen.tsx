@@ -102,7 +102,7 @@ const MemberProfileScreen = (): JSX.Element | null => {
               <Grid item xs={8}>
                 <LanguageSwitch
                   memberId={member.id}
-                  lang={(member.extra?.lang as string) || DEFAULT_LANG}
+                  lang={member.extra?.lang ?? DEFAULT_LANG}
                 />
               </Grid>
             </Grid>
