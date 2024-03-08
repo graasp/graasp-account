@@ -1,5 +1,21 @@
 # Changelog
 
+## [2.3.3](https://github.com/graasp/graasp-account/compare/v2.3.2...v2.3.3) (2024-03-08)
+
+
+### Bug Fixes
+
+* crop modal ([#134](https://github.com/graasp/graasp-account/issues/134)) ([924c3b7](https://github.com/graasp/graasp-account/commit/924c3b7e6d10c2613d13bc43092b72e7383d3f2b))
+* **deps:** update dependency @emotion/react to v11.11.4 ([#119](https://github.com/graasp/graasp-account/issues/119)) ([15d7629](https://github.com/graasp/graasp-account/commit/15d7629d4fff632a5b46afe8bf68228bd417b8d2))
+* **deps:** update dependency @graasp/query-client to v2.8.0 ([#130](https://github.com/graasp/graasp-account/issues/130)) ([c8448a3](https://github.com/graasp/graasp-account/commit/c8448a36c0ca4a9f05e4a2c9329339e0ea270a30))
+* **deps:** update dependency @graasp/sdk to v4.1.0 ([#123](https://github.com/graasp/graasp-account/issues/123)) ([4459516](https://github.com/graasp/graasp-account/commit/4459516ec465d03a5807072795c0d46636628827))
+* **deps:** update dependency @graasp/ui to v4.9.0 ([#124](https://github.com/graasp/graasp-account/issues/124)) ([466b851](https://github.com/graasp/graasp-account/commit/466b851c62d417e7041019fad8a0e7b56129a954))
+* **deps:** update dependency @mui/lab to v5.0.0-alpha.166 ([#110](https://github.com/graasp/graasp-account/issues/110)) ([54cf1a1](https://github.com/graasp/graasp-account/commit/54cf1a1de2d0f1550bac0e84d1e267f0e10c2ac8))
+* **deps:** update dependency i18next to v23.10.1 ([#135](https://github.com/graasp/graasp-account/issues/135)) ([7cbca52](https://github.com/graasp/graasp-account/commit/7cbca529bb9185f04fbd1d818af5b2da1d16a7c2))
+* **deps:** update dependency react-i18next to v14.1.0 ([#133](https://github.com/graasp/graasp-account/issues/133)) ([b548cdd](https://github.com/graasp/graasp-account/commit/b548cdd83360250e2d342750341e45f57df355ff))
+* **deps:** update mui (non-major) ([#129](https://github.com/graasp/graasp-account/issues/129)) ([64dd558](https://github.com/graasp/graasp-account/commit/64dd55868efff56eadc337b01ead290ae9be8d36))
+* **deps:** update react-router monorepo to v6.22.3 ([#122](https://github.com/graasp/graasp-account/issues/122)) ([2c6244a](https://github.com/graasp/graasp-account/commit/2c6244a1e700990d0786acca631e9a48e2ee0d4b))
+
 ## [2.3.2](https://github.com/graasp/graasp-account/compare/v2.3.1...v2.3.2) (2024-02-27)
 
 
