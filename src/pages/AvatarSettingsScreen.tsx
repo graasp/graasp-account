@@ -1,6 +1,6 @@
 import { FormEventHandler, useEffect, useRef, useState } from 'react';
 
-import { Dialog, Stack } from '@mui/material';
+import { Box, Dialog, Stack } from '@mui/material';
 import Grid from '@mui/material/Grid';
 import Typography from '@mui/material/Typography';
 
@@ -121,17 +121,17 @@ const AvatarSettings = (): JSX.Element | null => {
         <Typography variant="h4" component="h1">
           {t('PROFILE_AVATAR_TITLE')}
         </Typography>
-        <Typography variant="body1">
-          {t('PROFILE_AVATAR_INFORMATION')}
-        </Typography>
-        <input
-          type="file"
-          accept="image/*"
-          onInput={onSelectFile}
-          // onChange is successfully triggered in test
-          onChange={onSelectFile}
-          ref={inputRef}
-        />
+        <Box>
+          <Typography variant="body1">
+            {t('PROFILE_AVATAR_INFORMATION')}
+          </Typography>
+          <input
+            type="file"
+            accept="image/*"
+            onChange={onSelectFile}
+            ref={inputRef}
+          />
+        </Box>
         <Grid item sm={6} xs={12}>
           <Avatar
             component="avatar"
