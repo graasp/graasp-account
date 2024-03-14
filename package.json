@@ -82,7 +82,7 @@
   "devDependencies": {
     "@commitlint/cli": "19.1.0",
     "@commitlint/config-conventional": "19.1.0",
-    "@cypress/code-coverage": "3.12.28",
+    "@cypress/code-coverage": "3.12.29",
     "@cypress/instrument-cra": "1.4.0",
     "@testing-library/jest-dom": "6.4.2",
     "@testing-library/react": "14.2.1",
@@ -107,7 +107,7 @@
     "prettier": "3.2.5",
     "rollup-plugin-visualizer": "^5.12.0",
     "typescript": "5.4.2",
-    "vite": "5.1.5",
+    "vite": "5.1.6",
     "vite-plugin-checker": "0.6.4",
     "vite-plugin-istanbul": "5.0.0"
   },

@@ -716,9 +716,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@cypress/code-coverage@npm:3.12.28":
-  version: 3.12.28
-  resolution: "@cypress/code-coverage@npm:3.12.28"
+"@cypress/code-coverage@npm:3.12.29":
+  version: 3.12.29
+  resolution: "@cypress/code-coverage@npm:3.12.29"
   dependencies:
     "@cypress/webpack-preprocessor": "npm:^6.0.0"
     chalk: "npm:4.1.2"
@@ -735,7 +735,7 @@ __metadata:
     babel-loader: ^8.3 || ^9
     cypress: "*"
     webpack: ^4 || ^5
-  checksum: 10/dc9207b7f3062545f1f11fe1064e3a5e033e908300e93ed1d7450c4bec028a70d78eac714fe167707acf48c611c988e40b7756f8fa610628f257d2ee5473e8f3
+  checksum: 10/e8abfe60ef1fd8323bda169b535102cda8cc48cc1358b2fe300c731927e9e73db70309055990b22ce3b5ba822633a67ff3983f5091e91d86f6b35311bf23f0e9
   languageName: node
   linkType: hard
 
@@ -6613,7 +6613,7 @@ __metadata:
   dependencies:
     "@commitlint/cli": "npm:19.1.0"
     "@commitlint/config-conventional": "npm:19.1.0"
-    "@cypress/code-coverage": "npm:3.12.28"
+    "@cypress/code-coverage": "npm:3.12.29"
     "@cypress/instrument-cra": "npm:1.4.0"
     "@emotion/cache": "npm:11.11.0"
     "@emotion/react": "npm:11.11.4"
@@ -6672,7 +6672,7 @@ __metadata:
     stylis-plugin-rtl: "npm:2.1.1"
     typescript: "npm:5.4.2"
     uuid: "npm:9.0.1"
-    vite: "npm:5.1.5"
+    vite: "npm:5.1.6"
     vite-plugin-checker: "npm:0.6.4"
     vite-plugin-istanbul: "npm:5.0.0"
   languageName: unknown
@@ -11448,9 +11448,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"vite@npm:5.1.5":
-  version: 5.1.5
-  resolution: "vite@npm:5.1.5"
+"vite@npm:5.1.6":
+  version: 5.1.6
+  resolution: "vite@npm:5.1.6"
   dependencies:
     esbuild: "npm:^0.19.3"
     fsevents: "npm:~2.3.3"
@@ -11484,7 +11484,7 @@ __metadata:
       optional: true
   bin:
     vite: bin/vite.js
-  checksum: 10/ada0a9138ca541723008ee261d80a97f6b70173508ded0f87834e2142660f45dff9801d143551aa3a8979ed446f0aec71ae114ab3ae978b3fbd5cf1f8c4bc331
+  checksum: 10/f48073e93ead62fa58034398442de4517c824b3e50184f8b4059fb24077a26f2c04e910e29d7fb7ec51ea53eb61b9c7d94d56b14a38851de80c67480094cc79d
   languageName: node
   linkType: hard
 
