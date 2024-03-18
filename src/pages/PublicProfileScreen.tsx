@@ -28,7 +28,7 @@ import { hooks, mutations } from '@/config/queryClient';
 const config: Config = {
   usePredefinedProfiles: true,
   trimInput: true,
-  allowQueryParams: false,
+  allowQueryParams: true,
 };
 const socialLinks = new SocialLinks(config);
 
