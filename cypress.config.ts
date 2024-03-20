@@ -16,6 +16,6 @@ export default defineConfig({
     setupNodeEvents(_on, _config) {
       // implement node event listeners here
     },
-    baseUrl: 'http://localhost:3114',
+    baseUrl: `http://localhost:${process.env.VITE_PORT || 3333}`,
   },
 });
