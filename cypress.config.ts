@@ -1,3 +1,4 @@
+import setupCoverage from '@cypress/code-coverage/task';
 import { defineConfig } from 'cypress';
 
 export default defineConfig({
@@ -13,8 +14,10 @@ export default defineConfig({
       VITE_GRAASP_LIBRARY_HOST: process.env.VITE_GRAASP_LIBRARY_HOST,
       VITE_GRAASP_ACCOUNT_HOST: process.env.VITE_GRAASP_ACCOUNT_HOST,
     },
-    setupNodeEvents(_on, _config) {
+    setupNodeEvents(on, config) {
       // implement node event listeners here
+      setupCoverage(on, config);
+      return config;
     },
     baseUrl: `http://localhost:${process.env.VITE_PORT || 3333}`,
   },
