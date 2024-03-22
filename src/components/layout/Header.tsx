@@ -2,6 +2,7 @@ import { Link } from 'react-router-dom';
 
 import MenuIcon from '@mui/icons-material/Menu';
 import MenuOpenIcon from '@mui/icons-material/MenuOpen';
+import PersonIcon from '@mui/icons-material/Person';
 import { AppBar, Toolbar, Typography, styled, useTheme } from '@mui/material';
 import IconButton from '@mui/material/IconButton';
 
@@ -9,6 +10,7 @@ import {
   GraaspLogo,
   Platform,
   PlatformSwitch,
+  PlatformSwitchProps,
   defaultHostsMapper,
   useMobileView,
   usePlatformNavigation,
@@ -39,6 +41,10 @@ const StyledLink = styled(Link)(() => ({
   display: 'flex',
   alignItems: 'center',
 }));
+const AccountIcon: PlatformSwitchProps['CustomMobileIcon'] = (props) => (
+  // eslint-disable-next-line react/jsx-props-no-spreading
+  <PersonIcon {...props} />
+);
 
 type Props = {
   isMenuOpen: boolean;
@@ -68,6 +74,9 @@ const Header = ({ isMenuOpen, toggleMenu }: Props): JSX.Element => {
       ...getNavigationEvents(Platform.Library),
     },
     [Platform.Analytics]: {
+      ...getNavigationEvents(Platform.Analytics),
+    },
+    weifjo: {
       ...getNavigationEvents(Platform.Analytics),
     },
   };
@@ -102,6 +111,7 @@ const Header = ({ isMenuOpen, toggleMenu }: Props): JSX.Element => {
             </Typography>
           </StyledLink>
           <PlatformSwitch
+            CustomMobileIcon={AccountIcon}
             platformsProps={platformProps}
             color={
               isMobile
