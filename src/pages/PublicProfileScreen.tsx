@@ -143,7 +143,7 @@ const PublicProfileScreen = (): JSX.Element => {
   return (
     <Main>
       <Grid container spacing={3}>
-        <Grid item sm={12} md={6} lg={6}>
+        <Grid item sm={12} md={10} lg={8} xl={6}>
           <Box sx={{ mt: 1, mb: 3 }}>
             <Typography variant="h4" component="h1">
               {t('PUBLIC_PROFILE_TITLE')}
