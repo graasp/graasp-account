@@ -2,7 +2,7 @@ import { Link } from 'react-router-dom';
 
 import MenuIcon from '@mui/icons-material/Menu';
 import MenuOpenIcon from '@mui/icons-material/MenuOpen';
-import { AppBar, Toolbar, Typography, styled } from '@mui/material';
+import { AppBar, Toolbar, Typography, styled, useTheme } from '@mui/material';
 import IconButton from '@mui/material/IconButton';
 
 import {
@@ -10,6 +10,7 @@ import {
   Platform,
   PlatformSwitch,
   defaultHostsMapper,
+  useMobileView,
   usePlatformNavigation,
 } from '@graasp/ui';
 
@@ -53,6 +54,8 @@ export const platformsHostsMap = defaultHostsMapper({
 });
 
 const Header = ({ isMenuOpen, toggleMenu }: Props): JSX.Element => {
+  const theme = useTheme();
+  const { isMobile } = useMobileView();
   const getNavigationEvents = usePlatformNavigation(platformsHostsMap);
   const platformProps = {
     [Platform.Builder]: {
@@ -98,7 +101,19 @@ const Header = ({ isMenuOpen, toggleMenu }: Props): JSX.Element => {
               {APP_NAME}
             </Typography>
           </StyledLink>
-          <PlatformSwitch platformsProps={platformProps} />
+          <PlatformSwitch
+            platformsProps={platformProps}
+            color={
+              isMobile
+                ? theme.palette.primary.main
+                : theme.palette.secondary.main
+            }
+            accentColor={
+              isMobile
+                ? theme.palette.secondary.main
+                : theme.palette.primary.main
+            }
+          />
         </StyledDiv>
         <UserSwitchWrapper />
       </StyledToolbar>
