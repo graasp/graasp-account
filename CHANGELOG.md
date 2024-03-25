@@ -1,5 +1,29 @@
 # Changelog
 
+## [2.3.4](https://github.com/graasp/graasp-account/compare/v2.3.3...v2.3.4) (2024-03-25)
+
+
+### Bug Fixes
+
+* accept query params for validation social links ([#165](https://github.com/graasp/graasp-account/issues/165)) ([296e085](https://github.com/graasp/graasp-account/commit/296e0855e9253fbff729aec774a74e97556a728f))
+* **arabic:** crop modal translations ([#145](https://github.com/graasp/graasp-account/issues/145)) ([54629a5](https://github.com/graasp/graasp-account/commit/54629a5f652f49f33adb4ea7d6fc31e466a950d6))
+* **deps:** update dependency @graasp/query-client to v2.9.1 ([#140](https://github.com/graasp/graasp-account/issues/140)) ([9232dcf](https://github.com/graasp/graasp-account/commit/9232dcfc40088a00ce47fc2c0e6525ef3223ed68))
+* **deps:** update dependency @graasp/query-client to v3 ([#152](https://github.com/graasp/graasp-account/issues/152)) ([3738415](https://github.com/graasp/graasp-account/commit/3738415c55be75af961f6a4121ba0555766e1e82))
+* **deps:** update dependency @graasp/sdk to v4.2.0 ([#150](https://github.com/graasp/graasp-account/issues/150)) ([8f3d0b8](https://github.com/graasp/graasp-account/commit/8f3d0b806758639522cb96a1717e4fa272cf798a))
+* **deps:** update dependency @graasp/sdk to v4.2.1 ([#160](https://github.com/graasp/graasp-account/issues/160)) ([3056813](https://github.com/graasp/graasp-account/commit/3056813fc51c594cf57a4b8ec962a57bf4a7a474))
+* **deps:** update dependency @graasp/translations to v1.25.3 ([#148](https://github.com/graasp/graasp-account/issues/148)) ([29cf23a](https://github.com/graasp/graasp-account/commit/29cf23aa7947c9770941e4f4797dc1160b7786f8))
+* **deps:** update dependency @graasp/ui to v4.11.0 ([#151](https://github.com/graasp/graasp-account/issues/151)) ([9469b38](https://github.com/graasp/graasp-account/commit/9469b38a8f9f7e7c562df9393739e4508c32173b))
+* **deps:** update dependency axios to v1.6.8 ([#157](https://github.com/graasp/graasp-account/issues/157)) ([5e4ca37](https://github.com/graasp/graasp-account/commit/5e4ca379f45489fe6d12ef32001f6344be4f90f1))
+* **deps:** update dependency filesize to v10.1.1 ([#168](https://github.com/graasp/graasp-account/issues/168)) ([51ae5f8](https://github.com/graasp/graasp-account/commit/51ae5f81fe4096cbb9a4bd7f73defd9f07a504c0))
+* **deps:** update dependency react-toastify to v10.0.5 ([#154](https://github.com/graasp/graasp-account/issues/154)) ([718878c](https://github.com/graasp/graasp-account/commit/718878c20950aeab384bbe00ec056013e97bdc28))
+* **deps:** update mui (non-major) ([#143](https://github.com/graasp/graasp-account/issues/143)) ([b6dc51e](https://github.com/graasp/graasp-account/commit/b6dc51ef1bb8793025e0a9f3ebbce112a5374e32))
+* **deps:** update mui (non-major) ([#164](https://github.com/graasp/graasp-account/issues/164)) ([1aa1719](https://github.com/graasp/graasp-account/commit/1aa1719b8c2da2c18d484e8acf1a1402e4f39c21))
+* **deps:** update uppy packages ([#82](https://github.com/graasp/graasp-account/issues/82)) ([f94e94c](https://github.com/graasp/graasp-account/commit/f94e94cdc670cef0eeab7b201803ad63d7e4a43c))
+* fix platform mobile colors ([#171](https://github.com/graasp/graasp-account/issues/171)) ([3042d61](https://github.com/graasp/graasp-account/commit/3042d61f73a7d38257e8a64a47a495af23955bfb))
+* **french:** crop modal translations ([#144](https://github.com/graasp/graasp-account/issues/144)) ([f7c98b6](https://github.com/graasp/graasp-account/commit/f7c98b62b854f3f2d6b7984fe0c35a06ff61501b))
+* **spanish:** update crop modal translations ([#155](https://github.com/graasp/graasp-account/issues/155)) ([1605f09](https://github.com/graasp/graasp-account/commit/1605f0929b96cc50f9edb5fc498c5471241f1a3a))
+* **spanish:** update translations ([#146](https://github.com/graasp/graasp-account/issues/146)) ([a120573](https://github.com/graasp/graasp-account/commit/a120573867a84878f73bbfcfd2c912041ece4623))
+
 ## [2.3.3](https://github.com/graasp/graasp-account/compare/v2.3.2...v2.3.3) (2024-03-08)
 
 
