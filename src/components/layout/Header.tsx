@@ -76,9 +76,6 @@ const Header = ({ isMenuOpen, toggleMenu }: Props): JSX.Element => {
     [Platform.Analytics]: {
       ...getNavigationEvents(Platform.Analytics),
     },
-    weifjo: {
-      ...getNavigationEvents(Platform.Analytics),
-    },
   };
 
   const renderMenuIcon = () => {
