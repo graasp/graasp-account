@@ -142,8 +142,8 @@ const PublicProfileScreen = (): JSX.Element => {
 
   return (
     <Main>
-      <Grid container spacing={3}>
-        <Grid item sm={12} md={10} lg={8} xl={6}>
+      <Grid container spacing={3} sx={{ maxWidth: '700px' }}>
+        <Grid item xs={12}>
           <Box sx={{ mt: 1, mb: 3 }}>
             <Typography variant="h4" component="h1">
               {t('PUBLIC_PROFILE_TITLE')}
@@ -242,7 +242,7 @@ const PublicProfileScreen = (): JSX.Element => {
                 />
               </Grid>
 
-              <Grid item xs={12} lg={6}>
+              <Grid item xs={12}>
                 <LoadingButton
                   type="submit"
                   fullWidth
