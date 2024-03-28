@@ -1,13 +1,16 @@
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 
 import FileCopyIcon from '@mui/icons-material/FileCopy';
 import {
   Alert,
   Box,
+  Button,
   Grid,
   IconButton,
   Stack,
   Switch,
+  TextField,
   Tooltip,
   Typography,
 } from '@mui/material';
@@ -34,6 +37,8 @@ const MemberProfileScreen = (): JSX.Element | null => {
   const { t, i18n } = useAccountTranslation();
   const { t: translateAccount } = useAccountTranslation();
   const { data: member, isLoading } = hooks.useCurrentMember();
+  const [newUsername, setNewUsername] = useState(member?.name);
+
   const { mutate: editMember } = mutations.useEditMember();
 
   if (member) {
@@ -56,14 +61,53 @@ const MemberProfileScreen = (): JSX.Element | null => {
         },
       });
     };
+    const onInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+      setNewUsername(event.target.value);
+    };
+
+    const updateUsername = () => {
+      editMember({
+        id: member.id,
+        name: newUsername,
+      });
+    };
+
     return (
       <Main>
         <Stack spacing={3}>
           <Box>
             <Typography variant="h4" component="h1">
-              {member.name}
+              {t('PROFILE_TITLE')}
             </Typography>
+            <Grid container alignItems="center">
+              <Grid item xs={4}>
+                <Typography>{t('PROFILE_MEMBER_NAME')}</Typography>
+              </Grid>
+              <Grid item xs={8}>
+                <Typography>
+                  <TextField
+                    variant="standard"
+                    type="text"
+                    value={newUsername}
+                    onChange={onInputChange}
+                    sx={{ mr: 2 }}
+                  />
+                  {newUsername !== member.name && (
+                    <Button
+                      variant="contained"
+                      color="primary"
+                      sx={{ my: 1 }}
+                      onClick={() => updateUsername()}
+                    >
+                      {t('PROFILE_EDIT_USERNAME_BUTTON')}
+                    </Button>
+                  )}
+                </Typography>
+              </Grid>
+            </Grid>
+
             {/* todo: display only as light user */}
+
             <Grid container alignItems="center">
               <Grid item xs={4}>
                 <Typography>{t('PROFILE_MEMBER_ID_TITLE')}</Typography>

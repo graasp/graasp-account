@@ -16,6 +16,8 @@
   "MAIN_MENU_STORAGE": "Stockage",
   "SAVE_ACTIONS_TOGGLE_TOOLTIP": "Prochainement !",
   "PROFILE_TITLE": "Profil",
+  "PROFILE_MEMBER_NAME": "Nom de l'utilisateur",
+  "PROFILE_EDIT_USERNAME_BUTTON": "Enregistrer",
   "PROFILE_MEMBER_ID_TITLE": "Identifiant de l'utilisateur",
   "PROFILE_LANGUAGE_TITLE": "Langue",
   "PROFILE_CREATED_AT_TITLE": "Membre depuis",
