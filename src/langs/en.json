@@ -16,6 +16,7 @@
   "MAIN_MENU_STORAGE": "Storage",
   "SAVE_ACTIONS_TOGGLE_TOOLTIP": "Coming soon!",
   "PROFILE_TITLE": "Profile",
+  "PROFILE_MEMBER_NAME": "Username",
   "PROFILE_MEMBER_ID_TITLE": "Member ID",
   "PROFILE_LANGUAGE_TITLE": "Language",
   "PROFILE_CREATED_AT_TITLE": "Member Since",
@@ -62,5 +63,7 @@
   "GO_TO_MANAGE_ACCOUNT_PAGE": "Continue",
   "PROFILE_DELETE_TYPE_CONFIRMATION_TEXT": "To confirm the deletion, type \"{{text}}\" below:",
   "DELETE_CONFIRMATION_VALUE": "delete",
-  "DESTRUCTIVE_SETTINGS_DETAILS": "Please be aware that the actions outlined here have potentially irreversible consequences. Ensure you thoroughly review any restrictions before proceeding, and only take action once you are certain."
+  "DESTRUCTIVE_SETTINGS_DETAILS": "Please be aware that the actions outlined here have potentially irreversible consequences. Ensure you thoroughly review any restrictions before proceeding, and only take action once you are certain.",
+  "USERNAME_EMPTY_ERROR": "The field cannot be empty",
+  "USERNAME_LENGTH_ERROR": "Username must be between {{min}} and {{max}} characters long"
 }

@@ -18,6 +18,7 @@ import { Loader } from '@graasp/ui';
 
 import EmailPreferenceSwitch from '@/components/main/EmailPreferenceSwitch';
 import LanguageSwitch from '@/components/main/LanguageSwitch';
+import UsernameForm from '@/components/main/UsernameForm';
 import { DEFAULT_EMAIL_FREQUENCY } from '@/config/constants';
 import { useAccountTranslation } from '@/config/i18n';
 import notifier from '@/config/notifier';
@@ -54,13 +55,24 @@ const MemberProfileScreen = (): JSX.Element | null => {
         },
       });
     };
+
     return (
       <Stack spacing={3}>
         <Box>
           <Typography variant="h4" component="h1">
-            {member.name}
+            {t('PROFILE_TITLE')}
           </Typography>
+          <Grid container alignItems="center">
+            <Grid item xs={4}>
+              {t('PROFILE_MEMBER_NAME')}
+            </Grid>
+            <Grid item xs={8}>
+              <UsernameForm member={member} />
+            </Grid>
+          </Grid>
+
           {/* todo: display only as light user */}
+
           <Grid container alignItems="center">
             <Grid item xs={4}>
               <Typography>{t('PROFILE_MEMBER_ID_TITLE')}</Typography>

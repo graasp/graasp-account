@@ -37,7 +37,7 @@ Cypress.Commands.add(
 
     mockSignOut();
 
-    mockEditMember(members, editMemberError);
+    mockEditMember(cachedMembers, editMemberError);
 
     mockGetAvatarUrl(members, getAvatarUrlError);
 

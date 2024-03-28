@@ -83,12 +83,12 @@ export const mockEditMember = (
       method: HttpMethod.Patch,
       url: new RegExp(`${API_HOST}/${buildPatchMember(ID_FORMAT)}`),
     },
-    ({ reply }) => {
+    ({ reply, body }) => {
       if (shouldThrowError) {
         return reply({ statusCode: StatusCodes.BAD_REQUEST });
       }
 
-      return reply('edit member');
+      return reply(body);
     },
   ).as('editMember');
 };

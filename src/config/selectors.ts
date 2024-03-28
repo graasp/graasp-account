@@ -18,3 +18,9 @@ export const DELETE_MEMBER_DIALOG_DESCRIPTION_ID = 'alert-dialog-description';
 export const APP_NAVIGATION_PLATFORM_SWITCH_ID = 'appNavigationPlatformSwitch';
 
 export const STORAGE_PROGRESS_BAR_ID = 'storageProgressBar';
+
+export const USERNAME_EDIT_BUTTON_ID = 'username-edit-button';
+export const USERNAME_SAVE_BUTTON_ID = 'username-save-button';
+export const USERNAME_CANCEL_BUTTON_ID = 'username-cancel-button';
+export const USERNAME_INPUT_FIELD_ID = 'username-input-field';
+export const USERNAME_DISPLAY_ID = 'username-display';
