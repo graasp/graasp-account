@@ -16,6 +16,8 @@
   "MAIN_MENU_STORAGE": "Storage",
   "SAVE_ACTIONS_TOGGLE_TOOLTIP": "Coming soon!",
   "PROFILE_TITLE": "Profile",
+  "PROFILE_MEMBER_NAME": "Username",
+  "PROFILE_EDIT_USERNAME_BUTTON": "Save",
   "PROFILE_MEMBER_ID_TITLE": "Member ID",
   "PROFILE_LANGUAGE_TITLE": "Language",
   "PROFILE_CREATED_AT_TITLE": "Member Since",
