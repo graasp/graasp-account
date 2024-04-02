@@ -17,7 +17,7 @@ const Root = (): JSX.Element => (
   <QueryClientProvider client={queryClient}>
     <I18nextProvider i18n={i18nConfig}>
       <ThemeProvider theme={theme}>
-        <ToastContainer />
+        <ToastContainer stacked />
         <App />
       </ThemeProvider>
     </I18nextProvider>
