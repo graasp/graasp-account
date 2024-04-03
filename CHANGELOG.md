@@ -1,5 +1,13 @@
 # Changelog
 
+## [2.3.5](https://github.com/graasp/graasp-account/compare/v2.3.4...v2.3.5) (2024-04-03)
+
+
+### Bug Fixes
+
+* allow stacked notifications ([#182](https://github.com/graasp/graasp-account/issues/182)) ([2b8d9d3](https://github.com/graasp/graasp-account/commit/2b8d9d3de414f56792c20a1eee57a95e09dae29b))
+* set width of public profile form ([#169](https://github.com/graasp/graasp-account/issues/169)) ([6ac3756](https://github.com/graasp/graasp-account/commit/6ac37566262530265bdc15475b52211cf46e02d0))
+
 ## [2.3.4](https://github.com/graasp/graasp-account/compare/v2.3.3...v2.3.4) (2024-03-25)
 
 
