@@ -50,9 +50,7 @@ const MemberProfileScreen = (): JSX.Element | null => {
     const handleOnToggle = (event: { target: { checked: boolean } }): void => {
       editMember({
         id: member.id,
-        extra: {
-          enableSaveActions: event.target.checked,
-        },
+        enableSaveActions: event.target.checked,
       });
     };
 

@@ -1608,9 +1608,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@graasp/query-client@npm:3.2.1":
+"@graasp/query-client@github:graasp/graasp-query-client#717-add-enable-save-actions-on-member-sign-up-and-update":
   version: 3.2.1
-  resolution: "@graasp/query-client@npm:3.2.1"
+  resolution: "@graasp/query-client@https://github.com/graasp/graasp-query-client.git#commit=226bafe025cc56d3b142ec477c7e7044ced050bc"
   dependencies:
     "@tanstack/react-query": "npm:4.36.1"
     "@tanstack/react-query-devtools": "npm:4.36.1"
@@ -1621,13 +1621,13 @@ __metadata:
     "@graasp/sdk": ^4.0.0
     "@graasp/translations": ^1.23.0
     react: ^18.0.0
-  checksum: 10/2859404e6bf8dd18b119b4617e5e76dfe949386bf14add4978943f60b1338c1b17850252b30bbed57a856f153097f952fcb1527160ef5121af9af1706a0b26b3
+  checksum: 10/b8070c5009d9a8e2b728d6fc4f00101fa05b3b9b67a66d5ae9ce03c376191ea4e97cde01ea01a30945e431d73b2a043e5fccda4bd4dc4d7b18b686f6115887c1
   languageName: node
   linkType: hard
 
-"@graasp/sdk@npm:4.5.0":
-  version: 4.5.0
-  resolution: "@graasp/sdk@npm:4.5.0"
+"@graasp/sdk@github:graasp/graasp-sdk#467-includes-save-actions-and-user-agreements-in-complete-member":
+  version: 4.4.0
+  resolution: "@graasp/sdk@https://github.com/graasp/graasp-sdk.git#commit=b85a03791fff9a4eee847511d29468bd23aa3244"
   dependencies:
     "@faker-js/faker": "npm:8.4.1"
     js-cookie: "npm:3.0.5"
@@ -1635,7 +1635,7 @@ __metadata:
   peerDependencies:
     date-fns: ^3
     uuid: ^9
-  checksum: 10/835e7613126e3fb7e0d6175c4df30f75812b578ad7a5299d538c64259ee56aec2be4a0a967ebb88162d5ddd800fd999525db747d677b8b8daa6bd5b09e60d166
+  checksum: 10/39ac9eef4b7e03d5906f46e8180758efabeeefe0accf0a4c842403222010bd39f760fc4eed75f55f6a1e577b906a095b783fc990feb21f25364adfa81fb2f1f0
   languageName: node
   linkType: hard
 
@@ -7057,8 +7057,8 @@ __metadata:
     "@emotion/cache": "npm:11.11.0"
     "@emotion/react": "npm:11.11.4"
     "@emotion/styled": "npm:11.11.0"
-    "@graasp/query-client": "npm:3.2.1"
-    "@graasp/sdk": "npm:4.5.0"
+    "@graasp/query-client": "github:graasp/graasp-query-client#717-add-enable-save-actions-on-member-sign-up-and-update"
+    "@graasp/sdk": "github:graasp/graasp-sdk#467-includes-save-actions-and-user-agreements-in-complete-member"
     "@graasp/translations": "npm:1.25.3"
     "@graasp/ui": "npm:4.15.0"
     "@mui/icons-material": "npm:5.15.14"
