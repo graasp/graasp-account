@@ -24,6 +24,7 @@ import { useAccountTranslation } from '@/config/i18n';
 import notifier from '@/config/notifier';
 import { MANAGE_ACCOUNT_PATH } from '@/config/paths';
 import { hooks, mutations } from '@/config/queryClient';
+import { MEMBER_PROFILE_ANALYTICS_SWITCH_ID } from '@/config/selectors';
 import { COPY_MEMBER_ID_TO_CLIPBOARD } from '@/types/clipboard';
 import { copyToClipboard } from '@/utils/clipboard';
 
@@ -132,6 +133,7 @@ const MemberProfileScreen = (): JSX.Element | null => {
               <Tooltip title={translateAccount('SAVE_ACTIONS_TOGGLE_TOOLTIP')}>
                 <span>
                   <Switch
+                    data-cy={MEMBER_PROFILE_ANALYTICS_SWITCH_ID}
                     onChange={handleOnToggle}
                     checked={
                       member.extra?.enableSaveActions ??

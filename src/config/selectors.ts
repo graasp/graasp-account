@@ -8,6 +8,8 @@ export const MEMBER_PROFILE_INSCRIPTION_DATE_ID =
 export const MEMBER_PROFILE_LANGUAGE_SWITCH_ID = 'memberProfileLanguageSwitch';
 export const MEMBER_PROFILE_MEMBER_ID_COPY_BUTTON_ID =
   'memberProfileMemberIdCopyButton';
+export const MEMBER_PROFILE_ANALYTICS_SWITCH_ID =
+  'memberProfileAnalyticsSwitch';
 
 export const HEADER_APP_BAR_ID = 'headerAppBar';
 export const HEADER_USER_ID = 'headerUser';
