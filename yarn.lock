@@ -1608,9 +1608,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@graasp/query-client@npm:3.4.0":
-  version: 3.4.0
-  resolution: "@graasp/query-client@npm:3.4.0"
+"@graasp/query-client@npm:3.4.1":
+  version: 3.4.1
+  resolution: "@graasp/query-client@npm:3.4.1"
   dependencies:
     "@tanstack/react-query": "npm:4.36.1"
     "@tanstack/react-query-devtools": "npm:4.36.1"
@@ -1621,13 +1621,13 @@ __metadata:
     "@graasp/sdk": ^4.0.0
     "@graasp/translations": ^1.23.0
     react: ^18.0.0
-  checksum: 10/7c67383ca1cc11db21bce72ec148892c1a7753f3cbec94dd230b69562f267700a86f971c3f90dd1eaee71d02e51082d40a7706777fae685d0df48559eaa31126
+  checksum: 10/c5858ed3071ffd5688510b71e298ab787a47586f0f178a3d150aa2db94e71dd99510fb4c91d345f3b818e6dce3de23b57fa5aa9e3b17c2853382a572f617e5c4
   languageName: node
   linkType: hard
 
-"@graasp/sdk@npm:4.7.0":
-  version: 4.7.0
-  resolution: "@graasp/sdk@npm:4.7.0"
+"@graasp/sdk@npm:4.7.1":
+  version: 4.7.1
+  resolution: "@graasp/sdk@npm:4.7.1"
   dependencies:
     "@faker-js/faker": "npm:8.4.1"
     js-cookie: "npm:3.0.5"
@@ -1635,7 +1635,7 @@ __metadata:
   peerDependencies:
     date-fns: ^3
     uuid: ^9
-  checksum: 10/333460e2c74dcff4f9146e6683d72da45a6f9b5844d21d7a423240a3c39dc5957db4f830d437fdf38161c7f8c5f7bd2012cbfaf30dfbc4a135aa31a37b6982d7
+  checksum: 10/182e2a33fbdf7ed2cac7fbdf5a01378a059415a753345cca501d2ddda4985b9448c81bb2931a7157dc34cd613412c5da42da38cb037e9a46438755707e4ea2aa
   languageName: node
   linkType: hard
 
@@ -7057,8 +7057,8 @@ __metadata:
     "@emotion/cache": "npm:11.11.0"
     "@emotion/react": "npm:11.11.4"
     "@emotion/styled": "npm:11.11.0"
-    "@graasp/query-client": "npm:3.4.0"
-    "@graasp/sdk": "npm:4.7.0"
+    "@graasp/query-client": "npm:3.4.1"
+    "@graasp/sdk": "npm:4.7.1"
     "@graasp/translations": "npm:1.25.3"
     "@graasp/ui": "npm:4.15.0"
     "@mui/icons-material": "npm:5.15.14"

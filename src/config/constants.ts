@@ -10,6 +10,7 @@ export const HEADER_HEIGHT = 64;
 export const LEFT_MENU_WIDTH = 250;
 
 export const DEFAULT_EMAIL_FREQUENCY = EmailFrequency.Always;
+export const DEFAULT_CURRENCY = 'chf';
 
 export const emailFrequency = {
   [EmailFrequency.Always]: 'ALWAYS_RECEIVE_EMAILS',

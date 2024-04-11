@@ -28,8 +28,6 @@ import { MEMBER_PROFILE_ANALYTICS_SWITCH_ID } from '@/config/selectors';
 import { COPY_MEMBER_ID_TO_CLIPBOARD } from '@/types/clipboard';
 import { copyToClipboard } from '@/utils/clipboard';
 
-const DEFAULT_MEMBER_PROFILE_SAVE_ACTIONS_SETTING = true;
-
 const MemberProfileScreen = (): JSX.Element | null => {
   const { t, i18n } = useAccountTranslation();
   const { t: translateAccount } = useAccountTranslation();
@@ -135,10 +133,7 @@ const MemberProfileScreen = (): JSX.Element | null => {
                   <Switch
                     data-cy={MEMBER_PROFILE_ANALYTICS_SWITCH_ID}
                     onChange={handleOnToggle}
-                    checked={
-                      member.extra?.enableSaveActions ??
-                      DEFAULT_MEMBER_PROFILE_SAVE_ACTIONS_SETTING
-                    }
+                    checked={member.enableSaveActions}
                     color="primary"
                     disabled
                   />

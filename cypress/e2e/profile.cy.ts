@@ -105,27 +105,6 @@ describe('Change username', () => {
 });
 
 describe('Checks the analytics switch', () => {
-  describe('enableSaveActions is undefined', () => {
-    beforeEach(() => {
-      cy.setUpApi({
-        currentMember: {
-          ...currentMember,
-          enableSaveActions: undefined,
-        },
-      });
-      cy.visit('/');
-      // wait on current member request to update then the mock response for current member
-      cy.wait('@getCurrentMember');
-    });
-
-    it('Analytics switch should be enabled', () => {
-      expectAnalyticsSwitchToBe(true);
-    });
-
-    it('Disable analytics switch', () => {
-      checkAnalyticsAfterUpdate(false);
-    });
-  });
 
   describe('enableSaveActions is enabled', () => {
     beforeEach(() => {
