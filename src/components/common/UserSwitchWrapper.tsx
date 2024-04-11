@@ -1,7 +1,8 @@
 import { Member } from '@graasp/sdk';
 import { UserSwitchWrapper as GraaspUserSwitch } from '@graasp/ui';
 
-import { GRAASP_AUTH_HOST } from '../../config/constants';
+import { GRAASP_AUTH_HOST } from '@/config/env';
+
 import { HOME_PATH } from '../../config/paths';
 import { hooks, mutations } from '../../config/queryClient';
 import MemberAvatar from '../main/MemberAvatar';

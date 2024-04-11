@@ -15,3 +15,4 @@ export const USER_MENU_SIGN_OUT_OPTION_ID = 'userMenuSignOutOption';
 
 export const DELETE_MEMBER_DIALOG_TITLE_ID = 'alert-dialog-title';
 export const DELETE_MEMBER_DIALOG_DESCRIPTION_ID = 'alert-dialog-description';
+export const APP_NAVIGATION_PLATFORM_SWITCH_ID = 'appNavigationPlatformSwitch';

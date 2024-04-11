@@ -8,19 +8,12 @@ import IconButton from '@mui/material/IconButton';
 
 import {
   GraaspLogo,
-  Platform,
   PlatformSwitch,
   PlatformSwitchProps,
-  defaultHostsMapper,
   useMobileView,
-  usePlatformNavigation,
 } from '@graasp/ui';
 
-import {
-  APP_NAME,
-  GRAASP_LOGO_HEADER_HEIGHT,
-  HOST_MAP,
-} from '../../config/constants';
+import { APP_NAME, GRAASP_LOGO_HEADER_HEIGHT } from '../../config/constants';
 import { HOME_PATH } from '../../config/paths';
 import { HEADER_APP_BAR_ID } from '../../config/selectors';
 import UserSwitchWrapper from '../common/UserSwitchWrapper';
@@ -52,31 +45,31 @@ type Props = {
 };
 
 // small converter for HOST_MAP into a usePlatformNavigation mapper
-export const platformsHostsMap = defaultHostsMapper({
-  [Platform.Builder]: HOST_MAP.builder,
-  [Platform.Player]: HOST_MAP.player,
-  [Platform.Library]: HOST_MAP.library,
-  [Platform.Analytics]: HOST_MAP.analytics,
-});
+// export const platformsHostsMap = defaultHostsMapper({
+//   [Platform.Builder]: HOST_MAP.builder,
+//   [Platform.Player]: HOST_MAP.player,
+//   [Platform.Library]: HOST_MAP.library,
+//   [Platform.Analytics]: HOST_MAP.analytics,
+// });
 
 const Header = ({ isMenuOpen, toggleMenu }: Props): JSX.Element => {
   const theme = useTheme();
   const { isMobile } = useMobileView();
-  const getNavigationEvents = usePlatformNavigation(platformsHostsMap);
-  const platformProps = {
-    [Platform.Builder]: {
-      ...getNavigationEvents(Platform.Builder),
-    },
-    [Platform.Player]: {
-      ...getNavigationEvents(Platform.Player),
-    },
-    [Platform.Library]: {
-      ...getNavigationEvents(Platform.Library),
-    },
-    [Platform.Analytics]: {
-      ...getNavigationEvents(Platform.Analytics),
-    },
-  };
+  // const getNavigationEvents = usePlatformNavigation(platformsHostsMap);
+  // const platformProps = {
+  //   [Platform.Builder]: {
+  //     ...getNavigationEvents(Platform.Builder),
+  //   },
+  //   [Platform.Player]: {
+  //     ...getNavigationEvents(Platform.Player),
+  //   },
+  //   [Platform.Library]: {
+  //     ...getNavigationEvents(Platform.Library),
+  //   },
+  //   [Platform.Analytics]: {
+  //     ...getNavigationEvents(Platform.Analytics),
+  //   },
+  // };
 
   const renderMenuIcon = () => {
     if (isMenuOpen) {
@@ -109,7 +102,7 @@ const Header = ({ isMenuOpen, toggleMenu }: Props): JSX.Element => {
           </StyledLink>
           <PlatformSwitch
             CustomMobileIcon={AccountIcon}
-            platformsProps={platformProps}
+            // platformsProps={platformProps}
             color={
               isMobile
                 ? theme.palette.primary.main

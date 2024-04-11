@@ -1,18 +1,16 @@
-import React, { ChangeEvent, useState } from 'react';
+import { ChangeEvent, useState } from 'react';
 
-import { Button, TextField } from '@mui/material';
-import Grid from '@mui/material/Grid';
+import { Box, Button, Stack, TextField } from '@mui/material';
 import Typography from '@mui/material/Typography';
 
 import { isPasswordStrong } from '@graasp/sdk';
 import { FAILURE_MESSAGES } from '@graasp/translations';
 
-import Main from '@/components/main/Main';
 import { useAccountTranslation } from '@/config/i18n';
 import { mutations } from '@/config/queryClient';
 
 const PasswordSettings = (): JSX.Element => {
-  const { t: translateAccount } = useAccountTranslation();
+  const { t } = useAccountTranslation();
 
   const [currentPassword, setCurrentPassword] = useState('');
   const [newPassword, setNewPassword] = useState('');
@@ -49,15 +47,18 @@ const PasswordSettings = (): JSX.Element => {
     if (isValid) {
       // perform validation when all fields are filled in
       if (currentPassword === newPassword) {
-        return setNewPasswordError(FAILURE_MESSAGES.PASSWORD_EQUAL_ERROR);
+        setNewPasswordError(FAILURE_MESSAGES.PASSWORD_EQUAL_ERROR);
+        return;
       }
       if (newPassword !== confirmPassword) {
-        return setConfirmPasswordError(FAILURE_MESSAGES.PASSWORD_CONFIRM_ERROR);
+        setConfirmPasswordError(FAILURE_MESSAGES.PASSWORD_CONFIRM_ERROR);
+        return;
       }
 
       // check password strength for new password
       if (!isPasswordStrong(newPassword)) {
-        return setNewPasswordError(FAILURE_MESSAGES.PASSWORD_WEAK_ERROR);
+        setNewPasswordError(FAILURE_MESSAGES.PASSWORD_WEAK_ERROR);
+        return;
       }
 
       // perform password update
@@ -67,7 +68,7 @@ const PasswordSettings = (): JSX.Element => {
       });
     }
 
-    return onClose();
+    onClose();
   };
 
   const handleCurrentPasswordInput = (event: ChangeEvent<HTMLInputElement>) => {
@@ -83,76 +84,69 @@ const PasswordSettings = (): JSX.Element => {
   };
 
   return (
-    <Main>
-      <Grid container spacing={1} direction="column">
-        <Grid item xs={12}>
-          <Typography variant="h4" component="h1">
-            {translateAccount('PASSWORD_SETTINGS_TITLE')}
+    <Stack direction="column" spacing={1}>
+      <Typography variant="h4" component="h1">
+        {t('PASSWORD_SETTINGS_TITLE')}
+      </Typography>
+      <Typography variant="body1">
+        {t('PASSWORD_SETTINGS_CONFIRM_INFORMATION')}
+      </Typography>
+      <Stack spacing={2}>
+        <Box>
+          <TextField
+            required
+            label={t('PASSWORD_SETTINGS_CURRENT_LABEL')}
+            variant="outlined"
+            value={currentPassword}
+            onChange={handleCurrentPasswordInput}
+            type="password"
+          />
+          <Typography variant="subtitle2">
+            {t('PASSWORD_SETTINGS_CURRENT_INFORMATION')}
           </Typography>
-          <Typography variant="body1">
-            {translateAccount('PASSWORD_SETTINGS_CONFIRM_INFORMATION')}
-          </Typography>
-        </Grid>
-        <Grid container spacing={2} my={1}>
-          <Grid item xs={12} sm={12}>
-            <TextField
-              required
-              label={translateAccount('PASSWORD_SETTINGS_CURRENT_LABEL')}
-              variant="outlined"
-              value={currentPassword}
-              onChange={handleCurrentPasswordInput}
-              type="password"
-            />
-            <Typography variant="subtitle2">
-              {translateAccount('PASSWORD_SETTINGS_CURRENT_INFORMATION')}
-            </Typography>
-          </Grid>
-          <Grid item xs={12}>
-            <TextField
-              required
-              label={translateAccount('PASSWORD_SETTINGS_NEW_LABEL')}
-              variant="outlined"
-              value={newPassword}
-              error={Boolean(newPasswordError)}
-              helperText={newPasswordError}
-              onChange={handleNewPasswordInput}
-              type="password"
-              sx={{ mr: 2 }}
-            />
-            <TextField
-              required
-              label={translateAccount('PASSWORD_SETTINGS_NEW_CONFIRM_LABEL')}
-              variant="outlined"
-              value={confirmPassword}
-              error={Boolean(confirmPasswordError)}
-              helperText={confirmPasswordError}
-              onChange={handleConfirmPasswordInput}
-              type="password"
-            />
-          </Grid>
+        </Box>
+        <Stack direction="row" spacing={2}>
+          <TextField
+            required
+            label={t('PASSWORD_SETTINGS_NEW_LABEL')}
+            variant="outlined"
+            value={newPassword}
+            error={Boolean(newPasswordError)}
+            helperText={newPasswordError}
+            onChange={handleNewPasswordInput}
+            type="password"
+          />
+          <TextField
+            required
+            label={t('PASSWORD_SETTINGS_NEW_CONFIRM_LABEL')}
+            variant="outlined"
+            value={confirmPassword}
+            error={Boolean(confirmPasswordError)}
+            helperText={confirmPasswordError}
+            onChange={handleConfirmPasswordInput}
+            type="password"
+          />
+        </Stack>
 
-          <Grid item xs={12}>
-            <Button
-              variant="outlined"
-              disabled
-              sx={{ mr: 2 }}
-              // TO DO:
-              // onClick={() => handleChangePassword()}
-            >
-              {translateAccount('PASSWORD_SETTINGS_REQUEST_RESET_BUTTON')}
-            </Button>
-            <Button
-              variant="contained"
-              color="primary"
-              onClick={() => handleChangePassword()}
-              sx={{ my: 1 }}
-            >
-              {translateAccount('PASSWORD_SETTINGS_CONFIRM_BUTTON')}
-            </Button>
-          </Grid>
-        </Grid>
-      </Grid>
-    </Main>
+        <Stack direction="row" spacing={2}>
+          <Button
+            variant="outlined"
+            disabled
+            // TODO: add code to reset password
+            // onClick={() => handleChangePassword()}
+          >
+            {t('PASSWORD_SETTINGS_REQUEST_RESET_BUTTON')}
+          </Button>
+          <Button
+            variant="contained"
+            color="primary"
+            onClick={handleChangePassword}
+          >
+            {t('PASSWORD_SETTINGS_CONFIRM_BUTTON')}
+          </Button>
+        </Stack>
+      </Stack>
+    </Stack>
   );
 };
 

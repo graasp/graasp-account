@@ -13,7 +13,6 @@ import CropModal, {
   CropProps,
   MODAL_TITLE_ARIA_LABEL_ID,
 } from '@/components/main/CropModal';
-import Main from '@/components/main/Main';
 import StatusBar from '@/components/main/StatusBar';
 import { AVATAR_SIZE } from '@/config/constants';
 import { useAccountTranslation } from '@/config/i18n';
@@ -113,7 +112,7 @@ const AvatarSettings = (): JSX.Element | null => {
   };
 
   return (
-    <Main>
+    <>
       {uppy && (
         <StatusBar uppy={uppy} handleClose={handleClose} open={openStatusBar} />
       )}
@@ -155,7 +154,7 @@ const AvatarSettings = (): JSX.Element | null => {
           />
         </Dialog>
       )}
-    </Main>
+    </>
   );
 };
 

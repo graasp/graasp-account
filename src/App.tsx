@@ -6,8 +6,7 @@ import { Alert } from '@mui/material';
 
 import { CustomInitialLoader, withAuthorization } from '@graasp/ui';
 
-import MainProviders from './components/context/MainProviders';
-import { GRAASP_AUTH_HOST } from './config/constants';
+import { GRAASP_AUTH_HOST } from './config/env';
 import {
   AVATAR_SETTINGS_PATH,
   HOME_PATH,
@@ -20,6 +19,7 @@ import { hooks } from './config/queryClient';
 import AvatarSettingsScreen from './pages/AvatarSettingsScreen';
 import DestructiveSettingsScreen from './pages/DestructiveSettingsScreen';
 import MemberScreen from './pages/MemberScreen';
+import PageWrapper from './pages/PageWrapper';
 import PasswordSettingsScreen from './pages/PasswordSettingsScreen';
 import PublicProfileScreen from './pages/PublicProfileScreen';
 import StorageScreen from './pages/StorageScreen';
@@ -69,9 +69,9 @@ export const App = (): JSX.Element => {
 
   if (currentMember) {
     return (
-      <MainProviders>
-        <Router>
-          <Routes>
+      <Router>
+        <Routes>
+          <Route element={<PageWrapper />}>
             <Route
               path={HOME_PATH}
               element={<MemberProfileWithAuthorization />}
@@ -93,9 +93,9 @@ export const App = (): JSX.Element => {
               element={<DestructiveSettingsWithAuthorization />}
             />
             <Route path={STORAGE_PATH} element={<StorageWithAuthorization />} />
-          </Routes>
-        </Router>
-      </MainProviders>
+          </Route>
+        </Routes>
+      </Router>
     );
   }
 

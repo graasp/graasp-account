@@ -5,7 +5,9 @@ import { MAX_FILE_SIZE, MAX_THUMBNAIL_SIZE } from '@graasp/sdk';
 import Uppy from '@uppy/core';
 import XHRUpload from '@uppy/xhr-upload';
 
-import { API_HOST, FILE_UPLOAD_MAX_FILES } from '../config/constants';
+import { API_HOST } from '@/config/env';
+
+import { FILE_UPLOAD_MAX_FILES } from '../config/constants';
 
 const configureUppy = ({
   itemId,
