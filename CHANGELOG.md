@@ -1,5 +1,17 @@
 # Changelog
 
+## [2.4.0](https://github.com/graasp/graasp-account/compare/v2.3.5...v2.4.0) (2024-04-15)
+
+
+### Features
+
+* update main component, favicon and font ([#187](https://github.com/graasp/graasp-account/issues/187)) ([0ff23c2](https://github.com/graasp/graasp-account/commit/0ff23c2128ea18fef20c5bc43443263387804d7a))
+
+
+### Bug Fixes
+
+* small ui issues on the progress bar ([7c3db90](https://github.com/graasp/graasp-account/commit/7c3db902c42c734b242b5c93a93523fbcc8333d8))
+
 ## [2.3.5](https://github.com/graasp/graasp-account/compare/v2.3.4...v2.3.5) (2024-04-03)
 
 
