@@ -1608,20 +1608,20 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@graasp/query-client@npm:3.0.0":
-  version: 3.0.0
-  resolution: "@graasp/query-client@npm:3.0.0"
+"@graasp/query-client@npm:3.0.2":
+  version: 3.0.2
+  resolution: "@graasp/query-client@npm:3.0.2"
   dependencies:
     "@tanstack/react-query": "npm:4.36.1"
     "@tanstack/react-query-devtools": "npm:4.36.1"
-    axios: "npm:1.6.7"
+    axios: "npm:1.6.8"
     http-status-codes: "npm:2.3.0"
     qs: "npm:6.12.0"
   peerDependencies:
     "@graasp/sdk": ^4.0.0
     "@graasp/translations": ^1.23.0
     react: ^18.0.0
-  checksum: 10/7d4290286c0d31fa2fb0fe9e68226b5fb75275f1d9846b3379a5a1526404926662d78c1b665551d66a8fd045d1aed1884b7274e2717b8dc93b1486b5aeccad3b
+  checksum: 10/408d6eb4e5e8f024e8691ed65bb6fbd595da04d76ca0f897d538871c3ca1ddb43c31d83f1e707a95c14558e28377f326a3f0262d38558a808c2b410133386996
   languageName: node
   linkType: hard
 
@@ -4090,17 +4090,6 @@ __metadata:
   version: 4.7.0
   resolution: "axe-core@npm:4.7.0"
   checksum: 10/615c0f7722c3c9fcf353dbd70b00e2ceae234d4c17cbc839dd85c01d16797c4e4da45f8d27c6118e9e6b033fb06efd196106e13651a1b2f3a10e0f11c7b2f660
-  languageName: node
-  linkType: hard
-
-"axios@npm:1.6.7":
-  version: 1.6.7
-  resolution: "axios@npm:1.6.7"
-  dependencies:
-    follow-redirects: "npm:^1.15.4"
-    form-data: "npm:^4.0.0"
-    proxy-from-env: "npm:^1.1.0"
-  checksum: 10/a1932b089ece759cd261f175d9ebf4d41c8994cf0c0767cda86055c7a19bcfdade8ae3464bf4cec4c8b142f4a657dc664fb77a41855e8376cf38b86d7a86518f
   languageName: node
   linkType: hard
 
@@ -6610,16 +6599,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"follow-redirects@npm:^1.15.4":
-  version: 1.15.5
-  resolution: "follow-redirects@npm:1.15.5"
-  peerDependenciesMeta:
-    debug:
-      optional: true
-  checksum: 10/d467f13c1c6aa734599b8b369cd7a625b20081af358f6204ff515f6f4116eb440de9c4e0c49f10798eeb0df26c95dd05d5e0d9ddc5786ab1a8a8abefe92929b4
-  languageName: node
-  linkType: hard
-
 "follow-redirects@npm:^1.15.6":
   version: 1.15.6
   resolution: "follow-redirects@npm:1.15.6"
@@ -7078,7 +7057,7 @@ __metadata:
     "@emotion/cache": "npm:11.11.0"
     "@emotion/react": "npm:11.11.4"
     "@emotion/styled": "npm:11.11.0"
-    "@graasp/query-client": "npm:3.0.0"
+    "@graasp/query-client": "npm:3.0.2"
     "@graasp/sdk": "npm:4.2.1"
     "@graasp/translations": "npm:1.25.3"
     "@graasp/ui": "npm:4.15.0"
