@@ -129,15 +129,12 @@ const MemberProfileScreen = (): JSX.Element | null => {
             </Grid>
             <Grid item xs={8}>
               <Tooltip title={translateAccount('SAVE_ACTIONS_TOGGLE_TOOLTIP')}>
-                <span>
-                  <Switch
-                    data-cy={MEMBER_PROFILE_ANALYTICS_SWITCH_ID}
-                    onChange={handleOnToggle}
-                    checked={member.enableSaveActions}
-                    color="primary"
-                    disabled
-                  />
-                </span>
+                <Switch
+                  data-cy={MEMBER_PROFILE_ANALYTICS_SWITCH_ID}
+                  onChange={handleOnToggle}
+                  checked={member.enableSaveActions}
+                  color="primary"
+                />
               </Tooltip>
             </Grid>
           </Grid>
