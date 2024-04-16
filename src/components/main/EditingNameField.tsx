@@ -4,15 +4,14 @@ import CloseIcon from '@mui/icons-material/Close';
 import DoneIcon from '@mui/icons-material/Done';
 import { IconButton, Stack, TextField } from '@mui/material';
 
+import { MAX_USERNAME_LENGTH, MIN_USERNAME_LENGTH } from '@graasp/sdk';
+
 import { useAccountTranslation } from '@/config/i18n';
 import {
   USERNAME_CANCEL_BUTTON_ID,
   USERNAME_INPUT_FIELD_ID,
   USERNAME_SAVE_BUTTON_ID,
 } from '@/config/selectors';
-
-const MIN_USERNAME_LENGTH = 3;
-const MAX_USERNAME_LENGTH = 30;
 
 type EditingUserNameFieldProps = {
   name: string;
