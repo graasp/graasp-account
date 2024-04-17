@@ -20,7 +20,7 @@ export const MEMBERS: {
   },
   WRONG_NAME_TOO_LONG: {
     id: 'a7e428e9-86d3-434a-b611-d930cf8380ec',
-    name: 'qwertyuiopasdfghjklzxcvbnmqwert',
+    name: 'qwertyuio pasdfghjklzx cvbnmqwertr tyuiopa sdfghjklzxcvbnmqwe',
     email: 'graasp@graasp.org',
     nameValid: false,
   },
