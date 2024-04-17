@@ -1,5 +1,24 @@
 # Changelog
 
+## [2.5.0](https://github.com/graasp/graasp-account/compare/v2.4.0...v2.5.0) (2024-04-17)
+
+
+### Features
+
+* allow to change username ([#180](https://github.com/graasp/graasp-account/issues/180)) ([16012f4](https://github.com/graasp/graasp-account/commit/16012f41694b1c6efab7342dc8c58be7a59437e5))
+* update MemberScreen to udpate enableSaveActions in member ([#186](https://github.com/graasp/graasp-account/issues/186)) ([4fda13b](https://github.com/graasp/graasp-account/commit/4fda13b2b1b8467d18c7d40c23c9a049631ae596))
+
+
+### Bug Fixes
+
+* apply new limits ([#195](https://github.com/graasp/graasp-account/issues/195)) ([2ccc2e6](https://github.com/graasp/graasp-account/commit/2ccc2e627066fbbcec1ea4783619b185d5c919a3))
+* Cypress test related to username validation ([16012f4](https://github.com/graasp/graasp-account/commit/16012f41694b1c6efab7342dc8c58be7a59437e5))
+* **deps:** update dependency @emotion/styled to v11.11.5 ([#181](https://github.com/graasp/graasp-account/issues/181)) ([f949c6c](https://github.com/graasp/graasp-account/commit/f949c6cf185fa3312144c04407193f25298f9d8d))
+* **deps:** update dependency @graasp/translations to v1.26.0 ([#196](https://github.com/graasp/graasp-account/issues/196)) ([c17c242](https://github.com/graasp/graasp-account/commit/c17c242a28f670c309a042d4ef7717333456c290))
+* **deps:** update dependency @graasp/ui to v4.15.0 ([#183](https://github.com/graasp/graasp-account/issues/183)) ([64011c2](https://github.com/graasp/graasp-account/commit/64011c2371b4080d18f876317cee3671a2e0ce74))
+* **deps:** update uppy packages ([#178](https://github.com/graasp/graasp-account/issues/178)) ([9d3a850](https://github.com/graasp/graasp-account/commit/9d3a850fe2a4625fb4281278ac3d0afc75e53a18))
+* test allow to change username ([16012f4](https://github.com/graasp/graasp-account/commit/16012f41694b1c6efab7342dc8c58be7a59437e5))
+
 ## [2.4.0](https://github.com/graasp/graasp-account/compare/v2.3.5...v2.4.0) (2024-04-15)
 
 
