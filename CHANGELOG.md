@@ -1,5 +1,12 @@
 # Changelog
 
+## [2.6.0](https://github.com/graasp/graasp-account/compare/v2.5.0...v2.6.0) (2024-04-19)
+
+
+### Features
+
+* delete delete account from main profile page ([#201](https://github.com/graasp/graasp-account/issues/201)) ([df1dbab](https://github.com/graasp/graasp-account/commit/df1dbab706bc2518a2f2ace9197fef38edbcfe71))
+
 ## [2.5.0](https://github.com/graasp/graasp-account/compare/v2.4.0...v2.5.0) (2024-04-17)
 
 
