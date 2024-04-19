@@ -1,5 +1,3 @@
-import { Link } from 'react-router-dom';
-
 import FileCopyIcon from '@mui/icons-material/FileCopy';
 import {
   Alert,
@@ -22,7 +20,6 @@ import UsernameForm from '@/components/main/UsernameForm';
 import { DEFAULT_EMAIL_FREQUENCY } from '@/config/constants';
 import { useAccountTranslation } from '@/config/i18n';
 import notifier from '@/config/notifier';
-import { MANAGE_ACCOUNT_PATH } from '@/config/paths';
 import { hooks, mutations } from '@/config/queryClient';
 import { MEMBER_PROFILE_ANALYTICS_SWITCH_ID } from '@/config/selectors';
 import { COPY_MEMBER_ID_TO_CLIPBOARD } from '@/types/clipboard';
@@ -138,13 +135,6 @@ const MemberProfileScreen = (): JSX.Element | null => {
               </Tooltip>
             </Grid>
           </Grid>
-        </Box>
-        <Box>
-          <Typography variant="h6" color="red">
-            {t('PROFILE_DELETE_ACCOUNT_BUTTON')}
-          </Typography>
-          <Typography variant="body1">{t('DELETE_ACCOUNT_DETAILS')}</Typography>
-          <Link to={MANAGE_ACCOUNT_PATH}>{t('GO_TO_MANAGE_ACCOUNT_PAGE')}</Link>
         </Box>
       </Stack>
     );
