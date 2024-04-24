@@ -1,17 +1,11 @@
-import { Trans } from 'react-i18next';
-
-import { Alert, Skeleton, Stack, Typography, styled } from '@mui/material';
+import { Alert, Skeleton, Stack, styled } from '@mui/material';
 
 import { formatFileSize } from '@graasp/sdk';
 import { FAILURE_MESSAGES } from '@graasp/translations';
 
-import ScreenLayout from '@/components/layout/ScreenLayout';
-import { ADMIN_CONTACT } from '@/config/constants';
-import { useAccountTranslation, useMessagesTranslation } from '@/config/i18n';
+import { useMessagesTranslation } from '@/config/i18n';
 import { hooks } from '@/config/queryClient';
 import { STORAGE_BAR_ID, STORAGE_BAR_LABEL_ID } from '@/config/selectors';
-
-import { StorageFiles } from '../components/StorageFiles';
 
 const BAR_WIDTH = window.innerWidth / 3;
 const BAR_HEIGHT = 25;
@@ -51,7 +45,7 @@ const StorageBarIndicator = styled('progress')(({ theme }) => ({
   flexGrow: 1,
 }));
 
-const StorageBar = () => {
+export function StorageBar(): JSX.Element {
   const { t: translateMessages } = useMessagesTranslation();
   const { data: storage, isLoading } = hooks.useMemberStorage();
   if (storage) {
@@ -78,34 +72,4 @@ const StorageBar = () => {
       {translateMessages(FAILURE_MESSAGES.UNEXPECTED_ERROR)}
     </Alert>
   );
-};
-
-const StorageScreen = (): JSX.Element => {
-  const { t } = useAccountTranslation();
-
-  return (
-    <ScreenLayout title={t('STORAGE_TITLE')}>
-      <Stack gap={2}>
-        <Typography variant="body1">
-          <Trans
-            t={t}
-            i18nKey="STORAGE_TEXT"
-            values={{
-              email: ADMIN_CONTACT,
-            }}
-            components={[
-              <a key="email" href={`mailto:${ADMIN_CONTACT}`}>
-                this email
-              </a>,
-            ]}
-          />
-        </Typography>
-        <Alert severity="info">{t('STORAGE_INFO')}</Alert>
-      </Stack>
-      <StorageBar />
-      <StorageFiles />
-    </ScreenLayout>
-  );
-};
-
-export default StorageScreen;
+}

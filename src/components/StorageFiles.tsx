@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
 
 import {
   Alert,
@@ -18,6 +17,8 @@ import {
   formatFileSize,
 } from '@graasp/sdk';
 import { Loader } from '@graasp/ui';
+
+import { Link } from '@tanstack/react-router';
 
 import i18n, { useAccountTranslation } from '@/config/i18n';
 import { hooks } from '@/config/queryClient';
