@@ -23,8 +23,8 @@ jobs:
       - name: Setup Node
         uses: actions/setup-node@v4
 
-      - name: Yarn Install and Cache
-        uses: graasp/graasp-deploy/.github/actions/yarn-install-and-cache@v1
+      - name: pnpm Install and Cache
+        uses: graasp/graasp-deploy/.github/actions/pnpm-install-and-cache@v1
         with:
           cypress: true
 
@@ -33,7 +33,7 @@ jobs:
         run: tsc --noEmit
 
       - name: Build App
-        run: NODE_OPTIONS=--max-old-space-size=8192 yarn build:test
+        run: NODE_OPTIONS=--max-old-space-size=8192 pnpm build:test
         shell: bash
         env:
           VITE_PORT: ${{ vars.VITE_PORT }}
@@ -53,11 +53,10 @@ jobs:
         with:
           install: false
           # we launch the app in preview mode to avoid issues with hmr websockets from vite polluting the mocks
-          start: yarn preview:test
+          start: pnpm preview:test
           browser: chrome
           quiet: true
           config-file: cypress.config.ts
-          cache-key: ${{ runner.os }}-modules-${{ hashFiles('**/yarn.lock') }}
         env:
           VITE_PORT: ${{ vars.VITE_PORT }}
           VITE_VERSION: ${{ vars.VITE_VERSION }}

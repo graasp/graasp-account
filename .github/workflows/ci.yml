@@ -17,14 +17,14 @@ jobs:
       - name: set up node
         uses: actions/setup-node@v4
 
-      - name: Yarn Install and Cache
-        uses: graasp/graasp-deploy/.github/actions/yarn-install-and-cache@v1
+      - name: pnpm Install and Cache
+        uses: graasp/graasp-deploy/.github/actions/pnpm-install-and-cache@v1
 
       - name: Check code linting
-        run: yarn check
+        run: pnpm check
 
       - name: Build
-        run: yarn build
+        run: pnpm build
         env:
           VITE_PORT: ${{ vars.VITE_PORT }}
           VITE_VERSION: ${{ vars.VITE_VERSION }}
