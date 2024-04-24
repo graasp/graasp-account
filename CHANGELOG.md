@@ -1,5 +1,15 @@
 # Changelog
 
+## [2.6.1](https://github.com/graasp/graasp-account/compare/v2.6.0...v2.6.1) (2024-04-24)
+
+
+### Bug Fixes
+
+* **deps:** update dependency @graasp/query-client to v3.4.2 ([#200](https://github.com/graasp/graasp-account/issues/200)) ([a0280d5](https://github.com/graasp/graasp-account/commit/a0280d5bab8d6158a955baf2eb688c8ed319645a))
+* **deps:** update dependency i18next to v23.11.2 ([#197](https://github.com/graasp/graasp-account/issues/197)) ([5f5ff65](https://github.com/graasp/graasp-account/commit/5f5ff65c6dfa88c110b973feb8b5d4964c3270be))
+* update dependencies ([#208](https://github.com/graasp/graasp-account/issues/208)) ([e54f3f0](https://github.com/graasp/graasp-account/commit/e54f3f07cb733385e9d3dfedb90c5a76ed919150))
+* use format size from sdk ([#205](https://github.com/graasp/graasp-account/issues/205)) ([4880982](https://github.com/graasp/graasp-account/commit/48809823a95e1f3b701f1afe7e4ba3a50f8c2abe))
+
 ## [2.6.0](https://github.com/graasp/graasp-account/compare/v2.5.0...v2.6.0) (2024-04-19)
 
 
