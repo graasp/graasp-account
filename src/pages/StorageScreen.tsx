@@ -2,13 +2,13 @@ import { Trans } from 'react-i18next';
 
 import { Alert, Skeleton, Stack, Typography, styled } from '@mui/material';
 
+import { formatFileSize } from '@graasp/sdk';
 import { FAILURE_MESSAGES } from '@graasp/translations';
 
 import { ADMIN_CONTACT } from '@/config/constants';
 import { useAccountTranslation, useMessagesTranslation } from '@/config/i18n';
 import { hooks } from '@/config/queryClient';
 import { STORAGE_PROGRESS_BAR_ID } from '@/config/selectors';
-import { humanFileSize } from '@/utils/filesize';
 
 const BAR_WIDTH = window.innerWidth / 3;
 const BAR_HEIGHT = 25;
@@ -64,7 +64,7 @@ const StorageBar = () => {
           {storageUsed}
         </StorageBarIndicator>
         <label htmlFor={STORAGE_PROGRESS_BAR_ID}>
-          {humanFileSize(current)}/{humanFileSize(maximum)}
+          {formatFileSize(current)} / {formatFileSize(maximum)}
         </label>
       </Stack>
     );
