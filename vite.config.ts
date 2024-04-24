@@ -1,7 +1,8 @@
 /// <reference types="./src/env.d.ts"/>
+import { TanStackRouterVite } from '@tanstack/router-plugin/vite';
 import react from '@vitejs/plugin-react';
 import { resolve } from 'path';
-import { UserConfigExport, defineConfig, loadEnv } from 'vite';
+import { type UserConfigExport, defineConfig, loadEnv } from 'vite';
 import checker from 'vite-plugin-checker';
 import istanbul from 'vite-plugin-istanbul';
 
@@ -43,6 +44,7 @@ const config = ({ mode }: { mode: string }): UserConfigExport => {
       outDir: 'build',
     },
     plugins: [
+      TanStackRouterVite(),
       // the checker plugin is disabled when running the tests
       mode !== 'test'
         ? checker({

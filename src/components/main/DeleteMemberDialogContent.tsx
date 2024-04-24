@@ -76,7 +76,9 @@ const DeleteMemberDialogContent = ({ closeModal }: Props): JSX.Element => {
         </Button>
         <Button
           id={DELETE_MEMBER_DIALOG_CONFIRMATION_BUTTON_ID}
-          onClick={() => deleteMember()}
+          onClick={() => {
+            deleteMember();
+          }}
           color="error"
           disabled={isConfirmationDisabled}
         >

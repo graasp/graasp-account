@@ -1,6 +1,6 @@
-import { Link } from 'react-router-dom';
-
 import { Stack, Typography } from '@mui/material';
+
+import { Link } from '@tanstack/react-router';
 
 type Props = {
   icon?: JSX.Element;
