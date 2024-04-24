@@ -2,9 +2,12 @@
   "name": "graasp-account",
   "version": "2.14.1",
   "private": true,
+  "license": "AGPL-3.0-only",
+  "author": "Graasp",
   "contributors": [
     "Kim Lan Phan Hoang",
-    "Mariem Bencheikh"
+    "Mariem Bencheikh",
+    "Basile Spaenlehauer"
   ],
   "engines": {
     "node": ">=20"
@@ -31,7 +34,7 @@
     "react": "18.3.1",
     "react-dom": "18.3.1",
     "react-hook-form": "7.53.0",
-    "react-i18next": "^15.0.2",
+    "react-i18next": "^15.0.3",
     "react-image-crop": "11.0.7",
     "react-router": "6.26.2",
     "react-router-dom": "6.26.2",
@@ -42,7 +45,7 @@
   },
   "scripts": {
     "dev": "vite",
-    "start": "yarn dev",
+    "start": "pnpm dev",
     "start:test": "vite --mode test",
     "build": "vite build",
     "build:dev": "vite build --mode development",
@@ -51,15 +54,16 @@
     "preview:dev": "vite preview --mode development",
     "preview:test": "vite preview --mode test",
     "lint": "eslint .",
-    "pre-commit": "yarn prettier:check && yarn lint && yarn type-check",
+    "pre-commit": "pnpm prettier:check && pnpm lint && pnpm type-check",
     "prettier:check": "prettier --check src/**/*.{js,ts,tsx}",
     "prettier:write": "prettier --write src/**/*.{js,ts,tsx}",
     "type-check": "tsc --noEmit",
-    "check": "yarn prettier:check && yarn lint && yarn type-check",
+    "check": "pnpm prettier:check && pnpm lint && pnpm type-check",
     "hooks:install": "husky",
+    "preinstall": "npx only-allow pnpm",
     "cypress:open": "env-cmd -f ./.env.test cypress open --browser chrome",
-    "cypress": "yarn test",
-    "test": "yarn build:test && concurrently -k -s first \"yarn preview:test\" \"yarn cypress:run\"",
+    "cypress": "pnpm test",
+    "test": "pnpm build:test && concurrently -k -s first \"pnpm preview:test\" \"pnpm cypress:run\"",
     "cypress:run": "env-cmd -f ./.env.test cypress run --browser chrome"
   },
   "browserslist": {
@@ -85,7 +89,6 @@
     "@trivago/prettier-plugin-sort-imports": "4.3.0",
     "@types/react-dom": "18.3.0",
     "@types/react-router-dom": "5.3.3",
-    "@types/react-toastify": "^4.1.0",
     "@types/stylis": "^4.2.6",
     "@typescript-eslint/eslint-plugin": "8.8.1",
     "@typescript-eslint/parser": "8.8.1",
@@ -109,5 +112,7 @@
     "vite-plugin-checker": "0.8.0",
     "vite-plugin-istanbul": "6.0.2"
   },
-  "packageManager": "yarn@4.5.0"
+  "volta": {
+    "node": "20.12.2"
+  }
 }
