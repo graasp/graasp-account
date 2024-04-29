@@ -1,5 +1,6 @@
 import {
   MEMBER_PROFILE_ANALYTICS_SWITCH_ID,
+  MEMBER_PROFILE_LANGUAGE_SWITCH_ID,
   USERNAME_CANCEL_BUTTON_ID,
   USERNAME_DISPLAY_ID,
   USERNAME_EDIT_BUTTON_ID,
@@ -105,7 +106,6 @@ describe('Change username', () => {
 });
 
 describe('Checks the analytics switch', () => {
-
   describe('enableSaveActions is enabled', () => {
     beforeEach(() => {
       cy.setUpApi({
@@ -147,6 +147,28 @@ describe('Checks the analytics switch', () => {
 
     it('Disable analytics switch', () => {
       checkAnalyticsAfterUpdate(true);
+    });
+  });
+});
+
+describe('Checks the language switch', () => {
+  beforeEach(() => {
+    cy.setUpApi({
+      currentMember: {
+        ...currentMember,
+      },
+    });
+    cy.visit('/');
+    // wait on current member request to update then the mock response for current member
+    cy.wait('@getCurrentMember');
+  });
+  it('Switches language successfully with editMember', () => {
+    cy.get(`#${MEMBER_PROFILE_LANGUAGE_SWITCH_ID}`).click();
+    cy.contains('Deutsch').click();
+
+    // Assert that the language has changed successfully
+    cy.wait('@editMember').then(({ request }) => {
+      expect(request.body.extra.lang).to.equal('de');
     });
   });
 });

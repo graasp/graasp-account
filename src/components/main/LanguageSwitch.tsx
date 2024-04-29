@@ -3,15 +3,16 @@ import { SelectChangeEvent } from '@mui/material';
 import { langs } from '@graasp/translations';
 import { Select } from '@graasp/ui';
 
+import { MEMBER_PROFILE_LANGUAGE_SWITCH_ID } from '@/config/selectors';
+
 import { mutations } from '../../config/queryClient';
 
 type Props = {
-  id?: string;
   memberId: string;
   lang: string;
 };
 
-const LanguageSwitch = ({ id, memberId, lang }: Props): JSX.Element => {
+const LanguageSwitch = ({ memberId, lang }: Props): JSX.Element => {
   const { mutate: editMember } = mutations.useEditMember();
 
   const handleChange = (event: SelectChangeEvent<unknown>) => {
@@ -30,7 +31,7 @@ const LanguageSwitch = ({ id, memberId, lang }: Props): JSX.Element => {
   return (
     <Select
       variant="standard"
-      id={id}
+      id={MEMBER_PROFILE_LANGUAGE_SWITCH_ID}
       defaultValue={lang}
       onChange={handleChange}
       buildOptionId={(value) => value}
