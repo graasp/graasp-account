@@ -156,7 +156,7 @@ describe('Checks the language switch', () => {
     cy.setUpApi({
       currentMember,
     });
-    cy.visit('/profile');
+    cy.visit('/');
     cy.wait('@getCurrentMember');
   });
   it('should select an option from the select component', () => {
@@ -175,7 +175,7 @@ describe('Checks the current member language', () => {
     cy.setUpApi({
       currentMember: { ...currentMember, extra: { lang: 'es' } },
     });
-    cy.visit('/profile');
+    cy.visit('/');
     cy.wait('@getCurrentMember');
   });
 
