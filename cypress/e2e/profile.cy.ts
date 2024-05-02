@@ -154,21 +154,35 @@ describe('Checks the analytics switch', () => {
 describe('Checks the language switch', () => {
   beforeEach(() => {
     cy.setUpApi({
-      currentMember: {
-        ...currentMember,
-      },
+      currentMember,
     });
-    cy.visit('/');
-    // wait on current member request to update then the mock response for current member
+    cy.visit('/profile');
     cy.wait('@getCurrentMember');
   });
-  it('Switches language successfully with editMember', () => {
+  it('should select an option from the select component', () => {
+    cy.get(`#${MEMBER_PROFILE_LANGUAGE_SWITCH_ID}`).should('be.visible'); // Ensure the element is visible
     cy.get(`#${MEMBER_PROFILE_LANGUAGE_SWITCH_ID}`).click();
-    cy.contains('Deutsch').click();
 
-    // Assert that the language has changed successfully
+    cy.get(`[role="option"][data-value="de"]`).click();
     cy.wait('@editMember').then(({ request }) => {
       expect(request.body.extra.lang).to.equal('de');
     });
+  });
+});
+
+describe('Checks the current member language', () => {
+  beforeEach(() => {
+    cy.setUpApi({
+      currentMember: { ...currentMember, extra: { lang: 'es' } },
+    });
+    cy.visit('/profile');
+    cy.wait('@getCurrentMember');
+  });
+
+  it('should display the member language', () => {
+    cy.get(`#${MEMBER_PROFILE_LANGUAGE_SWITCH_ID}`).should(
+      'contain',
+      'Español',
+    );
   });
 });

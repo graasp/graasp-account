@@ -25,19 +25,20 @@ Cypress.Commands.add(
     updatePasswordError = false,
   } = {}) => {
     const cachedMembers = JSON.parse(JSON.stringify(members));
+    const cachedCurrentMember = JSON.parse(JSON.stringify(currentMember));
 
     // hide cookie banner by default
     cy.setCookie(CookieKeys.AcceptCookies, 'true');
 
     mockGetMember(cachedMembers);
 
-    mockGetCurrentMember(currentMember, getCurrentMemberError);
+    mockGetCurrentMember(cachedCurrentMember, getCurrentMemberError);
 
     mockSignInRedirection();
 
     mockSignOut();
 
-    mockEditMember(cachedMembers, editMemberError);
+    mockEditMember(cachedCurrentMember, editMemberError);
 
     mockGetAvatarUrl(members, getAvatarUrlError);
 

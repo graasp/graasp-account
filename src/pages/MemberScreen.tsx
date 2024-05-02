@@ -21,7 +21,10 @@ import { DEFAULT_EMAIL_FREQUENCY } from '@/config/constants';
 import { useAccountTranslation } from '@/config/i18n';
 import notifier from '@/config/notifier';
 import { hooks, mutations } from '@/config/queryClient';
-import { MEMBER_PROFILE_ANALYTICS_SWITCH_ID } from '@/config/selectors';
+import {
+  MEMBER_PROFILE_ANALYTICS_SWITCH_ID,
+  MEMBER_PROFILE_LANGUAGE_SWITCH_ID,
+} from '@/config/selectors';
 import { COPY_MEMBER_ID_TO_CLIPBOARD } from '@/types/clipboard';
 import { copyToClipboard } from '@/utils/clipboard';
 
@@ -106,6 +109,7 @@ const MemberProfileScreen = (): JSX.Element | null => {
               <LanguageSwitch
                 memberId={member.id}
                 lang={member.extra?.lang ?? DEFAULT_LANG}
+                id={MEMBER_PROFILE_LANGUAGE_SWITCH_ID}
               />
             </Grid>
           </Grid>
