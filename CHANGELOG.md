@@ -1,5 +1,16 @@
 # Changelog
 
+## [2.6.2](https://github.com/graasp/graasp-account/compare/v2.6.1...v2.6.2) (2024-05-04)
+
+
+### Bug Fixes
+
+* **deps:** update dependency @graasp/sdk to v4.9.0 ([#213](https://github.com/graasp/graasp-account/issues/213)) ([0ea8af1](https://github.com/graasp/graasp-account/commit/0ea8af197b69af3b00300e34a5f90b7302b25daa))
+* **deps:** update dependency i18next to v23.11.3 ([#216](https://github.com/graasp/graasp-account/issues/216)) ([65cef2b](https://github.com/graasp/graasp-account/commit/65cef2b683025e98a358b9ae269cd1bd3eccb7c1))
+* **deps:** update mui (non-major) ([#190](https://github.com/graasp/graasp-account/issues/190)) ([ddbf21d](https://github.com/graasp/graasp-account/commit/ddbf21d9d0c68d7a5df40fb3db7d1c6724aa08df))
+* **test:** ensure language can be changed with the select ([#217](https://github.com/graasp/graasp-account/issues/217)) ([1a30302](https://github.com/graasp/graasp-account/commit/1a30302004eeee36419e3948c6affc5c11963d5d))
+* update deps ([ddb5e33](https://github.com/graasp/graasp-account/commit/ddb5e330359fac932b8c2511fb5457297fc24ff7))
+
 ## [2.6.1](https://github.com/graasp/graasp-account/compare/v2.6.0...v2.6.1) (2024-04-24)
 
 

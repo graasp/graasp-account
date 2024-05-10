@@ -1,5 +1,10 @@
 import { API_ROUTES } from '@graasp/query-client';
-import { HttpMethod, Member, buildSignInPath } from '@graasp/sdk';
+import {
+  CompleteMember,
+  HttpMethod,
+  Member,
+  buildSignInPath,
+} from '@graasp/sdk';
 
 import { StatusCodes } from 'http-status-codes';
 
@@ -75,7 +80,7 @@ export const mockGetMember = (members: Member[]): void => {
 };
 
 export const mockEditMember = (
-  _members: Member[],
+  currentMember: CompleteMember,
   shouldThrowError: boolean,
 ): void => {
   cy.intercept(
@@ -88,7 +93,7 @@ export const mockEditMember = (
         return reply({ statusCode: StatusCodes.BAD_REQUEST });
       }
 
-      return reply(body);
+      return reply({ ...currentMember, ...body });
     },
   ).as('editMember');
 };
