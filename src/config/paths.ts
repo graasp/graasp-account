@@ -1,4 +1,5 @@
 export const HOME_PATH = '/';
+export const PROFILE_PATH = '/profile';
 // export const SUBSCRIPTIONS_PATH = '/subscriptions';
 export const STORAGE_PATH = '/storage';
 export const PAYMENT_OPTIONS_PATH = '/payment';

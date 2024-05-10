@@ -12,12 +12,14 @@ import {
   HOME_PATH,
   MANAGE_ACCOUNT_PATH,
   PASSWORD_SETTINGS_PATH,
+  PROFILE_PATH,
   PUBLIC_PROFILE_PATH,
   STORAGE_PATH,
 } from './config/paths';
 import { hooks } from './config/queryClient';
 import AvatarSettingsScreen from './pages/AvatarSettingsScreen';
 import DestructiveSettingsScreen from './pages/DestructiveSettingsScreen';
+import HomePage from './pages/HomePage';
 import MemberScreen from './pages/MemberScreen';
 import PageWrapper from './pages/PageWrapper';
 import PasswordSettingsScreen from './pages/PasswordSettingsScreen';
@@ -42,6 +44,10 @@ export const App = (): JSX.Element => {
     redirectionLink: redirectionLink.toString(),
   };
 
+  const HomePageWithAuthorization = withAuthorization(
+    HomePage,
+    withAuthorizationProps,
+  );
   const MemberProfileWithAuthorization = withAuthorization(
     MemberScreen,
     withAuthorizationProps,
@@ -72,8 +78,9 @@ export const App = (): JSX.Element => {
       <Router>
         <Routes>
           <Route element={<PageWrapper />}>
+            <Route path={HOME_PATH} element={<HomePageWithAuthorization />} />
             <Route
-              path={HOME_PATH}
+              path={PROFILE_PATH}
               element={<MemberProfileWithAuthorization />}
             />
             <Route

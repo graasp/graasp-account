@@ -8,6 +8,7 @@
   "CROP_IMAGE_MODAL_UNEXPECTED_ERROR": "Une erreur inattendue s'est produite lors de la tentative de recadrage de l'image. Veuillez réessayer plus tard.",
   "CONFIRM_BUTTON": "Confirmer",
   "CANCEL_BUTTON": "Annuler",
+  "MAIN_MENU_HOME_PAGE": "Acceuil",
   "MAIN_MENU_PROFILE": "Profil",
   "MAIN_MENU_AVATAR": "Avatar",
   "MAIN_MENU_PASSWORD": "Mot de Passe",
@@ -61,9 +62,15 @@
   "POST_PROFILE": "Le profil public a été créé avec succès",
   "DELETE_ACCOUNT_DETAILS": "La suppression de votre compte supprimera définitivement toutes vos données, ce qui ne pourra pas être annulé.",
   "GO_TO_MANAGE_ACCOUNT_PAGE": "Poursuivre",
+  "GENERAL_PAGE_WELCOME": "Bienvenue",
   "PROFILE_DELETE_TYPE_CONFIRMATION_TEXT": "Pour confirmer la suppression, tapez \"{{text}}\" ci-dessous :",
   "DELETE_CONFIRMATION_VALUE": "supprimer",
   "DESTRUCTIVE_SETTINGS_DETAILS": "Veuillez noter que les opérations décrites ici ont des conséquences potentiellement irréversibles. Assurez-vous d’examiner attentivement toutes les restrictions avant de continuer avant de continuer.",
   "USERNAME_EMPTY_ERROR": "Le champ ne peut pas être vide",
-  "USERNAME_LENGTH_ERROR": "Le nom d'utilisateur doit contenir entre {{min}} et {{max}} caractères"
+  "USERNAME_LENGTH_ERROR": "Le nom d'utilisateur doit contenir entre {{min}} et {{max}} caractères",
+  "UPLOAD_PICTURE_TEXT": "Choisir photo",
+  "SECURITY_TIPS_TITLE": "Des recommandations de sécurité sont disponibles",
+  "SECURITY_TIPS_INFORMATION": "Vous n'avez pas défini de mot de passe, vous pouvez en définir un pour accéder à votre compte sans ouvrir votre email.",
+  "PERSONALISATION_TITLE": "Personalisation",
+  "PERSONALISATION_INFORMATION": "Laissez votre personnalité et votre unicité briller en ajoutant une photo de profil !"
 }
