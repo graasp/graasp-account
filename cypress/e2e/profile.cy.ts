@@ -55,7 +55,7 @@ const changeUsername = (newUserName: string) => {
 describe('Change username', () => {
   beforeEach(() => {
     cy.setUpApi({ currentMember: BOB });
-    cy.visit('/');
+    cy.visit('/profile');
   });
 
   it('Username field connot be empty', () => {
@@ -114,7 +114,7 @@ describe('Checks the analytics switch', () => {
           enableSaveActions: true,
         },
       });
-      cy.visit('/');
+      cy.visit('/profile');
       // wait on current member request to update then the mock response for current member
       cy.wait('@getCurrentMember');
     });
@@ -136,7 +136,7 @@ describe('Checks the analytics switch', () => {
           enableSaveActions: false,
         },
       });
-      cy.visit('/');
+      cy.visit('/profile');
       // wait on current member request to update then the mock response for current member
       cy.wait('@getCurrentMember');
     });
@@ -156,7 +156,7 @@ describe('Checks the language switch', () => {
     cy.setUpApi({
       currentMember,
     });
-    cy.visit('/');
+    cy.visit('/profile');
     cy.wait('@getCurrentMember');
   });
   it('should select an option from the select component', () => {
@@ -175,7 +175,7 @@ describe('Checks the current member language', () => {
     cy.setUpApi({
       currentMember: { ...currentMember, extra: { lang: 'es' } },
     });
-    cy.visit('/');
+    cy.visit('/profile');
     cy.wait('@getCurrentMember');
   });
 
