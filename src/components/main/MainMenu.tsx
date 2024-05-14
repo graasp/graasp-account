@@ -1,4 +1,4 @@
-import { useLocation, useNavigate } from 'react-router';
+import { useLocation, useNavigate } from 'react-router-dom';
 
 import { Whatshot } from '@mui/icons-material';
 import AccountCircleIcon from '@mui/icons-material/AccountCircle';
