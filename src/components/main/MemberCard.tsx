@@ -49,43 +49,40 @@ const MemberCard = (): JSX.Element | null => {
 
   return (
     <>
-      <Box>
-        {StatusBarComponent}
-        <Stack direction="row" spacing={2} alignItems="center">
-          <Stack alignItems="center">
-            <Grid item sm={6}>
-              <Avatar
-                component="avatar"
-                isLoading={isLoadingAvatar}
-                url={avatarUrl ?? defaultImage}
-                alt={t('PROFILE_AVATAR_CURRENT_ALT')}
-                sx={{ width: AVATAR_SIZE, height: AVATAR_SIZE }}
+      <Stack direction="row" spacing={2} alignItems="center">
+        <Stack alignItems="center">
+          <Grid item sm={6}>
+            <Avatar
+              component="avatar"
+              isLoading={isLoadingAvatar}
+              url={avatarUrl ?? defaultImage}
+              alt={t('PROFILE_AVATAR_CURRENT_ALT')}
+              sx={{ width: AVATAR_SIZE, height: AVATAR_SIZE }}
+            />
+          </Grid>
+          <Box marginTop={1} alignItems="center" justifyContent="center">
+            <Button variant="contained" component="label">
+              {t('UPLOAD_PICTURE_TEXT')}
+              <input
+                type="file"
+                accept="image/*"
+                onChange={onSelectFile}
+                ref={inputRef}
+                hidden
               />
-            </Grid>
-            <Box marginTop={1} alignItems="center" justifyContent="center">
-              <Button variant="contained" component="label">
-                {t('UPLOAD_PICTURE_TEXT')}
-                <input
-                  type="file"
-                  accept="image/*"
-                  onChange={onSelectFile}
-                  ref={inputRef}
-                  hidden
-                />
-              </Button>
-            </Box>
-          </Stack>
-          <Stack spacing={3}>
-            <Typography variant="h4">Welcome,</Typography>
-            <Typography variant="h4">{member?.name}</Typography>
-            <Typography display="flex" alignItems="center" gap={1} variant="h5">
-              <AlarmOnIcon fontSize="small" />
-              {t('PROFILE_CREATED_AT_TITLE')}
-              {formatDate(member?.createdAt, { locale: i18n.language })}
-            </Typography>
-          </Stack>
+            </Button>
+          </Box>
         </Stack>
-      </Box>
+        <Stack spacing={3}>
+          <Typography variant="h4">Welcome,</Typography>
+          <Typography variant="h4">{member?.name}</Typography>
+          <Typography display="flex" alignItems="center" gap={1} variant="h5">
+            <AlarmOnIcon fontSize="small" />
+            {t('PROFILE_CREATED_AT_TITLE')}
+            {formatDate(member?.createdAt, { locale: i18n.language })}
+          </Typography>
+        </Stack>
+      </Stack>
       {StatusBarComponent}
       {fileSource && (
         <Dialog
