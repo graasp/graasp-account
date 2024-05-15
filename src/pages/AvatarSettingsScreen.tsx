@@ -41,7 +41,7 @@ const AvatarSettings = (): JSX.Element | null => {
     }
     setUppy(
       configureAvatarUppy({
-        itemId: userId,
+        memberId: userId,
         onUpload: () => {
           setOpenStatusBar(true);
         },

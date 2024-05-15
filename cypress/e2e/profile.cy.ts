@@ -1,3 +1,5 @@
+import { PROFILE_PATH } from 'config/paths';
+
 import {
   MEMBER_PROFILE_ANALYTICS_SWITCH_ID,
   MEMBER_PROFILE_LANGUAGE_SWITCH_ID,
@@ -55,7 +57,7 @@ const changeUsername = (newUserName: string) => {
 describe('Change username', () => {
   beforeEach(() => {
     cy.setUpApi({ currentMember: BOB });
-    cy.visit('/profile');
+    cy.visit(`${PROFILE_PATH}`);
   });
 
   it('Username field connot be empty', () => {
@@ -114,7 +116,7 @@ describe('Checks the analytics switch', () => {
           enableSaveActions: true,
         },
       });
-      cy.visit('/profile');
+      cy.visit(`${PROFILE_PATH}`);
       // wait on current member request to update then the mock response for current member
       cy.wait('@getCurrentMember');
     });
@@ -136,7 +138,7 @@ describe('Checks the analytics switch', () => {
           enableSaveActions: false,
         },
       });
-      cy.visit('/profile');
+      cy.visit(`${PROFILE_PATH}`);
       // wait on current member request to update then the mock response for current member
       cy.wait('@getCurrentMember');
     });

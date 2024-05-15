@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { Box, Stack, Tooltip, Typography } from '@mui/material';
+import { Box, Grid, Stack, Tooltip, Typography } from '@mui/material';
 
 import { Context } from '@graasp/sdk';
 import {
@@ -51,38 +51,40 @@ const GraaspIcons = (): JSX.Element => {
   const getNavigationEvents = usePlatformNavigation(platformsHostsMap);
 
   return (
-    <Stack
-      direction="row"
-      spacing={4}
-      justifyContent="space-around"
-      alignItems="center"
-    >
-      <PlatformIcon
-        color={AccentColors[Context.Builder]}
-        text={Platform.Builder}
-        href={getNavigationEvents(Platform.Builder).href}
-        icon={<BuildIcon size={DEFAULT_ICON_SIZE} primaryColor="white" />}
-      />
-      <PlatformIcon
-        color={AccentColors[Context.Player]}
-        text={Platform.Player}
-        href={getNavigationEvents(Platform.Player).href}
-        icon={<PlayIcon size={DEFAULT_ICON_SIZE} primaryColor="white" />}
-      />
-
-      <PlatformIcon
-        color={AccentColors[Context.Library]}
-        text={Platform.Library}
-        href={getNavigationEvents(Platform.Library).href}
-        icon={<LibraryIcon size={DEFAULT_ICON_SIZE} primaryColor="white" />}
-      />
-      <PlatformIcon
-        color={AccentColors[Context.Analytics]}
-        text={Platform.Analytics}
-        href={getNavigationEvents(Platform.Analytics).href}
-        icon={<AnalyticsIcon size={DEFAULT_ICON_SIZE} primaryColor="white" />}
-      />
-    </Stack>
+    <Grid container spacing={4}>
+      <Grid item xs={6} sm={3}>
+        <PlatformIcon
+          color={AccentColors[Context.Builder]}
+          text={Platform.Builder}
+          href={getNavigationEvents(Platform.Builder).href}
+          icon={<BuildIcon size={DEFAULT_ICON_SIZE} primaryColor="white" />}
+        />
+      </Grid>
+      <Grid item xs={6} sm={3}>
+        <PlatformIcon
+          color={AccentColors[Context.Player]}
+          text={Platform.Player}
+          href={getNavigationEvents(Platform.Player).href}
+          icon={<PlayIcon size={DEFAULT_ICON_SIZE} primaryColor="white" />}
+        />
+      </Grid>
+      <Grid item xs={6} sm={3}>
+        <PlatformIcon
+          color={AccentColors[Context.Library]}
+          text={Platform.Library}
+          href={getNavigationEvents(Platform.Library).href}
+          icon={<LibraryIcon size={DEFAULT_ICON_SIZE} primaryColor="white" />}
+        />
+      </Grid>
+      <Grid item xs={6} sm={3}>
+        <PlatformIcon
+          color={AccentColors[Context.Analytics]}
+          text={Platform.Analytics}
+          href={getNavigationEvents(Platform.Analytics).href}
+          icon={<AnalyticsIcon size={DEFAULT_ICON_SIZE} primaryColor="white" />}
+        />
+      </Grid>
+    </Grid>
   );
 };
 
