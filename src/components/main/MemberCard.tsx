@@ -4,7 +4,10 @@ import { Alert, Box, Dialog, Grid, Stack, Typography } from '@mui/material';
 import { ThumbnailSize, formatDate } from '@graasp/sdk';
 import { Avatar, Button, Loader } from '@graasp/ui';
 
-import { AVATAR_SIZE } from '@/config/constants';
+import {
+  THUMBNAIL_SETTING_MAX_HEIGHT,
+  THUMBNAIL_SETTING_MAX_WIDTH,
+} from '@/config/constants';
 import i18n, { useAccountTranslation } from '@/config/i18n';
 import { hooks } from '@/config/queryClient';
 
@@ -59,7 +62,8 @@ const MemberCard = (): JSX.Element | null => {
                 isLoading={isLoadingAvatar}
                 url={avatarUrl ?? defaultImage}
                 alt={t('PROFILE_AVATAR_CURRENT_ALT')}
-                sx={{ width: AVATAR_SIZE, height: AVATAR_SIZE }}
+                maxWidth={THUMBNAIL_SETTING_MAX_WIDTH}
+                maxHeight={THUMBNAIL_SETTING_MAX_HEIGHT}
               />
             </Grid>
             <Box marginTop={1} alignItems="center" justifyContent="center">
