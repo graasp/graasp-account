@@ -14,7 +14,10 @@ import CropModal, {
   MODAL_TITLE_ARIA_LABEL_ID,
 } from '@/components/main/CropModal';
 import StatusBar from '@/components/main/StatusBar';
-import { AVATAR_SIZE } from '@/config/constants';
+import {
+  THUMBNAIL_SETTING_MAX_HEIGHT,
+  THUMBNAIL_SETTING_MAX_WIDTH,
+} from '@/config/constants';
 import { useAccountTranslation } from '@/config/i18n';
 import { hooks, mutations } from '@/config/queryClient';
 import { configureAvatarUppy } from '@/utils/uppy';
@@ -137,7 +140,8 @@ const AvatarSettings = (): JSX.Element | null => {
             isLoading={isLoadingAvatar}
             url={avatarUrl}
             alt={t('PROFILE_AVATAR_CURRENT_ALT')}
-            sx={{ width: AVATAR_SIZE, height: AVATAR_SIZE }}
+            maxHeight={THUMBNAIL_SETTING_MAX_HEIGHT}
+            maxWidth={THUMBNAIL_SETTING_MAX_WIDTH}
           />
         </Grid>
       </Stack>

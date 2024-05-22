@@ -1,11 +1,14 @@
-import { Member, MemberFactory } from '@graasp/sdk';
+import { Member, MemberFactory, MemberType } from '@graasp/sdk';
 
-// eslint-disable-next-line import/prefer-default-export
+import { MemberForTest } from '../support/utils';
+import { AVATAR_LINK } from './Thumbnails/links';
+
 export const CURRENT_MEMBER = MemberFactory();
 export const BOB = MemberFactory({
   id: 'e1a0a49d-dfc4-466e-8379-f3846cda91e2',
   name: 'BOB',
   email: 'bob@gmail.com',
+  createdAt: '2021-04-13 14:56:34.749946',
 });
 export const MEMBERS: {
   [name: string]: Member & {
@@ -25,4 +28,32 @@ export const MEMBERS: {
     nameValid: false,
   },
   VALID_NAME: BOB,
+};
+
+export const MEMBERS_HAS_AVATAR: Record<string, MemberForTest> = {
+  ANNA: MemberFactory({
+    id: 'ecafbd2a-5642-31fb-ae93-0242ac130002',
+    name: 'anna',
+    type: MemberType.Individual,
+    email: 'anna@email.com',
+    createdAt: '2021-04-13 14:56:34.749946',
+    updatedAt: '2021-04-13 14:56:34.749946',
+    extra: {
+      lang: 'fr',
+      emailFreq: 'never',
+    },
+  }),
+  BOB: {
+    ...MemberFactory({
+      id: 'ecafbd2a-5642-31fb-ae93-0242ac130004',
+      name: 'bob',
+      type: MemberType.Individual,
+      email: 'bob@email.com',
+      createdAt: '2021-04-13 14:56:34.749946',
+      updatedAt: '2021-04-13 14:56:34.749946',
+      extra: { lang: 'en' },
+    }),
+    // this only exists for test
+    thumbnails: AVATAR_LINK,
+  },
 };

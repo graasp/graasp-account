@@ -1,46 +1,70 @@
+import { useEffect, useState } from 'react';
+
 import AlarmOnIcon from '@mui/icons-material/AlarmOn';
-import { Alert, Box, Dialog, Grid, Stack, Typography } from '@mui/material';
+import { Alert, Stack, Typography } from '@mui/material';
 
 import { ThumbnailSize, formatDate } from '@graasp/sdk';
-import { Avatar, Button, Loader } from '@graasp/ui';
+import { Loader } from '@graasp/ui';
 
-import {
-  THUMBNAIL_SETTING_MAX_HEIGHT,
-  THUMBNAIL_SETTING_MAX_WIDTH,
-} from '@/config/constants';
+import Uppy from '@uppy/core';
+
+import { AVATAR_SIZE } from '@/config/constants';
 import i18n, { useAccountTranslation } from '@/config/i18n';
-import { hooks } from '@/config/queryClient';
+import { hooks, mutations } from '@/config/queryClient';
+import { MEMBER_CREATEDAT_ID, USERNAME_DISPLAY_ID } from '@/config/selectors';
+import { configureAvatarUppy } from '@/utils/uppy';
 
-import defaultImage from '../../resources/defaultAvatar.svg';
-import CropModal, { MODAL_TITLE_ARIA_LABEL_ID } from './CropModal';
-import useAvatarUpload from './useAvatarUpload';
+import AvatarUploader from './AvatarUploader';
+import StatusBar from './StatusBar';
 
 const MemberCard = (): JSX.Element | null => {
-  const avatarUpload = useAvatarUpload();
   const { t } = useAccountTranslation();
-  const {
-    inputRef,
-    uppy,
-    showCropModal,
-    fileSource,
-    isLoadingMember,
-    memberId,
-    onSelectFile,
-    onClose,
-    onConfirmCrop,
-    StatusBarComponent,
-  } = avatarUpload;
 
+  const [uppy, setUppy] = useState<Uppy>();
+  const [openStatusBar, setOpenStatusBar] = useState(false);
+  const { mutate: onUploadAvatar } = mutations.useUploadAvatar();
   const { data: member } = hooks.useCurrentMember();
 
-  const { data: avatarUrl, isLoading: isLoadingAvatar } = hooks.useAvatarUrl({
+  const { isLoading: isLoadingMember } = hooks.useCurrentMember();
+  const { data: avatarUrl } = hooks.useAvatarUrl({
     id: member?.id,
     size: ThumbnailSize.Medium,
   });
+  const memberId = member?.id;
 
+  useEffect(() => {
+    if (!member) {
+      return;
+    }
+    setUppy(
+      configureAvatarUppy({
+        memberId,
+        onUpload: () => {
+          setOpenStatusBar(true);
+        },
+        onError: (error: Error) => {
+          onUploadAvatar({ id: member?.id, error });
+        },
+        onComplete: (result: {
+          successful: { response: { body: unknown } }[];
+        }) => {
+          if (result?.successful?.length) {
+            const data = result.successful[0].response.body;
+            onUploadAvatar({ id: member.id, data });
+            setOpenStatusBar(false);
+          }
+          return false;
+        },
+      }),
+    );
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [memberId]);
   if (!uppy) {
     return null;
   }
+  const handleClose = () => {
+    setOpenStatusBar(false);
+  };
 
   if (isLoadingMember) {
     return <Loader />;
@@ -49,62 +73,53 @@ const MemberCard = (): JSX.Element | null => {
   if (!memberId) {
     return <Alert severity="error">{t('User is not unauthenticated')}</Alert>;
   }
+  const onThumbnailUpload = (payload: { avatar: Blob }) => {
+    const { avatar } = payload;
+    if (!avatar) {
+      return;
+    }
+    try {
+      // remove waiting files
+      uppy?.cancelAll();
+      uppy?.addFile({
+        type: avatar.type,
+        data: avatar,
+      });
+    } catch (error) {
+      console.error(error);
+    }
+  };
 
   return (
-    <>
-      <Box>
-        {StatusBarComponent}
-        <Stack direction="row" spacing={2} alignItems="center">
-          <Stack alignItems="center">
-            <Grid item sm={6}>
-              <Avatar
-                component="avatar"
-                isLoading={isLoadingAvatar}
-                url={avatarUrl ?? defaultImage}
-                alt={t('PROFILE_AVATAR_CURRENT_ALT')}
-                maxWidth={THUMBNAIL_SETTING_MAX_WIDTH}
-                maxHeight={THUMBNAIL_SETTING_MAX_HEIGHT}
-              />
-            </Grid>
-            <Box marginTop={1} alignItems="center" justifyContent="center">
-              <Button variant="contained" component="label">
-                {t('UPLOAD_PICTURE_TEXT')}
-                <input
-                  type="file"
-                  accept="image/*"
-                  onChange={onSelectFile}
-                  ref={inputRef}
-                  hidden
-                />
-              </Button>
-            </Box>
-          </Stack>
-          <Stack spacing={3}>
-            <Typography variant="h4">Welcome,</Typography>
-            <Typography variant="h4">{member?.name}</Typography>
-            <Typography display="flex" alignItems="center" gap={1} variant="h5">
-              <AlarmOnIcon fontSize="small" />
-              {t('PROFILE_CREATED_AT_TITLE')}
-              {formatDate(member?.createdAt, { locale: i18n.language })}
-            </Typography>
-          </Stack>
-        </Stack>
-      </Box>
-      {StatusBarComponent}
-      {fileSource && (
-        <Dialog
-          open={showCropModal}
-          onClose={onClose}
-          aria-labelledby={MODAL_TITLE_ARIA_LABEL_ID}
+    <Stack direction="row" spacing={2} alignItems="center">
+      <Stack alignItems="center" spacing={2}>
+        <AvatarUploader
+          currentAvatar={avatarUrl}
+          avatarSize={AVATAR_SIZE}
+          setChanges={onThumbnailUpload}
+        />
+      </Stack>
+      <Stack spacing={3}>
+        <Typography variant="h4">{t('GENERAL_PAGE_WELCOME_TEXT')},</Typography>
+        <Typography variant="h4" data-cy={USERNAME_DISPLAY_ID}>
+          {member?.name}
+        </Typography>
+        <Typography
+          display="flex"
+          alignItems="center"
+          gap={1}
+          variant="h5"
+          data-cy={MEMBER_CREATEDAT_ID}
         >
-          <CropModal
-            onClose={onClose}
-            src={fileSource}
-            onConfirm={onConfirmCrop}
-          />
-        </Dialog>
+          <AlarmOnIcon fontSize="small" />
+          {t('PROFILE_CREATED_AT_TITLE')}{' '}
+          {formatDate(member?.createdAt, { locale: i18n.language })}
+        </Typography>
+      </Stack>
+      {uppy && (
+        <StatusBar uppy={uppy} handleClose={handleClose} open={openStatusBar} />
       )}
-    </>
+    </Stack>
   );
 };
 

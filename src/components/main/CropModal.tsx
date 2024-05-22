@@ -18,6 +18,7 @@ import {
 import { Button } from '@graasp/ui';
 
 import { useAccountTranslation } from '@/config/i18n';
+import { CROP_MODAL_CONFIRM_BUTTON_ID } from '@/config/selectors';
 
 import { THUMBNAIL_ASPECT } from '../../config/constants';
 
@@ -168,7 +169,11 @@ const CropModal = ({ onConfirm, onClose, src }: CropProps): JSX.Element => {
         <Button onClick={onClose} variant="text">
           {t('CANCEL_BUTTON')}
         </Button>
-        <Button onClick={handleOnConfirm} disabled={isError}>
+        <Button
+          onClick={handleOnConfirm}
+          disabled={isError}
+          id={CROP_MODAL_CONFIRM_BUTTON_ID}
+        >
           {t('CONFIRM_BUTTON')}
         </Button>
       </DialogActions>
