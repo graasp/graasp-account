@@ -20,7 +20,7 @@
   "PROFILE_MEMBER_NAME": "Nom de l'utilisateur",
   "PROFILE_MEMBER_ID_TITLE": "Identifiant de l'utilisateur",
   "PROFILE_LANGUAGE_TITLE": "Langue",
-  "PROFILE_CREATED_AT_TITLE": "Membre depuis",
+  "PROFILE_CREATED_AT_TITLE": "Membre depuis {{date}}",
   "PROFILE_EMAIL_TITLE": "Email",
   "PROFILE_EMAIL_FREQUENCY_TITLE": "Fréquence d'envoi d'email",
   "PROFILE_SAVE_ACTIONS_TITLE": "Activer la sauvegarde des interactions",
