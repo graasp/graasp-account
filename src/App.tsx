@@ -1,6 +1,6 @@
 import { useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
-import { Route, BrowserRouter as Router, Routes } from 'react-router-dom';
+import { Route, Routes } from 'react-router-dom';
 
 import { Alert } from '@mui/material';
 
@@ -75,34 +75,32 @@ export const App = (): JSX.Element => {
 
   if (currentMember) {
     return (
-      <Router>
-        <Routes>
-          <Route element={<PageWrapper />}>
-            <Route path={HOME_PATH} element={<HomePageWithAuthorization />} />
-            <Route
-              path={PROFILE_PATH}
-              element={<MemberProfileWithAuthorization />}
-            />
-            <Route
-              path={PASSWORD_SETTINGS_PATH}
-              element={<PasswordSettingsWithAuthorization />}
-            />
-            <Route
-              path={AVATAR_SETTINGS_PATH}
-              element={<AvatarSettingsWithAuthorization />}
-            />
-            <Route
-              path={PUBLIC_PROFILE_PATH}
-              element={<PublicProfileWithAuthorization />}
-            />
-            <Route
-              path={MANAGE_ACCOUNT_PATH}
-              element={<DestructiveSettingsWithAuthorization />}
-            />
-            <Route path={STORAGE_PATH} element={<StorageWithAuthorization />} />
-          </Route>
-        </Routes>
-      </Router>
+      <Routes>
+        <Route element={<PageWrapper />}>
+          <Route path={HOME_PATH} element={<HomePageWithAuthorization />} />
+          <Route
+            path={PROFILE_PATH}
+            element={<MemberProfileWithAuthorization />}
+          />
+          <Route
+            path={PASSWORD_SETTINGS_PATH}
+            element={<PasswordSettingsWithAuthorization />}
+          />
+          <Route
+            path={AVATAR_SETTINGS_PATH}
+            element={<AvatarSettingsWithAuthorization />}
+          />
+          <Route
+            path={PUBLIC_PROFILE_PATH}
+            element={<PublicProfileWithAuthorization />}
+          />
+          <Route
+            path={MANAGE_ACCOUNT_PATH}
+            element={<DestructiveSettingsWithAuthorization />}
+          />
+          <Route path={STORAGE_PATH} element={<StorageWithAuthorization />} />
+        </Route>
+      </Routes>
     );
   }
 

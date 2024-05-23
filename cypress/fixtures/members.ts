@@ -31,18 +31,6 @@ export const MEMBERS: {
 };
 
 export const MEMBERS_HAS_AVATAR: Record<string, MemberForTest> = {
-  ANNA: MemberFactory({
-    id: 'ecafbd2a-5642-31fb-ae93-0242ac130002',
-    name: 'anna',
-    type: MemberType.Individual,
-    email: 'anna@email.com',
-    createdAt: '2021-04-13 14:56:34.749946',
-    updatedAt: '2021-04-13 14:56:34.749946',
-    extra: {
-      lang: 'fr',
-      emailFreq: 'never',
-    },
-  }),
   BOB: {
     ...MemberFactory({
       id: 'ecafbd2a-5642-31fb-ae93-0242ac130004',
@@ -51,7 +39,7 @@ export const MEMBERS_HAS_AVATAR: Record<string, MemberForTest> = {
       email: 'bob@email.com',
       createdAt: '2021-04-13 14:56:34.749946',
       updatedAt: '2021-04-13 14:56:34.749946',
-      extra: { lang: 'en' },
+      extra: { lang: 'en', hasAvatar: true },
     }),
     // this only exists for test
     thumbnails: AVATAR_LINK,

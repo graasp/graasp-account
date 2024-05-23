@@ -131,7 +131,7 @@ export const mockGetAvatarUrl = (
       method: HttpMethod.Get,
       // TODO: include all sizes
       url: new RegExp(
-        `${API_HOST}/members/${ID_FORMAT}/avatar/small\\?replyUrl\\=true`,
+        `${API_HOST}/members/${ID_FORMAT}/avatar/(medium|small)\\?replyUrl\\=true`,
       ),
     },
     ({ reply, url }) => {

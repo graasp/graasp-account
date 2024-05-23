@@ -20,7 +20,7 @@
   "PROFILE_MEMBER_NAME": "Username",
   "PROFILE_MEMBER_ID_TITLE": "Member ID",
   "PROFILE_LANGUAGE_TITLE": "Language",
-  "PROFILE_CREATED_AT_TITLE": "Member Since",
+  "PROFILE_CREATED_AT_TITLE": "Member Since {{date}}",
   "PROFILE_EMAIL_TITLE": "Email",
   "PROFILE_EMAIL_FREQUENCY_TITLE": "Email Frequency",
   "PROFILE_SAVE_ACTIONS_TITLE": "Enable Analytics",

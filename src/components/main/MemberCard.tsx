@@ -90,6 +90,8 @@ const MemberCard = (): JSX.Element | null => {
     }
   };
 
+  // console.log(avatarUrl, 'avatarUrl');
+
   return (
     <Stack direction="row" spacing={2} alignItems="center">
       <Stack alignItems="center" spacing={2}>
@@ -112,8 +114,10 @@ const MemberCard = (): JSX.Element | null => {
           data-cy={MEMBER_CREATEDAT_ID}
         >
           <AlarmOnIcon fontSize="small" />
-          {t('PROFILE_CREATED_AT_TITLE')}{' '}
-          {formatDate(member?.createdAt, { locale: i18n.language })}
+
+          {t('PROFILE_CREATED_AT_TITLE', {
+            date: formatDate(member?.createdAt, { locale: i18n.language }),
+          })}
         </Typography>
       </Stack>
       {uppy && (

@@ -22,7 +22,7 @@ const MemberAvatar = ({
   component = 'avatar',
 }: Props): JSX.Element => {
   const { t } = useCommonTranslation();
-  const { data: member, isLoading } = hooks.useMember(id);
+  const { data: member, isLoading } = hooks.useCurrentMember();
   const { data: avatarUrl, isLoading: isLoadingAvatar } = hooks.useAvatarUrl({
     id,
     size: ThumbnailSize.Medium,

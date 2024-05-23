@@ -1,4 +1,4 @@
-import { formatDate } from '@graasp/sdk';
+import { HttpMethod, formatDate } from '@graasp/sdk';
 
 import { PROFILE_PATH } from 'config/paths';
 
@@ -25,8 +25,10 @@ import {
   MEMBERS,
   MEMBERS_HAS_AVATAR,
 } from '../fixtures/members';
-import { mockGetCurrentMember } from '../support/server';
-import { buildDataCySelector } from '../support/utils';
+import { AVATAR_LINK, mockGetCurrentMember } from '../support/server';
+import { ID_FORMAT, buildDataCySelector } from '../support/utils';
+
+const API_HOST = Cypress.env('VITE_GRAASP_API_HOST');
 
 const currentMember = CURRENT_MEMBER;
 
@@ -204,17 +206,16 @@ describe('Checks the current member language', () => {
   });
 });
 
-describe('Image is set', () => {
+describe('Upload Avatar', () => {
   beforeEach(() => {
-    cy.setUpApi({ currentMember: MEMBERS_HAS_AVATAR.BOB });
+    cy.setUpApi({ currentMember: BOB });
     cy.visit('/');
   });
-  it('Card element should not exist', () => {
-    cy.get(buildDataCyWrapper(CARD_TIP_ID)).should('not.exist');
-  });
+
   it('Upload a new thumbnail', () => {
-    // change item thumbnail
-    // target visually hidden input
+    // at first card element should exist
+    cy.get(buildDataCyWrapper(CARD_TIP_ID)).should('exist');
+    // select the avatar image
     cy.get(buildDataCyWrapper(IMAGE_AVATAR_UPLOADER)).selectFile(
       THUMBNAIL_MEDIUM_PATH,
       // use force because the input is visually hidden
@@ -225,53 +226,63 @@ describe('Image is set', () => {
       .then(() => {
         cy.get(buildDataCyWrapper(MEMBER_AVATR_ID)).should('be.visible');
       });
+    cy.intercept(
+      {
+        method: HttpMethod.Get,
+        // TODO: include all sizes
+        url: new RegExp(
+          `${API_HOST}/members/${ID_FORMAT}/avatar/(medium|small)\\?replyUrl\\=true`,
+        ),
+      },
+      ({ reply }) =>
+        // TODO: REPLY URL
+        reply(AVATAR_LINK),
+    );
+
     cy.wait('@uploadAvatar');
-    cy.wait('@downloadAvatarUrl');
+    // card element should not exist
+    cy.get(buildDataCyWrapper(CARD_TIP_ID)).should('not.exist');
   });
 });
 
 describe('Image is  not set', () => {
   beforeEach(() => {
-    cy.setUpApi({ currentMember: MEMBERS_HAS_AVATAR.BOB });
+    cy.setUpApi({ currentMember: BOB });
     cy.visit('/');
   });
-  it('Card element should  exist', () => {
+  it('Image is not set', () => {
     cy.get(buildDataCyWrapper(CARD_TIP_ID)).should('exist');
-  });
-  it(' Image element should not exist', () => {
+    // Image element should not exist
     cy.get(buildDataCyWrapper(IMAGE_AVATAR_UPLOADER)).should('not.exist');
-  });
-  it('Upload a new thumbnail', () => {
-    // change item thumbnail
-    // target visually hidden input
-    cy.get(buildDataCyWrapper(IMAGE_AVATAR_UPLOADER)).selectFile(
-      THUMBNAIL_MEDIUM_PATH,
-      // use force because the input is visually hidden
-      { force: true },
-    );
-    cy.get(`#${CROP_MODAL_CONFIRM_BUTTON_ID}`)
-      .click()
-      .then(() => {
-        cy.get(buildDataCyWrapper(MEMBER_AVATR_ID)).should('be.visible');
-      });
   });
 });
 
 describe('Check  member info', () => {
+  const formattedDate = formatDate(MEMBERS_HAS_AVATAR.BOB.createdAt, {
+    locale: i18n.language,
+  });
   beforeEach(() => {
-    cy.setUpApi({ currentMember: BOB });
+    cy.setUpApi({
+      currentMember: MEMBERS_HAS_AVATAR.BOB,
+      members: Object.values(MEMBERS_HAS_AVATAR),
+    });
     cy.visit('/');
     cy.wait('@getCurrentMember');
   });
+  it('displays the correct member info', () => {
+    // displays the correct member avatar
+    cy.get(buildDataCyWrapper(MEMBER_AVATR_ID)).should(
+      'have.attr',
+      'src',
+      MEMBERS_HAS_AVATAR.BOB.thumbnails,
+    );
+    // displays the correct member name
+    cy.get(buildDataCyWrapper(USERNAME_DISPLAY_ID)).should(
+      'contain',
+      MEMBERS_HAS_AVATAR.BOB.name,
+    );
+    // displays the correct creation date
 
-  it('displays the correct member name', () => {
-    cy.get(buildDataCyWrapper(USERNAME_DISPLAY_ID)).should('contain', BOB.name);
-  });
-
-  it('displays the correct creation date', () => {
-    const formattedDate = formatDate(BOB.createdAt, {
-      locale: i18n.language,
-    });
     cy.get(buildDataCyWrapper(MEMBER_CREATEDAT_ID)).should(
       'contain',
       formattedDate,
@@ -284,9 +295,8 @@ describe('Redirect when not logged in', () => {
     cy.setUpApi({ currentMember: null });
   });
 
-  it.only('redirects to the login page when not logged in', () => {
+  it('redirects to the login page when not logged in', () => {
     cy.visit('/');
-    cy.wait(5000);
     cy.url().should('include', `?url=`);
   });
 });
