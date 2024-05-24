@@ -103,7 +103,7 @@ const MemberCard = (): JSX.Element | null => {
       </Stack>
       <Stack spacing={3}>
         <Typography variant="h4">{t('GENERAL_PAGE_WELCOME_TEXT')},</Typography>
-        <Typography variant="h4" data-cy={USERNAME_DISPLAY_ID}>
+        <Typography variant="h4" id={USERNAME_DISPLAY_ID}>
           {member?.name}
         </Typography>
         <Typography

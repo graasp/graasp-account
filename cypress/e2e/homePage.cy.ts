@@ -137,7 +137,7 @@ describe('Check member info', () => {
       MEMBER_WITH_AVATAR.thumbnail,
     );
     // displays the correct member name
-    cy.get(buildDataCyWrapper(USERNAME_DISPLAY_ID)).should(
+    cy.get(`#${USERNAME_DISPLAY_ID}`).should(
       'contain',
       MEMBER_WITH_AVATAR.name,
     );
