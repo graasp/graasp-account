@@ -85,7 +85,7 @@ describe('Upload Avatar', () => {
 
   it('Upload a new thumbnail', () => {
     // at first card element should exist
-    cy.get(buildDataCyWrapper(CARD_TIP_ID)).should('exist');
+    cy.get(`#${CARD_TIP_ID}`).should('exist');
     // select the avatar image
     cy.get(`#${AVATAR_UPLOAD_INPUT_ID}`).selectFile(
       THUMBNAIL_MEDIUM_PATH,
@@ -99,7 +99,7 @@ describe('Upload Avatar', () => {
       });
     cy.wait('@uploadAvatar');
     // card element should not exist
-    cy.get(buildDataCyWrapper(CARD_TIP_ID)).should('not.exist');
+    cy.get(`#${CARD_TIP_ID}`).should('not.exist');
   });
 });
 
@@ -111,7 +111,7 @@ describe('Image is not set', () => {
 
   it('Image is not set', () => {
     cy.wait('@getCurrentMember');
-    cy.get(buildDataCyWrapper(CARD_TIP_ID)).should('exist');
+    cy.get(`#${CARD_TIP_ID}`).should('exist');
     // uploader icon should be visible
     cy.get(buildDataCyWrapper(AVATAR_UPLOAD_ICON_CY)).should('be.visible');
     // image display element should not exist
@@ -145,10 +145,7 @@ describe('Check member info', () => {
     const formattedDate = formatDate(MEMBER_WITH_AVATAR.createdAt, {
       locale: i18n.language,
     });
-    cy.get(buildDataCyWrapper(MEMBER_CREATED_AT_ID)).should(
-      'contain',
-      formattedDate,
-    );
+    cy.get(`#${MEMBER_CREATED_AT_ID}`).should('contain', formattedDate);
   });
 });
 

@@ -1,6 +1,7 @@
 import { Card, CardContent, Grid, Typography } from '@mui/material';
 import Grid2 from '@mui/material/Unstable_Grid2/Grid2';
 
+// eslint-disable-next-line import/no-extraneous-dependencies
 import { ImageUp } from 'lucide-react';
 
 import { useAccountTranslation } from '@/config/i18n';
@@ -22,7 +23,7 @@ const NotifCard = (): JSX.Element | null => {
   return (
     <Grid2 justifyContent="center" container spacing={2}>
       <Grid xs={12} md={6} item>
-        <Card variant="outlined" sx={{ height: '100%' }} data-cy={CARD_TIP_ID}>
+        <Card variant="outlined" sx={{ height: '100%' }} id={CARD_TIP_ID}>
           <CardContent sx={{ padding: 3 }}>
             <Typography
               display="flex"

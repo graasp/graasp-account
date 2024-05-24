@@ -111,7 +111,7 @@ const MemberCard = (): JSX.Element | null => {
           alignItems="center"
           gap={1}
           variant="h5"
-          data-cy={MEMBER_CREATED_AT_ID}
+          id={MEMBER_CREATED_AT_ID}
         >
           <AlarmOnIcon fontSize="small" />
 
