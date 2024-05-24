@@ -1,7 +1,7 @@
 import { Member, MemberFactory, MemberType } from '@graasp/sdk';
 
 import { MemberForTest } from '../support/utils';
-import { AVATAR_LINK } from './Thumbnails/links';
+import { AVATAR_LINK } from './thumbnails/links';
 
 export const CURRENT_MEMBER = MemberFactory();
 export const BOB = MemberFactory({

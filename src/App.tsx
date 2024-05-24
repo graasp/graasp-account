@@ -4,6 +4,7 @@ import { Route, Routes } from 'react-router-dom';
 
 import { Alert } from '@mui/material';
 
+import { buildSignInPath } from '@graasp/sdk';
 import { CustomInitialLoader, withAuthorization } from '@graasp/ui';
 
 import { GRAASP_AUTH_HOST } from './config/env';
@@ -37,8 +38,12 @@ export const App = (): JSX.Element => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [currentMember]);
 
-  const redirectionLink = new URL(GRAASP_AUTH_HOST);
-  redirectionLink.searchParams.set('url', window.location.toString());
+  const redirectionLink = new URL(
+    buildSignInPath({
+      host: GRAASP_AUTH_HOST,
+      redirectionUrl: window.location.toString(),
+    }),
+  );
   const withAuthorizationProps = {
     currentMember,
     redirectionLink: redirectionLink.toString(),

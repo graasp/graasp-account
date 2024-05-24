@@ -9,7 +9,12 @@ import {
   THUMBNAIL_SETTING_MAX_WIDTH,
 } from '@/config/constants';
 import { useAccountTranslation } from '@/config/i18n';
-import { IMAGE_AVATAR_UPLOADER, MEMBER_AVATAR_ID } from '@/config/selectors';
+import {
+  AVATAR_UPLOAD_ICON_CY,
+  AVATAR_UPLOAD_INPUT_ID,
+  MEMBER_AVATAR_IMAGE_ID,
+  MEMBER_AVATAR_WRAPPER_ID,
+} from '@/config/selectors';
 
 import CropModal, { MODAL_TITLE_ARIA_LABEL_ID } from './CropModal';
 
@@ -108,7 +113,7 @@ const AvatarUploader = ({
   return (
     <Stack justifyContent="flex-start" direction="column">
       <Stack
-        id={MEMBER_AVATAR_ID}
+        id={MEMBER_AVATAR_WRAPPER_ID}
         onClick={onEdit}
         onKeyDown={(event) => {
           if (['Enter', ' '].includes(event.key)) {
@@ -138,18 +143,21 @@ const AvatarUploader = ({
         </HoveredBox>
         {newAvatar ? (
           <img
-            data-cy={MEMBER_AVATAR_ID}
+            id={MEMBER_AVATAR_IMAGE_ID}
             alt={t('PROFILE_AVATAR_CURRENT_ALT')}
             src={newAvatar}
             height={avatarSize}
             width={avatarSize}
           />
         ) : (
-          <ImageUpIcon color={theme.palette.primary.main} />
+          <ImageUpIcon
+            data-cy={AVATAR_UPLOAD_ICON_CY}
+            color={theme.palette.primary.main}
+          />
         )}
       </Stack>
       <VisuallyHiddenInput
-        data-cy={IMAGE_AVATAR_UPLOADER}
+        id={AVATAR_UPLOAD_INPUT_ID}
         type="file"
         accept="image/*"
         onChange={onSelectFile}

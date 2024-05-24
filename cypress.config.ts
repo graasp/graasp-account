@@ -3,6 +3,8 @@ import { defineConfig } from 'cypress';
 
 export default defineConfig({
   e2e: {
+    // needed for redirection tests to pass
+    chromeWebSecurity: false,
     env: {
       VITE_GRAASP_REDIRECTION_HOST: process.env.VITE_GRAASP_REDIRECTION_HOST,
       VITE_GRAASP_DOMAIN: process.env.VITE_GRAASP_DOMAIN,

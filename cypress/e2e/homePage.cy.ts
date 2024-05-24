@@ -5,18 +5,22 @@ import { StatusCodes } from 'http-status-codes';
 
 import i18n from '@/config/i18n';
 import {
+  AVATAR_UPLOAD_ICON_CY,
+  AVATAR_UPLOAD_INPUT_ID,
   CARD_TIP_ID,
   CROP_MODAL_CONFIRM_BUTTON_ID,
-  IMAGE_AVATAR_UPLOADER,
-  MEMBER_AVATAR_ID,
+  MEMBER_AVATAR_IMAGE_ID,
   MEMBER_CREATED_AT_ID,
   USERNAME_DISPLAY_ID,
   buildDataCyWrapper,
 } from '@/config/selectors';
 
-import { THUMBNAIL_MEDIUM_PATH } from '../fixtures/Thumbnails/links';
 import { BOB, MEMBERS_HAS_AVATAR } from '../fixtures/members';
-import { AVATAR_LINK } from '../support/server';
+import {
+  AVATAR_LINK,
+  THUMBNAIL_MEDIUM_PATH,
+} from '../fixtures/thumbnails/links';
+import { SIGN_IN_PATH } from '../support/server';
 import { ID_FORMAT } from '../support/utils';
 
 const { GET_CURRENT_MEMBER_ROUTE, buildUploadAvatarRoute } = API_ROUTES;
@@ -85,7 +89,7 @@ describe('Upload Avatar', () => {
     // at first card element should exist
     cy.get(buildDataCyWrapper(CARD_TIP_ID)).should('exist');
     // select the avatar image
-    cy.get(buildDataCyWrapper(IMAGE_AVATAR_UPLOADER)).selectFile(
+    cy.get(`#${AVATAR_UPLOAD_INPUT_ID}`).selectFile(
       THUMBNAIL_MEDIUM_PATH,
       // use force because the input is visually hidden
       { force: true },
@@ -93,7 +97,7 @@ describe('Upload Avatar', () => {
     cy.get(`#${CROP_MODAL_CONFIRM_BUTTON_ID}`)
       .click()
       .then(() => {
-        cy.get(buildDataCyWrapper(MEMBER_AVATAR_ID)).should('be.visible');
+        cy.get(`#${MEMBER_AVATAR_IMAGE_ID}`).should('be.visible');
       });
     cy.wait('@uploadAvatar');
     // card element should not exist
@@ -107,9 +111,12 @@ describe('Image is  not set', () => {
     cy.visit('/');
   });
   it('Image is not set', () => {
+    cy.wait('@getCurrentMember');
     cy.get(buildDataCyWrapper(CARD_TIP_ID)).should('exist');
-    // Image element should not exist
-    cy.get(buildDataCyWrapper(IMAGE_AVATAR_UPLOADER)).should('not.exist');
+    // uploader icon should be visible
+    cy.get(buildDataCyWrapper(AVATAR_UPLOAD_ICON_CY)).should('be.visible');
+    // image display element should not exist
+    cy.get(`#${MEMBER_AVATAR_IMAGE_ID}`).should('not.exist');
   });
 });
 
@@ -127,7 +134,7 @@ describe('Check  member info', () => {
   });
   it('displays the correct member info', () => {
     // displays the correct member avatar
-    cy.get(buildDataCyWrapper(MEMBER_AVATAR_ID)).should(
+    cy.get(`#${MEMBER_AVATAR_IMAGE_ID}`).should(
       'have.attr',
       'src',
       MEMBERS_HAS_AVATAR.BOB.thumbnails,
@@ -149,10 +156,12 @@ describe('Check  member info', () => {
 describe('Redirect when not logged in', () => {
   beforeEach(() => {
     cy.setUpApi({ currentMember: null });
+    cy.visit('/');
   });
 
   it('redirects to the login page when not logged in', () => {
-    cy.visit('/');
-    cy.url().should('include', `?url=`);
+    cy.wait('@getCurrentMember');
+    cy.wait('@signInRedirection');
+    cy.url().should('contain', `${SIGN_IN_PATH}?url=`);
   });
 });

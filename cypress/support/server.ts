@@ -9,6 +9,7 @@ import {
 import { StatusCodes } from 'http-status-codes';
 
 import { CURRENT_MEMBER } from '../fixtures/members';
+import { AVATAR_LINK } from '../fixtures/thumbnails/links';
 import { ID_FORMAT, MemberForTest } from './utils';
 
 const {
@@ -24,11 +25,11 @@ export const SIGN_IN_PATH = buildSignInPath({
   host: Cypress.env('VITE_GRAASP_AUTH_HOST'),
 });
 const API_HOST = Cypress.env('VITE_GRAASP_API_HOST');
-export const AVATAR_LINK = 'https://picsum.photos/200/200';
 
 export const redirectionReply = {
-  headers: { 'content-type': 'application/json' },
+  headers: { 'content-type': 'text/html' },
   statusCode: StatusCodes.OK,
+  body: '<h1>Mock Auth Page</h1>',
 };
 
 export const mockGetCurrentMember = (
@@ -102,7 +103,7 @@ export const mockSignInRedirection = (): void => {
   cy.intercept(
     {
       method: HttpMethod.Get,
-      url: SIGN_IN_PATH,
+      pathname: '/signin',
     },
     ({ reply }) => {
       reply(redirectionReply);
@@ -129,9 +130,8 @@ export const mockGetAvatarUrl = (
   cy.intercept(
     {
       method: HttpMethod.Get,
-      // TODO: include all sizes
       url: new RegExp(
-        `${API_HOST}/members/${ID_FORMAT}/avatar/(medium|small)\\?replyUrl\\=true`,
+        `${API_HOST}/members/${ID_FORMAT}/avatar/(original|large|medium|small)\\?replyUrl\\=true`,
       ),
     },
     ({ reply, url }) => {
@@ -147,7 +147,6 @@ export const mockGetAvatarUrl = (
       if (!thumbnails) {
         return reply({ statusCode: StatusCodes.NOT_FOUND });
       }
-      // TODO: REPLY URL
       return reply(AVATAR_LINK);
     },
   ).as('downloadAvatarUrl');
