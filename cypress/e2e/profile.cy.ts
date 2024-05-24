@@ -116,7 +116,7 @@ describe('Checks the analytics switch', () => {
           enableSaveActions: true,
         },
       });
-      cy.visit(`${PROFILE_PATH}`);
+      cy.visit(PROFILE_PATH);
       // wait on current member request to update then the mock response for current member
       cy.wait('@getCurrentMember');
     });
@@ -138,7 +138,7 @@ describe('Checks the analytics switch', () => {
           enableSaveActions: false,
         },
       });
-      cy.visit(`${PROFILE_PATH}`);
+      cy.visit(PROFILE_PATH);
       // wait on current member request to update then the mock response for current member
       cy.wait('@getCurrentMember');
     });
