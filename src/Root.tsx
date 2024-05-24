@@ -19,7 +19,6 @@ const Root = (): JSX.Element => (
     <I18nextProvider i18n={i18nConfig}>
       <ThemeProvider theme={theme}>
         <ToastContainer stacked />
-
         <Router>
           <App />
         </Router>

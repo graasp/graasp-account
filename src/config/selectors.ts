@@ -28,8 +28,8 @@ export const USERNAME_INPUT_FIELD_ID = 'username-input-field';
 export const USERNAME_DISPLAY_ID = 'username-display';
 
 export const CARD_TIP_ID = 'tip-card';
-export const MEMBER_AVATR_ID = 'memberAvatarId';
-export const MEMBER_CREATEDAT_ID = 'memberCreatedAtId';
+export const MEMBER_AVATAR_ID = 'memberAvatarId';
+export const MEMBER_CREATED_AT_ID = 'memberCreatedAtId';
 
 export const buildDataCyWrapper = (dataCy: string): string =>
   `[data-cy="${dataCy}"]`;

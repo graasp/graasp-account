@@ -9,7 +9,7 @@ import {
   THUMBNAIL_SETTING_MAX_WIDTH,
 } from '@/config/constants';
 import { useAccountTranslation } from '@/config/i18n';
-import { IMAGE_AVATAR_UPLOADER, MEMBER_AVATR_ID } from '@/config/selectors';
+import { IMAGE_AVATAR_UPLOADER, MEMBER_AVATAR_ID } from '@/config/selectors';
 
 import CropModal, { MODAL_TITLE_ARIA_LABEL_ID } from './CropModal';
 
@@ -108,7 +108,7 @@ const AvatarUploader = ({
   return (
     <Stack justifyContent="flex-start" direction="column">
       <Stack
-        id={MEMBER_AVATR_ID}
+        id={MEMBER_AVATAR_ID}
         onClick={onEdit}
         onKeyDown={(event) => {
           if (['Enter', ' '].includes(event.key)) {
@@ -138,7 +138,7 @@ const AvatarUploader = ({
         </HoveredBox>
         {newAvatar ? (
           <img
-            data-cy={MEMBER_AVATR_ID}
+            data-cy={MEMBER_AVATAR_ID}
             alt={t('PROFILE_AVATAR_CURRENT_ALT')}
             src={newAvatar}
             height={avatarSize}

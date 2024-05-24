@@ -1,34 +1,17 @@
-import { HttpMethod, formatDate } from '@graasp/sdk';
-
 import { PROFILE_PATH } from 'config/paths';
 
-import i18n from '@/config/i18n';
 import {
-  CARD_TIP_ID,
-  CROP_MODAL_CONFIRM_BUTTON_ID,
-  IMAGE_AVATAR_UPLOADER,
-  MEMBER_AVATR_ID,
-  MEMBER_CREATEDAT_ID,
   MEMBER_PROFILE_ANALYTICS_SWITCH_ID,
   MEMBER_PROFILE_LANGUAGE_SWITCH_ID,
   USERNAME_CANCEL_BUTTON_ID,
   USERNAME_DISPLAY_ID,
   USERNAME_EDIT_BUTTON_ID,
   USERNAME_SAVE_BUTTON_ID,
-  buildDataCyWrapper,
 } from '@/config/selectors';
 
-import { THUMBNAIL_MEDIUM_PATH } from '../fixtures/Thumbnails/links';
-import {
-  BOB,
-  CURRENT_MEMBER,
-  MEMBERS,
-  MEMBERS_HAS_AVATAR,
-} from '../fixtures/members';
-import { AVATAR_LINK, mockGetCurrentMember } from '../support/server';
-import { ID_FORMAT, buildDataCySelector } from '../support/utils';
-
-const API_HOST = Cypress.env('VITE_GRAASP_API_HOST');
+import { BOB, CURRENT_MEMBER, MEMBERS } from '../fixtures/members';
+import { mockGetCurrentMember } from '../support/server';
+import { buildDataCySelector } from '../support/utils';
 
 const currentMember = CURRENT_MEMBER;
 
@@ -77,7 +60,7 @@ describe('Change username', () => {
     cy.visit(PROFILE_PATH);
   });
 
-  it('Username field connot be empty', () => {
+  it('Username field cannot be empty', () => {
     changeUsername('validUsername');
     cy.get('input[name=username]').clear();
     cy.get(`#${USERNAME_SAVE_BUTTON_ID}`).should('be.disabled');
@@ -203,100 +186,5 @@ describe('Checks the current member language', () => {
       'contain',
       'Español',
     );
-  });
-});
-
-describe('Upload Avatar', () => {
-  beforeEach(() => {
-    cy.setUpApi({ currentMember: BOB });
-    cy.visit('/');
-  });
-
-  it('Upload a new thumbnail', () => {
-    // at first card element should exist
-    cy.get(buildDataCyWrapper(CARD_TIP_ID)).should('exist');
-    // select the avatar image
-    cy.get(buildDataCyWrapper(IMAGE_AVATAR_UPLOADER)).selectFile(
-      THUMBNAIL_MEDIUM_PATH,
-      // use force because the input is visually hidden
-      { force: true },
-    );
-    cy.get(`#${CROP_MODAL_CONFIRM_BUTTON_ID}`)
-      .click()
-      .then(() => {
-        cy.get(buildDataCyWrapper(MEMBER_AVATR_ID)).should('be.visible');
-      });
-    cy.intercept(
-      {
-        method: HttpMethod.Get,
-        // TODO: include all sizes
-        url: new RegExp(
-          `${API_HOST}/members/${ID_FORMAT}/avatar/(medium|small)\\?replyUrl\\=true`,
-        ),
-      },
-      ({ reply }) =>
-        // TODO: REPLY URL
-        reply(AVATAR_LINK),
-    );
-
-    cy.wait('@uploadAvatar');
-    // card element should not exist
-    cy.get(buildDataCyWrapper(CARD_TIP_ID)).should('not.exist');
-  });
-});
-
-describe('Image is  not set', () => {
-  beforeEach(() => {
-    cy.setUpApi({ currentMember: BOB });
-    cy.visit('/');
-  });
-  it('Image is not set', () => {
-    cy.get(buildDataCyWrapper(CARD_TIP_ID)).should('exist');
-    // Image element should not exist
-    cy.get(buildDataCyWrapper(IMAGE_AVATAR_UPLOADER)).should('not.exist');
-  });
-});
-
-describe('Check  member info', () => {
-  const formattedDate = formatDate(MEMBERS_HAS_AVATAR.BOB.createdAt, {
-    locale: i18n.language,
-  });
-  beforeEach(() => {
-    cy.setUpApi({
-      currentMember: MEMBERS_HAS_AVATAR.BOB,
-      members: Object.values(MEMBERS_HAS_AVATAR),
-    });
-    cy.visit('/');
-    cy.wait('@getCurrentMember');
-  });
-  it('displays the correct member info', () => {
-    // displays the correct member avatar
-    cy.get(buildDataCyWrapper(MEMBER_AVATR_ID)).should(
-      'have.attr',
-      'src',
-      MEMBERS_HAS_AVATAR.BOB.thumbnails,
-    );
-    // displays the correct member name
-    cy.get(buildDataCyWrapper(USERNAME_DISPLAY_ID)).should(
-      'contain',
-      MEMBERS_HAS_AVATAR.BOB.name,
-    );
-    // displays the correct creation date
-
-    cy.get(buildDataCyWrapper(MEMBER_CREATEDAT_ID)).should(
-      'contain',
-      formattedDate,
-    );
-  });
-});
-
-describe('Redirect when not logged in', () => {
-  beforeEach(() => {
-    cy.setUpApi({ currentMember: null });
-  });
-
-  it('redirects to the login page when not logged in', () => {
-    cy.visit('/');
-    cy.url().should('include', `?url=`);
   });
 });

@@ -11,7 +11,7 @@ import Uppy from '@uppy/core';
 import { AVATAR_SIZE } from '@/config/constants';
 import i18n, { useAccountTranslation } from '@/config/i18n';
 import { hooks, mutations } from '@/config/queryClient';
-import { MEMBER_CREATEDAT_ID, USERNAME_DISPLAY_ID } from '@/config/selectors';
+import { MEMBER_CREATED_AT_ID, USERNAME_DISPLAY_ID } from '@/config/selectors';
 import { configureAvatarUppy } from '@/utils/uppy';
 
 import AvatarUploader from './AvatarUploader';
@@ -111,7 +111,7 @@ const MemberCard = (): JSX.Element | null => {
           alignItems="center"
           gap={1}
           variant="h5"
-          data-cy={MEMBER_CREATEDAT_ID}
+          data-cy={MEMBER_CREATED_AT_ID}
         >
           <AlarmOnIcon fontSize="small" />
 
