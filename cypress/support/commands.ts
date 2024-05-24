@@ -4,8 +4,8 @@ import { CookieKeys } from '@graasp/sdk';
 import { CURRENT_MEMBER, MEMBERS } from '../fixtures/members';
 import {
   mockEditMember,
-  mockGetAvatarUrl,
   mockGetCurrentMember,
+  mockGetCurrentMemberAvatar,
   mockGetMember,
   mockPostAvatar,
   mockSignInRedirection,
@@ -40,7 +40,7 @@ Cypress.Commands.add(
 
     mockEditMember(cachedCurrentMember, editMemberError);
 
-    mockGetAvatarUrl(members, getAvatarUrlError);
+    mockGetCurrentMemberAvatar(currentMember, getAvatarUrlError);
 
     mockPostAvatar(postAvatarError);
 

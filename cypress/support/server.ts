@@ -9,7 +9,6 @@ import {
 import { StatusCodes } from 'http-status-codes';
 
 import { CURRENT_MEMBER } from '../fixtures/members';
-import { AVATAR_LINK } from '../fixtures/thumbnails/links';
 import { ID_FORMAT, MemberForTest } from './utils';
 
 const {
@@ -123,8 +122,8 @@ export const mockSignOut = (): void => {
   ).as('signOut');
 };
 
-export const mockGetAvatarUrl = (
-  members: MemberForTest[],
+export const mockGetCurrentMemberAvatar = (
+  currentMember: MemberForTest,
   shouldThrowError: boolean,
 ): void => {
   cy.intercept(
@@ -134,22 +133,18 @@ export const mockGetAvatarUrl = (
         `${API_HOST}/members/${ID_FORMAT}/avatar/(original|large|medium|small)\\?replyUrl\\=true`,
       ),
     },
-    ({ reply, url }) => {
+    ({ reply }) => {
       if (shouldThrowError) {
         return reply({ statusCode: StatusCodes.BAD_REQUEST });
       }
 
-      const [link] = url.split('?');
-      const id = link.slice(API_HOST.length).split('/')[2];
-
-      const { thumbnails } =
-        members.find(({ id: thisId }) => id === thisId) ?? {};
-      if (!thumbnails) {
+      const { thumbnail } = currentMember;
+      if (!thumbnail) {
         return reply({ statusCode: StatusCodes.NOT_FOUND });
       }
-      return reply(AVATAR_LINK);
+      return reply(thumbnail);
     },
-  ).as('downloadAvatarUrl');
+  ).as('getCurrentMemberAvatarUrl');
 };
 
 export const mockPostAvatar = (shouldThrowError: boolean): void => {

@@ -1,4 +1,4 @@
-import { Member, MemberFactory, MemberType } from '@graasp/sdk';
+import { Member, MemberFactory } from '@graasp/sdk';
 
 import { MemberForTest } from '../support/utils';
 import { AVATAR_LINK } from './thumbnails/links';
@@ -30,18 +30,13 @@ export const MEMBERS: {
   VALID_NAME: BOB,
 };
 
-export const MEMBERS_HAS_AVATAR: Record<string, MemberForTest> = {
-  BOB: {
-    ...MemberFactory({
-      id: 'ecafbd2a-5642-31fb-ae93-0242ac130004',
-      name: 'bob',
-      type: MemberType.Individual,
-      email: 'bob@email.com',
-      createdAt: '2021-04-13 14:56:34.749946',
-      updatedAt: '2021-04-13 14:56:34.749946',
-      extra: { lang: 'en', hasAvatar: true },
-    }),
-    // this only exists for test
-    thumbnails: AVATAR_LINK,
-  },
+export const MEMBER_WITH_AVATAR: MemberForTest = {
+  ...MemberFactory({
+    id: 'ecafbd2a-5642-31fb-ae93-0242ac130004',
+    name: 'bob',
+    email: 'bob@email.com',
+    extra: { lang: 'en', hasAvatar: true },
+  }),
+  // this only exists for test
+  thumbnail: AVATAR_LINK,
 };

@@ -1,5 +1,5 @@
 import { API_ROUTES } from '@graasp/query-client';
-import { CompleteMember, HttpMethod, formatDate } from '@graasp/sdk';
+import { HttpMethod, formatDate } from '@graasp/sdk';
 
 import { StatusCodes } from 'http-status-codes';
 
@@ -15,21 +15,20 @@ import {
   buildDataCyWrapper,
 } from '@/config/selectors';
 
-import { BOB, MEMBERS_HAS_AVATAR } from '../fixtures/members';
+import { BOB, MEMBER_WITH_AVATAR } from '../fixtures/members';
 import {
   AVATAR_LINK,
   THUMBNAIL_MEDIUM_PATH,
 } from '../fixtures/thumbnails/links';
 import { SIGN_IN_PATH } from '../support/server';
-import { ID_FORMAT } from '../support/utils';
+import { ID_FORMAT, MemberForTest } from '../support/utils';
 
 const { GET_CURRENT_MEMBER_ROUTE, buildUploadAvatarRoute } = API_ROUTES;
 const API_HOST = Cypress.env('VITE_GRAASP_API_HOST');
 
-type CompleteMemberForTest = CompleteMember & { thumbnail?: string };
-type TestHelperInput = { currentMember: CompleteMemberForTest };
+type TestHelperInput = { currentMember: MemberForTest };
 class TestHelper {
-  private currentMember: CompleteMemberForTest;
+  private currentMember: MemberForTest;
 
   constructor(args: TestHelperInput) {
     this.currentMember = JSON.parse(JSON.stringify(args.currentMember));
@@ -48,9 +47,8 @@ class TestHelper {
     cy.intercept(
       {
         method: HttpMethod.Get,
-        // TODO: include all sizes
         url: new RegExp(
-          `${API_HOST}/members/${ID_FORMAT}/avatar/(medium|small)\\?replyUrl\\=true`,
+          `${API_HOST}/members/${ID_FORMAT}/avatar/(original|large|medium|small)\\?replyUrl\\=true`,
         ),
       },
       ({ reply }) => {
@@ -105,11 +103,12 @@ describe('Upload Avatar', () => {
   });
 });
 
-describe('Image is  not set', () => {
+describe('Image is not set', () => {
   beforeEach(() => {
     cy.setUpApi({ currentMember: BOB });
     cy.visit('/');
   });
+
   it('Image is not set', () => {
     cy.wait('@getCurrentMember');
     cy.get(buildDataCyWrapper(CARD_TIP_ID)).should('exist');
@@ -120,32 +119,32 @@ describe('Image is  not set', () => {
   });
 });
 
-describe('Check  member info', () => {
-  const formattedDate = formatDate(MEMBERS_HAS_AVATAR.BOB.createdAt, {
-    locale: i18n.language,
-  });
+describe('Check member info', () => {
   beforeEach(() => {
     cy.setUpApi({
-      currentMember: MEMBERS_HAS_AVATAR.BOB,
-      members: Object.values(MEMBERS_HAS_AVATAR),
+      currentMember: MEMBER_WITH_AVATAR,
     });
     cy.visit('/');
     cy.wait('@getCurrentMember');
   });
+
   it('displays the correct member info', () => {
+    cy.wait('@getCurrentMemberAvatarUrl');
     // displays the correct member avatar
     cy.get(`#${MEMBER_AVATAR_IMAGE_ID}`).should(
       'have.attr',
       'src',
-      MEMBERS_HAS_AVATAR.BOB.thumbnails,
+      MEMBER_WITH_AVATAR.thumbnail,
     );
     // displays the correct member name
     cy.get(buildDataCyWrapper(USERNAME_DISPLAY_ID)).should(
       'contain',
-      MEMBERS_HAS_AVATAR.BOB.name,
+      MEMBER_WITH_AVATAR.name,
     );
     // displays the correct creation date
-
+    const formattedDate = formatDate(MEMBER_WITH_AVATAR.createdAt, {
+      locale: i18n.language,
+    });
     cy.get(buildDataCyWrapper(MEMBER_CREATED_AT_ID)).should(
       'contain',
       formattedDate,
