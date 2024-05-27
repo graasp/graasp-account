@@ -2,7 +2,7 @@ import { ThumbnailSize } from '@graasp/sdk';
 import { COMMON } from '@graasp/translations';
 import { Avatar } from '@graasp/ui';
 
-import { AVATAR_SIZE } from '@/config/constants';
+import { AVATAR_HEADER_SIZE } from '@/config/constants';
 
 import { useCommonTranslation } from '../../config/i18n';
 import { hooks } from '../../config/queryClient';
@@ -19,8 +19,8 @@ type Props = {
 
 const MemberAvatar = ({
   id,
-  maxWidth = AVATAR_SIZE,
-  maxHeight = AVATAR_SIZE,
+  maxWidth = AVATAR_HEADER_SIZE,
+  maxHeight = AVATAR_HEADER_SIZE,
   component = 'avatar',
 }: Props): JSX.Element => {
   const { t } = useCommonTranslation();

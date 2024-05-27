@@ -48,7 +48,7 @@ const checkAnalyticsAfterUpdate = (shouldSaveActionsBeEnabled: boolean) => {
 };
 
 const changeUsername = (newUserName: string) => {
-  cy.get(`#${USERNAME_EDIT_BUTTON_ID}`).click({ force: true });
+  cy.get(`#${USERNAME_EDIT_BUTTON_ID}`).click();
   cy.get('input[name=username]').clear();
   // Find the input field and type the new username
   cy.get('input[name=username]').type(newUserName);
@@ -163,7 +163,7 @@ describe('Checks the language switch', () => {
   });
   it('should select an option from the select component', () => {
     cy.get(`#${MEMBER_PROFILE_LANGUAGE_SWITCH_ID}`).should('be.visible'); // Ensure the element is visible
-    cy.get(`#${MEMBER_PROFILE_LANGUAGE_SWITCH_ID}`).click({ force: true });
+    cy.get(`#${MEMBER_PROFILE_LANGUAGE_SWITCH_ID}`).click();
 
     cy.get(`[role="option"][data-value="de"]`).click();
     cy.wait('@editMember').then(({ request }) => {
