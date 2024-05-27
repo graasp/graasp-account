@@ -1,4 +1,4 @@
-import { FormEventHandler, useEffect, useRef, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 
 import { Dialog, Stack, styled, useTheme } from '@mui/material';
 
@@ -68,8 +68,7 @@ const AvatarUploader = ({
 
   useEffect(() => setNewAvatar(currentAvatar ?? ''), [currentAvatar]);
 
-  const onSelectFile: FormEventHandler<HTMLInputElement> = (e) => {
-    const target = e.target as HTMLInputElement;
+  const onSelectFile = ({ target }: { target: HTMLInputElement }) => {
     if (target.files && target.files?.length > 0) {
       const reader = new FileReader();
       reader.addEventListener('load', () =>

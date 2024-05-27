@@ -1,14 +1,20 @@
-import { Card, CardContent, Grid, Typography } from '@mui/material';
+import {
+  Box,
+  Card,
+  CardContent,
+  CardHeader,
+  Grid,
+  Typography,
+} from '@mui/material';
 import Grid2 from '@mui/material/Unstable_Grid2/Grid2';
 
-// eslint-disable-next-line import/no-extraneous-dependencies
 import { ImageUp } from 'lucide-react';
 
 import { useAccountTranslation } from '@/config/i18n';
 import { hooks } from '@/config/queryClient';
 import { CARD_TIP_ID } from '@/config/selectors';
 
-const NotifCard = (): JSX.Element | null => {
+const PersonalizationNotificationCard = (): JSX.Element | null => {
   const { t } = useAccountTranslation();
 
   const { data: member } = hooks.useCurrentMember();
@@ -23,19 +29,17 @@ const NotifCard = (): JSX.Element | null => {
   return (
     <Grid2 justifyContent="center" container spacing={2}>
       <Grid xs={12} md={6} item>
-        <Card variant="outlined" sx={{ height: '100%' }} id={CARD_TIP_ID}>
-          <CardContent sx={{ padding: 3 }}>
-            <Typography
-              display="flex"
-              alignItems="center"
-              justifyContent="center"
-              gap={2}
-              variant="h5"
-            >
-              <ImageUp fontSize="large" />
-              {t('PERSONALISATION_TITLE')}
-            </Typography>
-            <Typography variant="body1" textAlign="center" marginTop={2}>
+        <Card variant="outlined" id={CARD_TIP_ID}>
+          <CardHeader
+            title={
+              <Box display="flex" justifyContent="center" gap={2}>
+                <ImageUp fontSize="large" />
+                {t('PERSONALISATION_TITLE')}
+              </Box>
+            }
+          />
+          <CardContent>
+            <Typography textAlign="center">
               {t('PERSONALISATION_INFORMATION')}
             </Typography>
           </CardContent>
@@ -45,4 +49,4 @@ const NotifCard = (): JSX.Element | null => {
   );
 };
 
-export default NotifCard;
+export default PersonalizationNotificationCard;

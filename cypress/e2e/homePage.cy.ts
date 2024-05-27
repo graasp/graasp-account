@@ -79,7 +79,6 @@ describe('Upload Avatar', () => {
   let helpers: TestHelper;
   beforeEach(() => {
     helpers = new TestHelper({ currentMember: BOB });
-    // cy.setUpApi();
     cy.visit('/');
   });
 
