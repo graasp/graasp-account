@@ -4,7 +4,7 @@ import { useNavigate } from 'react-router-dom';
 import FacebookIcon from '@mui/icons-material/Facebook';
 import LinkedInIcon from '@mui/icons-material/LinkedIn';
 import TwitterIcon from '@mui/icons-material/Twitter';
-import { Box, Button, Grid, Typography } from '@mui/material';
+import { Box, Button, Grid, Stack, Typography } from '@mui/material';
 
 import { useAccountTranslation } from '@/config/i18n';
 import { PUBLIC_PROFILE_PATH } from '@/config/paths';
@@ -37,36 +37,34 @@ const MemberPublicProfile = (): JSX.Element => {
           </Button>
         </Grid>
       </Grid>
-      <Grid container spacing={2}>
-        <Grid item xs={12}>
+      <Stack direction="column" spacing={2}>
+        <Box>
           <Typography variant="body1" color="textSecondary">
             {t('PUBLIC_PROFILE_BIO')}
           </Typography>
           <Typography variant="body1">{data?.bio}</Typography>
-        </Grid>
-        <Grid item xs={12} sm={4}>
+        </Box>
+
+        <Stack direction="row" spacing={2}>
           <LinkedInIcon />
-        </Grid>
-        <Grid item xs={12} sm={8}>
+
           <Typography variant="body1">{data?.linkedinID}</Typography>
-        </Grid>
-        <Grid item xs={12} sm={4}>
+        </Stack>
+        <Stack direction="row" spacing={2}>
           <Typography variant="body1" color="textSecondary">
             <TwitterIcon />
           </Typography>
-        </Grid>
-        <Grid item xs={12} sm={8}>
+
           <Typography variant="body1">{data?.twitterID}</Typography>
-        </Grid>
-        <Grid item xs={12} sm={4}>
+        </Stack>
+        <Stack direction="row" spacing={2}>
           <Typography variant="body1" color="textSecondary">
             <FacebookIcon />
           </Typography>
-        </Grid>
-        <Grid item xs={12} sm={8}>
+
           <Typography variant="body1">{data?.facebookID}</Typography>
-        </Grid>
-      </Grid>
+        </Stack>
+      </Stack>
     </Box>
   );
 };
