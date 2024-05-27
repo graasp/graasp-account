@@ -9,6 +9,7 @@ import { CustomInitialLoader, withAuthorization } from '@graasp/ui';
 import { GRAASP_AUTH_HOST } from './config/env';
 import {
   AVATAR_SETTINGS_PATH,
+  EDIT_MEMBER_INFO,
   HOME_PATH,
   MANAGE_ACCOUNT_PATH,
   PASSWORD_SETTINGS_PATH,
@@ -18,6 +19,7 @@ import {
 import { hooks } from './config/queryClient';
 import AvatarSettingsScreen from './pages/AvatarSettingsScreen';
 import DestructiveSettingsScreen from './pages/DestructiveSettingsScreen';
+import EditMemberPersonalInformation from './pages/EditMemberPersonalInformation';
 import MemberScreen from './pages/MemberScreen';
 import PageWrapper from './pages/PageWrapper';
 import PasswordSettingsScreen from './pages/PasswordSettingsScreen';
@@ -44,6 +46,10 @@ export const App = (): JSX.Element => {
 
   const MemberProfileWithAuthorization = withAuthorization(
     MemberScreen,
+    withAuthorizationProps,
+  );
+  const EditMemberProfileWithAuthorization = withAuthorization(
+    EditMemberPersonalInformation,
     withAuthorizationProps,
   );
   const PasswordSettingsWithAuthorization = withAuthorization(
@@ -75,6 +81,10 @@ export const App = (): JSX.Element => {
             <Route
               path={HOME_PATH}
               element={<MemberProfileWithAuthorization />}
+            />
+            <Route
+              path={EDIT_MEMBER_INFO}
+              element={<EditMemberProfileWithAuthorization />}
             />
             <Route
               path={PASSWORD_SETTINGS_PATH}

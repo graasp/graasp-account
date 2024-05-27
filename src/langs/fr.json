@@ -16,6 +16,7 @@
   "MAIN_MENU_STORAGE": "Stockage",
   "SAVE_ACTIONS_TOGGLE_TOOLTIP": "Nous recueillons des données analytiques afin d'améliorer votre expérience utilisateur lorsque vous naviguez sur Graasp.",
   "PROFILE_TITLE": "Profil",
+  "PERSONAL_INFORMATION_TITLE": "Informations personelles",
   "PROFILE_MEMBER_NAME": "Nom de l'utilisateur",
   "PROFILE_MEMBER_ID_TITLE": "Identifiant de l'utilisateur",
   "PROFILE_LANGUAGE_TITLE": "Langue",
@@ -33,6 +34,7 @@
   "PROFILE_AVATAR_TITLE": "Image de profil",
   "PROFILE_AVATAR_INFORMATION": "Changer l'image de profil",
   "PROFILE_AVATAR_CURRENT_ALT": "Image de profil",
+  "PASSWORD_TITLE": "Mot de passe",
   "PASSWORD_SETTINGS_TITLE": "Changer le mot de passe",
   "PASSWORD_SETTINGS_CURRENT_LABEL": "Mot de passe actuel",
   "PASSWORD_SETTINGS_CURRENT_INFORMATION": "Laissez le champ vide si vous n'avez pas précédemment défini de mot de passe.",
@@ -65,5 +67,6 @@
   "DELETE_CONFIRMATION_VALUE": "supprimer",
   "DESTRUCTIVE_SETTINGS_DETAILS": "Veuillez noter que les opérations décrites ici ont des conséquences potentiellement irréversibles. Assurez-vous d’examiner attentivement toutes les restrictions avant de continuer avant de continuer.",
   "USERNAME_EMPTY_ERROR": "Le champ ne peut pas être vide",
-  "USERNAME_LENGTH_ERROR": "Le nom d'utilisateur doit contenir entre {{min}} et {{max}} caractères"
+  "USERNAME_LENGTH_ERROR": "Le nom d'utilisateur doit contenir entre {{min}} et {{max}} caractères",
+  "EDIT_BUTTON": "Modifier"
 }

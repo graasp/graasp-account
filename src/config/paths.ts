@@ -7,3 +7,4 @@ export const PASSWORD_SETTINGS_PATH = '/password';
 export const AVATAR_SETTINGS_PATH = '/avatar';
 export const PUBLIC_PROFILE_PATH = '/public-profile';
 export const MANAGE_ACCOUNT_PATH = '/manage';
+export const EDIT_MEMBER_INFO = '/edit-info';
