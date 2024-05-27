@@ -2,8 +2,6 @@ import { ThumbnailSize } from '@graasp/sdk';
 import { COMMON } from '@graasp/translations';
 import { Avatar } from '@graasp/ui';
 
-import { AVATAR_HEADER_SIZE } from '@/config/constants';
-
 import { useCommonTranslation } from '../../config/i18n';
 import { hooks } from '../../config/queryClient';
 // eslint-disable-next-line @typescript-eslint/ban-ts-comment
@@ -16,6 +14,8 @@ type Props = {
   maxHeight?: number;
   component?: 'avatar' | 'img';
 };
+// avatar size in header
+const AVATAR_HEADER_SIZE = 40;
 
 const MemberAvatar = ({
   id,
