@@ -9,7 +9,6 @@ import { CustomInitialLoader, withAuthorization } from '@graasp/ui';
 
 import { GRAASP_AUTH_HOST } from './config/env';
 import {
-  AVATAR_SETTINGS_PATH,
   EDIT_MEMBER_INFO,
   HOME_PATH,
   MANAGE_ACCOUNT_PATH,
@@ -19,7 +18,6 @@ import {
   STORAGE_PATH,
 } from './config/paths';
 import { hooks } from './config/queryClient';
-import AvatarSettingsScreen from './pages/AvatarSettingsScreen';
 import DestructiveSettingsScreen from './pages/DestructiveSettingsScreen';
 import EditMemberPersonalInformation from './pages/EditMemberPersonalInformation';
 import HomePage from './pages/HomePage';
@@ -67,10 +65,6 @@ export const App = (): JSX.Element => {
     PasswordSettingsScreen,
     withAuthorizationProps,
   );
-  const AvatarSettingsWithAuthorization = withAuthorization(
-    AvatarSettingsScreen,
-    withAuthorizationProps,
-  );
   const StorageWithAuthorization = withAuthorization(
     StorageScreen,
     withAuthorizationProps,
@@ -100,10 +94,6 @@ export const App = (): JSX.Element => {
           <Route
             path={PASSWORD_SETTINGS_PATH}
             element={<PasswordSettingsWithAuthorization />}
-          />
-          <Route
-            path={AVATAR_SETTINGS_PATH}
-            element={<AvatarSettingsWithAuthorization />}
           />
           <Route
             path={PUBLIC_PROFILE_PATH}
