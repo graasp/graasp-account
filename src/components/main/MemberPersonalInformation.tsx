@@ -6,6 +6,10 @@ import { Box, Button, Grid, Typography } from '@mui/material';
 import { useAccountTranslation } from '@/config/i18n';
 import { EDIT_MEMBER_INFO } from '@/config/paths';
 import { hooks } from '@/config/queryClient';
+import {
+  MEMBER_PROFILE_EMAIL_ID,
+  USERNAME_DISPLAY_ID,
+} from '@/config/selectors';
 
 const MemberPersonalInformation = (): JSX.Element => {
   const { data: member } = hooks.useCurrentMember();
@@ -48,7 +52,9 @@ const MemberPersonalInformation = (): JSX.Element => {
           </Typography>
         </Grid>
         <Grid item xs={12} sm={8}>
-          <Typography variant="body1">{member?.name}</Typography>
+          <Typography variant="body1" id={USERNAME_DISPLAY_ID}>
+            {member?.name}
+          </Typography>
         </Grid>
         <Grid item xs={12} sm={4}>
           <Typography variant="body1" color="textSecondary">
@@ -56,15 +62,14 @@ const MemberPersonalInformation = (): JSX.Element => {
           </Typography>
         </Grid>
         <Grid item xs={12} sm={8}>
-          <Typography variant="body1">{member?.email}</Typography>
+          <Typography variant="body1" id={MEMBER_PROFILE_EMAIL_ID}>
+            {member?.email}
+          </Typography>
         </Grid>
         <Grid item xs={12} sm={4}>
           <Typography variant="body1" color="textSecondary">
             {t('PASSWORD_TITLE')}
           </Typography>
-        </Grid>
-        <Grid item xs={12} sm={8}>
-          <Typography variant="body1">**********</Typography>
         </Grid>
       </Grid>
     </Box>
