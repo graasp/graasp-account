@@ -2,7 +2,6 @@ import { useLocation, useNavigate } from 'react-router-dom';
 
 import { Whatshot } from '@mui/icons-material';
 import AccountCircleIcon from '@mui/icons-material/AccountCircle';
-import CameraAltIcon from '@mui/icons-material/CameraAlt';
 import DataUsageIcon from '@mui/icons-material/DataUsage';
 import HomeIcon from '@mui/icons-material/Home';
 import PasswordIcon from '@mui/icons-material/Password';
@@ -16,7 +15,6 @@ import { DRAWER_WIDTH } from '@graasp/ui';
 
 import { useAccountTranslation } from '../../config/i18n';
 import {
-  AVATAR_SETTINGS_PATH,
   HOME_PATH,
   MANAGE_ACCOUNT_PATH,
   PASSWORD_SETTINGS_PATH,
@@ -56,16 +54,6 @@ const MainMenu = (): JSX.Element => {
         </ListItemIcon>
 
         <ListItemText primary={t('MAIN_MENU_PROFILE')} />
-      </ListItemButton>
-      <ListItemButton
-        onClick={() => goTo(AVATAR_SETTINGS_PATH)}
-        selected={pathname === AVATAR_SETTINGS_PATH}
-      >
-        <ListItemIcon>
-          <CameraAltIcon />
-        </ListItemIcon>
-
-        <ListItemText primary={t('MAIN_MENU_AVATAR')} />
       </ListItemButton>
       <ListItemButton
         onClick={() => goTo(PASSWORD_SETTINGS_PATH)}
