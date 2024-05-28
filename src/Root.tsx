@@ -1,4 +1,5 @@
 import { I18nextProvider } from 'react-i18next';
+import { BrowserRouter as Router } from 'react-router-dom';
 import { ToastContainer } from 'react-toastify';
 
 import { ThemeProvider } from '@mui/material/styles';
@@ -18,7 +19,9 @@ const Root = (): JSX.Element => (
     <I18nextProvider i18n={i18nConfig}>
       <ThemeProvider theme={theme}>
         <ToastContainer stacked />
-        <App />
+        <Router>
+          <App />
+        </Router>
       </ThemeProvider>
     </I18nextProvider>
     {import.meta.env.DEV && <ReactQueryDevtools />}

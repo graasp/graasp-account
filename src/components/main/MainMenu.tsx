@@ -4,6 +4,7 @@ import { Whatshot } from '@mui/icons-material';
 import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 import CameraAltIcon from '@mui/icons-material/CameraAlt';
 import DataUsageIcon from '@mui/icons-material/DataUsage';
+import HomeIcon from '@mui/icons-material/Home';
 import PasswordIcon from '@mui/icons-material/Password';
 import ProfileIcon from '@mui/icons-material/Person2';
 import { ListItemButton } from '@mui/material';
@@ -19,6 +20,7 @@ import {
   HOME_PATH,
   MANAGE_ACCOUNT_PATH,
   PASSWORD_SETTINGS_PATH,
+  PROFILE_PATH,
   PUBLIC_PROFILE_PATH,
   STORAGE_PATH,
 } from '../../config/paths';
@@ -37,6 +39,17 @@ const MainMenu = (): JSX.Element => {
       <ListItemButton
         onClick={() => goTo(HOME_PATH)}
         selected={pathname === HOME_PATH}
+      >
+        <ListItemIcon>
+          <HomeIcon />
+        </ListItemIcon>
+
+        <ListItemText primary={t('MAIN_MENU_HOME_PAGE')} />
+      </ListItemButton>
+
+      <ListItemButton
+        onClick={() => goTo(PROFILE_PATH)}
+        selected={pathname === PROFILE_PATH}
       >
         <ListItemIcon>
           <AccountCircleIcon />

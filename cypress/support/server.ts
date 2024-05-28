@@ -24,11 +24,11 @@ export const SIGN_IN_PATH = buildSignInPath({
   host: Cypress.env('VITE_GRAASP_AUTH_HOST'),
 });
 const API_HOST = Cypress.env('VITE_GRAASP_API_HOST');
-export const AVATAR_LINK = 'https://picsum.photos/200/200';
 
 export const redirectionReply = {
-  headers: { 'content-type': 'application/json' },
+  headers: { 'content-type': 'text/html' },
   statusCode: StatusCodes.OK,
+  body: '<h1>Mock Auth Page</h1>',
 };
 
 export const mockGetCurrentMember = (
@@ -102,7 +102,7 @@ export const mockSignInRedirection = (): void => {
   cy.intercept(
     {
       method: HttpMethod.Get,
-      url: SIGN_IN_PATH,
+      pathname: '/signin',
     },
     ({ reply }) => {
       reply(redirectionReply);
@@ -122,35 +122,29 @@ export const mockSignOut = (): void => {
   ).as('signOut');
 };
 
-export const mockGetAvatarUrl = (
-  members: MemberForTest[],
+export const mockGetCurrentMemberAvatar = (
+  currentMember: MemberForTest,
   shouldThrowError: boolean,
 ): void => {
   cy.intercept(
     {
       method: HttpMethod.Get,
-      // TODO: include all sizes
       url: new RegExp(
-        `${API_HOST}/members/${ID_FORMAT}/avatar/small\\?replyUrl\\=true`,
+        `${API_HOST}/members/${ID_FORMAT}/avatar/(original|large|medium|small)\\?replyUrl\\=true`,
       ),
     },
-    ({ reply, url }) => {
+    ({ reply }) => {
       if (shouldThrowError) {
         return reply({ statusCode: StatusCodes.BAD_REQUEST });
       }
 
-      const [link] = url.split('?');
-      const id = link.slice(API_HOST.length).split('/')[2];
-
-      const { thumbnails } =
-        members.find(({ id: thisId }) => id === thisId) ?? {};
-      if (!thumbnails) {
+      const { thumbnail } = currentMember;
+      if (!thumbnail) {
         return reply({ statusCode: StatusCodes.NOT_FOUND });
       }
-      // TODO: REPLY URL
-      return reply(AVATAR_LINK);
+      return reply(thumbnail);
     },
-  ).as('downloadAvatarUrl');
+  ).as('getCurrentMemberAvatarUrl');
 };
 
 export const mockPostAvatar = (shouldThrowError: boolean): void => {

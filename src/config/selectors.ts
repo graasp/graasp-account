@@ -26,3 +26,15 @@ export const USERNAME_SAVE_BUTTON_ID = 'username-save-button';
 export const USERNAME_CANCEL_BUTTON_ID = 'username-cancel-button';
 export const USERNAME_INPUT_FIELD_ID = 'username-input-field';
 export const USERNAME_DISPLAY_ID = 'username-display';
+
+export const CARD_TIP_ID = 'tip-card';
+export const MEMBER_AVATAR_WRAPPER_ID = 'memberAvatar';
+export const MEMBER_AVATAR_IMAGE_ID = 'memberAvatarImageId';
+export const MEMBER_CREATED_AT_ID = 'memberCreatedAtId';
+
+export const AVATAR_UPLOAD_INPUT_ID = 'avatarUploadInputId';
+export const AVATAR_UPLOAD_ICON_CY = 'avatarUploadIconCy';
+
+export const CROP_MODAL_CONFIRM_BUTTON_ID = 'cropModalConfirmButton';
+export const buildDataCyWrapper = (dataCy: string): string =>
+  `[data-cy="${dataCy}"]`;

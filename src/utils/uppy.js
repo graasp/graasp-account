@@ -73,14 +73,14 @@ const configureUppy = ({
 export default configureUppy;
 
 export const configureAvatarUppy = ({
-  itemId,
+  memberId,
   onFilesAdded = null,
   onUpload,
   onComplete,
   onError,
 }) =>
   configureUppy({
-    itemId,
+    memberId,
     onFilesAdded,
     onUpload,
     onComplete,
