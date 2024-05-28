@@ -1,5 +1,22 @@
 # Changelog
 
+## [2.7.0](https://github.com/graasp/graasp-account/compare/v2.6.2...v2.7.0) (2024-05-28)
+
+
+### Features
+
+* create home page ([#228](https://github.com/graasp/graasp-account/issues/228)) ([2009635](https://github.com/graasp/graasp-account/commit/2009635a5e3b595abba67c6a42dcc7a71a702b6d))
+* delete avatar page ([#243](https://github.com/graasp/graasp-account/issues/243)) ([7bfc374](https://github.com/graasp/graasp-account/commit/7bfc374b785c9b3d7aa064f3801e873ea94c82db))
+
+
+### Bug Fixes
+
+* **deps:** update dependency @graasp/query-client to v3.8.0 ([#223](https://github.com/graasp/graasp-account/issues/223)) ([f2c2cf8](https://github.com/graasp/graasp-account/commit/f2c2cf8fed752df74a6bab7067686f6d386193c1))
+* **deps:** update dependency filesize to v10.1.2 ([#230](https://github.com/graasp/graasp-account/issues/230)) ([5064ab4](https://github.com/graasp/graasp-account/commit/5064ab47d5b6bb232d5f7786ed86f200b6d620f6))
+* **deps:** update dependency i18next to v23.11.4 ([#227](https://github.com/graasp/graasp-account/issues/227)) ([862537a](https://github.com/graasp/graasp-account/commit/862537a5c12046da1e80d568eb5fa09c27030cf8))
+* **deps:** update react-router monorepo to v6.23.1 ([#229](https://github.com/graasp/graasp-account/issues/229)) ([e9982dc](https://github.com/graasp/graasp-account/commit/e9982dc53070e6cf2a9659d3d605990da53addff))
+* update yarn ([#231](https://github.com/graasp/graasp-account/issues/231)) ([e66bb35](https://github.com/graasp/graasp-account/commit/e66bb35a884a34058adfe966e2be1103f712b404))
+
 ## [2.6.2](https://github.com/graasp/graasp-account/compare/v2.6.1...v2.6.2) (2024-05-04)
 
 
