@@ -8,7 +8,7 @@ import {
 
 import { StatusCodes } from 'http-status-codes';
 
-import { CURRENT_MEMBER } from '../fixtures/members';
+import { CURRENT_MEMBER, MEMBER_PUBLIC_PROFILE } from '../fixtures/members';
 import { ID_FORMAT, MemberForTest } from './utils';
 
 const {
@@ -18,6 +18,7 @@ const {
   buildPatchMember,
   buildUploadAvatarRoute,
   buildUpdateMemberPasswordRoute,
+  GET_OWN_PROFILE,
 } = API_ROUTES;
 
 export const SIGN_IN_PATH = buildSignInPath({
@@ -31,6 +32,30 @@ export const redirectionReply = {
   body: '<h1>Mock Auth Page</h1>',
 };
 
+export const mockGetOwnProfile = (
+  publicProfile = MEMBER_PUBLIC_PROFILE,
+  shouldThrowError = false,
+): void => {
+  cy.intercept(
+    {
+      method: HttpMethod.Get,
+      url: `${API_HOST}/members/${GET_OWN_PROFILE}`,
+    },
+    ({ reply }) => {
+      if (shouldThrowError) {
+        return reply({
+          statusCode: StatusCodes.INTERNAL_SERVER_ERROR,
+          body: null,
+        });
+      }
+      return reply({ statusCode: StatusCodes.OK, body: publicProfile });
+    },
+  ).as('getOwnProfile');
+};
+// console.log(
+//   mockGetOwnProfile(MEMBER_PUBLIC_PROFILE, false),
+//   'mockGetOwnProfile',
+// );
 export const mockGetCurrentMember = (
   currentMember = CURRENT_MEMBER,
   shouldThrowError = false,

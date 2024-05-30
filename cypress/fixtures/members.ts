@@ -1,4 +1,4 @@
-import { Member, MemberFactory } from '@graasp/sdk';
+import { Member, MemberFactory, PublicProfile } from '@graasp/sdk';
 
 import { MemberForTest } from '../support/utils';
 import { AVATAR_LINK } from './thumbnails/links';
@@ -39,4 +39,16 @@ export const MEMBER_WITH_AVATAR: MemberForTest = {
   }),
   // this only exists for test
   thumbnail: AVATAR_LINK,
+};
+
+export const MEMBER_PUBLIC_PROFILE: PublicProfile = {
+  id: 'ecafbd2a-5642-31fb-ae93-0242ac130004',
+  member: BOB,
+  bio: 'text',
+  twitterID: 'twitter_handle',
+  facebookID: 'fb_handle',
+  linkedinID: 'linkedin_handle',
+  createdAt: '2021-04-13 14:56:34.749946',
+  updatedAt: '2021-04-13 14:56:34.749946',
+  visibility: false,
 };

@@ -9,6 +9,12 @@ import { Box, Button, Grid, Stack, Typography } from '@mui/material';
 import { useAccountTranslation } from '@/config/i18n';
 import { PUBLIC_PROFILE_PATH } from '@/config/paths';
 import { hooks } from '@/config/queryClient';
+import {
+  PUBLIC_PROFILE_BIO_ID,
+  PUBLIC_PROFILE_FACEBOOK_ID,
+  PUBLIC_PROFILE_LINKEDIN_ID,
+  PUBLIC_PROFILE_TWITTER_ID,
+} from '@/config/selectors';
 
 const MemberPublicProfile = (): JSX.Element => {
   const { data } = hooks.useOwnProfile();
@@ -42,27 +48,35 @@ const MemberPublicProfile = (): JSX.Element => {
           <Typography variant="body1" color="textSecondary">
             {t('PUBLIC_PROFILE_BIO')}
           </Typography>
-          <Typography variant="body1">{data?.bio}</Typography>
+          <Typography variant="body1" id={PUBLIC_PROFILE_BIO_ID}>
+            {data?.bio}
+          </Typography>
         </Box>
 
         <Stack direction="row" spacing={2}>
           <LinkedInIcon />
 
-          <Typography variant="body1">{data?.linkedinID}</Typography>
+          <Typography variant="body1" id={PUBLIC_PROFILE_LINKEDIN_ID}>
+            {data?.linkedinID}
+          </Typography>
         </Stack>
         <Stack direction="row" spacing={2}>
           <Typography variant="body1" color="textSecondary">
             <TwitterIcon />
           </Typography>
 
-          <Typography variant="body1">{data?.twitterID}</Typography>
+          <Typography variant="body1" id={PUBLIC_PROFILE_TWITTER_ID}>
+            {data?.twitterID}
+          </Typography>
         </Stack>
         <Stack direction="row" spacing={2}>
           <Typography variant="body1" color="textSecondary">
             <FacebookIcon />
           </Typography>
 
-          <Typography variant="body1">{data?.facebookID}</Typography>
+          <Typography variant="body1" id={PUBLIC_PROFILE_FACEBOOK_ID}>
+            {data?.facebookID}
+          </Typography>
         </Stack>
       </Stack>
     </Box>

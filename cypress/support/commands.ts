@@ -1,12 +1,17 @@
 /// <reference types="cypress" />
 import { CookieKeys } from '@graasp/sdk';
 
-import { CURRENT_MEMBER, MEMBERS } from '../fixtures/members';
+import {
+  CURRENT_MEMBER,
+  MEMBERS,
+  MEMBER_PUBLIC_PROFILE,
+} from '../fixtures/members';
 import {
   mockEditMember,
   mockGetCurrentMember,
   mockGetCurrentMemberAvatar,
   mockGetMember,
+  mockGetOwnProfile,
   mockPostAvatar,
   mockSignInRedirection,
   mockSignOut,
@@ -18,7 +23,9 @@ Cypress.Commands.add(
   ({
     members = Object.values(MEMBERS),
     currentMember = CURRENT_MEMBER,
+    currentProfile = MEMBER_PUBLIC_PROFILE,
     getCurrentMemberError = false,
+    getCurrentProfileError = false,
     editMemberError = false,
     getAvatarUrlError = false,
     postAvatarError = false,
@@ -26,13 +33,14 @@ Cypress.Commands.add(
   } = {}) => {
     const cachedMembers = JSON.parse(JSON.stringify(members));
     const cachedCurrentMember = JSON.parse(JSON.stringify(currentMember));
+    const cachedCurrentProfile = JSON.parse(JSON.stringify(currentProfile));
 
     // hide cookie banner by default
     cy.setCookie(CookieKeys.AcceptCookies, 'true');
 
-    mockGetMember(cachedMembers);
-
     mockGetCurrentMember(cachedCurrentMember, getCurrentMemberError);
+    mockGetMember(cachedMembers);
+    mockGetOwnProfile(cachedCurrentProfile, getCurrentProfileError);
 
     mockSignInRedirection();
 

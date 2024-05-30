@@ -1,4 +1,4 @@
-import { PROFILE_PATH } from 'config/paths';
+import { EDIT_MEMBER_INFO } from 'config/paths';
 
 import {
   MEMBER_PROFILE_ANALYTICS_SWITCH_ID,
@@ -57,7 +57,7 @@ const changeUsername = (newUserName: string) => {
 describe('Change username', () => {
   beforeEach(() => {
     cy.setUpApi({ currentMember: BOB });
-    cy.visit(PROFILE_PATH);
+    cy.visit(EDIT_MEMBER_INFO);
   });
 
   it('Username field cannot be empty', () => {
@@ -116,7 +116,7 @@ describe('Checks the analytics switch', () => {
           enableSaveActions: true,
         },
       });
-      cy.visit(PROFILE_PATH);
+      cy.visit(EDIT_MEMBER_INFO);
       // wait on current member request to update then the mock response for current member
       cy.wait('@getCurrentMember');
     });
@@ -138,7 +138,7 @@ describe('Checks the analytics switch', () => {
           enableSaveActions: false,
         },
       });
-      cy.visit(PROFILE_PATH);
+      cy.visit(EDIT_MEMBER_INFO);
       // wait on current member request to update then the mock response for current member
       cy.wait('@getCurrentMember');
     });
@@ -158,7 +158,7 @@ describe('Checks the language switch', () => {
     cy.setUpApi({
       currentMember,
     });
-    cy.visit(PROFILE_PATH);
+    cy.visit(EDIT_MEMBER_INFO);
     cy.wait('@getCurrentMember');
   });
   it('should select an option from the select component', () => {
@@ -177,7 +177,7 @@ describe('Checks the current member language', () => {
     cy.setUpApi({
       currentMember: { ...currentMember, extra: { lang: 'es' } },
     });
-    cy.visit(PROFILE_PATH);
+    cy.visit(EDIT_MEMBER_INFO);
     cy.wait('@getCurrentMember');
   });
 
