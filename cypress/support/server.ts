@@ -52,10 +52,6 @@ export const mockGetOwnProfile = (
     },
   ).as('getOwnProfile');
 };
-// console.log(
-//   mockGetOwnProfile(MEMBER_PUBLIC_PROFILE, false),
-//   'mockGetOwnProfile',
-// );
 export const mockGetCurrentMember = (
   currentMember = CURRENT_MEMBER,
   shouldThrowError = false,

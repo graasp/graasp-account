@@ -90,8 +90,6 @@ const MemberCard = (): JSX.Element | null => {
     }
   };
 
-  // console.log(avatarUrl, 'avatarUrl');
-
   return (
     <Stack direction="row" spacing={2} alignItems="center">
       <Stack alignItems="center" spacing={2}>

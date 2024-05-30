@@ -28,7 +28,7 @@ describe('Check member info', () => {
     cy.get(`#${MEMBER_PROFILE_EMAIL_ID}`).should('contain', BOB.email);
   });
 
-  it.only('displays the correct public profile info', () => {
+  it('displays the correct public profile info', () => {
     // displays the correct bio
     cy.get(`#${PUBLIC_PROFILE_BIO_ID}`).should(
       'contain',
