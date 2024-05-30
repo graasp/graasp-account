@@ -35,7 +35,7 @@ const MemberPublicProfile = (): JSX.Element => {
     >
       <Grid container spacing={2} alignItems="center">
         <Grid item xs={12} sm={6}>
-          <Typography variant="h6">Public Profile</Typography>
+          <Typography variant="h5">{t('PUBLIC_PROFILE_TITLE')}</Typography>
         </Grid>
         <Grid item xs={12} sm={6} container justifyContent="flex-end">
           <Button variant="contained" onClick={() => goTo(PUBLIC_PROFILE_PATH)}>
