@@ -8,7 +8,11 @@ import {
   USERNAME_DISPLAY_ID,
 } from '@/config/selectors';
 
-import { BOB, MEMBER_PUBLIC_PROFILE } from '../fixtures/members';
+import {
+  BOB,
+  MEMBER_EMPTY_PUBLIC_PROFILE,
+  MEMBER_PUBLIC_PROFILE,
+} from '../fixtures/members';
 
 describe('Check member info', () => {
   beforeEach(() => {
@@ -48,6 +52,41 @@ describe('Check member info', () => {
     cy.get(`#${PUBLIC_PROFILE_FACEBOOK_ID}`).should(
       'contain',
       MEMBER_PUBLIC_PROFILE.facebookID,
+    );
+  });
+});
+
+describe('Check empty member public profile info', () => {
+  beforeEach(() => {
+    cy.setUpApi({
+      currentMember: BOB,
+      currentProfile: MEMBER_EMPTY_PUBLIC_PROFILE,
+    });
+    cy.visit(PROFILE_PATH);
+    cy.wait('@getCurrentMember');
+    cy.wait('@getOwnProfile');
+  });
+
+  it('displays the correct public profile info when profile is empty', () => {
+    // displays a message indicating no bio is available
+    cy.get(`#${PUBLIC_PROFILE_BIO_ID}`).should('contain', 'No Bio available');
+
+    // displays a message indicating no LinkedIn ID is available
+    cy.get(`#${PUBLIC_PROFILE_LINKEDIN_ID}`).should(
+      'contain',
+      'No LinkedIn ID available',
+    );
+
+    // displays a message indicating no Twitter ID is available
+    cy.get(`#${PUBLIC_PROFILE_TWITTER_ID}`).should(
+      'contain',
+      'No Twitter ID available',
+    );
+
+    // displays a message indicating no Facebook ID is available
+    cy.get(`#${PUBLIC_PROFILE_FACEBOOK_ID}`).should(
+      'contain',
+      'No Facebook ID available',
     );
   });
 });

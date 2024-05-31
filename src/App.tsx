@@ -20,11 +20,11 @@ import {
 import { hooks } from './config/queryClient';
 import DestructiveSettingsScreen from './pages/DestructiveSettingsScreen';
 import EditMemberPersonalInformation from './pages/EditMemberPersonalInformation';
+import EditPublicProfileScreen from './pages/EditPublicProfileScreen';
 import HomePage from './pages/HomePage';
-import MemberScreen from './pages/MemberScreen';
+import MemberProfileScreen from './pages/MemberProfileScreen';
 import PageWrapper from './pages/PageWrapper';
 import PasswordSettingsScreen from './pages/PasswordSettingsScreen';
-import PublicProfileScreen from './pages/PublicProfileScreen';
 import StorageScreen from './pages/StorageScreen';
 
 export const App = (): JSX.Element => {
@@ -54,7 +54,7 @@ export const App = (): JSX.Element => {
     withAuthorizationProps,
   );
   const MemberProfileWithAuthorization = withAuthorization(
-    MemberScreen,
+    MemberProfileScreen,
     withAuthorizationProps,
   );
   const EditMemberProfileWithAuthorization = withAuthorization(
@@ -70,7 +70,7 @@ export const App = (): JSX.Element => {
     withAuthorizationProps,
   );
   const PublicProfileWithAuthorization = withAuthorization(
-    PublicProfileScreen,
+    EditPublicProfileScreen,
     withAuthorizationProps,
   );
   const DestructiveSettingsWithAuthorization = withAuthorization(

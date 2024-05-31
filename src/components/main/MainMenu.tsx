@@ -5,7 +5,6 @@ import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 import DataUsageIcon from '@mui/icons-material/DataUsage';
 import HomeIcon from '@mui/icons-material/Home';
 import PasswordIcon from '@mui/icons-material/Password';
-import ProfileIcon from '@mui/icons-material/Person2';
 import { ListItemButton } from '@mui/material';
 import List from '@mui/material/List';
 import ListItemIcon from '@mui/material/ListItemIcon';
@@ -19,7 +18,6 @@ import {
   MANAGE_ACCOUNT_PATH,
   PASSWORD_SETTINGS_PATH,
   PROFILE_PATH,
-  PUBLIC_PROFILE_PATH,
   STORAGE_PATH,
 } from '../../config/paths';
 
@@ -74,16 +72,6 @@ const MainMenu = (): JSX.Element => {
         </ListItemIcon>
 
         <ListItemText primary={t('MAIN_MENU_STORAGE')} />
-      </ListItemButton>
-      <ListItemButton
-        onClick={() => goTo(PUBLIC_PROFILE_PATH)}
-        selected={pathname === PUBLIC_PROFILE_PATH}
-      >
-        <ListItemIcon>
-          <ProfileIcon />
-        </ListItemIcon>
-
-        <ListItemText primary={t('MAIN_MENU_PUBLIC_PROFILE')} />
       </ListItemButton>
       <ListItemButton
         onClick={() => goTo(MANAGE_ACCOUNT_PATH)}

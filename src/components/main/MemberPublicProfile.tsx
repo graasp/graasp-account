@@ -1,5 +1,4 @@
-import React from 'react';
-import { useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 import FacebookIcon from '@mui/icons-material/Facebook';
 import LinkedInIcon from '@mui/icons-material/LinkedIn';
@@ -19,11 +18,7 @@ import {
 const MemberPublicProfile = (): JSX.Element => {
   const { data } = hooks.useOwnProfile();
   const { t } = useAccountTranslation();
-  const push = useNavigate();
 
-  const goTo = (path: string) => {
-    push(path);
-  };
   return (
     <Box
       sx={{
@@ -34,13 +29,15 @@ const MemberPublicProfile = (): JSX.Element => {
       }}
     >
       <Grid container spacing={2} alignItems="center">
-        <Grid item xs={12} sm={6}>
+        <Grid item xs={6} sm={6}>
           <Typography variant="h5">{t('PUBLIC_PROFILE_TITLE')}</Typography>
         </Grid>
-        <Grid item xs={12} sm={6} container justifyContent="flex-end">
-          <Button variant="contained" onClick={() => goTo(PUBLIC_PROFILE_PATH)}>
-            {t('EDIT_BUTTON')}
-          </Button>
+        <Grid item xs={6} sm={6} container justifyContent="flex-end">
+          <Link to={PUBLIC_PROFILE_PATH} className="link">
+            <Button variant="contained" color="primary">
+              {t('EDIT_BUTTON')}
+            </Button>
+          </Link>
         </Grid>
       </Grid>
       <Stack direction="column" spacing={2}>
@@ -48,35 +45,76 @@ const MemberPublicProfile = (): JSX.Element => {
           <Typography variant="body1" color="textSecondary">
             {t('PUBLIC_PROFILE_BIO')}
           </Typography>
-          <Typography variant="body1" id={PUBLIC_PROFILE_BIO_ID}>
-            {data?.bio}
-          </Typography>
+          {data?.bio ? (
+            <Typography variant="body1" id={PUBLIC_PROFILE_BIO_ID}>
+              {data.bio}
+            </Typography>
+          ) : (
+            <Typography
+              variant="body1"
+              color="textSecondary"
+              id={PUBLIC_PROFILE_BIO_ID}
+            >
+              {t('PUBLIC_PROFILE_BIO_EMPTY_MSG')}
+            </Typography>
+          )}
         </Box>
 
         <Stack direction="row" spacing={2}>
-          <LinkedInIcon />
-
-          <Typography variant="body1" id={PUBLIC_PROFILE_LINKEDIN_ID}>
-            {data?.linkedinID}
+          <Typography variant="body1" color="textSecondary">
+            <LinkedInIcon />
           </Typography>
+          {data?.linkedinID ? (
+            <Typography variant="body1" id={PUBLIC_PROFILE_LINKEDIN_ID}>
+              {data?.linkedinID}
+            </Typography>
+          ) : (
+            <Typography
+              variant="body1"
+              color="textSecondary"
+              id={PUBLIC_PROFILE_LINKEDIN_ID}
+            >
+              {t('PUBLIC_PROFILE_LINKEDIN_EMPTY_MSG')}
+            </Typography>
+          )}
         </Stack>
         <Stack direction="row" spacing={2}>
           <Typography variant="body1" color="textSecondary">
             <TwitterIcon />
           </Typography>
 
-          <Typography variant="body1" id={PUBLIC_PROFILE_TWITTER_ID}>
-            {data?.twitterID}
-          </Typography>
+          {data?.twitterID ? (
+            <Typography variant="body1" id={PUBLIC_PROFILE_TWITTER_ID}>
+              {data?.twitterID}
+            </Typography>
+          ) : (
+            <Typography
+              variant="body1"
+              color="textSecondary"
+              id={PUBLIC_PROFILE_TWITTER_ID}
+            >
+              {t('PUBLIC_PROFILE_TWITTER_EMPTY_MSG')}
+            </Typography>
+          )}
         </Stack>
         <Stack direction="row" spacing={2}>
           <Typography variant="body1" color="textSecondary">
             <FacebookIcon />
           </Typography>
 
-          <Typography variant="body1" id={PUBLIC_PROFILE_FACEBOOK_ID}>
-            {data?.facebookID}
-          </Typography>
+          {data?.facebookID ? (
+            <Typography variant="body1" id={PUBLIC_PROFILE_FACEBOOK_ID}>
+              {data?.facebookID}
+            </Typography>
+          ) : (
+            <Typography
+              variant="body1"
+              color="textSecondary"
+              id={PUBLIC_PROFILE_FACEBOOK_ID}
+            >
+              {t('PUBLIC_PROFILE_FACEBOOK_EMPTY_MSG')}
+            </Typography>
+          )}
         </Stack>
       </Stack>
     </Box>

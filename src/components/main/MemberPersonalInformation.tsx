@@ -1,5 +1,4 @@
-import React from 'react';
-import { useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 import { Box, Button, Grid, Typography } from '@mui/material';
 
@@ -14,11 +13,7 @@ import {
 const MemberPersonalInformation = (): JSX.Element => {
   const { data: member } = hooks.useCurrentMember();
   const { t } = useAccountTranslation();
-  const push = useNavigate();
 
-  const goTo = (path: string) => {
-    push(path);
-  };
   return (
     <Box
       sx={{
@@ -30,19 +25,17 @@ const MemberPersonalInformation = (): JSX.Element => {
       }}
     >
       <Grid container spacing={2} alignItems="center">
-        <Grid item xs={12} sm={6}>
+        <Grid item xs={6} sm={6}>
           <Typography variant="h5">
             {t('PERSONAL_INFORMATION_TITLE')}
           </Typography>
         </Grid>
-        <Grid item xs={12} sm={6} container justifyContent="flex-end">
-          <Button
-            variant="contained"
-            color="primary"
-            onClick={() => goTo(EDIT_MEMBER_INFO)}
-          >
-            {t('EDIT_BUTTON')}
-          </Button>
+        <Grid item xs={6} sm={6} container justifyContent="flex-end">
+          <Link to={EDIT_MEMBER_INFO} className="link">
+            <Button variant="contained" color="primary">
+              {t('EDIT_BUTTON')}
+            </Button>
+          </Link>
         </Grid>
       </Grid>
       <Grid container spacing={2}>

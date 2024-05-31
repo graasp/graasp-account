@@ -42,7 +42,7 @@ const initialDirtyFieldsState = {
   facebookID: false,
   visibility: false,
 };
-const PublicProfileScreen = (): JSX.Element => {
+const EditPublicProfileScreen = (): JSX.Element => {
   const { t } = useAccountTranslation();
 
   const { data, refetch } = hooks.useOwnProfile();
@@ -243,4 +243,4 @@ const PublicProfileScreen = (): JSX.Element => {
   );
 };
 
-export default PublicProfileScreen;
+export default EditPublicProfileScreen;

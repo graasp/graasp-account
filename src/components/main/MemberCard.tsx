@@ -113,7 +113,7 @@ const MemberCard = (): JSX.Element | null => {
         >
           <AlarmOnIcon fontSize="small" />
 
-          {t('PROFILE_CREATED_AT_TITLE', {
+          {t('PROFILE_CREATED_AT_INFO', {
             date: formatDate(member?.createdAt, { locale: i18n.language }),
           })}
         </Typography>
