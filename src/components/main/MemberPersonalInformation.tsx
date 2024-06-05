@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom';
 
-import { Box, Button, Grid, Typography } from '@mui/material';
+import { Button, Grid, Stack, Typography } from '@mui/material';
 
 import { useAccountTranslation } from '@/config/i18n';
 import { EDIT_MEMBER_INFO } from '@/config/paths';
@@ -10,62 +10,37 @@ import {
   USERNAME_DISPLAY_ID,
 } from '@/config/selectors';
 
+import MemberProfileItem from './MemberProfileItem';
+import RoundedStack from './RoundedStack';
+
 const MemberPersonalInformation = (): JSX.Element => {
   const { data: member } = hooks.useCurrentMember();
   const { t } = useAccountTranslation();
 
   return (
-    <Box
-      sx={{
-        border: '1px solid',
-        borderColor: 'divider',
-        borderRadius: 1,
-        p: 2,
-        mb: 2,
-      }}
-    >
-      <Grid container spacing={2} alignItems="center">
-        <Grid item xs={6} sm={6}>
-          <Typography variant="h5">
-            {t('PERSONAL_INFORMATION_TITLE')}
-          </Typography>
-        </Grid>
-        <Grid item xs={6} sm={6} container justifyContent="flex-end">
-          <Link to={EDIT_MEMBER_INFO} className="link">
-            <Button variant="contained" color="primary">
-              {t('EDIT_BUTTON')}
-            </Button>
-          </Link>
-        </Grid>
+    <RoundedStack>
+      <Stack direction="row" justifyContent="space-between">
+        <Typography variant="h5">{t('PERSONAL_INFORMATION_TITLE')}</Typography>
+        <Link to={EDIT_MEMBER_INFO} className="link">
+          <Button variant="contained" color="primary">
+            {t('EDIT_BUTTON_LABEL')}
+          </Button>
+        </Link>
+      </Stack>
+      <Grid container spacing={1}>
+        <MemberProfileItem
+          title={t('PROFILE_MEMBER_NAME')}
+          content={member?.name}
+          contentId={USERNAME_DISPLAY_ID}
+        />
+        <MemberProfileItem
+          title={t('PROFILE_EMAIL_TITLE')}
+          content={member?.email}
+          contentId={MEMBER_PROFILE_EMAIL_ID}
+        />
+        <MemberProfileItem title={t('PASSWORD_TITLE')} contentId="" />
       </Grid>
-      <Grid container spacing={2}>
-        <Grid item xs={12} sm={4}>
-          <Typography variant="body1" color="textSecondary">
-            {t('PROFILE_MEMBER_NAME')}
-          </Typography>
-        </Grid>
-        <Grid item xs={12} sm={8}>
-          <Typography variant="body1" id={USERNAME_DISPLAY_ID}>
-            {member?.name}
-          </Typography>
-        </Grid>
-        <Grid item xs={12} sm={4}>
-          <Typography variant="body1" color="textSecondary">
-            {t('PROFILE_EMAIL_TITLE')}
-          </Typography>
-        </Grid>
-        <Grid item xs={12} sm={8}>
-          <Typography variant="body1" id={MEMBER_PROFILE_EMAIL_ID}>
-            {member?.email}
-          </Typography>
-        </Grid>
-        <Grid item xs={12} sm={4}>
-          <Typography variant="body1" color="textSecondary">
-            {t('PASSWORD_TITLE')}
-          </Typography>
-        </Grid>
-      </Grid>
-    </Box>
+    </RoundedStack>
   );
 };
 

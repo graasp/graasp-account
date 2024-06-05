@@ -1,9 +1,9 @@
 import { Link } from 'react-router-dom';
 
-import FacebookIcon from '@mui/icons-material/Facebook';
-import LinkedInIcon from '@mui/icons-material/LinkedIn';
-import TwitterIcon from '@mui/icons-material/Twitter';
-import { Box, Button, Grid, Stack, Typography } from '@mui/material';
+import { Button, Stack, Typography } from '@mui/material';
+
+import { Facebook, Linkedin, Twitter } from 'lucide-react';
+import SocialLinks from 'social-links';
 
 import { useAccountTranslation } from '@/config/i18n';
 import { PUBLIC_PROFILE_PATH } from '@/config/paths';
@@ -15,109 +15,67 @@ import {
   PUBLIC_PROFILE_TWITTER_ID,
 } from '@/config/selectors';
 
-const MemberPublicProfile = (): JSX.Element => {
-  const { data } = hooks.useOwnProfile();
+import MemberPublicProfileItem from './MemberPublicProfileItem';
+import RoundedStack from './RoundedStack';
+
+const MemberPublicProfile = (): JSX.Element | null => {
+  const socialLinks = new SocialLinks();
+
   const { t } = useAccountTranslation();
+  const { data } = hooks.useOwnProfile();
+  const publicProfile = {
+    bio: data?.bio,
+    linkedinID: data?.linkedinID,
+    twitterID: data?.twitterID,
+    facebookID: data?.facebookID,
+  };
+
+  const { bio, linkedinID, facebookID, twitterID } = publicProfile;
+  console.log(publicProfile, 'public profile');
 
   return (
-    <Box
-      sx={{
-        border: '1px solid',
-        borderColor: 'divider',
-        borderRadius: 1,
-        p: 2,
-      }}
-    >
-      <Grid container spacing={2} alignItems="center">
-        <Grid item xs={6} sm={6}>
-          <Typography variant="h5">{t('PUBLIC_PROFILE_TITLE')}</Typography>
-        </Grid>
-        <Grid item xs={6} sm={6} container justifyContent="flex-end">
-          <Link to={PUBLIC_PROFILE_PATH} className="link">
-            <Button variant="contained" color="primary">
-              {t('EDIT_BUTTON')}
-            </Button>
-          </Link>
-        </Grid>
-      </Grid>
-      <Stack direction="column" spacing={2}>
-        <Box>
-          <Typography variant="body1" color="textSecondary">
-            {t('PUBLIC_PROFILE_BIO')}
-          </Typography>
-          {data?.bio ? (
-            <Typography variant="body1" id={PUBLIC_PROFILE_BIO_ID}>
-              {data.bio}
-            </Typography>
-          ) : (
-            <Typography
-              variant="body1"
-              color="textSecondary"
-              id={PUBLIC_PROFILE_BIO_ID}
-            >
-              {t('PUBLIC_PROFILE_BIO_EMPTY_MSG')}
-            </Typography>
-          )}
-        </Box>
-
-        <Stack direction="row" spacing={2}>
-          <Typography variant="body1" color="textSecondary">
-            <LinkedInIcon />
-          </Typography>
-          {data?.linkedinID ? (
-            <Typography variant="body1" id={PUBLIC_PROFILE_LINKEDIN_ID}>
-              {data?.linkedinID}
-            </Typography>
-          ) : (
-            <Typography
-              variant="body1"
-              color="textSecondary"
-              id={PUBLIC_PROFILE_LINKEDIN_ID}
-            >
-              {t('PUBLIC_PROFILE_LINKEDIN_EMPTY_MSG')}
-            </Typography>
-          )}
-        </Stack>
-        <Stack direction="row" spacing={2}>
-          <Typography variant="body1" color="textSecondary">
-            <TwitterIcon />
-          </Typography>
-
-          {data?.twitterID ? (
-            <Typography variant="body1" id={PUBLIC_PROFILE_TWITTER_ID}>
-              {data?.twitterID}
-            </Typography>
-          ) : (
-            <Typography
-              variant="body1"
-              color="textSecondary"
-              id={PUBLIC_PROFILE_TWITTER_ID}
-            >
-              {t('PUBLIC_PROFILE_TWITTER_EMPTY_MSG')}
-            </Typography>
-          )}
-        </Stack>
-        <Stack direction="row" spacing={2}>
-          <Typography variant="body1" color="textSecondary">
-            <FacebookIcon />
-          </Typography>
-
-          {data?.facebookID ? (
-            <Typography variant="body1" id={PUBLIC_PROFILE_FACEBOOK_ID}>
-              {data?.facebookID}
-            </Typography>
-          ) : (
-            <Typography
-              variant="body1"
-              color="textSecondary"
-              id={PUBLIC_PROFILE_FACEBOOK_ID}
-            >
-              {t('PUBLIC_PROFILE_FACEBOOK_EMPTY_MSG')}
-            </Typography>
-          )}
-        </Stack>
+    <RoundedStack>
+      <Stack direction="row" justifyContent="space-between">
+        <Typography variant="h5">{t('PUBLIC_PROFILE_TITLE')}</Typography>
+        <Link to={PUBLIC_PROFILE_PATH} className="link">
+          <Button variant="contained" color="primary">
+            {t('EDIT_BUTTON_LABEL')}
+          </Button>
+        </Link>
       </Stack>
-    </Box>
+
+      <MemberPublicProfileItem
+        title={t('PUBLIC_PROFILE_BIO')}
+        content={bio}
+        emptyMessage={t('PUBLIC_PROFILE_BIO_EMPTY_MSG')}
+        contentId={PUBLIC_PROFILE_BIO_ID}
+        href=""
+      />
+      <MemberPublicProfileItem
+        icon={<Linkedin fill="grey" strokeWidth={0} />}
+        content={socialLinks.sanitize('linkedin', linkedinID)}
+        emptyMessage={t('PUBLIC_PROFILE_LINKEDIN_EMPTY_MSG')}
+        contentId={PUBLIC_PROFILE_LINKEDIN_ID}
+        stackDirection="row"
+        href={socialLinks.sanitize('linkedin', linkedinID)}
+      />
+      <MemberPublicProfileItem
+        icon={<Twitter fill="grey" strokeWidth={0} />}
+        content={socialLinks.sanitize('twitter', twitterID)}
+        emptyMessage={t('PUBLIC_PROFILE_TWITTER_EMPTY_MSG')}
+        contentId={PUBLIC_PROFILE_TWITTER_ID}
+        stackDirection="row"
+        href={socialLinks.sanitize('twitter', twitterID)}
+      />
+      <MemberPublicProfileItem
+        icon={<Facebook fill="grey" strokeWidth={0} />}
+        content={socialLinks.sanitize('facebook', facebookID)}
+        emptyMessage={t('PUBLIC_PROFILE_FACEBOOK_EMPTY_MSG')}
+        contentId={PUBLIC_PROFILE_FACEBOOK_ID}
+        stackDirection="row"
+        href={socialLinks.sanitize('facebook', facebookID)}
+      />
+    </RoundedStack>
   );
 };
 

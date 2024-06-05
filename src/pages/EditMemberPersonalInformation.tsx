@@ -1,5 +1,3 @@
-import React from 'react';
-
 import FileCopyIcon from '@mui/icons-material/FileCopy';
 import {
   Alert,
