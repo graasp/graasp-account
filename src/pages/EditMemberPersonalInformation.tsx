@@ -1,7 +1,10 @@
+import { Link } from 'react-router-dom';
+
 import FileCopyIcon from '@mui/icons-material/FileCopy';
 import {
   Alert,
   Box,
+  Button,
   Grid,
   IconButton,
   Stack,
@@ -20,6 +23,7 @@ import UsernameForm from '@/components/main/UsernameForm';
 import { DEFAULT_EMAIL_FREQUENCY } from '@/config/constants';
 import { useAccountTranslation } from '@/config/i18n';
 import notifier from '@/config/notifier';
+import { PROFILE_PATH } from '@/config/paths';
 import { hooks, mutations } from '@/config/queryClient';
 import {
   MEMBER_PROFILE_ANALYTICS_SWITCH_ID,
@@ -92,7 +96,7 @@ const EditMemberPersonalInformation = (): JSX.Element | null => {
           </Grid>
           <Grid container alignItems="center">
             <Grid item xs={4}>
-              <Typography>{t('PROFILE_CREATED_AT_TITLE')}</Typography>
+              <Typography>{t('PROFILE_CREATED_AT_LABEL')}</Typography>
             </Grid>
             <Grid item xs={8}>
               <Typography>
@@ -138,6 +142,11 @@ const EditMemberPersonalInformation = (): JSX.Element | null => {
               </Tooltip>
             </Grid>
           </Grid>
+          <Stack direction="row" spacing={2}>
+            <Link to={PROFILE_PATH}>
+              <Button variant="outlined">{t('CANCEL_BUTTON')}</Button>
+            </Link>
+          </Stack>
         </Box>
       </Stack>
     );

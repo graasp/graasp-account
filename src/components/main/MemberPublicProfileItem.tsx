@@ -36,7 +36,7 @@ const MemberPublicProfileItem = ({
         {href ? <Link to={href}>{content}</Link> : content}
       </Typography>
     ) : (
-      <Typography variant="body1" color="textSecondary" id={contentId}>
+      <Typography variant="body1" id={contentId}>
         {emptyMessage}
       </Typography>
     )}

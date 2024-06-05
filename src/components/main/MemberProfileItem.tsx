@@ -11,12 +11,12 @@ const MemberProfileItem = ({
   contentId,
 }: Props): JSX.Element => (
   <>
-    <Grid item xs={5}>
+    <Grid item xs={12} sm={3}>
       <Typography variant="body1" color="textSecondary">
         {title}
       </Typography>
     </Grid>
-    <Grid item xs={5}>
+    <Grid item xs={12} sm={9}>
       <Typography variant="body1" id={contentId}>
         {content}
       </Typography>

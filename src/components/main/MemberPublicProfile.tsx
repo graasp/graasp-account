@@ -22,16 +22,9 @@ const MemberPublicProfile = (): JSX.Element | null => {
   const socialLinks = new SocialLinks();
 
   const { t } = useAccountTranslation();
-  const { data } = hooks.useOwnProfile();
-  const publicProfile = {
-    bio: data?.bio,
-    linkedinID: data?.linkedinID,
-    twitterID: data?.twitterID,
-    facebookID: data?.facebookID,
-  };
+  const { data: publicProfile } = hooks.useOwnProfile();
 
-  const { bio, linkedinID, facebookID, twitterID } = publicProfile;
-  console.log(publicProfile, 'public profile');
+  const { bio, linkedinID, twitterID, facebookID } = publicProfile || {};
 
   return (
     <RoundedStack>
@@ -53,27 +46,27 @@ const MemberPublicProfile = (): JSX.Element | null => {
       />
       <MemberPublicProfileItem
         icon={<Linkedin fill="grey" strokeWidth={0} />}
-        content={socialLinks.sanitize('linkedin', linkedinID)}
+        content={linkedinID ? socialLinks.sanitize('linkedin', linkedinID) : ''}
         emptyMessage={t('PUBLIC_PROFILE_LINKEDIN_EMPTY_MSG')}
         contentId={PUBLIC_PROFILE_LINKEDIN_ID}
         stackDirection="row"
-        href={socialLinks.sanitize('linkedin', linkedinID)}
+        href={linkedinID ? socialLinks.sanitize('linkedin', linkedinID) : ''}
       />
       <MemberPublicProfileItem
         icon={<Twitter fill="grey" strokeWidth={0} />}
-        content={socialLinks.sanitize('twitter', twitterID)}
+        content={twitterID ? socialLinks.sanitize('twitter', twitterID) : ''}
         emptyMessage={t('PUBLIC_PROFILE_TWITTER_EMPTY_MSG')}
         contentId={PUBLIC_PROFILE_TWITTER_ID}
         stackDirection="row"
-        href={socialLinks.sanitize('twitter', twitterID)}
+        href={twitterID ? socialLinks.sanitize('twitter', twitterID) : ''}
       />
       <MemberPublicProfileItem
         icon={<Facebook fill="grey" strokeWidth={0} />}
-        content={socialLinks.sanitize('facebook', facebookID)}
+        content={facebookID ? socialLinks.sanitize('facebook', facebookID) : ''}
         emptyMessage={t('PUBLIC_PROFILE_FACEBOOK_EMPTY_MSG')}
         contentId={PUBLIC_PROFILE_FACEBOOK_ID}
         stackDirection="row"
-        href={socialLinks.sanitize('facebook', facebookID)}
+        href={facebookID ? socialLinks.sanitize('facebook', facebookID) : ''}
       />
     </RoundedStack>
   );

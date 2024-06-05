@@ -1,10 +1,18 @@
 import React, { FormEvent, useEffect, useMemo, useState } from 'react';
+import { Link } from 'react-router-dom';
 
 import FacebookIcon from '@mui/icons-material/Facebook';
 import LinkedInIcon from '@mui/icons-material/LinkedIn';
 import TwitterIcon from '@mui/icons-material/Twitter';
 import { LoadingButton } from '@mui/lab';
-import { Box, Checkbox, FormControlLabel, Typography } from '@mui/material';
+import {
+  Box,
+  Button,
+  Checkbox,
+  FormControlLabel,
+  Stack,
+  Typography,
+} from '@mui/material';
 
 import { Config, SocialLinks } from 'social-links';
 
@@ -16,6 +24,7 @@ import {
 } from '@/config/constants';
 import { GRAASP_LIBRARY_HOST } from '@/config/env';
 import { useAccountTranslation } from '@/config/i18n';
+import { PROFILE_PATH } from '@/config/paths';
 import { hooks, mutations } from '@/config/queryClient';
 
 const config: Config = {
@@ -220,23 +229,27 @@ const EditPublicProfileScreen = (): JSX.Element => {
             }
             label={t('PUBLIC_PROFILE_VISIBILITY')}
           />
+          <Stack direction="row" spacing={2}>
+            <Link to={PROFILE_PATH}>
+              <Button variant="outlined">{t('CANCEL_BUTTON')}</Button>
+            </Link>
 
-          <LoadingButton
-            type="submit"
-            fullWidth
-            variant="contained"
-            color="primary"
-            disabled={
-              !formChanged ||
-              !profileData.bio.trim() ||
-              !isValidUrl(profileData.facebookID) ||
-              !isValidUrl(profileData.twitterID) ||
-              !isValidUrl(profileData.linkedinID)
-            }
-            loading={isAddLoading || isEditLoading}
-          >
-            {t('PUBLIC_PROFILE_SUBMIT_TEXT')}
-          </LoadingButton>
+            <LoadingButton
+              type="submit"
+              variant="contained"
+              color="primary"
+              disabled={
+                !formChanged ||
+                !profileData.bio.trim() ||
+                !isValidUrl(profileData.facebookID) ||
+                !isValidUrl(profileData.twitterID) ||
+                !isValidUrl(profileData.linkedinID)
+              }
+              loading={isAddLoading || isEditLoading}
+            >
+              {t('PUBLIC_PROFILE_SUBMIT_TEXT')}
+            </LoadingButton>
+          </Stack>
         </Box>
       </form>
     </Box>
