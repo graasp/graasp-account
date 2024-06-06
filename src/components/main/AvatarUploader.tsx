@@ -4,10 +4,6 @@ import { Dialog, Stack, styled, useTheme } from '@mui/material';
 
 import { ImageUp as ImageUpIcon } from 'lucide-react';
 
-import {
-  THUMBNAIL_SETTING_MAX_HEIGHT,
-  THUMBNAIL_SETTING_MAX_WIDTH,
-} from '@/config/constants';
 import { useAccountTranslation } from '@/config/i18n';
 import {
   AVATAR_UPLOAD_ICON_CY,
@@ -18,7 +14,7 @@ import {
 
 import CropModal, { MODAL_TITLE_ARIA_LABEL_ID } from './CropModal';
 
-const THUMBNAIL_DIMENSION = 200;
+const THUMBNAIL_DIMENSION = 256;
 
 const VisuallyHiddenInput = styled('input')({
   clip: 'rect(0 0 0 0)',
@@ -122,8 +118,8 @@ const AvatarUploader = ({
         aria-label="change folder avatar"
         role="button"
         tabIndex={0}
-        height={THUMBNAIL_SETTING_MAX_HEIGHT}
-        width={THUMBNAIL_SETTING_MAX_WIDTH}
+        height={THUMBNAIL_DIMENSION}
+        width={THUMBNAIL_DIMENSION}
         borderRadius={50}
         bgcolor="#E4DFFF"
         alignItems="center"

@@ -25,7 +25,7 @@ export const THUMBNAIL_SETTING_MAX_WIDTH = 200;
 export const THUMBNAIL_SETTING_MAX_HEIGHT = 200;
 
 // this is related to the size of the medium thumbnail in the backend.
-export const AVATAR_SIZE = 200;
+export const AVATAR_SIZE = 256;
 export const FILE_UPLOAD_MAX_FILES = 15;
 
 export const ADMIN_CONTACT = 'admin@graasp.org';
