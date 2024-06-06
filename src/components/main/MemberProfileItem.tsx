@@ -1,4 +1,4 @@
-import { Grid, Typography } from '@mui/material';
+import { Stack, Typography } from '@mui/material';
 
 type Props = {
   title: string;
@@ -10,18 +10,14 @@ const MemberProfileItem = ({
   content,
   contentId,
 }: Props): JSX.Element => (
-  <>
-    <Grid item xs={12} sm={3}>
-      <Typography variant="body1" color="textSecondary">
-        {title}
-      </Typography>
-    </Grid>
-    <Grid item xs={12} sm={9}>
-      <Typography variant="body1" id={contentId}>
-        {content}
-      </Typography>
-    </Grid>
-  </>
+  <Stack direction="row" spacing={2}>
+    <Typography variant="body1" color="textSecondary">
+      {title}
+    </Typography>
+    <Typography variant="body1" id={contentId}>
+      {content}
+    </Typography>
+  </Stack>
 );
 
 export default MemberProfileItem;

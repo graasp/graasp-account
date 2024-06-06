@@ -1,8 +1,10 @@
 import { Link } from 'react-router-dom';
 
+import FacebookIcon from '@mui/icons-material/Facebook';
+import LinkedInIcon from '@mui/icons-material/LinkedIn';
+import TwitterIcon from '@mui/icons-material/Twitter';
 import { Button, Stack, Typography } from '@mui/material';
 
-import { Facebook, Linkedin, Twitter } from 'lucide-react';
 import SocialLinks from 'social-links';
 
 import { useAccountTranslation } from '@/config/i18n';
@@ -15,10 +17,10 @@ import {
   PUBLIC_PROFILE_TWITTER_ID,
 } from '@/config/selectors';
 
-import MemberPublicProfileItem from './MemberPublicProfileItem';
-import RoundedStack from './RoundedStack';
+import RoundedStack from '../common/RoundedStack';
+import DisplayingMemberPublicProfileLinks from './DisplayingMemberPublicProfileLinks';
 
-const MemberPublicProfile = (): JSX.Element | null => {
+const MemberPublicProfile = (): JSX.Element => {
   const socialLinks = new SocialLinks();
 
   const { t } = useAccountTranslation();
@@ -30,44 +32,65 @@ const MemberPublicProfile = (): JSX.Element | null => {
     <RoundedStack>
       <Stack direction="row" justifyContent="space-between">
         <Typography variant="h5">{t('PUBLIC_PROFILE_TITLE')}</Typography>
-        <Link to={PUBLIC_PROFILE_PATH} className="link">
-          <Button variant="contained" color="primary">
-            {t('EDIT_BUTTON_LABEL')}
-          </Button>
-        </Link>
+        <Button component={Link} to={PUBLIC_PROFILE_PATH} variant="contained">
+          {t('EDIT_BUTTON_LABEL')}
+        </Button>
       </Stack>
+      <Typography variant="body1" color="textSecondary">
+        {t('PUBLIC_PROFILE_BIO')}
+      </Typography>
+      {bio ? (
+        <Typography variant="body1" id={PUBLIC_PROFILE_BIO_ID}>
+          {bio}
+        </Typography>
+      ) : (
+        <Typography variant="body1" id={PUBLIC_PROFILE_BIO_ID}>
+          {t('PUBLIC_PROFILE_BIO_EMPTY_MSG')}
+        </Typography>
+      )}
+      {linkedinID ? (
+        <DisplayingMemberPublicProfileLinks
+          icon={<LinkedInIcon />}
+          contentId={PUBLIC_PROFILE_LINKEDIN_ID}
+          href={socialLinks.sanitize('linkedin', linkedinID)}
+          content={linkedinID}
+        />
+      ) : (
+        <DisplayingMemberPublicProfileLinks
+          icon={<LinkedInIcon />}
+          contentId={PUBLIC_PROFILE_LINKEDIN_ID}
+          content={t('PUBLIC_PROFILE_LINKEDIN_EMPTY_MSG')}
+        />
+      )}
 
-      <MemberPublicProfileItem
-        title={t('PUBLIC_PROFILE_BIO')}
-        content={bio}
-        emptyMessage={t('PUBLIC_PROFILE_BIO_EMPTY_MSG')}
-        contentId={PUBLIC_PROFILE_BIO_ID}
-        href=""
-      />
-      <MemberPublicProfileItem
-        icon={<Linkedin fill="grey" strokeWidth={0} />}
-        content={linkedinID ? socialLinks.sanitize('linkedin', linkedinID) : ''}
-        emptyMessage={t('PUBLIC_PROFILE_LINKEDIN_EMPTY_MSG')}
-        contentId={PUBLIC_PROFILE_LINKEDIN_ID}
-        stackDirection="row"
-        href={linkedinID ? socialLinks.sanitize('linkedin', linkedinID) : ''}
-      />
-      <MemberPublicProfileItem
-        icon={<Twitter fill="grey" strokeWidth={0} />}
-        content={twitterID ? socialLinks.sanitize('twitter', twitterID) : ''}
-        emptyMessage={t('PUBLIC_PROFILE_TWITTER_EMPTY_MSG')}
-        contentId={PUBLIC_PROFILE_TWITTER_ID}
-        stackDirection="row"
-        href={twitterID ? socialLinks.sanitize('twitter', twitterID) : ''}
-      />
-      <MemberPublicProfileItem
-        icon={<Facebook fill="grey" strokeWidth={0} />}
-        content={facebookID ? socialLinks.sanitize('facebook', facebookID) : ''}
-        emptyMessage={t('PUBLIC_PROFILE_FACEBOOK_EMPTY_MSG')}
-        contentId={PUBLIC_PROFILE_FACEBOOK_ID}
-        stackDirection="row"
-        href={facebookID ? socialLinks.sanitize('facebook', facebookID) : ''}
-      />
+      {twitterID ? (
+        <DisplayingMemberPublicProfileLinks
+          icon={<TwitterIcon />}
+          contentId={PUBLIC_PROFILE_TWITTER_ID}
+          href={socialLinks.sanitize('linkedin', twitterID)}
+          content={twitterID}
+        />
+      ) : (
+        <DisplayingMemberPublicProfileLinks
+          icon={<TwitterIcon />}
+          contentId={PUBLIC_PROFILE_TWITTER_ID}
+          content={t('PUBLIC_PROFILE_TWITTER_EMPTY_MSG')}
+        />
+      )}
+      {facebookID ? (
+        <DisplayingMemberPublicProfileLinks
+          icon={<FacebookIcon />}
+          contentId={PUBLIC_PROFILE_FACEBOOK_ID}
+          href={socialLinks.sanitize('linkedin', facebookID)}
+          content={facebookID}
+        />
+      ) : (
+        <DisplayingMemberPublicProfileLinks
+          icon={<FacebookIcon />}
+          contentId={PUBLIC_PROFILE_FACEBOOK_ID}
+          content={t('PUBLIC_PROFILE_FACEBOOK_EMPTY_MSG')}
+        />
+      )}
     </RoundedStack>
   );
 };

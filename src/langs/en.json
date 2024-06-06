@@ -8,6 +8,7 @@
   "CROP_IMAGE_MODAL_UNEXPECTED_ERROR": "An unexpected error occurred when trying to crop the image, please try again later",
   "CONFIRM_BUTTON": "Confirm",
   "CANCEL_BUTTON": "Cancel",
+  "CLOSE_BUTTON": "Close",
   "MAIN_MENU_HOME_PAGE": "Home",
   "MAIN_MENU_PROFILE": "Profile",
   "MAIN_MENU_AVATAR": "Avatar",

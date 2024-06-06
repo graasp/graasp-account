@@ -230,9 +230,9 @@ const EditPublicProfileScreen = (): JSX.Element => {
             label={t('PUBLIC_PROFILE_VISIBILITY')}
           />
           <Stack direction="row" spacing={2}>
-            <Link to={PROFILE_PATH}>
-              <Button variant="outlined">{t('CANCEL_BUTTON')}</Button>
-            </Link>
+            <Button component={Link} to={PROFILE_PATH} variant="outlined">
+              {t('CLOSE_BUTTON')}
+            </Button>
 
             <LoadingButton
               type="submit"

@@ -143,9 +143,9 @@ const EditMemberPersonalInformation = (): JSX.Element | null => {
             </Grid>
           </Grid>
           <Stack direction="row" spacing={2}>
-            <Link to={PROFILE_PATH}>
-              <Button variant="outlined">{t('CANCEL_BUTTON')}</Button>
-            </Link>
+            <Button component={Link} to={PROFILE_PATH} variant="outlined">
+              {t('CLOSE_BUTTON')}
+            </Button>
           </Stack>
         </Box>
       </Stack>
