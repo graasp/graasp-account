@@ -4,6 +4,7 @@ import { Dialog, Stack, styled, useTheme } from '@mui/material';
 
 import { ImageUp as ImageUpIcon } from 'lucide-react';
 
+import { AVATAR_SIZE } from '@/config/constants';
 import { useAccountTranslation } from '@/config/i18n';
 import {
   AVATAR_UPLOAD_ICON_CY,
@@ -13,8 +14,6 @@ import {
 } from '@/config/selectors';
 
 import CropModal, { MODAL_TITLE_ARIA_LABEL_ID } from './CropModal';
-
-const THUMBNAIL_DIMENSION = 256;
 
 const VisuallyHiddenInput = styled('input')({
   clip: 'rect(0 0 0 0)',
@@ -46,15 +45,10 @@ const HoveredBox = styled(Stack)(
 
 type Props = {
   setChanges: (payload: { avatar: Blob }) => void;
-  avatarSize?: number;
   currentAvatar?: string;
 };
 
-const AvatarUploader = ({
-  setChanges,
-  avatarSize = THUMBNAIL_DIMENSION,
-  currentAvatar,
-}: Props): JSX.Element => {
+const AvatarUploader = ({ setChanges, currentAvatar }: Props): JSX.Element => {
   const inputRef = useRef<HTMLInputElement>(null);
   const [showCropModal, setShowCropModal] = useState(false);
   const [newAvatar, setNewAvatar] = useState<string>(currentAvatar ?? '');
@@ -118,8 +112,8 @@ const AvatarUploader = ({
         aria-label="change folder avatar"
         role="button"
         tabIndex={0}
-        height={THUMBNAIL_DIMENSION}
-        width={THUMBNAIL_DIMENSION}
+        height={AVATAR_SIZE}
+        width={AVATAR_SIZE}
         borderRadius={50}
         bgcolor="#E4DFFF"
         alignItems="center"
@@ -130,7 +124,7 @@ const AvatarUploader = ({
       >
         <HoveredBox
           bgcolor={theme.palette.primary.main}
-          size={avatarSize}
+          size={AVATAR_SIZE}
           borderRadius={2}
           zIndex={theme.zIndex.drawer - 2}
         >
@@ -141,8 +135,8 @@ const AvatarUploader = ({
             id={MEMBER_AVATAR_IMAGE_ID}
             alt={t('PROFILE_AVATAR_CURRENT_ALT')}
             src={newAvatar}
-            height={avatarSize}
-            width={avatarSize}
+            height={AVATAR_SIZE}
+            width={AVATAR_SIZE}
           />
         ) : (
           <ImageUpIcon

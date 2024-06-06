@@ -8,7 +8,6 @@ import { Loader } from '@graasp/ui';
 
 import Uppy from '@uppy/core';
 
-import { AVATAR_SIZE } from '@/config/constants';
 import i18n, { useAccountTranslation } from '@/config/i18n';
 import { hooks, mutations } from '@/config/queryClient';
 import { MEMBER_CREATED_AT_ID, USERNAME_DISPLAY_ID } from '@/config/selectors';
@@ -95,7 +94,6 @@ const MemberCard = (): JSX.Element | null => {
       <Stack alignItems="center" spacing={2}>
         <AvatarUploader
           currentAvatar={avatarUrl}
-          avatarSize={AVATAR_SIZE}
           setChanges={onThumbnailUpload}
         />
       </Stack>
