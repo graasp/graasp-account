@@ -90,3 +90,16 @@ describe('Check empty member public profile info', () => {
     );
   });
 });
+
+describe('Check the button edit', () => {
+  beforeEach(() => {
+    cy.setUpApi({
+      currentMember: BOB,
+      currentProfile: MEMBER_EMPTY_PUBLIC_PROFILE,
+    });
+    cy.visit(PROFILE_PATH);
+    cy.wait('@getCurrentMember');
+    cy.wait('@getOwnProfile');
+  });
+  it('after click ');
+});

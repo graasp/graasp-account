@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { InputAdornment, SvgIcon, TextField } from '@mui/material';
+import { InputAdornment, TextField } from '@mui/material';
 
 interface Props {
   label: string;
@@ -8,11 +8,12 @@ interface Props {
   name: string;
   helperText: string | false;
   onChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
-  Icon?: typeof SvgIcon;
+  Icon?: JSX.Element;
   isError: boolean;
   rows?: number;
   multiline?: boolean;
   required?: boolean;
+  id: string;
 }
 const TextFieldWithValidation = ({
   label,
@@ -25,6 +26,7 @@ const TextFieldWithValidation = ({
   rows = 4,
   multiline = false,
   required = false,
+  id,
 }: Props): JSX.Element => (
   <TextField
     label={label}
@@ -43,12 +45,11 @@ const TextFieldWithValidation = ({
     InputProps={
       Icon && {
         startAdornment: (
-          <InputAdornment position="start">
-            <Icon />
-          </InputAdornment>
+          <InputAdornment position="start">{Icon}</InputAdornment>
         ),
       }
     }
+    id={id}
   />
 );
 

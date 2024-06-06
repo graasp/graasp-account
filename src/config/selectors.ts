@@ -44,3 +44,4 @@ export const PUBLIC_PROFILE_LINKEDIN_ID = 'publicProfileLinkedInId';
 export const PUBLIC_PROFILE_TWITTER_ID = 'publicProfileTwitterId';
 export const PUBLIC_PROFILE_FACEBOOK_ID = 'publicProfileFacebookId';
 export const PASSWORD_DISPLAY_ID = 'passwordDisplayId';
+export const PUBLIC_PROFILE_EDIT_BUTTON_ID = 'public-profile-edit-button';
