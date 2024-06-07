@@ -1,7 +1,13 @@
-import { PROFILE_PATH } from '@/config/paths';
+import {
+  EDIT_MEMBER_INFO,
+  PROFILE_PATH,
+  PUBLIC_PROFILE_PATH,
+} from '@/config/paths';
 import {
   MEMBER_PROFILE_EMAIL_ID,
+  PERSONAL_INFO_EDIT_BUTTON_ID,
   PUBLIC_PROFILE_BIO_ID,
+  PUBLIC_PROFILE_EDIT_BUTTON_ID,
   PUBLIC_PROFILE_FACEBOOK_ID,
   PUBLIC_PROFILE_LINKEDIN_ID,
   PUBLIC_PROFILE_TWITTER_ID,
@@ -91,7 +97,7 @@ describe('Check empty member public profile info', () => {
   });
 });
 
-describe('Check the button edit', () => {
+describe.only('Check the buttons edit', () => {
   beforeEach(() => {
     cy.setUpApi({
       currentMember: BOB,
@@ -101,5 +107,12 @@ describe('Check the button edit', () => {
     cy.wait('@getCurrentMember');
     cy.wait('@getOwnProfile');
   });
-  it('after click ');
+  it('after click should redirects to edit personal info page', () => {
+    cy.get(`#${PERSONAL_INFO_EDIT_BUTTON_ID}`).click();
+    cy.location('pathname').should('eq', `${EDIT_MEMBER_INFO}`);
+  });
+  it('after click should redirects to edit public profile page', () => {
+    cy.get(`#${PUBLIC_PROFILE_EDIT_BUTTON_ID}`).click();
+    cy.location('pathname').should('eq', `${PUBLIC_PROFILE_PATH}`);
+  });
 });
