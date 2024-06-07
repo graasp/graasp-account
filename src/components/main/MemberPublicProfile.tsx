@@ -12,8 +12,11 @@ import { PUBLIC_PROFILE_PATH } from '@/config/paths';
 import { hooks } from '@/config/queryClient';
 import {
   PUBLIC_PROFILE_BIO_ID,
+  PUBLIC_PROFILE_FACEBOOK_HREF_ID,
   PUBLIC_PROFILE_FACEBOOK_ID,
+  PUBLIC_PROFILE_LINKEDIN_HREF_ID,
   PUBLIC_PROFILE_LINKEDIN_ID,
+  PUBLIC_PROFILE_TWITTER_HREF_ID,
   PUBLIC_PROFILE_TWITTER_ID,
 } from '@/config/selectors';
 
@@ -50,6 +53,7 @@ const MemberPublicProfile = (): JSX.Element => {
           contentId={PUBLIC_PROFILE_LINKEDIN_ID}
           href={socialLinks.sanitize('linkedin', linkedinID)}
           content={linkedinID}
+          hrefId={PUBLIC_PROFILE_LINKEDIN_HREF_ID}
         />
       ) : (
         <DisplayingMemberPublicProfileLinks
@@ -63,8 +67,9 @@ const MemberPublicProfile = (): JSX.Element => {
         <DisplayingMemberPublicProfileLinks
           icon={<TwitterIcon />}
           contentId={PUBLIC_PROFILE_TWITTER_ID}
-          href={socialLinks.sanitize('linkedin', twitterID)}
+          href={socialLinks.sanitize('twitter', twitterID)}
           content={twitterID}
+          hrefId={PUBLIC_PROFILE_TWITTER_HREF_ID}
         />
       ) : (
         <DisplayingMemberPublicProfileLinks
@@ -77,8 +82,9 @@ const MemberPublicProfile = (): JSX.Element => {
         <DisplayingMemberPublicProfileLinks
           icon={<FacebookIcon />}
           contentId={PUBLIC_PROFILE_FACEBOOK_ID}
-          href={socialLinks.sanitize('linkedin', facebookID)}
+          href={socialLinks.sanitize('facebook', facebookID)}
           content={facebookID}
+          hrefId={PUBLIC_PROFILE_FACEBOOK_HREF_ID}
         />
       ) : (
         <DisplayingMemberPublicProfileLinks

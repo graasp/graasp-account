@@ -2,8 +2,11 @@ import { PROFILE_PATH } from '@/config/paths';
 import {
   MEMBER_PROFILE_EMAIL_ID,
   PUBLIC_PROFILE_BIO_ID,
+  PUBLIC_PROFILE_FACEBOOK_HREF_ID,
   PUBLIC_PROFILE_FACEBOOK_ID,
+  PUBLIC_PROFILE_LINKEDIN_HREF_ID,
   PUBLIC_PROFILE_LINKEDIN_ID,
+  PUBLIC_PROFILE_TWITTER_HREF_ID,
   PUBLIC_PROFILE_TWITTER_ID,
   USERNAME_DISPLAY_ID,
 } from '@/config/selectors';
@@ -38,20 +41,50 @@ describe('Check member info', () => {
       'contain',
       MEMBER_PUBLIC_PROFILE.bio,
     );
+
     // displays the correct member linkedin
     cy.get(`#${PUBLIC_PROFILE_LINKEDIN_ID}`).should(
       'contain',
       MEMBER_PUBLIC_PROFILE.linkedinID,
     );
+
     // displays the correct member twitter
     cy.get(`#${PUBLIC_PROFILE_TWITTER_ID}`).should(
       'contain',
       MEMBER_PUBLIC_PROFILE.twitterID,
     );
+
     // displays the correct member facebook
     cy.get(`#${PUBLIC_PROFILE_FACEBOOK_ID}`).should(
       'contain',
       MEMBER_PUBLIC_PROFILE.facebookID,
+    );
+  });
+  it('the social media links are correct', () => {
+    // displays the correct bio
+    cy.get(`#${PUBLIC_PROFILE_BIO_ID}`).should(
+      'contain',
+      MEMBER_PUBLIC_PROFILE.bio,
+    );
+
+    // displays the correct member linkedin
+    cy.get(`#${PUBLIC_PROFILE_LINKEDIN_HREF_ID}`).should(
+      'have.attr',
+      'href',
+      `https://linkedin.com/in/${MEMBER_PUBLIC_PROFILE.linkedinID}`,
+    );
+
+    // displays the correct member twitter
+    cy.get(`#${PUBLIC_PROFILE_TWITTER_HREF_ID}`).should(
+      'have.attr',
+      'href',
+      `https://twitter.com/${MEMBER_PUBLIC_PROFILE.twitterID}`,
+    );
+    // displays the correct member facebook
+    cy.get(`#${PUBLIC_PROFILE_FACEBOOK_HREF_ID}`).should(
+      'have.attr',
+      'href',
+      `https://facebook.com/${MEMBER_PUBLIC_PROFILE.facebookID}`,
     );
   });
 });
