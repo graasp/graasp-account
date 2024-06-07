@@ -36,18 +36,14 @@ const MemberPublicProfile = (): JSX.Element => {
           {t('EDIT_BUTTON_LABEL')}
         </Button>
       </Stack>
+
       <Typography variant="body1" color="textSecondary">
         {t('PUBLIC_PROFILE_BIO')}
       </Typography>
-      {bio ? (
-        <Typography variant="body1" id={PUBLIC_PROFILE_BIO_ID}>
-          {bio}
-        </Typography>
-      ) : (
-        <Typography variant="body1" id={PUBLIC_PROFILE_BIO_ID}>
-          {t('PUBLIC_PROFILE_BIO_EMPTY_MSG')}
-        </Typography>
-      )}
+      <Typography variant="body1" id={PUBLIC_PROFILE_BIO_ID}>
+        {bio || t('PUBLIC_PROFILE_BIO_EMPTY_MSG')}
+      </Typography>
+
       {linkedinID ? (
         <DisplayingMemberPublicProfileLinks
           icon={<LinkedInIcon />}
