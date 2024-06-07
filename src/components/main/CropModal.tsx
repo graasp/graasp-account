@@ -58,13 +58,17 @@ const CropModal = ({ onConfirm, onClose, src }: CropProps): JSX.Element => {
   const { t } = useAccountTranslation();
 
   const handleOnConfirm = async () => {
+    // get the image html element
     const image = imageRef.current;
 
     if (!image || !completedCrop) {
+      // this should never happen but we better check
       setIsError(true);
-      throw new Error('Crop canvas does not exist');
+      throw new Error('Crop canvas does not exist, this should never happen');
     }
 
+    // declare the canvas that will be used to render the cropped image
+    // we use an off-screen canvas to not overload the main thread
     const offscreen = new OffscreenCanvas(
       completedCrop.width,
       completedCrop.height,
@@ -74,51 +78,68 @@ const CropModal = ({ onConfirm, onClose, src }: CropProps): JSX.Element => {
       throw new Error('No 2d context');
     }
 
-    const scaleX = image.naturalWidth / image.width;
-    const scaleY = image.naturalHeight / image.height;
-    // devicePixelRatio slightly increases sharpness on retina devices
-    // at the expense of slightly slower render times and needing to
-    // size the image back down if you want to download/upload and be
-    // true to the images natural size.
-    const pixelRatio = window.devicePixelRatio;
-    // const pixelRatio = 1
+    /**
+     *  compute the relative width and height
+     * They link the
+     */
+    const relativeCrop = {
+      width: completedCrop.width / image.width,
+      height: completedCrop.height / image.height,
+    };
 
-    offscreen.width = Math.floor(completedCrop.width * scaleX * pixelRatio);
-    offscreen.height = Math.floor(completedCrop.height * scaleY * pixelRatio);
+    /**
+     * The scaling factor between the "real" media size and the size shown in the preview window
+     * We need to compute this as the crop is expressed in terms of the preview size but we want to apply the crop to the "real" image
+     * `image.width` is the size of the preview
+     * `image.naturalWidth` is the size of the uploaded media
+     */
+    const uiScalingFactor = image.naturalWidth / image.width;
 
-    ctx.scale(pixelRatio, pixelRatio);
+    // console.log(scaleY);
+    // const pixelRatio = window.devicePixelRatio;
+    // console.log('pixelRatio', pixelRatio);
+    // const pixelRatio = 1;
+
+    const finalCanvasWidth = Math.floor(
+      relativeCrop.width * image.naturalWidth,
+    );
+    const finalCanvasHeight = Math.floor(
+      relativeCrop.height * image.naturalHeight,
+    );
+
+    offscreen.width = finalCanvasWidth;
+    offscreen.height = finalCanvasHeight;
+    console.log(offscreen.width, offscreen.height);
+    // ctx.scale(pixelRatio, pixelRatio);
+
+    // smoothing factor used
     ctx.imageSmoothingQuality = 'high';
 
-    const cropX = completedCrop.x * scaleX;
-    const cropY = completedCrop.y * scaleY;
+    const sourceOffsetX = completedCrop.x * uiScalingFactor;
+    const sourceOffsetY = completedCrop.y * uiScalingFactor;
+    const sourceWidth = image.naturalWidth * relativeCrop.width;
+    const sourceHeight = image.naturalHeight * relativeCrop.height;
+    // const centerX = image.naturalWidth / 2;
+    // const centerY = image.naturalHeight / 2;
+    console.log(sourceOffsetX, sourceOffsetY, sourceWidth, sourceHeight);
 
-    const centerX = image.naturalWidth / 2;
-    const centerY = image.naturalHeight / 2;
-
-    ctx.save();
-
-    // 5) Move the crop origin to the canvas origin (0,0)
-    ctx.translate(-cropX, -cropY);
-    // 4) Move the origin to the center of the original position
-    ctx.translate(centerX, centerY);
-    // 1) Move the center of the image to the origin (0,0)
-    ctx.translate(-centerX, -centerY);
     ctx.drawImage(
       image,
+      sourceOffsetX,
+      sourceOffsetY,
+      sourceWidth,
+      sourceHeight,
       0,
       0,
-      image.naturalWidth,
-      image.naturalHeight,
-      0,
-      0,
-      image.naturalWidth,
-      image.naturalHeight,
+      finalCanvasWidth,
+      finalCanvasHeight,
     );
 
     // You might want { type: "image/jpeg", quality: <0 to 1> } to
     // reduce image size
     const blob = await offscreen.convertToBlob({
-      type: 'image/png',
+      type: 'image/webp',
+      quality: 0.8,
     });
     onConfirm(blob);
   };
