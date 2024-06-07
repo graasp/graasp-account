@@ -1,5 +1,12 @@
 # Changelog
 
+## [2.8.0](https://github.com/graasp/graasp-account/compare/v2.7.0...v2.8.0) (2024-06-07)
+
+
+### Features
+
+* create read only profile page ([#244](https://github.com/graasp/graasp-account/issues/244)) ([8448fcc](https://github.com/graasp/graasp-account/commit/8448fcce5bf16986aed287af5dc09bc8c3d8e07b))
+
 ## [2.7.0](https://github.com/graasp/graasp-account/compare/v2.6.2...v2.7.0) (2024-05-28)
 
 
