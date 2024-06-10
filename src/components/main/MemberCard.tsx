@@ -74,7 +74,6 @@ const MemberCard = (): JSX.Element | null => {
   }
   const onThumbnailUpload = (payload: { avatar: Blob }) => {
     const { avatar } = payload;
-    console.log(avatar.size);
     if (!avatar) {
       return;
     }
