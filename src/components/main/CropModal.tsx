@@ -82,7 +82,7 @@ const CropModal = ({ onConfirm, onClose, src }: CropProps): JSX.Element => {
      * Compute the relative width and height
      * They express the size of the crop in terms of a relative portion of the original image.
      * For example if only the first quarter of the image was used in the crop,
-     * the relativeCrop would be 0.5, 0.5, meaning half of the height, abd half of the width
+     * the relativeCrop would be 0.5, 0.5, meaning half of the height, and half of the width
      */
     const relativeCrop = {
       width: completedCrop.width / image.width,
