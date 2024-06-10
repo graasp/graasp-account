@@ -79,8 +79,10 @@ const CropModal = ({ onConfirm, onClose, src }: CropProps): JSX.Element => {
     }
 
     /**
-     *  compute the relative width and height
-     * They link the
+     * Compute the relative width and height
+     * They express the size of the crop in terms of a relative portion of the original image.
+     * For example if only the first quarter of the image was used in the crop,
+     * the relativeCrop would be 0.5, 0.5, meaning half of the height, abd half of the width
      */
     const relativeCrop = {
       width: completedCrop.width / image.width,
@@ -95,11 +97,7 @@ const CropModal = ({ onConfirm, onClose, src }: CropProps): JSX.Element => {
      */
     const uiScalingFactor = image.naturalWidth / image.width;
 
-    // console.log(scaleY);
-    // const pixelRatio = window.devicePixelRatio;
-    // console.log('pixelRatio', pixelRatio);
-    // const pixelRatio = 1;
-
+    // compute the final canvas size given the relative size of the crop and the initial size of the image
     const finalCanvasWidth = Math.floor(
       relativeCrop.width * image.naturalWidth,
     );
@@ -107,38 +105,43 @@ const CropModal = ({ onConfirm, onClose, src }: CropProps): JSX.Element => {
       relativeCrop.height * image.naturalHeight,
     );
 
+    // assign the final size to the canvas
     offscreen.width = finalCanvasWidth;
     offscreen.height = finalCanvasHeight;
-    console.log(offscreen.width, offscreen.height);
-    // ctx.scale(pixelRatio, pixelRatio);
 
-    // smoothing factor used
+    // smoothing factor to use, this ensures the image keep a high quality when drawn on the canvas
     ctx.imageSmoothingQuality = 'high';
 
+    // compute the source image offsets and size so it can be drawn on to the canvas
     const sourceOffsetX = completedCrop.x * uiScalingFactor;
     const sourceOffsetY = completedCrop.y * uiScalingFactor;
     const sourceWidth = image.naturalWidth * relativeCrop.width;
     const sourceHeight = image.naturalHeight * relativeCrop.height;
-    // const centerX = image.naturalWidth / 2;
-    // const centerY = image.naturalHeight / 2;
-    console.log(sourceOffsetX, sourceOffsetY, sourceWidth, sourceHeight);
 
+    // finaly draw the image on to the canvas
     ctx.drawImage(
+      // the source HTML element from which to draw
       image,
+      // the sx and sy offsets on the source image
       sourceOffsetX,
       sourceOffsetY,
+      // source image width and height
       sourceWidth,
       sourceHeight,
+      // dx and dy values denote the origin where to draw on the canvas
       0,
       0,
+      // we want to fill the whole canvas
       finalCanvasWidth,
       finalCanvasHeight,
     );
 
-    // You might want { type: "image/jpeg", quality: <0 to 1> } to
-    // reduce image size
+    // the blob is converted to webP as this is the format that
+    // the backend uses anyway to store the images. This allows transparency in opposition to jpeg
     const blob = await offscreen.convertToBlob({
       type: 'image/webp',
+      // Use a quality factor less than 1 to allow lossy compression.
+      // This reduces the size of the uploaded image
       quality: 0.8,
     });
     onConfirm(blob);
