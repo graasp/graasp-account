@@ -1,5 +1,12 @@
 # Changelog
 
+## [2.8.2](https://github.com/graasp/graasp-account/compare/v2.8.1...v2.8.2) (2024-06-11)
+
+
+### Bug Fixes
+
+* avatar upload size error ([#250](https://github.com/graasp/graasp-account/issues/250)) ([6c113ae](https://github.com/graasp/graasp-account/commit/6c113ae15e24b0b6e846057d45f34aaa84468980))
+
 ## [2.8.1](https://github.com/graasp/graasp-account/compare/v2.8.0...v2.8.1) (2024-06-10)
 
 
