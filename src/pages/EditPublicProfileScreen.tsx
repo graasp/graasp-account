@@ -32,6 +32,7 @@ import {
   PUBLIC_PROFILE_BIO_ID,
   PUBLIC_PROFILE_FACEBOOK_ID,
   PUBLIC_PROFILE_LINKEDIN_ID,
+  PUBLIC_PROFILE_SAVE_BUTTON_ID,
   PUBLIC_PROFILE_TWITTER_ID,
 } from '@/config/selectors';
 
@@ -61,6 +62,7 @@ const initialDirtyFieldsState = {
 };
 const EditPublicProfileScreen = (): JSX.Element => {
   const { t } = useAccountTranslation();
+  // const navigate = useNavigate();
 
   const { data, refetch } = hooks.useOwnProfile();
   const {
@@ -107,6 +109,7 @@ const EditPublicProfileScreen = (): JSX.Element => {
     } else {
       postProfile(body);
     }
+    // navigate(PROFILE_PATH);
   };
 
   const onInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -140,6 +143,7 @@ const EditPublicProfileScreen = (): JSX.Element => {
     if (isSuccess || isEditSuccess) {
       refetch();
       setDirtyFields(initialDirtyFieldsState);
+      // navigate(PROFILE_PATH);
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [isSuccess, isEditSuccess]);
@@ -171,7 +175,7 @@ const EditPublicProfileScreen = (): JSX.Element => {
           )}
 
           <form noValidate onSubmit={saveSettings}>
-            <Box display="flex" flexDirection="column" gap={1} maxWidth="700px">
+            <Box flexDirection="column" maxWidth="700px">
               <TextFieldWithValidation
                 name="bio"
                 value={profileData.bio}
@@ -263,6 +267,7 @@ const EditPublicProfileScreen = (): JSX.Element => {
                     !isValidUrl(profileData.linkedinID)
                   }
                   loading={isAddLoading || isEditLoading}
+                  id={PUBLIC_PROFILE_SAVE_BUTTON_ID}
                 >
                   {t('PUBLIC_PROFILE_SUBMIT_TEXT')}
                 </LoadingButton>

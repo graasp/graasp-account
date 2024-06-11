@@ -46,3 +46,4 @@ export const PUBLIC_PROFILE_FACEBOOK_ID = 'publicProfileFacebookId';
 export const PASSWORD_DISPLAY_ID = 'passwordDisplayId';
 export const PUBLIC_PROFILE_EDIT_BUTTON_ID = 'public-profile-edit-button';
 export const PERSONAL_INFO_EDIT_BUTTON_ID = 'personal-info-edit-button';
+export const PUBLIC_PROFILE_SAVE_BUTTON_ID = 'public-profile-save-button';
