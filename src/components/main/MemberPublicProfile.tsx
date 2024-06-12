@@ -13,8 +13,11 @@ import { hooks } from '@/config/queryClient';
 import {
   PUBLIC_PROFILE_BIO_ID,
   PUBLIC_PROFILE_EDIT_BUTTON_ID,
+  PUBLIC_PROFILE_FACEBOOK_HREF_ID,
   PUBLIC_PROFILE_FACEBOOK_ID,
+  PUBLIC_PROFILE_LINKEDIN_HREF_ID,
   PUBLIC_PROFILE_LINKEDIN_ID,
+  PUBLIC_PROFILE_TWITTER_HREF_ID,
   PUBLIC_PROFILE_TWITTER_ID,
 } from '@/config/selectors';
 
@@ -45,21 +48,16 @@ const MemberPublicProfile = (): JSX.Element => {
       <Typography variant="body1" color="textSecondary">
         {t('PUBLIC_PROFILE_BIO')}
       </Typography>
-      {bio ? (
-        <Typography variant="body1" id={PUBLIC_PROFILE_BIO_ID}>
-          {bio}
-        </Typography>
-      ) : (
-        <Typography variant="body1" id={PUBLIC_PROFILE_BIO_ID}>
-          {t('PUBLIC_PROFILE_BIO_EMPTY_MSG')}
-        </Typography>
-      )}
+      <Typography variant="body1" id={PUBLIC_PROFILE_BIO_ID}>
+        {bio || t('PUBLIC_PROFILE_BIO_EMPTY_MSG')}
+      </Typography>
       {linkedinID ? (
         <DisplayingMemberPublicProfileLinks
           icon={<LinkedInIcon />}
           contentId={PUBLIC_PROFILE_LINKEDIN_ID}
           href={socialLinks.sanitize('linkedin', linkedinID)}
           content={linkedinID}
+          hrefId={PUBLIC_PROFILE_LINKEDIN_HREF_ID}
         />
       ) : (
         <DisplayingMemberPublicProfileLinks
@@ -73,8 +71,9 @@ const MemberPublicProfile = (): JSX.Element => {
         <DisplayingMemberPublicProfileLinks
           icon={<TwitterIcon />}
           contentId={PUBLIC_PROFILE_TWITTER_ID}
-          href={socialLinks.sanitize('linkedin', twitterID)}
+          href={socialLinks.sanitize('twitter', twitterID)}
           content={twitterID}
+          hrefId={PUBLIC_PROFILE_TWITTER_HREF_ID}
         />
       ) : (
         <DisplayingMemberPublicProfileLinks
@@ -87,8 +86,9 @@ const MemberPublicProfile = (): JSX.Element => {
         <DisplayingMemberPublicProfileLinks
           icon={<FacebookIcon />}
           contentId={PUBLIC_PROFILE_FACEBOOK_ID}
-          href={socialLinks.sanitize('linkedin', facebookID)}
+          href={socialLinks.sanitize('facebook', facebookID)}
           content={facebookID}
+          hrefId={PUBLIC_PROFILE_FACEBOOK_HREF_ID}
         />
       ) : (
         <DisplayingMemberPublicProfileLinks

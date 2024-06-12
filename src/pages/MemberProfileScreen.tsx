@@ -7,7 +7,7 @@ import { useAccountTranslation } from '@/config/i18n';
 const MemberProfileScreen = (): JSX.Element => {
   const { t } = useAccountTranslation();
   return (
-    <Container sx={{ maxWidth: '1000px' }}>
+    <Container>
       <Stack spacing={2}>
         <Typography variant="h2" component="h1">
           {t('PROFILE_TITLE')}

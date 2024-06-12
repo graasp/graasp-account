@@ -8,8 +8,11 @@ import {
   PERSONAL_INFO_EDIT_BUTTON_ID,
   PUBLIC_PROFILE_BIO_ID,
   PUBLIC_PROFILE_EDIT_BUTTON_ID,
+  PUBLIC_PROFILE_FACEBOOK_HREF_ID,
   PUBLIC_PROFILE_FACEBOOK_ID,
+  PUBLIC_PROFILE_LINKEDIN_HREF_ID,
   PUBLIC_PROFILE_LINKEDIN_ID,
+  PUBLIC_PROFILE_TWITTER_HREF_ID,
   PUBLIC_PROFILE_TWITTER_ID,
   USERNAME_DISPLAY_ID,
 } from '@/config/selectors';
@@ -60,6 +63,27 @@ describe('Check member info', () => {
       MEMBER_PUBLIC_PROFILE.facebookID,
     );
   });
+  it('the social media links are correct', () => {
+    // displays the correct member linkedin link
+    cy.get(`#${PUBLIC_PROFILE_LINKEDIN_HREF_ID}`).should(
+      'have.attr',
+      'href',
+      `https://linkedin.com/in/${MEMBER_PUBLIC_PROFILE.linkedinID}`,
+    );
+
+    // displays the correct member twitter link
+    cy.get(`#${PUBLIC_PROFILE_TWITTER_HREF_ID}`).should(
+      'have.attr',
+      'href',
+      `https://twitter.com/${MEMBER_PUBLIC_PROFILE.twitterID}`,
+    );
+    // displays the correct member facebook link
+    cy.get(`#${PUBLIC_PROFILE_FACEBOOK_HREF_ID}`).should(
+      'have.attr',
+      'href',
+      `https://facebook.com/${MEMBER_PUBLIC_PROFILE.facebookID}`,
+    );
+  });
 });
 
 describe('Check empty member public profile info', () => {
@@ -75,29 +99,32 @@ describe('Check empty member public profile info', () => {
 
   it('displays the correct public profile info when profile is empty', () => {
     // displays a message indicating no bio is available
-    cy.get(`#${PUBLIC_PROFILE_BIO_ID}`).should('contain', 'No Bio available');
+    cy.get(`#${PUBLIC_PROFILE_BIO_ID}`).should(
+      'contain',
+      'No biography has been specified',
+    );
 
     // displays a message indicating no LinkedIn ID is available
     cy.get(`#${PUBLIC_PROFILE_LINKEDIN_ID}`).should(
       'contain',
-      'No LinkedIn ID available',
+      'No LinkedIn username has been specified',
     );
 
     // displays a message indicating no Twitter ID is available
     cy.get(`#${PUBLIC_PROFILE_TWITTER_ID}`).should(
       'contain',
-      'No Twitter ID available',
+      'No Twitter username has been specified',
     );
 
     // displays a message indicating no Facebook ID is available
     cy.get(`#${PUBLIC_PROFILE_FACEBOOK_ID}`).should(
       'contain',
-      'No Facebook ID available',
+      'No Facebook username has been specified',
     );
   });
 });
 
-describe.only('Check the buttons edit', () => {
+describe.only('Check the edit buttons', () => {
   beforeEach(() => {
     cy.setUpApi({
       currentMember: BOB,

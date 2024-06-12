@@ -3,7 +3,7 @@ import { Member, MemberFactory, PublicProfile } from '@graasp/sdk';
 import { MemberForTest } from '../support/utils';
 import { AVATAR_LINK } from './thumbnails/links';
 
-export const CURRENT_MEMBER = MemberFactory();
+export const CURRENT_MEMBER = MemberFactory({ extra: { lang: 'en' } });
 export const BOB = MemberFactory({
   id: 'e1a0a49d-dfc4-466e-8379-f3846cda91e2',
   name: 'BOB',

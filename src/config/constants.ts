@@ -21,8 +21,6 @@ export const emailFrequency = {
 
 export const THUMBNAIL_ASPECT = 1;
 export const THUMBNAIL_EXTENSION = 'image/jpeg';
-export const THUMBNAIL_SETTING_MAX_WIDTH = 200;
-export const THUMBNAIL_SETTING_MAX_HEIGHT = 200;
 
 // this is related to the size of the medium thumbnail in the backend.
 export const AVATAR_SIZE = 256;

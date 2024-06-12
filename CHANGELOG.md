@@ -1,5 +1,19 @@
 # Changelog
 
+## [2.8.1](https://github.com/graasp/graasp-account/compare/v2.8.0...v2.8.1) (2024-06-10)
+
+
+### Bug Fixes
+
+* fix avatar size constant ([#247](https://github.com/graasp/graasp-account/issues/247)) ([46bd04f](https://github.com/graasp/graasp-account/commit/46bd04f3eefa84a794ce927b8389a9a9f3e2f857))
+
+## [2.8.0](https://github.com/graasp/graasp-account/compare/v2.7.0...v2.8.0) (2024-06-07)
+
+
+### Features
+
+* create read only profile page ([#244](https://github.com/graasp/graasp-account/issues/244)) ([8448fcc](https://github.com/graasp/graasp-account/commit/8448fcce5bf16986aed287af5dc09bc8c3d8e07b))
+
 ## [2.7.0](https://github.com/graasp/graasp-account/compare/v2.6.2...v2.7.0) (2024-05-28)
 
 

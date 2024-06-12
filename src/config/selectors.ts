@@ -40,10 +40,17 @@ export const buildDataCyWrapper = (dataCy: string): string =>
   `[data-cy="${dataCy}"]`;
 
 export const PUBLIC_PROFILE_BIO_ID = 'publicProfileBioId';
-export const PUBLIC_PROFILE_LINKEDIN_ID = 'publicProfileLinkedInId';
-export const PUBLIC_PROFILE_TWITTER_ID = 'publicProfileTwitterId';
-export const PUBLIC_PROFILE_FACEBOOK_ID = 'publicProfileFacebookId';
-export const PASSWORD_DISPLAY_ID = 'passwordDisplayId';
 export const PUBLIC_PROFILE_EDIT_BUTTON_ID = 'public-profile-edit-button';
 export const PERSONAL_INFO_EDIT_BUTTON_ID = 'personal-info-edit-button';
 export const PUBLIC_PROFILE_SAVE_BUTTON_ID = 'public-profile-save-button';
+
+export const PUBLIC_PROFILE_LINKEDIN_ID = 'publicProfileLinkedInId';
+export const PUBLIC_PROFILE_LINKEDIN_HREF_ID = 'publicProfileLinkedInHrefId';
+
+export const PUBLIC_PROFILE_TWITTER_ID = 'publicProfileTwitterId';
+export const PUBLIC_PROFILE_TWITTER_HREF_ID = 'publicProfileTwitterHrefId';
+
+export const PUBLIC_PROFILE_FACEBOOK_ID = 'publicProfileFacebookId';
+export const PUBLIC_PROFILE_FACEBOOK_HREF_ID = 'publicProfileFacebookHrefId';
+
+export const PASSWORD_DISPLAY_ID = 'passwordDisplayId';
