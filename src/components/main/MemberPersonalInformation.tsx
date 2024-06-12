@@ -8,6 +8,7 @@ import { hooks } from '@/config/queryClient';
 import {
   MEMBER_PROFILE_EMAIL_ID,
   PASSWORD_DISPLAY_ID,
+  PERSONAL_INFO_EDIT_BUTTON_ID,
   USERNAME_DISPLAY_ID,
 } from '@/config/selectors';
 
@@ -22,7 +23,12 @@ const MemberPersonalInformation = (): JSX.Element => {
     <RoundedStack>
       <Stack direction="row" justifyContent="space-between">
         <Typography variant="h5">{t('PERSONAL_INFORMATION_TITLE')}</Typography>
-        <Button component={Link} to={EDIT_MEMBER_INFO} variant="contained">
+        <Button
+          component={Link}
+          to={EDIT_MEMBER_INFO}
+          variant="contained"
+          id={PERSONAL_INFO_EDIT_BUTTON_ID}
+        >
           {t('EDIT_BUTTON_LABEL')}
         </Button>
       </Stack>

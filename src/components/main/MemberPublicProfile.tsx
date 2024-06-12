@@ -12,6 +12,7 @@ import { PUBLIC_PROFILE_PATH } from '@/config/paths';
 import { hooks } from '@/config/queryClient';
 import {
   PUBLIC_PROFILE_BIO_ID,
+  PUBLIC_PROFILE_EDIT_BUTTON_ID,
   PUBLIC_PROFILE_FACEBOOK_HREF_ID,
   PUBLIC_PROFILE_FACEBOOK_ID,
   PUBLIC_PROFILE_LINKEDIN_HREF_ID,
@@ -35,18 +36,21 @@ const MemberPublicProfile = (): JSX.Element => {
     <RoundedStack>
       <Stack direction="row" justifyContent="space-between">
         <Typography variant="h5">{t('PUBLIC_PROFILE_TITLE')}</Typography>
-        <Button component={Link} to={PUBLIC_PROFILE_PATH} variant="contained">
+        <Button
+          component={Link}
+          to={PUBLIC_PROFILE_PATH}
+          variant="contained"
+          id={PUBLIC_PROFILE_EDIT_BUTTON_ID}
+        >
           {t('EDIT_BUTTON_LABEL')}
         </Button>
       </Stack>
-
       <Typography variant="body1" color="textSecondary">
         {t('PUBLIC_PROFILE_BIO')}
       </Typography>
       <Typography variant="body1" id={PUBLIC_PROFILE_BIO_ID}>
         {bio || t('PUBLIC_PROFILE_BIO_EMPTY_MSG')}
       </Typography>
-
       {linkedinID ? (
         <DisplayingMemberPublicProfileLinks
           icon={<LinkedInIcon />}
