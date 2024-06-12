@@ -9,6 +9,7 @@ import {
   DELETE_MEMBER_DIALOG_TITLE_ID,
 } from '@/config/selectors';
 
+import RoundedStack from '../common/RoundedStack';
 import DeleteMemberDialogContent from './DeleteMemberDialogContent';
 
 const DeleteMemberSection = (): JSX.Element => {
@@ -23,24 +24,22 @@ const DeleteMemberSection = (): JSX.Element => {
 
   if (member) {
     return (
-      <Stack>
+      <RoundedStack>
         <Typography variant="h5">
-          {t('PROFILE_DELETE_ACCOUNT_TITLE')}
+          {t('PROFILE_DESTRUCTIVE_SETTINGS_TITLE')}
         </Typography>
-        <Stack
-          direction={{ xs: 'column', sm: 'row' }}
-          alignItems={{ xs: 'flex-start', sm: 'center' }}
-          spacing={3}
-        >
+
+        <Stack direction="column" spacing={2}>
           <Typography variant="body2">
             {t('PROFILE_DELETE_ACCOUNT_INFORMATION')}
           </Typography>
 
           <Button
-            variant="contained"
+            variant="outlined"
             color="error"
             onClick={() => setOpen(true)}
             disabled={isLoading}
+            sx={{ maxWidth: '200px' }}
           >
             {t('PROFILE_DELETE_ACCOUNT_BUTTON')}
           </Button>
@@ -56,7 +55,7 @@ const DeleteMemberSection = (): JSX.Element => {
         >
           <DeleteMemberDialogContent id={member.id} closeModal={closeModal} />
         </Dialog>
-      </Stack>
+      </RoundedStack>
     );
   }
 

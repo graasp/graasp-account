@@ -31,6 +31,7 @@
   "PROFILE_DELETE_ACCOUNT_MODAL_INFORMATION": "Votre compte va être supprimé définitivement.",
   "PROFILE_DELETE_ACCOUNT_MODAL_CONFIRM_BUTTON": "Supprimer définitivement",
   "PROFILE_DELETE_ACCOUNT_MODAL_CANCEL_BUTTON": "Annuler",
+  "PROFILE_DESTRUCTIVE_SETTINGS_TITLE": "Paramètres desctructeurs",
   "PROFILE_DELETE_ACCOUNT_TITLE": "Supprimer mon compte",
   "PROFILE_DELETE_ACCOUNT_BUTTON": "Supprimer le compte",
   "PROFILE_DELETE_ACCOUNT_INFORMATION": "Votre compte sera supprimé définitivement.",
