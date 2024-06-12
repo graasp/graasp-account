@@ -1,6 +1,6 @@
 import { useLocation, useNavigate } from 'react-router-dom';
 
-import { Whatshot } from '@mui/icons-material';
+// import { Whatshot } from '@mui/icons-material';
 import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 import DataUsageIcon from '@mui/icons-material/DataUsage';
 import HomeIcon from '@mui/icons-material/Home';
@@ -11,6 +11,8 @@ import ListItemIcon from '@mui/material/ListItemIcon';
 import ListItemText from '@mui/material/ListItemText';
 
 import { DRAWER_WIDTH } from '@graasp/ui';
+
+import { Settings } from 'lucide-react';
 
 import { useAccountTranslation } from '../../config/i18n';
 import {
@@ -78,10 +80,10 @@ const MainMenu = (): JSX.Element => {
         selected={pathname === MANAGE_ACCOUNT_PATH}
       >
         <ListItemIcon>
-          <Whatshot />
+          <Settings />
         </ListItemIcon>
 
-        <ListItemText primary={t('MAIN_MENU_DESTRUCTIVE_SETTINGS')} />
+        <ListItemText primary={t('MAIN_MENU_SETTINGS')} />
       </ListItemButton>
       {/* <ListItemButton
         button

@@ -18,13 +18,13 @@ import {
   STORAGE_PATH,
 } from './config/paths';
 import { hooks } from './config/queryClient';
-import DestructiveSettingsScreen from './pages/DestructiveSettingsScreen';
 import EditMemberPersonalInformation from './pages/EditMemberPersonalInformation';
 import EditPublicProfileScreen from './pages/EditPublicProfileScreen';
 import HomePage from './pages/HomePage';
 import MemberProfileScreen from './pages/MemberProfileScreen';
 import PageWrapper from './pages/PageWrapper';
 import PasswordSettingsScreen from './pages/PasswordSettingsScreen';
+import SettingsScreen from './pages/SettingsScreen';
 import StorageScreen from './pages/StorageScreen';
 
 export const App = (): JSX.Element => {
@@ -73,8 +73,8 @@ export const App = (): JSX.Element => {
     EditPublicProfileScreen,
     withAuthorizationProps,
   );
-  const DestructiveSettingsWithAuthorization = withAuthorization(
-    DestructiveSettingsScreen,
+  const SettingsWithAuthorization = withAuthorization(
+    SettingsScreen,
     withAuthorizationProps,
   );
 
@@ -101,7 +101,7 @@ export const App = (): JSX.Element => {
           />
           <Route
             path={MANAGE_ACCOUNT_PATH}
-            element={<DestructiveSettingsWithAuthorization />}
+            element={<SettingsWithAuthorization />}
           />
           <Route path={STORAGE_PATH} element={<StorageWithAuthorization />} />
         </Route>
