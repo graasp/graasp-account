@@ -9,6 +9,7 @@ import {
   Box,
   Button,
   Checkbox,
+  Container,
   Divider,
   FormControlLabel,
   Stack,
@@ -154,124 +155,126 @@ const EditPublicProfileScreen = (): JSX.Element => {
   );
 
   return (
-    <Stack spacing={2} maxWidth="1000px">
-      <Typography variant="h4" component="h1">
-        {t('PROFILE_TITLE')}
-      </Typography>
-      <Divider sx={{ my: 2 }} />
-      <RoundedStack>
-        <Typography variant="h5" component="h1">
-          {t('PUBLIC_PROFILE_TITLE')}
+    <Container>
+      <Stack spacing={2} maxWidth="1000px">
+        <Typography variant="h2" component="h1">
+          {t('PROFILE_TITLE')}
         </Typography>
-        <Typography variant="body1">
-          {t('PUBLIC_PROFILE_DESCRIPTION')}
-        </Typography>
-        {data && (
-          <a href={`${GRAASP_LIBRARY_HOST}/members/${data.member?.id}`}>
-            {t('PUBLIC_PROFILE_CHECK_TEXT')}
-          </a>
-        )}
+        <Divider sx={{ my: 2 }} />
+        <RoundedStack>
+          <Typography variant="h5" component="h1">
+            {t('PUBLIC_PROFILE_TITLE')}
+          </Typography>
+          <Typography variant="body1">
+            {t('PUBLIC_PROFILE_DESCRIPTION')}
+          </Typography>
+          {data && (
+            <a href={`${GRAASP_LIBRARY_HOST}/members/${data.member?.id}`}>
+              {t('PUBLIC_PROFILE_CHECK_TEXT')}
+            </a>
+          )}
 
-        <Box flexDirection="column" maxWidth="700px">
-          <TextFieldWithValidation
-            name="bio"
-            value={profileData.bio}
-            helperText={
-              dirtyFields.bio &&
-              !profileData.bio.trim() &&
-              t('PUBLIC_PROFILE_BIO_ERROR_MSG')
-            }
-            isError={dirtyFields.bio && !profileData.bio.trim()}
-            label={t('PUBLIC_PROFILE_BIO')}
-            onChange={onInputChange}
-            required
-            multiline
-            id={PUBLIC_PROFILE_BIO_ID}
-          />
-          <TextFieldWithValidation
-            Icon={<LinkedInIcon fill="grey" strokeWidth={0} />}
-            name="linkedinID"
-            value={profileData.linkedinID}
-            helperText={
-              dirtyFields.linkedinID &&
-              !isValidUrl(profileData.linkedinID) &&
-              t('PUBLIC_PROFILE_LINKEDIN_LINK_ERROR_MSG')
-            }
-            isError={
-              dirtyFields.linkedinID && !isValidUrl(profileData.linkedinID)
-            }
-            label={t('PUBLIC_PROFILE_LINKEDIN_LINK')}
-            onChange={onInputChange}
-            id={PUBLIC_PROFILE_LINKEDIN_ID}
-          />
-          <TextFieldWithValidation
-            Icon={<TwitterIcon fill="grey" strokeWidth={0} />}
-            label={t('PUBLIC_PROFILE_TWITTER_LINK')}
-            onChange={onInputChange}
-            name="twitterID"
-            value={profileData.twitterID}
-            helperText={
-              dirtyFields.twitterID &&
-              !isValidUrl(profileData.twitterID) &&
-              t('PUBLIC_PROFILE_TWITTER_LINK_ERROR_MSG')
-            }
-            isError={
-              dirtyFields.twitterID && !isValidUrl(profileData.twitterID)
-            }
-            id={PUBLIC_PROFILE_TWITTER_ID}
-          />
-          <TextFieldWithValidation
-            name="facebookID"
-            label={t('PUBLIC_PROFILE_FACEBOOK_LINK')}
-            onChange={onInputChange}
-            Icon={<FacebookIcon fill="grey" strokeWidth={0} />}
-            helperText={
-              dirtyFields.facebookID &&
-              !isValidUrl(profileData.facebookID) &&
-              t('PUBLIC_PROFILE_FACEBOOK_LINK_ERROR_MSG')
-            }
-            isError={
-              dirtyFields.facebookID && !isValidUrl(profileData.facebookID)
-            }
-            value={profileData.facebookID}
-            id={PUBLIC_PROFILE_FACEBOOK_ID}
-          />
-          <FormControlLabel
-            control={
-              <Checkbox
-                color="primary"
-                name="visibility"
-                checked={profileData.visibility}
-                onChange={onInputChange}
-              />
-            }
-            label={t('PUBLIC_PROFILE_VISIBILITY')}
-          />
-          <Stack direction="row" spacing={2} justifyContent="flex-end">
-            <Button component={Link} to={PROFILE_PATH} variant="outlined">
-              {t('CLOSE_BUTTON')}
-            </Button>
-
-            <LoadingButton
-              variant="contained"
-              color="primary"
-              disabled={
-                !formChanged ||
-                !profileData.bio.trim() ||
-                !isValidUrl(profileData.facebookID) ||
-                !isValidUrl(profileData.twitterID) ||
-                !isValidUrl(profileData.linkedinID)
+          <Box flexDirection="column">
+            <TextFieldWithValidation
+              name="bio"
+              value={profileData.bio}
+              helperText={
+                dirtyFields.bio &&
+                !profileData.bio.trim() &&
+                t('PUBLIC_PROFILE_BIO_ERROR_MSG')
               }
-              loading={isAddLoading || isEditLoading}
-              onClick={saveSettings}
-              id={PUBLIC_PROFILE_SAVE_BUTTON_ID}
-            >
-              {t('PUBLIC_PROFILE_SUBMIT_TEXT')}
-            </LoadingButton>
-          </Stack>
-        </Box>
-      </RoundedStack>
-    </Stack>
+              isError={dirtyFields.bio && !profileData.bio.trim()}
+              label={t('PUBLIC_PROFILE_BIO')}
+              onChange={onInputChange}
+              required
+              multiline
+              id={PUBLIC_PROFILE_BIO_ID}
+            />
+            <TextFieldWithValidation
+              Icon={<LinkedInIcon />}
+              name="linkedinID"
+              value={profileData.linkedinID}
+              helperText={
+                dirtyFields.linkedinID &&
+                !isValidUrl(profileData.linkedinID) &&
+                t('PUBLIC_PROFILE_LINKEDIN_LINK_ERROR_MSG')
+              }
+              isError={
+                dirtyFields.linkedinID && !isValidUrl(profileData.linkedinID)
+              }
+              label={t('PUBLIC_PROFILE_LINKEDIN_LINK')}
+              onChange={onInputChange}
+              id={PUBLIC_PROFILE_LINKEDIN_ID}
+            />
+            <TextFieldWithValidation
+              Icon={<TwitterIcon />}
+              label={t('PUBLIC_PROFILE_TWITTER_LINK')}
+              onChange={onInputChange}
+              name="twitterID"
+              value={profileData.twitterID}
+              helperText={
+                dirtyFields.twitterID &&
+                !isValidUrl(profileData.twitterID) &&
+                t('PUBLIC_PROFILE_TWITTER_LINK_ERROR_MSG')
+              }
+              isError={
+                dirtyFields.twitterID && !isValidUrl(profileData.twitterID)
+              }
+              id={PUBLIC_PROFILE_TWITTER_ID}
+            />
+            <TextFieldWithValidation
+              name="facebookID"
+              label={t('PUBLIC_PROFILE_FACEBOOK_LINK')}
+              onChange={onInputChange}
+              Icon={<FacebookIcon />}
+              helperText={
+                dirtyFields.facebookID &&
+                !isValidUrl(profileData.facebookID) &&
+                t('PUBLIC_PROFILE_FACEBOOK_LINK_ERROR_MSG')
+              }
+              isError={
+                dirtyFields.facebookID && !isValidUrl(profileData.facebookID)
+              }
+              value={profileData.facebookID}
+              id={PUBLIC_PROFILE_FACEBOOK_ID}
+            />
+            <FormControlLabel
+              control={
+                <Checkbox
+                  color="primary"
+                  name="visibility"
+                  checked={profileData.visibility}
+                  onChange={onInputChange}
+                />
+              }
+              label={t('PUBLIC_PROFILE_VISIBILITY')}
+            />
+            <Stack direction="row" spacing={2} justifyContent="flex-end">
+              <Button component={Link} to={PROFILE_PATH} variant="outlined">
+                {t('CLOSE_BUTTON')}
+              </Button>
+
+              <LoadingButton
+                variant="contained"
+                color="primary"
+                disabled={
+                  !formChanged ||
+                  !profileData.bio.trim() ||
+                  !isValidUrl(profileData.facebookID) ||
+                  !isValidUrl(profileData.twitterID) ||
+                  !isValidUrl(profileData.linkedinID)
+                }
+                loading={isAddLoading || isEditLoading}
+                onClick={saveSettings}
+                id={PUBLIC_PROFILE_SAVE_BUTTON_ID}
+              >
+                {t('PUBLIC_PROFILE_SUBMIT_TEXT')}
+              </LoadingButton>
+            </Stack>
+          </Box>
+        </RoundedStack>
+      </Stack>
+    </Container>
   );
 };
 

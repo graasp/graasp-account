@@ -33,7 +33,7 @@ const invalidTwitterUrlWithRegexChar = 'https://www.twitter.com/sam*ple';
 const invalidFacebookUrlWithRegexChar = 'https://www.facebook.com/sam*ple';
 
 const invalidLinkedInUrl = 'https://www.linkedin.com/in/';
-const invalidFacebookYrl = 'https://www.facebook.com/';
+const invalidFacebookUrl = 'https://www.facebook.com/';
 const invalidTwitterUrl = 'https://twitter.com/';
 
 const validUrlWithSimpleWord = 'simple';
@@ -166,7 +166,7 @@ describe('Facebbok URLs', () => {
     cy.wait('@getOwnProfile');
   });
   it('invalid facebook url cannot be saved', () => {
-    changeFacebook(invalidFacebookYrl);
+    changeFacebook(invalidFacebookUrl);
     cy.get(`#${PUBLIC_PROFILE_SAVE_BUTTON_ID}`).should('be.disabled');
 
     changeFacebook(invalidFacebookUrlWithSymbol);

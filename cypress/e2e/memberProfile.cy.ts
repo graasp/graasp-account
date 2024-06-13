@@ -124,7 +124,7 @@ describe('Check empty member public profile info', () => {
   });
 });
 
-describe.only('Check the edit buttons', () => {
+describe('Check the edit buttons', () => {
   beforeEach(() => {
     cy.setUpApi({
       currentMember: BOB,
@@ -134,11 +134,11 @@ describe.only('Check the edit buttons', () => {
     cy.wait('@getCurrentMember');
     cy.wait('@getOwnProfile');
   });
-  it('after click should redirects to edit personal info page', () => {
+  it('after click should redirect to edit personal info page', () => {
     cy.get(`#${PERSONAL_INFO_EDIT_BUTTON_ID}`).click();
     cy.location('pathname').should('eq', `${EDIT_MEMBER_INFO}`);
   });
-  it('after click should redirects to edit public profile page', () => {
+  it('after click should redirect to edit public profile page', () => {
     cy.get(`#${PUBLIC_PROFILE_EDIT_BUTTON_ID}`).click();
     cy.location('pathname').should('eq', `${PUBLIC_PROFILE_PATH}`);
   });
