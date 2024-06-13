@@ -40,11 +40,11 @@ const validUrlWithSimpleWord = 'simple';
 
 describe('Member public profile page', () => {
   beforeEach(() => {
-    cy.visit(PUBLIC_PROFILE_PATH);
     cy.setUpApi({
       currentMember: BOB,
       currentProfile: MEMBER_PUBLIC_PROFILE,
     });
+    cy.visit(PUBLIC_PROFILE_PATH);
     cy.wait('@getCurrentMember');
     cy.wait('@getOwnProfile');
   });
@@ -73,7 +73,6 @@ describe('Member public profile page', () => {
   });
 
   it('bio field cannot be empty ', () => {
-    // changeBio('bio');
     cy.get(`#${PUBLIC_PROFILE_BIO_ID}`).clear();
     cy.get(`#${PUBLIC_PROFILE_SAVE_BUTTON_ID}`).should('be.disabled');
   });
@@ -81,11 +80,11 @@ describe('Member public profile page', () => {
 
 describe('Linkedin URLs', () => {
   beforeEach(() => {
-    cy.visit(PUBLIC_PROFILE_PATH);
     cy.setUpApi({
       currentMember: BOB,
       currentProfile: MEMBER_PUBLIC_PROFILE,
     });
+    cy.visit(PUBLIC_PROFILE_PATH);
     cy.wait('@getCurrentMember');
     cy.wait('@getOwnProfile');
   });
@@ -118,11 +117,11 @@ describe('Linkedin URLs', () => {
 
 describe('Twitter URLs', () => {
   beforeEach(() => {
-    cy.visit(PUBLIC_PROFILE_PATH);
     cy.setUpApi({
       currentMember: BOB,
       currentProfile: MEMBER_PUBLIC_PROFILE,
     });
+    cy.visit(PUBLIC_PROFILE_PATH);
     cy.wait('@getCurrentMember');
     cy.wait('@getOwnProfile');
   });
@@ -157,11 +156,11 @@ describe('Twitter URLs', () => {
 
 describe('Facebbok URLs', () => {
   beforeEach(() => {
-    cy.visit(PUBLIC_PROFILE_PATH);
     cy.setUpApi({
       currentMember: BOB,
       currentProfile: MEMBER_PUBLIC_PROFILE,
     });
+    cy.visit(PUBLIC_PROFILE_PATH);
     cy.wait('@getCurrentMember');
     cy.wait('@getOwnProfile');
   });
