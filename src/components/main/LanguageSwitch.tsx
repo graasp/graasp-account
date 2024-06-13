@@ -3,25 +3,17 @@ import { SelectChangeEvent } from '@mui/material';
 import { langs } from '@graasp/translations';
 import { Select } from '@graasp/ui';
 
-import { mutations } from '../../config/queryClient';
-
 type Props = {
   id?: string;
-  memberId: string;
   lang: string;
+  onChange: (newLang: string) => void;
 };
 
-const LanguageSwitch = ({ id, memberId, lang }: Props): JSX.Element => {
-  const { mutate: editMember } = mutations.useEditMember();
-
+const LanguageSwitch = ({ id, lang, onChange }: Props): JSX.Element => {
   const handleChange = (event: SelectChangeEvent<unknown>) => {
-    if (event.target.value) {
-      editMember({
-        id: memberId,
-        extra: {
-          lang: event.target.value as string,
-        },
-      });
+    const newLang = event.target.value as string;
+    if (newLang) {
+      onChange(newLang);
     } else {
       console.error(`The lang ${event.target.value} is not valid`);
     }
