@@ -8,35 +8,23 @@ import {
   Grid,
   IconButton,
   Stack,
-  Switch,
-  Tooltip,
   Typography,
 } from '@mui/material';
 
 import { formatDate } from '@graasp/sdk';
-import { DEFAULT_LANG } from '@graasp/translations';
 import { Loader } from '@graasp/ui';
 
-import EmailPreferenceSwitch from '@/components/main/EmailPreferenceSwitch';
-import LanguageSwitch from '@/components/main/LanguageSwitch';
 import UsernameForm from '@/components/main/UsernameForm';
-import { DEFAULT_EMAIL_FREQUENCY } from '@/config/constants';
 import { useAccountTranslation } from '@/config/i18n';
 import notifier from '@/config/notifier';
 import { PROFILE_PATH } from '@/config/paths';
-import { hooks, mutations } from '@/config/queryClient';
-import {
-  MEMBER_PROFILE_ANALYTICS_SWITCH_ID,
-  MEMBER_PROFILE_LANGUAGE_SWITCH_ID,
-} from '@/config/selectors';
+import { hooks } from '@/config/queryClient';
 import { COPY_MEMBER_ID_TO_CLIPBOARD } from '@/types/clipboard';
 import { copyToClipboard } from '@/utils/clipboard';
 
 const EditMemberPersonalInformation = (): JSX.Element | null => {
   const { t, i18n } = useAccountTranslation();
-  const { t: translateAccount } = useAccountTranslation();
   const { data: member, isLoading } = hooks.useCurrentMember();
-  const { mutate: editMember } = mutations.useEditMember();
   if (member) {
     const copyIdToClipboard = () => {
       copyToClipboard(member.id, {
@@ -49,15 +37,8 @@ const EditMemberPersonalInformation = (): JSX.Element | null => {
       });
     };
 
-    const handleOnToggle = (event: { target: { checked: boolean } }): void => {
-      editMember({
-        id: member.id,
-        enableSaveActions: event.target.checked,
-      });
-    };
-
     return (
-      <Stack spacing={3}>
+      <Stack>
         <Box>
           <Typography variant="h4" component="h1">
             {t('PROFILE_TITLE')}
@@ -104,45 +85,8 @@ const EditMemberPersonalInformation = (): JSX.Element | null => {
               </Typography>
             </Grid>
           </Grid>
-          <Grid container alignItems="center">
-            <Grid item xs={4}>
-              <Typography>{t('PROFILE_LANGUAGE_TITLE')}</Typography>
-            </Grid>
-            <Grid item xs={8}>
-              <LanguageSwitch
-                memberId={member.id}
-                lang={member.extra?.lang ?? DEFAULT_LANG}
-                id={MEMBER_PROFILE_LANGUAGE_SWITCH_ID}
-              />
-            </Grid>
-          </Grid>
-          <Grid container alignItems="center">
-            <Grid item xs={4}>
-              <Typography>{t('PROFILE_EMAIL_FREQUENCY_TITLE')}</Typography>
-            </Grid>
-            <Grid item xs={8}>
-              <EmailPreferenceSwitch
-                memberId={member.id}
-                emailFreq={member.extra?.emailFreq || DEFAULT_EMAIL_FREQUENCY}
-              />
-            </Grid>
-          </Grid>
-          <Grid container alignItems="center">
-            <Grid item xs={4}>
-              <Typography>{t('PROFILE_SAVE_ACTIONS_TITLE')}</Typography>
-            </Grid>
-            <Grid item xs={8}>
-              <Tooltip title={translateAccount('SAVE_ACTIONS_TOGGLE_TOOLTIP')}>
-                <Switch
-                  data-cy={MEMBER_PROFILE_ANALYTICS_SWITCH_ID}
-                  onChange={handleOnToggle}
-                  checked={member.enableSaveActions}
-                  color="primary"
-                />
-              </Tooltip>
-            </Grid>
-          </Grid>
-          <Stack direction="row" spacing={2}>
+
+          <Stack direction="row">
             <Button component={Link} to={PROFILE_PATH} variant="outlined">
               {t('CLOSE_BUTTON')}
             </Button>

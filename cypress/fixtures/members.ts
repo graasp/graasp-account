@@ -9,7 +9,8 @@ export const BOB = MemberFactory({
   name: 'BOB',
   email: 'bob@gmail.com',
   createdAt: '2021-04-13 14:56:34.749946',
-  extra: { lang: 'en', hasAvatar: true },
+  enableSaveActions: true,
+  extra: { lang: 'en', emailFreq: 'always', hasAvatar: true },
 });
 export const MEMBERS: {
   [name: string]: Member & {

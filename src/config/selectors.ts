@@ -10,6 +10,13 @@ export const MEMBER_PROFILE_MEMBER_ID_COPY_BUTTON_ID =
   'memberProfileMemberIdCopyButton';
 export const MEMBER_PROFILE_ANALYTICS_SWITCH_ID =
   'memberProfileAnalyticsSwitch';
+export const MEMBER_PROFILE_EMAIL_FREQUENCY_ID =
+  'memberProfileEmailFrequencyId';
+
+export const MEMBER_PROFILE_EDIT_PREFERENCES_BUTTON_ID =
+  'memberProfileEditPreferencesButtonId';
+export const PREFERENCES_SAVE_BUTTON_ID = 'preferencesSaveButtonId';
+export const PREFERENCES_CLOSE_BUTTON_ID = 'preferencesCloseButtonId';
 
 export const HEADER_APP_BAR_ID = 'headerAppBar';
 export const HEADER_USER_ID = 'headerUser';

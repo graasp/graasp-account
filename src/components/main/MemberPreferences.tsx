@@ -5,13 +5,13 @@ import { Button, Stack, Typography } from '@mui/material';
 
 import { DEFAULT_LANG, langs } from '@graasp/translations';
 
-import { DEFAULT_EMAIL_FREQUENCY } from '@/config/constants';
 import { useAccountTranslation } from '@/config/i18n';
 import { EDIT_MEMBER_PREFERENCES } from '@/config/paths';
 import { hooks } from '@/config/queryClient';
 import {
   MEMBER_PROFILE_ANALYTICS_SWITCH_ID,
-  MEMBER_PROFILE_EMAIL_ID,
+  MEMBER_PROFILE_EDIT_PREFERENCES_BUTTON_ID,
+  MEMBER_PROFILE_EMAIL_FREQUENCY_ID,
   MEMBER_PROFILE_LANGUAGE_SWITCH_ID,
 } from '@/config/selectors';
 
@@ -33,6 +33,7 @@ const MemberPreferences = (): JSX.Element => {
           component={Link}
           to={EDIT_MEMBER_PREFERENCES}
           variant="contained"
+          id={MEMBER_PROFILE_EDIT_PREFERENCES_BUTTON_ID}
         >
           {t('EDIT_BUTTON_LABEL')}
         </Button>
@@ -46,21 +47,29 @@ const MemberPreferences = (): JSX.Element => {
       {member?.extra?.emailFreq === 'always' ? (
         <MemberProfileItem
           title={t('PROFILE_EMAIL_FREQUENCY_TITLE')}
-          content={t('ALWAYS_RECEIVE_EMAILS') || DEFAULT_EMAIL_FREQUENCY}
-          contentId={MEMBER_PROFILE_EMAIL_ID}
+          content={t('ALWAYS_RECEIVE_EMAILS')}
+          contentId={MEMBER_PROFILE_EMAIL_FREQUENCY_ID}
         />
       ) : (
         <MemberProfileItem
           title={t('PROFILE_EMAIL_FREQUENCY_TITLE')}
           content={t('DISABLE_EMAILS')}
-          contentId={MEMBER_PROFILE_EMAIL_ID}
+          contentId={MEMBER_PROFILE_EMAIL_FREQUENCY_ID}
         />
       )}
-
-      <MemberProfileItem
-        title={t('PROFILE_SAVE_ACTIONS_TITLE')}
-        contentId={MEMBER_PROFILE_ANALYTICS_SWITCH_ID}
-      />
+      {member?.enableSaveActions === true ? (
+        <MemberProfileItem
+          title={t('PROFILE_SAVE_ACTIONS_TITLE')}
+          content={t('PROFILE_SAVE_ACTIONS_VALUE_TRUE')}
+          contentId={MEMBER_PROFILE_ANALYTICS_SWITCH_ID}
+        />
+      ) : (
+        <MemberProfileItem
+          title={t('PROFILE_SAVE_ACTIONS_TITLE')}
+          content={t('PROFILE_SAVE_ACTIONS_VALUE_FALSE')}
+          contentId={MEMBER_PROFILE_ANALYTICS_SWITCH_ID}
+        />
+      )}
     </RoundedStack>
   );
 };
