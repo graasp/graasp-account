@@ -33,6 +33,7 @@ cypress/videos
 
 # jetbrains
 .idea
+.vscode
 
 # yarn
 .yarn/*
