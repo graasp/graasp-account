@@ -31,7 +31,7 @@ const DeleteMemberDialogContent = ({ id, closeModal }: Props): JSX.Element => {
     'DELETE_CONFIRMATION_VALUE',
   );
 
-  // confirmation is disabled when the two text do not match
+  // confirmation is disabled when the two texts do not match
   const isConfirmationDisabled =
     confirmationDeleteValue !== confirmationDeleteTextToCompare;
 
