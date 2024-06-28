@@ -1,4 +1,3 @@
-import React from 'react';
 import { Link } from 'react-router-dom';
 
 import { Box, Stack, Typography } from '@mui/material';
@@ -15,7 +14,7 @@ import {
   usePlatformNavigation,
 } from '@graasp/ui';
 
-import { platformsHostsMap } from '@/pages/PageWrapper';
+import { platformsHostsMap } from '@/config/hostMapper';
 
 const DEFAULT_ICON_SIZE = 100;
 

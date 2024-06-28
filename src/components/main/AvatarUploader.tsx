@@ -7,7 +7,7 @@ import { ImageUp as ImageUpIcon } from 'lucide-react';
 import { AVATAR_SIZE } from '@/config/constants';
 import { useAccountTranslation } from '@/config/i18n';
 import {
-  AVATAR_UPLOAD_ICON_CY,
+  AVATAR_UPLOAD_ICON_ID,
   AVATAR_UPLOAD_INPUT_ID,
   MEMBER_AVATAR_IMAGE_ID,
   MEMBER_AVATAR_WRAPPER_ID,
@@ -140,7 +140,7 @@ const AvatarUploader = ({ setChanges, currentAvatar }: Props): JSX.Element => {
           />
         ) : (
           <ImageUpIcon
-            data-cy={AVATAR_UPLOAD_ICON_CY}
+            id={AVATAR_UPLOAD_ICON_ID}
             color={theme.palette.primary.main}
           />
         )}

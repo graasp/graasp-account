@@ -1,11 +1,12 @@
 import { ChangeEvent, useState } from 'react';
 
-import { Box, Button, Stack, TextField } from '@mui/material';
+import { Button, Stack, TextField } from '@mui/material';
 import Typography from '@mui/material/Typography';
 
 import { isPasswordStrong } from '@graasp/sdk';
 import { FAILURE_MESSAGES } from '@graasp/translations';
 
+import ScreenLayout from '@/components/layout/ScreenLayout';
 import { useAccountTranslation } from '@/config/i18n';
 import { mutations } from '@/config/queryClient';
 
@@ -84,27 +85,20 @@ const PasswordSettings = (): JSX.Element => {
   };
 
   return (
-    <Stack direction="column" spacing={1}>
-      <Typography variant="h4" component="h1">
-        {t('PASSWORD_SETTINGS_TITLE')}
-      </Typography>
+    <ScreenLayout title={t('PASSWORD_SETTINGS_TITLE')}>
       <Typography variant="body1">
         {t('PASSWORD_SETTINGS_CONFIRM_INFORMATION')}
       </Typography>
       <Stack spacing={2}>
-        <Box>
-          <TextField
-            required
-            label={t('PASSWORD_SETTINGS_CURRENT_LABEL')}
-            variant="outlined"
-            value={currentPassword}
-            onChange={handleCurrentPasswordInput}
-            type="password"
-          />
-          <Typography variant="subtitle2">
-            {t('PASSWORD_SETTINGS_CURRENT_INFORMATION')}
-          </Typography>
-        </Box>
+        <TextField
+          required
+          label={t('PASSWORD_SETTINGS_CURRENT_LABEL')}
+          variant="outlined"
+          value={currentPassword}
+          onChange={handleCurrentPasswordInput}
+          type="password"
+          helperText={t('PASSWORD_SETTINGS_CURRENT_INFORMATION')}
+        />
         <Stack direction="row" spacing={2}>
           <TextField
             required
@@ -146,7 +140,7 @@ const PasswordSettings = (): JSX.Element => {
           </Button>
         </Stack>
       </Stack>
-    </Stack>
+    </ScreenLayout>
   );
 };
 

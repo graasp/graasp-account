@@ -9,36 +9,15 @@ import {
   Platform,
   PlatformSwitch,
   PlatformSwitchProps,
-  defaultHostsMapper,
   useMobileView,
   usePlatformNavigation,
 } from '@graasp/ui';
 
 import UserSwitchWrapper from '@/components/common/UserSwitchWrapper';
 import MainMenu from '@/components/main/MainMenu';
-import {
-  GRAASP_ANALYTICS_HOST,
-  GRAASP_BUILDER_HOST,
-  GRAASP_LIBRARY_HOST,
-  GRAASP_PLAYER_HOST,
-} from '@/config/env';
+import { platformsHostsMap } from '@/config/hostMapper';
 import { useAccountTranslation } from '@/config/i18n';
 import { HOME_PATH } from '@/config/paths';
-
-// small converter for HOST_MAP into a usePlatformNavigation mapper
-export const platformsHostsMap = defaultHostsMapper({
-  [Platform.Builder]: GRAASP_BUILDER_HOST,
-  [Platform.Player]: GRAASP_PLAYER_HOST,
-  [Platform.Library]: GRAASP_LIBRARY_HOST,
-  [Platform.Analytics]: GRAASP_ANALYTICS_HOST,
-});
-
-export const APP_NAVIGATION_PLATFORM_SWITCH_BUTTON_IDS = {
-  [Platform.Builder]: 'appNavigationPlatformSwitchButtonBuilder',
-  [Platform.Player]: 'appNavigationPlatformSwitchButtonPlayer',
-  [Platform.Library]: 'appNavigationPlatformSwitchButtonLibrary',
-  [Platform.Analytics]: 'appNavigationPlatformSwitchButtonAnalytics',
-};
 
 const StyledLink = styled(Link)(() => ({
   textDecoration: 'none',

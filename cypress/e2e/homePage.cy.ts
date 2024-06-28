@@ -5,14 +5,15 @@ import { StatusCodes } from 'http-status-codes';
 
 import i18n from '@/config/i18n';
 import {
-  AVATAR_UPLOAD_ICON_CY,
+  AVATAR_UPLOAD_ICON_ID,
   AVATAR_UPLOAD_INPUT_ID,
   CARD_TIP_ID,
   CROP_MODAL_CONFIRM_BUTTON_ID,
+  LOGIN_REQUIRED_BUTTON_ID,
+  LOGIN_REQUIRED_TEXT_ID,
   MEMBER_AVATAR_IMAGE_ID,
   MEMBER_CREATED_AT_ID,
   USERNAME_DISPLAY_ID,
-  buildDataCyWrapper,
 } from '@/config/selectors';
 
 import { BOB, MEMBER_WITH_AVATAR } from '../fixtures/members';
@@ -23,7 +24,7 @@ import {
 import { SIGN_IN_PATH } from '../support/server';
 import { ID_FORMAT, MemberForTest } from '../support/utils';
 
-const { GET_CURRENT_MEMBER_ROUTE, buildUploadAvatarRoute } = API_ROUTES;
+const { buildGetCurrentMemberRoute, buildUploadAvatarRoute } = API_ROUTES;
 const API_HOST = Cypress.env('VITE_GRAASP_API_HOST');
 
 type TestHelperInput = { currentMember: MemberForTest };
@@ -39,7 +40,7 @@ class TestHelper {
     cy.intercept(
       {
         method: HttpMethod.Get,
-        url: `${API_HOST}/${GET_CURRENT_MEMBER_ROUTE}`,
+        url: `${API_HOST}/${buildGetCurrentMemberRoute()}`,
       },
       ({ reply }) =>
         reply({ statusCode: StatusCodes.OK, body: this.currentMember }),
@@ -112,7 +113,7 @@ describe('Image is not set', () => {
     cy.wait('@getCurrentMember');
     cy.get(`#${CARD_TIP_ID}`).should('exist');
     // uploader icon should be visible
-    cy.get(buildDataCyWrapper(AVATAR_UPLOAD_ICON_CY)).should('be.visible');
+    cy.get(`#${AVATAR_UPLOAD_ICON_ID}`).should('be.visible');
     // image display element should not exist
     cy.get(`#${MEMBER_AVATAR_IMAGE_ID}`).should('not.exist');
   });
@@ -156,6 +157,8 @@ describe('Redirect when not logged in', () => {
 
   it('redirects to the login page when not logged in', () => {
     cy.wait('@getCurrentMember');
+    cy.get(`#${LOGIN_REQUIRED_TEXT_ID}`).should('be.visible');
+    cy.get(`#${LOGIN_REQUIRED_BUTTON_ID}`).click();
     cy.wait('@signInRedirection');
     cy.url().should('contain', `${SIGN_IN_PATH}?url=`);
   });

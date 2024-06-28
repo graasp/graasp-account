@@ -1,5 +1,4 @@
-import { EDIT_MEMBER_INFO } from 'config/paths';
-
+import { EDIT_MEMBER_INFO } from '@/config/paths';
 import {
   USERNAME_CANCEL_BUTTON_ID,
   USERNAME_DISPLAY_ID,

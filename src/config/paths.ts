@@ -6,6 +6,8 @@ export const PAYMENT_OPTIONS_PATH = '/payment';
 export const PAYMENT_CONFIRM_PATH = '/payment/confirm';
 export const PASSWORD_SETTINGS_PATH = '/password';
 export const PUBLIC_PROFILE_PATH = '/public-profile';
-export const MANAGE_ACCOUNT_PATH = '/manage';
+export const SETTINGS_PATH = '/settings';
 // temporary route
 export const EDIT_MEMBER_INFO = '/edit-info';
+// validate email change
+export const EMAIL_CHANGE_VALIDATION_PATH = '/email/change';

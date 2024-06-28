@@ -1,32 +1,21 @@
-export const REDIRECTION_CONTENT_ID = 'redirectionContent';
-
-export const MEMBER_PROFILE_MEMBER_ID_ID = 'memberProfileMemberId';
-export const MEMBER_PROFILE_MEMBER_NAME_ID = 'memberProfileMemberName';
-export const MEMBER_PROFILE_EMAIL_ID = 'memberProfileEmail';
-export const MEMBER_PROFILE_INSCRIPTION_DATE_ID =
-  'memberProfileInscriptionDate';
-export const MEMBER_PROFILE_LANGUAGE_SWITCH_ID = 'memberProfileLanguageSwitch';
-export const MEMBER_PROFILE_MEMBER_ID_COPY_BUTTON_ID =
-  'memberProfileMemberIdCopyButton';
+export const MEMBER_PROFILE_EMAIL_ID = 'member-profile-email';
+export const MEMBER_PROFILE_LANGUAGE_SWITCH_ID =
+  'member-profile-language-switch';
 export const MEMBER_PROFILE_ANALYTICS_SWITCH_ID =
-  'memberProfileAnalyticsSwitch';
+  'member-profile-analytics-switch';
 export const MEMBER_PROFILE_EMAIL_FREQUENCY_ID =
-  'memberProfileEmailFrequencyId';
+  'member-profile-email-frequency';
 
 export const MEMBER_PROFILE_EDIT_PREFERENCES_BUTTON_ID =
-  'memberProfileEditPreferencesButtonId';
-export const PREFERENCES_SAVE_BUTTON_ID = 'preferencesSaveButtonId';
-export const PREFERENCES_CLOSE_BUTTON_ID = 'preferencesCloseButtonId';
-export const EDIT_PREFERENCES_FORM_ID = 'editMemberPreferencesFormId';
-export const HEADER_APP_BAR_ID = 'headerAppBar';
-export const HEADER_USER_ID = 'headerUser';
-export const USER_MENU_SIGN_OUT_OPTION_ID = 'userMenuSignOutOption';
+  'member-profile-edit-preferences-button';
+export const PREFERENCES_SAVE_BUTTON_ID = 'preferences-save-button';
+export const PREFERENCES_CLOSE_BUTTON_ID = 'preferences-close-button';
+export const EDIT_PREFERENCES_FORM_ID = 'edit-member-preferences-form';
 
 export const DELETE_MEMBER_DIALOG_TITLE_ID = 'alert-dialog-title';
 export const DELETE_MEMBER_DIALOG_DESCRIPTION_ID = 'alert-dialog-description';
-export const APP_NAVIGATION_PLATFORM_SWITCH_ID = 'appNavigationPlatformSwitch';
 
-export const STORAGE_PROGRESS_BAR_ID = 'storageProgressBar';
+export const STORAGE_PROGRESS_BAR_ID = 'storage-progress-bar';
 
 export const USERNAME_EDIT_BUTTON_ID = 'username-edit-button';
 export const USERNAME_SAVE_BUTTON_ID = 'username-save-button';
@@ -35,29 +24,36 @@ export const USERNAME_INPUT_FIELD_ID = 'username-input-field';
 export const USERNAME_DISPLAY_ID = 'username-display';
 
 export const CARD_TIP_ID = 'tip-card';
-export const MEMBER_AVATAR_WRAPPER_ID = 'memberAvatar';
-export const MEMBER_AVATAR_IMAGE_ID = 'memberAvatarImageId';
-export const MEMBER_CREATED_AT_ID = 'memberCreatedAtId';
+export const MEMBER_AVATAR_WRAPPER_ID = 'member-avatar';
+export const MEMBER_AVATAR_IMAGE_ID = 'member-avatar-image';
+export const MEMBER_CREATED_AT_ID = 'member-created-at';
 
-export const AVATAR_UPLOAD_INPUT_ID = 'avatarUploadInputId';
-export const AVATAR_UPLOAD_ICON_CY = 'avatarUploadIconCy';
+export const AVATAR_UPLOAD_INPUT_ID = 'avatar-upload-input';
+export const AVATAR_UPLOAD_ICON_ID = 'avatar-upload-icon';
 
-export const CROP_MODAL_CONFIRM_BUTTON_ID = 'cropModalConfirmButton';
-export const buildDataCyWrapper = (dataCy: string): string =>
-  `[data-cy="${dataCy}"]`;
+export const CROP_MODAL_CONFIRM_BUTTON_ID = 'crop-modal-confirm-button';
 
-export const PUBLIC_PROFILE_BIO_ID = 'publicProfileBioId';
-export const PUBLIC_PROFILE_EDIT_BUTTON_ID = 'publicProfileEditButtonId';
-export const PERSONAL_INFO_EDIT_BUTTON_ID = 'personalInfoEditButtonId';
-export const PUBLIC_PROFILE_SAVE_BUTTON_ID = 'publicProfileSaveButtonId';
+export const PUBLIC_PROFILE_BIO_ID = 'public-profile-bio';
+export const PUBLIC_PROFILE_EDIT_BUTTON_ID = 'public-profile-edit-button';
+export const PERSONAL_INFO_EDIT_BUTTON_ID = 'personal-info-edit-button';
+export const PUBLIC_PROFILE_SAVE_BUTTON_ID = 'public-profile-save-button';
 
-export const PUBLIC_PROFILE_LINKEDIN_ID = 'publicProfileLinkedInId';
-export const PUBLIC_PROFILE_LINKEDIN_HREF_ID = 'publicProfileLinkedInHrefId';
+export const PUBLIC_PROFILE_LINKEDIN_ID = 'public-profile-linkedIn';
+export const PUBLIC_PROFILE_LINKEDIN_HREF_ID = 'public-profile-linkedIn-href';
 
-export const PUBLIC_PROFILE_TWITTER_ID = 'publicProfileTwitterId';
-export const PUBLIC_PROFILE_TWITTER_HREF_ID = 'publicProfileTwitterHrefId';
+export const PUBLIC_PROFILE_TWITTER_ID = 'public-profile-twitter';
+export const PUBLIC_PROFILE_TWITTER_HREF_ID = 'public-profile-twitter-href';
 
-export const PUBLIC_PROFILE_FACEBOOK_ID = 'publicProfileFacebookId';
-export const PUBLIC_PROFILE_FACEBOOK_HREF_ID = 'publicProfileFacebookHrefId';
+export const PUBLIC_PROFILE_FACEBOOK_ID = 'public-profile-facebook';
+export const PUBLIC_PROFILE_FACEBOOK_HREF_ID = 'public-profile-facebook-href';
 
-export const PASSWORD_DISPLAY_ID = 'passwordDisplayId';
+export const PASSWORD_DISPLAY_ID = 'password-display';
+
+export const EMAIL_VALIDATION_BUTTON_ID = 'email-validation-button';
+export const EMAIL_VALIDATION_SUCCESS_MESSAGE_ID = 'email-validation-success';
+export const EMAIL_VALIDATION_UNAUTHORIZED_MESSAGE_ID =
+  'email-validation-unauthorized';
+export const EMAIL_VALIDATION_CONFLICT_MESSAGE_ID = 'email-validation-conflict';
+
+export const LOGIN_REQUIRED_TEXT_ID = 'login-required-text';
+export const LOGIN_REQUIRED_BUTTON_ID = 'login-required-button';

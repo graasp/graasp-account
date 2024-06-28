@@ -6,16 +6,13 @@ import { FAILURE_MESSAGES } from '@graasp/translations';
 import { AxiosError } from 'axios';
 
 import i18n from './i18n';
-import {
-  CHANGE_PLAN_ERROR_MESSAGE,
-  CHANGE_PLAN_SUCCESS_MESSAGE,
-} from './messages';
+import { CHANGE_PLAN_SUCCESS_MESSAGE } from './messages';
 
 const {
-  changePlanRoutine,
   updatePasswordRoutine,
   postPublicProfileRoutine,
   patchPublicProfileRoutine,
+  changePlanRoutine,
 } = routines;
 
 type ErrorPayload = Parameters<Notifier>[0]['payload'] & {
@@ -59,10 +56,7 @@ export default ({
       message = getErrorMessageFromPayload(payload);
       break;
     }
-    case changePlanRoutine.FAILURE: {
-      message = CHANGE_PLAN_ERROR_MESSAGE;
-      break;
-    }
+
     // success messages
     case updatePasswordRoutine.SUCCESS: {
       message = getSuccessMessageFromPayload(payload);

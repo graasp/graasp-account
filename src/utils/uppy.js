@@ -91,6 +91,5 @@ export const configureAvatarUppy = ({
       maxFileSize: MAX_THUMBNAIL_SIZE,
       allowedFileTypes: ['image/*'],
     },
-    buildEndpoint: (id) =>
-      `${API_HOST}/${API_ROUTES.buildUploadAvatarRoute(id)}`,
+    buildEndpoint: () => `${API_HOST}/${API_ROUTES.buildUploadAvatarRoute()}`,
   });

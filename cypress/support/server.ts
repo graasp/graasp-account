@@ -13,14 +13,14 @@ import { CURRENT_MEMBER, MEMBER_PUBLIC_PROFILE } from '../fixtures/members';
 import { ID_FORMAT, MemberForTest } from './utils';
 
 const {
-  buildGetMember,
-  GET_CURRENT_MEMBER_ROUTE,
+  buildGetMemberRoute,
+  buildGetCurrentMemberRoute,
   SIGN_OUT_ROUTE,
-  buildPatchMember,
+  buildPatchMemberRoute,
   buildUploadAvatarRoute,
   buildUpdateMemberPasswordRoute,
-  GET_OWN_PROFILE,
-  PUBLIC_PROFILE_ROUTE,
+  buildGetOwnPublicProfileRoute,
+  buildPatchPublicProfileRoute,
 } = API_ROUTES;
 
 export const SIGN_IN_PATH = buildSignInPath({
@@ -41,7 +41,7 @@ export const mockGetOwnProfile = (
   cy.intercept(
     {
       method: HttpMethod.Get,
-      url: `${API_HOST}/members/${GET_OWN_PROFILE}`,
+      url: `${API_HOST}/${buildGetOwnPublicProfileRoute()}`,
     },
     ({ reply }) => {
       if (shouldThrowError) {
@@ -62,7 +62,7 @@ export const mockEditPublicProfile = (
   cy.intercept(
     {
       method: HttpMethod.Patch,
-      url: `${API_HOST}/members/${PUBLIC_PROFILE_ROUTE}`,
+      url: `${API_HOST}/${buildPatchPublicProfileRoute()}`,
     },
     ({ reply, body }) => {
       if (shouldThrowError) {
@@ -81,7 +81,7 @@ export const mockGetCurrentMember = (
   cy.intercept(
     {
       method: HttpMethod.Get,
-      url: `${API_HOST}/${GET_CURRENT_MEMBER_ROUTE}`,
+      url: `${API_HOST}/${buildGetCurrentMemberRoute()}`,
     },
     ({ reply }) => {
       if (shouldThrowError) {
@@ -101,7 +101,7 @@ export const mockGetMember = (members: Member[]): void => {
   cy.intercept(
     {
       method: HttpMethod.Get,
-      url: new RegExp(`${API_HOST}/${buildGetMember(ID_FORMAT)}$`),
+      url: new RegExp(`${API_HOST}/${buildGetMemberRoute(ID_FORMAT)}$`),
     },
     ({ url, reply }) => {
       const memberId = url.slice(API_HOST.length).split('/')[2];
@@ -129,7 +129,7 @@ export const mockEditMember = (
   cy.intercept(
     {
       method: HttpMethod.Patch,
-      url: new RegExp(`${API_HOST}/${buildPatchMember(ID_FORMAT)}`),
+      url: new RegExp(`${API_HOST}/${buildPatchMemberRoute(ID_FORMAT)}`),
     },
     ({ reply, body }) => {
       if (shouldThrowError) {
