@@ -1,5 +1,12 @@
 # Changelog
 
+## [2.10.0](https://github.com/graasp/graasp-account/compare/v2.9.0...v2.10.0) (2024-06-28)
+
+
+### Features
+
+* move public profile to profile ([#255](https://github.com/graasp/graasp-account/issues/255)) ([d124091](https://github.com/graasp/graasp-account/commit/d124091a4dba154189d55b46abe0ac44594f4a67))
+
 ## [2.9.0](https://github.com/graasp/graasp-account/compare/v2.8.2...v2.9.0) (2024-06-26)
 
 
