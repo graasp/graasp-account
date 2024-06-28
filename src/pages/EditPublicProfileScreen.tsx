@@ -6,7 +6,6 @@ import LinkedInIcon from '@mui/icons-material/LinkedIn';
 import TwitterIcon from '@mui/icons-material/Twitter';
 import { LoadingButton } from '@mui/lab';
 import {
-  Box,
   Button,
   Checkbox,
   Container,
@@ -155,8 +154,8 @@ const EditPublicProfileScreen = (): JSX.Element => {
   );
 
   return (
-    <Container>
-      <Stack spacing={2} maxWidth="1000px">
+    <Container maxWidth="lg">
+      <Stack spacing={2}>
         <Typography variant="h2" component="h1">
           {t('PROFILE_TITLE')}
         </Typography>
@@ -174,7 +173,7 @@ const EditPublicProfileScreen = (): JSX.Element => {
             </a>
           )}
 
-          <Box flexDirection="column">
+          <Stack direction="column">
             <TextFieldWithValidation
               name="bio"
               value={profileData.bio}
@@ -271,7 +270,7 @@ const EditPublicProfileScreen = (): JSX.Element => {
                 {t('PUBLIC_PROFILE_SUBMIT_TEXT')}
               </LoadingButton>
             </Stack>
-          </Box>
+          </Stack>
         </RoundedStack>
       </Stack>
     </Container>

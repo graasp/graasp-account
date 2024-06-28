@@ -43,6 +43,7 @@ const UsernameForm = ({ member }: UsernameProps): JSX.Element => {
       />
     );
   }
+
   return (
     <Stack direction="row" alignItems="center" spacing={1}>
       <Box id={USERNAME_DISPLAY_ID}>{member.name}</Box>
