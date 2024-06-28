@@ -12,7 +12,6 @@ import {
 } from './messages';
 
 const {
-  changePlanRoutine,
   updatePasswordRoutine,
   postPublicProfileRoutine,
   patchPublicProfileRoutine,
@@ -59,10 +58,7 @@ export default ({
       message = getErrorMessageFromPayload(payload);
       break;
     }
-    case changePlanRoutine.FAILURE: {
-      message = CHANGE_PLAN_ERROR_MESSAGE;
-      break;
-    }
+
     // success messages
     case updatePasswordRoutine.SUCCESS: {
       message = getSuccessMessageFromPayload(payload);

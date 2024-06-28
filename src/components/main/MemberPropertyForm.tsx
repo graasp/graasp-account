@@ -8,26 +8,22 @@ import {
   USERNAME_EDIT_BUTTON_ID,
 } from '@/config/selectors';
 
-import { mutations } from '../../config/queryClient';
 import EditingUserNameField from './EditingNameField';
 
-type UsernameProps = {
-  member: {
-    id: string;
-    name: string;
-  };
+type MemberPropertyFormProps = {
+  value: string;
+  onSave: (newValue: string) => void;
 };
-const UsernameForm = ({ member }: UsernameProps): JSX.Element => {
-  const { mutate: editMember } = mutations.useEditMember();
+
+export const MemberPropertyForm = ({
+  value,
+  onSave,
+}: MemberPropertyFormProps): JSX.Element => {
   const [isEditing, setIsEditing] = useState(false);
 
-  const handleSave = (newUserName: string) => {
-    editMember({
-      id: member.id,
-      name: newUserName,
-    });
-
+  const handleSave = (newValue: string) => {
     setIsEditing(false);
+    onSave(newValue);
   };
 
   const cancelEditing = () => {
@@ -37,7 +33,7 @@ const UsernameForm = ({ member }: UsernameProps): JSX.Element => {
   if (isEditing) {
     return (
       <EditingUserNameField
-        name={member.name}
+        name={value}
         onSave={handleSave}
         onCancel={cancelEditing}
       />
@@ -46,7 +42,7 @@ const UsernameForm = ({ member }: UsernameProps): JSX.Element => {
 
   return (
     <Stack direction="row" alignItems="center" spacing={1}>
-      <Box id={USERNAME_DISPLAY_ID}>{member.name}</Box>
+      <Box id={USERNAME_DISPLAY_ID}>{value}</Box>
       <IconButton
         onClick={() => setIsEditing(true)}
         id={USERNAME_EDIT_BUTTON_ID}
@@ -56,4 +52,4 @@ const UsernameForm = ({ member }: UsernameProps): JSX.Element => {
     </Stack>
   );
 };
-export default UsernameForm;
+export default MemberPropertyForm;

@@ -19,7 +19,7 @@ import { Loader } from '@graasp/ui';
 
 import EmailPreferenceSwitch from '@/components/main/EmailPreferenceSwitch';
 import LanguageSwitch from '@/components/main/LanguageSwitch';
-import UsernameForm from '@/components/main/UsernameForm';
+import MemberPropertyForm from '@/components/main/MemberPropertyForm';
 import { DEFAULT_EMAIL_FREQUENCY } from '@/config/constants';
 import { useAccountTranslation } from '@/config/i18n';
 import notifier from '@/config/notifier';
@@ -37,6 +37,7 @@ const EditMemberPersonalInformation = (): JSX.Element | false => {
   const { t: translateAccount } = useAccountTranslation();
   const { data: member, isLoading } = hooks.useCurrentMember();
   const { mutate: editMember } = mutations.useEditMember();
+  const { mutate: updateEmail } = mutations.useUpdateMemberEmail();
 
   if (member) {
     const copyIdToClipboard = () => {
@@ -68,7 +69,15 @@ const EditMemberPersonalInformation = (): JSX.Element | false => {
               {t('PROFILE_MEMBER_NAME')}
             </Grid>
             <Grid item xs={8}>
-              <UsernameForm member={member} />
+              <MemberPropertyForm
+                value={member.name}
+                onSave={(newUserName) =>
+                  editMember({
+                    id: member.id,
+                    name: newUserName,
+                  })
+                }
+              />
             </Grid>
           </Grid>
 
@@ -92,7 +101,10 @@ const EditMemberPersonalInformation = (): JSX.Element | false => {
               <Typography>{t('PROFILE_EMAIL_TITLE')}</Typography>
             </Grid>
             <Grid item xs={8}>
-              <Typography>{member.email}</Typography>
+              <MemberPropertyForm
+                value={member.email}
+                onSave={(newEmail) => updateEmail(newEmail)}
+              />
             </Grid>
           </Grid>
           <Grid container alignItems="center">
