@@ -1,3 +1,5 @@
+import { UnionOfConst } from '@graasp/sdk';
+
 import { PUBLIC_PROFILE_PATH } from '@/config/paths';
 import {
   PUBLIC_PROFILE_BIO_ID,
@@ -9,21 +11,19 @@ import {
 
 import { BOB, MEMBER_PUBLIC_PROFILE } from '../fixtures/members';
 
-const changeLinkedin = (newLinkedin: string) => {
+const SocialProfile = {
+  Linkedin: 'linkedinID',
+  Twitter: 'twitterID',
+  Facebook: 'facebookID',
+} as const;
+type SocialProfileTypes = UnionOfConst<typeof SocialProfile>;
+
+const updateSocialProfile = (type: SocialProfileTypes, newValue: string) => {
   cy.visit(PUBLIC_PROFILE_PATH);
-  cy.get('input[name=linkedinID]').clear();
-  cy.get('input[name=linkedinID]').type(newLinkedin);
+  cy.get(`input[name=${type}]`).clear();
+  cy.get(`input[name=${type}]`).type(newValue);
 };
-const changeTwitter = (newTwitter: string) => {
-  cy.visit(PUBLIC_PROFILE_PATH);
-  cy.get('input[name=twitterID]').clear();
-  cy.get('input[name=twitterID]').type(newTwitter);
-};
-const changeFacebook = (newFacebook: string) => {
-  cy.visit(PUBLIC_PROFILE_PATH);
-  cy.get('input[name=facebookID]').clear();
-  cy.get('input[name=facebookID]').type(newFacebook);
-};
+
 const invalidLinkedinUrlWithSymbol = 'https://www.linke@din.com/in/sample';
 const invalidTwitterUrlWithSymbol = 'https://www.twitte@r.com/sample';
 const invalidFacebookUrlWithSymbol = 'https://www.faceb@ook.com/sample';
@@ -89,13 +89,16 @@ describe('Linkedin URLs', () => {
     cy.wait('@getOwnProfile');
   });
   it('invalid linkedin url cannot be saved', () => {
-    changeLinkedin(invalidLinkedInUrl);
+    updateSocialProfile(SocialProfile.Linkedin, invalidLinkedInUrl);
     cy.get(`#${PUBLIC_PROFILE_SAVE_BUTTON_ID}`).should('be.disabled');
 
-    changeLinkedin(invalidLinkedinUrlWithRegexChar);
+    updateSocialProfile(
+      SocialProfile.Linkedin,
+      invalidLinkedinUrlWithRegexChar,
+    );
     cy.get(`#${PUBLIC_PROFILE_SAVE_BUTTON_ID}`).should('be.disabled');
 
-    changeLinkedin(invalidLinkedinUrlWithSymbol);
+    updateSocialProfile(SocialProfile.Linkedin, invalidLinkedinUrlWithSymbol);
     cy.get(`#${PUBLIC_PROFILE_SAVE_BUTTON_ID}`).should('be.disabled');
   });
   it('valid linkedin url can be saved', () => {
@@ -106,7 +109,7 @@ describe('Linkedin URLs', () => {
       expect(body.linkedinID).to.equal('');
     });
 
-    changeLinkedin(validUrlWithSimpleWord);
+    updateSocialProfile(SocialProfile.Linkedin, validUrlWithSimpleWord);
     cy.get(`#${PUBLIC_PROFILE_SAVE_BUTTON_ID}`).should('not.be.disabled');
     cy.get(`#${PUBLIC_PROFILE_SAVE_BUTTON_ID}`).click();
     cy.wait('@editPublicProfile').then(({ request: { body } }) => {
@@ -126,13 +129,13 @@ describe('Twitter URLs', () => {
     cy.wait('@getOwnProfile');
   });
   it('invalid twitter url cannot be saved', () => {
-    changeTwitter(invalidTwitterUrl);
+    updateSocialProfile(SocialProfile.Twitter, invalidTwitterUrl);
     cy.get(`#${PUBLIC_PROFILE_SAVE_BUTTON_ID}`).should('be.disabled');
 
-    changeTwitter(invalidTwitterUrlWithSymbol);
+    updateSocialProfile(SocialProfile.Twitter, invalidTwitterUrlWithSymbol);
     cy.get(`#${PUBLIC_PROFILE_SAVE_BUTTON_ID}`).should('be.disabled');
 
-    changeTwitter(invalidTwitterUrlWithRegexChar);
+    updateSocialProfile(SocialProfile.Twitter, invalidTwitterUrlWithRegexChar);
     cy.get(`#${PUBLIC_PROFILE_SAVE_BUTTON_ID}`).should('be.disabled');
   });
   it('valid twitter url can be saved', () => {
@@ -145,7 +148,7 @@ describe('Twitter URLs', () => {
     });
 
     // type valid url
-    changeTwitter(validUrlWithSimpleWord);
+    updateSocialProfile(SocialProfile.Twitter, validUrlWithSimpleWord);
     cy.get(`#${PUBLIC_PROFILE_SAVE_BUTTON_ID}`).should('not.be.disabled');
     cy.get(`#${PUBLIC_PROFILE_SAVE_BUTTON_ID}`).click();
     cy.wait('@editPublicProfile').then(({ request: { body } }) => {
@@ -165,13 +168,16 @@ describe('Facebbok URLs', () => {
     cy.wait('@getOwnProfile');
   });
   it('invalid facebook url cannot be saved', () => {
-    changeFacebook(invalidFacebookUrl);
+    updateSocialProfile(SocialProfile.Facebook, invalidFacebookUrl);
     cy.get(`#${PUBLIC_PROFILE_SAVE_BUTTON_ID}`).should('be.disabled');
 
-    changeFacebook(invalidFacebookUrlWithSymbol);
+    updateSocialProfile(SocialProfile.Facebook, invalidFacebookUrlWithSymbol);
     cy.get(`#${PUBLIC_PROFILE_SAVE_BUTTON_ID}`).should('be.disabled');
 
-    changeFacebook(invalidFacebookUrlWithRegexChar);
+    updateSocialProfile(
+      SocialProfile.Facebook,
+      invalidFacebookUrlWithRegexChar,
+    );
     cy.get(`#${PUBLIC_PROFILE_SAVE_BUTTON_ID}`).should('be.disabled');
   });
   it('valid facebook url can be saved', () => {
@@ -184,7 +190,7 @@ describe('Facebbok URLs', () => {
     });
 
     // type valid url
-    changeFacebook(validUrlWithSimpleWord);
+    updateSocialProfile(SocialProfile.Facebook, validUrlWithSimpleWord);
     cy.get(`#${PUBLIC_PROFILE_SAVE_BUTTON_ID}`).should('not.be.disabled');
     cy.get(`#${PUBLIC_PROFILE_SAVE_BUTTON_ID}`).click();
     cy.wait('@editPublicProfile').then(({ request: { body } }) => {
