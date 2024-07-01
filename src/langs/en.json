@@ -82,5 +82,8 @@
   "SECURITY_TIPS_TITLE": "Security tips are available",
   "SECURITY_TIPS_INFORMATION": "You haven't set a password, you can set one to access your account without opening your email.",
   "PERSONALISATION_TITLE": "Personalisation",
-  "PERSONALISATION_INFORMATION": "Let your personality and uniqueness shine by adding a profile picture!"
+  "PERSONALISATION_INFORMATION": "Let your personality and uniqueness shine by adding a profile picture!",
+  "VALIDATE_EMAIL_TITLE": "Validate new Email",
+  "VALIDATE_EMAIL_TEXT": "You requested to change your email, please click on the button below to validate your new email.",
+  "VALIDATE_EMAIL_BUTTON_TEXT": "Validate"
 }
