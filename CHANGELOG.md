@@ -1,5 +1,16 @@
 # Changelog
 
+## [2.10.1](https://github.com/graasp/graasp-account/compare/v2.10.0...v2.10.1) (2024-07-01)
+
+
+### Bug Fixes
+
+* **arabic:** update translations ([#279](https://github.com/graasp/graasp-account/issues/279)) ([70678b8](https://github.com/graasp/graasp-account/commit/70678b86fb32508479270dfda87d19b07f931c5e))
+* **deps:** update graasp packages ([#269](https://github.com/graasp/graasp-account/issues/269)) ([86f0fcb](https://github.com/graasp/graasp-account/commit/86f0fcb2f85d426136802b37e03ce5af10294e9a))
+* **german:** update translations ([#276](https://github.com/graasp/graasp-account/issues/276)) ([a1db639](https://github.com/graasp/graasp-account/commit/a1db639bdcfe0cc18751b10ce87434934310927e))
+* **italian:** update translations ([#278](https://github.com/graasp/graasp-account/issues/278)) ([9e3cfa4](https://github.com/graasp/graasp-account/commit/9e3cfa4d051f169d57cae1299da5687f2f65c9ad))
+* **spanish:** update translations ([#277](https://github.com/graasp/graasp-account/issues/277)) ([6bbd787](https://github.com/graasp/graasp-account/commit/6bbd787c78b2c669f4dec6e3872c427ad7740360))
+
 ## [2.10.0](https://github.com/graasp/graasp-account/compare/v2.9.0...v2.10.0) (2024-06-28)
 
 
