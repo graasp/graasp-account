@@ -1,14 +1,15 @@
-import React, { FormEvent, useEffect, useMemo, useState } from 'react';
-import { Link } from 'react-router-dom';
+import React, { useEffect, useMemo, useState } from 'react';
+import { Link, useNavigate } from 'react-router-dom';
 
 import FacebookIcon from '@mui/icons-material/Facebook';
 import LinkedInIcon from '@mui/icons-material/LinkedIn';
 import TwitterIcon from '@mui/icons-material/Twitter';
 import { LoadingButton } from '@mui/lab';
 import {
-  Box,
   Button,
   Checkbox,
+  Container,
+  Divider,
   FormControlLabel,
   Stack,
   Typography,
@@ -16,6 +17,7 @@ import {
 
 import { Config, SocialLinks } from 'social-links';
 
+import RoundedStack from '@/components/common/RoundedStack';
 import TextFieldWithValidation from '@/components/common/TextField';
 import {
   FACEBOOK_DOMAIN,
@@ -26,6 +28,13 @@ import { GRAASP_LIBRARY_HOST } from '@/config/env';
 import { useAccountTranslation } from '@/config/i18n';
 import { PROFILE_PATH } from '@/config/paths';
 import { hooks, mutations } from '@/config/queryClient';
+import {
+  PUBLIC_PROFILE_BIO_ID,
+  PUBLIC_PROFILE_FACEBOOK_ID,
+  PUBLIC_PROFILE_LINKEDIN_ID,
+  PUBLIC_PROFILE_SAVE_BUTTON_ID,
+  PUBLIC_PROFILE_TWITTER_ID,
+} from '@/config/selectors';
 
 const config: Config = {
   usePredefinedProfiles: true,
@@ -53,6 +62,7 @@ const initialDirtyFieldsState = {
 };
 const EditPublicProfileScreen = (): JSX.Element => {
   const { t } = useAccountTranslation();
+  const navigate = useNavigate();
 
   const { data, refetch } = hooks.useOwnProfile();
   const {
@@ -75,8 +85,7 @@ const EditPublicProfileScreen = (): JSX.Element => {
   });
   const [dirtyFields, setDirtyFields] = useState(initialDirtyFieldsState);
 
-  const saveSettings = (e: FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
+  const saveSettings = () => {
     const { facebookID, linkedinID, twitterID } = profileData;
     const fbProfile = socialLinks.detectProfile(facebookID);
     const linkedinProfile = socialLinks.detectProfile(linkedinID);
@@ -132,6 +141,8 @@ const EditPublicProfileScreen = (): JSX.Element => {
     if (isSuccess || isEditSuccess) {
       refetch();
       setDirtyFields(initialDirtyFieldsState);
+      // redirect to profile page
+      navigate(PROFILE_PATH);
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [isSuccess, isEditSuccess]);
@@ -143,116 +154,126 @@ const EditPublicProfileScreen = (): JSX.Element => {
   );
 
   return (
-    <Box sx={{ maxWidth: '700px' }}>
-      <Box sx={{ mt: 1, mb: 3 }}>
-        <Typography variant="h4" component="h1">
-          {t('PUBLIC_PROFILE_TITLE')}
+    <Container maxWidth="lg">
+      <Stack spacing={2}>
+        <Typography variant="h2" component="h1">
+          {t('PROFILE_TITLE')}
         </Typography>
-        <Typography variant="body1">
-          {t('PUBLIC_PROFILE_DESCRIPTION')}
-        </Typography>
-        {data && (
-          <a href={`${GRAASP_LIBRARY_HOST}/members/${data.member?.id}`}>
-            {t('PUBLIC_PROFILE_CHECK_TEXT')}
-          </a>
-        )}
-      </Box>
-      <form noValidate onSubmit={saveSettings}>
-        <Box display="flex" flexDirection="column" gap={1}>
-          <TextFieldWithValidation
-            name="bio"
-            value={profileData.bio}
-            helperText={
-              dirtyFields.bio &&
-              !profileData.bio.trim() &&
-              t('PUBLIC_PROFILE_BIO_ERROR_MSG')
-            }
-            isError={dirtyFields.bio && !profileData.bio.trim()}
-            label={t('PUBLIC_PROFILE_BIO')}
-            onChange={onInputChange}
-            required
-            multiline
-          />
-          <TextFieldWithValidation
-            Icon={LinkedInIcon}
-            name="linkedinID"
-            value={profileData.linkedinID}
-            helperText={
-              dirtyFields.linkedinID &&
-              !isValidUrl(profileData.linkedinID) &&
-              t('PUBLIC_PROFILE_LINKEDIN_LINK_ERROR_MSG')
-            }
-            isError={
-              dirtyFields.linkedinID && !isValidUrl(profileData.linkedinID)
-            }
-            label={t('PUBLIC_PROFILE_LINKEDIN_LINK')}
-            onChange={onInputChange}
-          />
-          <TextFieldWithValidation
-            Icon={TwitterIcon}
-            label={t('PUBLIC_PROFILE_TWITTER_LINK')}
-            onChange={onInputChange}
-            name="twitterID"
-            value={profileData.twitterID}
-            helperText={
-              dirtyFields.twitterID &&
-              !isValidUrl(profileData.twitterID) &&
-              t('PUBLIC_PROFILE_TWITTER_LINK_ERROR_MSG')
-            }
-            isError={
-              dirtyFields.twitterID && !isValidUrl(profileData.twitterID)
-            }
-          />
-          <TextFieldWithValidation
-            name="facebookID"
-            label={t('PUBLIC_PROFILE_FACEBOOK_LINK')}
-            onChange={onInputChange}
-            Icon={FacebookIcon}
-            helperText={
-              dirtyFields.facebookID &&
-              !isValidUrl(profileData.facebookID) &&
-              t('PUBLIC_PROFILE_FACEBOOK_LINK_ERROR_MSG')
-            }
-            isError={
-              dirtyFields.facebookID && !isValidUrl(profileData.facebookID)
-            }
-            value={profileData.facebookID}
-          />
-          <FormControlLabel
-            control={
-              <Checkbox
-                color="primary"
-                name="visibility"
-                checked={profileData.visibility}
-                onChange={onInputChange}
-              />
-            }
-            label={t('PUBLIC_PROFILE_VISIBILITY')}
-          />
-          <Stack direction="row" spacing={2}>
-            <Button component={Link} to={PROFILE_PATH} variant="outlined">
-              {t('CLOSE_BUTTON')}
-            </Button>
+        <Divider sx={{ my: 2 }} />
+        <RoundedStack>
+          <Typography variant="h5" component="h1">
+            {t('PUBLIC_PROFILE_TITLE')}
+          </Typography>
+          <Typography variant="body1">
+            {t('PUBLIC_PROFILE_DESCRIPTION')}
+          </Typography>
+          {data && (
+            <a href={`${GRAASP_LIBRARY_HOST}/members/${data.member?.id}`}>
+              {t('PUBLIC_PROFILE_CHECK_TEXT')}
+            </a>
+          )}
 
-            <LoadingButton
-              type="submit"
-              variant="contained"
-              color="primary"
-              disabled={
-                !formChanged ||
-                !profileData.bio.trim() ||
-                !isValidUrl(profileData.facebookID) ||
-                !isValidUrl(profileData.twitterID) ||
-                !isValidUrl(profileData.linkedinID)
+          <Stack direction="column">
+            <TextFieldWithValidation
+              name="bio"
+              value={profileData.bio}
+              helperText={
+                dirtyFields.bio &&
+                !profileData.bio.trim() &&
+                t('PUBLIC_PROFILE_BIO_ERROR_MSG')
               }
-              loading={isAddLoading || isEditLoading}
-            >
-              {t('PUBLIC_PROFILE_SUBMIT_TEXT')}
-            </LoadingButton>
+              isError={dirtyFields.bio && !profileData.bio.trim()}
+              label={t('PUBLIC_PROFILE_BIO')}
+              onChange={onInputChange}
+              required
+              multiline
+              id={PUBLIC_PROFILE_BIO_ID}
+            />
+            <TextFieldWithValidation
+              Icon={<LinkedInIcon />}
+              name="linkedinID"
+              value={profileData.linkedinID}
+              helperText={
+                dirtyFields.linkedinID &&
+                !isValidUrl(profileData.linkedinID) &&
+                t('PUBLIC_PROFILE_LINKEDIN_LINK_ERROR_MSG')
+              }
+              isError={
+                dirtyFields.linkedinID && !isValidUrl(profileData.linkedinID)
+              }
+              label={t('PUBLIC_PROFILE_LINKEDIN_LINK')}
+              onChange={onInputChange}
+              id={PUBLIC_PROFILE_LINKEDIN_ID}
+            />
+            <TextFieldWithValidation
+              Icon={<TwitterIcon />}
+              label={t('PUBLIC_PROFILE_TWITTER_LINK')}
+              onChange={onInputChange}
+              name="twitterID"
+              value={profileData.twitterID}
+              helperText={
+                dirtyFields.twitterID &&
+                !isValidUrl(profileData.twitterID) &&
+                t('PUBLIC_PROFILE_TWITTER_LINK_ERROR_MSG')
+              }
+              isError={
+                dirtyFields.twitterID && !isValidUrl(profileData.twitterID)
+              }
+              id={PUBLIC_PROFILE_TWITTER_ID}
+            />
+            <TextFieldWithValidation
+              name="facebookID"
+              label={t('PUBLIC_PROFILE_FACEBOOK_LINK')}
+              onChange={onInputChange}
+              Icon={<FacebookIcon />}
+              helperText={
+                dirtyFields.facebookID &&
+                !isValidUrl(profileData.facebookID) &&
+                t('PUBLIC_PROFILE_FACEBOOK_LINK_ERROR_MSG')
+              }
+              isError={
+                dirtyFields.facebookID && !isValidUrl(profileData.facebookID)
+              }
+              value={profileData.facebookID}
+              id={PUBLIC_PROFILE_FACEBOOK_ID}
+            />
+            <FormControlLabel
+              control={
+                <Checkbox
+                  color="primary"
+                  name="visibility"
+                  checked={profileData.visibility}
+                  onChange={onInputChange}
+                />
+              }
+              label={t('PUBLIC_PROFILE_VISIBILITY')}
+            />
+            <Stack direction="row" spacing={2} justifyContent="flex-end">
+              <Button component={Link} to={PROFILE_PATH} variant="outlined">
+                {t('CLOSE_BUTTON')}
+              </Button>
+
+              <LoadingButton
+                variant="contained"
+                color="primary"
+                disabled={
+                  !formChanged ||
+                  !profileData.bio.trim() ||
+                  !isValidUrl(profileData.facebookID) ||
+                  !isValidUrl(profileData.twitterID) ||
+                  !isValidUrl(profileData.linkedinID)
+                }
+                loading={isAddLoading || isEditLoading}
+                onClick={saveSettings}
+                id={PUBLIC_PROFILE_SAVE_BUTTON_ID}
+              >
+                {t('PUBLIC_PROFILE_SUBMIT_TEXT')}
+              </LoadingButton>
+            </Stack>
           </Stack>
-        </Box>
-      </form>
-    </Box>
+        </RoundedStack>
+      </Stack>
+    </Container>
   );
 };
 

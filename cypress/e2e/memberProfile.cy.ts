@@ -1,7 +1,13 @@
-import { PROFILE_PATH } from '@/config/paths';
+import {
+  EDIT_MEMBER_INFO,
+  PROFILE_PATH,
+  PUBLIC_PROFILE_PATH,
+} from '@/config/paths';
 import {
   MEMBER_PROFILE_EMAIL_ID,
+  PERSONAL_INFO_EDIT_BUTTON_ID,
   PUBLIC_PROFILE_BIO_ID,
+  PUBLIC_PROFILE_EDIT_BUTTON_ID,
   PUBLIC_PROFILE_FACEBOOK_HREF_ID,
   PUBLIC_PROFILE_FACEBOOK_ID,
   PUBLIC_PROFILE_LINKEDIN_HREF_ID,
@@ -41,19 +47,16 @@ describe('Check member info', () => {
       'contain',
       MEMBER_PUBLIC_PROFILE.bio,
     );
-
     // displays the correct member linkedin
     cy.get(`#${PUBLIC_PROFILE_LINKEDIN_ID}`).should(
       'contain',
       MEMBER_PUBLIC_PROFILE.linkedinID,
     );
-
     // displays the correct member twitter
     cy.get(`#${PUBLIC_PROFILE_TWITTER_ID}`).should(
       'contain',
       MEMBER_PUBLIC_PROFILE.twitterID,
     );
-
     // displays the correct member facebook
     cy.get(`#${PUBLIC_PROFILE_FACEBOOK_ID}`).should(
       'contain',
@@ -118,5 +121,25 @@ describe('Check empty member public profile info', () => {
       'contain',
       'No Facebook username has been specified',
     );
+  });
+});
+
+describe('Check the edit buttons', () => {
+  beforeEach(() => {
+    cy.setUpApi({
+      currentMember: BOB,
+      currentProfile: MEMBER_EMPTY_PUBLIC_PROFILE,
+    });
+    cy.visit(PROFILE_PATH);
+    cy.wait('@getCurrentMember');
+    cy.wait('@getOwnProfile');
+  });
+  it('after click should redirect to edit personal info page', () => {
+    cy.get(`#${PERSONAL_INFO_EDIT_BUTTON_ID}`).click();
+    cy.location('pathname').should('eq', `${EDIT_MEMBER_INFO}`);
+  });
+  it('after click should redirect to edit public profile page', () => {
+    cy.get(`#${PUBLIC_PROFILE_EDIT_BUTTON_ID}`).click();
+    cy.location('pathname').should('eq', `${PUBLIC_PROFILE_PATH}`);
   });
 });

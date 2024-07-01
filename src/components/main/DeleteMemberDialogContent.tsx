@@ -31,6 +31,10 @@ const DeleteMemberDialogContent = ({ id, closeModal }: Props): JSX.Element => {
     'DELETE_CONFIRMATION_VALUE',
   );
 
+  // confirmation is disabled when the two texts do not match
+  const isConfirmationDisabled =
+    confirmationDeleteValue !== confirmationDeleteTextToCompare;
+
   return (
     <>
       <DialogTitle id={DELETE_MEMBER_DIALOG_TITLE_ID}>
@@ -41,7 +45,7 @@ const DeleteMemberDialogContent = ({ id, closeModal }: Props): JSX.Element => {
           <DialogContentText id={DELETE_MEMBER_DIALOG_DESCRIPTION_ID}>
             {translateAccount('PROFILE_DELETE_ACCOUNT_MODAL_INFORMATION')}
           </DialogContentText>
-          <DialogContentText variant="body2">
+          <DialogContentText>
             {translateAccount('PROFILE_DELETE_TYPE_CONFIRMATION_TEXT', {
               text: confirmationDeleteTextToCompare,
             })}
@@ -50,8 +54,9 @@ const DeleteMemberDialogContent = ({ id, closeModal }: Props): JSX.Element => {
         <TextField
           value={confirmationDeleteValue}
           fullWidth
+          required
           variant="outlined"
-          placeholder={confirmationDeleteTextToCompare}
+          // placeholder={confirmationDeleteTextToCompare}
           onChange={(event) => {
             setConfirmationDeleteValue(event.target.value);
           }}
@@ -60,14 +65,16 @@ const DeleteMemberDialogContent = ({ id, closeModal }: Props): JSX.Element => {
       </DialogContent>
 
       <DialogActions>
-        <Button onClick={closeModal}>
+        <Button
+          onClick={closeModal}
+          variant={isConfirmationDisabled ? 'contained' : 'text'}
+        >
           {translateAccount('PROFILE_DELETE_ACCOUNT_MODAL_CANCEL_BUTTON')}
         </Button>
         <Button
           onClick={() => deleteMember({ id })}
           color="error"
-          variant="text"
-          disabled={confirmationDeleteValue !== confirmationDeleteTextToCompare}
+          disabled={isConfirmationDisabled}
         >
           {translateAccount('PROFILE_DELETE_ACCOUNT_MODAL_CONFIRM_BUTTON')}
         </Button>

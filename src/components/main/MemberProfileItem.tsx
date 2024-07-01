@@ -1,8 +1,10 @@
+import { ReactNode } from 'react';
+
 import { Stack, Typography } from '@mui/material';
 
 type Props = {
   title: string;
-  content?: string;
+  content?: ReactNode;
   contentId: string;
 };
 const MemberProfileItem = ({
@@ -10,7 +12,7 @@ const MemberProfileItem = ({
   content,
   contentId,
 }: Props): JSX.Element => (
-  <Stack direction="row" spacing={2}>
+  <Stack direction="row" spacing={2} alignItems="center">
     <Typography variant="body1" color="textSecondary">
       {title}
     </Typography>

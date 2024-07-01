@@ -47,6 +47,9 @@ export const buildDataCyWrapper = (dataCy: string): string =>
   `[data-cy="${dataCy}"]`;
 
 export const PUBLIC_PROFILE_BIO_ID = 'publicProfileBioId';
+export const PUBLIC_PROFILE_EDIT_BUTTON_ID = 'publicProfileEditButtonId';
+export const PERSONAL_INFO_EDIT_BUTTON_ID = 'personalInfoEditButtonId';
+export const PUBLIC_PROFILE_SAVE_BUTTON_ID = 'publicProfileSaveButtonId';
 
 export const PUBLIC_PROFILE_LINKEDIN_ID = 'publicProfileLinkedInId';
 export const PUBLIC_PROFILE_LINKEDIN_HREF_ID = 'publicProfileLinkedInHrefId';

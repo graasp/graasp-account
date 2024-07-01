@@ -1,5 +1,33 @@
 # Changelog
 
+## [2.10.0](https://github.com/graasp/graasp-account/compare/v2.9.0...v2.10.0) (2024-06-28)
+
+
+### Features
+
+* move public profile to profile ([#255](https://github.com/graasp/graasp-account/issues/255)) ([d124091](https://github.com/graasp/graasp-account/commit/d124091a4dba154189d55b46abe0ac44594f4a67))
+
+## [2.9.0](https://github.com/graasp/graasp-account/compare/v2.8.2...v2.9.0) (2024-06-26)
+
+
+### Features
+
+* rename Destructive settings to Settings ([#259](https://github.com/graasp/graasp-account/issues/259)) ([b9f5714](https://github.com/graasp/graasp-account/commit/b9f57149c6a165eab1bee4cd4fa0fe8165c42c3f))
+
+
+### Bug Fixes
+
+* issue on delete-account-button ([#263](https://github.com/graasp/graasp-account/issues/263)) ([fd1e1f5](https://github.com/graasp/graasp-account/commit/fd1e1f5d8ea5dcd82d6a51c2d9216ec0b2fe3c39))
+* update dependencies and remove unused deps ([185cc54](https://github.com/graasp/graasp-account/commit/185cc54d3e002888ff3158c2fb5bb47ecc84137a))
+* update release-please ([5cfc3bb](https://github.com/graasp/graasp-account/commit/5cfc3bb0aa454959ddc27bae38637492e4eb784c))
+
+## [2.8.2](https://github.com/graasp/graasp-account/compare/v2.8.1...v2.8.2) (2024-06-11)
+
+
+### Bug Fixes
+
+* avatar upload size error ([#250](https://github.com/graasp/graasp-account/issues/250)) ([6c113ae](https://github.com/graasp/graasp-account/commit/6c113ae15e24b0b6e846057d45f34aaa84468980))
+
 ## [2.8.1](https://github.com/graasp/graasp-account/compare/v2.8.0...v2.8.1) (2024-06-10)
 
 

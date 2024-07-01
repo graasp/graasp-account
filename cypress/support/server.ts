@@ -3,6 +3,7 @@ import {
   CompleteMember,
   HttpMethod,
   Member,
+  PublicProfile,
   buildSignInPath,
 } from '@graasp/sdk';
 
@@ -19,6 +20,7 @@ const {
   buildUploadAvatarRoute,
   buildUpdateMemberPasswordRoute,
   GET_OWN_PROFILE,
+  PUBLIC_PROFILE_ROUTE,
 } = API_ROUTES;
 
 export const SIGN_IN_PATH = buildSignInPath({
@@ -52,6 +54,26 @@ export const mockGetOwnProfile = (
     },
   ).as('getOwnProfile');
 };
+
+export const mockEditPublicProfile = (
+  currentProfile: PublicProfile,
+  shouldThrowError: boolean,
+): void => {
+  cy.intercept(
+    {
+      method: HttpMethod.Patch,
+      url: `${API_HOST}/members/${PUBLIC_PROFILE_ROUTE}`,
+    },
+    ({ reply, body }) => {
+      if (shouldThrowError) {
+        return reply({ statusCode: StatusCodes.BAD_REQUEST });
+      }
+
+      return reply({ ...currentProfile, ...body });
+    },
+  ).as('editPublicProfile');
+};
+
 export const mockGetCurrentMember = (
   currentMember = CURRENT_MEMBER,
   shouldThrowError = false,

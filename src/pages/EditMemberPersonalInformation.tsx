@@ -22,7 +22,7 @@ import { hooks } from '@/config/queryClient';
 import { COPY_MEMBER_ID_TO_CLIPBOARD } from '@/types/clipboard';
 import { copyToClipboard } from '@/utils/clipboard';
 
-const EditMemberPersonalInformation = (): JSX.Element | null => {
+const EditMemberPersonalInformation = (): JSX.Element | false => {
   const { t, i18n } = useAccountTranslation();
   const { data: member, isLoading } = hooks.useCurrentMember();
   if (member) {
@@ -95,6 +95,7 @@ const EditMemberPersonalInformation = (): JSX.Element | null => {
       </Stack>
     );
   }
+
   if (isLoading) {
     return <Loader />;
   }
@@ -103,7 +104,7 @@ const EditMemberPersonalInformation = (): JSX.Element | null => {
     return <Alert severity="error">{t('User is not unauthenticated')}</Alert>;
   }
 
-  return null;
+  return false;
 };
 
 export default EditMemberPersonalInformation;

@@ -39,7 +39,7 @@ const DeleteMemberSection = (): JSX.Element => {
             color="error"
             onClick={() => setOpen(true)}
             disabled={isLoading}
-            sx={{ maxWidth: '200px' }}
+            sx={{ textWrap: 'nowrap', maxWidth: 'min-content' }}
           >
             {t('PROFILE_DELETE_ACCOUNT_BUTTON')}
           </Button>
