@@ -1,6 +1,7 @@
-import { Container, Divider, Stack, Typography } from '@mui/material';
+import { Box, Container, Divider, Stack, Typography } from '@mui/material';
 
 import DeleteMemberSection from '@/components/main/DeleteMemberSection';
+import MemberPreferences from '@/components/main/MemberPreferences';
 import { useAccountTranslation } from '@/config/i18n';
 
 const SettingsScreen = (): JSX.Element => {
@@ -9,10 +10,13 @@ const SettingsScreen = (): JSX.Element => {
   return (
     <Container>
       <Stack spacing={2}>
-        <Typography variant="h4" component="h1">
-          {translateAccount('MAIN_MENU_SETTINGS')}
-        </Typography>
+        <Box>
+          <Typography variant="h4" component="h1">
+            {translateAccount('MAIN_MENU_SETTINGS')}
+          </Typography>
+        </Box>
         <Divider />
+        <MemberPreferences />
         <DeleteMemberSection />
       </Stack>
     </Container>

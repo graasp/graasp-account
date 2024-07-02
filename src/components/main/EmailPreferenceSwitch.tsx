@@ -6,30 +6,24 @@ import { Select } from '@graasp/ui';
 import { useAccountTranslation } from '@/config/i18n';
 
 import { emailFrequency } from '../../config/constants';
-import { mutations } from '../../config/queryClient';
 
 type EmailPreferenceSwitchProps = {
   id?: string;
-  memberId: string;
   emailFreq: CompleteMember['extra']['emailFreq'];
+  onChange: (newEmailFreq: `${EmailFrequency}`) => void;
 };
 
 const EmailPreferenceSwitch = ({
   id,
-  memberId,
   emailFreq,
+  onChange,
 }: EmailPreferenceSwitchProps): JSX.Element => {
   const { t } = useAccountTranslation();
-  const { mutate: editMember } = mutations.useEditMember();
 
   const handleChange = (event: SelectChangeEvent<string>) => {
-    if (event.target.value) {
-      editMember({
-        id: memberId,
-        extra: {
-          emailFreq: event.target.value as `${EmailFrequency}`,
-        },
-      });
+    const newEmailFreq = event.target.value as `${EmailFrequency}`;
+    if (newEmailFreq) {
+      onChange(newEmailFreq);
     } else {
       console.error(`The frequency ${event.target.value} is not valid`);
     }
