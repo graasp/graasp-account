@@ -85,5 +85,6 @@
   "SECURITY_TIPS_TITLE": "Des recommandations de sécurité sont disponibles",
   "SECURITY_TIPS_INFORMATION": "Vous n'avez pas défini de mot de passe, vous pouvez en définir un pour accéder à votre compte sans ouvrir votre email.",
   "PERSONALISATION_TITLE": "Personnalisation",
-  "PERSONALISATION_INFORMATION": "Laissez votre personnalité et votre unicité briller en ajoutant une photo de profil !"
+  "PERSONALISATION_INFORMATION": "Laissez votre personnalité et votre unicité briller en ajoutant une photo de profil !",
+  "SAVE_CHANGES_TEXT": "Enregistrer modifications"
 }

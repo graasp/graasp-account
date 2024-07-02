@@ -85,5 +85,6 @@
   "SECURITY_TIPS_TITLE": "Security tips are available",
   "SECURITY_TIPS_INFORMATION": "You haven't set a password, you can set one to access your account without opening your email.",
   "PERSONALISATION_TITLE": "Personalisation",
-  "PERSONALISATION_INFORMATION": "Let your personality and uniqueness shine by adding a profile picture!"
+  "PERSONALISATION_INFORMATION": "Let your personality and uniqueness shine by adding a profile picture!",
+  "SAVE_CHANGES_TEXT": "Save changes"
 }

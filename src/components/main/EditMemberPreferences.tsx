@@ -134,7 +134,7 @@ const EditMemberPreferences = (): JSX.Element | null => {
                 onClick={saveSettings}
                 id={PREFERENCES_SAVE_BUTTON_ID}
               >
-                {t('PUBLIC_PROFILE_SUBMIT_TEXT')}
+                {t('SAVE_CHANGES_TEXT')}
               </Button>
             </Stack>
           </RoundedStack>
