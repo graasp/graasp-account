@@ -1,6 +1,6 @@
 import { ChangeEvent, useState } from 'react';
 
-import { Box, Button, Stack, TextField } from '@mui/material';
+import { Button, Stack, TextField } from '@mui/material';
 import Typography from '@mui/material/Typography';
 
 import { isPasswordStrong } from '@graasp/sdk';
