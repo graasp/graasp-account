@@ -55,6 +55,7 @@ const Content = (): JSX.Element => {
 
     if (error && isAxiosError(error)) {
       const statusCode = error.response?.status;
+
       if (statusCode === HttpStatusCode.Unauthorized) {
         return (
           <Alert severity="error">
@@ -81,13 +82,16 @@ const Content = (): JSX.Element => {
           </Alert>
         );
       }
+
       if (statusCode === HttpStatusCode.Conflict) {
-        <Alert severity="error">
-          <AlertTitle>{translate('Email already registered')}</AlertTitle>
-          {translate(
-            'The email you are trying to validate is not available anymore because it has been registered with a different Graasp account.',
-          )}
-        </Alert>;
+        return (
+          <Alert severity="error">
+            <AlertTitle>{translate('Email already registered')}</AlertTitle>
+            {translate(
+              'The email you are trying to validate is not available anymore because it has been registered with a different Graasp account.',
+            )}
+          </Alert>
+        );
       }
     }
 
