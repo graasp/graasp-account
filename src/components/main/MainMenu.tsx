@@ -3,7 +3,6 @@ import { useLocation, useNavigate } from 'react-router-dom';
 import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 import DataUsageIcon from '@mui/icons-material/DataUsage';
 import HomeIcon from '@mui/icons-material/Home';
-import PasswordIcon from '@mui/icons-material/Password';
 import { ListItemButton } from '@mui/material';
 import List from '@mui/material/List';
 import ListItemIcon from '@mui/material/ListItemIcon';
@@ -17,7 +16,6 @@ import { useAccountTranslation } from '../../config/i18n';
 import {
   HOME_PATH,
   MANAGE_ACCOUNT_PATH,
-  PASSWORD_SETTINGS_PATH,
   PROFILE_PATH,
   STORAGE_PATH,
 } from '../../config/paths';
@@ -54,16 +52,7 @@ const MainMenu = (): JSX.Element => {
 
         <ListItemText primary={t('MAIN_MENU_PROFILE')} />
       </ListItemButton>
-      <ListItemButton
-        onClick={() => goTo(PASSWORD_SETTINGS_PATH)}
-        selected={pathname === PASSWORD_SETTINGS_PATH}
-      >
-        <ListItemIcon>
-          <PasswordIcon />
-        </ListItemIcon>
-
-        <ListItemText primary={t('MAIN_MENU_PASSWORD')} />
-      </ListItemButton>
+      
       <ListItemButton
         onClick={() => goTo(STORAGE_PATH)}
         selected={pathname === STORAGE_PATH}
