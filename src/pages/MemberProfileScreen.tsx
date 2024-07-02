@@ -1,5 +1,4 @@
-import { Container, Divider, Stack, Typography } from '@mui/material';
-
+import ScreenLayout from '@/components/layout/ScreenLayout';
 import MemberPersonalInformation from '@/components/main/MemberPersonalInformation';
 import MemberPublicProfile from '@/components/main/MemberPublicProfile';
 import { useAccountTranslation } from '@/config/i18n';
@@ -7,16 +6,10 @@ import { useAccountTranslation } from '@/config/i18n';
 const MemberProfileScreen = (): JSX.Element => {
   const { t } = useAccountTranslation();
   return (
-    <Container maxWidth="lg">
-      <Stack spacing={2}>
-        <Typography variant="h2" component="h1">
-          {t('PROFILE_TITLE')}
-        </Typography>
-        <Divider />
-        <MemberPersonalInformation />
-        <MemberPublicProfile />
-      </Stack>
-    </Container>
+    <ScreenLayout title={t('PROFILE_TITLE')}>
+      <MemberPersonalInformation />
+      <MemberPublicProfile />
+    </ScreenLayout>
   );
 };
 

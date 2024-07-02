@@ -23,7 +23,7 @@ import {
 import { SIGN_IN_PATH } from '../support/server';
 import { ID_FORMAT, MemberForTest } from '../support/utils';
 
-const { GET_CURRENT_MEMBER_ROUTE, buildUploadAvatarRoute } = API_ROUTES;
+const { buildGetCurrentMember, buildUploadAvatarRoute } = API_ROUTES;
 const API_HOST = Cypress.env('VITE_GRAASP_API_HOST');
 
 type TestHelperInput = { currentMember: MemberForTest };
@@ -39,7 +39,7 @@ class TestHelper {
     cy.intercept(
       {
         method: HttpMethod.Get,
-        url: `${API_HOST}/${GET_CURRENT_MEMBER_ROUTE}`,
+        url: `${API_HOST}/${buildGetCurrentMember()}`,
       },
       ({ reply }) =>
         reply({ statusCode: StatusCodes.OK, body: this.currentMember }),

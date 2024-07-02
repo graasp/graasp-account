@@ -5,6 +5,7 @@ import { Alert, Skeleton, Stack, Typography, styled } from '@mui/material';
 import { formatFileSize } from '@graasp/sdk';
 import { FAILURE_MESSAGES } from '@graasp/translations';
 
+import ScreenLayout from '@/components/layout/ScreenLayout';
 import { ADMIN_CONTACT } from '@/config/constants';
 import { useAccountTranslation, useMessagesTranslation } from '@/config/i18n';
 import { hooks } from '@/config/queryClient';
@@ -85,34 +86,22 @@ const StorageScreen = (): JSX.Element => {
   const { t } = useAccountTranslation();
 
   return (
-    <Stack spacing={2} maxWidth="700px">
-      <Stack direction="column">
-        <Stack>
-          <Typography variant="h4" component="h1">
-            {t('STORAGE_TITLE')}
-          </Typography>
-        </Stack>
-        <Stack>
-          <Typography variant="body1">
-            <Trans
-              t={t}
-              i18nKey="STORAGE_TEXT"
-              values={{
-                email: ADMIN_CONTACT,
-              }}
-              components={[<a href={`mailto:${ADMIN_CONTACT}`}>this email</a>]}
-            />
-          </Typography>
-
-          <Alert severity="info" sx={{ mt: 2, mb: 1 }}>
-            {t('STORAGE_INFO')}
-          </Alert>
-        </Stack>
+    <ScreenLayout title={t('STORAGE_TITLE')}>
+      <Stack gap={2}>
+        <Typography variant="body1">
+          <Trans
+            t={t}
+            i18nKey="STORAGE_TEXT"
+            values={{
+              email: ADMIN_CONTACT,
+            }}
+            components={[<a href={`mailto:${ADMIN_CONTACT}`}>this email</a>]}
+          />
+        </Typography>
+        <Alert severity="info">{t('STORAGE_INFO')}</Alert>
       </Stack>
-      <Stack direction="row" alignItems="center" spacing={2}>
-        <StorageBar />
-      </Stack>
-    </Stack>
+      <StorageBar />
+    </ScreenLayout>
   );
 };
 

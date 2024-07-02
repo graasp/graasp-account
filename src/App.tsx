@@ -11,10 +11,10 @@ import { GRAASP_AUTH_HOST } from './config/env';
 import {
   EDIT_MEMBER_INFO,
   HOME_PATH,
-  MANAGE_ACCOUNT_PATH,
   PASSWORD_SETTINGS_PATH,
   PROFILE_PATH,
   PUBLIC_PROFILE_PATH,
+  SETTINGS_PATH,
   STORAGE_PATH,
 } from './config/paths';
 import { hooks } from './config/queryClient';
@@ -92,18 +92,15 @@ export const App = (): JSX.Element => {
             element={<EditMemberProfileWithAuthorization />}
           />
           <Route
-            path={PASSWORD_SETTINGS_PATH}
-            element={<PasswordSettingsWithAuthorization />}
-          />
-          <Route
             path={PUBLIC_PROFILE_PATH}
             element={<PublicProfileWithAuthorization />}
           />
           <Route
-            path={MANAGE_ACCOUNT_PATH}
-            element={<SettingsWithAuthorization />}
+            path={PASSWORD_SETTINGS_PATH}
+            element={<PasswordSettingsWithAuthorization />}
           />
           <Route path={STORAGE_PATH} element={<StorageWithAuthorization />} />
+          <Route path={SETTINGS_PATH} element={<SettingsWithAuthorization />} />
         </Route>
       </Routes>
     );
