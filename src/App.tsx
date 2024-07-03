@@ -7,11 +7,9 @@ import { Alert } from '@mui/material';
 import { buildSignInPath } from '@graasp/sdk';
 import { CustomInitialLoader, withAuthorization } from '@graasp/ui';
 
-import EditMemberPreferences from './components/main/EditMemberPreferences';
 import { GRAASP_AUTH_HOST } from './config/env';
 import {
   EDIT_MEMBER_INFO,
-  EDIT_MEMBER_PREFERENCES,
   HOME_PATH,
   MANAGE_ACCOUNT_PATH,
   PASSWORD_SETTINGS_PATH,
@@ -79,10 +77,6 @@ export const App = (): JSX.Element => {
     SettingsScreen,
     withAuthorizationProps,
   );
-  const EditPreferencesWithAuthorization = withAuthorization(
-    EditMemberPreferences,
-    withAuthorizationProps,
-  );
 
   if (currentMember) {
     return (
@@ -109,10 +103,7 @@ export const App = (): JSX.Element => {
             path={MANAGE_ACCOUNT_PATH}
             element={<SettingsWithAuthorization />}
           />
-          <Route
-            path={EDIT_MEMBER_PREFERENCES}
-            element={<EditPreferencesWithAuthorization />}
-          />
+
           <Route path={STORAGE_PATH} element={<StorageWithAuthorization />} />
         </Route>
       </Routes>
