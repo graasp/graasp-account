@@ -43,14 +43,14 @@ const EditMemberPreferences = ({
     useState<`${EmailFrequency}`>(
       member?.extra?.emailFreq ?? DEFAULT_EMAIL_FREQUENCY,
     );
-  const [enableSaveActions, setEnableSaveActions] = useState(
+  const [switchedSaveActions, setSwitchedSaveActions] = useState(
     member?.enableSaveActions,
   );
 
   if (member) {
     const handleOnToggle = (event: { target: { checked: boolean } }): void => {
       const cheked = event.target.checked;
-      setEnableSaveActions(cheked);
+      setSwitchedSaveActions(cheked);
     };
     const saveSettings = () => {
       editMember({
@@ -59,13 +59,13 @@ const EditMemberPreferences = ({
           lang: selectedLang,
           emailFreq: selectedEmailFreq,
         },
-        enableSaveActions,
+        enableSaveActions: switchedSaveActions,
       });
       onCancel();
     };
 
     return (
-      <>
+      <Stack id="editMemberPreferencesFormId">
         <Stack direction="row" justifyContent="space-between">
           <Typography variant="h5">{t('PROFILE_PREFERENCES_TITLE')}</Typography>
           <Stack direction="row" spacing={2} justifyContent="flex-end">
@@ -124,13 +124,13 @@ const EditMemberPreferences = ({
               <Switch
                 data-cy={MEMBER_PROFILE_ANALYTICS_SWITCH_ID}
                 onChange={handleOnToggle}
-                checked={enableSaveActions}
+                checked={switchedSaveActions}
                 color="primary"
               />
             </Tooltip>
           </Grid>
         </Grid>
-      </>
+      </Stack>
     );
   }
   if (isLoading) {

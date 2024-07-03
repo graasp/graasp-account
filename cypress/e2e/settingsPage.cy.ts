@@ -1,5 +1,6 @@
-import { EDIT_MEMBER_PREFERENCES, MANAGE_ACCOUNT_PATH } from '@/config/paths';
+import { MANAGE_ACCOUNT_PATH } from '@/config/paths';
 import {
+  EDIT_PREFERENCES_FORM_ID,
   MEMBER_PROFILE_ANALYTICS_SWITCH_ID,
   MEMBER_PROFILE_EDIT_PREFERENCES_BUTTON_ID,
   MEMBER_PROFILE_EMAIL_FREQUENCY_ID,
@@ -97,8 +98,8 @@ describe('Check the edit button', () => {
     cy.visit(MANAGE_ACCOUNT_PATH);
     cy.wait('@getCurrentMember');
   });
-  it('after click should redirect to edit preferences page', () => {
+  it('after click should display the edit preferences form', () => {
     cy.get(`#${MEMBER_PROFILE_EDIT_PREFERENCES_BUTTON_ID}`).click();
-    cy.location('pathname').should('eq', `${EDIT_MEMBER_PREFERENCES}`);
+    cy.get(`#${EDIT_PREFERENCES_FORM_ID}`).should('be.visible');
   });
 });

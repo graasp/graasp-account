@@ -17,7 +17,7 @@ export const MEMBER_PROFILE_EDIT_PREFERENCES_BUTTON_ID =
   'memberProfileEditPreferencesButtonId';
 export const PREFERENCES_SAVE_BUTTON_ID = 'preferencesSaveButtonId';
 export const PREFERENCES_CLOSE_BUTTON_ID = 'preferencesCloseButtonId';
-
+export const EDIT_PREFERENCES_FORM_ID = 'editMemberPreferencesFormId';
 export const HEADER_APP_BAR_ID = 'headerAppBar';
 export const HEADER_USER_ID = 'headerUser';
 export const USER_MENU_SIGN_OUT_OPTION_ID = 'userMenuSignOutOption';

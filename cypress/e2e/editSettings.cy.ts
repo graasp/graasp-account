@@ -1,6 +1,7 @@
-import { EDIT_MEMBER_PREFERENCES, MANAGE_ACCOUNT_PATH } from '@/config/paths';
+import { MANAGE_ACCOUNT_PATH } from '@/config/paths';
 import {
   MEMBER_PROFILE_ANALYTICS_SWITCH_ID,
+  MEMBER_PROFILE_EDIT_PREFERENCES_BUTTON_ID,
   MEMBER_PROFILE_EMAIL_FREQUENCY_ID,
   MEMBER_PROFILE_LANGUAGE_SWITCH_ID,
   PREFERENCES_CLOSE_BUTTON_ID,
@@ -13,11 +14,12 @@ import { buildDataCySelector } from '../support/utils';
 
 const currentMember = CURRENT_MEMBER;
 
-const expectEnableSaveActionsInRequestToBe = (enableSaveActions: boolean) =>
-  cy
-    .wait('@editMember')
+const expectEnableSaveActionsInRequestToBe = (enableSaveActions: boolean) => {
+  cy.get(`#${PREFERENCES_SAVE_BUTTON_ID}`).click();
+  cy.wait('@editMember')
     .its('request.body.enableSaveActions')
     .should('eq', enableSaveActions);
+};
 
 const expectEnableSaveActionsInResponseToBe = (enableSaveActions: boolean) =>
   cy
@@ -25,10 +27,15 @@ const expectEnableSaveActionsInResponseToBe = (enableSaveActions: boolean) =>
     .its('response.body.enableSaveActions')
     .should('eq', enableSaveActions);
 
-const expectAnalyticsSwitchToBe = (enabled: boolean) =>
-  cy
-    .get(buildDataCySelector(MEMBER_PROFILE_ANALYTICS_SWITCH_ID, 'input'))
-    .should(`${enabled ? '' : 'not.'}be.checked`);
+const expectAnalyticsSwitchToBe = (enabled: boolean) => {
+  cy.visit(MANAGE_ACCOUNT_PATH);
+  cy.get(`#${MEMBER_PROFILE_EDIT_PREFERENCES_BUTTON_ID}`).click();
+  cy.wait('@getCurrentMember');
+
+  cy.get(
+    buildDataCySelector(MEMBER_PROFILE_ANALYTICS_SWITCH_ID, 'input'),
+  ).should(`${enabled ? '' : 'not.'}be.checked`);
+};
 
 const clickOnAnalyticsSwitch = () =>
   cy
@@ -68,8 +75,8 @@ describe('Checks the analytics switch', () => {
           enableSaveActions: true,
         },
       });
-      cy.visit(EDIT_MEMBER_PREFERENCES);
-      // wait on current member request to update then the mock response for current member
+      cy.visit(MANAGE_ACCOUNT_PATH);
+      cy.get(`#${MEMBER_PROFILE_EDIT_PREFERENCES_BUTTON_ID}`).click();
       cy.wait('@getCurrentMember');
     });
 
@@ -90,8 +97,8 @@ describe('Checks the analytics switch', () => {
           enableSaveActions: false,
         },
       });
-      cy.visit(EDIT_MEMBER_PREFERENCES);
-      // wait on current member request to update then the mock response for current member
+      cy.visit(MANAGE_ACCOUNT_PATH);
+      cy.get(`#${MEMBER_PROFILE_EDIT_PREFERENCES_BUTTON_ID}`).click();
       cy.wait('@getCurrentMember');
     });
 
@@ -110,7 +117,9 @@ describe('Checks the current member language', () => {
     cy.setUpApi({
       currentMember: { ...currentMember, extra: { lang: 'es' } },
     });
-    cy.visit(EDIT_MEMBER_PREFERENCES);
+    cy.visit(MANAGE_ACCOUNT_PATH);
+    cy.get(`#${MEMBER_PROFILE_EDIT_PREFERENCES_BUTTON_ID}`).click();
+
     cy.wait('@getCurrentMember');
   });
 
@@ -126,7 +135,9 @@ describe('Checks the language switch', () => {
     cy.setUpApi({
       currentMember: BOB,
     });
-    cy.visit(EDIT_MEMBER_PREFERENCES);
+    cy.visit(MANAGE_ACCOUNT_PATH);
+    cy.get(`#${MEMBER_PROFILE_EDIT_PREFERENCES_BUTTON_ID}`).click();
+
     cy.wait('@getCurrentMember');
   });
   it('should select an option from the select component', () => {
@@ -146,7 +157,9 @@ describe('Checks the current email frequency', () => {
         extra: { emailFreq: 'always', langs: 'en' },
       },
     });
-    cy.visit(EDIT_MEMBER_PREFERENCES);
+    cy.visit(MANAGE_ACCOUNT_PATH);
+    cy.get(`#${MEMBER_PROFILE_EDIT_PREFERENCES_BUTTON_ID}`).click();
+
     cy.wait('@getCurrentMember');
   });
 
@@ -163,7 +176,9 @@ describe('Checks the email frequency switch', () => {
     cy.setUpApi({
       currentMember: BOB,
     });
-    cy.visit(EDIT_MEMBER_PREFERENCES);
+    cy.visit(MANAGE_ACCOUNT_PATH);
+    cy.get(`#${MEMBER_PROFILE_EDIT_PREFERENCES_BUTTON_ID}`).click();
+
     cy.wait('@getCurrentMember');
   });
   it('should select an option from the select component', () => {
@@ -180,15 +195,16 @@ describe('Check the close button', () => {
     cy.setUpApi({
       currentMember: BOB,
     });
-    cy.visit(EDIT_MEMBER_PREFERENCES);
+    cy.visit(MANAGE_ACCOUNT_PATH);
+    cy.get(`#${MEMBER_PROFILE_EDIT_PREFERENCES_BUTTON_ID}`).click();
+
     cy.wait('@getCurrentMember');
   });
 
-  it('should not update preferences if canceling edit', () => {
+  it('should not update preferences if canceling edit and displays read only settings page', () => {
     switchLanguage('de');
     switchEmailFreq('always');
     cy.get(`#${PREFERENCES_CLOSE_BUTTON_ID}`).click();
-    cy.location('pathname').should('eq', `${MANAGE_ACCOUNT_PATH}`);
     cy.get(`#${MEMBER_PROFILE_LANGUAGE_SWITCH_ID}`).should(
       'contain',
       'English',
@@ -197,9 +213,5 @@ describe('Check the close button', () => {
       'contain',
       'Always receive email notifications',
     );
-  });
-  it('after click should redirect to read settings page', () => {
-    cy.get(`#${PREFERENCES_CLOSE_BUTTON_ID}`).click();
-    cy.location('pathname').should('eq', `${MANAGE_ACCOUNT_PATH}`);
   });
 });
