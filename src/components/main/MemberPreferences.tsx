@@ -29,13 +29,13 @@ const MemberPreferences = (): JSX.Element => {
     setIsEditing(true);
   };
 
-  const handleCancelClick = () => {
+  const handleClose = () => {
     setIsEditing(false);
   };
   return (
     <RoundedStack>
       {isEditing ? (
-        <EditMemberPreferences onCancel={handleCancelClick} />
+        <EditMemberPreferences onClose={handleClose} />
       ) : (
         <>
           <Stack direction="row" justifyContent="space-between">

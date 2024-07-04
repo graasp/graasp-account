@@ -27,12 +27,12 @@ import {
   PREFERENCES_SAVE_BUTTON_ID,
 } from '@/config/selectors';
 
-type EditPreferencesProp = {
-  onCancel: () => void;
+type oncloseProp = {
+  onClose: () => void;
 };
 const EditMemberPreferences = ({
-  onCancel,
-}: EditPreferencesProp): JSX.Element | null => {
+  onClose,
+}: oncloseProp): JSX.Element | null => {
   const { t } = useAccountTranslation();
   const { data: member, isLoading } = hooks.useCurrentMember();
   const { mutate: editMember } = mutations.useEditMember();
@@ -61,7 +61,7 @@ const EditMemberPreferences = ({
         },
         enableSaveActions: switchedSaveActions,
       });
-      onCancel();
+      onClose();
     };
 
     return (
@@ -70,7 +70,7 @@ const EditMemberPreferences = ({
           <Typography variant="h5">{t('PROFILE_PREFERENCES_TITLE')}</Typography>
           <Stack direction="row" spacing={2} justifyContent="flex-end">
             <Button
-              onClick={onCancel}
+              onClick={onClose}
               variant="outlined"
               id={PREFERENCES_CLOSE_BUTTON_ID}
             >
