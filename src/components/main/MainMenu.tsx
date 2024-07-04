@@ -52,7 +52,7 @@ const MainMenu = (): JSX.Element => {
 
         <ListItemText primary={t('MAIN_MENU_PROFILE')} />
       </ListItemButton>
-
+      
       <ListItemButton
         onClick={() => goTo(STORAGE_PATH)}
         selected={pathname === STORAGE_PATH}
