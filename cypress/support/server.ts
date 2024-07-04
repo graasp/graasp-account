@@ -220,7 +220,7 @@ export const mockUpdatePassword = (
         return reply({ statusCode: StatusCodes.BAD_REQUEST });
       }
 
-      return reply('update password');
+      return reply({ statusCode: StatusCodes.OK });
     },
   ).as('updatePassword');
 };

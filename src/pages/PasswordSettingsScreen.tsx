@@ -8,8 +8,16 @@ import { FAILURE_MESSAGES } from '@graasp/translations';
 
 import { useAccountTranslation } from '@/config/i18n';
 import { mutations } from '@/config/queryClient';
+import {
+  CONFIRM_PASSWORD_ID,
+  NEW_PASSWORD_ID,
+  PASSWORD_SAVE_BUTTON_ID,
+} from '@/config/selectors';
 
-const PasswordSettings = (): JSX.Element => {
+type onCloseProp = {
+  onClose: () => void;
+};
+const PasswordSettings = ({ onClose }: onCloseProp): JSX.Element => {
   const { t } = useAccountTranslation();
 
   const [currentPassword, setCurrentPassword] = useState('');
@@ -34,7 +42,7 @@ const PasswordSettings = (): JSX.Element => {
     return newPasswordIsNotEmpty || confirmPasswordIsNotEmpty;
   };
 
-  const onClose = () => {
+  const onCancel = () => {
     setCurrentPassword('');
     setNewPassword('');
     setConfirmPassword('');
@@ -55,28 +63,29 @@ const PasswordSettings = (): JSX.Element => {
         return;
       }
 
-      // check password strength for new password
-      if (!isPasswordStrong(newPassword)) {
-        setNewPasswordError(FAILURE_MESSAGES.PASSWORD_WEAK_ERROR);
-        return;
-      }
-
       // perform password update
       updatePassword({
         password: newPassword,
         currentPassword,
       });
     }
-
+    onCancel();
     onClose();
   };
 
   const handleCurrentPasswordInput = (event: ChangeEvent<HTMLInputElement>) => {
     setCurrentPassword(event.target.value);
   };
+
   const handleNewPasswordInput = (event: ChangeEvent<HTMLInputElement>) => {
     setNewPassword(event.target.value);
-    setNewPasswordError(event.target.value ? null : 'Password is empty');
+    if (!event.target.value) {
+      setNewPasswordError(event.target.value ? null : 'Password is empty');
+    } else if (!isPasswordStrong(event.target.value)) {
+      setNewPasswordError(FAILURE_MESSAGES.PASSWORD_WEAK_ERROR);
+    } else {
+      setNewPasswordError(null);
+    }
   };
   const handleConfirmPasswordInput = (event: ChangeEvent<HTMLInputElement>) => {
     setConfirmPassword(event.target.value);
@@ -84,10 +93,25 @@ const PasswordSettings = (): JSX.Element => {
   };
 
   return (
-    <Stack direction="column" spacing={1}>
-      <Typography variant="h4" component="h1">
-        {t('PASSWORD_SETTINGS_TITLE')}
-      </Typography>
+    <>
+      <Stack direction="row" justifyContent="space-between">
+        <Typography variant="h5">{t('PASSWORD_SETTINGS_TITLE')}</Typography>
+
+        <Stack direction="row" spacing={2} justifyContent="flex-end">
+          <Button variant="outlined" onClick={onClose}>
+            {t('CLOSE_BUTTON')}
+          </Button>
+          <Button
+            variant="contained"
+            color="primary"
+            onClick={handleChangePassword}
+            id={PASSWORD_SAVE_BUTTON_ID}
+            disabled={Boolean(newPasswordError)}
+          >
+            {t('PASSWORD_SETTINGS_CONFIRM_BUTTON')}
+          </Button>
+        </Stack>
+      </Stack>
       <Typography variant="body1">
         {t('PASSWORD_SETTINGS_CONFIRM_INFORMATION')}
       </Typography>
@@ -115,6 +139,7 @@ const PasswordSettings = (): JSX.Element => {
             helperText={newPasswordError}
             onChange={handleNewPasswordInput}
             type="password"
+            id={NEW_PASSWORD_ID}
           />
           <TextField
             required
@@ -125,28 +150,11 @@ const PasswordSettings = (): JSX.Element => {
             helperText={confirmPasswordError}
             onChange={handleConfirmPasswordInput}
             type="password"
+            id={CONFIRM_PASSWORD_ID}
           />
         </Stack>
-
-        <Stack direction="row" spacing={2}>
-          <Button
-            variant="outlined"
-            disabled
-            // TODO: add code to reset password
-            // onClick={() => handleChangePassword()}
-          >
-            {t('PASSWORD_SETTINGS_REQUEST_RESET_BUTTON')}
-          </Button>
-          <Button
-            variant="contained"
-            color="primary"
-            onClick={handleChangePassword}
-          >
-            {t('PASSWORD_SETTINGS_CONFIRM_BUTTON')}
-          </Button>
-        </Stack>
       </Stack>
-    </Stack>
+    </>
   );
 };
 

@@ -1,9 +1,6 @@
+import { PROFILE_PATH, PUBLIC_PROFILE_PATH } from '@/config/paths';
 import {
-  EDIT_MEMBER_INFO,
-  PROFILE_PATH,
-  PUBLIC_PROFILE_PATH,
-} from '@/config/paths';
-import {
+  EDIT_MEMBER_INFO_FORM_ID,
   MEMBER_PROFILE_EMAIL_ID,
   PERSONAL_INFO_EDIT_BUTTON_ID,
   PUBLIC_PROFILE_BIO_ID,
@@ -136,7 +133,7 @@ describe('Check the edit buttons', () => {
   });
   it('after click should redirect to edit personal info page', () => {
     cy.get(`#${PERSONAL_INFO_EDIT_BUTTON_ID}`).click();
-    cy.location('pathname').should('eq', `${EDIT_MEMBER_INFO}`);
+    cy.get(`#${EDIT_MEMBER_INFO_FORM_ID}`).should('be.visible');
   });
   it('after click should redirect to edit public profile page', () => {
     cy.get(`#${PUBLIC_PROFILE_EDIT_BUTTON_ID}`).click();

@@ -9,21 +9,17 @@ import { CustomInitialLoader, withAuthorization } from '@graasp/ui';
 
 import { GRAASP_AUTH_HOST } from './config/env';
 import {
-  EDIT_MEMBER_INFO,
   HOME_PATH,
   MANAGE_ACCOUNT_PATH,
-  PASSWORD_SETTINGS_PATH,
   PROFILE_PATH,
   PUBLIC_PROFILE_PATH,
   STORAGE_PATH,
 } from './config/paths';
 import { hooks } from './config/queryClient';
-import EditMemberPersonalInformation from './pages/EditMemberPersonalInformation';
 import EditPublicProfileScreen from './pages/EditPublicProfileScreen';
 import HomePage from './pages/HomePage';
 import MemberProfileScreen from './pages/MemberProfileScreen';
 import PageWrapper from './pages/PageWrapper';
-import PasswordSettingsScreen from './pages/PasswordSettingsScreen';
 import SettingsScreen from './pages/SettingsScreen';
 import StorageScreen from './pages/StorageScreen';
 
@@ -57,14 +53,6 @@ export const App = (): JSX.Element => {
     MemberProfileScreen,
     withAuthorizationProps,
   );
-  const EditMemberProfileWithAuthorization = withAuthorization(
-    EditMemberPersonalInformation,
-    withAuthorizationProps,
-  );
-  const PasswordSettingsWithAuthorization = withAuthorization(
-    PasswordSettingsScreen,
-    withAuthorizationProps,
-  );
   const StorageWithAuthorization = withAuthorization(
     StorageScreen,
     withAuthorizationProps,
@@ -86,14 +74,6 @@ export const App = (): JSX.Element => {
           <Route
             path={PROFILE_PATH}
             element={<MemberProfileWithAuthorization />}
-          />
-          <Route
-            path={EDIT_MEMBER_INFO}
-            element={<EditMemberProfileWithAuthorization />}
-          />
-          <Route
-            path={PASSWORD_SETTINGS_PATH}
-            element={<PasswordSettingsWithAuthorization />}
           />
           <Route
             path={PUBLIC_PROFILE_PATH}

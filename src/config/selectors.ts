@@ -28,9 +28,6 @@ export const APP_NAVIGATION_PLATFORM_SWITCH_ID = 'appNavigationPlatformSwitch';
 
 export const STORAGE_PROGRESS_BAR_ID = 'storageProgressBar';
 
-export const USERNAME_EDIT_BUTTON_ID = 'username-edit-button';
-export const USERNAME_SAVE_BUTTON_ID = 'username-save-button';
-export const USERNAME_CANCEL_BUTTON_ID = 'username-cancel-button';
 export const USERNAME_INPUT_FIELD_ID = 'username-input-field';
 export const USERNAME_DISPLAY_ID = 'username-display';
 
@@ -49,6 +46,10 @@ export const buildDataCyWrapper = (dataCy: string): string =>
 export const PUBLIC_PROFILE_BIO_ID = 'publicProfileBioId';
 export const PUBLIC_PROFILE_EDIT_BUTTON_ID = 'publicProfileEditButtonId';
 export const PERSONAL_INFO_EDIT_BUTTON_ID = 'personalInfoEditButtonId';
+export const PERSONAL_INFO_EDIT_CANCEL_BUTTON_ID =
+  'personlInfoEditCancelButtonId';
+export const PERSONAL_INFO_EDIT_SAVE_BUTTON_ID = 'personlInfoEditSaveButtonId';
+
 export const PUBLIC_PROFILE_SAVE_BUTTON_ID = 'publicProfileSaveButtonId';
 
 export const PUBLIC_PROFILE_LINKEDIN_ID = 'publicProfileLinkedInId';
@@ -61,3 +62,9 @@ export const PUBLIC_PROFILE_FACEBOOK_ID = 'publicProfileFacebookId';
 export const PUBLIC_PROFILE_FACEBOOK_HREF_ID = 'publicProfileFacebookHrefId';
 
 export const PASSWORD_DISPLAY_ID = 'passwordDisplayId';
+export const PASSWORD_EDIT_BUTTON_ID = 'passwordEditButtonId';
+export const NEW_PASSWORD_ID = 'newPasswordId';
+export const CONFIRM_PASSWORD_ID = 'confirmPasswordId';
+export const PASSWORD_SAVE_BUTTON_ID = 'passwordSaveButtonId';
+
+export const EDIT_MEMBER_INFO_FORM_ID = 'editMemberInfoFormId';
