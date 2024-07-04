@@ -27,12 +27,12 @@ import {
   PREFERENCES_SAVE_BUTTON_ID,
 } from '@/config/selectors';
 
-type oncloseProp = {
+type EditPreferencesProp = {
   onClose: () => void;
 };
 const EditMemberPreferences = ({
   onClose,
-}: oncloseProp): JSX.Element | null => {
+}: EditPreferencesProp): JSX.Element | null => {
   const { t } = useAccountTranslation();
   const { data: member, isLoading } = hooks.useCurrentMember();
   const { mutate: editMember } = mutations.useEditMember();
