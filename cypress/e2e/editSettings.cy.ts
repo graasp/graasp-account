@@ -1,4 +1,4 @@
-import { MANAGE_ACCOUNT_PATH } from '@/config/paths';
+import { SETTINGS_PATH } from '@/config/paths';
 import {
   MEMBER_PROFILE_ANALYTICS_SWITCH_ID,
   MEMBER_PROFILE_EDIT_PREFERENCES_BUTTON_ID,
@@ -27,7 +27,7 @@ const expectEnableSaveActionsInResponseToBe = (enableSaveActions: boolean) =>
     .should('eq', enableSaveActions);
 
 const expectAnalyticsSwitchToBe = (enabled: boolean) => {
-  cy.visit(MANAGE_ACCOUNT_PATH);
+  cy.visit(SETTINGS_PATH);
   cy.get(`#${MEMBER_PROFILE_EDIT_PREFERENCES_BUTTON_ID}`).click();
   cy.wait('@getCurrentMember');
 
@@ -75,7 +75,7 @@ describe('Checks the analytics switch', () => {
           enableSaveActions: true,
         },
       });
-      cy.visit(MANAGE_ACCOUNT_PATH);
+      cy.visit(SETTINGS_PATH);
       cy.get(`#${MEMBER_PROFILE_EDIT_PREFERENCES_BUTTON_ID}`).click();
       cy.wait('@getCurrentMember');
     });
@@ -97,7 +97,7 @@ describe('Checks the analytics switch', () => {
           enableSaveActions: false,
         },
       });
-      cy.visit(MANAGE_ACCOUNT_PATH);
+      cy.visit(SETTINGS_PATH);
       cy.get(`#${MEMBER_PROFILE_EDIT_PREFERENCES_BUTTON_ID}`).click();
       cy.wait('@getCurrentMember');
     });
@@ -117,7 +117,7 @@ describe('Checks the current member language', () => {
     cy.setUpApi({
       currentMember: { ...currentMember, extra: { lang: 'es' } },
     });
-    cy.visit(MANAGE_ACCOUNT_PATH);
+    cy.visit(SETTINGS_PATH);
     cy.get(`#${MEMBER_PROFILE_EDIT_PREFERENCES_BUTTON_ID}`).click();
 
     cy.wait('@getCurrentMember');
@@ -135,7 +135,7 @@ describe('Checks the language switch', () => {
     cy.setUpApi({
       currentMember: BOB,
     });
-    cy.visit(MANAGE_ACCOUNT_PATH);
+    cy.visit(SETTINGS_PATH);
     cy.get(`#${MEMBER_PROFILE_EDIT_PREFERENCES_BUTTON_ID}`).click();
 
     cy.wait('@getCurrentMember');
@@ -157,7 +157,7 @@ describe('Checks the current email frequency', () => {
         extra: { emailFreq: 'always', langs: 'en' },
       },
     });
-    cy.visit(MANAGE_ACCOUNT_PATH);
+    cy.visit(SETTINGS_PATH);
     cy.get(`#${MEMBER_PROFILE_EDIT_PREFERENCES_BUTTON_ID}`).click();
 
     cy.wait('@getCurrentMember');
@@ -176,7 +176,7 @@ describe('Checks the email frequency switch', () => {
     cy.setUpApi({
       currentMember: BOB,
     });
-    cy.visit(MANAGE_ACCOUNT_PATH);
+    cy.visit(SETTINGS_PATH);
     cy.get(`#${MEMBER_PROFILE_EDIT_PREFERENCES_BUTTON_ID}`).click();
 
     cy.wait('@getCurrentMember');
@@ -195,7 +195,7 @@ describe('Check the close button', () => {
     cy.setUpApi({
       currentMember: BOB,
     });
-    cy.visit(MANAGE_ACCOUNT_PATH);
+    cy.visit(SETTINGS_PATH);
     cy.get(`#${MEMBER_PROFILE_EDIT_PREFERENCES_BUTTON_ID}`).click();
 
     cy.wait('@getCurrentMember');
