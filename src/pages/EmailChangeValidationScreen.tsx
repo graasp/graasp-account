@@ -47,16 +47,12 @@ const Content = (): JSX.Element => {
       });
       return (
         <>
-          <Alert
-            id={EMAIL_VALIDATION_SUCCESS_MESSAGE_ID}
-            severity="success"
-            sx={{ width: '100%' }}
-          >
-            <AlertTitle>{translate('Success')}</AlertTitle>
-            {translate('Email successfully updated !')}
+          <Alert id={EMAIL_VALIDATION_SUCCESS_MESSAGE_ID} severity="success">
+            <AlertTitle>{translate('EMAIL_UPDATE_SUCCESS_TITLE')}</AlertTitle>
+            {translate('EMAIL_UPDATE_SUCCESS_TEXT')}
           </Alert>
           <Button component={Link} to={loginLink}>
-            {translate('Login with my new email')}
+            {translate('EMAIL_UPDATE_SUCCESS_BUTTON_TEXT')}
           </Button>
         </>
       );
@@ -69,23 +65,19 @@ const Content = (): JSX.Element => {
         return (
           <Alert severity="error" id={EMAIL_VALIDATION_UNAUTHORIZED_MESSAGE_ID}>
             <AlertTitle>
-              {translate(
-                'We were unable to validate your email, the link might be outdated',
-              )}
+              {translate('EMAIL_UPDATE_UNAUTHORIZED_TITLE')}
             </AlertTitle>
             <Stack direction="column" gap={1}>
               <Typography>
-                {translate(
-                  'The link sent via email is valid for 24 hours only. Please ensure that you are using a fresh link.',
-                )}
+                {translate('EMAIL_UPDATE_UNAUTHORIZED_TEXT_LINK_VALIDITY')}
               </Typography>
               <Typography>
-                {translate(
-                  'You can generate a new link by editing your email in your profile.',
-                )}
+                {translate('EMAIL_UPDATE_UNAUTHORIZED_TEXT_LINK_GENERATION')}
               </Typography>
               <Button component={Link} to={EDIT_MEMBER_INFO}>
-                {translate('Edit my email in account settings')}
+                {translate(
+                  'EMAIL_UPDATE_UNAUTHORIZED_TEXT_LINK_GENERATION_BUTTON',
+                )}
               </Button>
             </Stack>
           </Alert>
@@ -95,10 +87,8 @@ const Content = (): JSX.Element => {
       if (statusCode === HttpStatusCode.Conflict) {
         return (
           <Alert severity="error" id={EMAIL_VALIDATION_CONFLICT_MESSAGE_ID}>
-            <AlertTitle>{translate('Email already registered')}</AlertTitle>
-            {translate(
-              'The email you are trying to validate is not available anymore because it has been registered with a different Graasp account.',
-            )}
+            <AlertTitle>{translate('')}</AlertTitle>
+            {translate('EMAIL_UPDATE_CONFLICT_TEXT')}
           </Alert>
         );
       }
@@ -124,7 +114,7 @@ const Content = (): JSX.Element => {
       </>
     );
   }
-  return <Typography>{translate('No token was found')}</Typography>;
+  return <Typography>{translate('EMAIL_UPDATE_MISSING_TOKEN')}</Typography>;
 };
 
 const EmailChangeValidationScreen = (): JSX.Element => (

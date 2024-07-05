@@ -89,5 +89,17 @@
   "SAVE_CHANGES_TEXT": "Save changes",
   "VALIDATE_EMAIL_TITLE": "Validate new Email",
   "VALIDATE_EMAIL_TEXT": "You requested to change your email, please click on the button below to validate your new email.",
-  "VALIDATE_EMAIL_BUTTON_TEXT": "Validate"
+  "VALIDATE_EMAIL_BUTTON_TEXT": "Validate",
+  "LOGIN_REQUIRED": "You need to login to access this page",
+  "LOGIN_REQUIRED_BUTTON_TEXT": "Go to Login",
+  "EMAIL_UPDATE_SUCCESS_TITLE": "Success",
+  "EMAIL_UPDATE_SUCCESS_TEXT": "Email successfully updated !",
+  "EMAIL_UPDATE_SUCCESS_BUTTON_TEXT": "Login with my new email",
+  "EMAIL_UPDATE_UNAUTHORIZED_TITLE": "We were unable to validate your email, the link might be outdated",
+  "EMAIL_UPDATE_UNAUTHORIZED_TEXT_LINK_VALIDITY": "The link sent via email is valid for 24 hours only. Please ensure that you are using a fresh link.",
+  "EMAIL_UPDATE_UNAUTHORIZED_TEXT_LINK_GENERATION": "You can generate a new link by editing your email in your profile.",
+  "EMAIL_UPDATE_UNAUTHORIZED_TEXT_LINK_GENERATION_BUTTON": "Edit my email in account settings",
+  "EMAIL_UPDATE_CONFLICT_TITLE": "Email already registered",
+  "EMAIL_UPDATE_CONFLICT_TEXT": "The email you are trying to validate is not available anymore because it has been registered with a different Graasp account.",
+  "EMAIL_UPDATE_MISSING_TOKEN": "No token was found"
 }

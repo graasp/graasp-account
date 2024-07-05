@@ -1214,9 +1214,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@graasp/query-client@github:graasp/graasp-query-client#update-email-mutation":
-  version: 3.15.0
-  resolution: "@graasp/query-client@https://github.com/graasp/graasp-query-client.git#commit=910b09bb378f749b4c8779769fc27306b79fb285"
+"@graasp/query-client@npm:3.15.1":
+  version: 3.15.1
+  resolution: "@graasp/query-client@npm:3.15.1"
   dependencies:
     "@tanstack/react-query": "npm:4.36.1"
     "@tanstack/react-query-devtools": "npm:4.36.1"
@@ -1227,7 +1227,7 @@ __metadata:
     "@graasp/sdk": ^4.0.0
     "@graasp/translations": "*"
     react: ^18.0.0
-  checksum: 10/c74521d869493a40ea2c92aa8539b52069ff919922b7da29de1b1bda8f905381cae9bf981a843248fce37d534a0fc53f633eeede856f5077e3f1e9be42da08f1
+  checksum: 10/71cf4c4ecc995a5f2e3cd90e90fdf00629cba91e2f6d904e2cc11b5e2c87c95f73488598904f6e578a88a4144d5e893f02cdd2178dc57b6904ed52584522c200
   languageName: node
   linkType: hard
 
@@ -6407,7 +6407,7 @@ __metadata:
     "@emotion/cache": "npm:11.11.0"
     "@emotion/react": "npm:11.11.4"
     "@emotion/styled": "npm:11.11.5"
-    "@graasp/query-client": "github:graasp/graasp-query-client#update-email-mutation"
+    "@graasp/query-client": "npm:3.15.1"
     "@graasp/sdk": "npm:4.16.0"
     "@graasp/translations": "npm:1.31.0"
     "@graasp/ui": "npm:4.20.3"

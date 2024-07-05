@@ -5,6 +5,7 @@ import { Link } from 'react-router-dom';
 import { Button, Typography } from '@mui/material';
 
 import { buildSignInPath } from '@graasp/sdk';
+import { DEFAULT_LANG } from '@graasp/translations';
 import { CustomInitialLoader } from '@graasp/ui';
 
 import CenteredContainer from '@/components/layout/CenteredContainer';
@@ -23,7 +24,7 @@ const RequireAuthentication = (): JSX.Element => {
 
   useEffect(() => {
     if (currentMember?.extra?.lang !== i18n.language) {
-      i18n.changeLanguage(currentMember?.extra?.lang ?? 'en');
+      i18n.changeLanguage(currentMember?.extra?.lang ?? DEFAULT_LANG);
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [currentMember]);
@@ -46,14 +47,14 @@ const RequireAuthentication = (): JSX.Element => {
   return (
     <CenteredContainer>
       <Typography id={LOGIN_REQUIRED_TEXT_ID}>
-        {translate('You need to login to access this page')}
+        {translate('LOGIN_REQUIRED')}
       </Typography>
       <Button
         component={Link}
         to={redirectionLink.toString()}
         id={LOGIN_REQUIRED_BUTTON_ID}
       >
-        {translate('Go to Login')}
+        {translate('LOGIN_REQUIRED_BUTTON_TEXT')}
       </Button>
     </CenteredContainer>
   );
