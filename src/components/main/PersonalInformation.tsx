@@ -1,5 +1,7 @@
 import { useNavigate } from 'react-router';
 
+import { Button } from '@mui/material';
+
 import { useAccountTranslation } from '@/config/i18n';
 import { EDIT_MEMBER_INFO } from '@/config/paths';
 import { hooks } from '@/config/queryClient';
@@ -13,7 +15,7 @@ import {
 import BorderedSection from '../layout/BorderedSection';
 import MemberProfileItem from './MemberProfileItem';
 
-const MemberPersonalInformation = (): JSX.Element | false => {
+const PersonalInformation = (): JSX.Element | false => {
   const { data: member } = hooks.useCurrentMember();
   const { t } = useAccountTranslation();
   const navigate = useNavigate();
@@ -21,9 +23,15 @@ const MemberPersonalInformation = (): JSX.Element | false => {
   return (
     <BorderedSection
       title={t('PERSONAL_INFORMATION_TITLE')}
-      onEdit={() => navigate(EDIT_MEMBER_INFO)}
-      editButtonText={t('EDIT_BUTTON_LABEL')}
-      editButtonId={PERSONAL_INFO_EDIT_BUTTON_ID}
+      actions={[
+        <Button
+          id={PERSONAL_INFO_EDIT_BUTTON_ID}
+          onClick={() => navigate(EDIT_MEMBER_INFO)}
+          variant="contained"
+        >
+          {t('EDIT_BUTTON_LABEL')}
+        </Button>,
+      ]}
     >
       <MemberProfileItem
         title={t('PROFILE_MEMBER_NAME')}
@@ -43,4 +51,4 @@ const MemberPersonalInformation = (): JSX.Element | false => {
   );
 };
 
-export default MemberPersonalInformation;
+export default PersonalInformation;

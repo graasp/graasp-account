@@ -1,4 +1,4 @@
-import { MANAGE_ACCOUNT_PATH } from '@/config/paths';
+import { SETTINGS_PATH } from '@/config/paths';
 import {
   EDIT_PREFERENCES_FORM_ID,
   MEMBER_PROFILE_ANALYTICS_SWITCH_ID,
@@ -14,11 +14,11 @@ describe('Check member preferences', () => {
     cy.setUpApi({
       currentMember: BOB,
     });
-    cy.visit(MANAGE_ACCOUNT_PATH);
+    cy.visit(SETTINGS_PATH);
     cy.wait('@getCurrentMember');
   });
 
-  it('displays the correct langauge', () => {
+  it('displays the correct language', () => {
     const langs = {
       de: 'German',
       en: 'English',
@@ -30,7 +30,7 @@ describe('Check member preferences', () => {
 
     const expectedLanguageName = langs[BOB.extra.lang as keyof typeof langs];
 
-    // displays the correct member langauge
+    // displays the correct member language
     cy.get(`#${MEMBER_PROFILE_LANGUAGE_SWITCH_ID}`).should(
       'contain',
       expectedLanguageName,
@@ -53,7 +53,7 @@ describe('Check member preferences', () => {
     cy.setUpApi({
       currentMember: BOB_NEVER,
     });
-    cy.visit(MANAGE_ACCOUNT_PATH);
+    cy.visit(SETTINGS_PATH);
     cy.wait('@getCurrentMember');
 
     const expectedEmailFreqText = 'Disable email notifications';
@@ -79,7 +79,7 @@ describe('Check member preferences', () => {
     cy.setUpApi({
       currentMember: BOB_DISABLED,
     });
-    cy.visit(MANAGE_ACCOUNT_PATH);
+    cy.visit(SETTINGS_PATH);
     cy.wait('@getCurrentMember');
 
     const expectedEnableanalyticsText = 'Disabled';
@@ -95,7 +95,7 @@ describe('Check the edit button', () => {
     cy.setUpApi({
       currentMember: BOB,
     });
-    cy.visit(MANAGE_ACCOUNT_PATH);
+    cy.visit(SETTINGS_PATH);
     cy.wait('@getCurrentMember');
   });
   it('after click should display the edit preferences form', () => {

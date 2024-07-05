@@ -11,7 +11,6 @@ import {
   Typography,
 } from '@mui/material';
 
-import { formatDate } from '@graasp/sdk';
 import { Loader } from '@graasp/ui';
 
 import MemberPropertyForm from '@/components/main/MemberPropertyForm';
@@ -23,7 +22,7 @@ import { COPY_MEMBER_ID_TO_CLIPBOARD } from '@/types/clipboard';
 import { copyToClipboard } from '@/utils/clipboard';
 
 const EditMemberPersonalInformation = (): JSX.Element | false => {
-  const { t, i18n } = useAccountTranslation();
+  const { t } = useAccountTranslation();
   const { data: member, isLoading } = hooks.useCurrentMember();
 
   const { mutate: editMember } = mutations.useEditMember();
@@ -88,16 +87,6 @@ const EditMemberPersonalInformation = (): JSX.Element | false => {
                 value={member.email}
                 onSave={(newEmail) => updateEmail(newEmail)}
               />
-            </Grid>
-          </Grid>
-          <Grid container alignItems="center">
-            <Grid item xs={4}>
-              <Typography>{t('PROFILE_CREATED_AT_LABEL')}</Typography>
-            </Grid>
-            <Grid item xs={8}>
-              <Typography>
-                {formatDate(member.createdAt, { locale: i18n.language })}
-              </Typography>
             </Grid>
           </Grid>
 

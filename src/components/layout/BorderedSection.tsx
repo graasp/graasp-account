@@ -1,29 +1,27 @@
 import { ReactNode } from 'react';
 
-import { Button, Stack, Typography } from '@mui/material';
+import { Stack, Typography } from '@mui/material';
 
 import RoundedStack from '../common/RoundedStack';
 
 type BorderedSectionProps = {
+  id?: string;
   title: string;
-  onEdit: () => void;
-  editButtonText: string;
+  actions: ReactNode[];
   children: ReactNode;
-  editButtonId?: string;
 };
 export const BorderedSection = ({
+  id,
   title,
-  onEdit,
-  editButtonText,
+  actions,
   children,
-  editButtonId,
 }: BorderedSectionProps): JSX.Element => (
-  <RoundedStack>
+  <RoundedStack id={id}>
     <Stack direction="row" justifyContent="space-between">
       <Typography variant="h5">{title}</Typography>
-      <Button id={editButtonId} onClick={onEdit} variant="contained">
-        {editButtonText}
-      </Button>
+      <Stack direction="row" gap={1}>
+        {actions}
+      </Stack>
     </Stack>
     {children}
   </RoundedStack>

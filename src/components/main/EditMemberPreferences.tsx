@@ -4,7 +4,6 @@ import {
   Alert,
   Button,
   Grid,
-  Stack,
   Switch,
   Tooltip,
   Typography,
@@ -20,12 +19,15 @@ import { DEFAULT_EMAIL_FREQUENCY } from '@/config/constants';
 import { useAccountTranslation } from '@/config/i18n';
 import { hooks, mutations } from '@/config/queryClient';
 import {
+  EDIT_PREFERENCES_FORM_ID,
   MEMBER_PROFILE_ANALYTICS_SWITCH_ID,
   MEMBER_PROFILE_EMAIL_FREQUENCY_ID,
   MEMBER_PROFILE_LANGUAGE_SWITCH_ID,
   PREFERENCES_CLOSE_BUTTON_ID,
   PREFERENCES_SAVE_BUTTON_ID,
 } from '@/config/selectors';
+
+import BorderedSection from '../layout/BorderedSection';
 
 type EditPreferencesProp = {
   onClose: () => void;
@@ -49,8 +51,8 @@ const EditMemberPreferences = ({
 
   if (member) {
     const handleOnToggle = (event: { target: { checked: boolean } }): void => {
-      const cheked = event.target.checked;
-      setSwitchedSaveActions(cheked);
+      const { checked } = event.target;
+      setSwitchedSaveActions(checked);
     };
     const saveSettings = () => {
       editMember({
@@ -65,26 +67,26 @@ const EditMemberPreferences = ({
     };
 
     return (
-      <Stack id="editMemberPreferencesFormId">
-        <Stack direction="row" justifyContent="space-between">
-          <Typography variant="h5">{t('PROFILE_PREFERENCES_TITLE')}</Typography>
-          <Stack direction="row" spacing={2} justifyContent="flex-end">
-            <Button
-              onClick={onClose}
-              variant="outlined"
-              id={PREFERENCES_CLOSE_BUTTON_ID}
-            >
-              {t('CLOSE_BUTTON')}
-            </Button>
-            <Button
-              variant="contained"
-              onClick={saveSettings}
-              id={PREFERENCES_SAVE_BUTTON_ID}
-            >
-              {t('SAVE_CHANGES_TEXT')}
-            </Button>
-          </Stack>
-        </Stack>
+      <BorderedSection
+        id={EDIT_PREFERENCES_FORM_ID}
+        title={t('PROFILE_PREFERENCES_TITLE')}
+        actions={[
+          <Button
+            onClick={onClose}
+            variant="outlined"
+            id={PREFERENCES_CLOSE_BUTTON_ID}
+          >
+            {t('CLOSE_BUTTON')}
+          </Button>,
+          <Button
+            variant="contained"
+            onClick={saveSettings}
+            id={PREFERENCES_SAVE_BUTTON_ID}
+          >
+            {t('SAVE_CHANGES_TEXT')}
+          </Button>,
+        ]}
+      >
         <Grid container alignItems="center">
           <Grid item xs={4}>
             <Typography color="textSecondary">
@@ -130,7 +132,7 @@ const EditMemberPreferences = ({
             </Tooltip>
           </Grid>
         </Grid>
-      </Stack>
+      </BorderedSection>
     );
   }
   if (isLoading) {

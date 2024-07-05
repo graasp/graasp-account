@@ -3,10 +3,12 @@ import { ReactNode } from 'react';
 import { Stack } from '@mui/material';
 
 type Props = {
+  id?: string;
   children: ReactNode;
 };
-const RoundedStack = ({ children }: Props): JSX.Element => (
+const RoundedStack = ({ children, id }: Props): JSX.Element => (
   <Stack
+    id={id}
     border="1px solid"
     borderColor="divider"
     borderRadius={1}

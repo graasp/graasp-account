@@ -1,4 +1,6 @@
 export const MEMBER_PROFILE_EMAIL_ID = 'member-profile-email';
+
+export const SETTINGS_PAGE_CONTAINER_ID = 'settings-page-container';
 export const MEMBER_PROFILE_LANGUAGE_SWITCH_ID =
   'member-profile-language-switch';
 export const MEMBER_PROFILE_ANALYTICS_SWITCH_ID =

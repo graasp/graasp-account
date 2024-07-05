@@ -1,6 +1,6 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 
-import { Button, Stack, Typography } from '@mui/material';
+import { Button } from '@mui/material';
 
 import { DEFAULT_LANG, langs } from '@graasp/translations';
 
@@ -13,7 +13,7 @@ import {
   MEMBER_PROFILE_LANGUAGE_SWITCH_ID,
 } from '@/config/selectors';
 
-import RoundedStack from '../common/RoundedStack';
+import BorderedSection from '../layout/BorderedSection';
 import EditMemberPreferences from './EditMemberPreferences';
 import MemberProfileItem from './MemberProfileItem';
 
@@ -32,52 +32,47 @@ const MemberPreferences = (): JSX.Element => {
   const handleClose = () => {
     setIsEditing(false);
   };
+
+  if (isEditing) {
+    return <EditMemberPreferences onClose={handleClose} />;
+  }
   return (
-    <RoundedStack>
-      {isEditing ? (
-        <EditMemberPreferences onClose={handleClose} />
-      ) : (
-        <>
-          <Stack direction="row" justifyContent="space-between">
-            <Typography variant="h5">
-              {t('PROFILE_PREFERENCES_TITLE')}
-            </Typography>
-            <Button
-              variant="contained"
-              onClick={handleEditClick}
-              id={MEMBER_PROFILE_EDIT_PREFERENCES_BUTTON_ID}
-            >
-              {t('EDIT_BUTTON_LABEL')}
-            </Button>
-          </Stack>
-          <MemberProfileItem
-            title={t('PROFILE_LANGUAGE_TITLE')}
-            content={languageName}
-            contentId={MEMBER_PROFILE_LANGUAGE_SWITCH_ID}
-          />
-
-          <MemberProfileItem
-            title={t('PROFILE_EMAIL_FREQUENCY_TITLE')}
-            content={
-              member?.extra?.emailFreq === 'always'
-                ? t('ALWAYS_RECEIVE_EMAILS')
-                : t('DISABLE_EMAILS')
-            }
-            contentId={MEMBER_PROFILE_EMAIL_FREQUENCY_ID}
-          />
-
-          <MemberProfileItem
-            title={t('PROFILE_SAVE_ACTIONS_TITLE')}
-            content={
-              member?.enableSaveActions === true
-                ? t('PROFILE_SAVE_ACTIONS_VALUE_TRUE')
-                : t('PROFILE_SAVE_ACTIONS_VALUE_FALSE')
-            }
-            contentId={MEMBER_PROFILE_ANALYTICS_SWITCH_ID}
-          />
-        </>
-      )}
-    </RoundedStack>
+    <BorderedSection
+      title={t('PROFILE_PREFERENCES_TITLE')}
+      actions={[
+        <Button
+          variant="contained"
+          onClick={handleEditClick}
+          id={MEMBER_PROFILE_EDIT_PREFERENCES_BUTTON_ID}
+        >
+          {t('EDIT_BUTTON_LABEL')}
+        </Button>,
+      ]}
+    >
+      <MemberProfileItem
+        title={t('PROFILE_LANGUAGE_TITLE')}
+        content={languageName}
+        contentId={MEMBER_PROFILE_LANGUAGE_SWITCH_ID}
+      />
+      <MemberProfileItem
+        title={t('PROFILE_EMAIL_FREQUENCY_TITLE')}
+        content={
+          member?.extra?.emailFreq === 'always'
+            ? t('ALWAYS_RECEIVE_EMAILS')
+            : t('DISABLE_EMAILS')
+        }
+        contentId={MEMBER_PROFILE_EMAIL_FREQUENCY_ID}
+      />
+      <MemberProfileItem
+        title={t('PROFILE_SAVE_ACTIONS_TITLE')}
+        content={
+          member?.enableSaveActions === true
+            ? t('PROFILE_SAVE_ACTIONS_VALUE_TRUE')
+            : t('PROFILE_SAVE_ACTIONS_VALUE_FALSE')
+        }
+        contentId={MEMBER_PROFILE_ANALYTICS_SWITCH_ID}
+      />
+    </BorderedSection>
   );
 };
 
