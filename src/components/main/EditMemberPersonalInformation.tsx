@@ -1,13 +1,12 @@
 import { ChangeEvent, useState } from 'react';
 
-import { Alert, Button, Stack, TextField, Typography } from '@mui/material';
+import { Button, Stack, TextField, Tooltip, Typography } from '@mui/material';
 
 import { MAX_USERNAME_LENGTH, MIN_USERNAME_LENGTH } from '@graasp/sdk';
-import { Loader } from '@graasp/ui';
 
 import RoundedStack from '@/components/common/RoundedStack';
 import { useAccountTranslation } from '@/config/i18n';
-import { hooks, mutations } from '@/config/queryClient';
+import { mutations } from '@/config/queryClient';
 import {
   PERSONAL_INFO_EDIT_CANCEL_BUTTON_ID,
   PERSONAL_INFO_EDIT_SAVE_BUTTON_ID,
@@ -28,17 +27,22 @@ const verifyUsername = (username: string) => {
   }
   return null;
 };
-type onCloseProp = {
+type EditMemberPersonalInformationProp = {
+  member: {
+    id: string;
+    name: string;
+    email: string;
+  };
   onClose: () => void;
 };
 
 const EditMemberPersonalInformation = ({
+  member,
   onClose,
-}: onCloseProp): JSX.Element | false => {
+}: EditMemberPersonalInformationProp): JSX.Element | false => {
   const { t } = useAccountTranslation();
-  const { data: member, isLoading } = hooks.useCurrentMember();
   const { mutate: editMember } = mutations.useEditMember();
-  const [newUserName, setNewUserName] = useState(member?.name);
+  const [newUserName, setNewUserName] = useState(member.name);
   const [error, setError] = useState<string | null>();
   const handleChange = ({ target }: ChangeEvent<HTMLInputElement>) => {
     const { value } = target;
@@ -70,45 +74,44 @@ const EditMemberPersonalInformation = ({
     onClose();
   };
 
-  if (member) {
-    return (
-      <RoundedStack>
-        <Stack direction="row" justifyContent="space-between">
-          <Typography variant="h5" component="h1">
-            {t('PERSONAL_INFORMATION_TITLE')}
-          </Typography>
-          <Stack direction="row" spacing={2} justifyContent="flex-end">
-            <Button
-              onClick={onClose}
-              variant="outlined"
-              id={PERSONAL_INFO_EDIT_CANCEL_BUTTON_ID}
-            >
-              {t('CLOSE_BUTTON')}
-            </Button>
-            <Button
-              variant="contained"
-              color="primary"
-              onClick={handleSave}
-              disabled={Boolean(error)}
-              id={PERSONAL_INFO_EDIT_SAVE_BUTTON_ID}
-            >
-              {' '}
-              {t('SAVE_CHANGES_TEXT')}
-            </Button>
-          </Stack>
-        </Stack>
-        <Stack spacing={2}>
-          <TextField
-            label={t('PROFILE_MEMBER_NAME')}
-            id={USERNAME_INPUT_FIELD_ID}
+  return (
+    <RoundedStack>
+      <Stack direction="row" justifyContent="space-between">
+        <Typography variant="h5" component="h1">
+          {t('PERSONAL_INFORMATION_TITLE')}
+        </Typography>
+        <Stack direction="row" spacing={2} justifyContent="flex-end">
+          <Button
+            onClick={onClose}
             variant="outlined"
-            type="text"
-            name="username"
-            value={newUserName}
-            error={Boolean(error)}
-            helperText={error}
-            onChange={handleChange}
-          />
+            id={PERSONAL_INFO_EDIT_CANCEL_BUTTON_ID}
+          >
+            {t('CLOSE_BUTTON')}
+          </Button>
+          <Button
+            variant="contained"
+            color="primary"
+            onClick={handleSave}
+            disabled={Boolean(error)}
+            id={PERSONAL_INFO_EDIT_SAVE_BUTTON_ID}
+          >
+            {t('SAVE_CHANGES_TEXT')}
+          </Button>
+        </Stack>
+      </Stack>
+      <Stack spacing={2}>
+        <TextField
+          label={t('PROFILE_MEMBER_NAME')}
+          id={USERNAME_INPUT_FIELD_ID}
+          variant="outlined"
+          type="text"
+          name="username"
+          value={newUserName}
+          error={Boolean(error)}
+          helperText={error}
+          onChange={handleChange}
+        />
+        <Tooltip title={t('EDIT_EMAIL_TOOLTIP')}>
           <TextField
             label={t('PROFILE_EMAIL_TITLE')}
             variant="outlined"
@@ -117,20 +120,10 @@ const EditMemberPersonalInformation = ({
             value={member.email}
             disabled
           />
-        </Stack>
-      </RoundedStack>
-    );
-  }
-
-  if (isLoading) {
-    return <Loader />;
-  }
-
-  if (!member) {
-    return <Alert severity="error">{t('User is not unauthenticated')}</Alert>;
-  }
-
-  return false;
+        </Tooltip>
+      </Stack>
+    </RoundedStack>
+  );
 };
 
 export default EditMemberPersonalInformation;

@@ -1,6 +1,6 @@
 import { ReactNode } from 'react';
 
-import { Stack, Typography } from '@mui/material';
+import { Grid, Typography } from '@mui/material';
 
 type Props = {
   title: string;
@@ -12,14 +12,18 @@ const MemberProfileItem = ({
   content,
   contentId,
 }: Props): JSX.Element => (
-  <Stack direction="row" spacing={2} alignItems="center">
-    <Typography variant="body1" color="textSecondary">
-      {title}
-    </Typography>
-    <Typography variant="body1" id={contentId}>
-      {content}
-    </Typography>
-  </Stack>
+  <Grid container alignItems="center">
+    <Grid item xs={6}>
+      <Typography variant="body1" color="textSecondary">
+        {title}
+      </Typography>
+    </Grid>
+    <Grid item xs={6}>
+      <Typography variant="body1" id={contentId}>
+        {content}
+      </Typography>
+    </Grid>
+  </Grid>
 );
 
 export default MemberProfileItem;

@@ -80,7 +80,7 @@ const PasswordSettings = ({ onClose }: onCloseProp): JSX.Element => {
   const handleNewPasswordInput = (event: ChangeEvent<HTMLInputElement>) => {
     setNewPassword(event.target.value);
     if (!event.target.value) {
-      setNewPasswordError(event.target.value ? null : 'Password is empty');
+      setNewPasswordError(FAILURE_MESSAGES.PASSWORD_EMPTY_ERROR);
     } else if (!isPasswordStrong(event.target.value)) {
       setNewPasswordError(FAILURE_MESSAGES.PASSWORD_WEAK_ERROR);
     } else {

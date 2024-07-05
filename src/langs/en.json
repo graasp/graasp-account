@@ -42,6 +42,7 @@
   "PROFILE_AVATAR_INFORMATION": "Update Profile picture",
   "PROFILE_AVATAR_CURRENT_ALT": "Profile Picture",
   "PASSWORD_TITLE": "Password",
+  "PASSWORD_SETTINGS_INFORMATION": "Update your password by clicking on the button Edit",
   "PASSWORD_SETTINGS_TITLE": "Change Password",
   "PASSWORD_SETTINGS_CURRENT_LABEL": "Current Password",
   "PASSWORD_SETTINGS_CURRENT_INFORMATION": "Leave this field empty if you do not already have a password set.",
@@ -86,5 +87,6 @@
   "SECURITY_TIPS_INFORMATION": "You haven't set a password, you can set one to access your account without opening your email.",
   "PERSONALISATION_TITLE": "Personalisation",
   "PERSONALISATION_INFORMATION": "Let your personality and uniqueness shine by adding a profile picture!",
-  "SAVE_CHANGES_TEXT": "Save changes"
+  "SAVE_CHANGES_TEXT": "Save changes",
+  "EDIT_EMAIL_TOOLTIP": "Coming soon"
 }
