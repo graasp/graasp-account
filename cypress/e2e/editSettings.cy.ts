@@ -15,7 +15,6 @@ import { buildDataCySelector } from '../support/utils';
 const currentMember = CURRENT_MEMBER;
 
 const expectEnableSaveActionsInRequestToBe = (enableSaveActions: boolean) => {
-  cy.get(`#${PREFERENCES_SAVE_BUTTON_ID}`).click();
   cy.wait('@editMember')
     .its('request.body.enableSaveActions')
     .should('eq', enableSaveActions);
@@ -46,6 +45,7 @@ const checkAnalyticsAfterUpdate = (shouldSaveActionsBeEnabled: boolean) => {
   const enableSaveActions = shouldSaveActionsBeEnabled;
   mockGetCurrentMember({ ...currentMember, enableSaveActions });
   clickOnAnalyticsSwitch();
+  cy.get(`#${PREFERENCES_SAVE_BUTTON_ID}`).click();
   expectEnableSaveActionsInRequestToBe(enableSaveActions);
   expectAnalyticsSwitchToBe(enableSaveActions);
   expectEnableSaveActionsInResponseToBe(enableSaveActions);
