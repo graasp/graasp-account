@@ -21,7 +21,12 @@ export const BorderedSection = ({
   <RoundedStack>
     <Stack direction="row" justifyContent="space-between">
       <Typography variant="h5">{title}</Typography>
-      <Button id={editButtonId} onClick={onEdit} variant="contained">
+      <Button
+        id={editButtonId}
+        onClick={onEdit}
+        variant="contained"
+        size="small"
+      >
         {editButtonText}
       </Button>
     </Stack>

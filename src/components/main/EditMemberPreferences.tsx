@@ -46,12 +46,14 @@ const EditMemberPreferences = ({
   const [switchedSaveActions, setSwitchedSaveActions] = useState(
     member?.enableSaveActions,
   );
-
+  const [isEditing, setIsEditing] = useState(false);
   if (member) {
     const handleOnToggle = (event: { target: { checked: boolean } }): void => {
       const cheked = event.target.checked;
       setSwitchedSaveActions(cheked);
+      setIsEditing(true);
     };
+
     const saveSettings = () => {
       editMember({
         id: member.id,
@@ -66,36 +68,21 @@ const EditMemberPreferences = ({
 
     return (
       <Stack id="editMemberPreferencesFormId">
-        <Stack direction="row" justifyContent="space-between">
-          <Typography variant="h5">{t('PROFILE_PREFERENCES_TITLE')}</Typography>
-          <Stack direction="row" spacing={2} justifyContent="flex-end">
-            <Button
-              onClick={onClose}
-              variant="outlined"
-              id={PREFERENCES_CLOSE_BUTTON_ID}
-            >
-              {t('CLOSE_BUTTON')}
-            </Button>
-            <Button
-              variant="contained"
-              onClick={saveSettings}
-              id={PREFERENCES_SAVE_BUTTON_ID}
-            >
-              {t('SAVE_CHANGES_TEXT')}
-            </Button>
-          </Stack>
-        </Stack>
+        <Typography variant="h5">{t('PROFILE_PREFERENCES_TITLE')}</Typography>
         <Grid container alignItems="center">
           <Grid item xs={4}>
             <Typography color="textSecondary">
               {t('PROFILE_LANGUAGE_TITLE')}
             </Typography>
           </Grid>
-          <Grid item xs={8}>
+          <Grid item sm={8}>
             <LanguageSwitch
               lang={member.extra?.lang ?? DEFAULT_LANG}
               id={MEMBER_PROFILE_LANGUAGE_SWITCH_ID}
-              onChange={setSelectedLang}
+              onChange={(lang: string) => {
+                setSelectedLang(lang);
+                setIsEditing(true);
+              }}
             />
           </Grid>
         </Grid>
@@ -105,10 +92,13 @@ const EditMemberPreferences = ({
               {t('PROFILE_EMAIL_FREQUENCY_TITLE')}
             </Typography>
           </Grid>
-          <Grid item xs={8}>
+          <Grid item sm={8}>
             <EmailPreferenceSwitch
               emailFreq={member.extra?.emailFreq || DEFAULT_EMAIL_FREQUENCY}
-              onChange={setSelectedEmailFreq}
+              onChange={(freq: `${EmailFrequency}`) => {
+                setSelectedEmailFreq(freq);
+                setIsEditing(true);
+              }}
               id={MEMBER_PROFILE_EMAIL_FREQUENCY_ID}
             />
           </Grid>
@@ -119,7 +109,7 @@ const EditMemberPreferences = ({
               {t('PROFILE_SAVE_ACTIONS_TITLE')}
             </Typography>
           </Grid>
-          <Grid item xs={8}>
+          <Grid item sm={8}>
             <Tooltip title={t('SAVE_ACTIONS_TOGGLE_TOOLTIP')}>
               <Switch
                 data-cy={MEMBER_PROFILE_ANALYTICS_SWITCH_ID}
@@ -130,6 +120,25 @@ const EditMemberPreferences = ({
             </Tooltip>
           </Grid>
         </Grid>
+        <Stack direction="row" spacing={2} justifyContent="flex-end">
+          <Button
+            onClick={onClose}
+            variant="outlined"
+            id={PREFERENCES_CLOSE_BUTTON_ID}
+            size="small"
+          >
+            {t('CLOSE_BUTTON')}
+          </Button>
+          <Button
+            variant="contained"
+            onClick={saveSettings}
+            id={PREFERENCES_SAVE_BUTTON_ID}
+            size="small"
+            disabled={!isEditing}
+          >
+            {t('SAVE_CHANGES_TEXT')}
+          </Button>
+        </Stack>
       </Stack>
     );
   }

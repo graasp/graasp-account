@@ -28,6 +28,7 @@ const PasswordSettings = ({ onClose }: onCloseProp): JSX.Element => {
     string | null
   >();
   const { mutate: updatePassword } = mutations.useUpdatePassword();
+  const [isEditing, setIsEditing] = useState(false);
 
   const verifyEmptyPassword = () => {
     const newPasswordIsNotEmpty = Boolean(newPassword);
@@ -46,6 +47,7 @@ const PasswordSettings = ({ onClose }: onCloseProp): JSX.Element => {
     setCurrentPassword('');
     setNewPassword('');
     setConfirmPassword('');
+    setIsEditing(false);
   };
 
   const handleChangePassword = () => {
@@ -75,10 +77,12 @@ const PasswordSettings = ({ onClose }: onCloseProp): JSX.Element => {
 
   const handleCurrentPasswordInput = (event: ChangeEvent<HTMLInputElement>) => {
     setCurrentPassword(event.target.value);
+    setIsEditing(true);
   };
 
   const handleNewPasswordInput = (event: ChangeEvent<HTMLInputElement>) => {
     setNewPassword(event.target.value);
+    setIsEditing(true);
     if (!event.target.value) {
       setNewPasswordError(FAILURE_MESSAGES.PASSWORD_EMPTY_ERROR);
     } else if (!isPasswordStrong(event.target.value)) {
@@ -89,29 +93,14 @@ const PasswordSettings = ({ onClose }: onCloseProp): JSX.Element => {
   };
   const handleConfirmPasswordInput = (event: ChangeEvent<HTMLInputElement>) => {
     setConfirmPassword(event.target.value);
+    setIsEditing(true);
     setConfirmPasswordError(event.target.value ? null : 'Password is empty');
   };
 
   return (
     <>
-      <Stack direction="row" justifyContent="space-between">
-        <Typography variant="h5">{t('PASSWORD_SETTINGS_TITLE')}</Typography>
+      <Typography variant="h5">{t('PASSWORD_SETTINGS_TITLE')}</Typography>
 
-        <Stack direction="row" spacing={2} justifyContent="flex-end">
-          <Button variant="outlined" onClick={onClose}>
-            {t('CLOSE_BUTTON')}
-          </Button>
-          <Button
-            variant="contained"
-            color="primary"
-            onClick={handleChangePassword}
-            id={PASSWORD_SAVE_BUTTON_ID}
-            disabled={Boolean(newPasswordError)}
-          >
-            {t('PASSWORD_SETTINGS_CONFIRM_BUTTON')}
-          </Button>
-        </Stack>
-      </Stack>
       <Typography variant="body1">
         {t('PASSWORD_SETTINGS_CONFIRM_INFORMATION')}
       </Typography>
@@ -153,6 +142,21 @@ const PasswordSettings = ({ onClose }: onCloseProp): JSX.Element => {
             id={CONFIRM_PASSWORD_ID}
           />
         </Stack>
+      </Stack>
+      <Stack direction="row" spacing={2} justifyContent="flex-end">
+        <Button variant="outlined" onClick={onClose} size="small">
+          {t('CLOSE_BUTTON')}
+        </Button>
+        <Button
+          variant="contained"
+          color="primary"
+          onClick={handleChangePassword}
+          id={PASSWORD_SAVE_BUTTON_ID}
+          disabled={Boolean(newPasswordError) || !isEditing}
+          size="small"
+        >
+          {t('PASSWORD_SETTINGS_CONFIRM_BUTTON')}
+        </Button>
       </Stack>
     </>
   );

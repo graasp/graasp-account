@@ -1,8 +1,15 @@
 import { ChangeEvent, useState } from 'react';
 
-import { Button, Stack, TextField, Tooltip, Typography } from '@mui/material';
+import {
+  Button,
+  Grid,
+  Stack,
+  TextField,
+  Tooltip,
+  Typography,
+} from '@mui/material';
 
-import { MAX_USERNAME_LENGTH, MIN_USERNAME_LENGTH } from '@graasp/sdk';
+import { MAX_USERNAME_LENGTH, MIN_USERNAME_LENGTH, Member } from '@graasp/sdk';
 
 import RoundedStack from '@/components/common/RoundedStack';
 import { useAccountTranslation } from '@/config/i18n';
@@ -28,11 +35,7 @@ const verifyUsername = (username: string) => {
   return null;
 };
 type EditMemberPersonalInformationProp = {
-  member: {
-    id: string;
-    name: string;
-    email: string;
-  };
+  member: Member;
   onClose: () => void;
 };
 
@@ -44,9 +47,12 @@ const EditMemberPersonalInformation = ({
   const { mutate: editMember } = mutations.useEditMember();
   const [newUserName, setNewUserName] = useState(member.name);
   const [error, setError] = useState<string | null>();
+  const [isEditing, setIsEditing] = useState(false);
+
   const handleChange = ({ target }: ChangeEvent<HTMLInputElement>) => {
     const { value } = target;
     setNewUserName(value);
+    setIsEditing(value !== member.name);
     const errorMessage = verifyUsername(value);
     setError(
       errorMessage
@@ -65,8 +71,8 @@ const EditMemberPersonalInformation = ({
     if (!errorMessage) {
       if (member) {
         editMember({
-          id: member?.id,
-          name: newUserName?.trim(),
+          id: member.id,
+          name: newUserName.trim(),
         });
       }
     }
@@ -76,51 +82,66 @@ const EditMemberPersonalInformation = ({
 
   return (
     <RoundedStack>
-      <Stack direction="row" justifyContent="space-between">
-        <Typography variant="h5" component="h1">
-          {t('PERSONAL_INFORMATION_TITLE')}
-        </Typography>
-        <Stack direction="row" spacing={2} justifyContent="flex-end">
-          <Button
-            onClick={onClose}
-            variant="outlined"
-            id={PERSONAL_INFO_EDIT_CANCEL_BUTTON_ID}
-          >
-            {t('CLOSE_BUTTON')}
-          </Button>
-          <Button
-            variant="contained"
-            color="primary"
-            onClick={handleSave}
-            disabled={Boolean(error)}
-            id={PERSONAL_INFO_EDIT_SAVE_BUTTON_ID}
-          >
-            {t('SAVE_CHANGES_TEXT')}
-          </Button>
-        </Stack>
-      </Stack>
-      <Stack spacing={2}>
-        <TextField
-          label={t('PROFILE_MEMBER_NAME')}
-          id={USERNAME_INPUT_FIELD_ID}
-          variant="outlined"
-          type="text"
-          name="username"
-          value={newUserName}
-          error={Boolean(error)}
-          helperText={error}
-          onChange={handleChange}
-        />
-        <Tooltip title={t('EDIT_EMAIL_TOOLTIP')}>
+      <Typography variant="h5" component="h1">
+        {t('PERSONAL_INFORMATION_TITLE')}
+      </Typography>
+
+      <Grid container alignItems="center">
+        <Grid item xs={4}>
+          <Typography color="textSecondary">
+            {t('PROFILE_MEMBER_NAME')}
+          </Typography>
+        </Grid>
+        <Grid item xs={8}>
           <TextField
-            label={t('PROFILE_EMAIL_TITLE')}
-            variant="outlined"
+            id={USERNAME_INPUT_FIELD_ID}
+            variant="standard"
             type="text"
-            name="email"
-            value={member.email}
-            disabled
+            name="username"
+            value={newUserName}
+            error={Boolean(error)}
+            helperText={error}
+            onChange={handleChange}
           />
-        </Tooltip>
+        </Grid>
+      </Grid>
+      <Grid container alignItems="center">
+        <Grid item xs={4}>
+          <Typography color="textSecondary">
+            {t('PROFILE_EMAIL_TITLE')}
+          </Typography>
+        </Grid>
+        <Grid item xs={8}>
+          <Tooltip title={t('EDIT_EMAIL_TOOLTIP')}>
+            <TextField
+              variant="standard"
+              type="text"
+              name="email"
+              value={member.email}
+              disabled
+            />
+          </Tooltip>
+        </Grid>
+      </Grid>
+      <Stack direction="row" spacing={2} justifyContent="flex-end">
+        <Button
+          onClick={onClose}
+          variant="outlined"
+          id={PERSONAL_INFO_EDIT_CANCEL_BUTTON_ID}
+          size="small"
+        >
+          {t('CLOSE_BUTTON')}
+        </Button>
+        <Button
+          variant="contained"
+          color="primary"
+          onClick={handleSave}
+          disabled={Boolean(error) || !isEditing}
+          id={PERSONAL_INFO_EDIT_SAVE_BUTTON_ID}
+          size="small"
+        >
+          {t('SAVE_CHANGES_TEXT')}
+        </Button>
       </Stack>
     </RoundedStack>
   );

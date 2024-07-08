@@ -30,6 +30,7 @@ const MemberPassword = (): JSX.Element => {
               variant="contained"
               onClick={handleEditClick}
               id={PASSWORD_EDIT_BUTTON_ID}
+              size="small"
             >
               {t('EDIT_BUTTON_LABEL')}
             </Button>

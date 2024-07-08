@@ -41,6 +41,7 @@ const MemberPublicProfile = (): JSX.Element => {
           to={PUBLIC_PROFILE_PATH}
           variant="contained"
           id={PUBLIC_PROFILE_EDIT_BUTTON_ID}
+          size="small"
         >
           {t('EDIT_BUTTON_LABEL')}
         </Button>

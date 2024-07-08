@@ -46,6 +46,7 @@ const MemberPreferences = (): JSX.Element => {
               variant="contained"
               onClick={handleEditClick}
               id={MEMBER_PROFILE_EDIT_PREFERENCES_BUTTON_ID}
+              size="small"
             >
               {t('EDIT_BUTTON_LABEL')}
             </Button>

@@ -19,7 +19,14 @@ const MemberProfileItem = ({
       </Typography>
     </Grid>
     <Grid item xs={6}>
-      <Typography variant="body1" id={contentId}>
+      <Typography
+        variant="body1"
+        id={contentId}
+        style={{
+          overflow: 'hidden',
+          textOverflow: 'ellipsis',
+        }}
+      >
         {content}
       </Typography>
     </Grid>
