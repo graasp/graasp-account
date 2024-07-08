@@ -182,10 +182,10 @@ describe('Checks the email frequency switch', () => {
     cy.wait('@getCurrentMember');
   });
   it('should select an option from the select component', () => {
-    switchEmailFreq('always');
+    switchEmailFreq('never');
     cy.get(`#${PREFERENCES_SAVE_BUTTON_ID}`).click();
     cy.wait('@editMember').then(({ request }) => {
-      expect(request.body.extra.emailFreq).to.equal('always');
+      expect(request.body.extra.emailFreq).to.equal('never');
     });
   });
 });
