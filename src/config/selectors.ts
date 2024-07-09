@@ -19,9 +19,6 @@ export const DELETE_MEMBER_DIALOG_DESCRIPTION_ID = 'alert-dialog-description';
 
 export const STORAGE_PROGRESS_BAR_ID = 'storage-progress-bar';
 
-export const USERNAME_EDIT_BUTTON_ID = 'username-edit-button';
-export const USERNAME_SAVE_BUTTON_ID = 'username-save-button';
-export const USERNAME_CANCEL_BUTTON_ID = 'username-cancel-button';
 export const USERNAME_INPUT_FIELD_ID = 'username-input-field';
 export const USERNAME_DISPLAY_ID = 'username-display';
 
@@ -38,18 +35,25 @@ export const CROP_MODAL_CONFIRM_BUTTON_ID = 'crop-modal-confirm-button';
 export const PUBLIC_PROFILE_BIO_ID = 'public-profile-bio';
 export const PUBLIC_PROFILE_EDIT_BUTTON_ID = 'public-profile-edit-button';
 export const PERSONAL_INFO_EDIT_BUTTON_ID = 'personal-info-edit-button';
-export const PUBLIC_PROFILE_SAVE_BUTTON_ID = 'public-profile-save-button';
+export const PERSONAL_INFO_CANCEL_BUTTON_ID = 'personl-info-cancel-button';
+export const PERSONAL_INFO_SAVE_BUTTON_ID = 'personl-info-save-button';
 
+export const PUBLIC_PROFILE_SAVE_BUTTON_ID = 'public-profile-save-button';
 export const PUBLIC_PROFILE_LINKEDIN_ID = 'public-profile-linkedIn';
 export const PUBLIC_PROFILE_LINKEDIN_HREF_ID = 'public-profile-linkedIn-href';
-
 export const PUBLIC_PROFILE_TWITTER_ID = 'public-profile-twitter';
 export const PUBLIC_PROFILE_TWITTER_HREF_ID = 'public-profile-twitter-href';
-
 export const PUBLIC_PROFILE_FACEBOOK_ID = 'public-profile-facebook';
 export const PUBLIC_PROFILE_FACEBOOK_HREF_ID = 'public-profile-facebook-href';
 
 export const PASSWORD_DISPLAY_ID = 'password-display';
+export const PASSWORD_EDIT_BUTTON_ID = 'password-edit-button';
+export const PASSWORD_SAVE_BUTTON_ID = 'password-save-button';
+export const PASSWORD_INPUT_NEW_PASSWORD_ID = 'new-password';
+export const PASSWORD_INPUT_CONFIRM_PASSWORD_ID = 'confirm-password';
+
+export const MEMBER_INFO_EDIT_FORM_ID = 'member-info-edit-form';
+export const MEMBER_INFO_READ_MODE_ID = 'member-info-read-mode';
 
 export const EMAIL_VALIDATION_BUTTON_ID = 'email-validation-button';
 export const EMAIL_VALIDATION_SUCCESS_MESSAGE_ID = 'email-validation-success';
