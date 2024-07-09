@@ -87,7 +87,7 @@ const Content = (): JSX.Element => {
       if (statusCode === HttpStatusCode.Conflict) {
         return (
           <Alert severity="error" id={EMAIL_VALIDATION_CONFLICT_MESSAGE_ID}>
-            <AlertTitle>{translate('')}</AlertTitle>
+            <AlertTitle>{translate('EMAIL_UPDATE_CONFLICT_TITLE')}</AlertTitle>
             {translate('EMAIL_UPDATE_CONFLICT_TEXT')}
           </Alert>
         );
