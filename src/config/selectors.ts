@@ -46,9 +46,8 @@ export const buildDataCyWrapper = (dataCy: string): string =>
 export const PUBLIC_PROFILE_BIO_ID = 'publicProfileBioId';
 export const PUBLIC_PROFILE_EDIT_BUTTON_ID = 'publicProfileEditButtonId';
 export const PERSONAL_INFO_EDIT_BUTTON_ID = 'personalInfoEditButtonId';
-export const PERSONAL_INFO_EDIT_CANCEL_BUTTON_ID =
-  'personlInfoEditCancelButtonId';
-export const PERSONAL_INFO_EDIT_SAVE_BUTTON_ID = 'personlInfoEditSaveButtonId';
+export const PERSONAL_INFO_CANCEL_BUTTON_ID = 'personl-info-cancel-button';
+export const PERSONAL_INFO_SAVE_BUTTON_ID = 'personl-info-save-button';
 
 export const PUBLIC_PROFILE_SAVE_BUTTON_ID = 'publicProfileSaveButtonId';
 
@@ -61,10 +60,10 @@ export const PUBLIC_PROFILE_TWITTER_HREF_ID = 'publicProfileTwitterHrefId';
 export const PUBLIC_PROFILE_FACEBOOK_ID = 'publicProfileFacebookId';
 export const PUBLIC_PROFILE_FACEBOOK_HREF_ID = 'publicProfileFacebookHrefId';
 
-export const PASSWORD_DISPLAY_ID = 'passwordDisplayId';
-export const PASSWORD_EDIT_BUTTON_ID = 'passwordEditButtonId';
-export const NEW_PASSWORD_ID = 'newPasswordId';
-export const CONFIRM_PASSWORD_ID = 'confirmPasswordId';
-export const PASSWORD_SAVE_BUTTON_ID = 'passwordSaveButtonId';
+export const PASSWORD_DISPLAY_ID = 'password-display';
+export const PASSWORD_EDIT_BUTTON_ID = 'password-edit-button';
+export const PASSWORD_INPUT_NEW_PASSWORD_ID = 'new-password';
+export const PASSWORD_INPUT_CONFIRM_PASSWORD_ID = 'confirm-password';
+export const PASSWORD_SAVE_BUTTON_ID = 'password-save-button';
 
-export const EDIT_MEMBER_INFO_FORM_ID = 'editMemberInfoFormId';
+export const EDIT_MEMBER_INFO_FORM_ID = 'edit-member-info-form';

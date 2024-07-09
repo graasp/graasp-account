@@ -20,18 +20,18 @@ import MemberProfileItem from './MemberProfileItem';
 const MemberPersonalInformation = (): JSX.Element | false => {
   const { data: member, isLoading } = hooks.useCurrentMember();
   const { t } = useAccountTranslation();
-  const [isEditing, setIsEditing] = useState(false);
+  const [isInEditMode, setIsInEditMode] = useState(false);
   const handleEditClick = () => {
-    setIsEditing(true);
+    setIsInEditMode(true);
   };
 
   const handleClose = () => {
-    setIsEditing(false);
+    setIsInEditMode(false);
   };
   if (member) {
     return (
       <Stack id={EDIT_MEMBER_INFO_FORM_ID}>
-        {isEditing ? (
+        {isInEditMode ? (
           <EditMemberPersonalInformation
             onClose={handleClose}
             member={member}

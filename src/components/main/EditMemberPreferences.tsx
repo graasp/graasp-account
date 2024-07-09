@@ -36,24 +36,48 @@ const EditMemberPreferences = ({
   const { t } = useAccountTranslation();
   const { data: member, isLoading } = hooks.useCurrentMember();
   const { mutate: editMember } = mutations.useEditMember();
+
+  // initial values
+  const initialLang = member?.extra?.lang ?? DEFAULT_LANG;
+  const initialEmailFreq = member?.extra?.emailFreq ?? DEFAULT_EMAIL_FREQUENCY;
+  const initialSaveActions = member?.enableSaveActions ?? false;
+
   const [selectedLang, setSelectedLang] = useState<string>(
-    member?.extra?.lang ?? DEFAULT_LANG,
+    initialLang ?? DEFAULT_LANG,
   );
   const [selectedEmailFreq, setSelectedEmailFreq] =
-    useState<`${EmailFrequency}`>(
-      member?.extra?.emailFreq ?? DEFAULT_EMAIL_FREQUENCY,
-    );
-  const [switchedSaveActions, setSwitchedSaveActions] = useState(
-    member?.enableSaveActions,
-  );
-  const [isEditing, setIsEditing] = useState(false);
+    useState<`${EmailFrequency}`>(initialEmailFreq ?? DEFAULT_EMAIL_FREQUENCY);
+  const [switchedSaveActions, setSwitchedSaveActions] =
+    useState(initialSaveActions);
+  const [hasModifications, setHasModifications] = useState(false);
+
   if (member) {
     const handleOnToggle = (event: { target: { checked: boolean } }): void => {
-      const cheked = event.target.checked;
-      setSwitchedSaveActions(cheked);
-      setIsEditing(true);
+      const valueChecked = event.target.checked;
+      setSwitchedSaveActions(valueChecked);
+      setHasModifications(
+        valueChecked !== initialSaveActions ||
+          selectedLang !== initialLang ||
+          selectedEmailFreq !== initialEmailFreq,
+      );
+    };
+    const handleLangChange = (lang: string) => {
+      setSelectedLang(lang);
+      setHasModifications(
+        lang !== initialLang ||
+          selectedEmailFreq !== initialEmailFreq ||
+          switchedSaveActions !== initialSaveActions,
+      );
     };
 
+    const handleEmailFreqChange = (freq: `${EmailFrequency}`) => {
+      setSelectedEmailFreq(freq);
+      setHasModifications(
+        selectedLang !== initialLang ||
+          freq !== initialEmailFreq ||
+          switchedSaveActions !== initialSaveActions,
+      );
+    };
     const saveSettings = () => {
       editMember({
         id: member.id,
@@ -79,10 +103,7 @@ const EditMemberPreferences = ({
             <LanguageSwitch
               lang={member.extra?.lang ?? DEFAULT_LANG}
               id={MEMBER_PROFILE_LANGUAGE_SWITCH_ID}
-              onChange={(lang: string) => {
-                setSelectedLang(lang);
-                setIsEditing(true);
-              }}
+              onChange={handleLangChange}
             />
           </Grid>
         </Grid>
@@ -95,10 +116,7 @@ const EditMemberPreferences = ({
           <Grid item sm={8}>
             <EmailPreferenceSwitch
               emailFreq={member.extra?.emailFreq || DEFAULT_EMAIL_FREQUENCY}
-              onChange={(freq: `${EmailFrequency}`) => {
-                setSelectedEmailFreq(freq);
-                setIsEditing(true);
-              }}
+              onChange={handleEmailFreqChange}
               id={MEMBER_PROFILE_EMAIL_FREQUENCY_ID}
             />
           </Grid>
@@ -134,7 +152,7 @@ const EditMemberPreferences = ({
             onClick={saveSettings}
             id={PREFERENCES_SAVE_BUTTON_ID}
             size="small"
-            disabled={!isEditing}
+            disabled={!hasModifications}
           >
             {t('SAVE_CHANGES_TEXT')}
           </Button>

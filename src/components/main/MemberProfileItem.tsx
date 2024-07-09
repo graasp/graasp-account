@@ -13,16 +13,16 @@ const MemberProfileItem = ({
   contentId,
 }: Props): JSX.Element => (
   <Grid container alignItems="center">
-    <Grid item xs={6}>
+    <Grid item xs={4}>
       <Typography variant="body1" color="textSecondary">
         {title}
       </Typography>
     </Grid>
-    <Grid item xs={6}>
+    <Grid item xs={8}>
       <Typography
         variant="body1"
         id={contentId}
-        style={{
+        sx={{
           overflow: 'hidden',
           textOverflow: 'ellipsis',
         }}

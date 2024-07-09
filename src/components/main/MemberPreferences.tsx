@@ -24,17 +24,17 @@ const MemberPreferences = (): JSX.Element => {
   const languageName = langs[languageCode];
 
   const { t } = useAccountTranslation();
-  const [isEditing, setIsEditing] = useState(false);
+  const [isInEditMode, setIsInEditMode] = useState(false);
   const handleEditClick = () => {
-    setIsEditing(true);
+    setIsInEditMode(true);
   };
 
   const handleClose = () => {
-    setIsEditing(false);
+    setIsInEditMode(false);
   };
   return (
     <RoundedStack>
-      {isEditing ? (
+      {isInEditMode ? (
         <EditMemberPreferences onClose={handleClose} />
       ) : (
         <>

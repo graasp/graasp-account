@@ -42,8 +42,8 @@
   "PROFILE_AVATAR_INFORMATION": "Changer l'image de profil",
   "PROFILE_AVATAR_CURRENT_ALT": "Image de profil",
   "PASSWORD_TITLE": "Mot de passe",
-  "PASSWORD_SETTINGS_INFORMATION": "Changer le mot de passe en cliquant sur le bouton Modifier",
-  "PASSWORD_SETTINGS_TITLE": "Changer le mot de passe",
+  "PASSWORD_SETTINGS_INFORMATION": "Changez votre mot de passe en cliquant sur le bouton 'Modifier'",
+  "PASSWORD_SETTINGS_TITLE": "Paramètres du mot de passe",
   "PASSWORD_SETTINGS_CURRENT_LABEL": "Mot de passe actuel",
   "PASSWORD_SETTINGS_CURRENT_INFORMATION": "Laissez le champ vide si vous n'avez pas précédemment défini de mot de passe.",
   "PASSWORD_SETTINGS_NEW_LABEL": "Nouveau mot de passe",
@@ -87,6 +87,6 @@
   "SECURITY_TIPS_INFORMATION": "Vous n'avez pas défini de mot de passe, vous pouvez en définir un pour accéder à votre compte sans ouvrir votre email.",
   "PERSONALISATION_TITLE": "Personnalisation",
   "PERSONALISATION_INFORMATION": "Laissez votre personnalité et votre unicité briller en ajoutant une photo de profil !",
-  "SAVE_CHANGES_TEXT": "Enregistrer modifications",
+  "SAVE_CHANGES_TEXT": "Enregistrer les modifications",
   "EDIT_EMAIL_TOOLTIP": "A venir"
 }

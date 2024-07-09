@@ -4,24 +4,24 @@ import { Button, Stack, Typography } from '@mui/material';
 
 import { useAccountTranslation } from '@/config/i18n';
 import { PASSWORD_EDIT_BUTTON_ID } from '@/config/selectors';
-import PasswordSettings from '@/pages/PasswordSettingsScreen';
 
 import RoundedStack from '../common/RoundedStack';
+import EditPassword from './EditPassword';
 
 const MemberPassword = (): JSX.Element => {
   const { t } = useAccountTranslation();
-  const [isEditing, setIsEditing] = useState(false);
+  const [isInEditMode, setIsInEditMode] = useState(false);
   const handleEditClick = () => {
-    setIsEditing(true);
+    setIsInEditMode(true);
   };
 
   const handleClose = () => {
-    setIsEditing(false);
+    setIsInEditMode(false);
   };
   return (
     <RoundedStack>
-      {isEditing ? (
-        <PasswordSettings onClose={handleClose} />
+      {isInEditMode ? (
+        <EditPassword onClose={handleClose} />
       ) : (
         <>
           <Stack direction="row" justifyContent="space-between">

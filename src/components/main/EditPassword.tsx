@@ -9,15 +9,15 @@ import { FAILURE_MESSAGES } from '@graasp/translations';
 import { useAccountTranslation } from '@/config/i18n';
 import { mutations } from '@/config/queryClient';
 import {
-  CONFIRM_PASSWORD_ID,
-  NEW_PASSWORD_ID,
+  PASSWORD_INPUT_CONFIRM_PASSWORD_ID,
+  PASSWORD_INPUT_NEW_PASSWORD_ID,
   PASSWORD_SAVE_BUTTON_ID,
 } from '@/config/selectors';
 
-type onCloseProp = {
+type EditPasswordProps = {
   onClose: () => void;
 };
-const PasswordSettings = ({ onClose }: onCloseProp): JSX.Element => {
+const EditPassword = ({ onClose }: EditPasswordProps): JSX.Element => {
   const { t } = useAccountTranslation();
 
   const [currentPassword, setCurrentPassword] = useState('');
@@ -28,7 +28,7 @@ const PasswordSettings = ({ onClose }: onCloseProp): JSX.Element => {
     string | null
   >();
   const { mutate: updatePassword } = mutations.useUpdatePassword();
-  const [isEditing, setIsEditing] = useState(false);
+  const [hasModifications, setHasModifications] = useState(false);
 
   const verifyEmptyPassword = () => {
     const newPasswordIsNotEmpty = Boolean(newPassword);
@@ -47,7 +47,6 @@ const PasswordSettings = ({ onClose }: onCloseProp): JSX.Element => {
     setCurrentPassword('');
     setNewPassword('');
     setConfirmPassword('');
-    setIsEditing(false);
   };
 
   const handleChangePassword = () => {
@@ -76,25 +75,28 @@ const PasswordSettings = ({ onClose }: onCloseProp): JSX.Element => {
   };
 
   const handleCurrentPasswordInput = (event: ChangeEvent<HTMLInputElement>) => {
-    setCurrentPassword(event.target.value);
-    setIsEditing(true);
+    const passwordTarget = event.target.value;
+    setCurrentPassword(passwordTarget);
+    setHasModifications(true);
   };
 
   const handleNewPasswordInput = (event: ChangeEvent<HTMLInputElement>) => {
-    setNewPassword(event.target.value);
-    setIsEditing(true);
-    if (!event.target.value) {
+    const newPasswordTarget = event.target.value;
+    setNewPassword(newPasswordTarget);
+    setHasModifications(true);
+    if (!newPasswordTarget) {
       setNewPasswordError(FAILURE_MESSAGES.PASSWORD_EMPTY_ERROR);
-    } else if (!isPasswordStrong(event.target.value)) {
+    } else if (!isPasswordStrong(newPasswordTarget)) {
       setNewPasswordError(FAILURE_MESSAGES.PASSWORD_WEAK_ERROR);
     } else {
       setNewPasswordError(null);
     }
   };
   const handleConfirmPasswordInput = (event: ChangeEvent<HTMLInputElement>) => {
-    setConfirmPassword(event.target.value);
-    setIsEditing(true);
-    setConfirmPasswordError(event.target.value ? null : 'Password is empty');
+    const confirmPasswordTarget = event.target.value;
+    setConfirmPassword(confirmPasswordTarget);
+    setHasModifications(true);
+    setConfirmPasswordError(confirmPasswordTarget ? null : 'Password is empty');
   };
 
   return (
@@ -128,7 +130,7 @@ const PasswordSettings = ({ onClose }: onCloseProp): JSX.Element => {
             helperText={newPasswordError}
             onChange={handleNewPasswordInput}
             type="password"
-            id={NEW_PASSWORD_ID}
+            id={PASSWORD_INPUT_NEW_PASSWORD_ID}
           />
           <TextField
             required
@@ -139,7 +141,7 @@ const PasswordSettings = ({ onClose }: onCloseProp): JSX.Element => {
             helperText={confirmPasswordError}
             onChange={handleConfirmPasswordInput}
             type="password"
-            id={CONFIRM_PASSWORD_ID}
+            id={PASSWORD_INPUT_CONFIRM_PASSWORD_ID}
           />
         </Stack>
       </Stack>
@@ -152,7 +154,7 @@ const PasswordSettings = ({ onClose }: onCloseProp): JSX.Element => {
           color="primary"
           onClick={handleChangePassword}
           id={PASSWORD_SAVE_BUTTON_ID}
-          disabled={Boolean(newPasswordError) || !isEditing}
+          disabled={Boolean(newPasswordError) || !hasModifications}
           size="small"
         >
           {t('PASSWORD_SETTINGS_CONFIRM_BUTTON')}
@@ -162,4 +164,4 @@ const PasswordSettings = ({ onClose }: onCloseProp): JSX.Element => {
   );
 };
 
-export default PasswordSettings;
+export default EditPassword;

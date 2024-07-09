@@ -15,12 +15,12 @@ import RoundedStack from '@/components/common/RoundedStack';
 import { useAccountTranslation } from '@/config/i18n';
 import { mutations } from '@/config/queryClient';
 import {
-  PERSONAL_INFO_EDIT_CANCEL_BUTTON_ID,
-  PERSONAL_INFO_EDIT_SAVE_BUTTON_ID,
+  PERSONAL_INFO_CANCEL_BUTTON_ID,
+  PERSONAL_INFO_SAVE_BUTTON_ID,
   USERNAME_INPUT_FIELD_ID,
 } from '@/config/selectors';
 
-const verifyUsername = (username: string) => {
+const verifyUsername = (username: string): string | null => {
   const trimmedUsername = username.trim();
   if (trimmedUsername === '') {
     return 'USERNAME_EMPTY_ERROR';
@@ -34,6 +34,7 @@ const verifyUsername = (username: string) => {
   }
   return null;
 };
+
 type EditMemberPersonalInformationProp = {
   member: Member;
   onClose: () => void;
@@ -47,21 +48,23 @@ const EditMemberPersonalInformation = ({
   const { mutate: editMember } = mutations.useEditMember();
   const [newUserName, setNewUserName] = useState(member.name);
   const [error, setError] = useState<string | null>();
-  const [isEditing, setIsEditing] = useState(false);
+  const [hasModifications, setHasModifications] = useState(false);
 
   const handleChange = ({ target }: ChangeEvent<HTMLInputElement>) => {
     const { value } = target;
     setNewUserName(value);
-    setIsEditing(value !== member.name);
+    setHasModifications(value !== member.name);
     const errorMessage = verifyUsername(value);
-    setError(
-      errorMessage
-        ? t(errorMessage, {
-            min: MIN_USERNAME_LENGTH,
-            max: MAX_USERNAME_LENGTH,
-          })
-        : null,
-    );
+    if (errorMessage) {
+      setError(
+        t(errorMessage, {
+          min: MIN_USERNAME_LENGTH,
+          max: MAX_USERNAME_LENGTH,
+        }),
+      );
+    } else {
+      setError(null);
+    }
   };
 
   // save changes
@@ -127,7 +130,7 @@ const EditMemberPersonalInformation = ({
         <Button
           onClick={onClose}
           variant="outlined"
-          id={PERSONAL_INFO_EDIT_CANCEL_BUTTON_ID}
+          id={PERSONAL_INFO_CANCEL_BUTTON_ID}
           size="small"
         >
           {t('CLOSE_BUTTON')}
@@ -136,8 +139,8 @@ const EditMemberPersonalInformation = ({
           variant="contained"
           color="primary"
           onClick={handleSave}
-          disabled={Boolean(error) || !isEditing}
-          id={PERSONAL_INFO_EDIT_SAVE_BUTTON_ID}
+          disabled={Boolean(error) || !hasModifications}
+          id={PERSONAL_INFO_SAVE_BUTTON_ID}
           size="small"
         >
           {t('SAVE_CHANGES_TEXT')}

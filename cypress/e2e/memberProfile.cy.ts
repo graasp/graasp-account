@@ -60,6 +60,7 @@ describe('Check member info', () => {
       MEMBER_PUBLIC_PROFILE.facebookID,
     );
   });
+
   it('the social media links are correct', () => {
     // displays the correct member linkedin link
     cy.get(`#${PUBLIC_PROFILE_LINKEDIN_HREF_ID}`).should(
@@ -131,10 +132,12 @@ describe('Check the edit buttons', () => {
     cy.wait('@getCurrentMember');
     cy.wait('@getOwnProfile');
   });
-  it('after click should redirect to edit personal info page', () => {
+
+  it('after click should display the edit personal info form', () => {
     cy.get(`#${PERSONAL_INFO_EDIT_BUTTON_ID}`).click();
     cy.get(`#${EDIT_MEMBER_INFO_FORM_ID}`).should('be.visible');
   });
+
   it('after click should redirect to edit public profile page', () => {
     cy.get(`#${PUBLIC_PROFILE_EDIT_BUTTON_ID}`).click();
     cy.location('pathname').should('eq', `${PUBLIC_PROFILE_PATH}`);
