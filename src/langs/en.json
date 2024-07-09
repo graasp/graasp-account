@@ -42,7 +42,8 @@
   "PROFILE_AVATAR_INFORMATION": "Update Profile picture",
   "PROFILE_AVATAR_CURRENT_ALT": "Profile Picture",
   "PASSWORD_TITLE": "Password",
-  "PASSWORD_SETTINGS_TITLE": "Change Password",
+  "PASSWORD_SETTINGS_INFORMATION": "Update your password by clicking on the 'Edit' button",
+  "PASSWORD_SETTINGS_TITLE": "Password settings",
   "PASSWORD_SETTINGS_CURRENT_LABEL": "Current Password",
   "PASSWORD_SETTINGS_CURRENT_INFORMATION": "Leave this field empty if you do not already have a password set.",
   "PASSWORD_SETTINGS_NEW_LABEL": "New Password",
@@ -101,5 +102,6 @@
   "EMAIL_UPDATE_UNAUTHORIZED_TEXT_LINK_GENERATION_BUTTON": "Edit my email in account settings",
   "EMAIL_UPDATE_CONFLICT_TITLE": "Email already registered",
   "EMAIL_UPDATE_CONFLICT_TEXT": "The email you are trying to validate is not available anymore because it has been registered with a different Graasp account.",
-  "EMAIL_UPDATE_MISSING_TOKEN": "No token was found"
+  "EMAIL_UPDATE_MISSING_TOKEN": "No token was found",
+  "EDIT_EMAIL_TOOLTIP": "Coming soon"
 }
