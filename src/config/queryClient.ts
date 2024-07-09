@@ -15,6 +15,7 @@ const {
   API_HOST,
   notifier,
   defaultQueryOptions: {},
+  SHOW_NOTIFICATIONS: true,
 });
 export {
   useQueryClient,

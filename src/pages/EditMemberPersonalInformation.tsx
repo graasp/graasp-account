@@ -40,6 +40,10 @@ const EditMemberPersonalInformation = (): JSX.Element | false => {
       });
     };
 
+    const onSaveEmail = (newEmail: string) => {
+      updateEmail(newEmail);
+    };
+
     return (
       <Stack>
         <Box>
@@ -83,10 +87,7 @@ const EditMemberPersonalInformation = (): JSX.Element | false => {
               <Typography>{t('PROFILE_EMAIL_TITLE')}</Typography>
             </Grid>
             <Grid item xs={8}>
-              <MemberPropertyForm
-                value={member.email}
-                onSave={(newEmail) => updateEmail(newEmail)}
-              />
+              <MemberPropertyForm value={member.email} onSave={onSaveEmail} />
             </Grid>
           </Grid>
 
