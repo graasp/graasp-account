@@ -20,7 +20,7 @@ const Root = (): JSX.Element => (
     <I18nextProvider i18n={i18nConfig}>
       <ThemeProvider theme={theme}>
         <CssBaseline />
-        <ToastContainer stacked />
+        <ToastContainer stacked position="bottom-right" />
         <Router>
           <App />
         </Router>
