@@ -50,35 +50,13 @@ const EditMemberPreferences = ({
     useState<`${EmailFrequency}`>(initialEmailFreq ?? DEFAULT_EMAIL_FREQUENCY);
   const [switchedSaveActions, setSwitchedSaveActions] =
     useState(initialSaveActions);
-  const [hasModifications, setHasModifications] = useState(false);
 
   if (member) {
     const handleOnToggle = (event: { target: { checked: boolean } }): void => {
       const valueChecked = event.target.checked;
       setSwitchedSaveActions(valueChecked);
-      setHasModifications(
-        valueChecked !== initialSaveActions ||
-          selectedLang !== initialLang ||
-          selectedEmailFreq !== initialEmailFreq,
-      );
-    };
-    const handleLangChange = (lang: string) => {
-      setSelectedLang(lang);
-      setHasModifications(
-        lang !== initialLang ||
-          selectedEmailFreq !== initialEmailFreq ||
-          switchedSaveActions !== initialSaveActions,
-      );
     };
 
-    const handleEmailFreqChange = (freq: `${EmailFrequency}`) => {
-      setSelectedEmailFreq(freq);
-      setHasModifications(
-        selectedLang !== initialLang ||
-          freq !== initialEmailFreq ||
-          switchedSaveActions !== initialSaveActions,
-      );
-    };
     const saveSettings = () => {
       editMember({
         id: member.id,
@@ -90,6 +68,11 @@ const EditMemberPreferences = ({
       });
       onClose();
     };
+
+    const hasModifications =
+      switchedSaveActions !== initialSaveActions ||
+      selectedLang !== initialLang ||
+      selectedEmailFreq !== initialEmailFreq;
 
     return (
       <Stack id={EDIT_PREFERENCES_FORM_ID}>
@@ -104,7 +87,7 @@ const EditMemberPreferences = ({
             <LanguageSwitch
               lang={member.extra?.lang ?? DEFAULT_LANG}
               id={MEMBER_PROFILE_LANGUAGE_SWITCH_ID}
-              onChange={handleLangChange}
+              onChange={setSelectedLang}
             />
           </Grid>
         </Grid>
@@ -117,7 +100,7 @@ const EditMemberPreferences = ({
           <Grid item sm={8}>
             <EmailPreferenceSwitch
               emailFreq={member.extra?.emailFreq || DEFAULT_EMAIL_FREQUENCY}
-              onChange={handleEmailFreqChange}
+              onChange={setSelectedEmailFreq}
               id={MEMBER_PROFILE_EMAIL_FREQUENCY_ID}
             />
           </Grid>

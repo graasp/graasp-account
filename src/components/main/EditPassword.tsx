@@ -77,7 +77,7 @@ const EditPassword = ({ onClose }: EditPasswordProps): JSX.Element => {
   const handleCurrentPasswordInput = (event: ChangeEvent<HTMLInputElement>) => {
     const passwordTarget = event.target.value;
     setCurrentPassword(passwordTarget);
-    setHasModifications(true);
+    setHasModifications(passwordTarget !== '');
   };
 
   const handleNewPasswordInput = (event: ChangeEvent<HTMLInputElement>) => {

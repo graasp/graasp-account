@@ -49,12 +49,10 @@ const EditMemberPersonalInformation = ({
   const { mutate: editMember } = mutations.useEditMember();
   const [newUserName, setNewUserName] = useState(member.name);
   const [error, setError] = useState<string | null>();
-  const [hasModifications, setHasModifications] = useState(false);
 
   const handleChange = ({ target }: ChangeEvent<HTMLInputElement>) => {
     const { value } = target;
     setNewUserName(value);
-    setHasModifications(value !== member.name);
     const errorMessage = verifyUsername(value);
     if (errorMessage) {
       setError(
@@ -83,6 +81,8 @@ const EditMemberPersonalInformation = ({
 
     onClose();
   };
+
+  const hasModifications = newUserName !== member.name;
 
   return (
     <RoundedStack>
