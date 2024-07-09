@@ -15,6 +15,7 @@ import RoundedStack from '@/components/common/RoundedStack';
 import { useAccountTranslation } from '@/config/i18n';
 import { mutations } from '@/config/queryClient';
 import {
+  EDIT_MEMBER_INFO_FORM_ID,
   PERSONAL_INFO_CANCEL_BUTTON_ID,
   PERSONAL_INFO_SAVE_BUTTON_ID,
   USERNAME_INPUT_FIELD_ID,
@@ -89,7 +90,7 @@ const EditMemberPersonalInformation = ({
         {t('PERSONAL_INFORMATION_TITLE')}
       </Typography>
 
-      <Grid container alignItems="center">
+      <Grid container alignItems="center" id={EDIT_MEMBER_INFO_FORM_ID}>
         <Grid item xs={4}>
           <Typography color="textSecondary">
             {t('PROFILE_MEMBER_NAME')}

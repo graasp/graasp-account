@@ -4,6 +4,7 @@ import {
   PERSONAL_INFO_CANCEL_BUTTON_ID,
   PERSONAL_INFO_EDIT_BUTTON_ID,
   PERSONAL_INFO_SAVE_BUTTON_ID,
+  READ_MODE_MEMBER_INFO_ID,
   USERNAME_DISPLAY_ID,
 } from '@/config/selectors';
 
@@ -47,7 +48,7 @@ describe('Change username', () => {
     cy.get(`#${PERSONAL_INFO_SAVE_BUTTON_ID}`).should('not.be.disabled');
 
     cy.get(`#${PERSONAL_INFO_SAVE_BUTTON_ID}`).click();
-
+    cy.get(`#${READ_MODE_MEMBER_INFO_ID}`).should('be.visible');
     cy.wait('@editMember').then(({ request: { body } }) => {
       expect(body.name).to.equal(validUsername);
     });

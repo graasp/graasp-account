@@ -20,6 +20,7 @@ import { DEFAULT_EMAIL_FREQUENCY } from '@/config/constants';
 import { useAccountTranslation } from '@/config/i18n';
 import { hooks, mutations } from '@/config/queryClient';
 import {
+  EDIT_PREFERENCES_FORM_ID,
   MEMBER_PROFILE_ANALYTICS_SWITCH_ID,
   MEMBER_PROFILE_EMAIL_FREQUENCY_ID,
   MEMBER_PROFILE_LANGUAGE_SWITCH_ID,
@@ -91,7 +92,7 @@ const EditMemberPreferences = ({
     };
 
     return (
-      <Stack id="editMemberPreferencesFormId">
+      <Stack id={EDIT_PREFERENCES_FORM_ID}>
         <Typography variant="h5">{t('PROFILE_PREFERENCES_TITLE')}</Typography>
         <Grid container alignItems="center">
           <Grid item xs={4}>

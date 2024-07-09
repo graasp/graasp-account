@@ -7,9 +7,9 @@ import { Loader } from '@graasp/ui';
 import { useAccountTranslation } from '@/config/i18n';
 import { hooks } from '@/config/queryClient';
 import {
-  EDIT_MEMBER_INFO_FORM_ID,
   MEMBER_PROFILE_EMAIL_ID,
   PERSONAL_INFO_EDIT_BUTTON_ID,
+  READ_MODE_MEMBER_INFO_ID,
   USERNAME_DISPLAY_ID,
 } from '@/config/selectors';
 
@@ -30,7 +30,7 @@ const MemberPersonalInformation = (): JSX.Element | false => {
   };
   if (member) {
     return (
-      <Stack id={EDIT_MEMBER_INFO_FORM_ID}>
+      <Stack id={READ_MODE_MEMBER_INFO_ID}>
         {isInEditMode ? (
           <EditMemberPersonalInformation
             onClose={handleClose}

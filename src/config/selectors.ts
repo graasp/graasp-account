@@ -67,3 +67,4 @@ export const PASSWORD_INPUT_CONFIRM_PASSWORD_ID = 'confirm-password';
 export const PASSWORD_SAVE_BUTTON_ID = 'password-save-button';
 
 export const EDIT_MEMBER_INFO_FORM_ID = 'edit-member-info-form';
+export const READ_MODE_MEMBER_INFO_ID = 'read-mode-member-info-id';
