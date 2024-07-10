@@ -9,8 +9,8 @@ import {
 } from './config/paths';
 import EmailChangeValidationScreen from './pages/EmailChangeValidationScreen';
 import HomePage from './pages/HomePage';
-import MemberProfileScreen from './pages/MemberProfileScreen';
 import PageWrapper from './pages/PageWrapper';
+import ProfileScreen from './pages/ProfileScreen';
 import RequireAuthentication from './pages/RequireAuthentication';
 import SettingsScreen from './pages/SettingsScreen';
 import StorageScreen from './pages/StorageScreen';
@@ -24,7 +24,7 @@ export const App = (): JSX.Element => (
     <Route element={<RequireAuthentication />}>
       <Route element={<PageWrapper />}>
         <Route path={HOME_PATH} element={<HomePage />} />
-        <Route path={PROFILE_PATH} element={<MemberProfileScreen />} />
+        <Route path={PROFILE_PATH} element={<ProfileScreen />} />
         <Route path={STORAGE_PATH} element={<StorageScreen />} />
         <Route path={SETTINGS_PATH} element={<SettingsScreen />} />
       </Route>

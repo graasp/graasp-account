@@ -20,11 +20,11 @@ import { DEFAULT_EMAIL_FREQUENCY } from '@/config/constants';
 import { useAccountTranslation } from '@/config/i18n';
 import { hooks, mutations } from '@/config/queryClient';
 import {
-  EDIT_PREFERENCES_FORM_ID,
-  MEMBER_PROFILE_ANALYTICS_SWITCH_ID,
-  MEMBER_PROFILE_EMAIL_FREQUENCY_ID,
-  MEMBER_PROFILE_LANGUAGE_SWITCH_ID,
+  PREFERENCES_ANALYTICS_SWITCH_ID,
   PREFERENCES_CLOSE_BUTTON_ID,
+  PREFERENCES_EDIT_CONTAINER_ID,
+  PREFERENCES_EMAIL_FREQUENCY_ID,
+  PREFERENCES_LANGUAGE_SWITCH_ID,
   PREFERENCES_SAVE_BUTTON_ID,
 } from '@/config/selectors';
 
@@ -69,7 +69,7 @@ const EditMemberPreferences = ({
 
     return (
       <BorderedSection
-        id={EDIT_PREFERENCES_FORM_ID}
+        id={PREFERENCES_EDIT_CONTAINER_ID}
         title={t('PROFILE_PREFERENCES_TITLE')}
       >
         <Grid container alignItems="center">
@@ -81,7 +81,7 @@ const EditMemberPreferences = ({
           <Grid item xs={8}>
             <LanguageSwitch
               lang={member.extra?.lang ?? DEFAULT_LANG}
-              id={MEMBER_PROFILE_LANGUAGE_SWITCH_ID}
+              id={PREFERENCES_LANGUAGE_SWITCH_ID}
               onChange={setSelectedLang}
             />
           </Grid>
@@ -96,7 +96,7 @@ const EditMemberPreferences = ({
             <EmailPreferenceSwitch
               emailFreq={member.extra?.emailFreq || DEFAULT_EMAIL_FREQUENCY}
               onChange={setSelectedEmailFreq}
-              id={MEMBER_PROFILE_EMAIL_FREQUENCY_ID}
+              id={PREFERENCES_EMAIL_FREQUENCY_ID}
             />
           </Grid>
         </Grid>
@@ -109,8 +109,7 @@ const EditMemberPreferences = ({
           <Grid item xs={8}>
             <Tooltip title={t('SAVE_ACTIONS_TOGGLE_TOOLTIP')}>
               <Switch
-                // FIXME: this should signal that it is a cy
-                data-cy={MEMBER_PROFILE_ANALYTICS_SWITCH_ID}
+                id={PREFERENCES_ANALYTICS_SWITCH_ID}
                 onChange={handleOnToggle}
                 checked={switchedSaveActions}
                 color="primary"

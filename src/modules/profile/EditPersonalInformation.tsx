@@ -19,8 +19,8 @@ import BorderedSection from '@/components/layout/BorderedSection';
 import { useAccountTranslation } from '@/config/i18n';
 import { mutations } from '@/config/queryClient';
 import {
-  MEMBER_INFO_EDIT_FORM_ID,
   PERSONAL_INFO_CANCEL_BUTTON_ID,
+  PERSONAL_INFO_EDIT_CONTAINER_ID,
   PERSONAL_INFO_SAVE_BUTTON_ID,
   USERNAME_INPUT_FIELD_ID,
 } from '@/config/selectors';
@@ -96,7 +96,7 @@ const EditPersonalInformation = ({
 
   return (
     <BorderedSection
-      id={MEMBER_INFO_EDIT_FORM_ID}
+      id={PERSONAL_INFO_EDIT_CONTAINER_ID}
       title={t('PERSONAL_INFORMATION_TITLE')}
     >
       <Grid container alignItems="center">

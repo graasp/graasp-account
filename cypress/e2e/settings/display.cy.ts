@@ -1,10 +1,10 @@
 import { SETTINGS_PATH } from '@/config/paths';
 import {
-  EDIT_PREFERENCES_FORM_ID,
   MEMBER_PROFILE_ANALYTICS_SWITCH_ID,
-  MEMBER_PROFILE_EDIT_PREFERENCES_BUTTON_ID,
   MEMBER_PROFILE_EMAIL_FREQUENCY_ID,
   MEMBER_PROFILE_LANGUAGE_SWITCH_ID,
+  PREFERENCES_EDIT_BUTTON_ID,
+  PREFERENCES_EDIT_CONTAINER_ID,
 } from '@/config/selectors';
 
 import { BOB } from '../../fixtures/members';
@@ -99,7 +99,7 @@ describe('Check the edit button', () => {
     cy.wait('@getCurrentMember');
   });
   it('after click should display the edit preferences form', () => {
-    cy.get(`#${MEMBER_PROFILE_EDIT_PREFERENCES_BUTTON_ID}`).click();
-    cy.get(`#${EDIT_PREFERENCES_FORM_ID}`).should('be.visible');
+    cy.get(`#${PREFERENCES_EDIT_BUTTON_ID}`).click();
+    cy.get(`#${PREFERENCES_EDIT_CONTAINER_ID}`).should('be.visible');
   });
 });

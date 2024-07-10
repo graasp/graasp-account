@@ -8,6 +8,7 @@ import { useAccountTranslation } from '@/config/i18n';
 import { hooks } from '@/config/queryClient';
 import {
   MEMBER_PROFILE_EMAIL_ID,
+  PERSONAL_INFO_DISPLAY_CONTAINER_ID,
   PERSONAL_INFO_EDIT_BUTTON_ID,
   USERNAME_DISPLAY_ID,
 } from '@/config/selectors';
@@ -27,6 +28,7 @@ const PersonalInformation = (): JSX.Element | false => {
   return (
     <BorderedSection
       title={t('PERSONAL_INFORMATION_TITLE')}
+      id={PERSONAL_INFO_DISPLAY_CONTAINER_ID}
       topActions={[
         <Button
           key="edit"

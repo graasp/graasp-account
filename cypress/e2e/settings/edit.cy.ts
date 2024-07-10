@@ -1,10 +1,10 @@
 import { SETTINGS_PATH } from '@/config/paths';
 import {
-  MEMBER_PROFILE_ANALYTICS_SWITCH_ID,
-  MEMBER_PROFILE_EDIT_PREFERENCES_BUTTON_ID,
-  MEMBER_PROFILE_EMAIL_FREQUENCY_ID,
-  MEMBER_PROFILE_LANGUAGE_SWITCH_ID,
+  PREFERENCES_ANALYTICS_SWITCH_ID,
   PREFERENCES_CLOSE_BUTTON_ID,
+  PREFERENCES_EDIT_BUTTON_ID,
+  PREFERENCES_EMAIL_FREQUENCY_ID,
+  PREFERENCES_LANGUAGE_SWITCH_ID,
   PREFERENCES_SAVE_BUTTON_ID,
 } from '@/config/selectors';
 
@@ -28,24 +28,22 @@ const expectEnableSaveActionsInResponseToBe = (enableSaveActions: boolean) =>
 
 const expectAnalyticsSwitchToBe = (enabled: boolean) => {
   cy.visit(SETTINGS_PATH);
-  cy.get(`#${MEMBER_PROFILE_EDIT_PREFERENCES_BUTTON_ID}`).click();
+  cy.get(`#${PREFERENCES_EDIT_BUTTON_ID}`).click();
   cy.wait('@getCurrentMember');
 
   if (enabled) {
     cy.get(
-      buildDataCySelector(MEMBER_PROFILE_ANALYTICS_SWITCH_ID, 'input'),
+      buildDataCySelector(PREFERENCES_ANALYTICS_SWITCH_ID, 'input'),
     ).should('be.checked');
   } else {
     cy.get(
-      buildDataCySelector(MEMBER_PROFILE_ANALYTICS_SWITCH_ID, 'input'),
+      buildDataCySelector(PREFERENCES_ANALYTICS_SWITCH_ID, 'input'),
     ).should('not.be.checked');
   }
 };
 
 const clickOnAnalyticsSwitch = () =>
-  cy
-    .get(buildDataCySelector(MEMBER_PROFILE_ANALYTICS_SWITCH_ID, 'input'))
-    .click();
+  cy.get(`#${PREFERENCES_ANALYTICS_SWITCH_ID} input`).click();
 
 const checkAnalyticsAfterUpdate = (shouldSaveActionsBeEnabled: boolean) => {
   const enableSaveActions = shouldSaveActionsBeEnabled;
@@ -59,15 +57,15 @@ const checkAnalyticsAfterUpdate = (shouldSaveActionsBeEnabled: boolean) => {
 };
 
 const switchLanguage = (newLanguageValue: string) => {
-  cy.get(`#${MEMBER_PROFILE_LANGUAGE_SWITCH_ID}`).should('be.visible'); // Ensure the element is visible
-  cy.get(`#${MEMBER_PROFILE_LANGUAGE_SWITCH_ID}`).click();
+  cy.get(`#${PREFERENCES_LANGUAGE_SWITCH_ID}`).should('be.visible'); // Ensure the element is visible
+  cy.get(`#${PREFERENCES_LANGUAGE_SWITCH_ID}`).click();
 
   cy.get(`[role="option"][data-value="${newLanguageValue}"]`).click();
 };
 
 const switchEmailFreq = (newEmailFreqValue: string) => {
-  cy.get(`#${MEMBER_PROFILE_EMAIL_FREQUENCY_ID}`).should('be.visible'); // Ensure the element is visible
-  cy.get(`#${MEMBER_PROFILE_EMAIL_FREQUENCY_ID}`).click();
+  cy.get(`#${PREFERENCES_EMAIL_FREQUENCY_ID}`).should('be.visible'); // Ensure the element is visible
+  cy.get(`#${PREFERENCES_EMAIL_FREQUENCY_ID}`).click();
 
   cy.get(`[role="option"][data-value="${newEmailFreqValue}"]`).click();
 };
@@ -82,7 +80,7 @@ describe('Checks the analytics switch', () => {
         },
       });
       cy.visit(SETTINGS_PATH);
-      cy.get(`#${MEMBER_PROFILE_EDIT_PREFERENCES_BUTTON_ID}`).click();
+      cy.get(`#${PREFERENCES_EDIT_BUTTON_ID}`).click();
       cy.wait('@getCurrentMember');
     });
 
@@ -104,7 +102,7 @@ describe('Checks the analytics switch', () => {
         },
       });
       cy.visit(SETTINGS_PATH);
-      cy.get(`#${MEMBER_PROFILE_EDIT_PREFERENCES_BUTTON_ID}`).click();
+      cy.get(`#${PREFERENCES_EDIT_BUTTON_ID}`).click();
       cy.wait('@getCurrentMember');
     });
 
@@ -124,16 +122,13 @@ describe('Checks the current member language', () => {
       currentMember: { ...currentMember, extra: { lang: 'es' } },
     });
     cy.visit(SETTINGS_PATH);
-    cy.get(`#${MEMBER_PROFILE_EDIT_PREFERENCES_BUTTON_ID}`).click();
+    cy.get(`#${PREFERENCES_EDIT_BUTTON_ID}`).click();
 
     cy.wait('@getCurrentMember');
   });
 
   it('should display the member language', () => {
-    cy.get(`#${MEMBER_PROFILE_LANGUAGE_SWITCH_ID}`).should(
-      'contain',
-      'Español',
-    );
+    cy.get(`#${PREFERENCES_LANGUAGE_SWITCH_ID}`).should('contain', 'Español');
   });
 });
 describe('Checks the language switch', () => {
@@ -142,7 +137,7 @@ describe('Checks the language switch', () => {
       currentMember: BOB,
     });
     cy.visit(SETTINGS_PATH);
-    cy.get(`#${MEMBER_PROFILE_EDIT_PREFERENCES_BUTTON_ID}`).click();
+    cy.get(`#${PREFERENCES_EDIT_BUTTON_ID}`).click();
 
     cy.wait('@getCurrentMember');
   });
@@ -164,13 +159,13 @@ describe('Checks the current email frequency', () => {
       },
     });
     cy.visit(SETTINGS_PATH);
-    cy.get(`#${MEMBER_PROFILE_EDIT_PREFERENCES_BUTTON_ID}`).click();
+    cy.get(`#${PREFERENCES_EDIT_BUTTON_ID}`).click();
 
     cy.wait('@getCurrentMember');
   });
 
   it('should display the correct email frequency value', () => {
-    cy.get(`#${MEMBER_PROFILE_EMAIL_FREQUENCY_ID}`).should(
+    cy.get(`#${PREFERENCES_EMAIL_FREQUENCY_ID}`).should(
       'contain',
       'Always receive email notifications',
     );
@@ -183,7 +178,7 @@ describe('Checks the email frequency switch', () => {
       currentMember: BOB,
     });
     cy.visit(SETTINGS_PATH);
-    cy.get(`#${MEMBER_PROFILE_EDIT_PREFERENCES_BUTTON_ID}`).click();
+    cy.get(`#${PREFERENCES_EDIT_BUTTON_ID}`).click();
 
     cy.wait('@getCurrentMember');
   });
@@ -202,7 +197,7 @@ describe('Check the close button', () => {
       currentMember: BOB,
     });
     cy.visit(SETTINGS_PATH);
-    cy.get(`#${MEMBER_PROFILE_EDIT_PREFERENCES_BUTTON_ID}`).click();
+    cy.get(`#${PREFERENCES_EDIT_BUTTON_ID}`).click();
 
     cy.wait('@getCurrentMember');
   });
@@ -211,11 +206,8 @@ describe('Check the close button', () => {
     switchLanguage('de');
     switchEmailFreq('always');
     cy.get(`#${PREFERENCES_CLOSE_BUTTON_ID}`).click();
-    cy.get(`#${MEMBER_PROFILE_LANGUAGE_SWITCH_ID}`).should(
-      'contain',
-      'English',
-    );
-    cy.get(`#${MEMBER_PROFILE_EMAIL_FREQUENCY_ID}`).should(
+    cy.get(`#${PREFERENCES_LANGUAGE_SWITCH_ID}`).should('contain', 'English');
+    cy.get(`#${PREFERENCES_EMAIL_FREQUENCY_ID}`).should(
       'contain',
       'Always receive email notifications',
     );
