@@ -9,7 +9,7 @@ import {
   DELETE_MEMBER_DIALOG_TITLE_ID,
 } from '@/config/selectors';
 
-import RoundedStack from '../common/RoundedStack';
+import BorderedSection from '../layout/BorderedSection';
 import DeleteMemberDialogContent from './DeleteMemberDialogContent';
 
 const DeleteMemberSection = (): JSX.Element => {
@@ -24,11 +24,7 @@ const DeleteMemberSection = (): JSX.Element => {
 
   if (member) {
     return (
-      <RoundedStack>
-        <Typography variant="h5">
-          {t('PROFILE_DESTRUCTIVE_SETTINGS_TITLE')}
-        </Typography>
-
+      <BorderedSection title={t('PROFILE_DESTRUCTIVE_SETTINGS_TITLE')}>
         <Stack direction="column" spacing={2}>
           <Typography variant="body2">
             {t('PROFILE_DELETE_ACCOUNT_INFORMATION')}
@@ -55,7 +51,7 @@ const DeleteMemberSection = (): JSX.Element => {
         >
           <DeleteMemberDialogContent id={member.id} closeModal={closeModal} />
         </Dialog>
-      </RoundedStack>
+      </BorderedSection>
     );
   }
 

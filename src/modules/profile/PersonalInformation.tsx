@@ -1,50 +1,55 @@
-import { useNavigate } from 'react-router';
+import { useState } from 'react';
 
 import { Button } from '@mui/material';
 
 import BorderedSection from '@/components/layout/BorderedSection';
 import MemberProfileItem from '@/components/main/MemberProfileItem';
 import { useAccountTranslation } from '@/config/i18n';
-import { EDIT_MEMBER_INFO } from '@/config/paths';
 import { hooks } from '@/config/queryClient';
 import {
   MEMBER_PROFILE_EMAIL_ID,
-  PASSWORD_DISPLAY_ID,
   PERSONAL_INFO_EDIT_BUTTON_ID,
   USERNAME_DISPLAY_ID,
 } from '@/config/selectors';
+import EditPersonalInformation from '@/modules/profile/EditPersonalInformation';
 
 const PersonalInformation = (): JSX.Element | false => {
   const { data: member } = hooks.useCurrentMember();
   const { t } = useAccountTranslation();
-  const navigate = useNavigate();
 
+  const [isEditing, setIsEditing] = useState(false);
+
+  const onClose = () => setIsEditing(false);
+
+  if (isEditing) {
+    return <EditPersonalInformation member={member} onClose={onClose} />;
+  }
   return (
     <BorderedSection
       title={t('PERSONAL_INFORMATION_TITLE')}
-      actions={[
+      topActions={[
         <Button
+          key="edit"
           id={PERSONAL_INFO_EDIT_BUTTON_ID}
-          onClick={() => navigate(EDIT_MEMBER_INFO)}
+          onClick={() => setIsEditing(true)}
           variant="contained"
+          size="small"
         >
           {t('EDIT_BUTTON_LABEL')}
         </Button>,
       ]}
     >
       <MemberProfileItem
+        key="name"
         title={t('PROFILE_MEMBER_NAME')}
         content={member?.name}
         contentId={USERNAME_DISPLAY_ID}
       />
       <MemberProfileItem
+        key="email"
         title={t('PROFILE_EMAIL_TITLE')}
         content={member?.email}
         contentId={MEMBER_PROFILE_EMAIL_ID}
-      />
-      <MemberProfileItem
-        title={t('PASSWORD_TITLE')}
-        contentId={PASSWORD_DISPLAY_ID}
       />
     </BorderedSection>
   );

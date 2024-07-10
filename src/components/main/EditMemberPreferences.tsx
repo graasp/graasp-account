@@ -4,6 +4,7 @@ import {
   Alert,
   Button,
   Grid,
+  Stack,
   Switch,
   Tooltip,
   Typography,
@@ -70,22 +71,6 @@ const EditMemberPreferences = ({
       <BorderedSection
         id={EDIT_PREFERENCES_FORM_ID}
         title={t('PROFILE_PREFERENCES_TITLE')}
-        actions={[
-          <Button
-            onClick={onClose}
-            variant="outlined"
-            id={PREFERENCES_CLOSE_BUTTON_ID}
-          >
-            {t('CLOSE_BUTTON')}
-          </Button>,
-          <Button
-            variant="contained"
-            onClick={saveSettings}
-            id={PREFERENCES_SAVE_BUTTON_ID}
-          >
-            {t('SAVE_CHANGES_TEXT')}
-          </Button>,
-        ]}
       >
         <Grid container alignItems="center">
           <Grid item xs={4}>
@@ -132,6 +117,25 @@ const EditMemberPreferences = ({
             </Tooltip>
           </Grid>
         </Grid>
+        <Stack direction="row" gap={2} justifyContent="flex-end">
+          <Button
+            onClick={onClose}
+            variant="outlined"
+            id={PREFERENCES_CLOSE_BUTTON_ID}
+            size="small"
+          >
+            {t('CLOSE_BUTTON')}
+          </Button>
+
+          <Button
+            variant="contained"
+            onClick={saveSettings}
+            id={PREFERENCES_SAVE_BUTTON_ID}
+            size="small"
+          >
+            {t('SAVE_CHANGES_TEXT')}
+          </Button>
+        </Stack>
       </BorderedSection>
     );
   }

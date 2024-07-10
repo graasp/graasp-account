@@ -39,7 +39,7 @@ const MemberPreferences = (): JSX.Element => {
   return (
     <BorderedSection
       title={t('PROFILE_PREFERENCES_TITLE')}
-      actions={[
+      topActions={[
         <Button
           variant="contained"
           onClick={handleEditClick}

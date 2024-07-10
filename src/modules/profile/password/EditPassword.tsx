@@ -1,16 +1,25 @@
 import { ChangeEvent, useState } from 'react';
 
-import { Button, Stack, TextField } from '@mui/material';
+import { Box, Button, Stack, TextField } from '@mui/material';
 import Typography from '@mui/material/Typography';
 
 import { isPasswordStrong } from '@graasp/sdk';
 import { FAILURE_MESSAGES } from '@graasp/translations';
 
-import ScreenLayout from '@/components/layout/ScreenLayout';
+import BorderedSection from '@/components/layout/BorderedSection';
 import { useAccountTranslation } from '@/config/i18n';
 import { mutations } from '@/config/queryClient';
+import {
+  PASSWORD_INPUT_CONFIRM_PASSWORD_ID,
+  PASSWORD_INPUT_NEW_PASSWORD_ID,
+  PASSWORD_SAVE_BUTTON_ID,
+} from '@/config/selectors';
 
-const PasswordSettings = (): JSX.Element => {
+type EditPasswordProps = {
+  onClose: () => void;
+};
+
+const EditPassword = ({ onClose }: EditPasswordProps): JSX.Element => {
   const { t } = useAccountTranslation();
 
   const [currentPassword, setCurrentPassword] = useState('');
@@ -35,12 +44,6 @@ const PasswordSettings = (): JSX.Element => {
     return newPasswordIsNotEmpty || confirmPasswordIsNotEmpty;
   };
 
-  const onClose = () => {
-    setCurrentPassword('');
-    setNewPassword('');
-    setConfirmPassword('');
-  };
-
   const handleChangePassword = () => {
     // verify there are no empty inputs
     const isValid = verifyEmptyPassword();
@@ -56,49 +59,62 @@ const PasswordSettings = (): JSX.Element => {
         return;
       }
 
-      // check password strength for new password
-      if (!isPasswordStrong(newPassword)) {
-        setNewPasswordError(FAILURE_MESSAGES.PASSWORD_WEAK_ERROR);
-        return;
-      }
-
       // perform password update
       updatePassword({
         password: newPassword,
         currentPassword,
       });
     }
-
     onClose();
   };
 
   const handleCurrentPasswordInput = (event: ChangeEvent<HTMLInputElement>) => {
-    setCurrentPassword(event.target.value);
-  };
-  const handleNewPasswordInput = (event: ChangeEvent<HTMLInputElement>) => {
-    setNewPassword(event.target.value);
-    setNewPasswordError(event.target.value ? null : 'Password is empty');
-  };
-  const handleConfirmPasswordInput = (event: ChangeEvent<HTMLInputElement>) => {
-    setConfirmPassword(event.target.value);
-    setConfirmPasswordError(event.target.value ? null : 'Password is empty');
+    const passwordTarget = event.target.value;
+    setCurrentPassword(passwordTarget);
   };
 
+  const handleNewPasswordInput = (event: ChangeEvent<HTMLInputElement>) => {
+    const newPasswordTarget = event.target.value;
+    setNewPassword(newPasswordTarget);
+
+    if (!newPasswordTarget) {
+      setNewPasswordError(FAILURE_MESSAGES.PASSWORD_EMPTY_ERROR);
+    } else if (!isPasswordStrong(newPasswordTarget)) {
+      setNewPasswordError(FAILURE_MESSAGES.PASSWORD_WEAK_ERROR);
+    } else {
+      setNewPasswordError(null);
+    }
+  };
+  const handleConfirmPasswordInput = (event: ChangeEvent<HTMLInputElement>) => {
+    const confirmPasswordTarget = event.target.value;
+    setConfirmPassword(confirmPasswordTarget);
+
+    setConfirmPasswordError(confirmPasswordTarget ? null : 'Password is empty');
+  };
+
+  const hasChanged =
+    currentPassword !== '' &&
+    newPasswordError === null &&
+    newPassword === confirmPassword;
   return (
-    <ScreenLayout title={t('PASSWORD_SETTINGS_TITLE')}>
+    <BorderedSection title={t('PASSWORD_SETTINGS_TITLE')}>
       <Typography variant="body1">
         {t('PASSWORD_SETTINGS_CONFIRM_INFORMATION')}
       </Typography>
       <Stack spacing={2}>
-        <TextField
-          required
-          label={t('PASSWORD_SETTINGS_CURRENT_LABEL')}
-          variant="outlined"
-          value={currentPassword}
-          onChange={handleCurrentPasswordInput}
-          type="password"
-          helperText={t('PASSWORD_SETTINGS_CURRENT_INFORMATION')}
-        />
+        <Box>
+          <TextField
+            required
+            label={t('PASSWORD_SETTINGS_CURRENT_LABEL')}
+            variant="outlined"
+            value={currentPassword}
+            onChange={handleCurrentPasswordInput}
+            type="password"
+          />
+          <Typography variant="subtitle2">
+            {t('PASSWORD_SETTINGS_CURRENT_INFORMATION')}
+          </Typography>
+        </Box>
         <Stack direction="row" spacing={2}>
           <TextField
             required
@@ -109,6 +125,7 @@ const PasswordSettings = (): JSX.Element => {
             helperText={newPasswordError}
             onChange={handleNewPasswordInput}
             type="password"
+            id={PASSWORD_INPUT_NEW_PASSWORD_ID}
           />
           <TextField
             required
@@ -119,29 +136,27 @@ const PasswordSettings = (): JSX.Element => {
             helperText={confirmPasswordError}
             onChange={handleConfirmPasswordInput}
             type="password"
+            id={PASSWORD_INPUT_CONFIRM_PASSWORD_ID}
           />
         </Stack>
-
-        <Stack direction="row" spacing={2}>
-          <Button
-            variant="outlined"
-            disabled
-            // TODO: add code to reset password
-            // onClick={() => handleChangePassword()}
-          >
-            {t('PASSWORD_SETTINGS_REQUEST_RESET_BUTTON')}
-          </Button>
-          <Button
-            variant="contained"
-            color="primary"
-            onClick={handleChangePassword}
-          >
-            {t('PASSWORD_SETTINGS_CONFIRM_BUTTON')}
-          </Button>
-        </Stack>
       </Stack>
-    </ScreenLayout>
+      <Stack direction="row" gap={1} justifyContent="flex-end">
+        <Button variant="outlined" onClick={onClose} size="small">
+          {t('CLOSE_BUTTON')}
+        </Button>
+        <Button
+          variant="contained"
+          color="primary"
+          onClick={handleChangePassword}
+          id={PASSWORD_SAVE_BUTTON_ID}
+          disabled={Boolean(newPasswordError) || !hasChanged}
+          size="small"
+        >
+          {t('PASSWORD_SETTINGS_CONFIRM_BUTTON')}
+        </Button>
+      </Stack>
+    </BorderedSection>
   );
 };
 
-export default PasswordSettings;
+export default EditPassword;

@@ -9,7 +9,7 @@ type Props = {
   href?: string;
   hrefId?: string;
 };
-const DisplayingMemberPublicProfileLinks = ({
+const DisplayLinks = ({
   icon,
   contentId,
   content,
@@ -32,4 +32,4 @@ const DisplayingMemberPublicProfileLinks = ({
     </Typography>
   </Stack>
 );
-export default DisplayingMemberPublicProfileLinks;
+export default DisplayLinks;

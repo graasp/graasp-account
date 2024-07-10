@@ -8,14 +8,12 @@ import {
   CircleUserRoundIcon,
   HardDriveIcon,
   HouseIcon,
-  RectangleEllipsisIcon,
   SettingsIcon,
 } from 'lucide-react';
 
 import { useAccountTranslation } from '../../config/i18n';
 import {
   HOME_PATH,
-  PASSWORD_SETTINGS_PATH,
   PROFILE_PATH,
   SETTINGS_PATH,
   STORAGE_PATH,
@@ -43,12 +41,6 @@ const MainMenu = (): JSX.Element => {
         text={t('MAIN_MENU_PROFILE')}
         onClick={() => goTo(PROFILE_PATH)}
         selected={pathname === PROFILE_PATH}
-      />
-      <MenuItem
-        icon={<RectangleEllipsisIcon />}
-        text={t('MAIN_MENU_PASSWORD')}
-        onClick={() => goTo(PASSWORD_SETTINGS_PATH)}
-        selected={pathname === PASSWORD_SETTINGS_PATH}
       />
       <MenuItem
         icon={<HardDriveIcon />}

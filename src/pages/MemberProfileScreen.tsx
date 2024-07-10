@@ -1,8 +1,8 @@
 import ScreenLayout from '@/components/layout/ScreenLayout';
 import { useAccountTranslation } from '@/config/i18n';
-import MemberPassword from '@/modules/profile/MemberPassword';
 import PersonalInformation from '@/modules/profile/PersonalInformation';
-import PublicProfile from '@/modules/profile/PublicProfile';
+import MemberPassword from '@/modules/profile/password/MemberPassword';
+import PublicProfile from '@/modules/profile/public/PublicProfile';
 
 const MemberProfileScreen = (): JSX.Element => {
   const { t } = useAccountTranslation();
