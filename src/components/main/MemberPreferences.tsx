@@ -71,6 +71,7 @@ const MemberPreferences = (): JSX.Element => {
             ? t('PROFILE_SAVE_ACTIONS_VALUE_TRUE')
             : t('PROFILE_SAVE_ACTIONS_VALUE_FALSE')
         }
+        // FIXME: this is used in 2 places
         contentId={MEMBER_PROFILE_ANALYTICS_SWITCH_ID}
       />
     </BorderedSection>

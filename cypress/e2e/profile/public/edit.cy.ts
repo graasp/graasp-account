@@ -9,7 +9,7 @@ import {
   PUBLIC_PROFILE_TWITTER_ID,
 } from '@/config/selectors';
 
-import { BOB, MEMBER_PUBLIC_PROFILE } from '../fixtures/members';
+import { BOB, MEMBER_PUBLIC_PROFILE } from '../../../fixtures/members';
 
 const SocialProfile = {
   Linkedin: 'linkedinID',

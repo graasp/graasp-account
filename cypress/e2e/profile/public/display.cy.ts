@@ -21,7 +21,7 @@ import {
   BOB,
   MEMBER_EMPTY_PUBLIC_PROFILE,
   MEMBER_PUBLIC_PROFILE,
-} from '../fixtures/members';
+} from '../../../fixtures/members';
 
 describe('Check member info', () => {
   beforeEach(() => {

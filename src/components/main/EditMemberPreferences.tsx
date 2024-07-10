@@ -109,6 +109,7 @@ const EditMemberPreferences = ({
           <Grid item xs={8}>
             <Tooltip title={t('SAVE_ACTIONS_TOGGLE_TOOLTIP')}>
               <Switch
+                // FIXME: this should signal that it is a cy
                 data-cy={MEMBER_PROFILE_ANALYTICS_SWITCH_ID}
                 onChange={handleOnToggle}
                 checked={switchedSaveActions}

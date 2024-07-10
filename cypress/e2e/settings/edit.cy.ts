@@ -8,9 +8,9 @@ import {
   PREFERENCES_SAVE_BUTTON_ID,
 } from '@/config/selectors';
 
-import { BOB, CURRENT_MEMBER } from '../fixtures/members';
-import { mockGetCurrentMember } from '../support/server';
-import { buildDataCySelector } from '../support/utils';
+import { BOB, CURRENT_MEMBER } from '../../fixtures/members';
+import { mockGetCurrentMember } from '../../support/server';
+import { buildDataCySelector } from '../../support/utils';
 
 const currentMember = CURRENT_MEMBER;
 
@@ -31,9 +31,15 @@ const expectAnalyticsSwitchToBe = (enabled: boolean) => {
   cy.get(`#${MEMBER_PROFILE_EDIT_PREFERENCES_BUTTON_ID}`).click();
   cy.wait('@getCurrentMember');
 
-  cy.get(
-    buildDataCySelector(MEMBER_PROFILE_ANALYTICS_SWITCH_ID, 'input'),
-  ).should(`${enabled ? '' : 'not.'}be.checked`);
+  if (enabled) {
+    cy.get(
+      buildDataCySelector(MEMBER_PROFILE_ANALYTICS_SWITCH_ID, 'input'),
+    ).should('be.checked');
+  } else {
+    cy.get(
+      buildDataCySelector(MEMBER_PROFILE_ANALYTICS_SWITCH_ID, 'input'),
+    ).should('not.be.checked');
+  }
 };
 
 const clickOnAnalyticsSwitch = () =>

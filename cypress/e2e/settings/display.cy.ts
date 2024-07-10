@@ -7,7 +7,7 @@ import {
   MEMBER_PROFILE_LANGUAGE_SWITCH_ID,
 } from '@/config/selectors';
 
-import { BOB } from '../fixtures/members';
+import { BOB } from '../../fixtures/members';
 
 describe('Check member preferences', () => {
   beforeEach(() => {
@@ -64,11 +64,11 @@ describe('Check member preferences', () => {
   });
 
   it('displays the correct enable analytics when true', () => {
-    const expectedEnableanalyticsText = 'Enabled';
+    const expectedEnableAnalyticsText = 'Enabled';
 
     cy.get(`#${MEMBER_PROFILE_ANALYTICS_SWITCH_ID}`).should(
       'contain',
-      expectedEnableanalyticsText,
+      expectedEnableAnalyticsText,
     );
   });
 
@@ -82,10 +82,10 @@ describe('Check member preferences', () => {
     cy.visit(SETTINGS_PATH);
     cy.wait('@getCurrentMember');
 
-    const expectedEnableanalyticsText = 'Disabled';
+    const expectedEnableAnalyticsText = 'Disabled';
     cy.get(`#${MEMBER_PROFILE_ANALYTICS_SWITCH_ID}`).should(
       'contain',
-      expectedEnableanalyticsText,
+      expectedEnableAnalyticsText,
     );
   });
 });
