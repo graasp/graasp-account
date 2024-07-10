@@ -2,6 +2,8 @@ import { useNavigate } from 'react-router';
 
 import { Button } from '@mui/material';
 
+import BorderedSection from '@/components/layout/BorderedSection';
+import MemberProfileItem from '@/components/main/MemberProfileItem';
 import { useAccountTranslation } from '@/config/i18n';
 import { EDIT_MEMBER_INFO } from '@/config/paths';
 import { hooks } from '@/config/queryClient';
@@ -11,9 +13,6 @@ import {
   PERSONAL_INFO_EDIT_BUTTON_ID,
   USERNAME_DISPLAY_ID,
 } from '@/config/selectors';
-
-import BorderedSection from '../layout/BorderedSection';
-import MemberProfileItem from './MemberProfileItem';
 
 const PersonalInformation = (): JSX.Element | false => {
   const { data: member } = hooks.useCurrentMember();
