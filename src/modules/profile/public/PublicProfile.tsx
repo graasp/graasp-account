@@ -12,6 +12,7 @@ import { useAccountTranslation } from '@/config/i18n';
 import { hooks } from '@/config/queryClient';
 import {
   PUBLIC_PROFILE_BIO_ID,
+  PUBLIC_PROFILE_DISPLAY_CONTAINER_ID,
   PUBLIC_PROFILE_EDIT_BUTTON_ID,
   PUBLIC_PROFILE_FACEBOOK_HREF_ID,
   PUBLIC_PROFILE_FACEBOOK_ID,
@@ -42,6 +43,7 @@ const MemberPublicProfile = (): JSX.Element => {
   }
   return (
     <BorderedSection
+      id={PUBLIC_PROFILE_DISPLAY_CONTAINER_ID}
       title={t('PUBLIC_PROFILE_TITLE')}
       topActions={[
         <Button

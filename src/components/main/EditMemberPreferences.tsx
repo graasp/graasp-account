@@ -17,11 +17,11 @@ import { Loader } from '@graasp/ui';
 import EmailPreferenceSwitch from '@/components/main/EmailPreferenceSwitch';
 import LanguageSwitch from '@/components/main/LanguageSwitch';
 import { DEFAULT_EMAIL_FREQUENCY } from '@/config/constants';
-import { useAccountTranslation } from '@/config/i18n';
+import { useAccountTranslation, useCommonTranslation } from '@/config/i18n';
 import { hooks, mutations } from '@/config/queryClient';
 import {
   PREFERENCES_ANALYTICS_SWITCH_ID,
-  PREFERENCES_CLOSE_BUTTON_ID,
+  PREFERENCES_CANCEL_BUTTON_ID,
   PREFERENCES_EDIT_CONTAINER_ID,
   PREFERENCES_EMAIL_FREQUENCY_ID,
   PREFERENCES_LANGUAGE_SWITCH_ID,
@@ -37,6 +37,7 @@ const EditMemberPreferences = ({
   onClose,
 }: EditPreferencesProp): JSX.Element | null => {
   const { t } = useAccountTranslation();
+  const { t: translateCommon } = useCommonTranslation();
   const { data: member, isLoading } = hooks.useCurrentMember();
   const { mutate: editMember } = mutations.useEditMember();
   const [selectedLang, setSelectedLang] = useState<string>(
@@ -121,10 +122,10 @@ const EditMemberPreferences = ({
           <Button
             onClick={onClose}
             variant="outlined"
-            id={PREFERENCES_CLOSE_BUTTON_ID}
+            id={PREFERENCES_CANCEL_BUTTON_ID}
             size="small"
           >
-            {t('CLOSE_BUTTON')}
+            {translateCommon('CANCEL_BUTTON')}
           </Button>
 
           <Button
@@ -133,7 +134,7 @@ const EditMemberPreferences = ({
             id={PREFERENCES_SAVE_BUTTON_ID}
             size="small"
           >
-            {t('SAVE_CHANGES_TEXT')}
+            {translateCommon('SAVE_BUTTON')}
           </Button>
         </Stack>
       </BorderedSection>

@@ -10,6 +10,7 @@ import BorderedSection from '@/components/layout/BorderedSection';
 import { useAccountTranslation } from '@/config/i18n';
 import { mutations } from '@/config/queryClient';
 import {
+  PASSWORD_EDIT_CONTAINER_ID,
   PASSWORD_INPUT_CONFIRM_PASSWORD_ID,
   PASSWORD_INPUT_NEW_PASSWORD_ID,
   PASSWORD_SAVE_BUTTON_ID,
@@ -93,11 +94,13 @@ const EditPassword = ({ onClose }: EditPasswordProps): JSX.Element => {
   };
 
   const hasChanged =
-    currentPassword !== '' &&
-    newPasswordError === null &&
-    newPassword === confirmPassword;
+    newPasswordError === null && newPassword === confirmPassword;
+
   return (
-    <BorderedSection title={t('PASSWORD_SETTINGS_TITLE')}>
+    <BorderedSection
+      id={PASSWORD_EDIT_CONTAINER_ID}
+      title={t('PASSWORD_SETTINGS_TITLE')}
+    >
       <Typography variant="body1">
         {t('PASSWORD_SETTINGS_CONFIRM_INFORMATION')}
       </Typography>

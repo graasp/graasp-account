@@ -4,11 +4,15 @@ import { Button, Typography } from '@mui/material';
 
 import BorderedSection from '@/components/layout/BorderedSection';
 import { useAccountTranslation } from '@/config/i18n';
-import { PASSWORD_EDIT_BUTTON_ID } from '@/config/selectors';
+import {
+  PASSWORD_DISPLAY_CONTAINER_ID,
+  PASSWORD_DISPLAY_INFORMATION_ID,
+  PASSWORD_EDIT_BUTTON_ID,
+} from '@/config/selectors';
 
 import EditPassword from './EditPassword';
 
-const MemberPassword = (): JSX.Element => {
+const DisplayPassword = (): JSX.Element => {
   const { t } = useAccountTranslation();
   const [isEditing, setIsEditing] = useState(false);
 
@@ -25,6 +29,7 @@ const MemberPassword = (): JSX.Element => {
   }
   return (
     <BorderedSection
+      id={PASSWORD_DISPLAY_CONTAINER_ID}
       title={t('PASSWORD_SETTINGS_TITLE')}
       topActions={[
         <Button
@@ -38,11 +43,15 @@ const MemberPassword = (): JSX.Element => {
         </Button>,
       ]}
     >
-      <Typography variant="body1" color="textSecondary">
+      <Typography
+        id={PASSWORD_DISPLAY_INFORMATION_ID}
+        variant="body1"
+        color="textSecondary"
+      >
         {t('PASSWORD_SETTINGS_INFORMATION')}
       </Typography>
     </BorderedSection>
   );
 };
 
-export default MemberPassword;
+export default DisplayPassword;

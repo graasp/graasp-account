@@ -3,12 +3,13 @@ export const MEMBER_PROFILE_EMAIL_ID = 'member-profile-email';
 export const SETTINGS_PAGE_CONTAINER_ID = 'settings-page-container';
 
 export const PREFERENCES_LANGUAGE_SWITCH_ID = 'preferences-language-switch';
+export const PREFERENCES_LANGUAGE_DISPLAY_ID = 'preferences-language-display';
 export const PREFERENCES_ANALYTICS_SWITCH_ID = 'preferences-analytics-switch';
 export const PREFERENCES_EMAIL_FREQUENCY_ID = 'preferences-email-frequency';
 export const PREFERENCES_EDIT_BUTTON_ID = 'preferences-edit-button';
 export const PREFERENCES_EDIT_CONTAINER_ID = 'preferences-edit-container';
 export const PREFERENCES_SAVE_BUTTON_ID = 'preferences-save-button';
-export const PREFERENCES_CLOSE_BUTTON_ID = 'preferences-close-button';
+export const PREFERENCES_CANCEL_BUTTON_ID = 'preferences-cancel-button';
 
 export const DELETE_MEMBER_DIALOG_TITLE_ID = 'alert-dialog-title';
 export const DELETE_MEMBER_DIALOG_DESCRIPTION_ID = 'alert-dialog-description';
@@ -43,9 +44,14 @@ export const PUBLIC_PROFILE_TWITTER_ID = 'public-profile-twitter';
 export const PUBLIC_PROFILE_TWITTER_HREF_ID = 'public-profile-twitter-href';
 export const PUBLIC_PROFILE_FACEBOOK_ID = 'public-profile-facebook';
 export const PUBLIC_PROFILE_FACEBOOK_HREF_ID = 'public-profile-facebook-href';
+export const PUBLIC_PROFILE_DISPLAY_CONTAINER_ID =
+  'public-profile-display-container';
+export const PUBLIC_PROFILE_EDIT_CONTAINER_ID = 'public-profile-edit-container';
 
-export const PASSWORD_DISPLAY_ID = 'password-display';
+export const PASSWORD_DISPLAY_CONTAINER_ID = 'password-display-container';
+export const PASSWORD_DISPLAY_INFORMATION_ID = 'password-display-information';
 export const PASSWORD_EDIT_BUTTON_ID = 'password-edit-button';
+export const PASSWORD_EDIT_CONTAINER_ID = 'password-edit-container';
 export const PASSWORD_SAVE_BUTTON_ID = 'password-save-button';
 export const PASSWORD_INPUT_NEW_PASSWORD_ID = 'new-password';
 export const PASSWORD_INPUT_CONFIRM_PASSWORD_ID = 'confirm-password';

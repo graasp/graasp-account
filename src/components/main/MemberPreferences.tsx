@@ -10,7 +10,7 @@ import {
   PREFERENCES_ANALYTICS_SWITCH_ID,
   PREFERENCES_EDIT_BUTTON_ID,
   PREFERENCES_EMAIL_FREQUENCY_ID,
-  PREFERENCES_LANGUAGE_SWITCH_ID,
+  PREFERENCES_LANGUAGE_DISPLAY_ID,
 } from '@/config/selectors';
 
 import BorderedSection from '../layout/BorderedSection';
@@ -53,7 +53,7 @@ const MemberPreferences = (): JSX.Element => {
       <MemberProfileItem
         title={t('PROFILE_LANGUAGE_TITLE')}
         content={languageName}
-        contentId={PREFERENCES_LANGUAGE_SWITCH_ID}
+        contentId={PREFERENCES_LANGUAGE_DISPLAY_ID}
       />
       <MemberProfileItem
         title={t('PROFILE_EMAIL_FREQUENCY_TITLE')}

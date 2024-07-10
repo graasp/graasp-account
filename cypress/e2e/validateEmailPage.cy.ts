@@ -13,6 +13,7 @@ import {
 import { CURRENT_MEMBER } from '../fixtures/members';
 
 const API_HOST = Cypress.env('VITE_GRAASP_API_HOST');
+
 describe('Validate Email Update', () => {
   it('No token', () => {
     cy.setUpApi({ currentMember: CURRENT_MEMBER });

@@ -1,8 +1,9 @@
 import { PROFILE_PATH } from 'config/paths';
 
 import {
-  MEMBER_INFO_READ_MODE_ID,
+  MEMBER_PROFILE_EMAIL_ID,
   PERSONAL_INFO_CANCEL_BUTTON_ID,
+  PERSONAL_INFO_DISPLAY_CONTAINER_ID,
   PERSONAL_INFO_EDIT_BUTTON_ID,
   PERSONAL_INFO_SAVE_BUTTON_ID,
   USERNAME_DISPLAY_ID,
@@ -16,7 +17,25 @@ const changeUsername = (newUserName: string) => {
   cy.get('input[name=username]').type(newUserName);
 };
 
-describe('Change username', () => {
+describe('Display personal information', () => {
+  beforeEach(() => {
+    cy.setUpApi({
+      currentMember: BOB,
+    });
+    cy.visit(PROFILE_PATH);
+    cy.wait('@getCurrentMember');
+    cy.wait('@getOwnProfile');
+  });
+
+  it('displays the correct member info', () => {
+    // displays the correct member name
+    cy.get(`#${USERNAME_DISPLAY_ID}`).should('contain', BOB.name);
+    // displays the correct member email
+    cy.get(`#${MEMBER_PROFILE_EMAIL_ID}`).should('contain', BOB.email);
+  });
+});
+
+describe('Edit personal information', () => {
   beforeEach(() => {
     cy.setUpApi({ currentMember: BOB });
     cy.visit(PROFILE_PATH);
@@ -48,7 +67,7 @@ describe('Change username', () => {
     cy.get(`#${PERSONAL_INFO_SAVE_BUTTON_ID}`).should('not.be.disabled');
 
     cy.get(`#${PERSONAL_INFO_SAVE_BUTTON_ID}`).click();
-    cy.get(`#${MEMBER_INFO_READ_MODE_ID}`).should('be.visible');
+    cy.get(`#${PERSONAL_INFO_DISPLAY_CONTAINER_ID}`).should('be.visible');
     cy.wait('@editMember').then(({ request: { body } }) => {
       expect(body.name).to.equal(validUsername);
     });
