@@ -111,6 +111,7 @@ const EditPassword = ({ onClose }: EditPasswordProps): JSX.Element => {
             required
             label={t('PASSWORD_SETTINGS_CURRENT_LABEL')}
             variant="outlined"
+            size="small"
             value={currentPassword}
             onChange={handleCurrentPasswordInput}
             type="password"
@@ -124,6 +125,7 @@ const EditPassword = ({ onClose }: EditPasswordProps): JSX.Element => {
             required
             label={t('PASSWORD_SETTINGS_NEW_LABEL')}
             variant="outlined"
+            size="small"
             value={newPassword}
             error={Boolean(newPasswordError)}
             helperText={newPasswordError}
@@ -135,6 +137,7 @@ const EditPassword = ({ onClose }: EditPasswordProps): JSX.Element => {
             required
             label={t('PASSWORD_SETTINGS_NEW_CONFIRM_LABEL')}
             variant="outlined"
+            size="small"
             value={confirmPassword}
             error={Boolean(confirmPasswordError)}
             helperText={confirmPasswordError}

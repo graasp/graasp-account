@@ -34,7 +34,8 @@ const EmailPreferenceSwitch = ({
       id={id}
       defaultValue={emailFreq}
       onChange={handleChange}
-      variant="standard"
+      variant="outlined"
+      size="small"
       values={Object.entries(emailFrequency).map(([freq, name]) => ({
         value: freq,
         text: t(name),

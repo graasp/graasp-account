@@ -1,6 +1,6 @@
 import { ChangeEvent, useEffect, useState } from 'react';
 
-import { Button, Stack, TextField, Typography } from '@mui/material';
+import { Button, Stack, TextField } from '@mui/material';
 
 import {
   CompleteMember,
@@ -9,6 +9,7 @@ import {
 } from '@graasp/sdk';
 
 import BorderedSection from '@/components/layout/BorderedSection';
+import FormProperty from '@/components/layout/FormProperty';
 import { useAccountTranslation, useCommonTranslation } from '@/config/i18n';
 import { mutations } from '@/config/queryClient';
 import {
@@ -121,34 +122,32 @@ const EditPersonalInformation = ({
       id={PERSONAL_INFO_EDIT_CONTAINER_ID}
       title={t('PERSONAL_INFORMATION_TITLE')}
     >
-      <Stack direction="row" gap={2} alignItems="center">
-        <Typography color="textSecondary">
-          {t('PROFILE_MEMBER_NAME')}
-        </Typography>
+      <FormProperty title={t('PROFILE_MEMBER_NAME')}>
         <TextField
           id={PERSONAL_INFO_INPUT_USERNAME_ID}
-          variant="standard"
+          variant="outlined"
+          size="small"
           type="text"
           name="username"
           value={newUserName}
           error={Boolean(error)}
           helperText={error}
+          fullWidth
           onChange={handleChange}
         />
-      </Stack>
-      <Stack direction="row" gap={2} alignItems="center">
-        <Typography color="textSecondary">
-          {t('PROFILE_EMAIL_TITLE')}
-        </Typography>
+      </FormProperty>
+      <FormProperty title={t('PROFILE_EMAIL_TITLE')}>
         <TextField
           id={PERSONAL_INFO_INPUT_EMAIL_ID}
-          variant="standard"
+          variant="outlined"
+          size="small"
           type="text"
           name="email"
           value={newEmail}
+          fullWidth
           onChange={handleEmailChange}
         />
-      </Stack>
+      </FormProperty>
       <Stack direction="row" gap={1} justifyContent="flex-end">
         <Button
           onClick={onCancel}

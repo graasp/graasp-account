@@ -21,8 +21,9 @@ const LanguageSwitch = ({ id, lang, onChange }: Props): JSX.Element => {
 
   return (
     <Select
-      variant="standard"
+      variant="outlined"
       id={id}
+      size="small"
       defaultValue={lang}
       onChange={handleChange}
       buildOptionId={(value) => value}

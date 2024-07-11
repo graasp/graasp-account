@@ -1,16 +1,7 @@
 import { useState } from 'react';
 
-import {
-  Alert,
-  Button,
-  Grid,
-  Stack,
-  Switch,
-  Tooltip,
-  Typography,
-} from '@mui/material';
+import { Alert, Button, Stack, Switch, Tooltip } from '@mui/material';
 
-import { EmailFrequency } from '@graasp/sdk';
 import { DEFAULT_LANG } from '@graasp/translations';
 import { Loader } from '@graasp/ui';
 
@@ -29,6 +20,7 @@ import {
 } from '@/config/selectors';
 
 import BorderedSection from '../layout/BorderedSection';
+import FormProperty from '../layout/FormProperty';
 
 type EditPreferencesProp = {
   onClose: () => void;
@@ -40,16 +32,15 @@ const EditMemberPreferences = ({
   const { t: translateCommon } = useCommonTranslation();
   const { data: member, isLoading } = hooks.useCurrentMember();
   const { mutate: editMember } = mutations.useEditMember();
-  const [selectedLang, setSelectedLang] = useState<string>(
-    member?.extra?.lang ?? DEFAULT_LANG,
-  );
-  const [selectedEmailFreq, setSelectedEmailFreq] =
-    useState<`${EmailFrequency}`>(
-      member?.extra?.emailFreq ?? DEFAULT_EMAIL_FREQUENCY,
-    );
-  const [switchedSaveActions, setSwitchedSaveActions] = useState(
-    member?.enableSaveActions,
-  );
+
+  const memberLang = member?.extra?.lang ?? DEFAULT_LANG;
+  const memberEmailFreq = member?.extra?.emailFreq ?? DEFAULT_EMAIL_FREQUENCY;
+  const memberSaveActions = member?.enableSaveActions ?? true;
+
+  const [selectedLang, setSelectedLang] = useState<string>(memberLang);
+  const [selectedEmailFreq, setSelectedEmailFreq] = useState(memberEmailFreq);
+  const [switchedSaveActions, setSwitchedSaveActions] =
+    useState(memberSaveActions);
 
   if (member) {
     const handleOnToggle = (event: { target: { checked: boolean } }): void => {
@@ -68,56 +59,40 @@ const EditMemberPreferences = ({
       onClose();
     };
 
+    const hasChanges =
+      selectedLang !== memberLang ||
+      selectedEmailFreq !== memberEmailFreq ||
+      switchedSaveActions !== memberSaveActions;
+
     return (
       <BorderedSection
         id={PREFERENCES_EDIT_CONTAINER_ID}
         title={t('PROFILE_PREFERENCES_TITLE')}
       >
-        <Grid container alignItems="center">
-          <Grid item xs={4}>
-            <Typography color="textSecondary">
-              {t('PROFILE_LANGUAGE_TITLE')}
-            </Typography>
-          </Grid>
-          <Grid item xs={8}>
-            <LanguageSwitch
-              lang={member.extra?.lang ?? DEFAULT_LANG}
-              id={PREFERENCES_LANGUAGE_SWITCH_ID}
-              onChange={setSelectedLang}
+        <FormProperty title={t('PROFILE_LANGUAGE_TITLE')}>
+          <LanguageSwitch
+            lang={member.extra?.lang ?? DEFAULT_LANG}
+            id={PREFERENCES_LANGUAGE_SWITCH_ID}
+            onChange={setSelectedLang}
+          />
+        </FormProperty>
+        <FormProperty title={t('PROFILE_EMAIL_FREQUENCY_TITLE')}>
+          <EmailPreferenceSwitch
+            emailFreq={member.extra?.emailFreq || DEFAULT_EMAIL_FREQUENCY}
+            onChange={setSelectedEmailFreq}
+            id={PREFERENCES_EMAIL_FREQUENCY_ID}
+          />
+        </FormProperty>
+        <FormProperty title={t('PROFILE_SAVE_ACTIONS_TITLE')}>
+          <Tooltip title={t('SAVE_ACTIONS_TOGGLE_TOOLTIP')}>
+            <Switch
+              id={PREFERENCES_ANALYTICS_SWITCH_ID}
+              onChange={handleOnToggle}
+              checked={switchedSaveActions}
+              color="primary"
             />
-          </Grid>
-        </Grid>
-        <Grid container alignItems="center">
-          <Grid item xs={4}>
-            <Typography color="textSecondary">
-              {t('PROFILE_EMAIL_FREQUENCY_TITLE')}
-            </Typography>
-          </Grid>
-          <Grid item xs={8}>
-            <EmailPreferenceSwitch
-              emailFreq={member.extra?.emailFreq || DEFAULT_EMAIL_FREQUENCY}
-              onChange={setSelectedEmailFreq}
-              id={PREFERENCES_EMAIL_FREQUENCY_ID}
-            />
-          </Grid>
-        </Grid>
-        <Grid container alignItems="center">
-          <Grid item xs={4}>
-            <Typography color="textSecondary">
-              {t('PROFILE_SAVE_ACTIONS_TITLE')}
-            </Typography>
-          </Grid>
-          <Grid item xs={8}>
-            <Tooltip title={t('SAVE_ACTIONS_TOGGLE_TOOLTIP')}>
-              <Switch
-                id={PREFERENCES_ANALYTICS_SWITCH_ID}
-                onChange={handleOnToggle}
-                checked={switchedSaveActions}
-                color="primary"
-              />
-            </Tooltip>
-          </Grid>
-        </Grid>
+          </Tooltip>
+        </FormProperty>
         <Stack direction="row" gap={2} justifyContent="flex-end">
           <Button
             onClick={onClose}
@@ -127,11 +102,11 @@ const EditMemberPreferences = ({
           >
             {translateCommon('CANCEL_BUTTON')}
           </Button>
-
           <Button
             variant="contained"
             onClick={saveSettings}
             id={PREFERENCES_SAVE_BUTTON_ID}
+            disabled={!hasChanges}
             size="small"
           >
             {translateCommon('SAVE_BUTTON')}
