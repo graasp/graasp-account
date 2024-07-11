@@ -18,6 +18,7 @@ export const CARD_TIP_ID = 'tip-card';
 export const MEMBER_AVATAR_WRAPPER_ID = 'member-avatar';
 export const MEMBER_AVATAR_IMAGE_ID = 'member-avatar-image';
 export const MEMBER_CREATED_AT_ID = 'member-created-at';
+export const MEMBER_USERNAME_DISPLAY_ID = 'member-username-display';
 
 export const AVATAR_UPLOAD_INPUT_ID = 'avatar-upload-input';
 export const AVATAR_UPLOAD_ICON_ID = 'avatar-upload-icon';

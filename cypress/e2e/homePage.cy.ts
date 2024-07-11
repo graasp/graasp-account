@@ -13,7 +13,7 @@ import {
   LOGIN_REQUIRED_TEXT_ID,
   MEMBER_AVATAR_IMAGE_ID,
   MEMBER_CREATED_AT_ID,
-  USERNAME_DISPLAY_ID,
+  MEMBER_USERNAME_DISPLAY_ID
 } from '@/config/selectors';
 
 import { BOB, MEMBER_WITH_AVATAR } from '../fixtures/members';
@@ -137,7 +137,7 @@ describe('Check member info', () => {
       MEMBER_WITH_AVATAR.thumbnail,
     );
     // displays the correct member name
-    cy.get(`#${USERNAME_DISPLAY_ID}`).should(
+    cy.get(`#${MEMBER_USERNAME_DISPLAY_ID}`).should(
       'contain',
       MEMBER_WITH_AVATAR.name,
     );
