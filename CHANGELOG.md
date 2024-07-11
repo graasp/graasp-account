@@ -1,5 +1,20 @@
 # Changelog
 
+## [2.11.0](https://github.com/graasp/graasp-account/compare/v2.10.1...v2.11.0) (2024-07-11)
+
+
+### Features
+
+* add email validation page ([#275](https://github.com/graasp/graasp-account/issues/275)) ([ca84fd0](https://github.com/graasp/graasp-account/commit/ca84fd07673cd3a1204b44758e6fa6780d067016))
+* add feedback on email change ([61c956b](https://github.com/graasp/graasp-account/commit/61c956b51b9467b794a03b1257168daab60fd604))
+* add preferences to settings page ([#261](https://github.com/graasp/graasp-account/issues/261)) ([254387d](https://github.com/graasp/graasp-account/commit/254387d94fcf0ee2ba4991e689ed2b9228bf8dfd))
+* editing of sections in profile page ([#288](https://github.com/graasp/graasp-account/issues/288)) ([61c956b](https://github.com/graasp/graasp-account/commit/61c956b51b9467b794a03b1257168daab60fd604))
+
+
+### Bug Fixes
+
+* **tests:** re-organize tests ([61c956b](https://github.com/graasp/graasp-account/commit/61c956b51b9467b794a03b1257168daab60fd604))
+
 ## [2.10.1](https://github.com/graasp/graasp-account/compare/v2.10.0...v2.10.1) (2024-07-01)
 
 
