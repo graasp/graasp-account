@@ -22,7 +22,7 @@ import {
   TWITTER_DOMAIN,
 } from '@/config/constants';
 import { GRAASP_LIBRARY_HOST } from '@/config/env';
-import { useAccountTranslation } from '@/config/i18n';
+import { useAccountTranslation, useCommonTranslation } from '@/config/i18n';
 import { hooks, mutations } from '@/config/queryClient';
 import {
   PUBLIC_PROFILE_BIO_ID,
@@ -64,6 +64,7 @@ const EditPublicProfile = ({
   onClose,
 }: EditPublicProfileProps): JSX.Element => {
   const { t } = useAccountTranslation();
+  const { t: translateCommon } = useCommonTranslation();
 
   const { data, refetch } = hooks.useOwnProfile();
   const {
@@ -238,7 +239,7 @@ const EditPublicProfile = ({
         />
         <Stack direction="row" gap={1} justifyContent="flex-end">
           <Button onClick={onClose} variant="outlined" size="small">
-            {t('CLOSE_BUTTON')}
+            {translateCommon('CANCEL_BUTTON')}
           </Button>
 
           <LoadingButton
@@ -256,7 +257,7 @@ const EditPublicProfile = ({
             onClick={saveSettings}
             id={PUBLIC_PROFILE_SAVE_BUTTON_ID}
           >
-            {t('PUBLIC_PROFILE_SUBMIT_TEXT')}
+            {translateCommon('SAVE_BUTTON')}
           </LoadingButton>
         </Stack>
       </Stack>

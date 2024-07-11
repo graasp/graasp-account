@@ -1,5 +1,3 @@
-export const MEMBER_PROFILE_EMAIL_ID = 'member-profile-email';
-
 export const SETTINGS_PAGE_CONTAINER_ID = 'settings-page-container';
 
 export const PREFERENCES_LANGUAGE_SWITCH_ID = 'preferences-language-switch';
@@ -16,9 +14,6 @@ export const DELETE_MEMBER_DIALOG_DESCRIPTION_ID = 'alert-dialog-description';
 
 export const STORAGE_PROGRESS_BAR_ID = 'storage-progress-bar';
 
-export const USERNAME_INPUT_FIELD_ID = 'username-input-field';
-export const USERNAME_DISPLAY_ID = 'username-display';
-
 export const CARD_TIP_ID = 'tip-card';
 export const MEMBER_AVATAR_WRAPPER_ID = 'member-avatar';
 export const MEMBER_AVATAR_IMAGE_ID = 'member-avatar-image';
@@ -34,6 +29,12 @@ export const PERSONAL_INFO_EDIT_CONTAINER_ID = 'personal-info-edit-container';
 export const PERSONAL_INFO_CANCEL_BUTTON_ID = 'personal-info-cancel-button';
 export const PERSONAL_INFO_SAVE_BUTTON_ID = 'personal-info-save-button';
 export const PERSONAL_INFO_DISPLAY_CONTAINER_ID = 'personal-info-display';
+export const PERSONAL_INFO_USERNAME_DISPLAY_ID = 'personal-info-username';
+export const PERSONAL_INFO_EMAIL_DISPLAY_ID = 'personal-info-email';
+export const PERSONAL_INFO_EMAIL_UPDATE_ALERT_ID =
+  'personal-info-email-update-alert';
+export const PERSONAL_INFO_INPUT_USERNAME_ID = 'personal-info-input-username';
+export const PERSONAL_INFO_INPUT_EMAIL_ID = 'personal-info-input-email';
 
 export const PUBLIC_PROFILE_BIO_ID = 'public-profile-bio';
 export const PUBLIC_PROFILE_EDIT_BUTTON_ID = 'public-profile-edit-button';

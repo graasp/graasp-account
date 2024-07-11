@@ -111,7 +111,7 @@ const switchEmailFreq = (to: string) => {
   cy.get(`[role="option"][data-value="${to}"]`).click();
 };
 
-describe.only('Edit preferences', () => {
+describe('Edit preferences', () => {
   describe('Language', () => {
     it('Change language', () => {
       cy.setUpApi({

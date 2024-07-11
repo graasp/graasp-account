@@ -7,7 +7,7 @@ import { isPasswordStrong } from '@graasp/sdk';
 import { FAILURE_MESSAGES } from '@graasp/translations';
 
 import BorderedSection from '@/components/layout/BorderedSection';
-import { useAccountTranslation } from '@/config/i18n';
+import { useAccountTranslation, useCommonTranslation } from '@/config/i18n';
 import { mutations } from '@/config/queryClient';
 import {
   PASSWORD_EDIT_CONTAINER_ID,
@@ -22,6 +22,7 @@ type EditPasswordProps = {
 
 const EditPassword = ({ onClose }: EditPasswordProps): JSX.Element => {
   const { t } = useAccountTranslation();
+  const { t: translateCommon } = useCommonTranslation();
 
   const [currentPassword, setCurrentPassword] = useState('');
   const [newPassword, setNewPassword] = useState('');
@@ -145,7 +146,7 @@ const EditPassword = ({ onClose }: EditPasswordProps): JSX.Element => {
       </Stack>
       <Stack direction="row" gap={1} justifyContent="flex-end">
         <Button variant="outlined" onClick={onClose} size="small">
-          {t('CLOSE_BUTTON')}
+          {translateCommon('CANCEL_BUTTON')}
         </Button>
         <Button
           variant="contained"
@@ -155,7 +156,7 @@ const EditPassword = ({ onClose }: EditPasswordProps): JSX.Element => {
           disabled={Boolean(newPasswordError) || !hasChanged}
           size="small"
         >
-          {t('PASSWORD_SETTINGS_CONFIRM_BUTTON')}
+          {translateCommon('SAVE_BUTTON')}
         </Button>
       </Stack>
     </BorderedSection>

@@ -21,6 +21,7 @@ const {
   buildUpdateMemberPasswordRoute,
   buildGetOwnPublicProfileRoute,
   buildPatchPublicProfileRoute,
+  buildPostMemberEmailUpdateRoute,
 } = API_ROUTES;
 
 export const SIGN_IN_PATH = buildSignInPath({
@@ -223,4 +224,20 @@ export const mockUpdatePassword = (
       return reply('update password');
     },
   ).as('updatePassword');
+};
+
+export const mockUpdateEmail = (shouldThrowError: boolean): void => {
+  cy.intercept(
+    {
+      method: HttpMethod.Post,
+      url: new RegExp(`${API_HOST}/${buildPostMemberEmailUpdateRoute()}`),
+    },
+    ({ reply }) => {
+      if (shouldThrowError) {
+        return reply({ statusCode: StatusCodes.BAD_REQUEST });
+      }
+
+      return reply({ statusCode: StatusCodes.NO_CONTENT });
+    },
+  ).as('updateMemberEmail');
 };

@@ -10,7 +10,7 @@ import Uppy from '@uppy/core';
 
 import i18n, { useAccountTranslation } from '@/config/i18n';
 import { hooks, mutations } from '@/config/queryClient';
-import { MEMBER_CREATED_AT_ID, USERNAME_DISPLAY_ID } from '@/config/selectors';
+import { MEMBER_CREATED_AT_ID } from '@/config/selectors';
 import { configureAvatarUppy } from '@/utils/uppy';
 
 import AvatarUploader from './AvatarUploader';
@@ -99,9 +99,7 @@ const MemberCard = (): JSX.Element | null => {
       </Stack>
       <Stack spacing={3}>
         <Typography variant="h4">{t('GENERAL_PAGE_WELCOME_TEXT')},</Typography>
-        <Typography variant="h4" id={USERNAME_DISPLAY_ID}>
-          {member?.name}
-        </Typography>
+        <Typography variant="h4">{member?.name}</Typography>
         <Typography
           display="flex"
           alignItems="center"

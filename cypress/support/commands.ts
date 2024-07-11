@@ -16,6 +16,7 @@ import {
   mockPostAvatar,
   mockSignInRedirection,
   mockSignOut,
+  mockUpdateEmail,
   mockUpdatePassword,
 } from './server';
 
@@ -32,6 +33,7 @@ Cypress.Commands.add(
     getAvatarUrlError = false,
     postAvatarError = false,
     updatePasswordError = false,
+    updateEmailError = false,
   } = {}) => {
     const cachedMembers = JSON.parse(JSON.stringify(members));
     const cachedCurrentMember = JSON.parse(JSON.stringify(currentMember));
@@ -55,5 +57,6 @@ Cypress.Commands.add(
     mockPostAvatar(postAvatarError);
 
     mockUpdatePassword(members, updatePasswordError);
+    mockUpdateEmail(updateEmailError);
   },
 );

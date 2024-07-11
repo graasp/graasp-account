@@ -1,13 +1,6 @@
 import { ChangeEvent, useEffect, useState } from 'react';
 
-import {
-  Button,
-  Grid,
-  Stack,
-  TextField,
-  Tooltip,
-  Typography,
-} from '@mui/material';
+import { Button, Grid, Stack, TextField, Typography } from '@mui/material';
 
 import {
   CompleteMember,
@@ -16,13 +9,14 @@ import {
 } from '@graasp/sdk';
 
 import BorderedSection from '@/components/layout/BorderedSection';
-import { useAccountTranslation } from '@/config/i18n';
+import { useAccountTranslation, useCommonTranslation } from '@/config/i18n';
 import { mutations } from '@/config/queryClient';
 import {
   PERSONAL_INFO_CANCEL_BUTTON_ID,
   PERSONAL_INFO_EDIT_CONTAINER_ID,
+  PERSONAL_INFO_INPUT_EMAIL_ID,
+  PERSONAL_INFO_INPUT_USERNAME_ID,
   PERSONAL_INFO_SAVE_BUTTON_ID,
-  USERNAME_INPUT_FIELD_ID,
 } from '@/config/selectors';
 
 const verifyUsername = (username: string): string | null => {
@@ -42,23 +36,39 @@ const verifyUsername = (username: string): string | null => {
 
 type EditMemberPersonalInformationProp = {
   member: CompleteMember | null | undefined;
+  onEmailUpdate: (newEmail: string) => void;
   onClose: () => void;
 };
 
 const EditPersonalInformation = ({
   member,
+  onEmailUpdate,
   onClose,
 }: EditMemberPersonalInformationProp): JSX.Element | false => {
   const { t } = useAccountTranslation();
+  const { t: translateCommon } = useCommonTranslation();
   const { mutate: editMember } = mutations.useEditMember();
+  const { mutate: updateEmail } = mutations.useUpdateMemberEmail();
   const [newUserName, setNewUserName] = useState('');
+  const [newEmail, setNewEmail] = useState('');
   const [error, setError] = useState<string | null>();
 
   useEffect(() => {
-    if (member && member.name) {
-      setNewUserName(member.name);
+    if (member) {
+      if (member.name) {
+        setNewUserName(member.name);
+      }
+      if (member.email) {
+        setNewEmail(member.email);
+      }
     }
   }, [member]);
+
+  const handleEmailChange = ({ target }: ChangeEvent<HTMLInputElement>) => {
+    const newEmailValue = target.value;
+    setNewEmail(newEmailValue);
+    onEmailUpdate(newEmailValue);
+  };
 
   const handleChange = ({ target }: ChangeEvent<HTMLInputElement>) => {
     const { value } = target;
@@ -81,18 +91,30 @@ const EditPersonalInformation = ({
     const errorMessage = verifyUsername(newUserName ?? '');
 
     if (!errorMessage) {
-      if (member) {
+      const name = newUserName.trim();
+      if (member && name !== member.name) {
         editMember({
           id: member.id,
-          name: newUserName.trim(),
+          name,
         });
       }
+    }
+    if (newEmail !== member?.email) {
+      updateEmail(newEmail);
     }
 
     onClose();
   };
 
-  const hasModifications = newUserName !== member?.name;
+  const onCancel = () => {
+    setNewEmail('');
+    // send update to parent
+    onEmailUpdate('');
+    onClose();
+  };
+
+  const hasModifications =
+    newUserName !== member?.name || newEmail !== member?.email;
 
   return (
     <BorderedSection
@@ -107,7 +129,7 @@ const EditPersonalInformation = ({
         </Grid>
         <Grid item xs={8}>
           <TextField
-            id={USERNAME_INPUT_FIELD_ID}
+            id={PERSONAL_INFO_INPUT_USERNAME_ID}
             variant="standard"
             type="text"
             name="username"
@@ -125,25 +147,24 @@ const EditPersonalInformation = ({
           </Typography>
         </Grid>
         <Grid item xs={8}>
-          <Tooltip title={t('EDIT_EMAIL_TOOLTIP')}>
-            <TextField
-              variant="standard"
-              type="text"
-              name="email"
-              value={member?.email}
-              disabled
-            />
-          </Tooltip>
+          <TextField
+            id={PERSONAL_INFO_INPUT_EMAIL_ID}
+            variant="standard"
+            type="text"
+            name="email"
+            value={newEmail}
+            onChange={handleEmailChange}
+          />
         </Grid>
       </Grid>
       <Stack direction="row" gap={1} justifyContent="flex-end">
         <Button
-          onClick={onClose}
+          onClick={onCancel}
           variant="outlined"
           id={PERSONAL_INFO_CANCEL_BUTTON_ID}
           size="small"
         >
-          {t('CLOSE_BUTTON')}
+          {translateCommon('CANCEL_BUTTON')}
         </Button>
         <Button
           variant="contained"
@@ -153,7 +174,7 @@ const EditPersonalInformation = ({
           id={PERSONAL_INFO_SAVE_BUTTON_ID}
           size="small"
         >
-          {t('SAVE_CHANGES_TEXT')}
+          {translateCommon('SAVE_BUTTON')}
         </Button>
       </Stack>
     </BorderedSection>
