@@ -7,7 +7,6 @@ import {
   PERSONAL_INFO_EMAIL_DISPLAY_ID,
   PERSONAL_INFO_EMAIL_UPDATE_ALERT_ID,
   PERSONAL_INFO_INPUT_EMAIL_ID,
-  PERSONAL_INFO_INPUT_USERNAME_ID,
   PERSONAL_INFO_SAVE_BUTTON_ID,
   PERSONAL_INFO_USERNAME_DISPLAY_ID,
 } from '@/config/selectors';
@@ -32,9 +31,12 @@ describe('Display personal information', () => {
 
   it('displays the correct member info', () => {
     // displays the correct member name
-    cy.get(`#${PERSONAL_INFO_INPUT_USERNAME_ID}`).should('contain', BOB.name);
+    cy.get(`#${PERSONAL_INFO_USERNAME_DISPLAY_ID}`).should(
+      'have.text',
+      BOB.name,
+    );
     // displays the correct member email
-    cy.get(`#${PERSONAL_INFO_EMAIL_DISPLAY_ID}`).should('contain', BOB.email);
+    cy.get(`#${PERSONAL_INFO_EMAIL_DISPLAY_ID}`).should('have.text', BOB.email);
   });
 });
 
