@@ -66,17 +66,11 @@ const EditPublicProfile = ({
   const { t } = useAccountTranslation();
   const { t: translateCommon } = useCommonTranslation();
 
-  const { data, refetch } = hooks.useOwnProfile();
-  const {
-    mutate: postProfile,
-    isLoading: isAddLoading,
-    isSuccess,
-  } = mutations.usePostPublicProfile();
-  const {
-    mutate: patchProfile,
-    isLoading: isEditLoading,
-    isSuccess: isEditSuccess,
-  } = mutations.usePatchPublicProfile();
+  const { data: ownProfile } = hooks.useOwnProfile();
+  const { mutate: postProfile, isLoading: isAddLoading } =
+    mutations.usePostPublicProfile();
+  const { mutate: patchProfile, isLoading: isEditLoading } =
+    mutations.usePatchPublicProfile();
 
   const [profileData, setProfileData] = useState({
     bio: '',
@@ -105,7 +99,7 @@ const EditPublicProfile = ({
         ? socialLinks.getProfileId(linkedinProfile, linkedinID)
         : '',
     };
-    if (data) {
+    if (ownProfile) {
       patchProfile(body);
     } else {
       postProfile(body);
@@ -127,27 +121,19 @@ const EditPublicProfile = ({
 
   useEffect(() => {
     setProfileData({
-      bio: data?.bio || '',
-      linkedinID: data?.linkedinID
-        ? socialLinks.sanitize(LINKEDIN_DOMAIN, data?.linkedinID)
+      bio: ownProfile?.bio || '',
+      linkedinID: ownProfile?.linkedinID
+        ? socialLinks.sanitize(LINKEDIN_DOMAIN, ownProfile?.linkedinID)
         : '',
-      twitterID: data?.twitterID
-        ? socialLinks.sanitize(TWITTER_DOMAIN, data?.twitterID)
+      twitterID: ownProfile?.twitterID
+        ? socialLinks.sanitize(TWITTER_DOMAIN, ownProfile?.twitterID)
         : '',
-      facebookID: data?.facebookID
-        ? socialLinks.sanitize(FACEBOOK_DOMAIN, data?.facebookID)
+      facebookID: ownProfile?.facebookID
+        ? socialLinks.sanitize(FACEBOOK_DOMAIN, ownProfile?.facebookID)
         : '',
-      visibility: data?.visibility || false,
+      visibility: ownProfile?.visibility || false,
     });
-  }, [data]);
-  useEffect(() => {
-    if (isSuccess || isEditSuccess) {
-      refetch();
-      setDirtyFields(initialDirtyFieldsState);
-      // redirect to profile page
-    }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [isSuccess, isEditSuccess]);
+  }, [ownProfile]);
 
   // to control button disable as if one of form values changed we can check other fields
   const formChanged = useMemo(
@@ -158,8 +144,8 @@ const EditPublicProfile = ({
   return (
     <BorderedSection title={t('PUBLIC_PROFILE_TITLE')}>
       <Typography variant="body1">{t('PUBLIC_PROFILE_DESCRIPTION')}</Typography>
-      {data && (
-        <a href={`${GRAASP_LIBRARY_HOST}/members/${data.member?.id}`}>
+      {ownProfile && (
+        <a href={`${GRAASP_LIBRARY_HOST}/members/${ownProfile.member.id}`}>
           {t('PUBLIC_PROFILE_CHECK_TEXT')}
         </a>
       )}

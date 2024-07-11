@@ -1,6 +1,6 @@
 import { ChangeEvent, useEffect, useState } from 'react';
 
-import { Button, Grid, Stack, TextField, Typography } from '@mui/material';
+import { Button, Stack, TextField, Typography } from '@mui/material';
 
 import {
   CompleteMember,
@@ -121,42 +121,34 @@ const EditPersonalInformation = ({
       id={PERSONAL_INFO_EDIT_CONTAINER_ID}
       title={t('PERSONAL_INFORMATION_TITLE')}
     >
-      <Grid container alignItems="center">
-        <Grid item xs={4}>
-          <Typography color="textSecondary">
-            {t('PROFILE_MEMBER_NAME')}
-          </Typography>
-        </Grid>
-        <Grid item xs={8}>
-          <TextField
-            id={PERSONAL_INFO_INPUT_USERNAME_ID}
-            variant="standard"
-            type="text"
-            name="username"
-            value={newUserName}
-            error={Boolean(error)}
-            helperText={error}
-            onChange={handleChange}
-          />
-        </Grid>
-      </Grid>
-      <Grid container alignItems="center">
-        <Grid item xs={4}>
-          <Typography color="textSecondary">
-            {t('PROFILE_EMAIL_TITLE')}
-          </Typography>
-        </Grid>
-        <Grid item xs={8}>
-          <TextField
-            id={PERSONAL_INFO_INPUT_EMAIL_ID}
-            variant="standard"
-            type="text"
-            name="email"
-            value={newEmail}
-            onChange={handleEmailChange}
-          />
-        </Grid>
-      </Grid>
+      <Stack direction="row" gap={2} alignItems="center">
+        <Typography color="textSecondary">
+          {t('PROFILE_MEMBER_NAME')}
+        </Typography>
+        <TextField
+          id={PERSONAL_INFO_INPUT_USERNAME_ID}
+          variant="standard"
+          type="text"
+          name="username"
+          value={newUserName}
+          error={Boolean(error)}
+          helperText={error}
+          onChange={handleChange}
+        />
+      </Stack>
+      <Stack direction="row" gap={2} alignItems="center">
+        <Typography color="textSecondary">
+          {t('PROFILE_EMAIL_TITLE')}
+        </Typography>
+        <TextField
+          id={PERSONAL_INFO_INPUT_EMAIL_ID}
+          variant="standard"
+          type="text"
+          name="email"
+          value={newEmail}
+          onChange={handleEmailChange}
+        />
+      </Stack>
       <Stack direction="row" gap={1} justifyContent="flex-end">
         <Button
           onClick={onCancel}

@@ -12,7 +12,7 @@ const MemberProfileItem = ({
   content,
   contentId,
 }: Props): JSX.Element => (
-  <Stack direction="row" spacing={2} alignItems="center">
+  <Stack direction="row" gap={2} alignItems="center">
     <Typography variant="body1" color="textSecondary">
       {title}
     </Typography>

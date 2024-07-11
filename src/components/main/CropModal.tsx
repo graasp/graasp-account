@@ -17,7 +17,7 @@ import {
 
 import { Button } from '@graasp/ui';
 
-import { useAccountTranslation } from '@/config/i18n';
+import { useAccountTranslation, useCommonTranslation } from '@/config/i18n';
 import { CROP_MODAL_CONFIRM_BUTTON_ID } from '@/config/selectors';
 
 import { THUMBNAIL_ASPECT } from '../../config/constants';
@@ -56,6 +56,7 @@ const CropModal = ({ onConfirm, onClose, src }: CropProps): JSX.Element => {
   const [isError, setIsError] = useState(false);
   const imageRef = useRef<HTMLImageElement | null>(null);
   const { t } = useAccountTranslation();
+  const { t: translateCommon } = useCommonTranslation();
 
   const handleOnConfirm = async () => {
     // get the image html element
@@ -191,14 +192,14 @@ const CropModal = ({ onConfirm, onClose, src }: CropProps): JSX.Element => {
       </DialogContent>
       <DialogActions>
         <Button onClick={onClose} variant="text">
-          {t('CANCEL_BUTTON')}
+          {translateCommon('CANCEL_BUTTON')}
         </Button>
         <Button
           onClick={handleOnConfirm}
           disabled={isError}
           id={CROP_MODAL_CONFIRM_BUTTON_ID}
         >
-          {t('CONFIRM_BUTTON')}
+          {translateCommon('CONFIRM_BUTTON')}
         </Button>
       </DialogActions>
     </>
