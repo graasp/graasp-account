@@ -16,7 +16,7 @@
     "@emotion/styled": "11.11.5",
     "@graasp/query-client": "github:graasp/graasp-query-client#add-invalidation-of-public-profile-on-update",
     "@graasp/sdk": "4.16.0",
-    "@graasp/translations": "1.31.0",
+    "@graasp/translations": "1.31.3",
     "@graasp/ui": "4.20.3",
     "@mui/icons-material": "5.15.21",
     "@mui/lab": "5.0.0-alpha.170",
