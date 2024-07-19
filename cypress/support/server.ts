@@ -168,7 +168,7 @@ export const mockSignOut = (): void => {
 };
 
 export const mockGetCurrentMemberAvatar = (
-  currentMember: MemberForTest,
+  currentMember: MemberForTest | null,
   shouldThrowError: boolean,
 ): void => {
   cy.intercept(
@@ -179,7 +179,7 @@ export const mockGetCurrentMemberAvatar = (
       ),
     },
     ({ reply }) => {
-      if (shouldThrowError) {
+      if (shouldThrowError || !currentMember) {
         return reply({ statusCode: StatusCodes.BAD_REQUEST });
       }
 
@@ -218,10 +218,7 @@ export const mockPostAvatar = (shouldThrowError: boolean): void => {
   ).as('uploadAvatar');
 };
 
-export const mockUpdatePassword = (
-  _members: Member[],
-  shouldThrowError: boolean,
-): void => {
+export const mockUpdatePassword = (shouldThrowError: boolean): void => {
   cy.intercept(
     {
       method: HttpMethod.Patch,

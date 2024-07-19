@@ -12,7 +12,8 @@ export const PREFERENCES_CANCEL_BUTTON_ID = 'preferences-cancel-button';
 export const DELETE_MEMBER_DIALOG_TITLE_ID = 'alert-dialog-title';
 export const DELETE_MEMBER_DIALOG_DESCRIPTION_ID = 'alert-dialog-description';
 
-export const STORAGE_PROGRESS_BAR_ID = 'storage-progress-bar';
+export const STORAGE_BAR_ID = 'storage-progress-bar';
+export const STORAGE_BAR_LABEL_ID = 'storage-bar-label';
 
 export const CARD_TIP_ID = 'tip-card';
 export const MEMBER_AVATAR_WRAPPER_ID = 'member-avatar';

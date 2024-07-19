@@ -9,7 +9,7 @@ import ScreenLayout from '@/components/layout/ScreenLayout';
 import { ADMIN_CONTACT } from '@/config/constants';
 import { useAccountTranslation, useMessagesTranslation } from '@/config/i18n';
 import { hooks } from '@/config/queryClient';
-import { STORAGE_PROGRESS_BAR_ID } from '@/config/selectors';
+import { STORAGE_BAR_ID, STORAGE_BAR_LABEL_ID } from '@/config/selectors';
 
 const BAR_WIDTH = window.innerWidth / 3;
 const BAR_HEIGHT = 25;
@@ -57,14 +57,10 @@ const StorageBar = () => {
     const storageUsed = (current / maximum) * 100;
     return (
       <Stack direction="row" alignItems="center" width="100%" spacing={1}>
-        <StorageBarIndicator
-          id={STORAGE_PROGRESS_BAR_ID}
-          value={storageUsed}
-          max={100}
-        >
+        <StorageBarIndicator id={STORAGE_BAR_ID} value={storageUsed} max={100}>
           {storageUsed}
         </StorageBarIndicator>
-        <label htmlFor={STORAGE_PROGRESS_BAR_ID}>
+        <label htmlFor={STORAGE_BAR_ID} id={STORAGE_BAR_LABEL_ID}>
           {formatFileSize(current)} / {formatFileSize(maximum)}
         </label>
       </Stack>
@@ -101,7 +97,6 @@ const StorageScreen = (): JSX.Element => {
         <Alert severity="info">{t('STORAGE_INFO')}</Alert>
       </Stack>
       <StorageBar />
-      <Typography>Hello</Typography>
     </ScreenLayout>
   );
 };

@@ -4,10 +4,10 @@
     "target": "es5",
     "lib": ["es5", "dom", "ES2021.String"],
     "types": ["cypress", "node", "vite/client"],
-    "strictNullChecks": false,
+    "strictNullChecks": true,
     "strict": true,
     "sourceMap": false
   },
-  "include": ["**/*.ts", "cypress.d.ts"],
+  "include": ["**/*.ts"],
   "exclude": ["coverage", ".nyc_output"]
 }

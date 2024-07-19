@@ -1,17 +1,11 @@
-/// <reference types="cypress" />
-import { CookieKeys } from '@graasp/sdk';
+import { CookieKeys, PublicProfile } from '@graasp/sdk';
 
-import {
-  CURRENT_MEMBER,
-  MEMBERS,
-  MEMBER_PUBLIC_PROFILE,
-} from '../fixtures/members';
+import { CURRENT_MEMBER, MEMBER_PUBLIC_PROFILE } from '../fixtures/members';
 import {
   mockEditMember,
   mockEditPublicProfile,
   mockGetCurrentMember,
   mockGetCurrentMemberAvatar,
-  mockGetMember,
   mockGetOwnProfile,
   mockGetStorage,
   mockPostAvatar,
@@ -20,11 +14,31 @@ import {
   mockUpdateEmail,
   mockUpdatePassword,
 } from './server';
+import { MemberForTest } from './utils';
+
+declare global {
+  namespace Cypress {
+    interface Chainable {
+      setUpApi(args: {
+        currentMember?: MemberForTest | null;
+        currentProfile?: PublicProfile;
+        storageAmount?: number;
+        getCurrentMemberError?: boolean;
+        getCurrentProfileError?: boolean;
+        editMemberError?: boolean;
+        editPublicProfileError?: boolean;
+        getAvatarUrlError?: boolean;
+        postAvatarError?: boolean;
+        updatePasswordError?: boolean;
+        updateEmailError?: boolean;
+      }): Chainable;
+    }
+  }
+}
 
 Cypress.Commands.add(
   'setUpApi',
   ({
-    members = Object.values(MEMBERS),
     currentMember = CURRENT_MEMBER,
     currentProfile = MEMBER_PUBLIC_PROFILE,
     getCurrentMemberError = false,
@@ -37,7 +51,6 @@ Cypress.Commands.add(
     updateEmailError = false,
     storageAmount = 10000,
   } = {}) => {
-    const cachedMembers = JSON.parse(JSON.stringify(members));
     const cachedCurrentMember = JSON.parse(JSON.stringify(currentMember));
     const cachedCurrentProfile = JSON.parse(JSON.stringify(currentProfile));
 
@@ -45,7 +58,6 @@ Cypress.Commands.add(
     cy.setCookie(CookieKeys.AcceptCookies, 'true');
 
     mockGetCurrentMember(cachedCurrentMember, getCurrentMemberError);
-    mockGetMember(cachedMembers);
     mockGetOwnProfile(cachedCurrentProfile, getCurrentProfileError);
 
     mockSignInRedirection();
@@ -58,7 +70,7 @@ Cypress.Commands.add(
 
     mockPostAvatar(postAvatarError);
 
-    mockUpdatePassword(members, updatePasswordError);
+    mockUpdatePassword(updatePasswordError);
     mockUpdateEmail(updateEmailError);
 
     mockGetStorage(storageAmount);
