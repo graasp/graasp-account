@@ -54,11 +54,11 @@ class TestHelper {
       },
       ({ reply }) => {
         if (this.currentMember.extra.hasAvatar) {
-          return this.currentMember.thumbnail;
+          return reply({ body: this.currentMember.thumbnail });
         }
         return reply({ statusCode: StatusCodes.NOT_FOUND });
       },
-    );
+    ).as('getAvatar');
     cy.intercept(
       {
         method: HttpMethod.Post,
