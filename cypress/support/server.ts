@@ -192,13 +192,14 @@ export const mockGetCurrentMemberAvatar = (
   ).as('getCurrentMemberAvatarUrl');
 };
 
-export const mockGetStorage = (storageAmount: number): void => {
+export const mockGetStorage = (storageAmountInBytes: number): void => {
   cy.intercept(
     {
       method: HttpMethod.Get,
       url: new RegExp(`${API_HOST}/${buildGetMemberStorageRoute()}`),
     },
-    ({ reply }) => reply({ current: storageAmount, maximum: 5368709120 }),
+    ({ reply }) =>
+      reply({ current: storageAmountInBytes, maximum: 5368709120 }),
   ).as('getCurrentMemberStorage');
 };
 

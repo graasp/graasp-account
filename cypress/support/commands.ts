@@ -22,7 +22,7 @@ declare global {
       setUpApi(args: {
         currentMember?: MemberForTest | null;
         currentProfile?: PublicProfile;
-        storageAmount?: number;
+        storageAmountInBytes?: number;
         getCurrentMemberError?: boolean;
         getCurrentProfileError?: boolean;
         editMemberError?: boolean;
@@ -49,7 +49,7 @@ Cypress.Commands.add(
     postAvatarError = false,
     updatePasswordError = false,
     updateEmailError = false,
-    storageAmount = 10000,
+    storageAmountInBytes = 10000,
   } = {}) => {
     const cachedCurrentMember = JSON.parse(JSON.stringify(currentMember));
     const cachedCurrentProfile = JSON.parse(JSON.stringify(currentProfile));
@@ -73,6 +73,6 @@ Cypress.Commands.add(
     mockUpdatePassword(updatePasswordError);
     mockUpdateEmail(updateEmailError);
 
-    mockGetStorage(storageAmount);
+    mockGetStorage(storageAmountInBytes);
   },
 );

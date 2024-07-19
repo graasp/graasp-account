@@ -7,13 +7,13 @@ import { CURRENT_MEMBER } from '../fixtures/members';
 
 describe('Storage', () => {
   it('Display storage interface', () => {
-    const storageAmount = 698789;
-    cy.setUpApi({ currentMember: CURRENT_MEMBER, storageAmount });
+    const storageAmountInBytes = 698789;
+    cy.setUpApi({ currentMember: CURRENT_MEMBER, storageAmountInBytes });
     cy.visit(STORAGE_PATH);
     cy.wait('@getCurrentMemberStorage');
     cy.get(`#${STORAGE_BAR_LABEL_ID}`).should(
       'contain',
-      formatFileSize(storageAmount),
+      formatFileSize(storageAmountInBytes),
     );
   });
 });
