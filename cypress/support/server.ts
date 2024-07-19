@@ -22,6 +22,7 @@ const {
   buildGetOwnPublicProfileRoute,
   buildPatchPublicProfileRoute,
   buildPostMemberEmailUpdateRoute,
+  buildGetMemberStorageRoute,
 } = API_ROUTES;
 
 export const SIGN_IN_PATH = buildSignInPath({
@@ -189,6 +190,16 @@ export const mockGetCurrentMemberAvatar = (
       return reply(thumbnail);
     },
   ).as('getCurrentMemberAvatarUrl');
+};
+
+export const mockGetStorage = (storageAmount: number): void => {
+  cy.intercept(
+    {
+      method: HttpMethod.Get,
+      url: new RegExp(`${API_HOST}/${buildGetMemberStorageRoute()}`),
+    },
+    ({ reply }) => reply({ current: storageAmount, maximum: 5368709120 }),
+  ).as('getCurrentMemberStorage');
 };
 
 export const mockPostAvatar = (shouldThrowError: boolean): void => {

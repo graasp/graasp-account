@@ -13,6 +13,7 @@ import {
   mockGetCurrentMemberAvatar,
   mockGetMember,
   mockGetOwnProfile,
+  mockGetStorage,
   mockPostAvatar,
   mockSignInRedirection,
   mockSignOut,
@@ -34,6 +35,7 @@ Cypress.Commands.add(
     postAvatarError = false,
     updatePasswordError = false,
     updateEmailError = false,
+    storageAmount = 10000,
   } = {}) => {
     const cachedMembers = JSON.parse(JSON.stringify(members));
     const cachedCurrentMember = JSON.parse(JSON.stringify(currentMember));
@@ -58,5 +60,7 @@ Cypress.Commands.add(
 
     mockUpdatePassword(members, updatePasswordError);
     mockUpdateEmail(updateEmailError);
+
+    mockGetStorage(storageAmount);
   },
 );

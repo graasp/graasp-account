@@ -101,6 +101,7 @@ const StorageScreen = (): JSX.Element => {
         <Alert severity="info">{t('STORAGE_INFO')}</Alert>
       </Stack>
       <StorageBar />
+      <Typography>Hello</Typography>
     </ScreenLayout>
   );
 };
