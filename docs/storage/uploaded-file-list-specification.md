@@ -1,6 +1,9 @@
-# Display the uploaded files by current member in Storage interface
+# Display the list of uploaded files in the Storage interface
 
-Complement the "Storage" page with a list of the files owned by the user, sorted by size, allowing identification of the specific files that fill up the user storage quota.
+This document lays down the specifications for a complement to the "Storage" page.
+
+This complement displays a list of the files owned by the user, sorted by size.
+This complement allows identification of the specific files that fill up the user storage quota.
 
 ## Goals
 
@@ -8,23 +11,27 @@ We define an API allowing to retrieve the list of the largest files owned by the
 
 ## Description
 
-- This feature allows users to easily see all their uploaded files, along with their names, where they are located, and their sizes, making it simpler to find which files are the biggest and take action to free some storage space.
-- User story:
-  
-  ```txt
-    As a user with little available space left, 
-    I want to see which files take up the most space, 
-    so I can free some storage.
-  ```
+This feature allows users to easily see all their uploaded files, along with their names, where they are located, and their sizes, making it simpler to find which files are the biggest and take action to free some storage space.
+
+Here is a user story:
+
+```txt
+  As a user with little available space left, 
+  I want to see which files take up the most space, 
+  so I can free some storage.
+```
 
 ## Definition
 
-Endpoint Specification for Viewing Uploaded Files:
+### Endpoint Specification
 
 - The route requires authentication to ensure that only logged-in users can access their uploaded files.
-  - Remark: currently storage is computed on items where the user is the creator. This can lead to issues where you lost admin rights on the file but your are still the creator. This issue should be handled later and is mentioned only here for reference.
+  > **Remark**: Currently storage is computed on items where the user is the creator. This can lead to issues where you lost admin rights on the file but your are still the creator. This issue should be handled later and is mentioned only here for reference.
+
 - No additional rights or conditions are needed beyond standard authentication.
+
 - Route `GET /members/current/storage/files?page=2&pageSize=20`
+
 - Query string parameters: query string parameters are needed for pagination
   - page: The page number to fetch
     - type: integer
@@ -36,34 +43,34 @@ Endpoint Specification for Viewing Uploaded Files:
     - default: 10
     - min: 1
     - max: 50
+
 - No request body is needed
 
 - Shape of the returned data:
 
-    ```json
-        {
-          "data": [
-            {
-              "id": "UUID",               // Item's id as a uuid v4
-              "name": "string",           // Name of the file
-              "size": "number",           // Size of the file in bytes (positive integer)
-              "updatedAt": "string",      // Date and time when the item was updated
-              "path": "LTree",            // Location of the file
-              "parent": {                 // Parent folder details (undefined if item is root)
-                "id": "UUID",             // Parent id as a uuid v4
-                "name": "string"          // Name of the parent item
-              }
+  ```json
+      {
+        "data": [
+          {
+            "id": "UUID",               // Item's id as a uuid v4
+            "name": "string",           // Name of the file
+            "size": "number",           // Size of the file in bytes (positive integer)
+            "updatedAt": "string",      // Date and time when the item was updated
+            "path": "LTree",            // Location of the file
+            "parent": {                 // Parent folder details (undefined if item is root)
+              "id": "UUID",             // Parent id as a uuid v4
+              "name": "string"          // Name of the parent item
             }
-          ],
-          "pagination": {
-            "totalItems": 100,           // Total number of items
-            "totalPages": 5,             // Total number of pages
-            "currentPage": 2,            // Current page number
-            "pageSize": 20               // Number of items per page
           }
+        ],
+        "pagination": {
+          "totalItems": 100,           // Total number of items
+          "totalPages": 5,             // Total number of pages
+          "currentPage": 2,            // Current page number
+          "pageSize": 20               // Number of items per page
         }
-
-    ```
+      }
+  ```
 
 - Example of the returned data:
   - 200: OK
@@ -114,50 +121,48 @@ Endpoint Specification for Viewing Uploaded Files:
 - What are the possible failures?
   - 401 Unauthorized:
 
-    Authentication Failure: User is not authenticated or token is invalid.
+    Authentication Failure, User is not authenticated or token is invalid.
 
-      ```json
-      {
-          "status": "error",
-          "error_code": "401",
-          "message": "User not authenticated."
-      }
-      ```
+    ```json
+    {
+        "status": "error",
+        "error_code": "401",
+        "message": "User not authenticated."
+    }
+    ```
 
   - 400 Bad request:
 
-    Invalid query parameters: The query parameters are missing or invalid.
+    Invalid query parameters, the query parameters are missing or invalid.
 
-      ```json
-      {
-        "status": "error",
-        "error_code": "400",
-        "message": "Invalid query parameters"
-      }
-      ```
+    ```json
+    {
+      "status": "error",
+      "error_code": "400",
+      "message": "Invalid query parameters"
+    }
+    ```
 
   - 500 Internal Server Error:
 
-    Server Error: Internal server error occurs while processing the request.
+    Server Error, internal server error occurs while processing the request.
 
-      ``` json
-      {
-          "status": "error",
-          "error_code": "500",
-          "message": "An unexpected error occurred. Please try again later."
-      }
-      ```
+    ``` json
+    {
+        "status": "error",
+        "error_code": "500",
+        "message": "An unexpected error occurred. Please try again later."
+    }
+    ```
 
 ## Frontend design
 
-- Is this a hook or a mutation?
-  - This is a hook because we are fetching data from the backend to display in the frontend UI.
-- What are the parameters of the hook?
-  - Parameters for the hook will include:
-    - page: The page number to fetch.
-    - pageSize: The number of items per page.
+- This is implemented as a hook because we are fetching data from the backend to display in the frontend UI.
+- Parameters for the hook will include:
+  - page: The page number to fetch.
+  - pageSize: The number of items per page.
 
-      These parameters will map to the query string parameters used in the backend endpoint (`/members/current/storage/files?page=2&pageSize=20`).
+  These parameters will map to the query string parameters used in the backend endpoint (`/members/current/storage/files?page=2&pageSize=20`).
 
 ## Backend design
 
