@@ -28,6 +28,7 @@ import {
 const Content = (): JSX.Element => {
   const [search] = useSearchParams();
   const jwtToken = search.get('t');
+  const newEmail = search.get('email');
   const { t: translate } = useAccountTranslation();
   const {
     mutate: validateEmail,
@@ -43,7 +44,8 @@ const Content = (): JSX.Element => {
     if (isSuccess) {
       const loginLink = buildSignInPath({
         host: GRAASP_AUTH_HOST,
-        redirectionUrl: window.location.toString(),
+        // redirect to the home page of account
+        redirectionUrl: new URL('/', window.location.origin).toString(),
       });
       return (
         <>
@@ -102,6 +104,7 @@ const Content = (): JSX.Element => {
         <Card>
           <Stack direction="column" alignItems="center" gap={1} p={2}>
             <Typography>{translate('VALIDATE_EMAIL_TEXT')}</Typography>
+            <Typography fontWeight="bold">{newEmail}</Typography>
             <Button
               id={EMAIL_VALIDATION_BUTTON_ID}
               onClick={handleEmailValidation}
