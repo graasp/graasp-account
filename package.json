@@ -11,9 +11,9 @@
   },
   "type": "module",
   "dependencies": {
-    "@emotion/cache": "11.11.0",
-    "@emotion/react": "11.11.4",
-    "@emotion/styled": "11.11.5",
+    "@emotion/cache": "11.13.0",
+    "@emotion/react": "11.13.0",
+    "@emotion/styled": "11.13.0",
     "@graasp/query-client": "github:graasp/graasp-query-client#add-invalidation-of-public-profile-on-update",
     "@graasp/sdk": "4.17.0",
     "@graasp/translations": "1.32.0",
