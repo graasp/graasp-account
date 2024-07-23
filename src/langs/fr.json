@@ -39,8 +39,8 @@
   "PROFILE_AVATAR_INFORMATION": "Changer l'image de profil",
   "PROFILE_AVATAR_CURRENT_ALT": "Image de profil",
   "PASSWORD_TITLE": "Mot de passe",
-  "PASSWORD_SETTINGS_TITLE": "Paramètres du mot de passe",
   "PASSWORD_SETTINGS_INFORMATION": "Changez votre mot de passe en cliquant sur le bouton 'Modifier'",
+  "PASSWORD_SETTINGS_TITLE": "Paramètres du mot de passe",
   "PASSWORD_SETTINGS_CURRENT_LABEL": "Mot de passe actuel",
   "PASSWORD_SETTINGS_CURRENT_INFORMATION": "Laissez le champ vide si vous n'avez pas précédemment défini de mot de passe.",
   "PASSWORD_SETTINGS_NEW_LABEL": "Nouveau mot de passe",
@@ -83,5 +83,17 @@
   "PERSONALISATION_TITLE": "Personnalisation",
   "PERSONALISATION_INFORMATION": "Laissez votre personnalité et votre unicité briller en ajoutant une photo de profil !",
   "SAVE_CHANGES_TEXT": "Enregistrer modifications",
-  "EDIT_EMAIL_TOOLTIP": "A venir"
+  "VALIDATE_EMAIL_TITLE": "Validez votre nouvel email",
+  "VALIDATE_EMAIL_TEXT": "Vous avez demandé à modifier votre email pour celui indiqué ci-dessous, veuillez cliquer sur le bouton pour valider votre nouvel email.",
+  "VALIDATE_EMAIL_BUTTON_TEXT": "Valider",
+  "LOGIN_REQUIRED": "Vous devez vous connecter pour accéder à cette page",
+  "EMAIL_UPDATE_SUCCESS_TITLE": "Succès",
+  "EMAIL_UPDATE_SUCCESS_TEXT": "E-mail mis à jour avec succès !",
+  "EMAIL_UPDATE_UNAUTHORIZED_TITLE": "Nous n'avons pas pu valider votre email, le lien est peut-être obsolète",
+  "EMAIL_UPDATE_UNAUTHORIZED_TEXT_LINK_VALIDITY": "Le lien envoyé par email n'est valable que 24 heures. Veuillez vous assurer que vous utilisez un nouveau lien.",
+  "EMAIL_UPDATE_UNAUTHORIZED_TEXT_LINK_GENERATION": "Vous pouvez générer un nouveau lien en modifiant votre email dans votre profil.",
+  "EMAIL_UPDATE_UNAUTHORIZED_TEXT_LINK_GENERATION_BUTTON": "Modifier mon e-mail dans les paramètres du compte",
+  "EMAIL_UPDATE_CONFLICT_TITLE": "Email déjà enregistré",
+  "EMAIL_UPDATE_CONFLICT_TEXT": "L'email que vous essayez de valider n'est plus disponible car il a été enregistré avec un autre compte Graasp.",
+  "PROFILE_EMAIL_UPDATED_ALERT_MESSAGE": "Un lien de validation a été envoyé à {{email}}. Veuillez vérifier votre boîte aux lettres."
 }
