@@ -107,6 +107,7 @@ const Content = (): JSX.Element => {
             <Typography fontWeight="bold">{newEmail}</Typography>
             <Button
               id={EMAIL_VALIDATION_BUTTON_ID}
+              variant="contained"
               onClick={handleEmailValidation}
               sx={{ width: 'min-content' }}
             >
