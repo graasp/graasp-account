@@ -87,13 +87,17 @@
   "VALIDATE_EMAIL_TEXT": "Vous avez demandé à modifier votre email pour celui indiqué ci-dessous, veuillez cliquer sur le bouton pour valider votre nouvel email.",
   "VALIDATE_EMAIL_BUTTON_TEXT": "Valider",
   "LOGIN_REQUIRED": "Vous devez vous connecter pour accéder à cette page",
+  "LOGIN_REQUIRED_BUTTON_TEXT": "Allez à la connexion",
   "EMAIL_UPDATE_SUCCESS_TITLE": "Succès",
   "EMAIL_UPDATE_SUCCESS_TEXT": "E-mail mis à jour avec succès !",
+  "EMAIL_UPDATE_SUCCESS_BUTTON_TEXT": "Se connecter avec le nouvel email",
   "EMAIL_UPDATE_UNAUTHORIZED_TITLE": "Nous n'avons pas pu valider votre email, le lien est peut-être obsolète",
   "EMAIL_UPDATE_UNAUTHORIZED_TEXT_LINK_VALIDITY": "Le lien envoyé par email n'est valable que 24 heures. Veuillez vous assurer que vous utilisez un nouveau lien.",
   "EMAIL_UPDATE_UNAUTHORIZED_TEXT_LINK_GENERATION": "Vous pouvez générer un nouveau lien en modifiant votre email dans votre profil.",
   "EMAIL_UPDATE_UNAUTHORIZED_TEXT_LINK_GENERATION_BUTTON": "Modifier mon e-mail dans les paramètres du compte",
   "EMAIL_UPDATE_CONFLICT_TITLE": "Email déjà enregistré",
   "EMAIL_UPDATE_CONFLICT_TEXT": "L'email que vous essayez de valider n'est plus disponible car il a été enregistré avec un autre compte Graasp.",
+  "EMAIL_UPDATE_MISSING_TOKEN": "Aucun jeton n'a été trouvé",
+  "PROFILE_EMAIL_UPDATED_ALERT_TITLE": "Mise à jour de l'adresse e-mail demandée",
   "PROFILE_EMAIL_UPDATED_ALERT_MESSAGE": "Un lien de validation a été envoyé à {{email}}. Veuillez vérifier votre boîte aux lettres."
 }
