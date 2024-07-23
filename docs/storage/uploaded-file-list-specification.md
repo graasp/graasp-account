@@ -16,8 +16,8 @@ This feature allows users to easily see all their uploaded files, along with the
 Here is a user story:
 
 ```txt
-  As a user with little available space left, 
-  I want to see which files take up the most space, 
+  As a user with little available space left,
+  I want to see which files take up the most space,
   so I can free some storage.
 ```
 
@@ -26,6 +26,7 @@ Here is a user story:
 ### Endpoint Specification
 
 - The route requires authentication to ensure that only logged-in users can access their uploaded files.
+
   > **Remark**: Currently storage is computed on items where the user is the creator. This can lead to issues where you lost admin rights on the file but your are still the creator. This issue should be handled later and is mentioned only here for reference.
 
 - No additional rights or conditions are needed beyond standard authentication.
@@ -33,6 +34,7 @@ Here is a user story:
 - Route `GET /members/current/storage/files?page=2&pageSize=20`
 
 - Query string parameters: query string parameters are needed for pagination
+
   - page: The page number to fetch
     - type: integer
     - required: true
@@ -49,85 +51,86 @@ Here is a user story:
 - Shape of the returned data:
 
   ```json
+  {
+    "data": [
       {
-        "data": [
-          {
-            "id": "UUID",               // Item's id as a uuid v4
-            "name": "string",           // Name of the file
-            "size": "number",           // Size of the file in bytes (positive integer)
-            "updatedAt": "string",      // Date and time when the item was updated
-            "path": "LTree",            // Location of the file
-            "parent": {                 // Parent folder details (undefined if item is root)
-              "id": "UUID",             // Parent id as a uuid v4
-              "name": "string"          // Name of the parent item
-            }
-          }
-        ],
-        "pagination": {
-          "totalItems": 100,           // Total number of items
-          "totalPages": 5,             // Total number of pages
-          "currentPage": 2,            // Current page number
-          "pageSize": 20               // Number of items per page
+        "id": "UUID", // Item's id as a uuid v4
+        "name": "string", // Name of the file
+        "size": "number", // Size of the file in bytes (positive integer)
+        "updatedAt": "string", // Date and time when the item was updated
+        "path": "LTree", // Location of the file
+        "parent": {
+          // Parent folder details (undefined if item is root)
+          "id": "UUID", // Parent id as a uuid v4
+          "name": "string" // Name of the parent item
         }
       }
+    ],
+    "pagination": {
+      "totalItems": 100, // Total number of items
+      "page": 2, // Current page number
+      "pageSize": 20 // Number of items per page
+    }
+  }
   ```
 
 - Example of the returned data:
+
   - 200: OK
 
     ```json
+    {
+      "data": [
         {
-          "data": [
-            {
-              "id":"b0bd68a8-6071-418c-9599-18ecb76b7b22",
-              "name": "Document1.pdf",
-              "size": 102400,
-              "updatedAt": "2024-07-01T12:00:00Z",
-              "path": "3ac6dfb2_92f0_4013_b933_1a32d5687870.b0bd68a8_6071_418c_9599_18ecb76b7b22",
-              "parent": {
-                "id": "3ac6dfb2-92f0-4013-b933-1a32d5687870",
-                "name": "Documents"
-              }
-            },
-            {
-              "id":"4de1b419-38cd-46e5-81f2-916150819175",
-              "name": "Image1.png",
-              "size": 204800,
-              "updatedAt": "2024-07-02T14:30:00Z",
-              "path": "28c849e2_604b_430c_aa0a_7d2630291b07.4de1b419_38cd_46e5_81f2_916150819175",
-              "parent": {
-                "id": "28c849e2-604b-430c-aa0a-7d2630291b07",
-                "name": "Images"
-              }
-            },
-            {
-              "id":"b485360b-f94c-4cb1-8e49-db0b6db4e15b",
-              "name": "Presentation.pdf",
-              "size": 512000,
-              "updatedAt": "2024-07-03T09:15:00Z",
-              "path": "b485360b_f94c_4cb1_8e49_db0b6db4e15b",
-              // the item has no parent
-            }
-          ],
-          "pagination": {
-            "totalItems": 100,
-            "totalPages": 5,
-            "currentPage": 2,
-            "pageSize": 20
+          "id": "b0bd68a8-6071-418c-9599-18ecb76b7b22",
+          "name": "Document1.pdf",
+          "size": 102400,
+          "updatedAt": "2024-07-01T12:00:00Z",
+          "path": "3ac6dfb2_92f0_4013_b933_1a32d5687870.b0bd68a8_6071_418c_9599_18ecb76b7b22",
+          "parent": {
+            "id": "3ac6dfb2-92f0-4013-b933-1a32d5687870",
+            "name": "Documents"
           }
+        },
+        {
+          "id": "4de1b419-38cd-46e5-81f2-916150819175",
+          "name": "Image1.png",
+          "size": 204800,
+          "updatedAt": "2024-07-02T14:30:00Z",
+          "path": "28c849e2_604b_430c_aa0a_7d2630291b07.4de1b419_38cd_46e5_81f2_916150819175",
+          "parent": {
+            "id": "28c849e2-604b-430c-aa0a-7d2630291b07",
+            "name": "Images"
+          }
+        },
+        {
+          "id": "b485360b-f94c-4cb1-8e49-db0b6db4e15b",
+          "name": "Presentation.pdf",
+          "size": 512000,
+          "updatedAt": "2024-07-03T09:15:00Z",
+          "path": "b485360b_f94c_4cb1_8e49_db0b6db4e15b"
+          // the item has no parent
         }
+      ],
+      "pagination": {
+        "totalItems": 100,
+        "page": 2,
+        "pageSize": 20
+      }
+    }
     ```
 
 - What are the possible failures?
+
   - 401 Unauthorized:
 
     Authentication Failure, User is not authenticated or token is invalid.
 
     ```json
     {
-        "status": "error",
-        "error_code": "401",
-        "message": "User not authenticated."
+      "status": "error",
+      "error_code": "401",
+      "message": "User not authenticated."
     }
     ```
 
@@ -147,11 +150,11 @@ Here is a user story:
 
     Server Error, internal server error occurs while processing the request.
 
-    ``` json
+    ```json
     {
-        "status": "error",
-        "error_code": "500",
-        "message": "An unexpected error occurred. Please try again later."
+      "status": "error",
+      "error_code": "500",
+      "message": "An unexpected error occurred. Please try again later."
     }
     ```
 
@@ -159,6 +162,7 @@ Here is a user story:
 
 - This is implemented as a hook because we are fetching data from the backend to display in the frontend UI.
 - Parameters for the hook will include:
+
   - page: The page number to fetch.
   - pageSize: The number of items per page.
 
