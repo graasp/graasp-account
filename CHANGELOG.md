@@ -1,5 +1,31 @@
 # Changelog
 
+## [2.12.0](https://github.com/graasp/graasp-account/compare/v2.11.0...v2.12.0) (2024-07-24)
+
+
+### Features
+
+* add email from query string in the validate email page ([#299](https://github.com/graasp/graasp-account/issues/299)) ([abddfdb](https://github.com/graasp/graasp-account/commit/abddfdb8571c2376215b1ff117851457448f76d0))
+* create a specification for the get all uploaded files ([#291](https://github.com/graasp/graasp-account/issues/291)) ([69e872b](https://github.com/graasp/graasp-account/commit/69e872bdb064dd03ffdeb8a4674b821e1c182573))
+
+
+### Bug Fixes
+
+* add storage intercept and test ([#292](https://github.com/graasp/graasp-account/issues/292)) ([05689b1](https://github.com/graasp/graasp-account/commit/05689b13d6536a6aefd75419b4c9ef617f39fce8))
+* **arabic:** update translations ([#303](https://github.com/graasp/graasp-account/issues/303)) ([5098950](https://github.com/graasp/graasp-account/commit/5098950dc39c4bebb44daf7d19768116da7ba2fe))
+* **deps:** update dependency @mui/lab to v5.0.0-alpha.172 ([#224](https://github.com/graasp/graasp-account/issues/224)) ([221de0e](https://github.com/graasp/graasp-account/commit/221de0ee8d8a65ed81c14859bcc4fbecf3c8acbf))
+* **deps:** update dependency lucide-react to ^0.411.0 ([#267](https://github.com/graasp/graasp-account/issues/267)) ([836ac0c](https://github.com/graasp/graasp-account/commit/836ac0c93ee00618042529227877f6a962915fdb))
+* **deps:** update graasp packages ([#280](https://github.com/graasp/graasp-account/issues/280)) ([c6d6c4a](https://github.com/graasp/graasp-account/commit/c6d6c4a0203c1c7957620939c05e6d05fed43937))
+* **deps:** update mui (non-major) to v5.16.4 ([#287](https://github.com/graasp/graasp-account/issues/287)) ([e900dcb](https://github.com/graasp/graasp-account/commit/e900dcb3add9cd0553c6d5655d6497c3bbe4454f))
+* **deps:** update react-router monorepo to v6.24.1 ([#282](https://github.com/graasp/graasp-account/issues/282)) ([d638b88](https://github.com/graasp/graasp-account/commit/d638b880bc8e58579417981dd44f776577e7a40e))
+* **deps:** update uppy packages ([#266](https://github.com/graasp/graasp-account/issues/266)) ([8d8720d](https://github.com/graasp/graasp-account/commit/8d8720ddac916a764e7526487dda7e659ad2bff9))
+* **deps:** update uppy packages ([#268](https://github.com/graasp/graasp-account/issues/268)) ([b9bb7b2](https://github.com/graasp/graasp-account/commit/b9bb7b235d44d46d161dbb283a6b402d9ec94a8b))
+* **french:** update translations ([#301](https://github.com/graasp/graasp-account/issues/301)) ([1316a17](https://github.com/graasp/graasp-account/commit/1316a17ce4ac1ff1d1a0ecb44cdcdf1beb63ad75))
+* **italian:** update translations ([#300](https://github.com/graasp/graasp-account/issues/300)) ([85b94a2](https://github.com/graasp/graasp-account/commit/85b94a254dd09b5ae5e2dcde8fd2a7b6eaefdabf))
+* rename pagination attributes ([#307](https://github.com/graasp/graasp-account/issues/307)) ([46fe718](https://github.com/graasp/graasp-account/commit/46fe7184b7b7eaaed0ffa5194641758db98ecec0))
+* **spanish:** update translations ([#302](https://github.com/graasp/graasp-account/issues/302)) ([546a314](https://github.com/graasp/graasp-account/commit/546a314b481be7ef29354cd44c156c7bc35da649))
+* update dependencies ([#304](https://github.com/graasp/graasp-account/issues/304)) ([289d536](https://github.com/graasp/graasp-account/commit/289d536ca3910409f477902e590d3fd5226c10ab))
+
 ## [2.11.0](https://github.com/graasp/graasp-account/compare/v2.10.1...v2.11.0) (2024-07-11)
 
 
