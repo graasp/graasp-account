@@ -85,7 +85,7 @@
     "@commitlint/config-conventional": "19.2.2",
     "@cypress/code-coverage": "3.12.44",
     "@cypress/instrument-cra": "1.4.0",
-    "@testing-library/jest-dom": "6.4.6",
+    "@testing-library/jest-dom": "6.4.8",
     "@testing-library/react": "16.0.0",
     "@testing-library/user-event": "14.5.2",
     "@trivago/prettier-plugin-sort-imports": "4.3.0",
@@ -109,7 +109,7 @@
     "husky": "9.1.1",
     "prettier": "3.3.3",
     "rollup-plugin-visualizer": "^5.12.0",
-    "typescript": "5.5.3",
+    "typescript": "5.5.4",
     "vite": "5.3.4",
     "vite-plugin-checker": "0.7.2",
     "vite-plugin-istanbul": "6.0.2"
