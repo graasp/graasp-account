@@ -99,5 +99,9 @@
   "EMAIL_UPDATE_CONFLICT_TEXT": "The email you are trying to validate is not available anymore because it has been registered with a different Graasp account.",
   "EMAIL_UPDATE_MISSING_TOKEN": "No token was found",
   "PROFILE_EMAIL_UPDATED_ALERT_TITLE": "Email update requested",
-  "PROFILE_EMAIL_UPDATED_ALERT_MESSAGE": "A validation link has been sent to {{email}}. Please check your mailbox."
+  "PROFILE_EMAIL_UPDATED_ALERT_MESSAGE": "A validation link has been sent to {{email}}. Please check your mailbox.",
+  "MEMBER_STORAGE_FILE_NAME": "File name",
+  "MEMBER_STORAGE_FILE_SIZE": "File size",
+  "MEMBER_STORAGE_FILE_UPDATED_AT": "Updated at",
+  "MEMBER_STORAGE_PARENT_FOLDER": "Parent folder"
 }

@@ -14,6 +14,10 @@ export const DELETE_MEMBER_DIALOG_DESCRIPTION_ID = 'alert-dialog-description';
 
 export const STORAGE_BAR_ID = 'storage-progress-bar';
 export const STORAGE_BAR_LABEL_ID = 'storage-bar-label';
+export const MEMBER_STORAGE_FILE_NAME_ID = 'storage-file-name';
+export const MEMBER_STORAGE_FILE_SIZE_ID = 'storage-file-size';
+export const MEMBER_STORAGE_FILE_UPDATED_AT_ID = 'storage-file-updated-at';
+export const MEMBER_STORAGE_PARENT_FOLDER_ID = 'storage-parent-folder';
 
 export const CARD_TIP_ID = 'tip-card';
 export const MEMBER_AVATAR_WRAPPER_ID = 'member-avatar';

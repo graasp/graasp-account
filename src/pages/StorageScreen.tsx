@@ -11,6 +11,8 @@ import { useAccountTranslation, useMessagesTranslation } from '@/config/i18n';
 import { hooks } from '@/config/queryClient';
 import { STORAGE_BAR_ID, STORAGE_BAR_LABEL_ID } from '@/config/selectors';
 
+import MemberStorageFiles from '../components/main/MemberStorageFiles';
+
 const BAR_WIDTH = window.innerWidth / 3;
 const BAR_HEIGHT = 25;
 
@@ -97,6 +99,7 @@ const StorageScreen = (): JSX.Element => {
         <Alert severity="info">{t('STORAGE_INFO')}</Alert>
       </Stack>
       <StorageBar />
+      <MemberStorageFiles />
     </ScreenLayout>
   );
 };

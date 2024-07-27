@@ -9,7 +9,12 @@ import {
 
 import { StatusCodes } from 'http-status-codes';
 
-import { CURRENT_MEMBER, MEMBER_PUBLIC_PROFILE } from '../fixtures/members';
+import {
+  CURRENT_MEMBER,
+  MEMBER_PUBLIC_PROFILE,
+  MEMBER_STORAGE_ITEM_RESPONSE,
+  MOCK_PAGINATION,
+} from '../fixtures/members';
 import { ID_FORMAT, MemberForTest } from './utils';
 
 const {
@@ -23,6 +28,7 @@ const {
   buildPatchPublicProfileRoute,
   buildPostMemberEmailUpdateRoute,
   buildGetMemberStorageRoute,
+  buildGetMemberStorageFilesRoute,
 } = API_ROUTES;
 
 export const SIGN_IN_PATH = buildSignInPath({
@@ -201,6 +207,47 @@ export const mockGetStorage = (storageAmountInBytes: number): void => {
     ({ reply }) =>
       reply({ current: storageAmountInBytes, maximum: 5368709120 }),
   ).as('getCurrentMemberStorage');
+};
+
+export const mockGetMemberStorageFiles = (
+  files = MEMBER_STORAGE_ITEM_RESPONSE,
+  shouldThrowError = false,
+): void => {
+  const mockPagination = MOCK_PAGINATION;
+
+  const route = `${API_HOST}/${buildGetMemberStorageFilesRoute(mockPagination)}`;
+  cy.intercept(
+    {
+      method: HttpMethod.Get,
+      url: route,
+    },
+    ({ url, reply }) => {
+      const params = new URL(url).searchParams;
+
+      const page = parseInt(params.get('page') ?? '1', 10);
+      const pageSize = parseInt(params.get('pageSize') ?? '10', 10);
+
+      const result = files.data.slice((page - 1) * pageSize, page * pageSize);
+
+      if (shouldThrowError) {
+        return reply({
+          statusCode: StatusCodes.INTERNAL_SERVER_ERROR,
+          body: null,
+        });
+      }
+      return reply({
+        statusCode: StatusCodes.OK,
+        body: {
+          data: result,
+          pagination: {
+            page,
+            pageSize,
+          },
+          totalCount: files.data.length,
+        },
+      });
+    },
+  ).as('getMemberStorageFiles');
 };
 
 export const mockPostAvatar = (shouldThrowError: boolean): void => {
