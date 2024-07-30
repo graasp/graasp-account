@@ -37,7 +37,7 @@ describe('Storage files', () => {
     cy.wait('@getMemberStorageFiles');
   });
 
-  it.only('displays storage files of each page', () => {
+  it('displays storage files of each page', () => {
     const files = MEMBER_STORAGE_ITEM_RESPONSE.data;
     const filesPerPage = 10;
     const numberPages = Math.ceil(files.length / filesPerPage);
@@ -69,7 +69,7 @@ describe('Storage files', () => {
             );
             cy.get(`#${MEMBER_STORAGE_PARENT_FOLDER_ID}`).should(
               'contain',
-              file.parent?.name ?? 'No Parent',
+              file.parent?.name ?? 'No parent',
             );
           });
       });
