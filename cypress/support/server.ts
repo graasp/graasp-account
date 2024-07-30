@@ -13,7 +13,6 @@ import {
   CURRENT_MEMBER,
   MEMBER_PUBLIC_PROFILE,
   MEMBER_STORAGE_ITEM_RESPONSE,
-  MOCK_PAGINATION,
 } from '../fixtures/members';
 import { ID_FORMAT, MemberForTest } from './utils';
 
@@ -28,7 +27,6 @@ const {
   buildPatchPublicProfileRoute,
   buildPostMemberEmailUpdateRoute,
   buildGetMemberStorageRoute,
-  buildGetMemberStorageFilesRoute,
 } = API_ROUTES;
 
 export const SIGN_IN_PATH = buildSignInPath({
@@ -213,9 +211,7 @@ export const mockGetMemberStorageFiles = (
   files = MEMBER_STORAGE_ITEM_RESPONSE,
   shouldThrowError = false,
 ): void => {
-  const mockPagination = MOCK_PAGINATION;
-
-  const route = `${API_HOST}/${buildGetMemberStorageFilesRoute(mockPagination)}`;
+  const route = new RegExp(`${API_HOST}/members/current/storage/files`);
   cy.intercept(
     {
       method: HttpMethod.Get,

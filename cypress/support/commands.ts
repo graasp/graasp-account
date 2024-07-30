@@ -64,7 +64,7 @@ Cypress.Commands.add(
     updatePasswordError = false,
     updateEmailError = false,
     storageAmountInBytes = 10000,
-    files = MEMBER_STORAGE_ITEM_RESPONSE.data,
+    files = MEMBER_STORAGE_ITEM_RESPONSE,
     getMemberStorageFilesError = false,
   } = {}) => {
     const cachedCurrentMember = JSON.parse(JSON.stringify(currentMember));

@@ -99,5 +99,12 @@
   "EMAIL_UPDATE_CONFLICT_TEXT": "L'email que vous essayez de valider n'est plus disponible car il a été enregistré avec un autre compte Graasp.",
   "EMAIL_UPDATE_MISSING_TOKEN": "Aucun jeton n'a été trouvé",
   "PROFILE_EMAIL_UPDATED_ALERT_TITLE": "Mise à jour de l'adresse e-mail demandée",
-  "PROFILE_EMAIL_UPDATED_ALERT_MESSAGE": "Un lien de validation a été envoyé à {{email}}. Veuillez vérifier votre boîte aux lettres."
+  "PROFILE_EMAIL_UPDATED_ALERT_MESSAGE": "Un lien de validation a été envoyé à {{email}}. Veuillez vérifier votre boîte aux lettres.",
+  "MEMBER_STORAGE_FILE_NAME": "Nom du fichier",
+  "MEMBER_STORAGE_FILE_SIZE": "Taille du fichier",
+  "MEMBER_STORAGE_FILE_UPDATED_AT": "Mis à jour le",
+  "MEMBER_STORAGE_PARENT_FOLDER": "Dossier parent",
+  "NO_PARENT": "N'a pas de parent",
+  "STORAGE_FILES_ERROR": "Oops, une erreur est survenue lors de la récupération des fichiers de stockage. Veuillez réessayer plus tard.",
+  "STORAGE_FILES_EMPTY": "Aucun fichier trouvé."
 }

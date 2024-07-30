@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 
 import {
   Alert,
@@ -10,8 +11,10 @@ import {
   TableRow,
 } from '@mui/material';
 
+import { API_ROUTES } from '@graasp/query-client';
 import { formatFileSize } from '@graasp/sdk';
 
+import { GRAASP_BUILDER_HOST } from '@/config/env';
 import { useAccountTranslation } from '@/config/i18n';
 import { hooks } from '@/config/queryClient';
 import {
@@ -25,6 +28,11 @@ const MemberStorageFiles = (): JSX.Element | null => {
   const { t } = useAccountTranslation();
   const [pagination, setPagination] = useState({ page: 1, pageSize: 10 });
   const { data, isError } = hooks.useMemberStorageFiles(pagination);
+
+  // redirect to item's location in builder
+  const buildItemUrl = (id: string) =>
+    `${GRAASP_BUILDER_HOST}/${API_ROUTES.buildGetItemRoute(id)}`;
+
   const handlePageChange = (
     _: React.MouseEvent<HTMLButtonElement> | null,
     newPage: number,
@@ -52,7 +60,7 @@ const MemberStorageFiles = (): JSX.Element | null => {
     return <Alert severity="error">{t('STORAGE_FILES_ERROR')}</Alert>;
   }
 
-  if (data?.data?.length === 0) {
+  if (data?.data.length === 0) {
     return <Alert severity="info">{t('STORAGE_FILES_EMPTY')}</Alert>;
   }
   if (data) {
@@ -68,10 +76,10 @@ const MemberStorageFiles = (): JSX.Element | null => {
             </TableRow>
           </TableHead>
           <TableBody>
-            {data?.data?.map((file) => (
+            {data.data.map((file) => (
               <TableRow key={file.id}>
                 <TableCell id={MEMBER_STORAGE_FILE_NAME_ID}>
-                  {file.name}
+                  <Link to={buildItemUrl(file.id)}> {file.name}</Link>
                 </TableCell>
                 <TableCell id={MEMBER_STORAGE_FILE_SIZE_ID}>
                   {formatFileSize(file.size)}
