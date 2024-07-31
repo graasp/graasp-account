@@ -1,10 +1,4 @@
-import {
-  CookieKeys,
-  MemberStorageItem,
-  Paginated,
-  Pagination,
-  PublicProfile,
-} from '@graasp/sdk';
+import { CookieKeys, MemberStorageItem, PublicProfile } from '@graasp/sdk';
 
 import {
   CURRENT_MEMBER,
@@ -42,8 +36,7 @@ declare global {
         postAvatarError?: boolean;
         updatePasswordError?: boolean;
         updateEmailError?: boolean;
-        mockPagination?: Pagination;
-        files?: Paginated<MemberStorageItem>;
+        files?: MemberStorageItem[];
         getMemberStorageFilesError?: boolean;
       }): Chainable;
     }

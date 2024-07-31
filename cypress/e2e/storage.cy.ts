@@ -1,5 +1,6 @@
-import { formatFileSize } from '@graasp/sdk';
+import { formatDate, formatFileSize } from '@graasp/sdk';
 
+import i18n from '@/config/i18n';
 import { STORAGE_PATH } from '@/config/paths';
 import {
   MEMBER_STORAGE_FILE_NAME_ID,
@@ -7,6 +8,7 @@ import {
   MEMBER_STORAGE_FILE_UPDATED_AT_ID,
   MEMBER_STORAGE_PARENT_FOLDER_ID,
   STORAGE_BAR_LABEL_ID,
+  getCellId,
 } from '@/config/selectors';
 
 import {
@@ -38,7 +40,7 @@ describe('Storage files', () => {
   });
 
   it('displays storage files of each page', () => {
-    const files = MEMBER_STORAGE_ITEM_RESPONSE.data;
+    const files = MEMBER_STORAGE_ITEM_RESPONSE;
     const filesPerPage = 10;
     const numberPages = Math.ceil(files.length / filesPerPage);
 
@@ -55,22 +57,21 @@ describe('Storage files', () => {
           .scrollIntoView()
           .should('be.visible')
           .within(() => {
-            cy.get(`#${MEMBER_STORAGE_FILE_NAME_ID}`).should(
+            cy.get(
+              `#${getCellId(MEMBER_STORAGE_FILE_NAME_ID, file.id)}`,
+            ).should('contain', file.name);
+            cy.get(
+              `#${getCellId(MEMBER_STORAGE_FILE_SIZE_ID, file.id)}`,
+            ).should('contain', formatFileSize(file.size));
+            cy.get(
+              `#${getCellId(MEMBER_STORAGE_FILE_UPDATED_AT_ID, file.id)}`,
+            ).should(
               'contain',
-              file.name,
+              formatDate(file.updatedAt, { locale: i18n.language }),
             );
-            cy.get(`#${MEMBER_STORAGE_FILE_SIZE_ID}`).should(
-              'contain',
-              formatFileSize(file.size),
-            );
-            cy.get(`#${MEMBER_STORAGE_FILE_UPDATED_AT_ID}`).should(
-              'contain',
-              new Date(file.updatedAt).toLocaleString(),
-            );
-            cy.get(`#${MEMBER_STORAGE_PARENT_FOLDER_ID}`).should(
-              'contain',
-              file.parent?.name ?? 'No parent',
-            );
+            cy.get(
+              `#${getCellId(MEMBER_STORAGE_PARENT_FOLDER_ID, file.id)}`,
+            ).should('contain', file.parent?.name ?? 'No parent');
           });
       });
       if (i !== numberPages - 1) {

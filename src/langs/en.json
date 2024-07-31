@@ -102,7 +102,7 @@
   "PROFILE_EMAIL_UPDATED_ALERT_MESSAGE": "A validation link has been sent to {{email}}. Please check your mailbox.",
   "MEMBER_STORAGE_FILE_NAME": "File name",
   "MEMBER_STORAGE_FILE_SIZE": "File size",
-  "MEMBER_STORAGE_FILE_UPDATED_AT": "Updated at",
+  "MEMBER_STORAGE_FILE_UPDATED_AT": "Last update",
   "MEMBER_STORAGE_PARENT_FOLDER": "Parent folder",
   "NO_PARENT": "No parent",
   "STORAGE_FILES_ERROR": "Oops, an error occurred while fetching storage files. Please try again later.",

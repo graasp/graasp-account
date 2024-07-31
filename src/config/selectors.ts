@@ -18,6 +18,8 @@ export const MEMBER_STORAGE_FILE_NAME_ID = 'storage-file-name';
 export const MEMBER_STORAGE_FILE_SIZE_ID = 'storage-file-size';
 export const MEMBER_STORAGE_FILE_UPDATED_AT_ID = 'storage-file-updated-at';
 export const MEMBER_STORAGE_PARENT_FOLDER_ID = 'storage-parent-folder';
+export const getCellId = (cellName: string, fileId: string): string =>
+  `${cellName}-${fileId}`;
 
 export const CARD_TIP_ID = 'tip-card';
 export const MEMBER_AVATAR_WRAPPER_ID = 'member-avatar';

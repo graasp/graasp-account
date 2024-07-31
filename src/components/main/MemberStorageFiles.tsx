@@ -11,27 +11,34 @@ import {
   TableRow,
 } from '@mui/material';
 
-import { API_ROUTES } from '@graasp/query-client';
-import { formatFileSize } from '@graasp/sdk';
+import {
+  ClientHostManager,
+  Context,
+  formatDate,
+  formatFileSize,
+} from '@graasp/sdk';
+import { Loader } from '@graasp/ui';
 
-import { GRAASP_BUILDER_HOST } from '@/config/env';
-import { useAccountTranslation } from '@/config/i18n';
+import i18n, { useAccountTranslation } from '@/config/i18n';
 import { hooks } from '@/config/queryClient';
 import {
   MEMBER_STORAGE_FILE_NAME_ID,
   MEMBER_STORAGE_FILE_SIZE_ID,
   MEMBER_STORAGE_FILE_UPDATED_AT_ID,
   MEMBER_STORAGE_PARENT_FOLDER_ID,
+  getCellId,
 } from '@/config/selectors';
 
 const MemberStorageFiles = (): JSX.Element | null => {
   const { t } = useAccountTranslation();
   const [pagination, setPagination] = useState({ page: 1, pageSize: 10 });
-  const { data, isError } = hooks.useMemberStorageFiles(pagination);
+  const { data, isLoading } = hooks.useMemberStorageFiles(pagination);
 
-  // redirect to item's location in builder
-  const buildItemUrl = (id: string) =>
-    `${GRAASP_BUILDER_HOST}/${API_ROUTES.buildGetItemRoute(id)}`;
+  // redirect to file's location in builder
+  const getFileLink = (id: string) => {
+    const clientHostManager = ClientHostManager.getInstance();
+    return clientHostManager.getItemLink(Context.Builder, id);
+  };
 
   const handlePageChange = (
     _: React.MouseEvent<HTMLButtonElement> | null,
@@ -56,14 +63,12 @@ const MemberStorageFiles = (): JSX.Element | null => {
       return prev;
     });
   };
-  if (isError) {
-    return <Alert severity="error">{t('STORAGE_FILES_ERROR')}</Alert>;
-  }
 
-  if (data?.data.length === 0) {
-    return <Alert severity="info">{t('STORAGE_FILES_EMPTY')}</Alert>;
-  }
   if (data) {
+    if (data.data.length === 0) {
+      return <Alert severity="info">{t('STORAGE_FILES_EMPTY')}</Alert>;
+    }
+
     return (
       <>
         <Table>
@@ -78,16 +83,27 @@ const MemberStorageFiles = (): JSX.Element | null => {
           <TableBody>
             {data.data.map((file) => (
               <TableRow key={file.id}>
-                <TableCell id={MEMBER_STORAGE_FILE_NAME_ID}>
-                  <Link to={buildItemUrl(file.id)}> {file.name}</Link>
+                <TableCell
+                  id={getCellId(`${MEMBER_STORAGE_FILE_NAME_ID}`, file.id)}
+                >
+                  <Link to={getFileLink(file.id)}>{file.name}</Link>
                 </TableCell>
-                <TableCell id={MEMBER_STORAGE_FILE_SIZE_ID}>
+                <TableCell
+                  id={getCellId(`${MEMBER_STORAGE_FILE_SIZE_ID}`, file.id)}
+                >
                   {formatFileSize(file.size)}
                 </TableCell>
-                <TableCell id={MEMBER_STORAGE_FILE_UPDATED_AT_ID}>
-                  {new Date(file.updatedAt).toLocaleString()}
+                <TableCell
+                  id={getCellId(
+                    `${MEMBER_STORAGE_FILE_UPDATED_AT_ID}`,
+                    file.id,
+                  )}
+                >
+                  {formatDate(file.updatedAt, { locale: i18n.language })}
                 </TableCell>
-                <TableCell id={MEMBER_STORAGE_PARENT_FOLDER_ID}>
+                <TableCell
+                  id={getCellId(`${MEMBER_STORAGE_PARENT_FOLDER_ID}`, file.id)}
+                >
                   {file.parent?.name ?? t('NO_PARENT')}
                 </TableCell>
               </TableRow>
@@ -96,8 +112,8 @@ const MemberStorageFiles = (): JSX.Element | null => {
         </Table>
         <TablePagination
           component="div"
-          count={data?.totalCount}
-          page={pagination.page - 1}
+          count={data.totalCount} // total number of files
+          page={pagination.page - 1} // current page
           onPageChange={(event, newPage) => handlePageChange(event, newPage)}
           rowsPerPage={pagination.pageSize}
           onRowsPerPageChange={handlePageSizeChange}
@@ -105,6 +121,15 @@ const MemberStorageFiles = (): JSX.Element | null => {
       </>
     );
   }
+
+  if (isLoading) {
+    return <Loader />;
+  }
+
+  if (!data) {
+    return <Alert severity="error">{t('STORAGE_FILES_ERROR')}</Alert>;
+  }
+
   return null;
 };
 

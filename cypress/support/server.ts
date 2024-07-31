@@ -3,6 +3,8 @@ import {
   CompleteMember,
   HttpMethod,
   Member,
+  MemberStorageItem,
+  Paginated,
   PublicProfile,
   buildSignInPath,
 } from '@graasp/sdk';
@@ -22,7 +24,7 @@ const {
   SIGN_OUT_ROUTE,
   buildPatchMemberRoute,
   buildUploadAvatarRoute,
-  buildUpdateMemberPasswordRoute,
+  buildPatchMemberPasswordRoute,
   buildGetOwnPublicProfileRoute,
   buildPatchPublicProfileRoute,
   buildPostMemberEmailUpdateRoute,
@@ -220,10 +222,10 @@ export const mockGetMemberStorageFiles = (
     ({ url, reply }) => {
       const params = new URL(url).searchParams;
 
-      const page = parseInt(params.get('page') ?? '1', 10);
-      const pageSize = parseInt(params.get('pageSize') ?? '10', 10);
+      const page = window.parseInt(params.get('page') ?? '1');
+      const pageSize = window.parseInt(params.get('pageSize') ?? '10', 10);
 
-      const result = files.data.slice((page - 1) * pageSize, page * pageSize);
+      const result = files.slice((page - 1) * pageSize, page * pageSize);
 
       if (shouldThrowError) {
         return reply({
@@ -239,8 +241,8 @@ export const mockGetMemberStorageFiles = (
             page,
             pageSize,
           },
-          totalCount: files.data.length,
-        },
+          totalCount: files.length,
+        } as Paginated<MemberStorageItem>,
       });
     },
   ).as('getMemberStorageFiles');
@@ -266,7 +268,7 @@ export const mockUpdatePassword = (shouldThrowError: boolean): void => {
   cy.intercept(
     {
       method: HttpMethod.Patch,
-      url: new RegExp(`${API_HOST}/${buildUpdateMemberPasswordRoute()}`),
+      url: new RegExp(`${API_HOST}/${buildPatchMemberPasswordRoute()}`),
     },
     ({ reply }) => {
       if (shouldThrowError) {
