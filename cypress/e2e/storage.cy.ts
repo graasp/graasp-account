@@ -71,7 +71,7 @@ describe('Storage files', () => {
             );
             cy.get(
               `#${getCellId(MEMBER_STORAGE_PARENT_FOLDER_ID, file.id)}`,
-            ).should('contain', file.parent?.name ?? 'No parent');
+            ).should('contain', file.parent?.name ?? '-');
           });
       });
       if (i !== numberPages - 1) {

@@ -102,9 +102,9 @@
   "PROFILE_EMAIL_UPDATED_ALERT_MESSAGE": "Un lien de validation a été envoyé à {{email}}. Veuillez vérifier votre boîte aux lettres.",
   "MEMBER_STORAGE_FILE_NAME": "Nom du fichier",
   "MEMBER_STORAGE_FILE_SIZE": "Taille du fichier",
-  "MEMBER_STORAGE_FILE_UPDATED_AT": "Derniére mise à jour",
+  "MEMBER_STORAGE_FILE_UPDATED_AT": "Dernière mise à jour",
   "MEMBER_STORAGE_PARENT_FOLDER": "Dossier parent",
-  "NO_PARENT": "Pas de parent",
+  "NO_PARENT": "-",
   "STORAGE_FILES_ERROR": "Oops, une erreur est survenue lors de la récupération de la liste des fichiers. Veuillez réessayer plus tard.",
-  "STORAGE_FILES_EMPTY": "Aucun fichier trouvé."
+  "STORAGE_FILES_EMPTY": "Vous n'avez pas téléchargé de fichier."
 }

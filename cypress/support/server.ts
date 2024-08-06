@@ -3,8 +3,6 @@ import {
   CompleteMember,
   HttpMethod,
   Member,
-  MemberStorageItem,
-  Paginated,
   PublicProfile,
   buildSignInPath,
 } from '@graasp/sdk';
@@ -242,7 +240,7 @@ export const mockGetMemberStorageFiles = (
             pageSize,
           },
           totalCount: files.length,
-        } as Paginated<MemberStorageItem>,
+        },
       });
     },
   ).as('getMemberStorageFiles');
