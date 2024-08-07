@@ -8,6 +8,7 @@ import {
 import {
   mockEditMember,
   mockEditPublicProfile,
+  mockExportData,
   mockGetCurrentMember,
   mockGetCurrentMemberAvatar,
   mockGetMemberStorageFiles,
@@ -38,6 +39,7 @@ declare global {
         updateEmailError?: boolean;
         files?: MemberStorageItem[];
         getMemberStorageFilesError?: boolean;
+        exportDataError?: boolean;
       }): Chainable;
     }
   }
@@ -56,6 +58,7 @@ Cypress.Commands.add(
     postAvatarError = false,
     updatePasswordError = false,
     updateEmailError = false,
+    exportDataError = false,
     storageAmountInBytes = 10000,
     files = MEMBER_STORAGE_ITEM_RESPONSE,
     getMemberStorageFilesError = false,
@@ -87,5 +90,6 @@ Cypress.Commands.add(
       cachedCurrentStorageFiles,
       getMemberStorageFilesError,
     );
+    mockExportData(exportDataError);
   },
 );

@@ -107,7 +107,9 @@
   "NO_PARENT": "-",
   "STORAGE_FILES_ERROR": "Oops, an error occurred while fetching storage files. Please try again later.",
   "STORAGE_FILES_EMPTY": "You didn't upload any file.",
-  "EXPORT_INFORMATIONS_TITLE": "Export informations",
-  "EXPORT_INFORMATIONS_DESCRIPTION": "You can download a copy of your information",
-  "EXPORT_INFORMATIONS_BUTTON_TEXT": "Download informations"
+  "EXPORT_INFORMATIONS_TITLE": "Export data",
+  "EXPORT_INFORMATIONS_DESCRIPTION": "You can download a copy of your data",
+  "EXPORT_INFORMATIONS_BUTTON_TEXT": "Start exporting",
+  "EXPORT_SUCCESS_MESSAGE": "Your request has been sent. An email will be sent to you in several minutes.",
+  "EXPORT_ERROR_MESSAGE": "An unexpected error occurred"
 }

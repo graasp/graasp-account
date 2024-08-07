@@ -106,5 +106,10 @@
   "MEMBER_STORAGE_PARENT_FOLDER": "Dossier parent",
   "NO_PARENT": "-",
   "STORAGE_FILES_ERROR": "Oops, une erreur est survenue lors de la récupération de la liste des fichiers. Veuillez réessayer plus tard.",
-  "STORAGE_FILES_EMPTY": "Vous n'avez pas téléchargé de fichier."
+  "STORAGE_FILES_EMPTY": "Vous n'avez pas téléchargé de fichier.",
+  "EXPORT_INFORMATIONS_TITLE": "Export des données",
+  "EXPORT_INFORMATIONS_DESCRIPTION": "Vous pouvez télécharger une copie de vos données",
+  "EXPORT_INFORMATIONS_BUTTON_TEXT": "Commencez à exporter",
+  "EXPORT_SUCCESS_MESSAGE": "Votre demande a été envoyée. Vous recevrez un email dans quelques minutes.",
+  "EXPORT_ERROR_MESSAGE": "Une erreur inattendue est survenue"
 }

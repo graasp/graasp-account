@@ -27,6 +27,7 @@ const {
   buildPatchPublicProfileRoute,
   buildPostMemberEmailUpdateRoute,
   buildGetMemberStorageRoute,
+  buildExportMemberDataRoute,
 } = API_ROUTES;
 
 export const SIGN_IN_PATH = buildSignInPath({
@@ -292,4 +293,20 @@ export const mockUpdateEmail = (shouldThrowError: boolean): void => {
       return reply({ statusCode: StatusCodes.NO_CONTENT });
     },
   ).as('updateMemberEmail');
+};
+
+export const mockExportData = (shouldThrowError: boolean): void => {
+  cy.intercept(
+    {
+      method: HttpMethod.Post,
+      url: new RegExp(`${API_HOST}/${buildExportMemberDataRoute()}`),
+    },
+    ({ reply }) => {
+      if (shouldThrowError) {
+        return reply({ statusCode: StatusCodes.BAD_REQUEST });
+      }
+
+      return reply({ statusCode: StatusCodes.OK });
+    },
+  ).as('exportData');
 };

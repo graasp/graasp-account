@@ -5,7 +5,7 @@ import { FAILURE_MESSAGES } from '@graasp/translations';
 
 import axios from 'axios';
 
-import i18n from './i18n';
+import i18n, { ACCOUNT_NAMESPACE } from './i18n';
 import { CHANGE_PLAN_SUCCESS_MESSAGE } from './messages';
 
 const {
@@ -14,6 +14,7 @@ const {
   patchPublicProfileRoutine,
   changePlanRoutine,
   updateEmailRoutine,
+  exportMemberDataRoutine,
 } = routines;
 
 export const getErrorMessageFromPayload = (
@@ -57,6 +58,10 @@ export default ({
       message = getErrorMessageFromPayload(payload);
       break;
     }
+    case exportMemberDataRoutine.FAILURE: {
+      message = i18n.t(payload?.message ?? 'EXPORT_ERROR_MESSAGE');
+      break;
+    }
 
     // success messages
     case updatePasswordRoutine.SUCCESS: {
@@ -71,6 +76,10 @@ export default ({
       );
       break;
     }
+    case exportMemberDataRoutine.SUCCESS: {
+      message = i18n.t(payload?.message ?? 'EXPORT_SUCCESS_MESSAGE');
+      break;
+    }
 
     // progress messages
     case changePlanRoutine.SUCCESS: {
@@ -83,10 +92,10 @@ export default ({
 
   // error notification
   if (payload?.error && message) {
-    toast.error(i18n.t(message));
+    toast.error(i18n.t(message, { ns: ACCOUNT_NAMESPACE }));
   }
   // success notification
   else if (message) {
-    toast.success(i18n.t(message));
+    toast.success(i18n.t(message, { ns: ACCOUNT_NAMESPACE }));
   }
 };

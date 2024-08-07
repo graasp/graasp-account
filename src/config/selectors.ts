@@ -73,3 +73,4 @@ export const EMAIL_VALIDATION_CONFLICT_MESSAGE_ID = 'email-validation-conflict';
 
 export const LOGIN_REQUIRED_TEXT_ID = 'login-required-text';
 export const LOGIN_REQUIRED_BUTTON_ID = 'login-required-button';
+export const EXPORT_DATA_BUTTON_ID = 'export-data-button-id';
