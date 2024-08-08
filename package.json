@@ -14,7 +14,7 @@
     "@emotion/cache": "11.13.0",
     "@emotion/react": "11.13.0",
     "@emotion/styled": "11.13.0",
-    "@graasp/query-client": "https://github.com/graasp/graasp-query-client#874-add-member-export-data",
+    "@graasp/query-client": "3.22.0",
     "@graasp/sdk": "4.22.0",
     "@graasp/translations": "1.32.0",
     "@graasp/ui": "4.21.0",

@@ -50,7 +50,8 @@ export default ({
   payload?: Payload;
 }): void => {
   let message = null;
-
+  const successMessage = 'EXPORT_SUCCESS_MESSAGE';
+  const failureMessage = 'EXPORT_ERROR_MESSAGE';
   switch (type) {
     // error messages
     case updatePasswordRoutine.FAILURE:
@@ -59,7 +60,7 @@ export default ({
       break;
     }
     case exportMemberDataRoutine.FAILURE: {
-      message = i18n.t(payload?.message ?? 'EXPORT_ERROR_MESSAGE');
+      message = i18n.t(payload?.message ?? failureMessage);
       break;
     }
 
@@ -77,7 +78,7 @@ export default ({
       break;
     }
     case exportMemberDataRoutine.SUCCESS: {
-      message = i18n.t(payload?.message ?? 'EXPORT_SUCCESS_MESSAGE');
+      message = i18n.t(payload?.message ?? successMessage);
       break;
     }
 

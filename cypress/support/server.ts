@@ -306,7 +306,7 @@ export const mockExportData = (shouldThrowError: boolean): void => {
         return reply({ statusCode: StatusCodes.BAD_REQUEST });
       }
 
-      return reply({ statusCode: StatusCodes.OK });
+      return reply({ statusCode: StatusCodes.NO_CONTENT });
     },
   ).as('exportData');
 };
