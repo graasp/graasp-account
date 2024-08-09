@@ -1,5 +1,13 @@
 # Changelog
 
+## [2.13.0](https://github.com/graasp/graasp-account/compare/v2.12.0...v2.13.0) (2024-08-09)
+
+
+### Features
+
+* add data export button in settings page ([#320](https://github.com/graasp/graasp-account/issues/320)) ([a24ff74](https://github.com/graasp/graasp-account/commit/a24ff74e0a07868f8a90b8dcc6c3831d934254b4))
+* add uploaded files in storage interface ([#314](https://github.com/graasp/graasp-account/issues/314)) ([6e58b71](https://github.com/graasp/graasp-account/commit/6e58b71312459c845e56cb65bd5d1fa4f43183e3))
+
 ## [2.12.0](https://github.com/graasp/graasp-account/compare/v2.11.0...v2.12.0) (2024-07-24)
 
 
