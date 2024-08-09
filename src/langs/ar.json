@@ -99,5 +99,17 @@
   "EMAIL_UPDATE_CONFLICT_TEXT": "البريد الإلكتروني الذي تحاول التحقق منه لم يعد متاحًا لأنه تم تسجيله باستخدام حساب Graasp مختلف.",
   "EMAIL_UPDATE_MISSING_TOKEN": "لم يتم العثور على أي رمز مميز",
   "PROFILE_EMAIL_UPDATED_ALERT_TITLE": "تم طلب تحديث البريد الإلكتروني",
-  "PROFILE_EMAIL_UPDATED_ALERT_MESSAGE": "تم إرسال رابط التحقق إلى {{email}}. يرجى مراجعة صندوق البريد الخاص بك."
+  "PROFILE_EMAIL_UPDATED_ALERT_MESSAGE": "تم إرسال رابط التحقق إلى {{email}}. يرجى مراجعة صندوق البريد الخاص بك.",
+  "MEMBER_STORAGE_FILE_NAME": "اسم الملف",
+  "MEMBER_STORAGE_FILE_SIZE": "حجم الملف",
+  "MEMBER_STORAGE_FILE_UPDATED_AT": "اخر تحديث",
+  "MEMBER_STORAGE_PARENT_FOLDER": "المجلد الرئيسي",
+  "NO_PARENT": "-",
+  "STORAGE_FILES_ERROR": "عفواً، حدث خطأ أثناء جلب ملفات التخزين. يرجى المحاولة مرة أخرى لاحقًا.",
+  "STORAGE_FILES_EMPTY": "لم تقم بتحميل أي ملف.",
+  "EXPORT_INFORMATIONS_TITLE": "تنزيل نسخة من بياناتك",
+  "EXPORT_INFORMATIONS_DESCRIPTION": "يمكنك تنزيل نسخة من بياناتك.",
+  "EXPORT_INFORMATIONS_BUTTON_TEXT": "تنزيل بياناتك",
+  "EXPORT_SUCCESS_MESSAGE": "لقد قمت بطلب بياناتك بنجاح. سوف تتلقى بريدًا إلكترونيًا يحتوي على بياناتك في غضون بضع دقائق.",
+  "EXPORT_ERROR_MESSAGE": "حدث خطأ غير متوقع"
 }
