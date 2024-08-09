@@ -99,5 +99,17 @@
   "EMAIL_UPDATE_CONFLICT_TEXT": "L'e-mail che stai tentando di convalidare non è più disponibile perché è stata registrata con un altro account Graasp.",
   "EMAIL_UPDATE_MISSING_TOKEN": "Nessun token è stato trovato",
   "PROFILE_EMAIL_UPDATED_ALERT_TITLE": "È stato richiesto l'aggiornamento dell'e-mail",
-  "PROFILE_EMAIL_UPDATED_ALERT_MESSAGE": "Un collegamento di convalida è stato inviato a {{email}}. Per favore controlla la tua casella di posta."
+  "PROFILE_EMAIL_UPDATED_ALERT_MESSAGE": "Un collegamento di convalida è stato inviato a {{email}}. Per favore controlla la tua casella di posta.",
+  "MEMBER_STORAGE_FILE_NAME": "Nome del file",
+  "MEMBER_STORAGE_FILE_SIZE": "Dimensione del file",
+  "MEMBER_STORAGE_FILE_UPDATED_AT": "Ultimo aggiornamento",
+  "MEMBER_STORAGE_PARENT_FOLDER": "Cartella padre",
+  "NO_PARENT": "-",
+  "STORAGE_FILES_ERROR": "Oops, si è verificato un errore durante il recupero dei file di archiviazione. Riprova più tardi.",
+  "STORAGE_FILES_EMPTY": "Non hai caricato alcun file.",
+  "EXPORT_INFORMATIONS_TITLE": "Scarica una copia dei tuoi dati",
+  "EXPORT_INFORMATIONS_DESCRIPTION": "Puoi scaricare una copia dei tuoi dati.",
+  "EXPORT_INFORMATIONS_BUTTON_TEXT": "Scarica i tuoi dati",
+  "EXPORT_SUCCESS_MESSAGE": "Hai richiesto con successo i tuoi dati. Riceverai un'e-mail con i tuoi dati entro pochi minuti.",
+  "EXPORT_ERROR_MESSAGE": "Si è verificato un errore imprevisto"
 }
