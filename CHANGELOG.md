@@ -1,5 +1,19 @@
 # Changelog
 
+## [2.13.0](https://github.com/graasp/graasp-account/compare/v2.12.0...v2.13.0) (2024-08-19)
+
+
+### Features
+
+* add data export button in settings page ([#320](https://github.com/graasp/graasp-account/issues/320)) ([a24ff74](https://github.com/graasp/graasp-account/commit/a24ff74e0a07868f8a90b8dcc6c3831d934254b4))
+* add uploaded files in storage interface ([#314](https://github.com/graasp/graasp-account/issues/314)) ([6e58b71](https://github.com/graasp/graasp-account/commit/6e58b71312459c845e56cb65bd5d1fa4f43183e3))
+
+
+### Bug Fixes
+
+* **deps:** update dependency axios to v1.7.4 [security] ([#326](https://github.com/graasp/graasp-account/issues/326)) ([ed4d69f](https://github.com/graasp/graasp-account/commit/ed4d69f5007e93a8f899a9aedf9f1783767db356))
+* **deps:** update react-router monorepo to v6.26.1 ([#317](https://github.com/graasp/graasp-account/issues/317)) ([1ffc993](https://github.com/graasp/graasp-account/commit/1ffc993d684613ba2dfbb12ed6f471ae17adf490))
+
 ## [2.12.0](https://github.com/graasp/graasp-account/compare/v2.11.0...v2.12.0) (2024-07-24)
 
 
