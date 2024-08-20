@@ -117,6 +117,7 @@ const MemberStorageFiles = (): JSX.Element | null => {
           onPageChange={(event, newPage) => handlePageChange(event, newPage)}
           rowsPerPage={pagination.pageSize}
           onRowsPerPageChange={handlePageSizeChange}
+          rowsPerPageOptions={[5, 10, 25, 50]}
         />
       </>
     );
