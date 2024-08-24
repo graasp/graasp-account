@@ -7,10 +7,8 @@ import { CssBaseline } from '@mui/material';
 import { langs } from '@graasp/translations';
 import { ThemeProvider } from '@graasp/ui';
 
-import i18next from 'i18next';
-
 import App from './App';
-import i18nConfig, { useCommonTranslation } from './config/i18n';
+import i18nConfig from './config/i18n';
 import {
   QueryClientProvider,
   ReactQueryDevtools,
@@ -19,15 +17,14 @@ import {
 } from './config/queryClient';
 
 const ThemeWrapper = () => {
-  const { i18n } = useCommonTranslation();
   const { data: currentMember } = hooks.useCurrentMember();
 
   return (
     <ThemeProvider
       langs={langs}
       languageSelectSx={{ mb: 2, mr: 2 }}
-      i18n={i18n}
-      defaultDirection={i18next.dir(currentMember?.extra?.lang)}
+      i18n={i18nConfig}
+      defaultDirection={i18nConfig.dir(currentMember?.extra?.lang)}
     >
       <CssBaseline />
       <I18nextProvider i18n={i18nConfig}>
