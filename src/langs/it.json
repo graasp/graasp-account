@@ -111,5 +111,8 @@
   "EXPORT_INFORMATIONS_DESCRIPTION": "Puoi scaricare una copia dei tuoi dati.",
   "EXPORT_INFORMATIONS_BUTTON_TEXT": "Scarica i tuoi dati",
   "EXPORT_SUCCESS_MESSAGE": "Hai richiesto con successo i tuoi dati. Riceverai un'e-mail con i tuoi dati entro pochi minuti.",
-  "EXPORT_ERROR_MESSAGE": "Si è verificato un errore imprevisto"
+  "EXPORT_ERROR_MESSAGE": "Si è verificato un errore imprevisto",
+  "NOT_FOUND_PAGE_TEXT": "Pagina non trovata",
+  "NOT_FOUND_PAGE_MESSAGE": "Spiacenti, non siamo riusciti a trovare questa pagina.",
+  "GO_TO_HOME_TEXT": "Vai a Home"
 }
