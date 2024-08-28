@@ -111,5 +111,8 @@
   "EXPORT_INFORMATIONS_DESCRIPTION": "يمكنك تنزيل نسخة من بياناتك.",
   "EXPORT_INFORMATIONS_BUTTON_TEXT": "تنزيل بياناتك",
   "EXPORT_SUCCESS_MESSAGE": "لقد قمت بطلب بياناتك بنجاح. سوف تتلقى بريدًا إلكترونيًا يحتوي على بياناتك في غضون بضع دقائق.",
-  "EXPORT_ERROR_MESSAGE": "حدث خطأ غير متوقع"
+  "EXPORT_ERROR_MESSAGE": "حدث خطأ غير متوقع",
+  "NOT_FOUND_PAGE_TEXT": "لم يتم العثور على الصفحة",
+  "NOT_FOUND_PAGE_MESSAGE": "نأسف، لم نتمكن من العثور على هذه الصفحة.",
+  "GO_TO_HOME_TEXT": "انتقل إلى الصفحة الرئيسية"
 }
