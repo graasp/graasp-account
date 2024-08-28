@@ -111,5 +111,8 @@
   "EXPORT_INFORMATIONS_DESCRIPTION": "Sie können eine Kopie Ihrer Daten herunterladen.",
   "EXPORT_INFORMATIONS_BUTTON_TEXT": "Laden Sie Ihre Daten herunter",
   "EXPORT_SUCCESS_MESSAGE": "Sie haben Ihre Daten erfolgreich angefordert. Sie erhalten in wenigen Minuten eine E-Mail mit Ihren Daten.",
-  "EXPORT_ERROR_MESSAGE": "Ein unerwarteter Fehler ist aufgetreten"
+  "EXPORT_ERROR_MESSAGE": "Ein unerwarteter Fehler ist aufgetreten",
+  "NOT_FOUND_PAGE_TEXT": "Seite nicht gefunden",
+  "NOT_FOUND_PAGE_MESSAGE": "Leider konnten wir diese Seite nicht finden.",
+  "GO_TO_HOME_TEXT": "Gehe zur Startseite"
 }
