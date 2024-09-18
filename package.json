@@ -32,7 +32,7 @@
     "@uppy/tus": "3.5.5",
     "@uppy/xhr-upload": "3.6.8",
     "axios": "1.7.7",
-    "date-fns": "3.6.0",
+    "date-fns": "4.1.0",
     "http-status-codes": "2.3.0",
     "i18next": "23.15.1",
     "lodash.truncate": "4.4.2",
