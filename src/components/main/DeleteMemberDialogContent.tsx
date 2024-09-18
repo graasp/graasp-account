@@ -9,6 +9,8 @@ import DialogTitle from '@mui/material/DialogTitle';
 import { Button } from '@graasp/ui';
 
 import {
+  DELETE_MEMBER_DIALOG_CONFIRMATION_BUTTON_ID,
+  DELETE_MEMBER_DIALOG_CONFIRMATION_FIELD_ID,
   DELETE_MEMBER_DIALOG_DESCRIPTION_ID,
   DELETE_MEMBER_DIALOG_TITLE_ID,
 } from '@/config/selectors';
@@ -17,15 +19,14 @@ import { useAccountTranslation } from '../../config/i18n';
 import { mutations } from '../../config/queryClient';
 
 type Props = {
-  id: string;
   closeModal: () => void;
 };
 
-const DeleteMemberDialogContent = ({ id, closeModal }: Props): JSX.Element => {
+const DeleteMemberDialogContent = ({ closeModal }: Props): JSX.Element => {
   const { t: translateAccount } = useAccountTranslation();
   const [confirmationDeleteValue, setConfirmationDeleteValue] = useState('');
 
-  const { mutateAsync: deleteMember } = mutations.useDeleteMember();
+  const { mutateAsync: deleteMember } = mutations.useDeleteCurrentMember();
 
   const confirmationDeleteTextToCompare = translateAccount(
     'DELETE_CONFIRMATION_VALUE',
@@ -52,6 +53,7 @@ const DeleteMemberDialogContent = ({ id, closeModal }: Props): JSX.Element => {
           </DialogContentText>
         </Stack>
         <TextField
+          id={DELETE_MEMBER_DIALOG_CONFIRMATION_FIELD_ID}
           value={confirmationDeleteValue}
           fullWidth
           required
@@ -72,7 +74,8 @@ const DeleteMemberDialogContent = ({ id, closeModal }: Props): JSX.Element => {
           {translateAccount('PROFILE_DELETE_ACCOUNT_MODAL_CANCEL_BUTTON')}
         </Button>
         <Button
-          onClick={() => deleteMember({ id })}
+          id={DELETE_MEMBER_DIALOG_CONFIRMATION_BUTTON_ID}
+          onClick={() => deleteMember()}
           color="error"
           disabled={isConfirmationDisabled}
         >

@@ -6,6 +6,7 @@ import {
   MEMBER_STORAGE_ITEM_RESPONSE,
 } from '../fixtures/members';
 import {
+  mockDeleteCurrentMember,
   mockEditMember,
   mockEditPublicProfile,
   mockExportData,
@@ -91,5 +92,6 @@ Cypress.Commands.add(
       getMemberStorageFilesError,
     );
     mockExportData(exportDataError);
+    mockDeleteCurrentMember();
   },
 );

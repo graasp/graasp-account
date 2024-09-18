@@ -9,6 +9,12 @@ export const PREFERENCES_EDIT_CONTAINER_ID = 'preferences-edit-container';
 export const PREFERENCES_SAVE_BUTTON_ID = 'preferences-save-button';
 export const PREFERENCES_CANCEL_BUTTON_ID = 'preferences-cancel-button';
 
+export const DELETE_MEMBER_SECTION_ID = 'delete-member-section';
+export const DELETE_MEMBER_BUTTON_ID = 'delete-member-button';
+export const DELETE_MEMBER_DIALOG_CONFIRMATION_FIELD_ID =
+  'delete-member-confirmation-field';
+export const DELETE_MEMBER_DIALOG_CONFIRMATION_BUTTON_ID =
+  'delete-member-confirmation-button';
 export const DELETE_MEMBER_DIALOG_TITLE_ID = 'alert-dialog-title';
 export const DELETE_MEMBER_DIALOG_DESCRIPTION_ID = 'alert-dialog-description';
 

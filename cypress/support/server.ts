@@ -28,6 +28,7 @@ const {
   buildPostMemberEmailUpdateRoute,
   buildGetMemberStorageRoute,
   buildExportMemberDataRoute,
+  buildDeleteCurrentMemberRoute,
 } = API_ROUTES;
 
 export const SIGN_IN_PATH = buildSignInPath({
@@ -309,4 +310,14 @@ export const mockExportData = (shouldThrowError: boolean): void => {
       return reply({ statusCode: StatusCodes.NO_CONTENT });
     },
   ).as('exportData');
+};
+
+export const mockDeleteCurrentMember = (): void => {
+  cy.intercept(
+    {
+      method: HttpMethod.Delete,
+      url: new RegExp(`${API_HOST}/${buildDeleteCurrentMemberRoute()}`),
+    },
+    ({ reply }) => reply({ statusCode: StatusCodes.NO_CONTENT }),
+  ).as('deleteCurrentMember');
 };
