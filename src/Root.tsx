@@ -4,6 +4,7 @@ import { ToastContainer } from 'react-toastify';
 
 import { CssBaseline } from '@mui/material';
 
+import { AccountType } from '@graasp/sdk';
 import { langs } from '@graasp/translations';
 import { ThemeProvider } from '@graasp/ui';
 
@@ -24,7 +25,11 @@ const ThemeWrapper = () => {
       langs={langs}
       languageSelectSx={{ mb: 2, mr: 2 }}
       i18n={i18nConfig}
-      defaultDirection={i18nConfig.dir(currentMember?.extra?.lang)}
+      defaultDirection={i18nConfig.dir(
+        currentMember?.type === AccountType.Individual
+          ? currentMember?.extra?.lang
+          : 'ltr',
+      )}
     >
       <CssBaseline />
       <I18nextProvider i18n={i18nConfig}>

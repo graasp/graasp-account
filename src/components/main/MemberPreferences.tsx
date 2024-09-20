@@ -2,6 +2,7 @@ import { useState } from 'react';
 
 import { Button } from '@mui/material';
 
+import { AccountType } from '@graasp/sdk';
 import { DEFAULT_LANG, langs } from '@graasp/translations';
 
 import { useAccountTranslation } from '@/config/i18n';
@@ -17,14 +18,20 @@ import BorderedSection from '../layout/BorderedSection';
 import EditMemberPreferences from './EditMemberPreferences';
 import MemberProfileItem from './MemberProfileItem';
 
-const MemberPreferences = (): JSX.Element => {
+const MemberPreferences = (): JSX.Element | false => {
   const { data: member } = hooks.useCurrentMember();
+
+  const { t } = useAccountTranslation();
+  const [isEditing, setIsEditing] = useState(false);
+
+  if (!member || member?.type === AccountType.Guest) {
+    return false;
+  }
+
   const languageCode = (member?.extra?.lang ??
     DEFAULT_LANG) as keyof typeof langs;
   const languageName = langs[languageCode];
 
-  const { t } = useAccountTranslation();
-  const [isEditing, setIsEditing] = useState(false);
   const handleEditClick = () => {
     setIsEditing(true);
   };
@@ -34,7 +41,7 @@ const MemberPreferences = (): JSX.Element => {
   };
 
   if (isEditing) {
-    return <EditMemberPreferences onClose={handleClose} />;
+    return <EditMemberPreferences member={member} onClose={handleClose} />;
   }
   return (
     <BorderedSection

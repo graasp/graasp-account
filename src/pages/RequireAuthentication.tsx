@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 
 import { Button, Typography } from '@mui/material';
 
-import { buildSignInPath } from '@graasp/sdk';
+import { AccountType, buildSignInPath } from '@graasp/sdk';
 import { DEFAULT_LANG } from '@graasp/translations';
 import { CustomInitialLoader } from '@graasp/ui';
 
@@ -23,7 +23,10 @@ const RequireAuthentication = (): JSX.Element => {
   const { i18n, t: translate } = useAccountTranslation();
 
   useEffect(() => {
-    if (currentMember?.extra?.lang !== i18n.language) {
+    if (
+      currentMember?.type === AccountType.Individual &&
+      currentMember?.extra?.lang !== i18n.language
+    ) {
       i18n.changeLanguage(currentMember?.extra?.lang ?? DEFAULT_LANG);
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
