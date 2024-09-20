@@ -7,7 +7,7 @@ import {
 } from '../fixtures/members';
 import {
   mockDeleteCurrentMember,
-  mockEditMember,
+  mockEditCurrentMember,
   mockEditPublicProfile,
   mockExportData,
   mockGetCurrentMember,
@@ -77,7 +77,7 @@ Cypress.Commands.add(
 
     mockSignOut();
 
-    mockEditMember(cachedCurrentMember, editMemberError);
+    mockEditCurrentMember(cachedCurrentMember, editMemberError);
     mockEditPublicProfile(cachedCurrentProfile, editPublicProfileError);
     mockGetCurrentMemberAvatar(currentMember, getAvatarUrlError);
 

@@ -2,7 +2,6 @@ import { API_ROUTES } from '@graasp/query-client';
 import {
   CompleteMember,
   HttpMethod,
-  Member,
   PublicProfile,
   buildSignInPath,
 } from '@graasp/sdk';
@@ -17,10 +16,9 @@ import {
 import { ID_FORMAT, MemberForTest } from './utils';
 
 const {
-  buildGetMemberRoute,
   buildGetCurrentMemberRoute,
   SIGN_OUT_ROUTE,
-  buildPatchMemberRoute,
+  buildPatchCurrentMemberRoute,
   buildUploadAvatarRoute,
   buildPatchMemberPasswordRoute,
   buildGetOwnPublicProfileRoute,
@@ -89,7 +87,7 @@ export const mockGetCurrentMember = (
   cy.intercept(
     {
       method: HttpMethod.Get,
-      url: `${API_HOST}/${buildGetCurrentMemberRoute()}`,
+      pathname: buildGetCurrentMemberRoute(),
     },
     ({ reply }) => {
       if (shouldThrowError) {
@@ -105,39 +103,14 @@ export const mockGetCurrentMember = (
   ).as('getCurrentMember');
 };
 
-export const mockGetMember = (members: Member[]): void => {
-  cy.intercept(
-    {
-      method: HttpMethod.Get,
-      url: new RegExp(`${API_HOST}/${buildGetMemberRoute(ID_FORMAT)}$`),
-    },
-    ({ url, reply }) => {
-      const memberId = url.slice(API_HOST.length).split('/')[2];
-      const member = members.find((m) => m.id === memberId);
-
-      // member does not exist in db
-      if (!member) {
-        return reply({
-          statusCode: StatusCodes.NOT_FOUND,
-        });
-      }
-
-      return reply({
-        body: member,
-        statusCode: StatusCodes.OK,
-      });
-    },
-  ).as('getMember');
-};
-
-export const mockEditMember = (
+export const mockEditCurrentMember = (
   currentMember: CompleteMember,
   shouldThrowError: boolean,
 ): void => {
   cy.intercept(
     {
       method: HttpMethod.Patch,
-      url: new RegExp(`${API_HOST}/${buildPatchMemberRoute(ID_FORMAT)}`),
+      pathname: buildPatchCurrentMemberRoute(),
     },
     ({ reply, body }) => {
       if (shouldThrowError) {
@@ -316,7 +289,7 @@ export const mockDeleteCurrentMember = (): void => {
   cy.intercept(
     {
       method: HttpMethod.Delete,
-      url: new RegExp(`${API_HOST}/${buildDeleteCurrentMemberRoute()}`),
+      pathname: buildDeleteCurrentMemberRoute(),
     },
     ({ reply }) => reply({ statusCode: StatusCodes.NO_CONTENT }),
   ).as('deleteCurrentMember');
