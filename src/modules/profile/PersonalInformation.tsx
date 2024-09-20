@@ -26,7 +26,7 @@ const PersonalInformation = (): JSX.Element | null => {
 
   const onClose = () => setIsEditing(false);
 
-  if (member?.type === AccountType.Guest) {
+  if (member?.type !== AccountType.Individual) {
     return null;
   }
 
