@@ -48,7 +48,7 @@ const EditPersonalInformation = ({
 }: EditMemberPersonalInformationProp): JSX.Element => {
   const { t } = useAccountTranslation();
   const { t: translateCommon } = useCommonTranslation();
-  const { mutate: editMember } = mutations.useEditMember();
+  const { mutate: editMember } = mutations.useEditCurrentMember();
   const { mutate: updateEmail } = mutations.useUpdateMemberEmail();
   const [newUserName, setNewUserName] = useState('');
   const [newEmail, setNewEmail] = useState('');
@@ -95,7 +95,6 @@ const EditPersonalInformation = ({
       const name = newUserName.trim();
       if (member && name !== member.name) {
         editMember({
-          id: member.id,
           name,
         });
       }

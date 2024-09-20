@@ -32,7 +32,7 @@ const EditMemberPreferences = ({
 }: EditPreferencesProp): JSX.Element => {
   const { t } = useAccountTranslation();
   const { t: translateCommon } = useCommonTranslation();
-  const { mutate: editMember } = mutations.useEditMember();
+  const { mutate: editMember } = mutations.useEditCurrentMember();
 
   const memberLang = member?.extra?.lang ?? DEFAULT_LANG;
   const memberEmailFreq = member?.extra?.emailFreq ?? DEFAULT_EMAIL_FREQUENCY;
@@ -49,7 +49,6 @@ const EditMemberPreferences = ({
   };
   const saveSettings = () => {
     editMember({
-      id: member.id,
       extra: {
         lang: selectedLang,
         emailFreq: selectedEmailFreq,
