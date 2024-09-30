@@ -45,7 +45,7 @@ const EditPersonalInformation = ({
   member,
   onEmailUpdate,
   onClose,
-}: EditMemberPersonalInformationProp): JSX.Element | false => {
+}: EditMemberPersonalInformationProp): JSX.Element => {
   const { t } = useAccountTranslation();
   const { t: translateCommon } = useCommonTranslation();
   const { mutate: editMember } = mutations.useEditMember();

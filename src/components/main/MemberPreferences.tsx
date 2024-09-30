@@ -18,14 +18,14 @@ import BorderedSection from '../layout/BorderedSection';
 import EditMemberPreferences from './EditMemberPreferences';
 import MemberProfileItem from './MemberProfileItem';
 
-const MemberPreferences = (): JSX.Element | false => {
+const MemberPreferences = (): JSX.Element | null => {
   const { data: member } = hooks.useCurrentMember();
 
   const { t } = useAccountTranslation();
   const [isEditing, setIsEditing] = useState(false);
 
   if (!member || member?.type === AccountType.Guest) {
-    return false;
+    return null;
   }
 
   const languageCode = (member?.extra?.lang ??

@@ -17,7 +17,7 @@ import {
 } from '@/config/selectors';
 import EditPersonalInformation from '@/modules/profile/EditPersonalInformation';
 
-const PersonalInformation = (): JSX.Element | false => {
+const PersonalInformation = (): JSX.Element | null => {
   const { data: member } = hooks.useCurrentMember();
   const { t } = useAccountTranslation();
 
@@ -27,7 +27,7 @@ const PersonalInformation = (): JSX.Element | false => {
   const onClose = () => setIsEditing(false);
 
   if (member?.type === AccountType.Guest) {
-    return false;
+    return null;
   }
 
   if (isEditing) {
