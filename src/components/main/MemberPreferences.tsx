@@ -24,7 +24,8 @@ const MemberPreferences = (): JSX.Element | null => {
   const { t } = useAccountTranslation();
   const [isEditing, setIsEditing] = useState(false);
 
-  if (!member || member?.type === AccountType.Guest) {
+  // in case there is no member or they are not of the individual type, we render nothing
+  if (!member || member?.type !== AccountType.Individual) {
     return null;
   }
 
