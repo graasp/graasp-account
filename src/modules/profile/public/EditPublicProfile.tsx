@@ -67,9 +67,9 @@ const EditPublicProfile = ({
   const { t: translateCommon } = useCommonTranslation();
 
   const { data: ownProfile } = hooks.useOwnProfile();
-  const { mutate: postProfile, isLoading: isAddLoading } =
+  const { mutate: postProfile, isPending: isAddLoading } =
     mutations.usePostPublicProfile();
-  const { mutate: patchProfile, isLoading: isEditLoading } =
+  const { mutate: patchProfile, isPending: isEditLoading } =
     mutations.usePatchPublicProfile();
 
   const [profileData, setProfileData] = useState({
