@@ -18,7 +18,7 @@ import BorderedSection from '../layout/BorderedSection';
 import EditMemberPreferences from './EditMemberPreferences';
 import MemberProfileItem from './MemberProfileItem';
 
-const MemberPreferences = (): JSX.Element | null => {
+export const MemberPreferences = (): JSX.Element | null => {
   const { data: member } = hooks.useCurrentMember();
 
   const { t } = useAccountTranslation();
@@ -83,5 +83,3 @@ const MemberPreferences = (): JSX.Element | null => {
     </BorderedSection>
   );
 };
-
-export default MemberPreferences;

@@ -107,7 +107,8 @@
       {
         "devDependencies": true
       }
-    ]
+    ],
+    "import/prefer-default-export": "off"
   },
   "overrides": [
     {
