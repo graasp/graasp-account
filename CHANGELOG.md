@@ -1,5 +1,16 @@
 # Changelog
 
+## [2.14.1](https://github.com/graasp/graasp-account/compare/v2.14.0...v2.14.1) (2024-10-03)
+
+
+### Bug Fixes
+
+* add tests for delete member feature ([#354](https://github.com/graasp/graasp-account/issues/354)) ([a2691f0](https://github.com/graasp/graasp-account/commit/a2691f03122295aa00b467a3e6c842d53c10c2f8))
+* translate enums ([5b1355e](https://github.com/graasp/graasp-account/commit/5b1355e8400e35b4896ff8bc6f22218ea4971bd5))
+* udpate deps ([#358](https://github.com/graasp/graasp-account/issues/358)) ([7e96169](https://github.com/graasp/graasp-account/commit/7e96169c4ec81cdf8a90d71d948568a3a4d5be50))
+* update dependencies and fix issues ([#355](https://github.com/graasp/graasp-account/issues/355)) ([d85c0b2](https://github.com/graasp/graasp-account/commit/d85c0b283c2a6f70497131c084654c383b038292))
+* update deps ([bfd34a2](https://github.com/graasp/graasp-account/commit/bfd34a2bd4f11a30e216a816b8bf33082e45be24))
+
 ## [2.14.0](https://github.com/graasp/graasp-account/compare/v2.13.0...v2.14.0) (2024-08-29)
 
 
