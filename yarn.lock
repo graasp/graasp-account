@@ -1004,9 +1004,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@graasp/query-client@github:graasp/graasp-query-client#deprecate-update-any-member":
-  version: 3.26.0
-  resolution: "@graasp/query-client@https://github.com/graasp/graasp-query-client.git#commit=78aecb2e30aa8632adc3b265cc42bf0f3a26ba37"
+"@graasp/query-client@npm:4.0.1":
+  version: 4.0.1
+  resolution: "@graasp/query-client@npm:4.0.1"
   dependencies:
     "@tanstack/react-query": "npm:5.59.0"
     "@tanstack/react-query-devtools": "npm:5.59.0"
@@ -1016,7 +1016,7 @@ __metadata:
     "@graasp/sdk": ^4.0.0
     "@graasp/translations": "*"
     react: ^18.0.0
-  checksum: 10/ea3c933b5d4cbd5b9f319c557527cac306b34458eb5e9acef8b66b2dd689f0f40081514ea652dad0a6e2a5f7a3edc20433da8ffe5924e6b7973ac8e44079e937
+  checksum: 10/e4d828dee829fa8150f12bc53e1b37cc6d21b4f3c6e71c38523c8f920fff76bc95333ff76c666707e33c4e8fba49f39bc768fbec46049b624d1896c2b3f42e56
   languageName: node
   linkType: hard
 
@@ -5008,7 +5008,7 @@ __metadata:
     "@emotion/cache": "npm:11.13.1"
     "@emotion/react": "npm:11.13.3"
     "@emotion/styled": "npm:11.13.0"
-    "@graasp/query-client": "github:graasp/graasp-query-client#deprecate-update-any-member"
+    "@graasp/query-client": "npm:4.0.1"
     "@graasp/sdk": "npm:4.32.0"
     "@graasp/stylis-plugin-rtl": "npm:2.2.0"
     "@graasp/translations": "npm:1.39.0"
