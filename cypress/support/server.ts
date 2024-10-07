@@ -87,7 +87,7 @@ export const mockGetCurrentMember = (
   cy.intercept(
     {
       method: HttpMethod.Get,
-      pathname: buildGetCurrentMemberRoute(),
+      pathname: `/${buildGetCurrentMemberRoute()}`,
     },
     ({ reply }) => {
       if (shouldThrowError) {
@@ -110,7 +110,7 @@ export const mockEditCurrentMember = (
   cy.intercept(
     {
       method: HttpMethod.Patch,
-      pathname: buildPatchCurrentMemberRoute(),
+      pathname: `/${buildPatchCurrentMemberRoute()}`,
     },
     ({ reply, body }) => {
       if (shouldThrowError) {
@@ -225,7 +225,7 @@ export const mockPostAvatar = (shouldThrowError: boolean): void => {
   cy.intercept(
     {
       method: HttpMethod.Post,
-      url: new RegExp(`${buildUploadAvatarRoute()}`),
+      pathname: `/${buildUploadAvatarRoute()}`,
     },
     ({ reply }) => {
       if (shouldThrowError) {
@@ -241,7 +241,7 @@ export const mockUpdatePassword = (shouldThrowError: boolean): void => {
   cy.intercept(
     {
       method: HttpMethod.Patch,
-      url: new RegExp(`${API_HOST}/${buildPatchMemberPasswordRoute()}`),
+      pathname: `/${buildPatchMemberPasswordRoute()}`,
     },
     ({ reply }) => {
       if (shouldThrowError) {
@@ -257,7 +257,7 @@ export const mockUpdateEmail = (shouldThrowError: boolean): void => {
   cy.intercept(
     {
       method: HttpMethod.Post,
-      url: new RegExp(`${API_HOST}/${buildPostMemberEmailUpdateRoute()}`),
+      pathname: `/${buildPostMemberEmailUpdateRoute()}`,
     },
     ({ reply }) => {
       if (shouldThrowError) {
@@ -273,7 +273,7 @@ export const mockExportData = (shouldThrowError: boolean): void => {
   cy.intercept(
     {
       method: HttpMethod.Post,
-      url: new RegExp(`${API_HOST}/${buildExportMemberDataRoute()}`),
+      pathname: `/${buildExportMemberDataRoute()}`,
     },
     ({ reply }) => {
       if (shouldThrowError) {
@@ -289,7 +289,7 @@ export const mockDeleteCurrentMember = (): void => {
   cy.intercept(
     {
       method: HttpMethod.Delete,
-      pathname: buildDeleteCurrentMemberRoute(),
+      pathname: `/${buildDeleteCurrentMemberRoute()}`,
     },
     ({ reply }) => reply({ statusCode: StatusCodes.NO_CONTENT }),
   ).as('deleteCurrentMember');
