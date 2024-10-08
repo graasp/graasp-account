@@ -40,6 +40,7 @@
   "PROFILE_AVATAR_CURRENT_ALT": "Profile Picture",
   "PASSWORD_TITLE": "Password",
   "PASSWORD_SETTINGS_INFORMATION": "Update your password by clicking on the 'Edit' button",
+  "NEW_PASSWORD_SETTINGS_INFORMATION": "Add a password by clicking on the 'Configure' button",
   "PASSWORD_SETTINGS_TITLE": "Password settings",
   "PASSWORD_SETTINGS_CURRENT_LABEL": "Current Password",
   "PASSWORD_SETTINGS_CURRENT_INFORMATION": "Leave this field empty if you do not already have a password set.",
@@ -77,6 +78,7 @@
   "USERNAME_EMPTY_ERROR": "The field cannot be empty",
   "USERNAME_LENGTH_ERROR": "Username must be between {{min}} and {{max}} characters long",
   "EDIT_BUTTON_LABEL": "Edit",
+  "CONFIGURE_BUTTON_LABEL": "Configure",
   "UPLOAD_PICTURE_TEXT": "Upload picture",
   "SECURITY_TIPS_TITLE": "Security tips are available",
   "SECURITY_TIPS_INFORMATION": "You haven't set a password, you can set one to access your account without opening your email.",
@@ -116,5 +118,10 @@
   "NOT_FOUND_PAGE_MESSAGE": "Sorry, we could not find this page.",
   "GO_TO_HOME_TEXT": "Go to Home",
   "UPLOADING_TOAST_TEXT": "Uploading...",
-  "NOT_AUTHENTICATED_OR_GUEST_MESSAGE": "User is a guest or is not authenticated"
+  "NOT_AUTHENTICATED_OR_GUEST_MESSAGE": "User is a guest or is not authenticated",
+  "REQUIRED_FIELD_ERROR": "This field is required",
+  "PASSWORD_EMPTY_ERROR": "The password can not be empty",
+  "PASSWORD_WEAK_ERROR": "This password is too weak, please follow the password requirements above.",
+  "PASSWORD_DO_NOT_MATCH_ERROR": "This input does not match the new password.",
+  "NEW_PASSWORD_SHOULD_NOT_MATCH_CURRENT_PASSWORD_ERROR": "The new password should not match the current one."
 }

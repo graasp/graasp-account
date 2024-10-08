@@ -6,6 +6,7 @@ import {
   MEMBER_STORAGE_ITEM_RESPONSE,
 } from '../fixtures/members';
 import {
+  mockCreatePassword,
   mockDeleteCurrentMember,
   mockEditCurrentMember,
   mockEditPublicProfile,
@@ -14,6 +15,7 @@ import {
   mockGetCurrentMemberAvatar,
   mockGetMemberStorageFiles,
   mockGetOwnProfile,
+  mockGetPasswordStatus,
   mockGetStorage,
   mockPostAvatar,
   mockSignInRedirection,
@@ -28,6 +30,7 @@ declare global {
     interface Chainable {
       setUpApi(args: {
         currentMember?: MemberForTest | null;
+        hasPassword?: boolean;
         currentProfile?: PublicProfile;
         storageAmountInBytes?: number;
         getCurrentMemberError?: boolean;
@@ -37,6 +40,7 @@ declare global {
         getAvatarUrlError?: boolean;
         postAvatarError?: boolean;
         updatePasswordError?: boolean;
+        createPasswordError?: boolean;
         updateEmailError?: boolean;
         files?: MemberStorageItem[];
         getMemberStorageFilesError?: boolean;
@@ -50,6 +54,7 @@ Cypress.Commands.add(
   'setUpApi',
   ({
     currentMember = CURRENT_MEMBER,
+    hasPassword = false,
     currentProfile = MEMBER_PUBLIC_PROFILE,
     getCurrentMemberError = false,
     getCurrentProfileError = false,
@@ -58,6 +63,7 @@ Cypress.Commands.add(
     getAvatarUrlError = false,
     postAvatarError = false,
     updatePasswordError = false,
+    createPasswordError = false,
     updateEmailError = false,
     exportDataError = false,
     storageAmountInBytes = 10000,
@@ -93,5 +99,8 @@ Cypress.Commands.add(
     );
     mockExportData(exportDataError);
     mockDeleteCurrentMember();
+
+    mockGetPasswordStatus(hasPassword);
+    mockCreatePassword(createPasswordError);
   },
 );
