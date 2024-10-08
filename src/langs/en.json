@@ -77,6 +77,7 @@
   "DESTRUCTIVE_SETTINGS_DETAILS": "Please be aware that the actions outlined here have potentially irreversible consequences. Ensure you thoroughly review any restrictions before proceeding, and only take action once you are certain.",
   "USERNAME_EMPTY_ERROR": "The field cannot be empty",
   "USERNAME_LENGTH_ERROR": "Username must be between {{min}} and {{max}} characters long",
+  "USERNAME_SPECIAL_CHARACTERS_ERROR": "User name must not contain \" \", \", <, >, ^, %, \\",
   "EDIT_BUTTON_LABEL": "Edit",
   "CONFIGURE_BUTTON_LABEL": "Configure",
   "UPLOAD_PICTURE_TEXT": "Upload picture",

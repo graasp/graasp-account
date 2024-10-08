@@ -76,6 +76,7 @@
   "DESTRUCTIVE_SETTINGS_DETAILS": "Tieni presente che le azioni qui descritte hanno conseguenze potenzialmente irreversibili. Assicurati di esaminare attentamente eventuali restrizioni prima di procedere, e di agire solo quando hai certezza.",
   "USERNAME_EMPTY_ERROR": "Il campo non può essere vuoto",
   "USERNAME_LENGTH_ERROR": "Il nome utente deve contenere tra {{min}} e {{max}} caratteri",
+  "USERNAME_SPECIAL_CHARACTERS_ERROR": "Il nome utente non deve contenere \" \", \", <, >, ^, %, \\",
   "EDIT_BUTTON_LABEL": "Modificare",
   "UPLOAD_PICTURE_TEXT": "Carica l'immagine",
   "SECURITY_TIPS_TITLE": "Sono disponibili suggerimenti sulla sicurezza",
