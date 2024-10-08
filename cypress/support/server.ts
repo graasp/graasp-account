@@ -253,6 +253,22 @@ export const mockUpdatePassword = (shouldThrowError: boolean): void => {
   ).as('updatePassword');
 };
 
+export const mockCreatePassword = (shouldThrowError: boolean): void => {
+  cy.intercept(
+    {
+      method: HttpMethod.Post,
+      pathname: `/password`,
+    },
+    ({ reply }) => {
+      if (shouldThrowError) {
+        return reply({ statusCode: StatusCodes.BAD_REQUEST });
+      }
+
+      return reply('create password');
+    },
+  ).as('createPassword');
+};
+
 export const mockUpdateEmail = (shouldThrowError: boolean): void => {
   cy.intercept(
     {
@@ -293,4 +309,14 @@ export const mockDeleteCurrentMember = (): void => {
     },
     ({ reply }) => reply({ statusCode: StatusCodes.NO_CONTENT }),
   ).as('deleteCurrentMember');
+};
+
+export const mockGetPasswordStatus = (hasPassword: boolean): void => {
+  cy.intercept(
+    {
+      method: HttpMethod.Get,
+      pathname: `/members/current/password/status`,
+    },
+    ({ reply }) => reply({ hasPassword }),
+  ).as('getPasswordStatus');
 };
