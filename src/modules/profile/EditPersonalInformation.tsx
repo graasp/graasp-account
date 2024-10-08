@@ -6,6 +6,7 @@ import {
   CompleteMember,
   MAX_USERNAME_LENGTH,
   MIN_USERNAME_LENGTH,
+  MemberConstants,
 } from '@graasp/sdk';
 
 import BorderedSection from '@/components/layout/BorderedSection';
@@ -20,6 +21,8 @@ import {
   PERSONAL_INFO_SAVE_BUTTON_ID,
 } from '@/config/selectors';
 
+const USER_NAME_REGEX = MemberConstants.USERNAME_FORBIDDEN_CHARS_REGEX;
+
 const verifyUsername = (username: string): string | null => {
   const trimmedUsername = username.trim();
   if (trimmedUsername === '') {
@@ -32,6 +35,11 @@ const verifyUsername = (username: string): string | null => {
   ) {
     return 'USERNAME_LENGTH_ERROR';
   }
+
+  if (USER_NAME_REGEX.test(trimmedUsername)) {
+    return 'USERNAME_SPECIAL_CHARACTERS_ERROR';
+  }
+
   return null;
 };
 
