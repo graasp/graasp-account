@@ -32,11 +32,11 @@ const ThemeWrapper = () => {
       )}
     >
       <CssBaseline />
+      <ToastContainer stacked position="bottom-left" />
       <I18nextProvider i18n={i18nConfig}>
         <Router>
           <App />
         </Router>
-        <ToastContainer stacked position="bottom-right" />
       </I18nextProvider>
     </ThemeProvider>
   );

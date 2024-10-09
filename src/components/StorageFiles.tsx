@@ -29,7 +29,7 @@ import {
   getCellId,
 } from '@/config/selectors';
 
-const MemberStorageFiles = (): JSX.Element | null => {
+export const StorageFiles = (): JSX.Element | null => {
   const { t } = useAccountTranslation();
   const [pagination, setPagination] = useState({ page: 1, pageSize: 10 });
   const { data, isLoading } = hooks.useMemberStorageFiles(pagination);
@@ -127,11 +127,5 @@ const MemberStorageFiles = (): JSX.Element | null => {
     return <Loader />;
   }
 
-  if (!data) {
-    return <Alert severity="error">{t('STORAGE_FILES_ERROR')}</Alert>;
-  }
-
-  return null;
+  return <Alert severity="error">{t('STORAGE_FILES_ERROR')}</Alert>;
 };
-
-export default MemberStorageFiles;

@@ -4,9 +4,6 @@ import { Avatar } from '@graasp/ui';
 
 import { useCommonTranslation } from '../../config/i18n';
 import { hooks } from '../../config/queryClient';
-// eslint-disable-next-line @typescript-eslint/ban-ts-comment
-// @ts-ignore
-import defaultImage from '../../resources/defaultAvatar.svg';
 
 type Props = {
   id?: string;
@@ -31,7 +28,7 @@ const MemberAvatar = ({
   });
   return (
     <Avatar
-      url={avatarUrl ?? defaultImage}
+      url={avatarUrl}
       isLoading={isLoading || isLoadingAvatar}
       alt={member?.name ?? t(COMMON.AVATAR_DEFAULT_ALT)}
       component={component}
