@@ -83,3 +83,5 @@ export const EXPORT_DATA_BUTTON_ID = 'export-data-button-id';
 export const NOT_FOUND_TEXT_ID = 'not-found-text-id';
 export const NOT_FOUND_MESSAGE_ID = 'not-found-message-id';
 export const GO_TO_HOME_LINK_ID = 'go-to-home-link-id';
+export const PASSWORD_INPUT_CURRENT_PASSWORD_ID =
+  'password-input-current-password';

@@ -1,11 +1,11 @@
 import { toast } from 'react-toastify';
 
 import { Notifier, routines } from '@graasp/query-client';
-import { FAILURE_MESSAGES } from '@graasp/translations';
+import { FAILURE_MESSAGES, namespaces } from '@graasp/translations';
 
 import axios from 'axios';
 
-import i18n, { ACCOUNT_NAMESPACE } from './i18n';
+import i18n from './i18n';
 import { CHANGE_PLAN_SUCCESS_MESSAGE } from './messages';
 
 const {
@@ -71,12 +71,7 @@ export default ({
     }
     case postPublicProfileRoutine.SUCCESS:
     case updateEmailRoutine.SUCCESS:
-    case patchPublicProfileRoutine.SUCCESS: {
-      message = i18n.t(
-        payload?.message ?? 'The operation successfully proceeded',
-      );
-      break;
-    }
+    case patchPublicProfileRoutine.SUCCESS:
     case exportMemberDataRoutine.SUCCESS: {
       message = i18n.t(payload?.message ?? successMessage);
       break;
@@ -93,10 +88,10 @@ export default ({
 
   // error notification
   if (payload?.error && message) {
-    toast.error(i18n.t(message, { ns: ACCOUNT_NAMESPACE }));
+    toast.error(i18n.t(message, { ns: namespaces.messages }));
   }
   // success notification
   else if (message) {
-    toast.success(i18n.t(message, { ns: ACCOUNT_NAMESPACE }));
+    toast.success(i18n.t(message, { ns: namespaces.messages }));
   }
 };
