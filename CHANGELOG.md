@@ -1,5 +1,13 @@
 # Changelog
 
+## [2.14.2](https://github.com/graasp/graasp-account/compare/v2.14.1...v2.14.2) (2024-10-10)
+
+
+### Bug Fixes
+
+* deprecate edit member ([#362](https://github.com/graasp/graasp-account/issues/362)) ([246e230](https://github.com/graasp/graasp-account/commit/246e230b4e80be138fb99a217d4d8c9c0dda752d))
+* **deps:** update dependency lucide-react to ^0.451.0 ([#357](https://github.com/graasp/graasp-account/issues/357)) ([ca8f7f7](https://github.com/graasp/graasp-account/commit/ca8f7f7f1067895f8128973898642550cd7601ac))
+
 ## [2.14.1](https://github.com/graasp/graasp-account/compare/v2.14.0...v2.14.1) (2024-10-03)
 
 
