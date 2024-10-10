@@ -1,11 +1,14 @@
-import { useEffect, useRef, useState } from 'react';
+import { useRef, useState } from 'react';
 
 import { Dialog, Stack, styled, useTheme } from '@mui/material';
+
+import { CompleteMember, ThumbnailSize } from '@graasp/sdk';
 
 import { ImageUp as ImageUpIcon } from 'lucide-react';
 
 import { AVATAR_SIZE } from '@/config/constants';
 import { useAccountTranslation } from '@/config/i18n';
+import { hooks, mutations } from '@/config/queryClient';
 import {
   AVATAR_UPLOAD_ICON_ID,
   AVATAR_UPLOAD_INPUT_ID,
@@ -14,6 +17,7 @@ import {
 } from '@/config/selectors';
 
 import CropModal, { MODAL_TITLE_ARIA_LABEL_ID } from './CropModal';
+import { useUploadProgress } from './useUploadProgress';
 
 const VisuallyHiddenInput = styled('input')({
   clip: 'rect(0 0 0 0)',
@@ -44,19 +48,21 @@ const HoveredBox = styled(Stack)(
 );
 
 type Props = {
-  setChanges: (payload: { avatar: Blob }) => void;
-  currentAvatar?: string;
+  member: CompleteMember;
 };
 
-const AvatarUploader = ({ setChanges, currentAvatar }: Props): JSX.Element => {
+const AvatarUploader = ({ member }: Props): JSX.Element => {
+  const uploadAvatar = mutations.useUploadAvatar();
+  const { data: avatarUrl } = hooks.useAvatarUrl({
+    id: member?.id,
+    size: ThumbnailSize.Medium,
+  });
+  const { update } = useUploadProgress();
   const inputRef = useRef<HTMLInputElement>(null);
   const [showCropModal, setShowCropModal] = useState(false);
-  const [newAvatar, setNewAvatar] = useState<string>(currentAvatar ?? '');
   const [fileSource, setFileSource] = useState<string>();
   const theme = useTheme();
   const { t } = useAccountTranslation();
-
-  useEffect(() => setNewAvatar(currentAvatar ?? ''), [currentAvatar]);
 
   const onSelectFile = ({ target }: { target: HTMLInputElement }) => {
     if (target.files && target.files?.length > 0) {
@@ -76,23 +82,19 @@ const AvatarUploader = ({ setChanges, currentAvatar }: Props): JSX.Element => {
     }
   };
 
-  const onConfirmCrop = (croppedImage: Blob | null) => {
+  const onConfirmCrop = (croppedImage: Blob | null): void => {
     onClose();
 
     if (!croppedImage) {
-      return console.error('croppedImage is not defined');
+      console.error('croppedImage is not defined');
+      return;
     }
     // submit cropped image
     try {
-      setChanges({ avatar: croppedImage });
-      // replace img src with croppedImage
-      const url = URL.createObjectURL(croppedImage);
-      setNewAvatar(url);
+      uploadAvatar.mutate({ file: croppedImage, onUploadProgress: update });
     } catch (error) {
       console.error(error);
     }
-
-    return true;
   };
 
   const onEdit = () => {
@@ -130,11 +132,11 @@ const AvatarUploader = ({ setChanges, currentAvatar }: Props): JSX.Element => {
         >
           <ImageUpIcon color={theme.palette.secondary.light} />
         </HoveredBox>
-        {newAvatar ? (
+        {avatarUrl ? (
           <img
             id={MEMBER_AVATAR_IMAGE_ID}
             alt={t('PROFILE_AVATAR_CURRENT_ALT')}
-            src={newAvatar}
+            src={avatarUrl}
             height={AVATAR_SIZE}
             width={AVATAR_SIZE}
           />
