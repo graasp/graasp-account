@@ -18,9 +18,7 @@ const MemberCard = (): JSX.Element | null => {
 
   if (member?.type !== AccountType.Individual) {
     return (
-      <Alert severity="error">
-        {t('User is a guest or is not unauthenticated')}
-      </Alert>
+      <Alert severity="error">{t('NOT_AUTHENTICATED_OR_GUEST_MESSAGE')}</Alert>
     );
   }
 

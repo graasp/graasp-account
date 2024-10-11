@@ -15,7 +15,7 @@ export const useUploadProgress = (): {
   const { t } = useAccountTranslation();
 
   const show = (progress = 0) => {
-    toastId.current = toast.info(t('Uploading...'), {
+    toastId.current = toast.info(t('UPLOADING_TOAST_TEXT'), {
       progress,
       position: 'bottom-left',
     });

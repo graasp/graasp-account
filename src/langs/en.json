@@ -114,5 +114,7 @@
   "EXPORT_ERROR_MESSAGE": "An unexpected error occurred",
   "NOT_FOUND_PAGE_TEXT": "Page not found",
   "NOT_FOUND_PAGE_MESSAGE": "Sorry, we could not find this page.",
-  "GO_TO_HOME_TEXT": "Go to Home"
+  "GO_TO_HOME_TEXT": "Go to Home",
+  "UPLOADING_TOAST_TEXT": "Uploading...",
+  "NOT_AUTHENTICATED_OR_GUEST_MESSAGE": "User is a guest or is not authenticated"
 }
