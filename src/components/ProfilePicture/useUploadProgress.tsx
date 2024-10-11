@@ -22,7 +22,7 @@ export const useUploadProgress = (): {
   };
 
   const update = ({ progress }: AxiosProgressEvent) => {
-    // check if we already displayed a toast
+    // show a toast if we haven't displayed one yet
     if (toastId.current === null && progress && progress < 1) {
       show(progress);
     }
