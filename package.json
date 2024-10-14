@@ -113,6 +113,6 @@
     "vite-plugin-istanbul": "6.0.2"
   },
   "volta": {
-    "node": "20.12.2"
+    "node": "20.18.0"
   }
 }
