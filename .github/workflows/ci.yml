@@ -36,7 +36,10 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: 20
+<<<<<<< HEAD
           cache: "pnpm"
+=======
+>>>>>>> 1670fd9 (fix: argument name)
 
       - name: Install dependencies
         run: pnpm install
