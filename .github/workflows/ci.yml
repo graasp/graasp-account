@@ -16,6 +16,9 @@ jobs:
 
       - name: set up node
         uses: actions/setup-node@v4
+        with:
+          node_version: 20
+          cache: 'pnpm'
 
       - name: pnpm Install and Cache
         uses: graasp/graasp-deploy/.github/actions/pnpm-install-and-cache@v1
