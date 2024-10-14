@@ -5,8 +5,12 @@ on:
   # only run on push to main as pushes to PRs are handled by the `pull_request` trigger
   push:
     branches:
+<<<<<<< HEAD
       - "main"
   # trigger on pull_request action
+=======
+      - main
+>>>>>>> 42350c4 (fix: add react types packages)
   pull_request:
   # Merge group trigger for merge queues
   merge_group:
