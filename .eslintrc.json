@@ -38,6 +38,7 @@
     "@typescript-eslint/no-namespace": "off",
     "react/jsx-uses-react": "off",
     "react/react-in-jsx-scope": "off",
+    "react/jsx-props-no-spreading": "off",
     // remove when possible
     "@typescript-eslint/no-explicit-any": "off",
     // disable the rule for all files

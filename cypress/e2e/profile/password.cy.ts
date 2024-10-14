@@ -3,6 +3,7 @@ import { FAILURE_MESSAGES, namespaces } from '@graasp/translations';
 import i18n, { ACCOUNT_NAMESPACE } from '@/config/i18n';
 import { PROFILE_PATH } from '@/config/paths';
 import {
+  PASSWORD_CREATE_CONTAINER_ID,
   PASSWORD_DISPLAY_CONTAINER_ID,
   PASSWORD_EDIT_BUTTON_ID,
   PASSWORD_EDIT_CONTAINER_ID,
@@ -41,84 +42,83 @@ const submitPasswordForm = ({
 
 const openPasswordEdition = () => {
   cy.get(`#${PASSWORD_EDIT_BUTTON_ID}`).click();
-  cy.get(`#${PASSWORD_EDIT_CONTAINER_ID}`).should('be.visible');
 };
 
 describe('Create new password', () => {
-  describe('success', () => {
-    beforeEach(() => {
-      cy.setUpApi({
-        currentMember: BOB,
-        hasPassword: false,
-      });
-      cy.visit(PROFILE_PATH);
-      cy.wait('@getCurrentMember');
-
-      i18n.changeLanguage(BOB.extra.lang);
-      i18n.setDefaultNamespace(ACCOUNT_NAMESPACE);
+  beforeEach(() => {
+    cy.setUpApi({
+      currentMember: BOB,
+      hasPassword: false,
     });
+    cy.visit(PROFILE_PATH);
+    cy.wait('@getCurrentMember');
 
-    it('Show configure message when no password is set', () => {
-      cy.get(`#${PASSWORD_DISPLAY_CONTAINER_ID}`).should(
-        'contain',
-        i18n.t(ACCOUNT.NEW_PASSWORD_SETTINGS_INFORMATION),
-      );
-      cy.get(`#${PASSWORD_EDIT_BUTTON_ID}`).should(
-        'contain',
-        i18n.t(ACCOUNT.CONFIGURE_BUTTON_LABEL),
-      );
-    });
-
-    it('show error on weak new password', () => {
-      openPasswordEdition();
-
-      submitPasswordForm({
-        newPassword: WEAK_PASSWORD,
-        confirmNewPassword: WEAK_PASSWORD,
-      });
-      cy.get(`#${PASSWORD_SAVE_BUTTON_ID}`).click().should('be.disabled');
-
-      // should show weak message
-      cy.get(`#${PASSWORD_EDIT_CONTAINER_ID}`).should(
-        'contain',
-        i18n.t(ACCOUNT.PASSWORD_WEAK_ERROR),
-      );
-    });
-
-    it('show error on new password not matching', () => {
-      openPasswordEdition();
-
-      submitPasswordForm({
-        newPassword: WEAK_PASSWORD,
-        confirmNewPassword: `${WEAK_PASSWORD}wrong`,
-      });
-
-      cy.get(`#${PASSWORD_SAVE_BUTTON_ID}`).click().should('be.disabled');
-
-      // should show not-matching new passwords
-      cy.get(`#${PASSWORD_EDIT_CONTAINER_ID}`).should(
-        'contain',
-        i18n.t(ACCOUNT.PASSWORD_DO_NOT_MATCH_ERROR),
-      );
-    });
-
-    it('should set password successfully when password is strong', () => {
-      openPasswordEdition();
-
-      submitPasswordForm({
-        newPassword: STRONG_PASSWORD,
-        confirmNewPassword: STRONG_PASSWORD,
-      });
-
-      cy.get(`#${PASSWORD_SAVE_BUTTON_ID}`).click();
-
-      cy.wait('@createPassword').then(({ request: { body } }) => {
-        expect(body.password).to.eq(STRONG_PASSWORD);
-      });
-    });
+    i18n.changeLanguage(BOB.extra.lang);
+    i18n.setDefaultNamespace(ACCOUNT_NAMESPACE);
   });
 
-  it('show error network message', () => {
+  it('Show configure message when no password is set', () => {
+    cy.get(`#${PASSWORD_DISPLAY_CONTAINER_ID}`).should(
+      'contain',
+      i18n.t(ACCOUNT.PASSWORD_SETTINGS_INFORMATION_NEW_PASSWORD),
+    );
+    cy.get(`#${PASSWORD_EDIT_BUTTON_ID}`).should(
+      'contain',
+      i18n.t(ACCOUNT.CONFIGURE_BUTTON_LABEL),
+    );
+  });
+
+  it('Show error on weak new password', () => {
+    openPasswordEdition();
+
+    submitPasswordForm({
+      newPassword: WEAK_PASSWORD,
+      confirmNewPassword: WEAK_PASSWORD,
+    });
+    cy.get(`#${PASSWORD_SAVE_BUTTON_ID}`).click().should('be.disabled');
+
+    // should show weak message
+    cy.get(`#${PASSWORD_CREATE_CONTAINER_ID}`).should(
+      'contain',
+      i18n.t(ACCOUNT.PASSWORD_WEAK_ERROR),
+    );
+  });
+
+  it('Show error on new password not matching', () => {
+    openPasswordEdition();
+
+    submitPasswordForm({
+      newPassword: WEAK_PASSWORD,
+      confirmNewPassword: `${WEAK_PASSWORD}wrong`,
+    });
+
+    cy.get(`#${PASSWORD_SAVE_BUTTON_ID}`).click().should('be.disabled');
+
+    // should show not-matching new passwords
+    cy.get(`#${PASSWORD_CREATE_CONTAINER_ID}`).should(
+      'contain',
+      i18n.t(ACCOUNT.PASSWORD_DO_NOT_MATCH_ERROR),
+    );
+  });
+
+  it('Should set password successfully when password is strong', () => {
+    openPasswordEdition();
+
+    submitPasswordForm({
+      newPassword: STRONG_PASSWORD,
+      confirmNewPassword: STRONG_PASSWORD,
+    });
+
+    cy.get(`#${PASSWORD_SAVE_BUTTON_ID}`).click();
+
+    cy.wait('@createPassword').then(({ request: { body } }) => {
+      expect(body.password).to.eq(STRONG_PASSWORD);
+    });
+  });
+});
+
+describe('Create new password - network error', () => {
+  it('Show error network message', () => {
     cy.setUpApi({
       currentMember: BOB,
       hasPassword: false,
@@ -139,7 +139,7 @@ describe('Create new password', () => {
 
     cy.get(`#${PASSWORD_SAVE_BUTTON_ID}`).click();
 
-    cy.get(`#${PASSWORD_EDIT_CONTAINER_ID}`).should(
+    cy.get(`#${PASSWORD_CREATE_CONTAINER_ID}`).should(
       'contain',
       i18n.t(FAILURE_MESSAGES.UNEXPECTED_ERROR, {
         ns: namespaces.messages,
@@ -149,103 +149,103 @@ describe('Create new password', () => {
 });
 
 describe('Update password', () => {
-  describe('success', () => {
-    beforeEach(() => {
-      cy.setUpApi({
-        currentMember: BOB,
-        hasPassword: true,
-      });
-      cy.visit(PROFILE_PATH);
-      cy.wait('@getCurrentMember');
+  beforeEach(() => {
+    cy.setUpApi({
+      currentMember: BOB,
+      hasPassword: true,
+    });
+    cy.visit(PROFILE_PATH);
+    cy.wait('@getCurrentMember');
 
-      i18n.changeLanguage(BOB.extra.lang);
-      i18n.setDefaultNamespace(ACCOUNT_NAMESPACE);
+    i18n.changeLanguage(BOB.extra.lang);
+    i18n.setDefaultNamespace(ACCOUNT_NAMESPACE);
+  });
+
+  it('Show edit message when a password is set', () => {
+    cy.get(`#${PASSWORD_DISPLAY_CONTAINER_ID}`).should(
+      'contain',
+      i18n.t(ACCOUNT.PASSWORD_SETTINGS_INFORMATION),
+    );
+    cy.get(`#${PASSWORD_EDIT_BUTTON_ID}`).should(
+      'contain',
+      i18n.t(ACCOUNT.EDIT_BUTTON_LABEL),
+    );
+  });
+
+  it('Show error on weak new password', () => {
+    openPasswordEdition();
+
+    submitPasswordForm({
+      currentPassword: MOCK_CURRENT_PASSWORD,
+      newPassword: WEAK_PASSWORD,
+      confirmNewPassword: WEAK_PASSWORD,
     });
 
-    it('Show edit message when a password is set', () => {
-      cy.get(`#${PASSWORD_DISPLAY_CONTAINER_ID}`).should(
-        'contain',
-        i18n.t(ACCOUNT.PASSWORD_SETTINGS_INFORMATION),
-      );
-      cy.get(`#${PASSWORD_EDIT_BUTTON_ID}`).should(
-        'contain',
-        i18n.t(ACCOUNT.EDIT_BUTTON_LABEL),
-      );
+    cy.get(`#${PASSWORD_SAVE_BUTTON_ID}`).click().should('be.disabled');
+
+    // should show weak message
+    cy.get(`#${PASSWORD_EDIT_CONTAINER_ID}`).should(
+      'contain',
+      i18n.t(ACCOUNT.PASSWORD_WEAK_ERROR),
+    );
+  });
+
+  it('Show error on new password not matching', () => {
+    openPasswordEdition();
+
+    submitPasswordForm({
+      currentPassword: MOCK_CURRENT_PASSWORD,
+      newPassword: WEAK_PASSWORD,
+      confirmNewPassword: `${WEAK_PASSWORD}wrong`,
     });
 
-    it('show error on weak new password', () => {
-      openPasswordEdition();
+    cy.get(`#${PASSWORD_SAVE_BUTTON_ID}`).click().should('be.disabled');
 
-      submitPasswordForm({
-        currentPassword: MOCK_CURRENT_PASSWORD,
-        newPassword: WEAK_PASSWORD,
-        confirmNewPassword: WEAK_PASSWORD,
-      });
+    // should show not-matching new passwords
+    cy.get(`#${PASSWORD_EDIT_CONTAINER_ID}`).should(
+      'contain',
+      i18n.t(ACCOUNT.PASSWORD_DO_NOT_MATCH_ERROR),
+    );
+  });
 
-      cy.get(`#${PASSWORD_SAVE_BUTTON_ID}`).click().should('be.disabled');
+  it('Show error if new password is same as current', () => {
+    openPasswordEdition();
 
-      // should show weak message
-      cy.get(`#${PASSWORD_EDIT_CONTAINER_ID}`).should(
-        'contain',
-        i18n.t(ACCOUNT.PASSWORD_WEAK_ERROR),
-      );
+    submitPasswordForm({
+      currentPassword: MOCK_CURRENT_PASSWORD,
+      newPassword: MOCK_CURRENT_PASSWORD,
+      confirmNewPassword: MOCK_CURRENT_PASSWORD,
     });
 
-    it('show error on new password not matching', () => {
-      openPasswordEdition();
+    cy.get(`#${PASSWORD_SAVE_BUTTON_ID}`).click().should('be.disabled');
 
-      submitPasswordForm({
-        currentPassword: MOCK_CURRENT_PASSWORD,
-        newPassword: WEAK_PASSWORD,
-        confirmNewPassword: `${WEAK_PASSWORD}wrong`,
-      });
+    // should show matching current and new password
+    cy.get(`#${PASSWORD_EDIT_CONTAINER_ID}`).should(
+      'contain',
+      i18n.t(ACCOUNT.NEW_PASSWORD_SHOULD_NOT_MATCH_CURRENT_PASSWORD_ERROR),
+    );
+  });
 
-      cy.get(`#${PASSWORD_SAVE_BUTTON_ID}`).click().should('be.disabled');
+  it('Should update password successfully when password is strong', () => {
+    openPasswordEdition();
 
-      // should show not-matching new passwords
-      cy.get(`#${PASSWORD_EDIT_CONTAINER_ID}`).should(
-        'contain',
-        i18n.t(ACCOUNT.PASSWORD_DO_NOT_MATCH_ERROR),
-      );
-    });
+    // fill current password with mock password
+    cy.get(`#${PASSWORD_INPUT_CURRENT_PASSWORD_ID}`).type(
+      MOCK_CURRENT_PASSWORD,
+    );
 
-    it('show error if new password is same as current', () => {
-      openPasswordEdition();
+    cy.get(`#${PASSWORD_INPUT_NEW_PASSWORD_ID}`).type(STRONG_PASSWORD);
+    cy.get(`#${PASSWORD_INPUT_CONFIRM_PASSWORD_ID}`).type(STRONG_PASSWORD);
+    cy.get(`#${PASSWORD_SAVE_BUTTON_ID}`).click();
 
-      submitPasswordForm({
-        currentPassword: MOCK_CURRENT_PASSWORD,
-        newPassword: MOCK_CURRENT_PASSWORD,
-        confirmNewPassword: MOCK_CURRENT_PASSWORD,
-      });
-
-      cy.get(`#${PASSWORD_SAVE_BUTTON_ID}`).click().should('be.disabled');
-
-      // should show matching current and new password
-      cy.get(`#${PASSWORD_EDIT_CONTAINER_ID}`).should(
-        'contain',
-        i18n.t(ACCOUNT.NEW_PASSWORD_SHOULD_NOT_MATCH_CURRENT_PASSWORD_ERROR),
-      );
-    });
-
-    it('should update password successfully when password is strong', () => {
-      openPasswordEdition();
-
-      // fill current password with mock password
-      cy.get(`#${PASSWORD_INPUT_CURRENT_PASSWORD_ID}`).type(
-        MOCK_CURRENT_PASSWORD,
-      );
-
-      cy.get(`#${PASSWORD_INPUT_NEW_PASSWORD_ID}`).type(STRONG_PASSWORD);
-      cy.get(`#${PASSWORD_INPUT_CONFIRM_PASSWORD_ID}`).type(STRONG_PASSWORD);
-      cy.get(`#${PASSWORD_SAVE_BUTTON_ID}`).click();
-
-      cy.wait('@updatePassword').then(({ request: { body } }) => {
-        expect(body.password).to.eq(STRONG_PASSWORD);
-        expect(body.currentPassword).to.eq(MOCK_CURRENT_PASSWORD);
-      });
+    cy.wait('@updatePassword').then(({ request: { body } }) => {
+      expect(body.password).to.eq(STRONG_PASSWORD);
+      expect(body.currentPassword).to.eq(MOCK_CURRENT_PASSWORD);
     });
   });
-  it('show error network message', () => {
+});
+describe('Update password - network error', () => {
+  it('Show error network message', () => {
     cy.setUpApi({
       currentMember: BOB,
       hasPassword: true,

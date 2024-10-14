@@ -264,7 +264,7 @@ export const mockCreatePassword = (shouldThrowError: boolean): void => {
         return reply({ statusCode: StatusCodes.BAD_REQUEST });
       }
 
-      return reply('create password');
+      return reply({ status: StatusCodes.NO_CONTENT });
     },
   ).as('createPassword');
 };

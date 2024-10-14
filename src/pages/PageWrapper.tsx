@@ -32,7 +32,6 @@ const LinkComponent = ({ children }: { children: ReactNode }): JSX.Element => (
 );
 
 const AccountIcon: PlatformSwitchProps['CustomMobileIcon'] = (props) => (
-  // eslint-disable-next-line react/jsx-props-no-spreading
   <PersonIcon {...props} />
 );
 

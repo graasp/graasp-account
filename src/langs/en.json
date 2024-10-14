@@ -40,7 +40,7 @@
   "PROFILE_AVATAR_CURRENT_ALT": "Profile Picture",
   "PASSWORD_TITLE": "Password",
   "PASSWORD_SETTINGS_INFORMATION": "Update your password by clicking on the 'Edit' button",
-  "NEW_PASSWORD_SETTINGS_INFORMATION": "Add a password by clicking on the 'Configure' button",
+  "PASSWORD_SETTINGS_INFORMATION_NEW_PASSWORD": "Add a password by clicking on the 'Configure' button",
   "PASSWORD_SETTINGS_TITLE": "Password settings",
   "PASSWORD_SETTINGS_CURRENT_LABEL": "Current Password",
   "PASSWORD_SETTINGS_CURRENT_INFORMATION": "Leave this field empty if you do not already have a password set.",
@@ -123,5 +123,6 @@
   "PASSWORD_EMPTY_ERROR": "The password can not be empty",
   "PASSWORD_WEAK_ERROR": "This password is too weak, please follow the password requirements above.",
   "PASSWORD_DO_NOT_MATCH_ERROR": "This input does not match the new password.",
-  "NEW_PASSWORD_SHOULD_NOT_MATCH_CURRENT_PASSWORD_ERROR": "The new password should not match the current one."
+  "NEW_PASSWORD_SHOULD_NOT_MATCH_CURRENT_PASSWORD_ERROR": "The new password should not match the current one.",
+  "UNEXPECTED_ERROR": "An unexpected error happened."
 }

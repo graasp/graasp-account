@@ -1,6 +1,6 @@
 import { useState } from 'react';
 
-import { Button, Typography } from '@mui/material';
+import { Alert, Button, Skeleton, Typography } from '@mui/material';
 
 import BorderedSection from '@/components/layout/BorderedSection';
 import { useAccountTranslation } from '@/config/i18n';
@@ -12,12 +12,14 @@ import {
 } from '@/config/selectors';
 import { ACCOUNT } from '@/langs/constants';
 
+import CreatePassword from './CreatePassword';
 import EditPassword from './EditPassword';
 
 const DisplayPassword = (): JSX.Element => {
   const { t } = useAccountTranslation();
   const [isEditing, setIsEditing] = useState(false);
-  const { data: passwordStatus } = hooks.usePasswordStatus();
+  const { data: passwordStatus, isLoading: isPasswordStatusLoading } =
+    hooks.usePasswordStatus();
 
   const handleEditClick = () => {
     setIsEditing(true);
@@ -27,39 +29,52 @@ const DisplayPassword = (): JSX.Element => {
     setIsEditing(false);
   };
 
-  if (isEditing) {
-    return <EditPassword onClose={handleClose} />;
+  // show correct form if is editing
+  if (isEditing && passwordStatus) {
+    if (passwordStatus.hasPassword) {
+      return <EditPassword onClose={handleClose} />;
+    }
+    return <CreatePassword onClose={handleClose} />;
   }
 
-  return (
-    <BorderedSection
-      id={PASSWORD_DISPLAY_CONTAINER_ID}
-      title={t('PASSWORD_SETTINGS_TITLE')}
-      topActions={[
-        <Button
-          key="edit"
-          variant="contained"
-          onClick={handleEditClick}
-          id={PASSWORD_EDIT_BUTTON_ID}
-          size="small"
+  // read content
+  if (!isEditing) {
+    return (
+      <BorderedSection
+        id={PASSWORD_DISPLAY_CONTAINER_ID}
+        title={t('PASSWORD_SETTINGS_TITLE')}
+        topActions={[
+          <Button
+            key="edit"
+            variant="contained"
+            onClick={handleEditClick}
+            id={PASSWORD_EDIT_BUTTON_ID}
+            size="small"
+          >
+            {passwordStatus?.hasPassword
+              ? t(ACCOUNT.EDIT_BUTTON_LABEL)
+              : t(ACCOUNT.CONFIGURE_BUTTON_LABEL)}
+          </Button>,
+        ]}
+      >
+        <Typography
+          id={PASSWORD_DISPLAY_INFORMATION_ID}
+          variant="body1"
+          color="textSecondary"
         >
           {passwordStatus?.hasPassword
-            ? t(ACCOUNT.EDIT_BUTTON_LABEL)
-            : t(ACCOUNT.CONFIGURE_BUTTON_LABEL)}
-        </Button>,
-      ]}
-    >
-      <Typography
-        id={PASSWORD_DISPLAY_INFORMATION_ID}
-        variant="body1"
-        color="textSecondary"
-      >
-        {passwordStatus?.hasPassword
-          ? t(ACCOUNT.PASSWORD_SETTINGS_INFORMATION)
-          : t(ACCOUNT.NEW_PASSWORD_SETTINGS_INFORMATION)}
-      </Typography>
-    </BorderedSection>
-  );
+            ? t(ACCOUNT.PASSWORD_SETTINGS_INFORMATION)
+            : t(ACCOUNT.PASSWORD_SETTINGS_INFORMATION_NEW_PASSWORD)}
+        </Typography>
+      </BorderedSection>
+    );
+  }
+
+  if (isPasswordStatusLoading) {
+    return <Skeleton />;
+  }
+
+  return <Alert severity="error">{t('UNEXPECTED_ERROR')}</Alert>;
 };
 
 export default DisplayPassword;
