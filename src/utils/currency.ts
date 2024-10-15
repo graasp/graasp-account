@@ -1,4 +1,3 @@
-// eslint-disable-next-line import/prefer-default-export
 export const formatCurrency = (currency: {
   currency: string;
   price: number;

@@ -22,7 +22,8 @@ export const getErrorMessageFromPayload = (
 ): string => {
   if (payload?.error && axios.isAxiosError(payload.error)) {
     return (
-      payload.error.response?.data.message ?? FAILURE_MESSAGES.UNEXPECTED_ERROR
+      (payload.error.response?.data as { message: string } | undefined)
+        ?.message ?? FAILURE_MESSAGES.UNEXPECTED_ERROR
     );
   }
 

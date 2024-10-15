@@ -93,7 +93,11 @@ const StorageScreen = (): JSX.Element => {
             values={{
               email: ADMIN_CONTACT,
             }}
-            components={[<a href={`mailto:${ADMIN_CONTACT}`}>this email</a>]}
+            components={[
+              <a key="email" href={`mailto:${ADMIN_CONTACT}`}>
+                this email
+              </a>,
+            ]}
           />
         </Typography>
         <Alert severity="info">{t('STORAGE_INFO')}</Alert>

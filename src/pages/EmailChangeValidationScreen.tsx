@@ -1,5 +1,3 @@
-import { Link, useSearchParams } from 'react-router-dom';
-
 import {
   Alert,
   AlertTitle,
@@ -11,6 +9,7 @@ import {
 
 import { buildSignInPath } from '@graasp/sdk';
 
+import { Link } from '@tanstack/react-router';
 import { HttpStatusCode, isAxiosError } from 'axios';
 
 import CenteredContainer from '@/components/layout/CenteredContainer';
@@ -26,9 +25,12 @@ import {
 } from '@/config/selectors';
 
 const Content = (): JSX.Element => {
-  const [search] = useSearchParams();
-  const jwtToken = search.get('t');
-  const newEmail = search.get('email');
+  // todo: get search params
+  // const [search] = useSearchParams();
+  // const jwtToken = search.get('t');
+  // const newEmail = search.get('email');
+  const jwtToken = '';
+  const newEmail = 'test@false.com';
   const { t: translate } = useAccountTranslation();
   const {
     mutate: validateEmail,

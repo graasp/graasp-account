@@ -1,8 +1,7 @@
-import { PixelCrop } from 'react-image-crop';
+import { type PixelCrop } from 'react-image-crop';
 
-import { THUMBNAIL_EXTENSION } from '../config/constants';
+import { THUMBNAIL_EXTENSION } from '../config/constants.ts';
 
-// eslint-disable-next-line import/prefer-default-export
 export const getCroppedImg = (
   image: HTMLImageElement,
   crop: PixelCrop,

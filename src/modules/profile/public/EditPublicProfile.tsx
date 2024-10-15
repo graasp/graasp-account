@@ -120,6 +120,8 @@ const EditPublicProfile = ({
   };
 
   useEffect(() => {
+    // TODO: remove need for synching state
+    // eslint-disable-next-line @eslint-react/hooks-extra/no-direct-set-state-in-use-effect
     setProfileData({
       bio: ownProfile?.bio || '',
       linkedinID: ownProfile?.linkedinID

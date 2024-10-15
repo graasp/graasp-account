@@ -57,9 +57,11 @@ const EditPersonalInformation = ({
   useEffect(() => {
     if (member) {
       if (member.name) {
+        // eslint-disable-next-line @eslint-react/hooks-extra/no-direct-set-state-in-use-effect
         setNewUserName(member.name);
       }
       if (member.email) {
+        // eslint-disable-next-line @eslint-react/hooks-extra/no-direct-set-state-in-use-effect
         setNewEmail(member.email);
       }
     }
