@@ -1,4 +1,4 @@
 {
   "files.trimTrailingWhitespace": true,
-  "eslint.useFlatConfig": false
+  "eslint.useFlatConfig": true
 }

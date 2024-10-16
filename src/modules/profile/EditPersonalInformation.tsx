@@ -1,4 +1,4 @@
-import { ChangeEvent, useEffect, useState } from 'react';
+import { ChangeEvent, useState } from 'react';
 
 import { Button, Stack, TextField } from '@mui/material';
 
@@ -36,7 +36,7 @@ const verifyUsername = (username: string): string | null => {
 };
 
 type EditMemberPersonalInformationProp = {
-  member: CompleteMember | null | undefined;
+  member: CompleteMember;
   onEmailUpdate: (newEmail: string) => void;
   onClose: () => void;
 };
@@ -50,20 +50,9 @@ const EditPersonalInformation = ({
   const { t: translateCommon } = useCommonTranslation();
   const { mutate: editMember } = mutations.useEditCurrentMember();
   const { mutate: updateEmail } = mutations.useUpdateMemberEmail();
-  const [newUserName, setNewUserName] = useState('');
-  const [newEmail, setNewEmail] = useState('');
+  const [newUserName, setNewUserName] = useState(member.name);
+  const [newEmail, setNewEmail] = useState(member.email);
   const [error, setError] = useState<string | null>();
-
-  useEffect(() => {
-    if (member) {
-      if (member.name) {
-        setNewUserName(member.name);
-      }
-      if (member.email) {
-        setNewEmail(member.email);
-      }
-    }
-  }, [member]);
 
   const handleEmailChange = ({ target }: ChangeEvent<HTMLInputElement>) => {
     const newEmailValue = target.value;

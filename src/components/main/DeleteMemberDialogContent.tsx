@@ -62,6 +62,7 @@ const DeleteMemberDialogContent = ({ closeModal }: Props): JSX.Element => {
           onChange={(event) => {
             setConfirmationDeleteValue(event.target.value);
           }}
+          // eslint-disable-next-line jsx-a11y/no-autofocus
           autoFocus
         />
       </DialogContent>

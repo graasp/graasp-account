@@ -7,7 +7,6 @@ import {
   GRAASP_PLAYER_HOST,
 } from './env';
 
-// eslint-disable-next-line import/prefer-default-export
 export const platformsHostsMap = defaultHostsMapper({
   [Platform.Builder]: GRAASP_BUILDER_HOST,
   [Platform.Player]: GRAASP_PLAYER_HOST,

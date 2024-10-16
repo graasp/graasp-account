@@ -1,4 +1,3 @@
-/* eslint-disable import/no-extraneous-dependencies */
 /// <reference types="./src/env.d.ts"/>
 import react from '@vitejs/plugin-react';
 import { resolve } from 'path';
@@ -48,7 +47,10 @@ const config = ({ mode }: { mode: string }): UserConfigExport => {
       mode !== 'test'
         ? checker({
             typescript: true,
-            eslint: { lintCommand: 'eslint "./**/*.{ts,tsx}"' },
+            eslint: {
+              lintCommand: 'eslint "./**/*.{ts,tsx}"',
+              useFlatConfig: true,
+            },
             overlay: { initialIsOpen: false },
           })
         : undefined,
