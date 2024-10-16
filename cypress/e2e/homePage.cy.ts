@@ -32,7 +32,6 @@ class TestHelper {
 
   constructor(args: TestHelperInput) {
     this.currentMember = JSON.parse(JSON.stringify(args.currentMember));
-    this.setupServer();
   }
 
   setupServer() {
@@ -75,9 +74,10 @@ class TestHelper {
 }
 
 describe('Upload Avatar', () => {
+  let helpers: TestHelper;
   beforeEach(() => {
-    // eslint-disable-next-line no-new
-    new TestHelper({ currentMember: BOB });
+    helpers = new TestHelper({ currentMember: BOB });
+    helpers.setupServer();
     cy.visit('/');
   });
 

@@ -1,6 +1,5 @@
-import { SETTINGS_PATH } from '@/config/paths';
-import { EXPORT_DATA_BUTTON_ID } from '@/config/selectors';
-
+import { SETTINGS_PATH } from '../../../src/config/paths';
+import { EXPORT_DATA_BUTTON_ID } from '../../../src/config/selectors';
 import { CURRENT_MEMBER } from '../../fixtures/members';
 
 describe('Check exporting data', () => {
