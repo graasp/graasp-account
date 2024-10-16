@@ -1,4 +1,4 @@
-import { SETTINGS_PATH } from '@/config/paths';
+import { SETTINGS_PATH } from '../../../src/config/paths';
 import {
   DELETE_MEMBER_BUTTON_ID,
   DELETE_MEMBER_DIALOG_CONFIRMATION_BUTTON_ID,
@@ -6,8 +6,7 @@ import {
   DELETE_MEMBER_DIALOG_TITLE_ID,
   DELETE_MEMBER_SECTION_ID,
   LOGIN_REQUIRED_TEXT_ID,
-} from '@/config/selectors';
-
+} from '../../../src/config/selectors';
 import { CURRENT_MEMBER } from '../../fixtures/members';
 
 describe('Current Member', () => {
