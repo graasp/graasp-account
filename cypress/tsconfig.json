@@ -2,25 +2,12 @@
   "extends": "../tsconfig.app.json",
   "compilerOptions": {
     "target": "es5",
-    "lib": [
-      "es5",
-      "dom",
-      "ES2021.String"
-    ],
-    "types": [
-      "cypress",
-      "node",
-      "vite/client"
-    ],
+    "lib": ["es5", "dom", "ES2021.String"],
+    "types": ["cypress", "node", "vite/client"],
     "strictNullChecks": true,
     "strict": true,
     "sourceMap": false
   },
-  "include": [
-    "**/*.ts"
-  ],
-  "exclude": [
-    "coverage",
-    ".nyc_output"
-  ]
+  "include": ["**/*.ts", "../cypress.config.ts"],
+  "exclude": ["coverage", ".nyc_output"]
 }
