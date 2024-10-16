@@ -97,77 +97,73 @@ const EditPassword = ({ onClose }: EditPasswordProps): JSX.Element => {
       )
     : null;
 
-  const networkError = updateNetworkError;
-
   return (
-    <Box component="form" onSubmit={handleSubmit(onSubmit)}>
-      <BorderedSection
-        id={PASSWORD_EDIT_CONTAINER_ID}
-        title={t('PASSWORD_SETTINGS_TITLE')}
-      >
-        <Typography variant="body1">
-          {t('PASSWORD_SETTINGS_CONFIRM_INFORMATION')}
-        </Typography>
-        <Stack spacing={2}>
-          <Box>
-            <PasswordField
-              id={PASSWORD_INPUT_CURRENT_PASSWORD_ID}
-              label={t('PASSWORD_SETTINGS_CURRENT_LABEL')}
-              error={Boolean(currentPasswordErrorMessage)}
-              helperText={
-                currentPasswordErrorMessage && t(currentPasswordErrorMessage)
-              }
-              form={register('currentPassword', {
-                required: true,
-                validate: {
-                  strong: (value) =>
-                    isPasswordStrong(value) || 'PASSWORD_WEAK_ERROR',
-                },
-              })}
-            />
-            <Typography variant="subtitle2">
-              {t('PASSWORD_SETTINGS_CURRENT_INFORMATION')}
-            </Typography>
-          </Box>
+    <BorderedSection
+      id={PASSWORD_EDIT_CONTAINER_ID}
+      title={t('PASSWORD_SETTINGS_TITLE')}
+    >
+      <Typography variant="body1">
+        {t('PASSWORD_SETTINGS_CONFIRM_INFORMATION')}
+      </Typography>
+      <Stack spacing={2} component="form" onSubmit={handleSubmit(onSubmit)}>
+        <Box>
+          <PasswordField
+            id={PASSWORD_INPUT_CURRENT_PASSWORD_ID}
+            label={t('PASSWORD_SETTINGS_CURRENT_LABEL')}
+            error={Boolean(currentPasswordErrorMessage)}
+            helperText={
+              currentPasswordErrorMessage && t(currentPasswordErrorMessage)
+            }
+            form={register('currentPassword', {
+              required: true,
+              validate: {
+                strong: (value) =>
+                  isPasswordStrong(value) || 'PASSWORD_WEAK_ERROR',
+              },
+            })}
+          />
+          <Typography variant="subtitle2">
+            {t('PASSWORD_SETTINGS_CURRENT_INFORMATION')}
+          </Typography>
+        </Box>
 
-          <Stack direction="row" spacing={2}>
-            <PasswordField
-              label={t('PASSWORD_SETTINGS_NEW_LABEL')}
-              error={Boolean(newPasswordErrorMessage)}
-              helperText={newPasswordErrorMessage && t(newPasswordErrorMessage)}
-              id={PASSWORD_INPUT_NEW_PASSWORD_ID}
-              form={register('newPassword', {
-                required: true,
-                validate: {
-                  different: (newPassword, formState) =>
-                    newPassword !== formState.currentPassword ||
-                    ACCOUNT.NEW_PASSWORD_SHOULD_NOT_MATCH_CURRENT_PASSWORD_ERROR,
-                  strong: (value) =>
-                    isPasswordStrong(value) || 'PASSWORD_WEAK_ERROR',
-                },
-              })}
-            />
-            <PasswordField
-              label={t('PASSWORD_SETTINGS_NEW_CONFIRM_LABEL')}
-              error={Boolean(confirmNewPasswordErrorMessage)}
-              helperText={
-                confirmNewPasswordErrorMessage &&
-                t(confirmNewPasswordErrorMessage)
-              }
-              id={PASSWORD_INPUT_CONFIRM_PASSWORD_ID}
-              form={register('confirmNewPassword', {
-                required: true,
-                validate: {
-                  match: (confirmPassword, formState) =>
-                    confirmPassword === formState.newPassword ||
-                    ACCOUNT.PASSWORD_DO_NOT_MATCH_ERROR,
-                },
-              })}
-            />
-          </Stack>
+        <Stack direction="row" spacing={2}>
+          <PasswordField
+            label={t('PASSWORD_SETTINGS_NEW_LABEL')}
+            error={Boolean(newPasswordErrorMessage)}
+            helperText={newPasswordErrorMessage && t(newPasswordErrorMessage)}
+            id={PASSWORD_INPUT_NEW_PASSWORD_ID}
+            form={register('newPassword', {
+              required: true,
+              validate: {
+                different: (newPassword, formState) =>
+                  newPassword !== formState.currentPassword ||
+                  ACCOUNT.NEW_PASSWORD_SHOULD_NOT_MATCH_CURRENT_PASSWORD_ERROR,
+                strong: (value) =>
+                  isPasswordStrong(value) || 'PASSWORD_WEAK_ERROR',
+              },
+            })}
+          />
+          <PasswordField
+            label={t('PASSWORD_SETTINGS_NEW_CONFIRM_LABEL')}
+            error={Boolean(confirmNewPasswordErrorMessage)}
+            helperText={
+              confirmNewPasswordErrorMessage &&
+              t(confirmNewPasswordErrorMessage)
+            }
+            id={PASSWORD_INPUT_CONFIRM_PASSWORD_ID}
+            form={register('confirmNewPassword', {
+              required: true,
+              validate: {
+                match: (confirmPassword, formState) =>
+                  confirmPassword === formState.newPassword ||
+                  ACCOUNT.PASSWORD_DO_NOT_MATCH_ERROR,
+              },
+            })}
+          />
         </Stack>
-        {Boolean(networkError) && (
-          <Alert severity="error">{networkError}</Alert>
+        {Boolean(updateNetworkError) && (
+          <Alert severity="error">{updateNetworkError}</Alert>
         )}
         <Stack direction="row" gap={1} justifyContent="flex-end">
           <Button variant="outlined" onClick={onClose} size="small">
@@ -185,8 +181,8 @@ const EditPassword = ({ onClose }: EditPasswordProps): JSX.Element => {
             {translateCommon(COMMON.SAVE_BUTTON)}
           </LoadingButton>
         </Stack>
-      </BorderedSection>
-    </Box>
+      </Stack>
+    </BorderedSection>
   );
 };
 

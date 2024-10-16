@@ -2,21 +2,21 @@ import { UseFormRegisterReturn } from 'react-hook-form';
 
 import { TextField } from '@mui/material';
 
-type Props = {
+type Props<T extends string> = {
   id: string;
   label: string;
   error: boolean;
   helperText?: string;
-  form: UseFormRegisterReturn;
+  form: UseFormRegisterReturn<T>;
 };
 
-const PasswordField = ({
+const PasswordField = <T extends string>({
   id,
   label,
   error,
   helperText,
   form,
-}: Props): JSX.Element => (
+}: Props<T>): JSX.Element => (
   <TextField
     required
     label={label}

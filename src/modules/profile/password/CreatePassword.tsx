@@ -1,7 +1,7 @@
 import { FieldError, SubmitHandler, useForm } from 'react-hook-form';
 
 import { LoadingButton } from '@mui/lab';
-import { Alert, Box, Button, Stack } from '@mui/material';
+import { Alert, Button, Stack } from '@mui/material';
 import Typography from '@mui/material/Typography';
 
 import { isPasswordStrong } from '@graasp/sdk';
@@ -84,49 +84,46 @@ const CreatePassword = ({ onClose }: CreatePasswordProps): JSX.Element => {
           FAILURE_MESSAGES.UNEXPECTED_ERROR,
       )
     : null;
-
   return (
-    <Box component="form" onSubmit={handleSubmit(onSubmit)}>
-      <BorderedSection
-        id={PASSWORD_CREATE_CONTAINER_ID}
-        title={t('PASSWORD_SETTINGS_TITLE')}
-      >
-        <Typography variant="body1">
-          {t('PASSWORD_SETTINGS_CONFIRM_INFORMATION')}
-        </Typography>
-        <Stack spacing={2}>
-          <Stack direction="row" spacing={2}>
-            <PasswordField
-              label={t('PASSWORD_SETTINGS_NEW_LABEL')}
-              error={Boolean(newPasswordErrorMessage)}
-              helperText={newPasswordErrorMessage && t(newPasswordErrorMessage)}
-              id={PASSWORD_INPUT_NEW_PASSWORD_ID}
-              form={register('newPassword', {
-                required: true,
-                validate: {
-                  strong: (value) =>
-                    isPasswordStrong(value) || 'PASSWORD_WEAK_ERROR',
-                },
-              })}
-            />
-            <PasswordField
-              label={t('PASSWORD_SETTINGS_NEW_CONFIRM_LABEL')}
-              error={Boolean(confirmNewPasswordErrorMessage)}
-              helperText={
-                confirmNewPasswordErrorMessage &&
-                t(confirmNewPasswordErrorMessage)
-              }
-              id={PASSWORD_INPUT_CONFIRM_PASSWORD_ID}
-              form={register('confirmNewPassword', {
-                required: true,
-                validate: {
-                  match: (confirmPassword, formState) =>
-                    confirmPassword === formState.newPassword ||
-                    ACCOUNT.PASSWORD_DO_NOT_MATCH_ERROR,
-                },
-              })}
-            />
-          </Stack>
+    <BorderedSection
+      id={PASSWORD_CREATE_CONTAINER_ID}
+      title={t('PASSWORD_SETTINGS_TITLE')}
+    >
+      <Typography variant="body1">
+        {t('PASSWORD_SETTINGS_CONFIRM_INFORMATION')}
+      </Typography>
+      <Stack spacing={2} component="form" onSubmit={handleSubmit(onSubmit)}>
+        <Stack direction="row" spacing={2}>
+          <PasswordField
+            label={t('PASSWORD_SETTINGS_NEW_LABEL')}
+            error={Boolean(newPasswordErrorMessage)}
+            helperText={newPasswordErrorMessage && t(newPasswordErrorMessage)}
+            id={PASSWORD_INPUT_NEW_PASSWORD_ID}
+            form={register('newPassword', {
+              required: true,
+              validate: {
+                strong: (value) =>
+                  isPasswordStrong(value) || 'PASSWORD_WEAK_ERROR',
+              },
+            })}
+          />
+          <PasswordField
+            label={t('PASSWORD_SETTINGS_NEW_CONFIRM_LABEL')}
+            error={Boolean(confirmNewPasswordErrorMessage)}
+            helperText={
+              confirmNewPasswordErrorMessage &&
+              t(confirmNewPasswordErrorMessage)
+            }
+            id={PASSWORD_INPUT_CONFIRM_PASSWORD_ID}
+            form={register('confirmNewPassword', {
+              required: true,
+              validate: {
+                match: (confirmPassword, formState) =>
+                  confirmPassword === formState.newPassword ||
+                  ACCOUNT.PASSWORD_DO_NOT_MATCH_ERROR,
+              },
+            })}
+          />
         </Stack>
         {Boolean(createNetworkError) && (
           <Alert severity="error">{createNetworkError}</Alert>
@@ -147,8 +144,8 @@ const CreatePassword = ({ onClose }: CreatePasswordProps): JSX.Element => {
             {translateCommon(COMMON.SAVE_BUTTON)}
           </LoadingButton>
         </Stack>
-      </BorderedSection>
-    </Box>
+      </Stack>
+    </BorderedSection>
   );
 };
 

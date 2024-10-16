@@ -18,7 +18,7 @@ import EditPassword from './EditPassword';
 const DisplayPassword = (): JSX.Element => {
   const { t } = useAccountTranslation();
   const [isEditing, setIsEditing] = useState(false);
-  const { data: passwordStatus, isLoading: isPasswordStatusLoading } =
+  const { data: passwordStatus, isPending: isPasswordStatusPending } =
     hooks.usePasswordStatus();
 
   const handleEditClick = () => {
@@ -70,7 +70,7 @@ const DisplayPassword = (): JSX.Element => {
     );
   }
 
-  if (isPasswordStatusLoading) {
+  if (isPasswordStatusPending) {
     return <Skeleton />;
   }
 
