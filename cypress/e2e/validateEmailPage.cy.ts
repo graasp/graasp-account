@@ -2,14 +2,13 @@ import { HttpMethod } from '@graasp/sdk';
 
 import { StatusCodes } from 'http-status-codes';
 
-import { EMAIL_CHANGE_VALIDATION_PATH } from '@/config/paths';
+import { EMAIL_CHANGE_VALIDATION_PATH } from '../../src/config/paths';
 import {
   EMAIL_VALIDATION_BUTTON_ID,
   EMAIL_VALIDATION_CONFLICT_MESSAGE_ID,
   EMAIL_VALIDATION_SUCCESS_MESSAGE_ID,
   EMAIL_VALIDATION_UNAUTHORIZED_MESSAGE_ID,
-} from '@/config/selectors';
-
+} from '../../src/config/selectors';
 import { CURRENT_MEMBER } from '../fixtures/members';
 
 const API_HOST = Cypress.env('VITE_GRAASP_API_HOST');

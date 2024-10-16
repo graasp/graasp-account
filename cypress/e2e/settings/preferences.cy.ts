@@ -1,7 +1,7 @@
 import { EmailFrequency } from '@graasp/sdk';
 import { langs } from '@graasp/translations';
 
-import { SETTINGS_PATH } from '@/config/paths';
+import { SETTINGS_PATH } from '../../../src/config/paths';
 import {
   PREFERENCES_ANALYTICS_SWITCH_ID,
   PREFERENCES_CANCEL_BUTTON_ID,
@@ -11,8 +11,7 @@ import {
   PREFERENCES_LANGUAGE_DISPLAY_ID,
   PREFERENCES_LANGUAGE_SWITCH_ID,
   PREFERENCES_SAVE_BUTTON_ID,
-} from '@/config/selectors';
-
+} from '../../../src/config/selectors';
 import { BOB, CURRENT_MEMBER } from '../../fixtures/members';
 
 describe('Display preferences', () => {

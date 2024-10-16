@@ -2,8 +2,7 @@ import {
   GO_TO_HOME_LINK_ID,
   NOT_FOUND_MESSAGE_ID,
   NOT_FOUND_TEXT_ID,
-} from '@/config/selectors';
-
+} from '../../src/config/selectors';
 import { BOB } from '../fixtures/members';
 
 describe('404 Page Test', () => {

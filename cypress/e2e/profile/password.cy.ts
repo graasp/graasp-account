@@ -1,7 +1,7 @@
 import { FAILURE_MESSAGES, namespaces } from '@graasp/translations';
 
-import i18n, { ACCOUNT_NAMESPACE } from '@/config/i18n';
-import { PROFILE_PATH } from '@/config/paths';
+import i18n, { ACCOUNT_NAMESPACE } from '../../../src/config/i18n';
+import { PROFILE_PATH } from '../../../src/config/paths';
 import {
   PASSWORD_CREATE_CONTAINER_ID,
   PASSWORD_DISPLAY_CONTAINER_ID,
@@ -11,8 +11,7 @@ import {
   PASSWORD_INPUT_CURRENT_PASSWORD_ID,
   PASSWORD_INPUT_NEW_PASSWORD_ID,
   PASSWORD_SAVE_BUTTON_ID,
-} from '@/config/selectors';
-
+} from '../../../src/config/selectors';
 import { ACCOUNT } from '../../../src/langs/constants';
 import { BOB } from '../../fixtures/members';
 

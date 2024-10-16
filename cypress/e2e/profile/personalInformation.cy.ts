@@ -1,5 +1,4 @@
-import { PROFILE_PATH } from 'config/paths';
-
+import { PROFILE_PATH } from '../../../src/config/paths';
 import {
   PERSONAL_INFO_CANCEL_BUTTON_ID,
   PERSONAL_INFO_DISPLAY_CONTAINER_ID,
@@ -9,8 +8,7 @@ import {
   PERSONAL_INFO_INPUT_EMAIL_ID,
   PERSONAL_INFO_SAVE_BUTTON_ID,
   PERSONAL_INFO_USERNAME_DISPLAY_ID,
-} from '@/config/selectors';
-
+} from '../../../src/config/selectors';
 import { BOB, MEMBERS } from '../../fixtures/members';
 
 const changeUsername = (newUserName: string) => {

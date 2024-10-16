@@ -1,7 +1,7 @@
 import { formatDate, formatFileSize } from '@graasp/sdk';
 
-import i18n from '@/config/i18n';
-import { STORAGE_PATH } from '@/config/paths';
+import i18n from '../../src/config/i18n';
+import { STORAGE_PATH } from '../../src/config/paths';
 import {
   MEMBER_STORAGE_FILE_NAME_ID,
   MEMBER_STORAGE_FILE_SIZE_ID,
@@ -9,8 +9,7 @@ import {
   MEMBER_STORAGE_PARENT_FOLDER_ID,
   STORAGE_BAR_LABEL_ID,
   getCellId,
-} from '@/config/selectors';
-
+} from '../../src/config/selectors';
 import {
   CURRENT_MEMBER,
   MEMBER_STORAGE_ITEM_RESPONSE,

@@ -1,4 +1,4 @@
-import { PROFILE_PATH } from '@/config/paths';
+import { PROFILE_PATH } from '../../../src/config/paths';
 import {
   PUBLIC_PROFILE_BIO_ID,
   PUBLIC_PROFILE_EDIT_BUTTON_ID,
@@ -9,8 +9,7 @@ import {
   PUBLIC_PROFILE_SAVE_BUTTON_ID,
   PUBLIC_PROFILE_TWITTER_HREF_ID,
   PUBLIC_PROFILE_TWITTER_ID,
-} from '@/config/selectors';
-
+} from '../../../src/config/selectors';
 import {
   BOB,
   MEMBER_EMPTY_PUBLIC_PROFILE,
