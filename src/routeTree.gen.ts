@@ -11,14 +11,40 @@
 // Import Routes
 
 import { Route as rootRoute } from './routes/__root'
-import { Route as LayoutImport } from './routes/_layout'
+import { Route as RegisterImport } from './routes/register'
+import { Route as LoginImport } from './routes/login'
+import { Route as AccountImport } from './routes/account'
+import { Route as IndexImport } from './routes/index'
+import { Route as AccountIndexImport } from './routes/account/index'
 import { Route as EmailChangeImport } from './routes/email.change'
+import { Route as AccountStorageImport } from './routes/account/storage'
+import { Route as AccountSettingsImport } from './routes/account/settings'
 
 // Create/Update Routes
 
-const LayoutRoute = LayoutImport.update({
-  id: '/_layout',
+const RegisterRoute = RegisterImport.update({
+  path: '/register',
   getParentRoute: () => rootRoute,
+} as any)
+
+const LoginRoute = LoginImport.update({
+  path: '/login',
+  getParentRoute: () => rootRoute,
+} as any)
+
+const AccountRoute = AccountImport.update({
+  path: '/account',
+  getParentRoute: () => rootRoute,
+} as any)
+
+const IndexRoute = IndexImport.update({
+  path: '/',
+  getParentRoute: () => rootRoute,
+} as any)
+
+const AccountIndexRoute = AccountIndexImport.update({
+  path: '/',
+  getParentRoute: () => AccountRoute,
 } as any)
 
 const EmailChangeRoute = EmailChangeImport.update({
@@ -26,16 +52,61 @@ const EmailChangeRoute = EmailChangeImport.update({
   getParentRoute: () => rootRoute,
 } as any)
 
+const AccountStorageRoute = AccountStorageImport.update({
+  path: '/storage',
+  getParentRoute: () => AccountRoute,
+} as any)
+
+const AccountSettingsRoute = AccountSettingsImport.update({
+  path: '/settings',
+  getParentRoute: () => AccountRoute,
+} as any)
+
 // Populate the FileRoutesByPath interface
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
-    '/_layout': {
-      id: '/_layout'
-      path: ''
-      fullPath: ''
-      preLoaderRoute: typeof LayoutImport
+    '/': {
+      id: '/'
+      path: '/'
+      fullPath: '/'
+      preLoaderRoute: typeof IndexImport
       parentRoute: typeof rootRoute
+    }
+    '/account': {
+      id: '/account'
+      path: '/account'
+      fullPath: '/account'
+      preLoaderRoute: typeof AccountImport
+      parentRoute: typeof rootRoute
+    }
+    '/login': {
+      id: '/login'
+      path: '/login'
+      fullPath: '/login'
+      preLoaderRoute: typeof LoginImport
+      parentRoute: typeof rootRoute
+    }
+    '/register': {
+      id: '/register'
+      path: '/register'
+      fullPath: '/register'
+      preLoaderRoute: typeof RegisterImport
+      parentRoute: typeof rootRoute
+    }
+    '/account/settings': {
+      id: '/account/settings'
+      path: '/settings'
+      fullPath: '/account/settings'
+      preLoaderRoute: typeof AccountSettingsImport
+      parentRoute: typeof AccountImport
+    }
+    '/account/storage': {
+      id: '/account/storage'
+      path: '/storage'
+      fullPath: '/account/storage'
+      preLoaderRoute: typeof AccountStorageImport
+      parentRoute: typeof AccountImport
     }
     '/email/change': {
       id: '/email/change'
@@ -44,43 +115,112 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof EmailChangeImport
       parentRoute: typeof rootRoute
     }
+    '/account/': {
+      id: '/account/'
+      path: '/'
+      fullPath: '/account/'
+      preLoaderRoute: typeof AccountIndexImport
+      parentRoute: typeof AccountImport
+    }
   }
 }
 
 // Create and export the route tree
 
+interface AccountRouteChildren {
+  AccountSettingsRoute: typeof AccountSettingsRoute
+  AccountStorageRoute: typeof AccountStorageRoute
+  AccountIndexRoute: typeof AccountIndexRoute
+}
+
+const AccountRouteChildren: AccountRouteChildren = {
+  AccountSettingsRoute: AccountSettingsRoute,
+  AccountStorageRoute: AccountStorageRoute,
+  AccountIndexRoute: AccountIndexRoute,
+}
+
+const AccountRouteWithChildren =
+  AccountRoute._addFileChildren(AccountRouteChildren)
+
 export interface FileRoutesByFullPath {
-  '': typeof LayoutRoute
+  '/': typeof IndexRoute
+  '/account': typeof AccountRouteWithChildren
+  '/login': typeof LoginRoute
+  '/register': typeof RegisterRoute
+  '/account/settings': typeof AccountSettingsRoute
+  '/account/storage': typeof AccountStorageRoute
   '/email/change': typeof EmailChangeRoute
+  '/account/': typeof AccountIndexRoute
 }
 
 export interface FileRoutesByTo {
-  '': typeof LayoutRoute
+  '/': typeof IndexRoute
+  '/login': typeof LoginRoute
+  '/register': typeof RegisterRoute
+  '/account/settings': typeof AccountSettingsRoute
+  '/account/storage': typeof AccountStorageRoute
   '/email/change': typeof EmailChangeRoute
+  '/account': typeof AccountIndexRoute
 }
 
 export interface FileRoutesById {
   __root__: typeof rootRoute
-  '/_layout': typeof LayoutRoute
+  '/': typeof IndexRoute
+  '/account': typeof AccountRouteWithChildren
+  '/login': typeof LoginRoute
+  '/register': typeof RegisterRoute
+  '/account/settings': typeof AccountSettingsRoute
+  '/account/storage': typeof AccountStorageRoute
   '/email/change': typeof EmailChangeRoute
+  '/account/': typeof AccountIndexRoute
 }
 
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '' | '/email/change'
+  fullPaths:
+    | '/'
+    | '/account'
+    | '/login'
+    | '/register'
+    | '/account/settings'
+    | '/account/storage'
+    | '/email/change'
+    | '/account/'
   fileRoutesByTo: FileRoutesByTo
-  to: '' | '/email/change'
-  id: '__root__' | '/_layout' | '/email/change'
+  to:
+    | '/'
+    | '/login'
+    | '/register'
+    | '/account/settings'
+    | '/account/storage'
+    | '/email/change'
+    | '/account'
+  id:
+    | '__root__'
+    | '/'
+    | '/account'
+    | '/login'
+    | '/register'
+    | '/account/settings'
+    | '/account/storage'
+    | '/email/change'
+    | '/account/'
   fileRoutesById: FileRoutesById
 }
 
 export interface RootRouteChildren {
-  LayoutRoute: typeof LayoutRoute
+  IndexRoute: typeof IndexRoute
+  AccountRoute: typeof AccountRouteWithChildren
+  LoginRoute: typeof LoginRoute
+  RegisterRoute: typeof RegisterRoute
   EmailChangeRoute: typeof EmailChangeRoute
 }
 
 const rootRouteChildren: RootRouteChildren = {
-  LayoutRoute: LayoutRoute,
+  IndexRoute: IndexRoute,
+  AccountRoute: AccountRouteWithChildren,
+  LoginRoute: LoginRoute,
+  RegisterRoute: RegisterRoute,
   EmailChangeRoute: EmailChangeRoute,
 }
 
@@ -96,15 +236,44 @@ export const routeTree = rootRoute
     "__root__": {
       "filePath": "__root.tsx",
       "children": [
-        "/_layout",
+        "/",
+        "/account",
+        "/login",
+        "/register",
         "/email/change"
       ]
     },
-    "/_layout": {
-      "filePath": "_layout.tsx"
+    "/": {
+      "filePath": "index.tsx"
+    },
+    "/account": {
+      "filePath": "account.tsx",
+      "children": [
+        "/account/settings",
+        "/account/storage",
+        "/account/"
+      ]
+    },
+    "/login": {
+      "filePath": "login.tsx"
+    },
+    "/register": {
+      "filePath": "register.tsx"
+    },
+    "/account/settings": {
+      "filePath": "account/settings.tsx",
+      "parent": "/account"
+    },
+    "/account/storage": {
+      "filePath": "account/storage.tsx",
+      "parent": "/account"
     },
     "/email/change": {
       "filePath": "email.change.tsx"
+    },
+    "/account/": {
+      "filePath": "account/index.tsx",
+      "parent": "/account"
     }
   }
 }

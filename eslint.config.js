@@ -116,6 +116,10 @@ export default [
       'no-shadow': 'off',
       '@typescript-eslint/no-shadow': 'error',
 
+      // Note: you must disable the base rule as it can report incorrect errors
+      'no-redeclare': 'off',
+      '@typescript-eslint/no-redeclare': 'error',
+
       'no-unused-vars': 'off',
       '@typescript-eslint/no-unused-vars': [
         'error',

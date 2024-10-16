@@ -35,14 +35,14 @@ export const Route = createFileRoute('/email/change')({
       jwtToken: (search.t as string) || '',
     };
   },
-  component: () => EmailChangeRoute,
+  component: EmailChangeRoute,
 });
 
 function EmailChangeRoute() {
   const { newEmail, jwtToken } = Route.useSearch();
   return (
     <CenteredContainer>
-      <EmailChangeContent email={newEmail} jwtToken={jwtToken} />
+      <EmailChangeContent newEmail={newEmail} jwtToken={jwtToken} />
     </CenteredContainer>
   );
 }
