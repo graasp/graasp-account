@@ -77,6 +77,7 @@
   "DESTRUCTIVE_SETTINGS_DETAILS": "Veuillez noter que les opérations décrites ici ont des conséquences potentiellement irréversibles. Assurez-vous d’examiner attentivement toutes les restrictions avant de continuer avant de continuer.",
   "USERNAME_EMPTY_ERROR": "Le champ ne peut pas être vide",
   "USERNAME_LENGTH_ERROR": "Le nom d'utilisateur doit contenir entre {{min}} et {{max}} caractères",
+  "USERNAME_SPECIAL_CHARACTERS_ERROR": "Le nom d'utilisateur ne doit pas contenir \" \", \", <, >, ^, %, \\",
   "EDIT_BUTTON_LABEL": "Modifier",
   "CONFIGURE_BUTTON_LABEL": "Configurer",
   "UPLOAD_PICTURE_TEXT": "Choisir photo",

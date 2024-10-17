@@ -65,6 +65,15 @@ describe('Edit personal information', () => {
       cy.get(`#${PERSONAL_INFO_SAVE_BUTTON_ID}`).should('be.disabled');
     });
 
+    it('Username can not contain special characters', () => {
+      const badUsername = '<<div>%^\'"';
+      changeUsername(badUsername);
+
+      // The save button should be disabled and the helper text should display the message
+      cy.get(`#${PERSONAL_INFO_SAVE_BUTTON_ID}`).should('be.disabled');
+      cy.get('[id$=-helper-text]').should('have.text', 'User name must not contain " ", ", <, >, ^, %, \\');
+    })
+
     it('Valid username can be saved', () => {
       const validUsername = 'validUsername';
       changeUsername(validUsername);
