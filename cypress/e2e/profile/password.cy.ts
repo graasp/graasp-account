@@ -67,6 +67,23 @@ describe('Create new password', () => {
     );
   });
 
+  it('Show error on empty inputs', () => {
+    openPasswordEdition();
+
+    cy.get(`#${PASSWORD_SAVE_BUTTON_ID}`).click();
+    cy.get(`#${PASSWORD_SAVE_BUTTON_ID}`).should('be.disabled');
+
+    // should show input required message
+    cy.get(`#${PASSWORD_INPUT_NEW_PASSWORD_ID}-helper-text`).should(
+      'contain',
+      i18n.t(ACCOUNT.REQUIRED_FIELD_ERROR),
+    );
+    cy.get(`#${PASSWORD_INPUT_CONFIRM_PASSWORD_ID}-helper-text`).should(
+      'contain',
+      i18n.t(ACCOUNT.REQUIRED_FIELD_ERROR),
+    );
+  });
+
   it('Show error on weak new password', () => {
     openPasswordEdition();
 
@@ -158,6 +175,27 @@ describe('Update password', () => {
 
     i18n.changeLanguage(BOB.extra.lang);
     i18n.setDefaultNamespace(ACCOUNT_NAMESPACE);
+  });
+
+  it('Show error on empty inputs', () => {
+    openPasswordEdition();
+
+    cy.get(`#${PASSWORD_SAVE_BUTTON_ID}`).click();
+    cy.get(`#${PASSWORD_SAVE_BUTTON_ID}`).should('be.disabled');
+
+    // should show input required message
+    cy.get(`#${PASSWORD_INPUT_NEW_PASSWORD_ID}-helper-text`).should(
+      'contain',
+      i18n.t(ACCOUNT.REQUIRED_FIELD_ERROR),
+    );
+    cy.get(`#${PASSWORD_INPUT_CONFIRM_PASSWORD_ID}-helper-text`).should(
+      'contain',
+      i18n.t(ACCOUNT.REQUIRED_FIELD_ERROR),
+    );
+    cy.get(`#${PASSWORD_INPUT_CURRENT_PASSWORD_ID}-helper-text`).should(
+      'contain',
+      i18n.t(ACCOUNT.REQUIRED_FIELD_ERROR),
+    );
   });
 
   it('Show edit message when a password is set', () => {
