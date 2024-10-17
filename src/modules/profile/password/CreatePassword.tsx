@@ -140,6 +140,7 @@ const CreatePassword = ({ onClose }: CreatePasswordProps): JSX.Element => {
             size="small"
             type="submit"
             loading={isCreatePasswordLoading}
+            data-umami-event="create-password"
           >
             {translateCommon(COMMON.SAVE_BUTTON)}
           </LoadingButton>
