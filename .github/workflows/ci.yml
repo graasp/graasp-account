@@ -1,7 +1,7 @@
 name: CI
 
 on:
-  # on push event to main run this workflow§
+  # on push event to main run this workflow
   # only run on push to main as pushes to PRs are handled by the `pull_request` trigger
   push:
     branches:
