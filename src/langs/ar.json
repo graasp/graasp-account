@@ -42,7 +42,6 @@
   "PASSWORD_SETTINGS_INFORMATION": "قم بتحديث كلمة المرور الخاصة بك عن طريق النقر فوق الزر \"تحرير\".",
   "PASSWORD_SETTINGS_TITLE": "تغيير كلمة السرّ",
   "PASSWORD_SETTINGS_CURRENT_LABEL": "كلمة السرّ الحالية",
-  "PASSWORD_SETTINGS_CURRENT_INFORMATION": "اترك هذا الحقل فارغًا إذا لا تملك كلمة سرّ سابقًا.",
   "PASSWORD_SETTINGS_NEW_LABEL": "كلمة السرّ الجديدة",
   "PASSWORD_SETTINGS_NEW_CONFIRM_LABEL": "تأكيد كلمة السرّ",
   "PASSWORD_SETTINGS_CONFIRM_INFORMATION": "تأكد أنّها تتكوّن من 8 أحرف على الأقل, حيث تحتوي على رقم, حرف صغير وحرف كبير.",

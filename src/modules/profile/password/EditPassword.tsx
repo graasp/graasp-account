@@ -25,7 +25,7 @@ import {
 } from '@/config/selectors';
 import { ACCOUNT } from '@/langs/constants';
 
-import PasswordField from './PasswordField';
+import { PasswordField } from './PasswordField';
 
 type EditPasswordProps = {
   onClose: () => void;
@@ -40,6 +40,7 @@ type Inputs = {
 export const getValidationMessage = (
   fieldError?: FieldError,
 ): string | undefined => {
+  console.log(fieldError);
   if (fieldError?.type === 'required') {
     return 'REQUIRED_FIELD_ERROR';
   }
@@ -102,10 +103,15 @@ const EditPassword = ({ onClose }: EditPasswordProps): JSX.Element => {
       id={PASSWORD_EDIT_CONTAINER_ID}
       title={t('PASSWORD_SETTINGS_TITLE')}
     >
-      <Typography variant="body1">
-        {t('PASSWORD_SETTINGS_CONFIRM_INFORMATION')}
-      </Typography>
-      <Stack spacing={2} component="form" onSubmit={handleSubmit(onSubmit)}>
+      <Stack
+        direction="column"
+        gap={2}
+        component="form"
+        onSubmit={handleSubmit(onSubmit)}
+      >
+        <Typography variant="body1">
+          {t('PASSWORD_SETTINGS_CONFIRM_INFORMATION')}
+        </Typography>
         <Box>
           <PasswordField
             id={PASSWORD_INPUT_CURRENT_PASSWORD_ID}
@@ -122,12 +128,9 @@ const EditPassword = ({ onClose }: EditPasswordProps): JSX.Element => {
               },
             })}
           />
-          <Typography variant="subtitle2">
-            {t('PASSWORD_SETTINGS_CURRENT_INFORMATION')}
-          </Typography>
         </Box>
 
-        <Stack direction="row" spacing={2}>
+        <Stack direction="row" gap={2}>
           <PasswordField
             label={t('PASSWORD_SETTINGS_NEW_LABEL')}
             error={Boolean(newPasswordErrorMessage)}

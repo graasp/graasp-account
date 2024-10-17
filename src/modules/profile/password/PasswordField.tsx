@@ -1,6 +1,9 @@
+import { useState } from 'react';
 import { UseFormRegisterReturn } from 'react-hook-form';
 
-import { TextField } from '@mui/material';
+import { IconButton, InputAdornment, TextField } from '@mui/material';
+
+import { Eye } from 'lucide-react';
 
 type Props<T extends string> = {
   id: string;
@@ -10,24 +13,35 @@ type Props<T extends string> = {
   form: UseFormRegisterReturn<T>;
 };
 
-const PasswordField = <T extends string>({
+export function PasswordField<T extends string>({
   id,
   label,
   error,
   helperText,
   form,
-}: Props<T>): JSX.Element => (
-  <TextField
-    required
-    label={label}
-    variant="outlined"
-    size="small"
-    error={error}
-    helperText={helperText}
-    type="password"
-    id={id}
-    {...form}
-  />
-);
+}: Props<T>): JSX.Element {
+  const [showPassword, setShowPassword] = useState(false);
 
-export default PasswordField;
+  return (
+    <TextField
+      InputProps={{
+        sx: { paddingRight: 0 },
+        endAdornment: (
+          <InputAdornment position="end" sx={{ margin: 0 }}>
+            <IconButton onClick={() => setShowPassword((s) => !s)}>
+              <Eye />
+            </IconButton>
+          </InputAdornment>
+        ),
+      }}
+      label={label}
+      variant="outlined"
+      size="small"
+      error={error}
+      helperText={helperText}
+      type={showPassword ? 'text' : 'password'}
+      id={id}
+      {...form}
+    />
+  );
+}
