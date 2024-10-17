@@ -24,7 +24,7 @@ import {
 } from '@/config/selectors';
 import { ACCOUNT } from '@/langs/constants';
 
-import PasswordField from './PasswordField';
+import { PasswordField } from './PasswordField';
 
 type CreatePasswordProps = {
   onClose: () => void;
@@ -140,6 +140,7 @@ const CreatePassword = ({ onClose }: CreatePasswordProps): JSX.Element => {
             size="small"
             type="submit"
             loading={isCreatePasswordLoading}
+            data-umami-event="create-password"
           >
             {translateCommon(COMMON.SAVE_BUTTON)}
           </LoadingButton>
