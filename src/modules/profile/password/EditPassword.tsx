@@ -177,6 +177,7 @@ const EditPassword = ({ onClose }: EditPasswordProps): JSX.Element => {
             size="small"
             type="submit"
             loading={isUpdatePasswordLoading}
+            data-umami-event="update-password"
           >
             {translateCommon(COMMON.SAVE_BUTTON)}
           </LoadingButton>
