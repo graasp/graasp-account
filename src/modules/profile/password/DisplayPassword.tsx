@@ -50,6 +50,7 @@ const DisplayPassword = (): JSX.Element => {
             onClick={handleEditClick}
             id={PASSWORD_EDIT_BUTTON_ID}
             size="small"
+            data-umami-event="edit-password"
           >
             {passwordStatus?.hasPassword
               ? t(ACCOUNT.EDIT_BUTTON_LABEL)
