@@ -1,5 +1,13 @@
 # Changelog
 
+## [2.15.2](https://github.com/graasp/graasp-account/compare/v2.15.1...v2.15.2) (2024-10-18)
+
+
+### Bug Fixes
+
+* **deps:** update dependency @mui/lab to v5.0.0-alpha.173 ([#308](https://github.com/graasp/graasp-account/issues/308)) ([05f077a](https://github.com/graasp/graasp-account/commit/05f077a205772c005572d99c1d7d6ba94d61808c))
+* do not allow special characters in username ([#356](https://github.com/graasp/graasp-account/issues/356)) ([42e4c1f](https://github.com/graasp/graasp-account/commit/42e4c1fc712c72bcb8f87648a6ff40d358415f34))
+
 ## [2.15.1](https://github.com/graasp/graasp-account/compare/v2.15.0...v2.15.1) (2024-10-18)
 
 
