@@ -42,14 +42,11 @@ importers:
         specifier: 5.16.7
         version: 5.16.7(@emotion/react@11.13.3(@types/react@18.3.11)(react@18.3.1))(@emotion/styled@11.13.0(@emotion/react@11.13.3(@types/react@18.3.11)(react@18.3.1))(@types/react@18.3.11)(react@18.3.1))(@types/react@18.3.11)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       '@tanstack/react-router':
-        specifier: ^1.69.1
-        version: 1.70.1(@tanstack/router-generator@1.69.1)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
+        specifier: 1.69.1
+        version: 1.69.1(@tanstack/router-generator@1.69.1)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       '@tanstack/router-devtools':
-        specifier: ^1.67.0
-        version: 1.70.1(@tanstack/react-router@1.70.1(@tanstack/router-generator@1.69.1)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(csstype@3.1.3)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
-      altcha:
-        specifier: ^1.0.5
-        version: 1.0.5
+        specifier: 1.67.0
+        version: 1.67.0(@tanstack/react-router@1.69.1(@tanstack/router-generator@1.69.1)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(csstype@3.1.3)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       axios:
         specifier: 1.7.7
         version: 1.7.7
@@ -66,7 +63,7 @@ importers:
         specifier: 4.4.2
         version: 4.4.2
       lucide-react:
-        specifier: ^0.453.0
+        specifier: 0.453.0
         version: 0.453.0(react@18.3.1)
       react:
         specifier: 18.3.1
@@ -78,10 +75,10 @@ importers:
         specifier: ^3.1.0
         version: 3.1.0(react@18.3.1)
       react-hook-form:
-        specifier: ^7.53.0
+        specifier: 7.53.0
         version: 7.53.0(react@18.3.1)
       react-i18next:
-        specifier: ^15.0.3
+        specifier: 15.0.3
         version: 15.0.3(i18next@23.16.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       react-image-crop:
         specifier: 11.0.7
@@ -90,7 +87,7 @@ importers:
         specifier: 10.0.6
         version: 10.0.6(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       social-links:
-        specifier: ^1.14.0
+        specifier: 1.14.0
         version: 1.14.0
       stylis:
         specifier: 4.3.4
@@ -178,25 +175,25 @@ importers:
         specifier: 7.37.1
         version: 7.37.1(eslint@9.12.0(jiti@1.21.6))
       eslint-plugin-react-hooks:
-        specifier: ^5.1.0-rc.0
-        version: 5.1.0-rc-fb9a90fa48-20240614(eslint@9.12.0(jiti@1.21.6))
+        specifier: 5.1.0-rc.0
+        version: 5.1.0-rc.0(eslint@9.12.0(jiti@1.21.6))
       eslint-plugin-react-refresh:
-        specifier: ^0.4.12
+        specifier: 0.4.12
         version: 0.4.12(eslint@9.12.0(jiti@1.21.6))
       globals:
-        specifier: ^15.11.0
+        specifier: 15.11.0
         version: 15.11.0
       husky:
         specifier: 9.1.6
         version: 9.1.6
       nyc:
-        specifier: ^17.1.0
+        specifier: 17.1.0
         version: 17.1.0
       prettier:
         specifier: 3.3.3
         version: 3.3.3
       rollup-plugin-visualizer:
-        specifier: ^5.12.0
+        specifier: 5.12.0
         version: 5.12.0(rollup@4.24.0)
       typescript:
         specifier: 5.6.3
@@ -215,9 +212,6 @@ packages:
 
   '@adobe/css-tools@4.4.0':
     resolution: {integrity: sha512-Ff9+ksdQQB3rMncgqDK78uLznstjyfIf2Arnh22pW8kBpLs6rpKDwgnZT46hin5Hl1WzazzK64DOrhSwYpS7bQ==}
-
-  '@altcha/crypto@0.0.1':
-    resolution: {integrity: sha512-qZMdnoD3lAyvfSUMNtC2adRi666Pxdcw9zqfMU5qBOaJWqpN9K+eqQGWqeiKDMqL0SF+EytNG4kR/Pr/99GJ6g==}
 
   '@ampproject/remapping@2.3.0':
     resolution: {integrity: sha512-30iZtAPgz+LTIYoeivqYo853f02jBYSd5uGnGpkFV0M3xOt9aN73erkgYAmZU43x4VfqcnLxW9Kpg3R5LC4YYw==}
@@ -1653,11 +1647,6 @@ packages:
     cpu: [s390x]
     os: [linux]
 
-  '@rollup/rollup-linux-x64-gnu@4.18.0':
-    resolution: {integrity: sha512-xuglR2rBVHA5UsI8h8UbX4VJ470PtGCf5Vpswh7p2ukaqBGFTnsfzxUBetoWBWymHMxbIG0Cmx7Y9qDZzr648w==}
-    cpu: [x64]
-    os: [linux]
-
   '@rollup/rollup-linux-x64-gnu@4.24.0':
     resolution: {integrity: sha512-ZXFk7M72R0YYFN5q13niV0B7G8/5dcQ9JDp8keJSfr3GoZeXEoMHP/HlvqROA3OMbMdfr19IjCeNAnPUG93b6A==}
     cpu: [x64]
@@ -1707,8 +1696,8 @@ packages:
     peerDependencies:
       react: ^18 || ^19
 
-  '@tanstack/react-router@1.70.1':
-    resolution: {integrity: sha512-TojCLM6GgfhWb0VJHNoju9Stg8fHxnGRZegFGQsRm4XtcYTU/u/Hic34ZH7QimaSnvm3fMWmVFp6kb+T37MZqw==}
+  '@tanstack/react-router@1.69.1':
+    resolution: {integrity: sha512-a3yFrLLeJddn9FAKGSREbQdu9bvgMAXOq9WSRL4fWD8Qz0nVuKZ925GlCKkBByUkWdo5WlfhOYtnTTeO+5xCLg==}
     engines: {node: '>=12'}
     peerDependencies:
       '@tanstack/router-generator': 1.69.1
@@ -1724,11 +1713,11 @@ packages:
       react: ^17.0.0 || ^18.0.0
       react-dom: ^17.0.0 || ^18.0.0
 
-  '@tanstack/router-devtools@1.70.1':
-    resolution: {integrity: sha512-vS4q9N3rK8f1BFAGyohLC27N8Zcpd0/bUa5MxDR0/njTamkzesJ/bYM/cMw4WPbC6wydXuxfN34w0npxEG+UNA==}
+  '@tanstack/router-devtools@1.67.0':
+    resolution: {integrity: sha512-20mk4wGX7FAgJNnjsSb2RJH2Z5BMNrxdNX3CT41QMp83S/SXlnRaknxfbfWuoToQtQTHvyWRV0ZYpMIvG5Y6Zg==}
     engines: {node: '>=12'}
     peerDependencies:
-      '@tanstack/react-router': ^1.70.1
+      '@tanstack/react-router': ^1.67.0
       react: '>=18'
       react-dom: '>=18'
 
@@ -2031,9 +2020,6 @@ packages:
 
   ajv@8.17.1:
     resolution: {integrity: sha512-B/gBuNg5SiMTrPkC+A2+cW0RszwxYmn6VYxB/inlBStS5nx6xHIt/ehKRhIMhqusl7a8LjQoZnjCs5vhwxOQ1g==}
-
-  altcha@1.0.5:
-    resolution: {integrity: sha512-+u5nrWaidIReedDtnAU8FPVsOySvFyi/KlPNtYmaWXp/RIiURWhrg3u6YJmCwSoiOoo5D40099pJGC8bJD+Klw==}
 
   ansi-colors@4.1.3:
     resolution: {integrity: sha512-/6w/C21Pm1A7aZitlI5Ni/2J6FFQN8i1Cvz3kHABAAbw93v/NlvKdVOqz7CCWz/3iv/JplRSEEZ83XION15ovw==}
@@ -2763,8 +2749,8 @@ packages:
       typescript:
         optional: true
 
-  eslint-plugin-react-hooks@5.1.0-rc-fb9a90fa48-20240614:
-    resolution: {integrity: sha512-xsiRwaDNF5wWNC4ZHLut+x/YcAxksUd9Rizt7LaEn3bV8VyYRpXnRJQlLOfYaVy9esk4DFP4zPPnoNVjq5Gc0w==}
+  eslint-plugin-react-hooks@5.1.0-rc.0:
+    resolution: {integrity: sha512-xBc+mRT2KSyzKm78GyaOFPyF4EnSRfTSmre88Ak8jG1HnpNGEiHETbCuXih8Xl796DryrJej/8IdW4oQ+m5kPg==}
     engines: {node: '>=10'}
     peerDependencies:
       eslint: ^3.0.0 || ^4.0.0 || ^5.0.0 || ^6.0.0 || ^7.0.0 || ^8.0.0-0 || ^9.0.0
@@ -4844,8 +4830,6 @@ snapshots:
 
   '@adobe/css-tools@4.4.0': {}
 
-  '@altcha/crypto@0.0.1': {}
-
   '@ampproject/remapping@2.3.0':
     dependencies:
       '@jridgewell/gen-mapping': 0.3.5
@@ -6490,9 +6474,6 @@ snapshots:
   '@rollup/rollup-linux-s390x-gnu@4.24.0':
     optional: true
 
-  '@rollup/rollup-linux-x64-gnu@4.18.0':
-    optional: true
-
   '@rollup/rollup-linux-x64-gnu@4.24.0':
     optional: true
 
@@ -6527,7 +6508,7 @@ snapshots:
       '@tanstack/query-core': 5.59.6
       react: 18.3.1
 
-  '@tanstack/react-router@1.70.1(@tanstack/router-generator@1.69.1)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)':
+  '@tanstack/react-router@1.69.1(@tanstack/router-generator@1.69.1)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)':
     dependencies:
       '@tanstack/history': 1.61.1
       '@tanstack/react-store': 0.5.5(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
@@ -6545,9 +6526,9 @@ snapshots:
       react-dom: 18.3.1(react@18.3.1)
       use-sync-external-store: 1.2.2(react@18.3.1)
 
-  '@tanstack/router-devtools@1.70.1(@tanstack/react-router@1.70.1(@tanstack/router-generator@1.69.1)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(csstype@3.1.3)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)':
+  '@tanstack/router-devtools@1.67.0(@tanstack/react-router@1.69.1(@tanstack/router-generator@1.69.1)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(csstype@3.1.3)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)':
     dependencies:
-      '@tanstack/react-router': 1.70.1(@tanstack/router-generator@1.69.1)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
+      '@tanstack/react-router': 1.69.1(@tanstack/router-generator@1.69.1)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       clsx: 2.1.1
       goober: 2.1.16(csstype@3.1.3)
       react: 18.3.1
@@ -6950,12 +6931,6 @@ snapshots:
       fast-uri: 3.0.3
       json-schema-traverse: 1.0.0
       require-from-string: 2.0.2
-
-  altcha@1.0.5:
-    dependencies:
-      '@altcha/crypto': 0.0.1
-    optionalDependencies:
-      '@rollup/rollup-linux-x64-gnu': 4.18.0
 
   ansi-colors@4.1.3: {}
 
@@ -7934,7 +7909,7 @@ snapshots:
     transitivePeerDependencies:
       - supports-color
 
-  eslint-plugin-react-hooks@5.1.0-rc-fb9a90fa48-20240614(eslint@9.12.0(jiti@1.21.6)):
+  eslint-plugin-react-hooks@5.1.0-rc.0(eslint@9.12.0(jiti@1.21.6)):
     dependencies:
       eslint: 9.12.0(jiti@1.21.6)
 
