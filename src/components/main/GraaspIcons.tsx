@@ -1,5 +1,3 @@
-import { Link } from 'react-router-dom';
-
 import { Box, Stack, Typography } from '@mui/material';
 import Grid2 from '@mui/material/Unstable_Grid2/Grid2';
 
@@ -13,6 +11,8 @@ import {
   PlayIcon,
   usePlatformNavigation,
 } from '@graasp/ui';
+
+import { Link } from '@tanstack/react-router';
 
 import { platformsHostsMap } from '@/config/hostMapper';
 import { useEnumsTranslation } from '@/config/i18n';

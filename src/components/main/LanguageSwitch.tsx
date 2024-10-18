@@ -15,7 +15,7 @@ const LanguageSwitch = ({ id, lang, onChange }: Props): JSX.Element => {
     if (newLang) {
       onChange(newLang);
     } else {
-      console.error(`The lang ${event.target.value} is not valid`);
+      console.error('The lang is not valid');
     }
   };
 

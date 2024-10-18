@@ -1,9 +1,8 @@
-import { useLocation, useNavigate } from 'react-router-dom';
-
 import List from '@mui/material/List';
 
 import { DRAWER_WIDTH, MenuItem } from '@graasp/ui';
 
+import { useLocation, useNavigate } from '@tanstack/react-router';
 import {
   CircleUserRoundIcon,
   HardDriveIcon,
@@ -25,7 +24,7 @@ const MainMenu = (): JSX.Element => {
   const { pathname } = useLocation();
 
   const goTo = (path: string) => {
-    push(path);
+    push(path).catch((err) => console.error(err));
   };
 
   return (
