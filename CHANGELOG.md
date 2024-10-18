@@ -1,5 +1,24 @@
 # Changelog
 
+## [2.15.0](https://github.com/graasp/graasp-account/compare/v2.14.1...v2.15.0) (2024-10-18)
+
+
+### Features
+
+* use password status, react hook form ([#364](https://github.com/graasp/graasp-account/issues/364)) ([fa27dfa](https://github.com/graasp/graasp-account/commit/fa27dfa2e2b2bcaab31738921036cfeef5679b81))
+
+
+### Bug Fixes
+
+* add umami events on password actions ([#386](https://github.com/graasp/graasp-account/issues/386)) ([efc1716](https://github.com/graasp/graasp-account/commit/efc171625c3070de1de01eedd72c1db204381c2d))
+* add umami vite plugin ([#382](https://github.com/graasp/graasp-account/issues/382)) ([da90040](https://github.com/graasp/graasp-account/commit/da900403d6f8e11aa92202eab7e09c70f26cef3d))
+* deprecate edit member ([#362](https://github.com/graasp/graasp-account/issues/362)) ([246e230](https://github.com/graasp/graasp-account/commit/246e230b4e80be138fb99a217d4d8c9c0dda752d))
+* **deps:** update dependency lucide-react to ^0.451.0 ([#357](https://github.com/graasp/graasp-account/issues/357)) ([ca8f7f7](https://github.com/graasp/graasp-account/commit/ca8f7f7f1067895f8128973898642550cd7601ac))
+* remove uppy and use custom hook ([#366](https://github.com/graasp/graasp-account/issues/366)) ([c545860](https://github.com/graasp/graasp-account/commit/c5458609e98983a8a99b751f112526b2c5b7f47b))
+* update eslint config ([#377](https://github.com/graasp/graasp-account/issues/377)) ([e1364be](https://github.com/graasp/graasp-account/commit/e1364be46984fbbc703c0af116e9971b4009bc7d))
+* update ts config ([#376](https://github.com/graasp/graasp-account/issues/376)) ([46a30b4](https://github.com/graasp/graasp-account/commit/46a30b492349f65de9df3c0bd07042355f7ef613))
+* use a single CI workflow ([#384](https://github.com/graasp/graasp-account/issues/384)) ([825ab6d](https://github.com/graasp/graasp-account/commit/825ab6d4ff0697ea30cd114cb6a8fadf88c8cbaa))
+
 ## [2.14.1](https://github.com/graasp/graasp-account/compare/v2.14.0...v2.14.1) (2024-10-03)
 
 
