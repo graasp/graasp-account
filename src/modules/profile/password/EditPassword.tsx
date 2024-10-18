@@ -40,7 +40,6 @@ type Inputs = {
 export const getValidationMessage = (
   fieldError?: FieldError,
 ): string | undefined => {
-  console.log(fieldError);
   if (fieldError?.type === 'required') {
     return 'REQUIRED_FIELD_ERROR';
   }
