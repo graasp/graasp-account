@@ -11,21 +11,14 @@
 // Import Routes
 
 import { Route as rootRoute } from './routes/__root'
-import { Route as RegisterImport } from './routes/register'
 import { Route as LoginImport } from './routes/login'
 import { Route as AccountImport } from './routes/account'
-import { Route as IndexImport } from './routes/index'
 import { Route as AccountIndexImport } from './routes/account/index'
 import { Route as EmailChangeImport } from './routes/email.change'
 import { Route as AccountStorageImport } from './routes/account/storage'
 import { Route as AccountSettingsImport } from './routes/account/settings'
 
 // Create/Update Routes
-
-const RegisterRoute = RegisterImport.update({
-  path: '/register',
-  getParentRoute: () => rootRoute,
-} as any)
 
 const LoginRoute = LoginImport.update({
   path: '/login',
@@ -34,11 +27,6 @@ const LoginRoute = LoginImport.update({
 
 const AccountRoute = AccountImport.update({
   path: '/account',
-  getParentRoute: () => rootRoute,
-} as any)
-
-const IndexRoute = IndexImport.update({
-  path: '/',
   getParentRoute: () => rootRoute,
 } as any)
 
@@ -66,13 +54,6 @@ const AccountSettingsRoute = AccountSettingsImport.update({
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
-    '/': {
-      id: '/'
-      path: '/'
-      fullPath: '/'
-      preLoaderRoute: typeof IndexImport
-      parentRoute: typeof rootRoute
-    }
     '/account': {
       id: '/account'
       path: '/account'
@@ -85,13 +66,6 @@ declare module '@tanstack/react-router' {
       path: '/login'
       fullPath: '/login'
       preLoaderRoute: typeof LoginImport
-      parentRoute: typeof rootRoute
-    }
-    '/register': {
-      id: '/register'
-      path: '/register'
-      fullPath: '/register'
-      preLoaderRoute: typeof RegisterImport
       parentRoute: typeof rootRoute
     }
     '/account/settings': {
@@ -143,10 +117,8 @@ const AccountRouteWithChildren =
   AccountRoute._addFileChildren(AccountRouteChildren)
 
 export interface FileRoutesByFullPath {
-  '/': typeof IndexRoute
   '/account': typeof AccountRouteWithChildren
   '/login': typeof LoginRoute
-  '/register': typeof RegisterRoute
   '/account/settings': typeof AccountSettingsRoute
   '/account/storage': typeof AccountStorageRoute
   '/email/change': typeof EmailChangeRoute
@@ -154,9 +126,7 @@ export interface FileRoutesByFullPath {
 }
 
 export interface FileRoutesByTo {
-  '/': typeof IndexRoute
   '/login': typeof LoginRoute
-  '/register': typeof RegisterRoute
   '/account/settings': typeof AccountSettingsRoute
   '/account/storage': typeof AccountStorageRoute
   '/email/change': typeof EmailChangeRoute
@@ -165,10 +135,8 @@ export interface FileRoutesByTo {
 
 export interface FileRoutesById {
   __root__: typeof rootRoute
-  '/': typeof IndexRoute
   '/account': typeof AccountRouteWithChildren
   '/login': typeof LoginRoute
-  '/register': typeof RegisterRoute
   '/account/settings': typeof AccountSettingsRoute
   '/account/storage': typeof AccountStorageRoute
   '/email/change': typeof EmailChangeRoute
@@ -178,29 +146,23 @@ export interface FileRoutesById {
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
   fullPaths:
-    | '/'
     | '/account'
     | '/login'
-    | '/register'
     | '/account/settings'
     | '/account/storage'
     | '/email/change'
     | '/account/'
   fileRoutesByTo: FileRoutesByTo
   to:
-    | '/'
     | '/login'
-    | '/register'
     | '/account/settings'
     | '/account/storage'
     | '/email/change'
     | '/account'
   id:
     | '__root__'
-    | '/'
     | '/account'
     | '/login'
-    | '/register'
     | '/account/settings'
     | '/account/storage'
     | '/email/change'
@@ -209,18 +171,14 @@ export interface FileRouteTypes {
 }
 
 export interface RootRouteChildren {
-  IndexRoute: typeof IndexRoute
   AccountRoute: typeof AccountRouteWithChildren
   LoginRoute: typeof LoginRoute
-  RegisterRoute: typeof RegisterRoute
   EmailChangeRoute: typeof EmailChangeRoute
 }
 
 const rootRouteChildren: RootRouteChildren = {
-  IndexRoute: IndexRoute,
   AccountRoute: AccountRouteWithChildren,
   LoginRoute: LoginRoute,
-  RegisterRoute: RegisterRoute,
   EmailChangeRoute: EmailChangeRoute,
 }
 
@@ -236,15 +194,10 @@ export const routeTree = rootRoute
     "__root__": {
       "filePath": "__root.tsx",
       "children": [
-        "/",
         "/account",
         "/login",
-        "/register",
         "/email/change"
       ]
-    },
-    "/": {
-      "filePath": "index.tsx"
     },
     "/account": {
       "filePath": "account.tsx",
@@ -256,9 +209,6 @@ export const routeTree = rootRoute
     },
     "/login": {
       "filePath": "login.tsx"
-    },
-    "/register": {
-      "filePath": "register.tsx"
     },
     "/account/settings": {
       "filePath": "account/settings.tsx",

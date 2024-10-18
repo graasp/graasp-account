@@ -1,5 +1,9 @@
 import * as React from 'react';
 
+import { getCurrentAccountLang } from '@graasp/sdk';
+import { DEFAULT_LANG } from '@graasp/translations';
+import { CustomInitialLoader } from '@graasp/ui';
+
 import { hooks, mutations } from './config/queryClient';
 
 type LoginInput = {
@@ -7,10 +11,18 @@ type LoginInput = {
   captcha: string;
   url?: string;
 };
+
+/**
+ * Auth context used inside the router to know if the user is logged in
+ */
 export type AuthContextType =
   | {
       isAuthenticated: true;
-      user: { name: string; id: string };
+      user: {
+        name: string;
+        id: string;
+        lang: string;
+      };
       logout: () => Promise<void>;
       login: null;
     }
@@ -28,7 +40,7 @@ export function AuthProvider({
 }: {
   children: React.ReactNode;
 }): React.JSX.Element {
-  const useCurrentMember = hooks.useCurrentMember();
+  const { data: currentMember, isPending } = hooks.useCurrentMember();
 
   const useLogin = mutations.useSignIn();
   const useLogout = mutations.useSignOut();
@@ -44,12 +56,20 @@ export function AuthProvider({
     [useLogin],
   );
 
-  const value = useCurrentMember.data
+  // if the query has not resolved yet, we can not render the rest of the tree
+  if (isPending) {
+    return <CustomInitialLoader />;
+  }
+
+  const value = currentMember
     ? {
         isAuthenticated: true as const,
         user: {
-          name: useCurrentMember.data.name,
-          id: useCurrentMember.data.id,
+          name: currentMember.name,
+          id: currentMember.id,
+          lang:
+            // FIX: type of the function should be correctly inferred when the member is not nullable
+            getCurrentAccountLang(currentMember, DEFAULT_LANG) ?? DEFAULT_LANG,
         },
         logout,
         login: null,
@@ -59,6 +79,9 @@ export function AuthProvider({
   return <AuthContext.Provider value={value}>{children}</AuthContext.Provider>;
 }
 
+/**
+ * Auth context accessible via the router to know if the user is logged in
+ */
 export function useAuth(): AuthContextType {
   const context = React.useContext(AuthContext);
   if (!context) {

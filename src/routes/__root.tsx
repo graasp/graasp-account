@@ -2,14 +2,18 @@ import { Stack, Typography } from '@mui/material';
 
 import { DEFAULT_LIGHT_PRIMARY_COLOR, GraaspLogo } from '@graasp/ui';
 
-import { Link, Outlet, createRootRoute } from '@tanstack/react-router';
+import {
+  Link,
+  Outlet,
+  createRootRouteWithContext,
+} from '@tanstack/react-router';
 import { TanStackRouterDevtools } from '@tanstack/router-devtools';
 
-import { useAuth } from '@/auth';
+import { AuthContextType, useAuth } from '@/auth';
 import { LeftHeaderWrapper } from '@/components/header/LeftHeaderWrapper';
 import { ReactQueryDevtools } from '@/config/queryClient';
 
-export const Route = createRootRoute({
+export const Route = createRootRouteWithContext<{ auth: AuthContextType }>()({
   component: RootComponent,
 });
 
@@ -51,7 +55,7 @@ function RootComponent() {
           component={Link}
           to={isAuthenticated ? '/account' : '/'}
           // override link styling
-          sx={{ 'text-decoration': 'none', color: 'inherit' }}
+          sx={{ textDecoration: 'none', color: 'inherit' }}
           gap={1}
         >
           <GraaspLogo height={44} />
