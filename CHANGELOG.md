@@ -1,5 +1,13 @@
 # Changelog
 
+## [2.15.1](https://github.com/graasp/graasp-account/compare/v2.15.0...v2.15.1) (2024-10-18)
+
+
+### Bug Fixes
+
+* update dependencies ([#390](https://github.com/graasp/graasp-account/issues/390)) ([2a11316](https://github.com/graasp/graasp-account/commit/2a11316f8318e091a4b4642b6bb39bab0659af05))
+* use package.json defined node version in ci ([#388](https://github.com/graasp/graasp-account/issues/388)) ([687f042](https://github.com/graasp/graasp-account/commit/687f042173ab199fc11fa72df394e9ef27c7cadd))
+
 ## [2.15.0](https://github.com/graasp/graasp-account/compare/v2.14.1...v2.15.0) (2024-10-18)
 
 
