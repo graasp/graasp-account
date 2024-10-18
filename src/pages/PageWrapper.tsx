@@ -1,5 +1,4 @@
 import { ReactNode } from 'react';
-import { Link, Outlet } from 'react-router-dom';
 
 import PersonIcon from '@mui/icons-material/Person';
 import { Box, styled, useTheme } from '@mui/material';
@@ -13,6 +12,8 @@ import {
   useMobileView,
   usePlatformNavigation,
 } from '@graasp/ui';
+
+import { Link, Outlet } from '@tanstack/react-router';
 
 import UserSwitchWrapper from '@/components/common/UserSwitchWrapper';
 import MainMenu from '@/components/main/MainMenu';
