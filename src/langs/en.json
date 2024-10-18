@@ -43,7 +43,6 @@
   "PASSWORD_SETTINGS_INFORMATION_NEW_PASSWORD": "Add a password by clicking on the 'Configure' button",
   "PASSWORD_SETTINGS_TITLE": "Password settings",
   "PASSWORD_SETTINGS_CURRENT_LABEL": "Current Password",
-  "PASSWORD_SETTINGS_CURRENT_INFORMATION": "Leave this field empty if you do not already have a password set.",
   "PASSWORD_SETTINGS_NEW_LABEL": "New Password",
   "PASSWORD_SETTINGS_NEW_CONFIRM_LABEL": "Confirm Password",
   "PASSWORD_SETTINGS_CONFIRM_INFORMATION": "Make sure it is at least 8 characters including a number, a lowercase letter and an uppercase letter.",

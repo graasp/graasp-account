@@ -24,7 +24,7 @@ import {
 } from '@/config/selectors';
 import { ACCOUNT } from '@/langs/constants';
 
-import PasswordField from './PasswordField';
+import { PasswordField } from './PasswordField';
 
 type CreatePasswordProps = {
   onClose: () => void;

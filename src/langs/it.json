@@ -42,7 +42,6 @@
   "PASSWORD_SETTINGS_INFORMATION": "Aggiorna la tua password facendo clic sul pulsante \"Modifica\".",
   "PASSWORD_SETTINGS_TITLE": "Cambiare la Password",
   "PASSWORD_SETTINGS_CURRENT_LABEL": "Password attuale",
-  "PASSWORD_SETTINGS_CURRENT_INFORMATION": "Lascia vuoto questo campo se non hai già impostato una password.",
   "PASSWORD_SETTINGS_NEW_LABEL": "Nuova Password",
   "PASSWORD_SETTINGS_NEW_CONFIRM_LABEL": "Conferma Password",
   "PASSWORD_SETTINGS_CONFIRM_INFORMATION": "Assicurati che contenga almeno 8 caratteri inclusi un numero, una lettera minuscola e una lettera maiuscola.",
