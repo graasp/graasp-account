@@ -16,10 +16,9 @@ const config = ({ mode }: { mode: string }): UserConfigExport => {
     ...loadEnv(mode, process.cwd()),
   };
 
-  const { VITE_PORT, BROWSER, UMAMI_WEBSITE_ID } = process.env;
+  const { VITE_PORT, BROWSER, VITE_UMAMI_WEBSITE_ID } = process.env;
   // compute the port to use
   const PORT = parseInt(VITE_PORT || '3114', 10);
-
   // compute whether we should open the browser
   // this defines if we should automatically open the browser
   const shouldOpen = BROWSER && BROWSER !== 'none';
@@ -53,21 +52,23 @@ const config = ({ mode }: { mode: string }): UserConfigExport => {
             },
             overlay: { initialIsOpen: false },
           })
-        : undefined,
+        : istanbul({
+            include: 'src/*',
+            exclude: ['node_modules', 'test/', '.nyc_output', 'coverage'],
+            extension: ['.js', '.ts', '.tsx'],
+            requireEnv: false,
+            // forces to instrument code also in production build only if the mode is test
+            // this is useful when we want to build and preview in CI to have faster and more stable tests
+            forceBuildInstrument: mode === 'test',
+            checkProd: true,
+          }),
       react(),
-      istanbul({
-        include: 'src/*',
-        exclude: ['node_modules', 'test/', '.nyc_output', 'coverage'],
-        extension: ['.js', '.ts', '.tsx'],
-        requireEnv: false,
-        // forces to instrument code also in production build only if the mode is test
-        // this is useful when we want to build and preview in CI to have faster and more stable tests
-        forceBuildInstrument: mode === 'test',
-        checkProd: true,
-      }),
       // only include umami script when the WEBSITE_ID is set
-      UMAMI_WEBSITE_ID
-        ? umamiPlugin({ websiteId: UMAMI_WEBSITE_ID })
+      VITE_UMAMI_WEBSITE_ID
+        ? umamiPlugin({
+            websiteId: VITE_UMAMI_WEBSITE_ID,
+            enableInDevMode: true,
+          })
         : undefined,
     ],
     resolve: {

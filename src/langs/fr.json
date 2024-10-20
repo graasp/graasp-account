@@ -43,7 +43,6 @@
   "PASSWORD_SETTINGS_INFORMATION_NEW_PASSWORD": "Définir un mot de passe en cliquant sur le bouton 'Configurer'",
   "PASSWORD_SETTINGS_TITLE": "Paramètres du mot de passe",
   "PASSWORD_SETTINGS_CURRENT_LABEL": "Mot de passe actuel",
-  "PASSWORD_SETTINGS_CURRENT_INFORMATION": "Laissez le champ vide si vous n'avez pas précédemment défini de mot de passe.",
   "PASSWORD_SETTINGS_NEW_LABEL": "Nouveau mot de passe",
   "PASSWORD_SETTINGS_NEW_CONFIRM_LABEL": "Confirmer le mot de passe",
   "PASSWORD_SETTINGS_CONFIRM_INFORMATION": "Le mot de passe doit au moins contenir 8 caractères dont un chiffre, une lettre minuscule et une lettre majuscule.",

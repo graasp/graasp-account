@@ -42,7 +42,6 @@
   "PASSWORD_SETTINGS_INFORMATION": "Aktualisieren Sie Ihr Passwort, indem Sie auf die Schaltfläche „Bearbeiten“ klicken.",
   "PASSWORD_SETTINGS_TITLE": "Passwort ändern",
   "PASSWORD_SETTINGS_CURRENT_LABEL": "Aktuelles Passwort",
-  "PASSWORD_SETTINGS_CURRENT_INFORMATION": "Lassen Sie dieses Feld leer, wenn Sie noch kein Passwort festgelegt haben.",
   "PASSWORD_SETTINGS_NEW_LABEL": "Neues Passwort",
   "PASSWORD_SETTINGS_NEW_CONFIRM_LABEL": "Passwort bestätigen",
   "PASSWORD_SETTINGS_CONFIRM_INFORMATION": "Er muss aus mindestens 8 Zeichen bestehen, darunter eine Zahl, ein Kleinbuchstabe und ein Großbuchstabe.",
