@@ -18,8 +18,6 @@ import { GRAASP_BUILDER_HOST } from './config/env';
 import { QueryClientProvider, queryClient } from './config/queryClient';
 import { routeTree } from './routeTree.gen';
 
-// import * as serviceWorker from './serviceWorker';
-
 ClientHostManager.getInstance()
   .addPrefix(Context.Builder, BUILDER_ITEMS_PREFIX)
   .addHost(Context.Builder, new URL(GRAASP_BUILDER_HOST));
@@ -42,7 +40,7 @@ declare module '@tanstack/react-router' {
 
 function InnerApp() {
   const auth = useAuth();
-  console.log('auth', auth);
+
   return <RouterProvider router={router} context={{ auth }} />;
 }
 
@@ -72,8 +70,3 @@ if (!rootElement.innerHTML) {
     </React.StrictMode>,
   );
 }
-
-// If you want your app to work offline and load faster, you can change
-// unregister() to register() below. Note this comes with some pitfalls.
-// Learn more about service workers: https://bit.ly/CRA-PWA
-// serviceWorker.unregister();

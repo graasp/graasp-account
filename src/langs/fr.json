@@ -70,7 +70,7 @@
   "POST_PROFILE": "Le profil public a été créé avec succès",
   "DELETE_ACCOUNT_DETAILS": "La suppression de votre compte supprimera définitivement toutes vos données, ce qui ne pourra pas être annulé.",
   "GO_TO_MANAGE_ACCOUNT_PAGE": "Poursuivre",
-  "GENERAL_PAGE_WELCOME_TEXT": "Bienvenue",
+  "GENERAL_PAGE_WELCOME_TEXT": "Bienvenue {{name}}",
   "PROFILE_DELETE_TYPE_CONFIRMATION_TEXT": "Pour confirmer la suppression, tapez \"{{text}}\" ci-dessous :",
   "DELETE_CONFIRMATION_VALUE": "supprimer",
   "DESTRUCTIVE_SETTINGS_DETAILS": "Veuillez noter que les opérations décrites ici ont des conséquences potentiellement irréversibles. Assurez-vous d’examiner attentivement toutes les restrictions avant de continuer avant de continuer.",

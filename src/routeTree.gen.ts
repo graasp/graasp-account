@@ -13,6 +13,7 @@
 import { Route as rootRoute } from './routes/__root'
 import { Route as LoginImport } from './routes/login'
 import { Route as AccountImport } from './routes/account'
+import { Route as IndexImport } from './routes/index'
 import { Route as AccountIndexImport } from './routes/account/index'
 import { Route as EmailChangeImport } from './routes/email.change'
 import { Route as AccountStorageImport } from './routes/account/storage'
@@ -27,6 +28,11 @@ const LoginRoute = LoginImport.update({
 
 const AccountRoute = AccountImport.update({
   path: '/account',
+  getParentRoute: () => rootRoute,
+} as any)
+
+const IndexRoute = IndexImport.update({
+  path: '/',
   getParentRoute: () => rootRoute,
 } as any)
 
@@ -54,6 +60,13 @@ const AccountSettingsRoute = AccountSettingsImport.update({
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
+    '/': {
+      id: '/'
+      path: '/'
+      fullPath: '/'
+      preLoaderRoute: typeof IndexImport
+      parentRoute: typeof rootRoute
+    }
     '/account': {
       id: '/account'
       path: '/account'
@@ -117,6 +130,7 @@ const AccountRouteWithChildren =
   AccountRoute._addFileChildren(AccountRouteChildren)
 
 export interface FileRoutesByFullPath {
+  '/': typeof IndexRoute
   '/account': typeof AccountRouteWithChildren
   '/login': typeof LoginRoute
   '/account/settings': typeof AccountSettingsRoute
@@ -126,6 +140,7 @@ export interface FileRoutesByFullPath {
 }
 
 export interface FileRoutesByTo {
+  '/': typeof IndexRoute
   '/login': typeof LoginRoute
   '/account/settings': typeof AccountSettingsRoute
   '/account/storage': typeof AccountStorageRoute
@@ -135,6 +150,7 @@ export interface FileRoutesByTo {
 
 export interface FileRoutesById {
   __root__: typeof rootRoute
+  '/': typeof IndexRoute
   '/account': typeof AccountRouteWithChildren
   '/login': typeof LoginRoute
   '/account/settings': typeof AccountSettingsRoute
@@ -146,6 +162,7 @@ export interface FileRoutesById {
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
   fullPaths:
+    | '/'
     | '/account'
     | '/login'
     | '/account/settings'
@@ -154,6 +171,7 @@ export interface FileRouteTypes {
     | '/account/'
   fileRoutesByTo: FileRoutesByTo
   to:
+    | '/'
     | '/login'
     | '/account/settings'
     | '/account/storage'
@@ -161,6 +179,7 @@ export interface FileRouteTypes {
     | '/account'
   id:
     | '__root__'
+    | '/'
     | '/account'
     | '/login'
     | '/account/settings'
@@ -171,12 +190,14 @@ export interface FileRouteTypes {
 }
 
 export interface RootRouteChildren {
+  IndexRoute: typeof IndexRoute
   AccountRoute: typeof AccountRouteWithChildren
   LoginRoute: typeof LoginRoute
   EmailChangeRoute: typeof EmailChangeRoute
 }
 
 const rootRouteChildren: RootRouteChildren = {
+  IndexRoute: IndexRoute,
   AccountRoute: AccountRouteWithChildren,
   LoginRoute: LoginRoute,
   EmailChangeRoute: EmailChangeRoute,
@@ -194,10 +215,14 @@ export const routeTree = rootRoute
     "__root__": {
       "filePath": "__root.tsx",
       "children": [
+        "/",
         "/account",
         "/login",
         "/email/change"
       ]
+    },
+    "/": {
+      "filePath": "index.tsx"
     },
     "/account": {
       "filePath": "account.tsx",

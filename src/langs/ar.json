@@ -69,7 +69,7 @@
   "POST_PROFILE": "تم إنشاء الملف الشخصي العام بنجاح",
   "DELETE_ACCOUNT_DETAILS": "سيؤدي حذف حسابك إلى حذف جميع بياناتك نهائيًا، وهو أمر لا يمكن التراجع عنه.",
   "GO_TO_MANAGE_ACCOUNT_PAGE": "يكمل",
-  "GENERAL_PAGE_WELCOME_TEXT": "مرحباً",
+  "GENERAL_PAGE_WELCOME_TEXT": "{{name}} مرحباً",
   "PROFILE_DELETE_TYPE_CONFIRMATION_TEXT": "لتأكيد الحذف، اكتب \"{{text}}\" أدناه:",
   "DELETE_CONFIRMATION_VALUE": "يمسح",
   "DESTRUCTIVE_SETTINGS_DETAILS": "يرجى العلم أن الإجراءات الموضحة هنا قد يكون لها عواقب لا رجعة فيها. تأكد من مراجعة أي قيود بدقة قبل المتابعة، ولا تتخذ الإجراء إلا بعد التأكد.",

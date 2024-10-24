@@ -1,16 +1,6 @@
 import { EmailFrequency } from '@graasp/sdk';
 
-export const APP_NAME = 'Graasp';
-
-export const DEFAULT_LOCALE = 'en-US';
-
-export const GRAASP_LOGO_HEADER_HEIGHT = 40;
-export const HEADER_HEIGHT = 64;
-
-export const LEFT_MENU_WIDTH = 250;
-
 export const DEFAULT_EMAIL_FREQUENCY = EmailFrequency.Always;
-export const DEFAULT_CURRENCY = 'chf';
 
 export const emailFrequency = {
   [EmailFrequency.Always]: 'ALWAYS_RECEIVE_EMAILS',
@@ -19,12 +9,7 @@ export const emailFrequency = {
   [EmailFrequency.Never]: 'DISABLE_EMAILS',
 };
 
-export const THUMBNAIL_ASPECT = 1;
-export const THUMBNAIL_EXTENSION = 'image/jpeg';
-
-// this is related to the size of the medium thumbnail in the backend.
-export const AVATAR_SIZE = 256;
-export const FILE_UPLOAD_MAX_FILES = 15;
+export const AVATAR_SIZE = 128;
 
 export const ADMIN_CONTACT = 'admin@graasp.org';
 

@@ -1,6 +1,6 @@
 import { ReactNode } from 'react';
 
-import { Container, Divider, Stack, Typography } from '@mui/material';
+import { Divider, Stack, Typography } from '@mui/material';
 
 type ScreenLayoutProps = {
   id?: string;
@@ -12,14 +12,12 @@ const ScreenLayout = ({
   title,
   children,
 }: ScreenLayoutProps): JSX.Element => (
-  <Container maxWidth="lg" id={id}>
-    <Stack spacing={2}>
-      <Typography variant="h2" component="h1">
-        {title}
-      </Typography>
-      <Divider />
-      {children}
-    </Stack>
-  </Container>
+  <Stack spacing={2} id={id}>
+    <Typography variant="h2" component="h1">
+      {title}
+    </Typography>
+    <Divider />
+    {children}
+  </Stack>
 );
 export default ScreenLayout;

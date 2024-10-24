@@ -3,10 +3,9 @@ import {
   Card,
   CardContent,
   CardHeader,
-  Grid,
+  Grid2 as Grid,
   Typography,
 } from '@mui/material';
-import Grid2 from '@mui/material/Unstable_Grid2/Grid2';
 
 import { ImageUp } from 'lucide-react';
 
@@ -27,8 +26,8 @@ const PersonalizationNotificationCard = (): JSX.Element | null => {
     return null;
   }
   return (
-    <Grid2 justifyContent="center" container spacing={2}>
-      <Grid xs={12} md={6} item>
+    <Grid justifyContent="center" container spacing={2}>
+      <Grid size={{ xs: 12, md: 6 }}>
         <Card variant="outlined" id={CARD_TIP_ID}>
           <CardHeader
             title={
@@ -45,7 +44,7 @@ const PersonalizationNotificationCard = (): JSX.Element | null => {
           </CardContent>
         </Card>
       </Grid>
-    </Grid2>
+    </Grid>
   );
 };
 

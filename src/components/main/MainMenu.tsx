@@ -1,57 +1,36 @@
 import List from '@mui/material/List';
 
-import { DRAWER_WIDTH, MenuItem } from '@graasp/ui';
+import { DRAWER_WIDTH } from '@graasp/ui';
 
-import { useLocation, useNavigate } from '@tanstack/react-router';
-import {
-  CircleUserRoundIcon,
-  HardDriveIcon,
-  HouseIcon,
-  SettingsIcon,
-} from 'lucide-react';
+import { HardDriveIcon, HouseIcon, SettingsIcon } from 'lucide-react';
 
 import { useAccountTranslation } from '../../config/i18n';
 import {
-  HOME_PATH,
-  PROFILE_PATH,
-  SETTINGS_PATH,
-  STORAGE_PATH,
+  ACCOUNT_HOME_PATH,
+  ACCOUNT_SETTINGS_PATH,
+  ACCOUNT_STORAGE_PATH,
 } from '../../config/paths';
+import { MainMenuItem } from '../ui/MainMenuItem';
 
 const MainMenu = (): JSX.Element => {
   const { t } = useAccountTranslation();
-  const push = useNavigate();
-  const { pathname } = useLocation();
-
-  const goTo = (path: string) => {
-    push(path).catch((err) => console.error(err));
-  };
 
   return (
     <List sx={{ width: DRAWER_WIDTH }}>
-      <MenuItem
+      <MainMenuItem
+        to={ACCOUNT_HOME_PATH}
         icon={<HouseIcon />}
         text={t('MAIN_MENU_HOME_PAGE')}
-        onClick={() => goTo(HOME_PATH)}
-        selected={pathname === HOME_PATH}
       />
-      <MenuItem
-        icon={<CircleUserRoundIcon />}
-        text={t('MAIN_MENU_PROFILE')}
-        onClick={() => goTo(PROFILE_PATH)}
-        selected={pathname === PROFILE_PATH}
-      />
-      <MenuItem
-        icon={<HardDriveIcon />}
-        text={t('MAIN_MENU_STORAGE')}
-        onClick={() => goTo(STORAGE_PATH)}
-        selected={pathname === STORAGE_PATH}
-      />
-      <MenuItem
+      <MainMenuItem
+        to={ACCOUNT_SETTINGS_PATH}
         icon={<SettingsIcon />}
         text={t('MAIN_MENU_SETTINGS')}
-        onClick={() => goTo(SETTINGS_PATH)}
-        selected={pathname === SETTINGS_PATH}
+      />
+      <MainMenuItem
+        to={ACCOUNT_STORAGE_PATH}
+        icon={<HardDriveIcon />}
+        text={t('MAIN_MENU_STORAGE')}
       />
     </List>
   );

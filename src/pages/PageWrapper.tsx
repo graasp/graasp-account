@@ -1,7 +1,7 @@
 import { ReactNode } from 'react';
 
 import PersonIcon from '@mui/icons-material/Person';
-import { Box, styled, useTheme } from '@mui/material';
+import { styled, useTheme } from '@mui/material';
 
 import { Context } from '@graasp/sdk';
 import {
@@ -13,13 +13,13 @@ import {
   usePlatformNavigation,
 } from '@graasp/ui';
 
-import { Link, Outlet } from '@tanstack/react-router';
+import { Link } from '@tanstack/react-router';
 
 import UserSwitchWrapper from '@/components/common/UserSwitchWrapper';
 import MainMenu from '@/components/main/MainMenu';
 import { platformsHostsMap } from '@/config/hostMapper';
 import { useAccountTranslation } from '@/config/i18n';
-import { HOME_PATH } from '@/config/paths';
+import { ACCOUNT_HOME_PATH } from '@/config/paths';
 
 const StyledLink = styled(Link)(() => ({
   textDecoration: 'none',
@@ -29,14 +29,14 @@ const StyledLink = styled(Link)(() => ({
 }));
 
 const LinkComponent = ({ children }: { children: ReactNode }): JSX.Element => (
-  <StyledLink to={HOME_PATH}>{children}</StyledLink>
+  <StyledLink to={ACCOUNT_HOME_PATH}>{children}</StyledLink>
 );
 
 const AccountIcon: PlatformSwitchProps['CustomMobileIcon'] = (props) => (
   <PersonIcon {...props} />
 );
 
-const PageWrapper = (): JSX.Element => {
+const PageWrapper = ({ children }: { children: ReactNode }): JSX.Element => {
   const { t } = useAccountTranslation();
   const theme = useTheme();
   const { isMobile } = useMobileView();
@@ -77,9 +77,7 @@ const PageWrapper = (): JSX.Element => {
       }
       headerRightContent={<UserSwitchWrapper />}
     >
-      <Box p={2} height="100%">
-        <Outlet />
-      </Box>
+      {children}
     </Main>
   );
 };

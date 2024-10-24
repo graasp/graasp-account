@@ -15,7 +15,7 @@ import { HttpStatusCode, isAxiosError } from 'axios';
 import CenteredContainer from '@/components/layout/CenteredContainer';
 import { GRAASP_AUTH_HOST } from '@/config/env';
 import { useAccountTranslation } from '@/config/i18n';
-import { EDIT_MEMBER_INFO } from '@/config/paths';
+import { ACCOUNT_SETTINGS_PATH } from '@/config/paths';
 import { mutations } from '@/config/queryClient';
 import {
   EMAIL_VALIDATION_BUTTON_ID,
@@ -102,7 +102,7 @@ const EmailChangeContent = ({
               <Typography>
                 {translate('EMAIL_UPDATE_UNAUTHORIZED_TEXT_LINK_GENERATION')}
               </Typography>
-              <Button component={Link} to={EDIT_MEMBER_INFO}>
+              <Button component={Link} to={ACCOUNT_SETTINGS_PATH}>
                 {translate(
                   'EMAIL_UPDATE_UNAUTHORIZED_TEXT_LINK_GENERATION_BUTTON',
                 )}
