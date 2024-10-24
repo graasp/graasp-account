@@ -12,8 +12,8 @@ const BAR_HEIGHT = 25;
 
 const StorageBarIndicator = styled('progress')(({ theme }) => ({
   // reset appearance of the progress bar
-  '-webkit-appearance': 'none',
-  '-moz-appearance': 'none',
+  WebkitAppearance: 'none',
+  MozAppearance: 'none',
   appearance: 'none',
   /* Get rid of default border in Firefox. */
   border: 'none',
