@@ -20,7 +20,7 @@ import { Button } from '@graasp/ui';
 import { useAccountTranslation, useCommonTranslation } from '@/config/i18n';
 import { CROP_MODAL_CONFIRM_BUTTON_ID } from '@/config/selectors';
 
-import { THUMBNAIL_ASPECT } from '../../config/constants';
+const THUMBNAIL_ASPECT = 1;
 
 export const MODAL_TITLE_ARIA_LABEL_ID = 'crop-modal-title';
 

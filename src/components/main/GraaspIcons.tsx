@@ -1,7 +1,4 @@
-import { Link } from 'react-router-dom';
-
-import { Box, Stack, Typography } from '@mui/material';
-import Grid2 from '@mui/material/Unstable_Grid2/Grid2';
+import { Box, Grid2 as Grid, Stack, Typography } from '@mui/material';
 
 import { Context } from '@graasp/sdk';
 import {
@@ -13,6 +10,8 @@ import {
   PlayIcon,
   usePlatformNavigation,
 } from '@graasp/ui';
+
+import { Link } from '@tanstack/react-router';
 
 import { platformsHostsMap } from '@/config/hostMapper';
 import { useEnumsTranslation } from '@/config/i18n';
@@ -75,18 +74,18 @@ const GraaspIcons = (): JSX.Element => {
     },
   ];
   return (
-    <Grid2 container spacing={4}>
+    <Grid container spacing={4}>
       {platforms.map((platform) => (
-        <Grid2 xs={6} sm={3} key={platform.text}>
+        <Grid size={{ xs: 6, sm: 3 }} key={platform.text}>
           <PlatformIcon
             color={platform.color}
             text={platform.text}
             href={platform.href}
             icon={platform.icon}
           />
-        </Grid2>
+        </Grid>
       ))}
-    </Grid2>
+    </Grid>
   );
 };
 

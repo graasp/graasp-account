@@ -69,7 +69,7 @@
   "POST_PROFILE": "Öffentliches Profil erfolgreich erstellt",
   "DELETE_ACCOUNT_DETAILS": "Durch das Löschen Ihres Kontos werden alle Ihre Daten dauerhaft gelöscht, was nicht rückgängig gemacht werden kann.",
   "GO_TO_MANAGE_ACCOUNT_PAGE": "Weitermachen",
-  "GENERAL_PAGE_WELCOME_TEXT": "Willkommen",
+  "GENERAL_PAGE_WELCOME_TEXT": "Willkommen {{name}}",
   "PROFILE_DELETE_TYPE_CONFIRMATION_TEXT": "Um den Löschvorgang zu bestätigen, geben Sie unten „{{text}}“ ein:",
   "DELETE_CONFIRMATION_VALUE": "löschen",
   "DESTRUCTIVE_SETTINGS_DETAILS": "Bitte beachten Sie, dass die hier beschriebenen Maßnahmen möglicherweise irreversible Folgen haben. Stellen Sie sicher, dass Sie alle Einschränkungen gründlich prüfen, bevor Sie fortfahren, und ergreifen Sie erst dann Maßnahmen, wenn Sie sicher sind.",

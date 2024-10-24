@@ -69,7 +69,7 @@
   "POST_PROFILE": "Perfil público creado exitosamente",
   "DELETE_ACCOUNT_DETAILS": "Al eliminar tu cuenta, se eliminarán permanentemente todos tus datos, lo cual no se puede deshacer.",
   "GO_TO_MANAGE_ACCOUNT_PAGE": "Continuar",
-  "GENERAL_PAGE_WELCOME_TEXT": "Bienvenido",
+  "GENERAL_PAGE_WELCOME_TEXT": "Bienvenido {{name}}",
   "PROFILE_DELETE_TYPE_CONFIRMATION_TEXT": "Para confirmar la eliminación, escribe \"{{text}}\" a continuación:",
   "DELETE_CONFIRMATION_VALUE": "eliminar",
   "DESTRUCTIVE_SETTINGS_DETAILS": "Ten en cuenta que las acciones descritas aquí tienen consecuencias potencialmente irreversibles. Asegúrate de revisar detenidamente cualquier restricción antes de continuar y solo toma medidas una vez que estés seguro.",

@@ -1,5 +1,3 @@
-import { Link, useSearchParams } from 'react-router-dom';
-
 import {
   Alert,
   AlertTitle,
@@ -11,12 +9,13 @@ import {
 
 import { buildSignInPath } from '@graasp/sdk';
 
+import { Link, createFileRoute } from '@tanstack/react-router';
 import { HttpStatusCode, isAxiosError } from 'axios';
 
 import CenteredContainer from '@/components/layout/CenteredContainer';
 import { GRAASP_AUTH_HOST } from '@/config/env';
 import { useAccountTranslation } from '@/config/i18n';
-import { EDIT_MEMBER_INFO } from '@/config/paths';
+import { ACCOUNT_SETTINGS_PATH } from '@/config/paths';
 import { mutations } from '@/config/queryClient';
 import {
   EMAIL_VALIDATION_BUTTON_ID,
@@ -25,10 +24,37 @@ import {
   EMAIL_VALIDATION_UNAUTHORIZED_MESSAGE_ID,
 } from '@/config/selectors';
 
-const Content = (): JSX.Element => {
-  const [search] = useSearchParams();
-  const jwtToken = search.get('t');
-  const newEmail = search.get('email');
+type EmailChangeSearch = {
+  newEmail: string;
+  jwtToken: string;
+};
+export const Route = createFileRoute('/email/change')({
+  validateSearch: (search: Record<string, unknown>): EmailChangeSearch => {
+    return {
+      newEmail: (search.newEmail as string) || '',
+      jwtToken: (search.t as string) || '',
+    };
+  },
+  component: EmailChangeRoute,
+});
+
+function EmailChangeRoute() {
+  const { newEmail, jwtToken } = Route.useSearch();
+  return (
+    <CenteredContainer>
+      <EmailChangeContent newEmail={newEmail} jwtToken={jwtToken} />
+    </CenteredContainer>
+  );
+}
+
+type EmailChangeContentProps = {
+  newEmail: string;
+  jwtToken: string;
+};
+const EmailChangeContent = ({
+  newEmail,
+  jwtToken,
+}: EmailChangeContentProps): JSX.Element => {
   const { t: translate } = useAccountTranslation();
   const {
     mutate: validateEmail,
@@ -76,7 +102,7 @@ const Content = (): JSX.Element => {
               <Typography>
                 {translate('EMAIL_UPDATE_UNAUTHORIZED_TEXT_LINK_GENERATION')}
               </Typography>
-              <Button component={Link} to={EDIT_MEMBER_INFO}>
+              <Button component={Link} to={ACCOUNT_SETTINGS_PATH}>
                 {translate(
                   'EMAIL_UPDATE_UNAUTHORIZED_TEXT_LINK_GENERATION_BUTTON',
                 )}
@@ -120,10 +146,3 @@ const Content = (): JSX.Element => {
   }
   return <Typography>{translate('EMAIL_UPDATE_MISSING_TOKEN')}</Typography>;
 };
-
-const EmailChangeValidationScreen = (): JSX.Element => (
-  <CenteredContainer>
-    <Content />
-  </CenteredContainer>
-);
-export default EmailChangeValidationScreen;
