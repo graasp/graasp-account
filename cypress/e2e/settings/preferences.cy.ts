@@ -1,7 +1,7 @@
 import { EmailFrequency } from '@graasp/sdk';
 import { langs } from '@graasp/translations';
 
-import { SETTINGS_PATH } from '../../../src/config/paths';
+import { ACCOUNT_SETTINGS_PATH } from '../../../src/config/paths';
 import {
   PREFERENCES_ANALYTICS_SWITCH_ID,
   PREFERENCES_CANCEL_BUTTON_ID,
@@ -30,7 +30,7 @@ describe('Display preferences', () => {
           cy.setUpApi({
             currentMember,
           });
-          cy.visit(SETTINGS_PATH);
+          cy.visit(ACCOUNT_SETTINGS_PATH);
           cy.wait('@getCurrentMember');
 
           // displays the correct member language
@@ -62,7 +62,7 @@ describe('Display preferences', () => {
         cy.setUpApi({
           currentMember,
         });
-        cy.visit(SETTINGS_PATH);
+        cy.visit(ACCOUNT_SETTINGS_PATH);
         cy.wait('@getCurrentMember');
         cy.get(`#${PREFERENCES_EMAIL_FREQUENCY_ID}`).should(
           'contain',
@@ -86,7 +86,7 @@ describe('Display preferences', () => {
         cy.setUpApi({
           currentMember,
         });
-        cy.visit(SETTINGS_PATH);
+        cy.visit(ACCOUNT_SETTINGS_PATH);
         cy.wait('@getCurrentMember');
 
         cy.get(`#${PREFERENCES_ANALYTICS_SWITCH_ID}`).should(
@@ -119,7 +119,7 @@ describe('Edit preferences', () => {
           extra: { ...CURRENT_MEMBER.extra, lang: 'en' },
         },
       });
-      cy.visit(SETTINGS_PATH);
+      cy.visit(ACCOUNT_SETTINGS_PATH);
       cy.wait('@getCurrentMember');
       cy.get(`#${PREFERENCES_EDIT_BUTTON_ID}`).click();
       cy.get(`#${PREFERENCES_EDIT_CONTAINER_ID}`).should('be.visible');
@@ -143,7 +143,7 @@ describe('Edit preferences', () => {
             enableSaveActions,
           },
         });
-        cy.visit(SETTINGS_PATH);
+        cy.visit(ACCOUNT_SETTINGS_PATH);
         cy.wait('@getCurrentMember');
         cy.wait('@getCurrentMemberAvatarUrl');
         cy.get(`#${PREFERENCES_EDIT_BUTTON_ID}`).click();
@@ -180,7 +180,7 @@ describe('Edit preferences', () => {
             },
           },
         });
-        cy.visit(SETTINGS_PATH);
+        cy.visit(ACCOUNT_SETTINGS_PATH);
         cy.wait('@getCurrentMember');
         cy.get(`#${PREFERENCES_EDIT_BUTTON_ID}`).click();
 
@@ -200,7 +200,7 @@ describe('Edit preferences', () => {
       cy.setUpApi({
         currentMember: BOB,
       });
-      cy.visit(SETTINGS_PATH);
+      cy.visit(ACCOUNT_SETTINGS_PATH);
       cy.wait('@getCurrentMember');
       cy.get(`#${PREFERENCES_EDIT_BUTTON_ID}`).click();
     });

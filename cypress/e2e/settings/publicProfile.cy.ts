@@ -1,4 +1,4 @@
-import { PROFILE_PATH } from '../../../src/config/paths';
+import { ACCOUNT_SETTINGS_PATH } from '../../../src/config/paths';
 import {
   PUBLIC_PROFILE_BIO_ID,
   PUBLIC_PROFILE_EDIT_BUTTON_ID,
@@ -29,7 +29,7 @@ describe('Display public profile', () => {
         currentMember: BOB,
         currentProfile: MEMBER_PUBLIC_PROFILE,
       });
-      cy.visit(PROFILE_PATH);
+      cy.visit(ACCOUNT_SETTINGS_PATH);
       cy.wait('@getOwnProfile');
     });
 
@@ -84,7 +84,7 @@ describe('Display public profile', () => {
         currentMember: BOB,
         currentProfile: MEMBER_EMPTY_PUBLIC_PROFILE,
       });
-      cy.visit(PROFILE_PATH);
+      cy.visit(ACCOUNT_SETTINGS_PATH);
       cy.wait('@getOwnProfile');
     });
 
@@ -122,7 +122,7 @@ describe('Edit public profile', () => {
       currentMember: BOB,
       currentProfile: MEMBER_PUBLIC_PROFILE,
     });
-    cy.visit(PROFILE_PATH);
+    cy.visit(ACCOUNT_SETTINGS_PATH);
     cy.wait('@getCurrentMember');
     cy.wait('@getOwnProfile');
     cy.get(`#${PUBLIC_PROFILE_EDIT_BUTTON_ID}`).click();

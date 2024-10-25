@@ -1,7 +1,7 @@
 import { formatDate, formatFileSize } from '@graasp/sdk';
 
 import i18n from '../../src/config/i18n';
-import { STORAGE_PATH } from '../../src/config/paths';
+import { ACCOUNT_STORAGE_PATH } from '../../src/config/paths';
 import {
   MEMBER_STORAGE_FILE_NAME_ID,
   MEMBER_STORAGE_FILE_SIZE_ID,
@@ -19,7 +19,7 @@ describe('Storage', () => {
   it('Display storage interface', () => {
     const storageAmountInBytes = 698789;
     cy.setUpApi({ currentMember: CURRENT_MEMBER, storageAmountInBytes });
-    cy.visit(STORAGE_PATH);
+    cy.visit(ACCOUNT_STORAGE_PATH);
     cy.wait('@getCurrentMemberStorage');
     cy.get(`#${STORAGE_BAR_LABEL_ID}`).should(
       'contain',
@@ -34,7 +34,7 @@ describe('Storage files', () => {
       currentMember: CURRENT_MEMBER,
       files: MEMBER_STORAGE_ITEM_RESPONSE,
     });
-    cy.visit(STORAGE_PATH);
+    cy.visit(ACCOUNT_STORAGE_PATH);
     cy.wait('@getMemberStorageFiles');
   });
 

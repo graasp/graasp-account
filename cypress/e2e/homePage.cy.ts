@@ -4,13 +4,12 @@ import { HttpMethod, formatDate } from '@graasp/sdk';
 import { StatusCodes } from 'http-status-codes';
 
 import i18n from '../../src/config/i18n';
+import { ACCOUNT_HOME_PATH } from '../../src/config/paths';
 import {
   AVATAR_UPLOAD_ICON_ID,
   AVATAR_UPLOAD_INPUT_ID,
   CARD_TIP_ID,
   CROP_MODAL_CONFIRM_BUTTON_ID,
-  LOGIN_REQUIRED_BUTTON_ID,
-  LOGIN_REQUIRED_TEXT_ID,
   MEMBER_AVATAR_IMAGE_ID,
   MEMBER_CREATED_AT_ID,
   MEMBER_USERNAME_DISPLAY_ID,
@@ -20,7 +19,6 @@ import {
   AVATAR_LINK,
   THUMBNAIL_MEDIUM_PATH,
 } from '../fixtures/thumbnails/links';
-import { SIGN_IN_PATH } from '../support/server';
 import { ID_FORMAT, MemberForTest } from '../support/utils';
 
 const { buildGetCurrentMemberRoute, buildUploadAvatarRoute } = API_ROUTES;
@@ -78,7 +76,7 @@ describe('Upload Avatar', () => {
   beforeEach(() => {
     helpers = new TestHelper({ currentMember: BOB });
     helpers.setupServer();
-    cy.visit('/');
+    cy.visit(ACCOUNT_HOME_PATH);
   });
 
   it('Upload a new thumbnail', () => {
@@ -104,7 +102,7 @@ describe('Upload Avatar', () => {
 describe('Image is not set', () => {
   beforeEach(() => {
     cy.setUpApi({ currentMember: BOB });
-    cy.visit('/');
+    cy.visit(ACCOUNT_HOME_PATH);
   });
 
   it('Image is not set', () => {
@@ -122,7 +120,7 @@ describe('Check member info', () => {
     cy.setUpApi({
       currentMember: MEMBER_WITH_AVATAR,
     });
-    cy.visit('/');
+    cy.visit(ACCOUNT_HOME_PATH);
     cy.wait('@getCurrentMember');
   });
 
@@ -144,20 +142,5 @@ describe('Check member info', () => {
       locale: i18n.language,
     });
     cy.get(`#${MEMBER_CREATED_AT_ID}`).should('contain', formattedDate);
-  });
-});
-
-describe('Redirect when not logged in', () => {
-  beforeEach(() => {
-    cy.setUpApi({ currentMember: null });
-    cy.visit('/');
-  });
-
-  it('redirects to the login page when not logged in', () => {
-    cy.wait('@getCurrentMember');
-    cy.get(`#${LOGIN_REQUIRED_TEXT_ID}`).should('be.visible');
-    cy.get(`#${LOGIN_REQUIRED_BUTTON_ID}`).click();
-    cy.wait('@signInRedirection');
-    cy.url().should('contain', `${SIGN_IN_PATH}?url=`);
   });
 });

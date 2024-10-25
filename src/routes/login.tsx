@@ -10,6 +10,10 @@ import { z } from 'zod';
 
 import { GRAASP_AUTH_HOST } from '@/config/env';
 import { useAccountTranslation } from '@/config/i18n';
+import {
+  LOGIN_REQUIRED_BUTTON_ID,
+  LOGIN_REQUIRED_TEXT_ID,
+} from '@/config/selectors';
 import { ACCOUNT } from '@/langs/constants';
 
 const loginSearchSchema = z.object({
@@ -28,8 +32,11 @@ function LoginRoute() {
   return (
     <Stack height="100vh" alignItems="center" justifyContent="center" gap={2}>
       <LockIcon color={color} />
-      <Typography>{t(ACCOUNT.LOGIN_REQUIRED_TEXT)}</Typography>
+      <Typography id={LOGIN_REQUIRED_TEXT_ID}>
+        {t(ACCOUNT.LOGIN_REQUIRED_TEXT)}
+      </Typography>
       <Button
+        id={LOGIN_REQUIRED_BUTTON_ID}
         component="a"
         variant="contained"
         sx={{ textTransform: 'none' }}

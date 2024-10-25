@@ -1,4 +1,4 @@
-import { PROFILE_PATH } from '../../../src/config/paths';
+import { ACCOUNT_SETTINGS_PATH } from '../../../src/config/paths';
 import {
   PERSONAL_INFO_CANCEL_BUTTON_ID,
   PERSONAL_INFO_DISPLAY_CONTAINER_ID,
@@ -22,7 +22,7 @@ describe('Display personal information', () => {
     cy.setUpApi({
       currentMember: BOB,
     });
-    cy.visit(PROFILE_PATH);
+    cy.visit(ACCOUNT_SETTINGS_PATH);
     cy.wait('@getCurrentMember');
     cy.wait('@getOwnProfile');
   });
@@ -42,7 +42,7 @@ describe('Edit personal information', () => {
   describe('Username', () => {
     beforeEach(() => {
       cy.setUpApi({ currentMember: BOB });
-      cy.visit(PROFILE_PATH);
+      cy.visit(ACCOUNT_SETTINGS_PATH);
       cy.get(`#${PERSONAL_INFO_EDIT_BUTTON_ID}`).click();
     });
 
@@ -71,8 +71,11 @@ describe('Edit personal information', () => {
 
       // The save button should be disabled and the helper text should display the message
       cy.get(`#${PERSONAL_INFO_SAVE_BUTTON_ID}`).should('be.disabled');
-      cy.get('[id$=-helper-text]').should('have.text', 'User name must not contain " ", ", <, >, ^, %, \\');
-    })
+      cy.get('[id$=-helper-text]').should(
+        'have.text',
+        'User name must not contain " ", ", <, >, ^, %, \\',
+      );
+    });
 
     it('Valid username can be saved', () => {
       const validUsername = 'validUsername';
@@ -105,7 +108,7 @@ describe('Edit personal information', () => {
   describe('Email', () => {
     beforeEach(() => {
       cy.setUpApi({ currentMember: BOB });
-      cy.visit(PROFILE_PATH);
+      cy.visit(ACCOUNT_SETTINGS_PATH);
       cy.get(`#${PERSONAL_INFO_EDIT_BUTTON_ID}`).click();
     });
 

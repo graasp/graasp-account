@@ -1,4 +1,4 @@
-import { SETTINGS_PATH } from '../../../src/config/paths';
+import { ACCOUNT_SETTINGS_PATH } from '../../../src/config/paths';
 import {
   DELETE_MEMBER_BUTTON_ID,
   DELETE_MEMBER_DIALOG_CONFIRMATION_BUTTON_ID,
@@ -14,10 +14,12 @@ describe('Current Member', () => {
     cy.setUpApi({
       currentMember: CURRENT_MEMBER,
     });
-    cy.visit(SETTINGS_PATH);
+    cy.visit(ACCOUNT_SETTINGS_PATH);
     cy.wait('@getCurrentMember');
 
-    cy.get(`#${DELETE_MEMBER_SECTION_ID}`).should('be.visible');
+    cy.get(`#${DELETE_MEMBER_SECTION_ID}`)
+      .scrollIntoView()
+      .should('be.visible');
     cy.get(`#${DELETE_MEMBER_BUTTON_ID}`).click();
     cy.get(`#${DELETE_MEMBER_DIALOG_TITLE_ID}`).should('be.visible');
     cy.get(`#${DELETE_MEMBER_DIALOG_CONFIRMATION_FIELD_ID}`).type('delete');
@@ -31,7 +33,7 @@ describe('Unauthenticated member', () => {
     cy.setUpApi({
       currentMember: null,
     });
-    cy.visit(SETTINGS_PATH);
+    cy.visit(ACCOUNT_SETTINGS_PATH);
 
     // there is no authenticated user, we expect the login text to be displayed
     cy.get(`#${LOGIN_REQUIRED_TEXT_ID}`).should('be.visible');

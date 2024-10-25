@@ -1,7 +1,7 @@
 import { FAILURE_MESSAGES, namespaces } from '@graasp/translations';
 
 import i18n, { ACCOUNT_NAMESPACE } from '../../../src/config/i18n';
-import { PROFILE_PATH } from '../../../src/config/paths';
+import { ACCOUNT_SETTINGS_PATH } from '../../../src/config/paths';
 import {
   PASSWORD_CREATE_CONTAINER_ID,
   PASSWORD_DISPLAY_CONTAINER_ID,
@@ -49,7 +49,7 @@ describe('Create new password', () => {
       currentMember: BOB,
       hasPassword: false,
     });
-    cy.visit(PROFILE_PATH);
+    cy.visit(ACCOUNT_SETTINGS_PATH);
     cy.wait('@getCurrentMember');
 
     i18n.changeLanguage(BOB.extra.lang);
@@ -140,7 +140,7 @@ describe('Create new password - network error', () => {
       hasPassword: false,
       createPasswordError: true,
     });
-    cy.visit(PROFILE_PATH);
+    cy.visit(ACCOUNT_SETTINGS_PATH);
     cy.wait('@getCurrentMember');
 
     i18n.changeLanguage(BOB.extra.lang);
@@ -170,7 +170,7 @@ describe('Update password', () => {
       currentMember: BOB,
       hasPassword: true,
     });
-    cy.visit(PROFILE_PATH);
+    cy.visit(ACCOUNT_SETTINGS_PATH);
     cy.wait('@getCurrentMember');
 
     i18n.changeLanguage(BOB.extra.lang);
@@ -288,7 +288,7 @@ describe('Update password - network error', () => {
       hasPassword: true,
       updatePasswordError: true,
     });
-    cy.visit(PROFILE_PATH);
+    cy.visit(ACCOUNT_SETTINGS_PATH);
     cy.wait('@getCurrentMember');
 
     i18n.changeLanguage(BOB.extra.lang);
