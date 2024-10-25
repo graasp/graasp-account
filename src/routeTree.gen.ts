@@ -22,36 +22,43 @@ import { Route as AccountSettingsImport } from './routes/account/settings'
 // Create/Update Routes
 
 const LoginRoute = LoginImport.update({
+  id: '/login',
   path: '/login',
   getParentRoute: () => rootRoute,
 } as any)
 
 const AccountRoute = AccountImport.update({
+  id: '/account',
   path: '/account',
   getParentRoute: () => rootRoute,
 } as any)
 
 const IndexRoute = IndexImport.update({
+  id: '/',
   path: '/',
   getParentRoute: () => rootRoute,
 } as any)
 
 const AccountIndexRoute = AccountIndexImport.update({
+  id: '/',
   path: '/',
   getParentRoute: () => AccountRoute,
 } as any)
 
 const EmailChangeRoute = EmailChangeImport.update({
+  id: '/email/change',
   path: '/email/change',
   getParentRoute: () => rootRoute,
 } as any)
 
 const AccountStorageRoute = AccountStorageImport.update({
+  id: '/storage',
   path: '/storage',
   getParentRoute: () => AccountRoute,
 } as any)
 
 const AccountSettingsRoute = AccountSettingsImport.update({
+  id: '/settings',
   path: '/settings',
   getParentRoute: () => AccountRoute,
 } as any)

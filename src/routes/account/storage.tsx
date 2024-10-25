@@ -1,21 +1,21 @@
-import { Trans } from 'react-i18next'
+import { Trans } from 'react-i18next';
 
-import { Alert, Stack, Typography } from '@mui/material'
+import { Alert, Stack, Typography } from '@mui/material';
 
-import { createFileRoute } from '@tanstack/react-router'
+import { createFileRoute } from '@tanstack/react-router';
 
-import { StorageFiles } from '@/components/StorageFiles'
-import { StorageBar } from '@/components/account/StorageBar'
-import ScreenLayout from '@/components/layout/ScreenLayout'
-import { ADMIN_CONTACT } from '@/config/constants'
-import { useAccountTranslation } from '@/config/i18n'
+import { StorageFiles } from '@/components/StorageFiles';
+import { StorageBar } from '@/components/account/StorageBar';
+import ScreenLayout from '@/components/layout/ScreenLayout';
+import { ADMIN_CONTACT } from '@/config/constants';
+import { useAccountTranslation } from '@/config/i18n';
 
 export const Route = createFileRoute('/account/storage')({
   component: StorageRoute,
-})
+});
 
 function StorageRoute(): JSX.Element {
-  const { t } = useAccountTranslation()
+  const { t } = useAccountTranslation();
 
   return (
     <ScreenLayout title={t('STORAGE_TITLE')}>
@@ -39,5 +39,5 @@ function StorageRoute(): JSX.Element {
       <StorageBar />
       <StorageFiles />
     </ScreenLayout>
-  )
+  );
 }
