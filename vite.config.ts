@@ -34,6 +34,18 @@ const config = ({ mode }: { mode: string }): UserConfigExport => {
       watch: {
         ignored: ['**/coverage/**', '**/cypress/downloads/**'],
       },
+      proxy: {
+        '/api': {
+          target: 'http://localhost:3000',
+          changeOrigin: true,
+          rewrite: (path) => path.replace(/^\/api/, ''),
+        },
+        '/metrics': {
+          target: 'http://localhost:8000',
+          changeOrigin: true,
+          rewrite: (path) => path.replace(/^\/metrics/, ''),
+        },
+      },
     },
     preview: {
       port: PORT,
