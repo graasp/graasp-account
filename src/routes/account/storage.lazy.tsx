@@ -2,7 +2,7 @@ import { Trans } from 'react-i18next';
 
 import { Alert, Stack, Typography } from '@mui/material';
 
-import { createFileRoute } from '@tanstack/react-router';
+import { createLazyFileRoute } from '@tanstack/react-router';
 
 import { StorageFiles } from '@/components/StorageFiles';
 import { StorageBar } from '@/components/account/StorageBar';
@@ -11,7 +11,7 @@ import { ADMIN_CONTACT } from '@/config/constants';
 import { useAccountTranslation } from '@/config/i18n';
 import { ACCOUNT } from '@/langs/constants';
 
-export const Route = createFileRoute('/account/storage')({
+export const Route = createLazyFileRoute('/account/storage')({
   component: StorageRoute,
 });
 

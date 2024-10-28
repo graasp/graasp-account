@@ -8,16 +8,21 @@
 // You should NOT make any changes in this file as it will be overwritten.
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
+import { createFileRoute } from '@tanstack/react-router'
+
 // Import Routes
 
 import { Route as rootRoute } from './routes/__root'
 import { Route as LoginImport } from './routes/login'
 import { Route as AccountImport } from './routes/account'
-import { Route as IndexImport } from './routes/index'
 import { Route as AccountIndexImport } from './routes/account/index'
 import { Route as EmailChangeImport } from './routes/email.change'
-import { Route as AccountStorageImport } from './routes/account/storage'
 import { Route as AccountSettingsImport } from './routes/account/settings'
+
+// Create Virtual Routes
+
+const IndexLazyImport = createFileRoute('/')()
+const AccountStorageLazyImport = createFileRoute('/account/storage')()
 
 // Create/Update Routes
 
@@ -25,7 +30,7 @@ const LoginRoute = LoginImport.update({
   id: '/login',
   path: '/login',
   getParentRoute: () => rootRoute,
-} as any)
+} as any).lazy(() => import('./routes/login.lazy').then((d) => d.Route))
 
 const AccountRoute = AccountImport.update({
   id: '/account',
@@ -33,11 +38,11 @@ const AccountRoute = AccountImport.update({
   getParentRoute: () => rootRoute,
 } as any)
 
-const IndexRoute = IndexImport.update({
+const IndexLazyRoute = IndexLazyImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => rootRoute,
-} as any)
+} as any).lazy(() => import('./routes/index.lazy').then((d) => d.Route))
 
 const AccountIndexRoute = AccountIndexImport.update({
   id: '/',
@@ -45,16 +50,18 @@ const AccountIndexRoute = AccountIndexImport.update({
   getParentRoute: () => AccountRoute,
 } as any)
 
+const AccountStorageLazyRoute = AccountStorageLazyImport.update({
+  id: '/storage',
+  path: '/storage',
+  getParentRoute: () => AccountRoute,
+} as any).lazy(() =>
+  import('./routes/account/storage.lazy').then((d) => d.Route),
+)
+
 const EmailChangeRoute = EmailChangeImport.update({
   id: '/email/change',
   path: '/email/change',
   getParentRoute: () => rootRoute,
-} as any)
-
-const AccountStorageRoute = AccountStorageImport.update({
-  id: '/storage',
-  path: '/storage',
-  getParentRoute: () => AccountRoute,
 } as any)
 
 const AccountSettingsRoute = AccountSettingsImport.update({
@@ -71,7 +78,7 @@ declare module '@tanstack/react-router' {
       id: '/'
       path: '/'
       fullPath: '/'
-      preLoaderRoute: typeof IndexImport
+      preLoaderRoute: typeof IndexLazyImport
       parentRoute: typeof rootRoute
     }
     '/account': {
@@ -95,19 +102,19 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AccountSettingsImport
       parentRoute: typeof AccountImport
     }
-    '/account/storage': {
-      id: '/account/storage'
-      path: '/storage'
-      fullPath: '/account/storage'
-      preLoaderRoute: typeof AccountStorageImport
-      parentRoute: typeof AccountImport
-    }
     '/email/change': {
       id: '/email/change'
       path: '/email/change'
       fullPath: '/email/change'
       preLoaderRoute: typeof EmailChangeImport
       parentRoute: typeof rootRoute
+    }
+    '/account/storage': {
+      id: '/account/storage'
+      path: '/storage'
+      fullPath: '/account/storage'
+      preLoaderRoute: typeof AccountStorageLazyImport
+      parentRoute: typeof AccountImport
     }
     '/account/': {
       id: '/account/'
@@ -123,13 +130,13 @@ declare module '@tanstack/react-router' {
 
 interface AccountRouteChildren {
   AccountSettingsRoute: typeof AccountSettingsRoute
-  AccountStorageRoute: typeof AccountStorageRoute
+  AccountStorageLazyRoute: typeof AccountStorageLazyRoute
   AccountIndexRoute: typeof AccountIndexRoute
 }
 
 const AccountRouteChildren: AccountRouteChildren = {
   AccountSettingsRoute: AccountSettingsRoute,
-  AccountStorageRoute: AccountStorageRoute,
+  AccountStorageLazyRoute: AccountStorageLazyRoute,
   AccountIndexRoute: AccountIndexRoute,
 }
 
@@ -137,32 +144,32 @@ const AccountRouteWithChildren =
   AccountRoute._addFileChildren(AccountRouteChildren)
 
 export interface FileRoutesByFullPath {
-  '/': typeof IndexRoute
+  '/': typeof IndexLazyRoute
   '/account': typeof AccountRouteWithChildren
   '/login': typeof LoginRoute
   '/account/settings': typeof AccountSettingsRoute
-  '/account/storage': typeof AccountStorageRoute
   '/email/change': typeof EmailChangeRoute
+  '/account/storage': typeof AccountStorageLazyRoute
   '/account/': typeof AccountIndexRoute
 }
 
 export interface FileRoutesByTo {
-  '/': typeof IndexRoute
+  '/': typeof IndexLazyRoute
   '/login': typeof LoginRoute
   '/account/settings': typeof AccountSettingsRoute
-  '/account/storage': typeof AccountStorageRoute
   '/email/change': typeof EmailChangeRoute
+  '/account/storage': typeof AccountStorageLazyRoute
   '/account': typeof AccountIndexRoute
 }
 
 export interface FileRoutesById {
   __root__: typeof rootRoute
-  '/': typeof IndexRoute
+  '/': typeof IndexLazyRoute
   '/account': typeof AccountRouteWithChildren
   '/login': typeof LoginRoute
   '/account/settings': typeof AccountSettingsRoute
-  '/account/storage': typeof AccountStorageRoute
   '/email/change': typeof EmailChangeRoute
+  '/account/storage': typeof AccountStorageLazyRoute
   '/account/': typeof AccountIndexRoute
 }
 
@@ -173,16 +180,16 @@ export interface FileRouteTypes {
     | '/account'
     | '/login'
     | '/account/settings'
-    | '/account/storage'
     | '/email/change'
+    | '/account/storage'
     | '/account/'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
     | '/login'
     | '/account/settings'
-    | '/account/storage'
     | '/email/change'
+    | '/account/storage'
     | '/account'
   id:
     | '__root__'
@@ -190,21 +197,21 @@ export interface FileRouteTypes {
     | '/account'
     | '/login'
     | '/account/settings'
-    | '/account/storage'
     | '/email/change'
+    | '/account/storage'
     | '/account/'
   fileRoutesById: FileRoutesById
 }
 
 export interface RootRouteChildren {
-  IndexRoute: typeof IndexRoute
+  IndexLazyRoute: typeof IndexLazyRoute
   AccountRoute: typeof AccountRouteWithChildren
   LoginRoute: typeof LoginRoute
   EmailChangeRoute: typeof EmailChangeRoute
 }
 
 const rootRouteChildren: RootRouteChildren = {
-  IndexRoute: IndexRoute,
+  IndexLazyRoute: IndexLazyRoute,
   AccountRoute: AccountRouteWithChildren,
   LoginRoute: LoginRoute,
   EmailChangeRoute: EmailChangeRoute,
@@ -227,7 +234,7 @@ export const routeTree = rootRoute
       ]
     },
     "/": {
-      "filePath": "index.tsx"
+      "filePath": "index.lazy.tsx"
     },
     "/account": {
       "filePath": "account.tsx",
@@ -244,12 +251,12 @@ export const routeTree = rootRoute
       "filePath": "account/settings.tsx",
       "parent": "/account"
     },
-    "/account/storage": {
-      "filePath": "account/storage.tsx",
-      "parent": "/account"
-    },
     "/email/change": {
       "filePath": "email.change.tsx"
+    },
+    "/account/storage": {
+      "filePath": "account/storage.lazy.tsx",
+      "parent": "/account"
     },
     "/account/": {
       "filePath": "account/index.tsx",
