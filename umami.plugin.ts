@@ -15,7 +15,10 @@ export interface UmamiPluginOptions {
    * @default "https://cloud.umami.is"
    */
   host?: string;
-
+  /**
+   * Path to prepend to the script invocation
+   */
+  path?: string;
   /**
    * Whether to inject the script in development mode.
    *

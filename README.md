@@ -12,5 +12,6 @@ VITE_GRAASP_API_HOST=http://localhost:3000
 VITE_GRAASP_AUTH_HOST=http://localhost:3001
 VITE_SHOW_NOTIFICATIONS=true
 
-UMAMI_WEBSITE_ID=<the id of your umami project>
+VITE_UMAMI_WEBSITE_ID=<the id of your umami project>
+VITE_UMAMI_HOST=http://localhost:8000
 ```
