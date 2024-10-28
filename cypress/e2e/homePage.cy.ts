@@ -1,6 +1,7 @@
 import { API_ROUTES } from '@graasp/query-client';
-import { HttpMethod, formatDate } from '@graasp/sdk';
+import { HttpMethod } from '@graasp/sdk';
 
+import { formatDistanceToNow } from 'date-fns';
 import { StatusCodes } from 'http-status-codes';
 
 import i18n from '../../src/config/i18n';
@@ -14,6 +15,7 @@ import {
   MEMBER_CREATED_AT_ID,
   MEMBER_USERNAME_DISPLAY_ID,
 } from '../../src/config/selectors';
+import { getLocalForDateFns } from '../../src/langs/utils';
 import { BOB, MEMBER_WITH_AVATAR } from '../fixtures/members';
 import {
   AVATAR_LINK,
@@ -138,8 +140,8 @@ describe('Check member info', () => {
       MEMBER_WITH_AVATAR.name,
     );
     // displays the correct creation date
-    const formattedDate = formatDate(MEMBER_WITH_AVATAR.createdAt, {
-      locale: i18n.language,
+    const formattedDate = formatDistanceToNow(MEMBER_WITH_AVATAR.createdAt, {
+      locale: getLocalForDateFns(i18n.language),
     });
     cy.get(`#${MEMBER_CREATED_AT_ID}`).should('contain', formattedDate);
   });
