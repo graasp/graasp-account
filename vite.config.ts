@@ -17,8 +17,13 @@ const config = ({ mode }: { mode: string }): UserConfigExport => {
     ...loadEnv(mode, process.cwd()),
   };
 
-  const { VITE_PORT, BROWSER, VITE_UMAMI_WEBSITE_ID, VITE_UMAMI_HOST } =
-    process.env;
+  const {
+    VITE_PORT,
+    BROWSER,
+    VITE_UMAMI_WEBSITE_ID,
+    VITE_UMAMI_HOST,
+    VITE_GRAASP_API_HOST,
+  } = process.env;
   // compute the port to use
   const PORT = parseInt(VITE_PORT || '3114', 10);
   // compute whether we should open the browser
@@ -35,14 +40,20 @@ const config = ({ mode }: { mode: string }): UserConfigExport => {
         ignored: ['**/coverage/**', '**/cypress/downloads/**'],
       },
       proxy: {
+        // send requests made to `/api` to the backend running on a different port
+        // this allows to how have to specify a different host on the requests
+        // in production the load balancer will play this role.
         '/api': {
-          target: 'http://localhost:3000',
+          target: VITE_GRAASP_API_HOST ?? 'http://localhost:3000',
           changeOrigin: true,
+          // remove the "api" part
           rewrite: (path) => path.replace(/^\/api/, ''),
         },
+        // this allows to bypass the cors restrictions for loading and sending events to the umami server
         '/metrics': {
-          target: 'http://localhost:8000',
+          target: VITE_UMAMI_HOST ?? 'http://localhost:8000',
           changeOrigin: true,
+          // remove the "metrics" part
           rewrite: (path) => path.replace(/^\/metrics/, ''),
         },
       },
@@ -82,7 +93,8 @@ const config = ({ mode }: { mode: string }): UserConfigExport => {
       VITE_UMAMI_WEBSITE_ID
         ? umamiPlugin({
             websiteId: VITE_UMAMI_WEBSITE_ID,
-            host: VITE_UMAMI_HOST,
+            host: '',
+            path: '/metrics',
             enableInDevMode: true,
           })
         : undefined,
