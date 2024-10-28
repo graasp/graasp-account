@@ -27,7 +27,7 @@ export const Route = createFileRoute('/login')({
 
 function LoginRoute() {
   const { url } = Route.useSearch();
-  const { t } = useAccountTranslation();
+  const { t, i18n } = useAccountTranslation();
   const { color } = useButtonColor('primary');
   return (
     <Stack height="100vh" alignItems="center" justifyContent="center" gap={2}>
@@ -40,7 +40,11 @@ function LoginRoute() {
         component="a"
         variant="contained"
         sx={{ textTransform: 'none' }}
-        href={buildSignInPath({ host: GRAASP_AUTH_HOST, redirectionUrl: url })}
+        href={buildSignInPath({
+          host: GRAASP_AUTH_HOST,
+          redirectionUrl: url,
+          lang: i18n.language,
+        })}
         endIcon={<ArrowRightIcon />}
       >
         {t(ACCOUNT.LOGIN_REQUIRED_BUTTON_TEXT)}

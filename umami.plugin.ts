@@ -49,7 +49,7 @@ export default function umamiPlugin(options: UmamiPluginOptions): Plugin {
           tag: 'script',
           attrs: {
             defer: true,
-            crossorigin: true,
+            crossorigin: 'anonymous',
             src,
             'data-website-id': options.websiteId,
           },

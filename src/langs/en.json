@@ -125,5 +125,10 @@
   "PASSWORD_WEAK_ERROR": "This password is too weak, please follow the password requirements above.",
   "PASSWORD_DO_NOT_MATCH_ERROR": "This input does not match the new password.",
   "NEW_PASSWORD_SHOULD_NOT_MATCH_CURRENT_PASSWORD_ERROR": "The new password should not match the current one.",
-  "UNEXPECTED_ERROR": "An unexpected error happened."
+  "UNEXPECTED_ERROR": "An unexpected error happened.",
+  "LOG_IN_BUTTON": "Log In",
+  "REGISTER_BUTTON": "Register",
+  "LOGOUT_BUTTON": "Log Out",
+  "HERE_BUTTON": "Here",
+  "TEMPORARY_MOVED_ACCOUNT_HOME_PAGE_MESSAGE": "The home page of account has moved"
 }

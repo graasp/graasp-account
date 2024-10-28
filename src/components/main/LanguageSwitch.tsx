@@ -24,8 +24,8 @@ const LanguageSwitch = ({ id, lang, onChange }: Props): JSX.Element => {
       variant="outlined"
       id={id}
       size="small"
-      defaultValue={lang}
       onChange={handleChange}
+      value={lang}
       buildOptionId={(value) => value}
       values={Object.entries(langs).map(([value, text]) => ({ value, text }))}
     />
