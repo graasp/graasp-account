@@ -17,8 +17,13 @@ const config = ({ mode }: { mode: string }): UserConfigExport => {
     ...loadEnv(mode, process.cwd()),
   };
 
-  const { VITE_PORT, BROWSER, VITE_UMAMI_WEBSITE_ID, VITE_UMAMI_HOST } =
-    process.env;
+  const {
+    VITE_PORT,
+    BROWSER,
+    VITE_UMAMI_WEBSITE_ID,
+    VITE_UMAMI_HOST,
+    VITE_GRAASP_API_HOST,
+  } = process.env;
   // compute the port to use
   const PORT = parseInt(VITE_PORT || '3114', 10);
   // compute whether we should open the browser
@@ -33,6 +38,17 @@ const config = ({ mode }: { mode: string }): UserConfigExport => {
       open: shouldOpen,
       watch: {
         ignored: ['**/coverage/**', '**/cypress/downloads/**'],
+      },
+      proxy: {
+        // send requests made to `/api` to the backend running on a different port
+        // this allows to how have to specify a different host on the requests
+        // in production the load balancer will play this role.
+        '/api': {
+          target: VITE_GRAASP_API_HOST ?? 'http://localhost:3000',
+          changeOrigin: true,
+          // remove the "api" part
+          rewrite: (path) => path.replace(/^\/api/, ''),
+        },
       },
     },
     preview: {
