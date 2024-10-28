@@ -4,14 +4,14 @@ import { Stack, Typography } from '@mui/material';
 
 import { Button, DEFAULT_LIGHT_PRIMARY_COLOR, GraaspLogo } from '@graasp/ui';
 
-import { Link, createFileRoute } from '@tanstack/react-router';
+import { Link, createLazyFileRoute } from '@tanstack/react-router';
 
 import { useAuth } from '@/AuthContext';
 import { LeftHeaderWrapper } from '@/components/header/LeftHeaderWrapper';
 import { NS } from '@/config/constants';
 import { ACCOUNT_HOME_PATH, LANDING_PAGE_PATH } from '@/config/paths';
 
-export const Route = createFileRoute('/')({
+export const Route = createLazyFileRoute('/')({
   component: Index,
 });
 

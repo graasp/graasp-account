@@ -18,12 +18,12 @@ export const Route = createFileRoute('/account/settings')({
 });
 
 function SettingsRoute(): JSX.Element {
-  const { t: translateAccount } = useTranslation(NS.Account);
+  const { t } = useTranslation(NS.Account);
 
   return (
     <ScreenLayout
       id={SETTINGS_PAGE_CONTAINER_ID}
-      title={translateAccount('MAIN_MENU_SETTINGS')}
+      title={t('MAIN_MENU_SETTINGS')}
     >
       <PersonalInformation />
       <Password />
