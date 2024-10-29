@@ -115,7 +115,6 @@ function TranslationWrapper({ children }: { children: ReactNode }) {
       i18n.changeLanguage(lang);
       console.debug(lang);
     },
-
     // eslint-disable-next-line react-hooks/exhaustive-deps
     [currentMember],
   );

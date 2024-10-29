@@ -5,10 +5,8 @@ import { Button, Stack, Typography } from '@mui/material';
 import { buildSignInPath } from '@graasp/sdk';
 import { useButtonColor } from '@graasp/ui';
 
-import { createFileRoute } from '@tanstack/react-router';
-import { zodSearchValidator } from '@tanstack/router-zod-adapter';
+import { createLazyFileRoute } from '@tanstack/react-router';
 import { ArrowRightIcon, LockIcon } from 'lucide-react';
-import { z } from 'zod';
 
 import { NS } from '@/config/constants';
 import { GRAASP_AUTH_HOST } from '@/config/env';
@@ -17,12 +15,7 @@ import {
   LOGIN_REQUIRED_TEXT_ID,
 } from '@/config/selectors';
 
-const loginSearchSchema = z.object({
-  url: z.string().url().optional(),
-});
-
-export const Route = createFileRoute('/login')({
-  validateSearch: zodSearchValidator(loginSearchSchema),
+export const Route = createLazyFileRoute('/auth/login')({
   component: LoginRoute,
 });
 

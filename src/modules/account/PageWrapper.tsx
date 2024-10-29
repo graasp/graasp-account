@@ -1,7 +1,6 @@
 import { ReactNode } from 'react';
 import { useTranslation } from 'react-i18next';
 
-import PersonIcon from '@mui/icons-material/Person';
 import { styled, useTheme } from '@mui/material';
 
 import { Context } from '@graasp/sdk';
@@ -15,6 +14,7 @@ import {
 } from '@graasp/ui';
 
 import { Link } from '@tanstack/react-router';
+import { UserRoundIcon } from 'lucide-react';
 
 import { NS } from '@/config/constants';
 import { platformsHostsMap } from '@/config/hostMapper';
@@ -35,12 +35,15 @@ const LinkComponent = ({ children }: { children: ReactNode }): JSX.Element => (
 );
 
 const AccountIcon: PlatformSwitchProps['CustomMobileIcon'] = (props) => (
-  <PersonIcon {...props} />
+  <UserRoundIcon {...props} />
 );
 
-const PageWrapper = ({ children }: { children: ReactNode }): JSX.Element => {
+export function PageWrapper({
+  children,
+}: {
+  children: ReactNode;
+}): JSX.Element {
   const { t } = useTranslation(NS.Account);
-
   const theme = useTheme();
   const { isMobile } = useMobileView();
   const getNavigationEvents = usePlatformNavigation(platformsHostsMap);
@@ -70,12 +73,8 @@ const PageWrapper = ({ children }: { children: ReactNode }): JSX.Element => {
         <PlatformSwitch
           CustomMobileIcon={AccountIcon}
           platformsProps={platformProps}
-          color={
-            isMobile ? theme.palette.primary.main : theme.palette.secondary.main
-          }
-          accentColor={
-            isMobile ? theme.palette.secondary.main : theme.palette.primary.main
-          }
+          color={isMobile ? theme.palette.primary.main : 'white'}
+          accentColor={isMobile ? 'white' : theme.palette.primary.main}
         />
       }
       headerRightContent={<UserSwitchWrapper />}
@@ -83,5 +82,4 @@ const PageWrapper = ({ children }: { children: ReactNode }): JSX.Element => {
       {children}
     </Main>
   );
-};
-export default PageWrapper;
+}

@@ -4,7 +4,7 @@ import { Outlet, createFileRoute, redirect } from '@tanstack/react-router';
 
 import { LOGIN_PAGE_PATH } from '@/config/paths';
 
-import PageWrapper from '~account/PageWrapper';
+import { PageWrapper } from '~account/PageWrapper';
 
 export const Route = createFileRoute('/account')({
   beforeLoad: ({ context, location }) => {

@@ -6,7 +6,7 @@ import { Button, Stack, Switch, Tooltip } from '@mui/material';
 import { CompleteMember } from '@graasp/sdk';
 import { DEFAULT_LANG } from '@graasp/translations';
 
-import BorderedSection from '@/components/layout/BorderedSection';
+import { BorderedSection } from '@/components/layout/BorderedSection';
 import FormProperty from '@/components/layout/FormProperty';
 import { DEFAULT_EMAIL_FREQUENCY, NS } from '@/config/constants';
 import { mutations } from '@/config/queryClient';
@@ -20,7 +20,8 @@ import {
 } from '@/config/selectors';
 
 import LanguageSwitch from '~account/common/LanguageSwitch';
-import EmailPreferenceSwitch from '~account/settings/EmailPreferenceSwitch';
+
+import { EmailPreferenceSwitch } from '../EmailPreferenceSwitch';
 
 type EditPreferencesProp = {
   readonly member: CompleteMember;

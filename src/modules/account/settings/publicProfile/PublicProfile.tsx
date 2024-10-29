@@ -8,7 +8,7 @@ import { Button, Typography } from '@mui/material';
 
 import SocialLinks from 'social-links';
 
-import BorderedSection from '@/components/layout/BorderedSection';
+import { BorderedSection } from '@/components/layout/BorderedSection';
 import { NS } from '@/config/constants';
 import { hooks } from '@/config/queryClient';
 import {

@@ -3,7 +3,7 @@ import { useTranslation } from 'react-i18next';
 
 import { Button, Dialog, Stack, Typography } from '@mui/material';
 
-import BorderedSection from '@/components/layout/BorderedSection';
+import { BorderedSection } from '@/components/layout/BorderedSection';
 import { NS } from '@/config/constants';
 import {
   DELETE_MEMBER_BUTTON_ID,

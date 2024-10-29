@@ -3,7 +3,7 @@ import { useTranslation } from 'react-i18next';
 
 import { Alert, Button, Skeleton, Typography } from '@mui/material';
 
-import BorderedSection from '@/components/layout/BorderedSection';
+import { BorderedSection } from '@/components/layout/BorderedSection';
 import { NS } from '@/config/constants';
 import { hooks } from '@/config/queryClient';
 import {
@@ -18,6 +18,7 @@ import EditPassword from './EditPassword';
 export function Password(): JSX.Element {
   const { t } = useTranslation(NS.Account);
   const { t: translateCommon } = useTranslation(NS.Common);
+
   const [isEditing, setIsEditing] = useState(false);
   const { data: passwordStatus, isPending: isPasswordStatusPending } =
     hooks.usePasswordStatus();

@@ -10,7 +10,7 @@ import { FAILURE_MESSAGES } from '@graasp/translations';
 
 import axios from 'axios';
 
-import BorderedSection from '@/components/layout/BorderedSection';
+import { BorderedSection } from '@/components/layout/BorderedSection';
 import { NS } from '@/config/constants';
 import { mutations } from '@/config/queryClient';
 import {
@@ -31,11 +31,10 @@ type Inputs = {
   confirmNewPassword: string;
 };
 
-export const getValidationMessage = (
-  fieldError?: FieldError,
-): string | undefined => {
+// eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
+export const getValidationMessage = (fieldError?: FieldError) => {
   if (fieldError?.type === 'required') {
-    return 'REQUIRED_FIELD_ERROR';
+    return 'REQUIRED_FIELD_ERROR' as const;
   }
   return fieldError?.message;
 };

@@ -10,21 +10,21 @@ type BorderedSectionProps = {
   topActions?: ReactNode[];
   children: ReactNode;
 };
-export const BorderedSection = ({
+export function BorderedSection({
   id,
   title,
   topActions,
   children,
-}: BorderedSectionProps): JSX.Element => (
-  <RoundedStack id={id}>
-    <Stack direction="row" justifyContent="space-between">
-      <Typography variant="h5">{title}</Typography>
-      <Stack direction="row" gap={1}>
-        {topActions}
+}: BorderedSectionProps): JSX.Element {
+  return (
+    <RoundedStack id={id}>
+      <Stack direction="row" justifyContent="space-between">
+        <Typography variant="h5">{title}</Typography>
+        <Stack direction="row" gap={1}>
+          {topActions}
+        </Stack>
       </Stack>
-    </Stack>
-    {children}
-  </RoundedStack>
-);
-
-export default BorderedSection;
+      {children}
+    </RoundedStack>
+  );
+}

@@ -5,7 +5,7 @@ import { SelectChangeEvent } from '@mui/material';
 import { CompleteMember, EmailFrequency } from '@graasp/sdk';
 import { Select } from '@graasp/ui';
 
-import { NS, emailFrequency } from '../../../config/constants';
+import { NS, emailFrequency } from '@/config/constants';
 
 type EmailPreferenceSwitchProps = {
   id?: string;
@@ -13,11 +13,11 @@ type EmailPreferenceSwitchProps = {
   onChange: (newEmailFreq: `${EmailFrequency}`) => void;
 };
 
-const EmailPreferenceSwitch = ({
+export function EmailPreferenceSwitch({
   id,
   emailFreq,
   onChange,
-}: EmailPreferenceSwitchProps): JSX.Element => {
+}: EmailPreferenceSwitchProps): JSX.Element {
   const { t } = useTranslation(NS.Account);
 
   const handleChange = (event: SelectChangeEvent<string>) => {
@@ -42,6 +42,4 @@ const EmailPreferenceSwitch = ({
       }))}
     />
   );
-};
-
-export default EmailPreferenceSwitch;
+}

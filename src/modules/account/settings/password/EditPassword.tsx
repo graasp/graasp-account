@@ -10,7 +10,7 @@ import { FAILURE_MESSAGES } from '@graasp/translations';
 
 import axios from 'axios';
 
-import BorderedSection from '@/components/layout/BorderedSection';
+import { BorderedSection } from '@/components/layout/BorderedSection';
 import { NS } from '@/config/constants';
 import { mutations } from '@/config/queryClient';
 import {
@@ -113,9 +113,10 @@ const EditPassword = ({ onClose }: EditPasswordProps): JSX.Element => {
             label={t('PASSWORD_SETTINGS_CURRENT_LABEL')}
             error={Boolean(currentPasswordErrorMessage)}
             helperText={
+              currentPasswordErrorMessage &&
               // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-              // @ts-expect-error
-              currentPasswordErrorMessage && t(currentPasswordErrorMessage)
+              //@ts-expect-error
+              t(currentPasswordErrorMessage)
             }
             form={register('currentPassword', {
               required: true,

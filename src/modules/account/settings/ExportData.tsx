@@ -3,7 +3,7 @@ import { useTranslation } from 'react-i18next';
 
 import { Button, Stack, Typography } from '@mui/material';
 
-import BorderedSection from '@/components/layout/BorderedSection';
+import { BorderedSection } from '@/components/layout/BorderedSection';
 import { NS } from '@/config/constants';
 import { mutations } from '@/config/queryClient';
 import { EXPORT_DATA_BUTTON_ID } from '@/config/selectors';

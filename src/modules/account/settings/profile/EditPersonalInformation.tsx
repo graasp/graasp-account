@@ -10,7 +10,7 @@ import {
   MemberConstants,
 } from '@graasp/sdk';
 
-import BorderedSection from '@/components/layout/BorderedSection';
+import { BorderedSection } from '@/components/layout/BorderedSection';
 import FormProperty from '@/components/layout/FormProperty';
 import { NS } from '@/config/constants';
 import { mutations } from '@/config/queryClient';

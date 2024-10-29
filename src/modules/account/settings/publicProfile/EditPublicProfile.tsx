@@ -15,7 +15,7 @@ import {
 
 import { Config, SocialLinks } from 'social-links';
 
-import BorderedSection from '@/components/layout/BorderedSection';
+import { BorderedSection } from '@/components/layout/BorderedSection';
 import {
   FACEBOOK_DOMAIN,
   LINKEDIN_DOMAIN,

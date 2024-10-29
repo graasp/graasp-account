@@ -10,14 +10,13 @@ import DialogTitle from '@mui/material/DialogTitle';
 import { Button } from '@graasp/ui';
 
 import { NS } from '@/config/constants';
+import { mutations } from '@/config/queryClient';
 import {
   DELETE_MEMBER_DIALOG_CONFIRMATION_BUTTON_ID,
   DELETE_MEMBER_DIALOG_CONFIRMATION_FIELD_ID,
   DELETE_MEMBER_DIALOG_DESCRIPTION_ID,
   DELETE_MEMBER_DIALOG_TITLE_ID,
 } from '@/config/selectors';
-
-import { mutations } from '../../../config/queryClient';
 
 type Props = {
   readonly closeModal: () => void;

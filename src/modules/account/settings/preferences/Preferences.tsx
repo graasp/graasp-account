@@ -6,7 +6,7 @@ import { Button } from '@mui/material';
 import { AccountType } from '@graasp/sdk';
 import { DEFAULT_LANG, langs } from '@graasp/translations';
 
-import BorderedSection from '@/components/layout/BorderedSection';
+import { BorderedSection } from '@/components/layout/BorderedSection';
 import { NS } from '@/config/constants';
 import { hooks } from '@/config/queryClient';
 import {
@@ -24,6 +24,7 @@ export const Preferences = (): JSX.Element | null => {
   const { data: member } = hooks.useCurrentMember();
 
   const { t } = useTranslation(NS.Account);
+
   const [isEditing, setIsEditing] = useState(false);
 
   // in case there is no member or they are not of the individual type, we render nothing

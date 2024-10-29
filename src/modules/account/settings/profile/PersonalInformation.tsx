@@ -5,7 +5,7 @@ import { Alert, AlertTitle, Button } from '@mui/material';
 
 import { AccountType } from '@graasp/sdk';
 
-import BorderedSection from '@/components/layout/BorderedSection';
+import { BorderedSection } from '@/components/layout/BorderedSection';
 import { NS } from '@/config/constants';
 import { hooks } from '@/config/queryClient';
 import {
