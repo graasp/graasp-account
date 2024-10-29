@@ -1,14 +1,13 @@
 import { Stack, Typography } from '@mui/material';
 
-import { Button, DEFAULT_LIGHT_PRIMARY_COLOR, GraaspLogo } from '@graasp/ui';
+import { DEFAULT_LIGHT_PRIMARY_COLOR, GraaspLogo } from '@graasp/ui';
 
 import { Link, createLazyFileRoute } from '@tanstack/react-router';
 
 import { useAuth } from '@/AuthContext';
 import { LeftHeaderWrapper } from '@/components/header/LeftHeaderWrapper';
-import { useAccountTranslation } from '@/config/i18n';
+import { LandingPage } from '@/components/landing/LandingPage';
 import { ACCOUNT_HOME_PATH, LANDING_PAGE_PATH } from '@/config/paths';
-import { ACCOUNT } from '@/langs/constants';
 
 export const Route = createLazyFileRoute('/')({
   component: Index,
@@ -16,7 +15,6 @@ export const Route = createLazyFileRoute('/')({
 
 function Index() {
   const { isAuthenticated } = useAuth();
-  const { t } = useAccountTranslation();
 
   return (
     <Stack alignItems="center" height="100svh" id="pageWrapper">
@@ -57,12 +55,7 @@ function Index() {
         p={2}
         gap={2}
       >
-        <Typography>
-          {t(ACCOUNT.TEMPORARY_MOVED_ACCOUNT_HOME_PAGE_MESSAGE)}
-        </Typography>
-        <Link to={ACCOUNT_HOME_PATH}>
-          <Button>{t(ACCOUNT.HERE_BUTTON)}</Button>
-        </Link>
+        <LandingPage />
       </Stack>
     </Stack>
   );
