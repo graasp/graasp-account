@@ -27,8 +27,8 @@ export function NotFoundComponent(): JSX.Element {
       <Typography variant="body1" id={NOT_FOUND_MESSAGE_ID}>
         {t('NOT_FOUND_PAGE_MESSAGE')}
       </Typography>
-      <Link to={LANDING_PAGE_PATH} id={GO_TO_HOME_LINK_ID}>
-        {t('GO_TO_HOME_TEXT')}
+      <Link to={LANDING_PAGE_PATH} id={GO_TO_LANDING_ID}>
+        {t('GO_TO_LANDING_TEXT')}
       </Link>
     </Stack>
   );

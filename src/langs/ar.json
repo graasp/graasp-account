@@ -113,5 +113,5 @@
   "EXPORT_ERROR_MESSAGE": "حدث خطأ غير متوقع",
   "NOT_FOUND_PAGE_TEXT": "لم يتم العثور على الصفحة",
   "NOT_FOUND_PAGE_MESSAGE": "نأسف، لم نتمكن من العثور على هذه الصفحة.",
-  "GO_TO_HOME_TEXT": "انتقل إلى الصفحة الرئيسية"
+  "GO_TO_LANDING_TEXT": "انتقل إلى الصفحة الرئيسية"
 }

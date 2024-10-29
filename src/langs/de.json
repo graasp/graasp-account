@@ -114,5 +114,5 @@
   "EXPORT_ERROR_MESSAGE": "Ein unerwarteter Fehler ist aufgetreten",
   "NOT_FOUND_PAGE_TEXT": "Seite nicht gefunden",
   "NOT_FOUND_PAGE_MESSAGE": "Leider konnten wir diese Seite nicht finden.",
-  "GO_TO_HOME_TEXT": "Zur Startseite"
+  "GO_TO_LANDING_TEXT": "Zur Startseite"
 }

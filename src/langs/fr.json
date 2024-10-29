@@ -116,6 +116,6 @@
   "EXPORT_ERROR_MESSAGE": "Une erreur inattendue est survenue",
   "NOT_FOUND_PAGE_TEXT": "Page non trouvée",
   "NOT_FOUND_PAGE_MESSAGE": "Désolé, nous n'avons pas pu trouver cette page.",
-  "GO_TO_HOME_TEXT": "Revenir à la page d'accueil",
+  "GO_TO_LANDING_TEXT": "Revenir à la page d'accueil",
   "UPLOADING_TOAST_TEXT": "Téléversement en cours..."
 }

@@ -1,5 +1,5 @@
 import {
-  GO_TO_HOME_LINK_ID,
+  GO_TO_LANDING_ID,
   NOT_FOUND_MESSAGE_ID,
   NOT_FOUND_TEXT_ID,
 } from '../../src/config/selectors';
@@ -20,7 +20,7 @@ describe('404 Page Test', () => {
   });
 
   it('should navigate to the home page when clicking "Go to Home"', () => {
-    cy.get(`#${GO_TO_HOME_LINK_ID}`).click();
+    cy.get(`#${GO_TO_LANDING_ID}`).click();
 
     // Check if the URL is the home page
     cy.url().should('eq', `${Cypress.config().baseUrl}/`);
