@@ -12,26 +12,26 @@ type LoginInput = {
   url?: string;
 };
 
+type AuthContextLoggedMember = {
+  isAuthenticated: true;
+  user: {
+    name: string;
+    id: string;
+    lang: string;
+  };
+  logout: () => Promise<void>;
+  login: null;
+};
+type AuthContextSignedOut = {
+  isAuthenticated: false;
+  user: null;
+  logout: null;
+  login: (args: LoginInput) => Promise<void>;
+};
 /**
  * Auth context used inside the router to know if the user is logged in
  */
-export type AuthContextType =
-  | {
-      isAuthenticated: true;
-      user: {
-        name: string;
-        id: string;
-        lang: string;
-      };
-      logout: () => Promise<void>;
-      login: null;
-    }
-  | {
-      isAuthenticated: false;
-      user: null;
-      logout: null;
-      login: (args: LoginInput) => Promise<void>;
-    };
+export type AuthContextType = AuthContextLoggedMember | AuthContextSignedOut;
 
 const AuthContext = React.createContext<AuthContextType | null>(null);
 

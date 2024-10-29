@@ -24,7 +24,7 @@ import { prefixer } from 'stylis';
 
 import i18n, { useAccountTranslation } from '@/config/i18n';
 
-import { AuthProvider, useAuth } from './auth';
+import { AuthProvider, useAuth } from './AuthContext';
 import { GRAASP_BUILDER_HOST } from './config/env';
 import { QueryClientProvider, hooks, queryClient } from './config/queryClient';
 import { routeTree } from './routeTree.gen';

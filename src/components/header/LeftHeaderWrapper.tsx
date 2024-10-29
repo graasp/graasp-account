@@ -5,7 +5,7 @@ import { Avatar } from '@graasp/ui';
 
 import { Link } from '@tanstack/react-router';
 
-import { useAuth } from '@/auth';
+import { useAuth } from '@/AuthContext';
 import { GRAASP_AUTH_HOST } from '@/config/env';
 import { useAccountTranslation } from '@/config/i18n';
 import { mutations } from '@/config/queryClient';

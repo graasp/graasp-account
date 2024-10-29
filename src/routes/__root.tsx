@@ -3,7 +3,7 @@ import { Stack } from '@mui/material';
 import { Outlet, createRootRouteWithContext } from '@tanstack/react-router';
 import { TanStackRouterDevtools } from '@tanstack/router-devtools';
 
-import { AuthContextType } from '@/auth';
+import { AuthContextType } from '@/AuthContext';
 import { NotFoundComponent } from '@/components/NotFoundComponent';
 import { ReactQueryDevtools } from '@/config/queryClient';
 
