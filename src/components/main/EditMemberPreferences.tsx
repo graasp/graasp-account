@@ -70,7 +70,7 @@ const EditMemberPreferences = ({
     >
       <FormProperty title={t('PROFILE_LANGUAGE_TITLE')}>
         <LanguageSwitch
-          lang={member.extra?.lang ?? DEFAULT_LANG}
+          lang={selectedLang}
           id={PREFERENCES_LANGUAGE_SWITCH_ID}
           onChange={setSelectedLang}
         />

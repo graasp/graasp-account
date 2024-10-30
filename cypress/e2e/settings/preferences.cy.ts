@@ -126,6 +126,11 @@ describe('Edit preferences', () => {
 
       const newLang = 'de';
       switchLanguage(newLang);
+      // Ensure the selected language is shown as the select value
+      cy.get(`#${PREFERENCES_LANGUAGE_SWITCH_ID}`).should(
+        'contain.text',
+        langs[newLang],
+      );
 
       cy.get(`#${PREFERENCES_SAVE_BUTTON_ID}`).click();
       cy.wait('@editMember').then(({ request }) => {
