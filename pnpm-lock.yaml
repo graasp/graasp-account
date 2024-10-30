@@ -30,8 +30,8 @@ importers:
         specifier: 1.40.0
         version: 1.40.0(i18next@23.16.3)
       '@graasp/ui':
-        specifier: github:graasp/graasp-ui#theme-wrapper
-        version: https://codeload.github.com/graasp/graasp-ui/tar.gz/985d4d9ef867ca483033d799f4035942c9b92c69(htjexmwxkxm557iprblexhc5ya)
+        specifier: 5.4.0
+        version: 5.4.0(htjexmwxkxm557iprblexhc5ya)
       '@mui/icons-material':
         specifier: 6.1.5
         version: 6.1.5(@mui/material@6.1.5(@emotion/react@11.13.3(@types/react@18.3.12)(react@18.3.1))(@emotion/styled@11.13.0(@emotion/react@11.13.3(@types/react@18.3.12)(react@18.3.1))(@types/react@18.3.12)(react@18.3.1))(@types/react@18.3.12)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(@types/react@18.3.12)(react@18.3.1)
@@ -1400,9 +1400,8 @@ packages:
     peerDependencies:
       i18next: ^23.8.1
 
-  '@graasp/ui@https://codeload.github.com/graasp/graasp-ui/tar.gz/985d4d9ef867ca483033d799f4035942c9b92c69':
-    resolution: {tarball: https://codeload.github.com/graasp/graasp-ui/tar.gz/985d4d9ef867ca483033d799f4035942c9b92c69}
-    version: 5.4.0
+  '@graasp/ui@5.4.0':
+    resolution: {integrity: sha512-zsh972/kXWd70P0l0OClYIUyF6BgRW+MOPGsLsqWqnS0cVpgaOYlRlk0bP6Bh4ajdgomTf9sYDTaqTM6lIprWQ==}
     engines: {node: '>=20'}
     peerDependencies:
       '@emotion/cache': ~11.10.7 || ~11.11.0 || ~11.13.0
@@ -6244,7 +6243,7 @@ snapshots:
     dependencies:
       i18next: 23.16.3
 
-  '@graasp/ui@https://codeload.github.com/graasp/graasp-ui/tar.gz/985d4d9ef867ca483033d799f4035942c9b92c69(htjexmwxkxm557iprblexhc5ya)':
+  '@graasp/ui@5.4.0(htjexmwxkxm557iprblexhc5ya)':
     dependencies:
       '@emotion/cache': 11.13.1
       '@emotion/react': 11.13.3(@types/react@18.3.12)(react@18.3.1)
@@ -9282,7 +9281,7 @@ snapshots:
 
   redux@4.2.1:
     dependencies:
-      '@babel/runtime': 7.25.9
+      '@babel/runtime': 7.26.0
 
   reflect.getprototypeof@1.0.6:
     dependencies:
