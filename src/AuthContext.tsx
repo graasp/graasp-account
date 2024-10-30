@@ -67,9 +67,7 @@ export function AuthProvider({
         user: {
           name: currentMember.name,
           id: currentMember.id,
-          lang:
-            // FIX: type of the function should be correctly inferred when the member is not nullable
-            getCurrentAccountLang(currentMember, DEFAULT_LANG) ?? DEFAULT_LANG,
+          lang: getCurrentAccountLang(currentMember, DEFAULT_LANG),
         },
         logout,
         login: null,

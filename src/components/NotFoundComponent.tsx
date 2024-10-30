@@ -8,7 +8,7 @@ import { RadarIcon } from 'lucide-react';
 import { useAccountTranslation } from '@/config/i18n';
 import { LANDING_PAGE_PATH } from '@/config/paths';
 import {
-  GO_TO_HOME_LINK_ID,
+  GO_TO_LANDING_ID,
   NOT_FOUND_MESSAGE_ID,
   NOT_FOUND_TEXT_ID,
 } from '@/config/selectors';
