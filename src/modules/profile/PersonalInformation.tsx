@@ -15,6 +15,7 @@ import {
   PERSONAL_INFO_EMAIL_UPDATE_ALERT_ID,
   PERSONAL_INFO_USERNAME_DISPLAY_ID,
 } from '@/config/selectors';
+import { ACCOUNT } from '@/langs/constants';
 import EditPersonalInformation from '@/modules/profile/EditPersonalInformation';
 
 const PersonalInformation = (): JSX.Element | null => {
@@ -51,26 +52,28 @@ const PersonalInformation = (): JSX.Element | null => {
           variant="contained"
           size="small"
         >
-          {t('EDIT_BUTTON_LABEL')}
+          {t(ACCOUNT.EDIT_BUTTON_LABEL)}
         </Button>,
       ]}
     >
       <MemberProfileItem
         key="name"
-        title={t('PROFILE_MEMBER_NAME')}
+        title={t(ACCOUNT.PROFILE_MEMBER_NAME)}
         content={member?.name}
         contentId={PERSONAL_INFO_USERNAME_DISPLAY_ID}
       />
       <MemberProfileItem
         key="email"
-        title={t('PROFILE_EMAIL_TITLE')}
+        title={t(ACCOUNT.PROFILE_EMAIL_TITLE)}
         content={member?.email}
         contentId={PERSONAL_INFO_EMAIL_DISPLAY_ID}
       />
       {newEmail && (
         <Alert severity="info" id={PERSONAL_INFO_EMAIL_UPDATE_ALERT_ID}>
-          <AlertTitle>{t('PROFILE_EMAIL_UPDATED_ALERT_TITLE')}</AlertTitle>
-          {t('PROFILE_EMAIL_UPDATED_ALERT_MESSAGE', { email: newEmail })}
+          <AlertTitle>
+            {t(ACCOUNT.PROFILE_EMAIL_UPDATED_ALERT_TITLE)}
+          </AlertTitle>
+          {t(ACCOUNT.PROFILE_EMAIL_UPDATED_ALERT_MESSAGE, { email: newEmail })}
         </Alert>
       )}
     </BorderedSection>

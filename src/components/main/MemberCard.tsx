@@ -10,6 +10,7 @@ import {
   MEMBER_CREATED_AT_ID,
   MEMBER_USERNAME_DISPLAY_ID,
 } from '@/config/selectors';
+import { ACCOUNT } from '@/langs/constants';
 import { getLocalForDateFns } from '@/langs/utils';
 
 import AvatarUploader from '../ProfilePicture/AvatarUploader';
@@ -20,7 +21,9 @@ const MemberCard = (): JSX.Element | null => {
 
   if (member?.type !== AccountType.Individual) {
     return (
-      <Alert severity="error">{t('NOT_AUTHENTICATED_OR_GUEST_MESSAGE')}</Alert>
+      <Alert severity="error">
+        {t(ACCOUNT.NOT_AUTHENTICATED_OR_GUEST_MESSAGE)}
+      </Alert>
     );
   }
 
@@ -32,11 +35,11 @@ const MemberCard = (): JSX.Element | null => {
         </Stack>
         <Stack>
           <Typography variant="h4" id={MEMBER_USERNAME_DISPLAY_ID}>
-            {t('GENERAL_PAGE_WELCOME_TEXT', { name: member.name })}
+            {t(ACCOUNT.GENERAL_PAGE_WELCOME_TEXT, { name: member.name })}
           </Typography>
 
           <Typography id={MEMBER_CREATED_AT_ID} variant="caption">
-            {t('PROFILE_CREATED_AT_INFO', {
+            {t(ACCOUNT.PROFILE_CREATED_AT_INFO, {
               date: formatDistanceToNow(member.createdAt, {
                 locale: getLocalForDateFns(i18n.language),
               }),

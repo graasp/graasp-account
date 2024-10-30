@@ -9,6 +9,7 @@ import {
   DELETE_MEMBER_DIALOG_TITLE_ID,
   DELETE_MEMBER_SECTION_ID,
 } from '@/config/selectors';
+import { ACCOUNT } from '@/langs/constants';
 
 import BorderedSection from '../layout/BorderedSection';
 import DeleteMemberDialogContent from './DeleteMemberDialogContent';
@@ -24,12 +25,12 @@ const DeleteMemberSection = (): JSX.Element => {
 
   return (
     <BorderedSection
-      title={t('PROFILE_DESTRUCTIVE_SETTINGS_TITLE')}
+      title={t(ACCOUNT.PROFILE_DESTRUCTIVE_SETTINGS_TITLE)}
       id={DELETE_MEMBER_SECTION_ID}
     >
       <Stack direction="column" spacing={2}>
         <Typography variant="body2">
-          {t('PROFILE_DELETE_ACCOUNT_INFORMATION')}
+          {t(ACCOUNT.PROFILE_DELETE_ACCOUNT_INFORMATION)}
         </Typography>
 
         <Button
@@ -39,7 +40,7 @@ const DeleteMemberSection = (): JSX.Element => {
           onClick={() => setOpen(true)}
           sx={{ textWrap: 'nowrap', maxWidth: 'min-content' }}
         >
-          {t('PROFILE_DELETE_ACCOUNT_BUTTON')}
+          {t(ACCOUNT.PROFILE_DELETE_ACCOUNT_BUTTON)}
         </Button>
       </Stack>
       <Dialog

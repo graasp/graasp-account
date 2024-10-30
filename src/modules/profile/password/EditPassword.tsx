@@ -100,7 +100,7 @@ const EditPassword = ({ onClose }: EditPasswordProps): JSX.Element => {
   return (
     <BorderedSection
       id={PASSWORD_EDIT_CONTAINER_ID}
-      title={t('PASSWORD_SETTINGS_TITLE')}
+      title={t(ACCOUNT.PASSWORD_SETTINGS_TITLE)}
     >
       <Stack
         direction="column"
@@ -109,12 +109,12 @@ const EditPassword = ({ onClose }: EditPasswordProps): JSX.Element => {
         onSubmit={handleSubmit(onSubmit)}
       >
         <Typography variant="body1">
-          {t('PASSWORD_SETTINGS_CONFIRM_INFORMATION')}
+          {t(ACCOUNT.PASSWORD_SETTINGS_CONFIRM_INFORMATION)}
         </Typography>
         <Box>
           <PasswordField
             id={PASSWORD_INPUT_CURRENT_PASSWORD_ID}
-            label={t('PASSWORD_SETTINGS_CURRENT_LABEL')}
+            label={t(ACCOUNT.PASSWORD_SETTINGS_CURRENT_LABEL)}
             error={Boolean(currentPasswordErrorMessage)}
             helperText={
               currentPasswordErrorMessage && t(currentPasswordErrorMessage)
@@ -131,7 +131,7 @@ const EditPassword = ({ onClose }: EditPasswordProps): JSX.Element => {
 
         <Stack direction="row" gap={2}>
           <PasswordField
-            label={t('PASSWORD_SETTINGS_NEW_LABEL')}
+            label={t(ACCOUNT.PASSWORD_SETTINGS_NEW_LABEL)}
             error={Boolean(newPasswordErrorMessage)}
             helperText={newPasswordErrorMessage && t(newPasswordErrorMessage)}
             id={PASSWORD_INPUT_NEW_PASSWORD_ID}
@@ -147,7 +147,7 @@ const EditPassword = ({ onClose }: EditPasswordProps): JSX.Element => {
             })}
           />
           <PasswordField
-            label={t('PASSWORD_SETTINGS_NEW_CONFIRM_LABEL')}
+            label={t(ACCOUNT.PASSWORD_SETTINGS_NEW_CONFIRM_LABEL)}
             error={Boolean(confirmNewPasswordErrorMessage)}
             helperText={
               confirmNewPasswordErrorMessage &&

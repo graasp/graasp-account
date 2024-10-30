@@ -15,6 +15,7 @@ import {
   MEMBER_AVATAR_IMAGE_ID,
   MEMBER_AVATAR_WRAPPER_ID,
 } from '@/config/selectors';
+import { ACCOUNT } from '@/langs/constants';
 
 import CropModal, { MODAL_TITLE_ARIA_LABEL_ID } from './CropModal';
 import { useUploadProgress } from './useUploadProgress';
@@ -135,7 +136,7 @@ const AvatarUploader = ({ member }: Props): JSX.Element => {
         {avatarUrl ? (
           <img
             id={MEMBER_AVATAR_IMAGE_ID}
-            alt={t('PROFILE_AVATAR_CURRENT_ALT')}
+            alt={t(ACCOUNT.PROFILE_AVATAR_CURRENT_ALT)}
             src={avatarUrl}
             height={AVATAR_SIZE}
             width={AVATAR_SIZE}

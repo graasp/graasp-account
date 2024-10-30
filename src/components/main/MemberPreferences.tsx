@@ -13,6 +13,7 @@ import {
   PREFERENCES_EMAIL_FREQUENCY_ID,
   PREFERENCES_LANGUAGE_DISPLAY_ID,
 } from '@/config/selectors';
+import { ACCOUNT } from '@/langs/constants';
 
 import BorderedSection from '../layout/BorderedSection';
 import EditMemberPreferences from './EditMemberPreferences';
@@ -29,7 +30,7 @@ export const MemberPreferences = (): JSX.Element | null => {
     return null;
   }
 
-  const languageCode = (member?.extra?.lang ??
+  const languageCode = (member.extra?.lang ??
     DEFAULT_LANG) as keyof typeof langs;
   const languageName = langs[languageCode];
 
@@ -46,7 +47,7 @@ export const MemberPreferences = (): JSX.Element | null => {
   }
   return (
     <BorderedSection
-      title={t('PROFILE_PREFERENCES_TITLE')}
+      title={t(ACCOUNT.PROFILE_PREFERENCES_TITLE)}
       topActions={[
         <Button
           key="edit"
@@ -55,29 +56,31 @@ export const MemberPreferences = (): JSX.Element | null => {
           id={PREFERENCES_EDIT_BUTTON_ID}
           size="small"
         >
-          {t('EDIT_BUTTON_LABEL')}
+          {t(ACCOUNT.EDIT_BUTTON_LABEL)}
         </Button>,
       ]}
     >
       <MemberProfileItem
-        title={t('PROFILE_LANGUAGE_TITLE')}
+        title={t(ACCOUNT.PROFILE_LANGUAGE_TITLE)}
         content={languageName}
         contentId={PREFERENCES_LANGUAGE_DISPLAY_ID}
       />
       <MemberProfileItem
-        title={t('PROFILE_EMAIL_FREQUENCY_TITLE')}
+        title={t(ACCOUNT.PROFILE_EMAIL_FREQUENCY_TITLE)}
         content={
-          member?.extra?.emailFreq === 'always'
-            ? t('ALWAYS_RECEIVE_EMAILS')
-            : t('DISABLE_EMAILS')
+          member.extra?.emailFreq === 'always'
+            ? t(ACCOUNT.ALWAYS_RECEIVE_EMAILS)
+            : t(ACCOUNT.DISABLE_EMAILS)
         }
         contentId={PREFERENCES_EMAIL_FREQUENCY_ID}
       />
       <MemberProfileItem
-        title={t('PROFILE_SAVE_ACTIONS_TITLE')}
-        content={t(
-          `PROFILE_SAVE_ACTIONS_VALUE_${member?.enableSaveActions?.toString().toUpperCase()}`,
-        )}
+        title={t(ACCOUNT.PROFILE_SAVE_ACTIONS_TITLE)}
+        content={
+          member.enableSaveActions
+            ? t(ACCOUNT.PROFILE_SAVE_ACTIONS_ENABLED)
+            : t(ACCOUNT.PROFILE_SAVE_ACTIONS_DISABLED)
+        }
         contentId={PREFERENCES_ANALYTICS_SWITCH_ID}
       />
     </BorderedSection>

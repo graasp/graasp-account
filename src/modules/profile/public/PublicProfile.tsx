@@ -21,6 +21,7 @@ import {
   PUBLIC_PROFILE_TWITTER_HREF_ID,
   PUBLIC_PROFILE_TWITTER_ID,
 } from '@/config/selectors';
+import { ACCOUNT } from '@/langs/constants';
 
 import DisplayLinks from './DisplayLinks';
 import EditPublicProfile from './EditPublicProfile';
@@ -44,7 +45,7 @@ const MemberPublicProfile = (): JSX.Element => {
   return (
     <BorderedSection
       id={PUBLIC_PROFILE_DISPLAY_CONTAINER_ID}
-      title={t('PUBLIC_PROFILE_TITLE')}
+      title={t(ACCOUNT.PUBLIC_PROFILE_TITLE)}
       topActions={[
         <Button
           key="edit"
@@ -53,7 +54,7 @@ const MemberPublicProfile = (): JSX.Element => {
           id={PUBLIC_PROFILE_EDIT_BUTTON_ID}
           size="small"
         >
-          {t('EDIT_BUTTON_LABEL')}
+          {t(ACCOUNT.EDIT_BUTTON_LABEL)}
         </Button>,
       ]}
     >
@@ -61,7 +62,7 @@ const MemberPublicProfile = (): JSX.Element => {
         {t('PUBLIC_PROFILE_BIO')}
       </Typography>
       <Typography variant="body1" id={PUBLIC_PROFILE_BIO_ID}>
-        {bio || t('PUBLIC_PROFILE_BIO_EMPTY_MSG')}
+        {bio || t(ACCOUNT.PUBLIC_PROFILE_BIO_EMPTY_MSG)}
       </Typography>
       {linkedinID ? (
         <DisplayLinks
@@ -75,7 +76,7 @@ const MemberPublicProfile = (): JSX.Element => {
         <DisplayLinks
           icon={<LinkedInIcon />}
           contentId={PUBLIC_PROFILE_LINKEDIN_ID}
-          content={t('PUBLIC_PROFILE_LINKEDIN_EMPTY_MSG')}
+          content={t(ACCOUNT.PUBLIC_PROFILE_LINKEDIN_EMPTY_MSG)}
         />
       )}
 
@@ -91,7 +92,7 @@ const MemberPublicProfile = (): JSX.Element => {
         <DisplayLinks
           icon={<TwitterIcon />}
           contentId={PUBLIC_PROFILE_TWITTER_ID}
-          content={t('PUBLIC_PROFILE_TWITTER_EMPTY_MSG')}
+          content={t(ACCOUNT.PUBLIC_PROFILE_TWITTER_EMPTY_MSG)}
         />
       )}
       {facebookID ? (
@@ -106,7 +107,7 @@ const MemberPublicProfile = (): JSX.Element => {
         <DisplayLinks
           icon={<FacebookIcon />}
           contentId={PUBLIC_PROFILE_FACEBOOK_ID}
-          content={t('PUBLIC_PROFILE_FACEBOOK_EMPTY_MSG')}
+          content={t(ACCOUNT.PUBLIC_PROFILE_FACEBOOK_EMPTY_MSG)}
         />
       )}
     </BorderedSection>

@@ -4,6 +4,7 @@ import { Id, toast } from 'react-toastify';
 import { AxiosProgressEvent } from 'axios';
 
 import { useAccountTranslation } from '@/config/i18n';
+import { ACCOUNT } from '@/langs/constants';
 
 export const useUploadProgress = (): {
   update: (p: AxiosProgressEvent) => void;
@@ -15,7 +16,7 @@ export const useUploadProgress = (): {
   const { t } = useAccountTranslation();
 
   const show = (progress = 0) => {
-    toastId.current = toast.info(t('UPLOADING_TOAST_TEXT'), {
+    toastId.current = toast.info(t(ACCOUNT.UPLOADING_TOAST_TEXT), {
       progress,
       position: 'bottom-left',
     });

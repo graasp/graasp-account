@@ -14,6 +14,7 @@ import {
   DELETE_MEMBER_DIALOG_DESCRIPTION_ID,
   DELETE_MEMBER_DIALOG_TITLE_ID,
 } from '@/config/selectors';
+import { ACCOUNT } from '@/langs/constants';
 
 import { useAccountTranslation } from '../../config/i18n';
 import { mutations } from '../../config/queryClient';
@@ -29,7 +30,7 @@ const DeleteMemberDialogContent = ({ closeModal }: Props): JSX.Element => {
   const { mutateAsync: deleteMember } = mutations.useDeleteCurrentMember();
 
   const confirmationDeleteTextToCompare = translateAccount(
-    'DELETE_CONFIRMATION_VALUE',
+    ACCOUNT.PROFILE_DELETE_CONFIRMATION_VALUE,
   );
 
   // confirmation is disabled when the two texts do not match
@@ -39,15 +40,15 @@ const DeleteMemberDialogContent = ({ closeModal }: Props): JSX.Element => {
   return (
     <>
       <DialogTitle id={DELETE_MEMBER_DIALOG_TITLE_ID}>
-        {translateAccount('PROFILE_DELETE_ACCOUNT_MODAL_TITLE')}
+        {translateAccount(ACCOUNT.PROFILE_DELETE_ACCOUNT_MODAL_TITLE)}
       </DialogTitle>
       <DialogContent>
         <Stack spacing={2}>
           <DialogContentText id={DELETE_MEMBER_DIALOG_DESCRIPTION_ID}>
-            {translateAccount('PROFILE_DELETE_ACCOUNT_MODAL_INFORMATION')}
+            {translateAccount(ACCOUNT.PROFILE_DELETE_ACCOUNT_MODAL_INFORMATION)}
           </DialogContentText>
           <DialogContentText>
-            {translateAccount('PROFILE_DELETE_TYPE_CONFIRMATION_TEXT', {
+            {translateAccount(ACCOUNT.PROFILE_DELETE_TYPE_CONFIRMATION_TEXT, {
               text: confirmationDeleteTextToCompare,
             })}
           </DialogContentText>
@@ -72,7 +73,7 @@ const DeleteMemberDialogContent = ({ closeModal }: Props): JSX.Element => {
           onClick={closeModal}
           variant={isConfirmationDisabled ? 'contained' : 'text'}
         >
-          {translateAccount('PROFILE_DELETE_ACCOUNT_MODAL_CANCEL_BUTTON')}
+          {translateAccount(ACCOUNT.PROFILE_DELETE_ACCOUNT_MODAL_CANCEL_BUTTON)}
         </Button>
         <Button
           id={DELETE_MEMBER_DIALOG_CONFIRMATION_BUTTON_ID}
@@ -82,7 +83,9 @@ const DeleteMemberDialogContent = ({ closeModal }: Props): JSX.Element => {
           color="error"
           disabled={isConfirmationDisabled}
         >
-          {translateAccount('PROFILE_DELETE_ACCOUNT_MODAL_CONFIRM_BUTTON')}
+          {translateAccount(
+            ACCOUNT.PROFILE_DELETE_ACCOUNT_MODAL_CONFIRM_BUTTON,
+          )}
         </Button>
       </DialogActions>
     </>

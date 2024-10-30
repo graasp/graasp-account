@@ -42,7 +42,7 @@ const DisplayPassword = (): JSX.Element => {
     return (
       <BorderedSection
         id={PASSWORD_DISPLAY_CONTAINER_ID}
-        title={t('PASSWORD_SETTINGS_TITLE')}
+        title={t(ACCOUNT.PASSWORD_TITLE)}
         topActions={[
           <Button
             key="edit"

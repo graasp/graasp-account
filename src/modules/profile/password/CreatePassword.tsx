@@ -87,15 +87,15 @@ const CreatePassword = ({ onClose }: CreatePasswordProps): JSX.Element => {
   return (
     <BorderedSection
       id={PASSWORD_CREATE_CONTAINER_ID}
-      title={t('PASSWORD_SETTINGS_TITLE')}
+      title={t(ACCOUNT.PASSWORD_TITLE)}
     >
       <Typography variant="body1">
-        {t('PASSWORD_SETTINGS_CONFIRM_INFORMATION')}
+        {t(ACCOUNT.PASSWORD_SETTINGS_CONFIRM_INFORMATION)}
       </Typography>
       <Stack spacing={2} component="form" onSubmit={handleSubmit(onSubmit)}>
         <Stack direction="row" spacing={2}>
           <PasswordField
-            label={t('PASSWORD_SETTINGS_NEW_LABEL')}
+            label={t(ACCOUNT.PASSWORD_SETTINGS_NEW_LABEL)}
             error={Boolean(newPasswordErrorMessage)}
             helperText={newPasswordErrorMessage && t(newPasswordErrorMessage)}
             id={PASSWORD_INPUT_NEW_PASSWORD_ID}
@@ -108,7 +108,7 @@ const CreatePassword = ({ onClose }: CreatePasswordProps): JSX.Element => {
             })}
           />
           <PasswordField
-            label={t('PASSWORD_SETTINGS_NEW_CONFIRM_LABEL')}
+            label={t(ACCOUNT.PASSWORD_SETTINGS_NEW_CONFIRM_LABEL)}
             error={Boolean(confirmNewPasswordErrorMessage)}
             helperText={
               confirmNewPasswordErrorMessage &&

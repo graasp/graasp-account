@@ -20,24 +20,25 @@ import {
   PERSONAL_INFO_INPUT_USERNAME_ID,
   PERSONAL_INFO_SAVE_BUTTON_ID,
 } from '@/config/selectors';
+import { ACCOUNT } from '@/langs/constants';
 
 const USER_NAME_REGEX = MemberConstants.USERNAME_FORBIDDEN_CHARS_REGEX;
 
 const verifyUsername = (username: string): string | null => {
   const trimmedUsername = username.trim();
   if (trimmedUsername === '') {
-    return 'USERNAME_EMPTY_ERROR';
+    return ACCOUNT.USERNAME_EMPTY_ERROR;
   }
 
   if (
     trimmedUsername.length < MIN_USERNAME_LENGTH ||
     trimmedUsername.length > MAX_USERNAME_LENGTH
   ) {
-    return 'USERNAME_LENGTH_ERROR';
+    return ACCOUNT.USERNAME_LENGTH_ERROR;
   }
 
   if (USER_NAME_REGEX.test(trimmedUsername)) {
-    return 'USERNAME_SPECIAL_CHARACTERS_ERROR';
+    return ACCOUNT.USERNAME_SPECIAL_CHARACTERS_ERROR;
   }
 
   return null;
@@ -116,9 +117,9 @@ const EditPersonalInformation = ({
   return (
     <BorderedSection
       id={PERSONAL_INFO_EDIT_CONTAINER_ID}
-      title={t('PERSONAL_INFORMATION_TITLE')}
+      title={t(ACCOUNT.PERSONAL_INFORMATION_TITLE)}
     >
-      <FormProperty title={t('PROFILE_MEMBER_NAME')}>
+      <FormProperty title={t(ACCOUNT.PROFILE_MEMBER_NAME)}>
         <TextField
           id={PERSONAL_INFO_INPUT_USERNAME_ID}
           variant="outlined"
@@ -132,7 +133,7 @@ const EditPersonalInformation = ({
           onChange={handleChange}
         />
       </FormProperty>
-      <FormProperty title={t('PROFILE_EMAIL_TITLE')}>
+      <FormProperty title={t(ACCOUNT.PROFILE_EMAIL_TITLE)}>
         <TextField
           id={PERSONAL_INFO_INPUT_EMAIL_ID}
           variant="outlined"

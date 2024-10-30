@@ -18,6 +18,7 @@ import {
   PREFERENCES_LANGUAGE_SWITCH_ID,
   PREFERENCES_SAVE_BUTTON_ID,
 } from '@/config/selectors';
+import { ACCOUNT } from '@/langs/constants';
 
 import BorderedSection from '../layout/BorderedSection';
 import FormProperty from '../layout/FormProperty';
@@ -66,24 +67,24 @@ const EditMemberPreferences = ({
   return (
     <BorderedSection
       id={PREFERENCES_EDIT_CONTAINER_ID}
-      title={t('PROFILE_PREFERENCES_TITLE')}
+      title={t(ACCOUNT.PROFILE_PREFERENCES_TITLE)}
     >
-      <FormProperty title={t('PROFILE_LANGUAGE_TITLE')}>
+      <FormProperty title={t(ACCOUNT.PROFILE_LANGUAGE_TITLE)}>
         <LanguageSwitch
           lang={selectedLang}
           id={PREFERENCES_LANGUAGE_SWITCH_ID}
           onChange={setSelectedLang}
         />
       </FormProperty>
-      <FormProperty title={t('PROFILE_EMAIL_FREQUENCY_TITLE')}>
+      <FormProperty title={t(ACCOUNT.PROFILE_EMAIL_FREQUENCY_TITLE)}>
         <EmailPreferenceSwitch
           emailFreq={member.extra?.emailFreq || DEFAULT_EMAIL_FREQUENCY}
           onChange={setSelectedEmailFreq}
           id={PREFERENCES_EMAIL_FREQUENCY_ID}
         />
       </FormProperty>
-      <FormProperty title={t('PROFILE_SAVE_ACTIONS_TITLE')}>
-        <Tooltip title={t('SAVE_ACTIONS_TOGGLE_TOOLTIP')}>
+      <FormProperty title={t(ACCOUNT.PROFILE_SAVE_ACTIONS_TITLE)}>
+        <Tooltip title={t(ACCOUNT.SAVE_ACTIONS_TOGGLE_TOOLTIP)}>
           <Switch
             id={PREFERENCES_ANALYTICS_SWITCH_ID}
             onChange={handleOnToggle}

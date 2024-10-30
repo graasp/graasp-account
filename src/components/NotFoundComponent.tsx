@@ -12,6 +12,7 @@ import {
   NOT_FOUND_MESSAGE_ID,
   NOT_FOUND_TEXT_ID,
 } from '@/config/selectors';
+import { ACCOUNT } from '@/langs/constants';
 
 export function NotFoundComponent(): JSX.Element {
   const { t } = useAccountTranslation();
@@ -21,14 +22,14 @@ export function NotFoundComponent(): JSX.Element {
       <Stack direction="row" alignItems="center" gap={2}>
         <RadarIcon color={color} size={60} />
         <Typography variant="h1" id={NOT_FOUND_TEXT_ID} color="primary">
-          {t('NOT_FOUND_PAGE_TEXT')}
+          {t(ACCOUNT.NOT_FOUND_PAGE_TEXT)}
         </Typography>
       </Stack>
       <Typography variant="body1" id={NOT_FOUND_MESSAGE_ID}>
-        {t('NOT_FOUND_PAGE_MESSAGE')}
+        {t(ACCOUNT.NOT_FOUND_PAGE_MESSAGE)}
       </Typography>
       <Link to={LANDING_PAGE_PATH} id={GO_TO_LANDING_ID}>
-        {t('GO_TO_LANDING_TEXT')}
+        {t(ACCOUNT.GO_TO_LANDING_TEXT)}
       </Link>
     </Stack>
   );

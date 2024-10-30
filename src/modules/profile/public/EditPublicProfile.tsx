@@ -31,6 +31,7 @@ import {
   PUBLIC_PROFILE_SAVE_BUTTON_ID,
   PUBLIC_PROFILE_TWITTER_ID,
 } from '@/config/selectors';
+import { ACCOUNT } from '@/langs/constants';
 
 const config: Config = {
   usePredefinedProfiles: true,
@@ -144,11 +145,13 @@ const EditPublicProfile = ({
   );
 
   return (
-    <BorderedSection title={t('PUBLIC_PROFILE_TITLE')}>
-      <Typography variant="body1">{t('PUBLIC_PROFILE_DESCRIPTION')}</Typography>
+    <BorderedSection title={t(ACCOUNT.PUBLIC_PROFILE_TITLE)}>
+      <Typography variant="body1">
+        {t(ACCOUNT.PUBLIC_PROFILE_DESCRIPTION)}
+      </Typography>
       {ownProfile && (
         <a href={`${GRAASP_LIBRARY_HOST}/members/${ownProfile.member.id}`}>
-          {t('PUBLIC_PROFILE_CHECK_TEXT')}
+          {t(ACCOUNT.PUBLIC_PROFILE_CHECK_TEXT)}
         </a>
       )}
 
@@ -159,10 +162,10 @@ const EditPublicProfile = ({
           helperText={
             dirtyFields.bio &&
             !profileData.bio.trim() &&
-            t('PUBLIC_PROFILE_BIO_ERROR_MSG')
+            t(ACCOUNT.PUBLIC_PROFILE_BIO_ERROR_MSG)
           }
           isError={dirtyFields.bio && !profileData.bio.trim()}
-          label={t('PUBLIC_PROFILE_BIO')}
+          label={t(ACCOUNT.PUBLIC_PROFILE_BIO)}
           onChange={onInputChange}
           required
           multiline
@@ -175,38 +178,38 @@ const EditPublicProfile = ({
           helperText={
             dirtyFields.linkedinID &&
             !isValidUrl(profileData.linkedinID) &&
-            t('PUBLIC_PROFILE_LINKEDIN_LINK_ERROR_MSG')
+            t(ACCOUNT.PUBLIC_PROFILE_LINKEDIN_LINK_ERROR_MSG)
           }
           isError={
             dirtyFields.linkedinID && !isValidUrl(profileData.linkedinID)
           }
-          label={t('PUBLIC_PROFILE_LINKEDIN_LINK')}
+          label={t(ACCOUNT.PUBLIC_PROFILE_LINKEDIN_LINK)}
           onChange={onInputChange}
           id={PUBLIC_PROFILE_LINKEDIN_ID}
         />
         <TextFieldWithValidation
           Icon={<TwitterIcon />}
-          label={t('PUBLIC_PROFILE_TWITTER_LINK')}
+          label={t(ACCOUNT.PUBLIC_PROFILE_TWITTER_LINK)}
           onChange={onInputChange}
           name="twitterID"
           value={profileData.twitterID}
           helperText={
             dirtyFields.twitterID &&
             !isValidUrl(profileData.twitterID) &&
-            t('PUBLIC_PROFILE_TWITTER_LINK_ERROR_MSG')
+            t(ACCOUNT.PUBLIC_PROFILE_TWITTER_LINK_ERROR_MSG)
           }
           isError={dirtyFields.twitterID && !isValidUrl(profileData.twitterID)}
           id={PUBLIC_PROFILE_TWITTER_ID}
         />
         <TextFieldWithValidation
           name="facebookID"
-          label={t('PUBLIC_PROFILE_FACEBOOK_LINK')}
+          label={t(ACCOUNT.PUBLIC_PROFILE_FACEBOOK_LINK)}
           onChange={onInputChange}
           Icon={<FacebookIcon />}
           helperText={
             dirtyFields.facebookID &&
             !isValidUrl(profileData.facebookID) &&
-            t('PUBLIC_PROFILE_FACEBOOK_LINK_ERROR_MSG')
+            t(ACCOUNT.PUBLIC_PROFILE_FACEBOOK_LINK_ERROR_MSG)
           }
           isError={
             dirtyFields.facebookID && !isValidUrl(profileData.facebookID)
@@ -223,7 +226,7 @@ const EditPublicProfile = ({
               onChange={onInputChange}
             />
           }
-          label={t('PUBLIC_PROFILE_VISIBILITY')}
+          label={t(ACCOUNT.PUBLIC_PROFILE_VISIBILITY)}
         />
         <Stack direction="row" gap={1} justifyContent="flex-end">
           <Button onClick={onClose} variant="outlined" size="small">

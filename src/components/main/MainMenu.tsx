@@ -4,6 +4,8 @@ import { DRAWER_WIDTH } from '@graasp/ui';
 
 import { HardDriveIcon, HouseIcon, SettingsIcon } from 'lucide-react';
 
+import { ACCOUNT } from '@/langs/constants';
+
 import { useAccountTranslation } from '../../config/i18n';
 import {
   ACCOUNT_HOME_PATH,
@@ -20,17 +22,17 @@ const MainMenu = (): JSX.Element => {
       <MainMenuItem
         to={ACCOUNT_HOME_PATH}
         icon={<HouseIcon />}
-        text={t('MAIN_MENU_HOME_PAGE')}
+        text={t(ACCOUNT.MAIN_MENU_HOME_PAGE)}
       />
       <MainMenuItem
         to={ACCOUNT_SETTINGS_PATH}
         icon={<SettingsIcon />}
-        text={t('MAIN_MENU_SETTINGS')}
+        text={t(ACCOUNT.MAIN_MENU_SETTINGS)}
       />
       <MainMenuItem
         to={ACCOUNT_STORAGE_PATH}
         icon={<HardDriveIcon />}
-        text={t('MAIN_MENU_STORAGE')}
+        text={t(ACCOUNT.MAIN_MENU_STORAGE)}
       />
     </List>
   );

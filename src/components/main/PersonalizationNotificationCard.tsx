@@ -12,6 +12,7 @@ import { ImageUp } from 'lucide-react';
 import { useAccountTranslation } from '@/config/i18n';
 import { hooks } from '@/config/queryClient';
 import { CARD_TIP_ID } from '@/config/selectors';
+import { ACCOUNT } from '@/langs/constants';
 
 const PersonalizationNotificationCard = (): JSX.Element | null => {
   const { t } = useAccountTranslation();
@@ -33,13 +34,13 @@ const PersonalizationNotificationCard = (): JSX.Element | null => {
             title={
               <Box display="flex" justifyContent="center" gap={2}>
                 <ImageUp fontSize="large" />
-                {t('PERSONALISATION_TITLE')}
+                {t(ACCOUNT.PERSONALIZATION_TITLE)}
               </Box>
             }
           />
           <CardContent>
             <Typography textAlign="center">
-              {t('PERSONALISATION_INFORMATION')}
+              {t(ACCOUNT.PERSONALIZATION_INFORMATION)}
             </Typography>
           </CardContent>
         </Card>
