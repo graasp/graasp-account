@@ -42,14 +42,13 @@ export default function umamiPlugin(options: UmamiPluginOptions): Plugin {
           '[umami-script] No website id provided. Please provide a website id.',
         );
       }
-      // const src = `${options.host ?? 'https://cloud.umami.is'}/script.js`;
 
       return [
         {
           tag: 'script',
           attrs: {
             defer: true,
-            src: 'https://cloud.umami.is/script.js',
+            src: '/umami.js',
             'data-website-id': options.websiteId,
             'data-host-url': options.host,
           },
