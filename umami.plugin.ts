@@ -48,7 +48,8 @@ export default function umamiPlugin(options: UmamiPluginOptions): Plugin {
           tag: 'script',
           attrs: {
             defer: true,
-            src: '/umami.js',
+            // remove trailing slash from base
+            src: `${config.base.replace(/\/$/, '')}/umami.js`,
             'data-website-id': options.websiteId,
             'data-host-url': options.host,
           },
