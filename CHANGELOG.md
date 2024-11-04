@@ -1,5 +1,28 @@
 # Changelog
 
+## [2.16.0](https://github.com/graasp/graasp-account/compare/v2.15.2...v2.16.0) (2024-11-04)
+
+
+### Features
+
+* add tanstack router ([#375](https://github.com/graasp/graasp-account/issues/375)) ([0fa02ff](https://github.com/graasp/graasp-account/commit/0fa02ff2ea97744a2dd8399df830e35c5f7fde8a))
+
+
+### Bug Fixes
+
+* add umami variables ([71d96a8](https://github.com/graasp/graasp-account/commit/71d96a81807f988506deb9f37f284bfdbae2cd7f))
+* **arabic:** update translations ([#418](https://github.com/graasp/graasp-account/issues/418)) ([ddc3a56](https://github.com/graasp/graasp-account/commit/ddc3a567d7bd6126830a0f3f6430c4a69e614110))
+* **deps:** update tanstack-router monorepo to v1.78.3 ([#407](https://github.com/graasp/graasp-account/issues/407)) ([fd5f68f](https://github.com/graasp/graasp-account/commit/fd5f68f30dd52ca94d863510ba50230d9918c8c8))
+* **french:** update translations ([#413](https://github.com/graasp/graasp-account/issues/413)) ([9e33b83](https://github.com/graasp/graasp-account/commit/9e33b833767cc8de503fd2d238c10ad253873486))
+* **german:** update translations ([#414](https://github.com/graasp/graasp-account/issues/414)) ([ee17aab](https://github.com/graasp/graasp-account/commit/ee17aabd0781024339e579f61f59ab3be0bb24e4))
+* **italian:** update translations ([#416](https://github.com/graasp/graasp-account/issues/416)) ([1c281c6](https://github.com/graasp/graasp-account/commit/1c281c6940a975308ea2eed5bfee2255cef724c1))
+* remove devtools in prod ([#417](https://github.com/graasp/graasp-account/issues/417)) ([81d8bf4](https://github.com/graasp/graasp-account/commit/81d8bf43703306233d30d6aed389e7a3883e6b02))
+* **spanish:** update translations ([#415](https://github.com/graasp/graasp-account/issues/415)) ([ae3add1](https://github.com/graasp/graasp-account/commit/ae3add1987023d720c1cddb520dd3eae7fa0fec8))
+* translation strings ([#404](https://github.com/graasp/graasp-account/issues/404)) ([e3a5fcb](https://github.com/graasp/graasp-account/commit/e3a5fcbc3a22d897d4879e48cd43ab1a031cc821))
+* update deps ([#409](https://github.com/graasp/graasp-account/issues/409)) ([0a322f2](https://github.com/graasp/graasp-account/commit/0a322f29cdfeb34c437d8ca65ce530c9e069cd2c))
+* updated lang is not shown in preferences when switching lang ([#408](https://github.com/graasp/graasp-account/issues/408)) ([972cc3c](https://github.com/graasp/graasp-account/commit/972cc3cdbfceec209c0e8868eb804951af55abb8))
+* use the script from cloud and send to our own ([#411](https://github.com/graasp/graasp-account/issues/411)) ([54c1c15](https://github.com/graasp/graasp-account/commit/54c1c15097496cf32fae36d2a7a08bd2ff140f55))
+
 ## [2.15.2](https://github.com/graasp/graasp-account/compare/v2.15.1...v2.15.2) (2024-10-23)
 
 
