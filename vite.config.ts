@@ -49,13 +49,6 @@ const config = ({ mode }: { mode: string }): UserConfigExport => {
           // remove the "api" part
           rewrite: (path) => path.replace(/^\/api/, ''),
         },
-        // this allows to bypass the cors restrictions for loading and sending events to the umami server
-        '/metrics': {
-          target: VITE_UMAMI_HOST ?? 'http://localhost:8000',
-          changeOrigin: true,
-          // remove the "metrics" part
-          rewrite: (path) => path.replace(/^\/metrics/, ''),
-        },
       },
     },
     preview: {
@@ -93,8 +86,7 @@ const config = ({ mode }: { mode: string }): UserConfigExport => {
       VITE_UMAMI_WEBSITE_ID
         ? umamiPlugin({
             websiteId: VITE_UMAMI_WEBSITE_ID,
-            host: '',
-            path: '/metrics',
+            host: VITE_UMAMI_HOST,
             enableInDevMode: true,
           })
         : undefined,

@@ -16,10 +16,6 @@ export interface UmamiPluginOptions {
    */
   host?: string;
   /**
-   * Path to prepend to the script invocation
-   */
-  path?: string;
-  /**
    * Whether to inject the script in development mode.
    *
    * @default false
