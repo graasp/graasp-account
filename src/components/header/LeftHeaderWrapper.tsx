@@ -32,7 +32,7 @@ export function LeftHeaderWrapper(): JSX.Element {
   }
 
   return (
-    <Stack gap={2} direction="row" id="leftTitleWrapper">
+    <Stack gap={2} direction="row" id="leftTitleWrapper" alignItems="center">
       <LanguageSwitch lang={i18n.language} onChange={handleLanguageChange} />
       <Button
         component={Link}

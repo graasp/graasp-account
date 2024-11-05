@@ -13,6 +13,7 @@ import { createFileRoute } from '@tanstack/react-router'
 // Import Routes
 
 import { Route as rootRoute } from './routes/__root'
+import { Route as RegisterImport } from './routes/register'
 import { Route as LoginImport } from './routes/login'
 import { Route as AccountImport } from './routes/account'
 import { Route as AccountIndexImport } from './routes/account/index'
@@ -25,6 +26,12 @@ const IndexLazyImport = createFileRoute('/')()
 const AccountStorageLazyImport = createFileRoute('/account/storage')()
 
 // Create/Update Routes
+
+const RegisterRoute = RegisterImport.update({
+  id: '/register',
+  path: '/register',
+  getParentRoute: () => rootRoute,
+} as any)
 
 const LoginRoute = LoginImport.update({
   id: '/login',
@@ -95,6 +102,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof LoginImport
       parentRoute: typeof rootRoute
     }
+    '/register': {
+      id: '/register'
+      path: '/register'
+      fullPath: '/register'
+      preLoaderRoute: typeof RegisterImport
+      parentRoute: typeof rootRoute
+    }
     '/account/settings': {
       id: '/account/settings'
       path: '/settings'
@@ -147,6 +161,7 @@ export interface FileRoutesByFullPath {
   '/': typeof IndexLazyRoute
   '/account': typeof AccountRouteWithChildren
   '/login': typeof LoginRoute
+  '/register': typeof RegisterRoute
   '/account/settings': typeof AccountSettingsRoute
   '/email/change': typeof EmailChangeRoute
   '/account/storage': typeof AccountStorageLazyRoute
@@ -156,6 +171,7 @@ export interface FileRoutesByFullPath {
 export interface FileRoutesByTo {
   '/': typeof IndexLazyRoute
   '/login': typeof LoginRoute
+  '/register': typeof RegisterRoute
   '/account/settings': typeof AccountSettingsRoute
   '/email/change': typeof EmailChangeRoute
   '/account/storage': typeof AccountStorageLazyRoute
@@ -167,6 +183,7 @@ export interface FileRoutesById {
   '/': typeof IndexLazyRoute
   '/account': typeof AccountRouteWithChildren
   '/login': typeof LoginRoute
+  '/register': typeof RegisterRoute
   '/account/settings': typeof AccountSettingsRoute
   '/email/change': typeof EmailChangeRoute
   '/account/storage': typeof AccountStorageLazyRoute
@@ -179,6 +196,7 @@ export interface FileRouteTypes {
     | '/'
     | '/account'
     | '/login'
+    | '/register'
     | '/account/settings'
     | '/email/change'
     | '/account/storage'
@@ -187,6 +205,7 @@ export interface FileRouteTypes {
   to:
     | '/'
     | '/login'
+    | '/register'
     | '/account/settings'
     | '/email/change'
     | '/account/storage'
@@ -196,6 +215,7 @@ export interface FileRouteTypes {
     | '/'
     | '/account'
     | '/login'
+    | '/register'
     | '/account/settings'
     | '/email/change'
     | '/account/storage'
@@ -207,6 +227,7 @@ export interface RootRouteChildren {
   IndexLazyRoute: typeof IndexLazyRoute
   AccountRoute: typeof AccountRouteWithChildren
   LoginRoute: typeof LoginRoute
+  RegisterRoute: typeof RegisterRoute
   EmailChangeRoute: typeof EmailChangeRoute
 }
 
@@ -214,6 +235,7 @@ const rootRouteChildren: RootRouteChildren = {
   IndexLazyRoute: IndexLazyRoute,
   AccountRoute: AccountRouteWithChildren,
   LoginRoute: LoginRoute,
+  RegisterRoute: RegisterRoute,
   EmailChangeRoute: EmailChangeRoute,
 }
 
@@ -230,6 +252,7 @@ export const routeTree = rootRoute
         "/",
         "/account",
         "/login",
+        "/register",
         "/email/change"
       ]
     },
@@ -246,6 +269,9 @@ export const routeTree = rootRoute
     },
     "/login": {
       "filePath": "login.tsx"
+    },
+    "/register": {
+      "filePath": "register.tsx"
     },
     "/account/settings": {
       "filePath": "account/settings.tsx",
