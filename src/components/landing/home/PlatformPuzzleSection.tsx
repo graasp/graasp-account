@@ -1,7 +1,10 @@
 import { Grid2, Stack, Typography } from '@mui/material';
 
+import { Platform } from '@graasp/ui';
+
 import { useAccountTranslation } from '@/config/i18n';
 
+import { PlatformButton } from './PlatformButton';
 import { BuilderPuzzle } from './icons/BuilderPuzzle';
 
 export function PlatformPuzzleSection(): JSX.Element {
@@ -17,55 +20,72 @@ export function PlatformPuzzleSection(): JSX.Element {
         <Typography variant="h2" textAlign="center">
           {t('An all-in-one tool, how?')}
         </Typography>
-        <Stack direction={{ xs: 'column', lg: 'row' }} gap={5}>
-          <Stack
-            alignItems="center"
-            mx={5}
-            className="lg:order-1 lg:col-span-4 text-center mx-10"
+        <Grid2
+          container
+          direction={{ xs: 'column', lg: 'row' }}
+          alignItems="center"
+          spacing={5}
+        >
+          <Grid2
+            size={{ xs: 12, lg: 6 }}
+            justifySelf="center"
+            order={{ xs: 0, lg: 1 }}
+            px={10}
+            maxWidth={{ xs: '600px' }}
           >
             <BuilderPuzzle />
-          </Stack>
-          <Grid2 className="grid lg:order-0 max-lg:grid-cols-2 lg:grid-flow-row gap-4">
-            {/* <PlatformButton
-              href=""
+          </Grid2>
+          <Grid2
+            container
+            direction={{ xs: 'row', lg: 'column' }}
+            spacing={2}
+            size={{ xs: 12, lg: 3 }}
+            order={{ xs: 1, lg: 0 }}
+            justifyContent="space-between"
+            height={{ xs: 'unset', lg: '100%' }}
+          >
+            <PlatformButton
               caption={t('Use the')}
-              name="Builder"
-              color="builder"
+              platform={Platform.Builder}
               buttonText={t('Create')}
               description={t('To create rich and interactive material')}
+              direction="left"
             />
             <PlatformButton
-              href=""
               caption={t('Use the')}
-              name="Player"
-              color="player"
+              platform={Platform.Player}
               buttonText={t('Experience')}
               description={t('And let learners access material in a new way')}
-            /> */}
+              direction="left"
+            />
           </Grid2>
-          <div className="grid lg:order-2 max-lg:grid-cols-2 lg:grid-flow-row gap-4">
-            {/* <PlatformButton
-              href=""
+          <Grid2
+            container
+            direction={{ xs: 'row', lg: 'column' }}
+            spacing={2}
+            size={{ xs: 12, lg: 3 }}
+            order={{ xs: 2, lg: 2 }}
+            justifyContent="space-between"
+            height={{ xs: 'unset', lg: '100%' }}
+          >
+            <PlatformButton
               caption={t('Access the')}
-              name="Analytics"
+              platform={Platform.Analytics}
               direction="right"
-              color="analytics"
               buttonText={t('Analyze')}
               description={t(
                 'To collect insights and data about your className',
               )}
             />
             <PlatformButton
-              href=""
               caption={t('Navigate the')}
-              name="Library"
+              platform={Platform.Library}
               direction="right"
-              color="library"
               buttonText={t('Explore')}
               description={t('To find resources and be part of a community')}
-            /> */}
-          </div>
-        </Stack>
+            />
+          </Grid2>
+        </Grid2>
       </Stack>
     </Stack>
   );

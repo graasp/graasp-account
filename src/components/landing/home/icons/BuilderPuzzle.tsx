@@ -5,6 +5,9 @@ export function BuilderPuzzle(): JSX.Element {
       height="100%"
       viewBox="0 0 455 472"
       fill="none"
+      // remove small gap
+      // ref: https://stackoverflow.com/questions/24626908/how-to-get-rid-of-extra-space-below-svg-in-div-element
+      display="block"
       style={{ margin: 'auto' }}
       xmlns="http://www.w3.org/2000/svg"
     >
