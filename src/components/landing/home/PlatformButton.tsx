@@ -83,12 +83,15 @@ export function PlatformButton({
   );
   return (
     <Grid2
+      id="puzzleButtonContainer"
       container
-      size={{ xs: 4, lg: 12 }}
+      size={{ xs: 6, lg: 12 }}
       gap={2}
       direction="column"
       alignItems={alignItems}
-      justifyItems="flex-end"
+
+      // height="100%"
+      // flex={1}
     >
       <Stack alignItems={alignItems}>
         {isSmallScreen && icon}
@@ -107,6 +110,7 @@ export function PlatformButton({
         direction={direction == 'left' ? 'row' : 'row-reverse'}
         alignItems="center"
         gap={1}
+        flex={1}
       >
         {!isSmallScreen && icon}
         <Typography textAlign={{ xs: 'center', lg: direction }}>

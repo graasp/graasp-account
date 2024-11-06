@@ -11,6 +11,8 @@ import { Link, createLazyFileRoute } from '@tanstack/react-router';
 
 import { useAuth } from '@/AuthContext';
 import { LeftHeaderWrapper } from '@/components/header/LeftHeaderWrapper';
+import { Footer } from '@/components/landing/footer/Footer';
+import { OurMissionSection } from '@/components/landing/home/OurMissionSection';
 import { PlatformPuzzleSection } from '@/components/landing/home/PlatformPuzzleSection';
 import { TitleSection } from '@/components/landing/home/TitleSection';
 import { ACCOUNT_HOME_PATH, LANDING_PAGE_PATH } from '@/config/paths';
@@ -25,15 +27,21 @@ function Index() {
   const { fill: primary } = useButtonColor('primary');
 
   return (
-    <Stack alignItems="center" height="100svh" id="pageWrapper">
+    <Stack
+      alignItems="center"
+      // height="100svh"
+      id="pageWrapper"
+    >
       <Stack
-        id="titleWrapper"
+        id="navBar"
         // take maximum width
         width="100%"
         // make some room around the buttons
         p={2}
         gap={2}
         bgcolor="white"
+        position="fixed"
+        top="0px"
         sx={{
           boxShadow: (theme) => theme.shadows[3],
           zIndex: (theme) => theme.zIndex.appBar,
@@ -73,14 +81,24 @@ function Index() {
         direction="column"
         width="100%"
         alignItems="center"
+        mt={
+          // compensate the nav bar height
+          10
+        }
         p={4}
-        gap={2}
+        pb={
+          // give some breathing room before the footer
+          15
+        }
+        gap={15}
         bgcolor={DEFAULT_BACKGROUND_COLOR}
-        overflow="scroll"
       >
         <TitleSection />
         <PlatformPuzzleSection />
+        {/* <CalloutSection/> */}
+        <OurMissionSection />
       </Stack>
+      <Footer />
     </Stack>
   );
 }

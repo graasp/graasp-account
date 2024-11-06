@@ -38,11 +38,10 @@ export function PlatformPuzzleSection(): JSX.Element {
           <Grid2
             container
             direction={{ xs: 'row', lg: 'column' }}
-            spacing={2}
+            spacing={{ xs: 2, lg: 8 }}
             size={{ xs: 12, lg: 3 }}
             order={{ xs: 1, lg: 0 }}
             justifyContent="space-between"
-            height={{ xs: 'unset', lg: '100%' }}
           >
             <PlatformButton
               caption={t('Use the')}
@@ -62,11 +61,10 @@ export function PlatformPuzzleSection(): JSX.Element {
           <Grid2
             container
             direction={{ xs: 'row', lg: 'column' }}
-            spacing={2}
+            spacing={{ xs: 2, lg: 8 }}
             size={{ xs: 12, lg: 3 }}
             order={{ xs: 2, lg: 2 }}
             justifyContent="space-between"
-            height={{ xs: 'unset', lg: '100%' }}
           >
             <PlatformButton
               caption={t('Access the')}
