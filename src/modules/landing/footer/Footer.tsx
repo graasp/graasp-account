@@ -82,8 +82,10 @@ const socialLinks = [
   },
 ];
 
+const internalLinkActiveProp = () => ({ sx: { textDecoration: 'underline' } });
+
 export function Footer(): JSX.Element {
-  const { t, i18n } = useTranslation(NS.Landing);
+  const { t } = useTranslation(NS.Landing);
   return (
     <Stack
       component="footer"
@@ -98,19 +100,19 @@ export function Footer(): JSX.Element {
         <Typography textAlign="center">{t('FOOTER.TAG_LINE')}</Typography>
         <Stack direction={{ xs: 'column', sm: 'row' }} m={4} gap={10}>
           <FooterSection name={t('FOOTER.CONTENT.TITLE')}>
-            <InternalLink to="/" activeProps={() => ({ sx: { color: 'red' } })}>
+            <InternalLink to="/" activeProps={internalLinkActiveProp}>
               {t('FOOTER.CONTENT.HOME')}
             </InternalLink>
-            <InternalLink to="/features">
+            <InternalLink to="/features" activeProps={internalLinkActiveProp}>
               {t('FOOTER.CONTENT.FEATURES')}
             </InternalLink>
-            <InternalLink to="/about-us">
+            <InternalLink to="/about-us" activeProps={internalLinkActiveProp}>
               {t('FOOTER.CONTENT.ABOUT_US')}
             </InternalLink>
-            <InternalLink to="/support">
+            <InternalLink to="/support" activeProps={internalLinkActiveProp}>
               {t('FOOTER.CONTENT.SUPPORT')}
             </InternalLink>
-            <InternalLink to="/contact-us">
+            <InternalLink to="/contact-us" activeProps={internalLinkActiveProp}>
               {t('FOOTER.CONTENT.CONTACT_US')}
             </InternalLink>
           </FooterSection>
@@ -132,13 +134,13 @@ export function Footer(): JSX.Element {
           </FooterSection>
 
           <FooterSection name={t('FOOTER.OTHER.TITLE')}>
-            <InternalLink to={`/${i18n.language}/terms`}>
+            <InternalLink to="/terms" activeProps={internalLinkActiveProp}>
               {t('FOOTER.OTHER.TERMS')}
             </InternalLink>
-            <InternalLink to={`/${i18n.language}/policy`}>
+            <InternalLink to="/policy" activeProps={internalLinkActiveProp}>
               {t('FOOTER.OTHER.POLICY')}
             </InternalLink>
-            <InternalLink to={`/${i18n.language}/disclaimer`}>
+            <InternalLink to="/disclaimer" activeProps={internalLinkActiveProp}>
               {t('FOOTER.OTHER.DISCLAIMER')}
             </InternalLink>
           </FooterSection>

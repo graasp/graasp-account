@@ -1,0 +1,24 @@
+{
+  "LOGOUT": {
+    "BUTTON_TEXT": "Log out"
+  },
+  "LOG_IN": {
+    "BUTTON_TEXT": "Log in"
+  },
+  "REGISTER": {
+    "BUTTON_TEXT": "Register"
+  },
+  "BACK": {
+    "BUTTON_TEXT": "Back"
+  },
+  "HOME": {
+    "BUTTON_TEXT": "Go Home"
+  },
+  "CONJONCTION": {
+    "OR": "or"
+  },
+  "CONSTRUCTION": {
+    "TITLE": "This page is under construction",
+    "DESCRIPTION": " We are working on improving this part of the app. We ask for your comprehension while we make the necessary changes."
+  }
+}

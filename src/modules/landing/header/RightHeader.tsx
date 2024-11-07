@@ -8,15 +8,15 @@ import { Avatar } from '@graasp/ui';
 import { Link } from '@tanstack/react-router';
 
 import { useAuth } from '@/AuthContext';
+import { NS } from '@/config/constants';
 import { GRAASP_AUTH_HOST } from '@/config/env';
 import { mutations } from '@/config/queryClient';
-import { ACCOUNT } from '@/langs/account';
 
 import LanguageSwitch from '../../../components/common/LanguageSwitch';
 
-export function LeftHeaderWrapper(): JSX.Element {
+export function RightHeader(): JSX.Element {
   const { isAuthenticated, user, logout } = useAuth();
-  const { t, i18n } = useTranslation();
+  const { t, i18n } = useTranslation(NS.Common);
   const { mutate } = mutations.useEditCurrentMember();
 
   const handleLanguageChange = (lang: string) => {
@@ -27,7 +27,7 @@ export function LeftHeaderWrapper(): JSX.Element {
     return (
       <Stack direction="row" alignItems="center">
         <Avatar alt={user.name} />
-        <Button onClick={logout}>{t(ACCOUNT.LOGOUT_BUTTON)}</Button>
+        <Button onClick={logout}>{t('LOGOUT.BUTTON_TEXT')}</Button>
       </Stack>
     );
   }
@@ -43,10 +43,10 @@ export function LeftHeaderWrapper(): JSX.Element {
           lang: i18n.language,
         })}
       >
-        {t(ACCOUNT.LOG_IN_BUTTON)}
+        {t('LOG_IN.BUTTON_TEXT')}
       </Button>
       <Button component={Link} to="/register">
-        {t(ACCOUNT.REGISTER_BUTTON)}
+        {t('REGISTER.BUTTON_TEXT')}
       </Button>
     </Stack>
   );

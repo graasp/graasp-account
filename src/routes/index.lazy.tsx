@@ -12,10 +12,11 @@ import { Link, createLazyFileRoute } from '@tanstack/react-router';
 import { useAuth } from '@/AuthContext';
 import { ACCOUNT_HOME_PATH, LANDING_PAGE_PATH } from '@/config/paths';
 import { Footer } from '@/modules/landing/footer/Footer';
-import { LeftHeaderWrapper } from '@/modules/landing/header/LeftHeaderWrapper';
 import { OurMissionSection } from '@/modules/landing/home/OurMissionSection';
 import { PlatformPuzzleSection } from '@/modules/landing/home/PlatformPuzzleSection';
 import { TitleSection } from '@/modules/landing/home/TitleSection';
+
+import { RightHeader } from '~landing/header/RightHeader';
 
 export const Route = createLazyFileRoute('/')({
   component: Index,
@@ -69,7 +70,7 @@ function Index() {
               </Typography>
             )}
           </Stack>
-          <LeftHeaderWrapper />
+          <RightHeader />
         </Stack>
       </Stack>
       <Stack

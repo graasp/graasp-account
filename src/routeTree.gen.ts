@@ -15,7 +15,9 @@ import { createFileRoute } from '@tanstack/react-router'
 import { Route as rootRoute } from './routes/__root'
 import { Route as TermsImport } from './routes/terms'
 import { Route as SupportImport } from './routes/support'
+import { Route as PolicyImport } from './routes/policy'
 import { Route as FeaturesImport } from './routes/features'
+import { Route as DisclaimerImport } from './routes/disclaimer'
 import { Route as ContactUsImport } from './routes/contact-us'
 import { Route as AccountImport } from './routes/account'
 import { Route as AboutUsImport } from './routes/about-us'
@@ -44,9 +46,21 @@ const SupportRoute = SupportImport.update({
   getParentRoute: () => rootRoute,
 } as any)
 
+const PolicyRoute = PolicyImport.update({
+  id: '/policy',
+  path: '/policy',
+  getParentRoute: () => rootRoute,
+} as any)
+
 const FeaturesRoute = FeaturesImport.update({
   id: '/features',
   path: '/features',
+  getParentRoute: () => rootRoute,
+} as any)
+
+const DisclaimerRoute = DisclaimerImport.update({
+  id: '/disclaimer',
+  path: '/disclaimer',
   getParentRoute: () => rootRoute,
 } as any)
 
@@ -146,11 +160,25 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ContactUsImport
       parentRoute: typeof rootRoute
     }
+    '/disclaimer': {
+      id: '/disclaimer'
+      path: '/disclaimer'
+      fullPath: '/disclaimer'
+      preLoaderRoute: typeof DisclaimerImport
+      parentRoute: typeof rootRoute
+    }
     '/features': {
       id: '/features'
       path: '/features'
       fullPath: '/features'
       preLoaderRoute: typeof FeaturesImport
+      parentRoute: typeof rootRoute
+    }
+    '/policy': {
+      id: '/policy'
+      path: '/policy'
+      fullPath: '/policy'
+      preLoaderRoute: typeof PolicyImport
       parentRoute: typeof rootRoute
     }
     '/support': {
@@ -234,7 +262,9 @@ export interface FileRoutesByFullPath {
   '/about-us': typeof AboutUsRoute
   '/account': typeof AccountRouteWithChildren
   '/contact-us': typeof ContactUsRoute
+  '/disclaimer': typeof DisclaimerRoute
   '/features': typeof FeaturesRoute
+  '/policy': typeof PolicyRoute
   '/support': typeof SupportRoute
   '/terms': typeof TermsRoute
   '/auth/login': typeof AuthLoginRoute
@@ -249,7 +279,9 @@ export interface FileRoutesByTo {
   '/': typeof IndexLazyRoute
   '/about-us': typeof AboutUsRoute
   '/contact-us': typeof ContactUsRoute
+  '/disclaimer': typeof DisclaimerRoute
   '/features': typeof FeaturesRoute
+  '/policy': typeof PolicyRoute
   '/support': typeof SupportRoute
   '/terms': typeof TermsRoute
   '/auth/login': typeof AuthLoginRoute
@@ -266,7 +298,9 @@ export interface FileRoutesById {
   '/about-us': typeof AboutUsRoute
   '/account': typeof AccountRouteWithChildren
   '/contact-us': typeof ContactUsRoute
+  '/disclaimer': typeof DisclaimerRoute
   '/features': typeof FeaturesRoute
+  '/policy': typeof PolicyRoute
   '/support': typeof SupportRoute
   '/terms': typeof TermsRoute
   '/auth/login': typeof AuthLoginRoute
@@ -284,7 +318,9 @@ export interface FileRouteTypes {
     | '/about-us'
     | '/account'
     | '/contact-us'
+    | '/disclaimer'
     | '/features'
+    | '/policy'
     | '/support'
     | '/terms'
     | '/auth/login'
@@ -298,7 +334,9 @@ export interface FileRouteTypes {
     | '/'
     | '/about-us'
     | '/contact-us'
+    | '/disclaimer'
     | '/features'
+    | '/policy'
     | '/support'
     | '/terms'
     | '/auth/login'
@@ -313,7 +351,9 @@ export interface FileRouteTypes {
     | '/about-us'
     | '/account'
     | '/contact-us'
+    | '/disclaimer'
     | '/features'
+    | '/policy'
     | '/support'
     | '/terms'
     | '/auth/login'
@@ -330,7 +370,9 @@ export interface RootRouteChildren {
   AboutUsRoute: typeof AboutUsRoute
   AccountRoute: typeof AccountRouteWithChildren
   ContactUsRoute: typeof ContactUsRoute
+  DisclaimerRoute: typeof DisclaimerRoute
   FeaturesRoute: typeof FeaturesRoute
+  PolicyRoute: typeof PolicyRoute
   SupportRoute: typeof SupportRoute
   TermsRoute: typeof TermsRoute
   AuthLoginRoute: typeof AuthLoginRoute
@@ -343,7 +385,9 @@ const rootRouteChildren: RootRouteChildren = {
   AboutUsRoute: AboutUsRoute,
   AccountRoute: AccountRouteWithChildren,
   ContactUsRoute: ContactUsRoute,
+  DisclaimerRoute: DisclaimerRoute,
   FeaturesRoute: FeaturesRoute,
+  PolicyRoute: PolicyRoute,
   SupportRoute: SupportRoute,
   TermsRoute: TermsRoute,
   AuthLoginRoute: AuthLoginRoute,
@@ -365,7 +409,9 @@ export const routeTree = rootRoute
         "/about-us",
         "/account",
         "/contact-us",
+        "/disclaimer",
         "/features",
+        "/policy",
         "/support",
         "/terms",
         "/auth/login",
@@ -390,8 +436,14 @@ export const routeTree = rootRoute
     "/contact-us": {
       "filePath": "contact-us.tsx"
     },
+    "/disclaimer": {
+      "filePath": "disclaimer.tsx"
+    },
     "/features": {
       "filePath": "features.tsx"
+    },
+    "/policy": {
+      "filePath": "policy.tsx"
     },
     "/support": {
       "filePath": "support.tsx"
