@@ -31,7 +31,8 @@ import {
   PUBLIC_PROFILE_TWITTER_ID,
 } from '@/config/selectors';
 import { ACCOUNT } from '@/langs/account';
-import { CustomTextField } from '@/modules/account/profile/public/CustomTextField';
+
+import { CustomTextField } from '~account/settings/public/CustomTextField';
 
 const config: Config = {
   usePredefinedProfiles: true,

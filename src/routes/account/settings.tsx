@@ -5,12 +5,12 @@ import { useAccountTranslation } from '@/config/i18n';
 import { SETTINGS_PAGE_CONTAINER_ID } from '@/config/selectors';
 import { ACCOUNT } from '@/langs/account';
 
-import PersonalInformation from '~account/profile/PersonalInformation';
-import DisplayPassword from '~account/profile/password/DisplayPassword';
-import PublicProfile from '~account/profile/public/PublicProfile';
 import DeleteMemberSection from '~account/settings/DeleteMemberSection';
 import ExportData from '~account/settings/ExportData';
 import { MemberPreferences } from '~account/settings/MemberPreferences';
+import PersonalInformation from '~account/settings/PersonalInformation';
+import DisplayPassword from '~account/settings/password/DisplayPassword';
+import PublicProfile from '~account/settings/public/PublicProfile';
 
 export const Route = createFileRoute('/account/settings')({
   component: SettingsRoute,

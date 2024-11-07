@@ -13,18 +13,17 @@ import { createFileRoute } from '@tanstack/react-router'
 // Import Routes
 
 import { Route as rootRoute } from './routes/__root'
+import { Route as TermsImport } from './routes/terms'
 import { Route as SupportImport } from './routes/support'
-import { Route as RegisterImport } from './routes/register'
-import { Route as LoginImport } from './routes/login'
 import { Route as FeaturesImport } from './routes/features'
 import { Route as ContactUsImport } from './routes/contact-us'
 import { Route as AccountImport } from './routes/account'
 import { Route as AboutUsImport } from './routes/about-us'
-import { Route as LangImport } from './routes/$lang'
 import { Route as AccountIndexImport } from './routes/account/index'
 import { Route as EmailChangeImport } from './routes/email.change'
+import { Route as AuthRegisterImport } from './routes/auth/register'
+import { Route as AuthLoginImport } from './routes/auth/login'
 import { Route as AccountSettingsImport } from './routes/account/settings'
-import { Route as LangTermsImport } from './routes/$lang/terms'
 
 // Create Virtual Routes
 
@@ -33,23 +32,17 @@ const AccountStorageLazyImport = createFileRoute('/account/storage')()
 
 // Create/Update Routes
 
+const TermsRoute = TermsImport.update({
+  id: '/terms',
+  path: '/terms',
+  getParentRoute: () => rootRoute,
+} as any)
+
 const SupportRoute = SupportImport.update({
   id: '/support',
   path: '/support',
   getParentRoute: () => rootRoute,
 } as any)
-
-const RegisterRoute = RegisterImport.update({
-  id: '/register',
-  path: '/register',
-  getParentRoute: () => rootRoute,
-} as any)
-
-const LoginRoute = LoginImport.update({
-  id: '/login',
-  path: '/login',
-  getParentRoute: () => rootRoute,
-} as any).lazy(() => import('./routes/login.lazy').then((d) => d.Route))
 
 const FeaturesRoute = FeaturesImport.update({
   id: '/features',
@@ -72,12 +65,6 @@ const AccountRoute = AccountImport.update({
 const AboutUsRoute = AboutUsImport.update({
   id: '/about-us',
   path: '/about-us',
-  getParentRoute: () => rootRoute,
-} as any)
-
-const LangRoute = LangImport.update({
-  id: '/$lang',
-  path: '/$lang',
   getParentRoute: () => rootRoute,
 } as any)
 
@@ -107,16 +94,22 @@ const EmailChangeRoute = EmailChangeImport.update({
   getParentRoute: () => rootRoute,
 } as any)
 
+const AuthRegisterRoute = AuthRegisterImport.update({
+  id: '/auth/register',
+  path: '/auth/register',
+  getParentRoute: () => rootRoute,
+} as any)
+
+const AuthLoginRoute = AuthLoginImport.update({
+  id: '/auth/login',
+  path: '/auth/login',
+  getParentRoute: () => rootRoute,
+} as any).lazy(() => import('./routes/auth/login.lazy').then((d) => d.Route))
+
 const AccountSettingsRoute = AccountSettingsImport.update({
   id: '/settings',
   path: '/settings',
   getParentRoute: () => AccountRoute,
-} as any)
-
-const LangTermsRoute = LangTermsImport.update({
-  id: '/terms',
-  path: '/terms',
-  getParentRoute: () => LangRoute,
 } as any)
 
 // Populate the FileRoutesByPath interface
@@ -128,13 +121,6 @@ declare module '@tanstack/react-router' {
       path: '/'
       fullPath: '/'
       preLoaderRoute: typeof IndexLazyImport
-      parentRoute: typeof rootRoute
-    }
-    '/$lang': {
-      id: '/$lang'
-      path: '/$lang'
-      fullPath: '/$lang'
-      preLoaderRoute: typeof LangImport
       parentRoute: typeof rootRoute
     }
     '/about-us': {
@@ -165,20 +151,6 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof FeaturesImport
       parentRoute: typeof rootRoute
     }
-    '/login': {
-      id: '/login'
-      path: '/login'
-      fullPath: '/login'
-      preLoaderRoute: typeof LoginImport
-      parentRoute: typeof rootRoute
-    }
-    '/register': {
-      id: '/register'
-      path: '/register'
-      fullPath: '/register'
-      preLoaderRoute: typeof RegisterImport
-      parentRoute: typeof rootRoute
-    }
     '/support': {
       id: '/support'
       path: '/support'
@@ -186,12 +158,12 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof SupportImport
       parentRoute: typeof rootRoute
     }
-    '/$lang/terms': {
-      id: '/$lang/terms'
+    '/terms': {
+      id: '/terms'
       path: '/terms'
-      fullPath: '/$lang/terms'
-      preLoaderRoute: typeof LangTermsImport
-      parentRoute: typeof LangImport
+      fullPath: '/terms'
+      preLoaderRoute: typeof TermsImport
+      parentRoute: typeof rootRoute
     }
     '/account/settings': {
       id: '/account/settings'
@@ -199,6 +171,20 @@ declare module '@tanstack/react-router' {
       fullPath: '/account/settings'
       preLoaderRoute: typeof AccountSettingsImport
       parentRoute: typeof AccountImport
+    }
+    '/auth/login': {
+      id: '/auth/login'
+      path: '/auth/login'
+      fullPath: '/auth/login'
+      preLoaderRoute: typeof AuthLoginImport
+      parentRoute: typeof rootRoute
+    }
+    '/auth/register': {
+      id: '/auth/register'
+      path: '/auth/register'
+      fullPath: '/auth/register'
+      preLoaderRoute: typeof AuthRegisterImport
+      parentRoute: typeof rootRoute
     }
     '/email/change': {
       id: '/email/change'
@@ -226,16 +212,6 @@ declare module '@tanstack/react-router' {
 
 // Create and export the route tree
 
-interface LangRouteChildren {
-  LangTermsRoute: typeof LangTermsRoute
-}
-
-const LangRouteChildren: LangRouteChildren = {
-  LangTermsRoute: LangTermsRoute,
-}
-
-const LangRouteWithChildren = LangRoute._addFileChildren(LangRouteChildren)
-
 interface AccountRouteChildren {
   AccountSettingsRoute: typeof AccountSettingsRoute
   AccountStorageLazyRoute: typeof AccountStorageLazyRoute
@@ -253,16 +229,15 @@ const AccountRouteWithChildren =
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexLazyRoute
-  '/$lang': typeof LangRouteWithChildren
   '/about-us': typeof AboutUsRoute
   '/account': typeof AccountRouteWithChildren
   '/contact-us': typeof ContactUsRoute
   '/features': typeof FeaturesRoute
-  '/login': typeof LoginRoute
-  '/register': typeof RegisterRoute
   '/support': typeof SupportRoute
-  '/$lang/terms': typeof LangTermsRoute
+  '/terms': typeof TermsRoute
   '/account/settings': typeof AccountSettingsRoute
+  '/auth/login': typeof AuthLoginRoute
+  '/auth/register': typeof AuthRegisterRoute
   '/email/change': typeof EmailChangeRoute
   '/account/storage': typeof AccountStorageLazyRoute
   '/account/': typeof AccountIndexRoute
@@ -270,15 +245,14 @@ export interface FileRoutesByFullPath {
 
 export interface FileRoutesByTo {
   '/': typeof IndexLazyRoute
-  '/$lang': typeof LangRouteWithChildren
   '/about-us': typeof AboutUsRoute
   '/contact-us': typeof ContactUsRoute
   '/features': typeof FeaturesRoute
-  '/login': typeof LoginRoute
-  '/register': typeof RegisterRoute
   '/support': typeof SupportRoute
-  '/$lang/terms': typeof LangTermsRoute
+  '/terms': typeof TermsRoute
   '/account/settings': typeof AccountSettingsRoute
+  '/auth/login': typeof AuthLoginRoute
+  '/auth/register': typeof AuthRegisterRoute
   '/email/change': typeof EmailChangeRoute
   '/account/storage': typeof AccountStorageLazyRoute
   '/account': typeof AccountIndexRoute
@@ -287,16 +261,15 @@ export interface FileRoutesByTo {
 export interface FileRoutesById {
   __root__: typeof rootRoute
   '/': typeof IndexLazyRoute
-  '/$lang': typeof LangRouteWithChildren
   '/about-us': typeof AboutUsRoute
   '/account': typeof AccountRouteWithChildren
   '/contact-us': typeof ContactUsRoute
   '/features': typeof FeaturesRoute
-  '/login': typeof LoginRoute
-  '/register': typeof RegisterRoute
   '/support': typeof SupportRoute
-  '/$lang/terms': typeof LangTermsRoute
+  '/terms': typeof TermsRoute
   '/account/settings': typeof AccountSettingsRoute
+  '/auth/login': typeof AuthLoginRoute
+  '/auth/register': typeof AuthRegisterRoute
   '/email/change': typeof EmailChangeRoute
   '/account/storage': typeof AccountStorageLazyRoute
   '/account/': typeof AccountIndexRoute
@@ -306,47 +279,44 @@ export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
   fullPaths:
     | '/'
-    | '/$lang'
     | '/about-us'
     | '/account'
     | '/contact-us'
     | '/features'
-    | '/login'
-    | '/register'
     | '/support'
-    | '/$lang/terms'
+    | '/terms'
     | '/account/settings'
+    | '/auth/login'
+    | '/auth/register'
     | '/email/change'
     | '/account/storage'
     | '/account/'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
-    | '/$lang'
     | '/about-us'
     | '/contact-us'
     | '/features'
-    | '/login'
-    | '/register'
     | '/support'
-    | '/$lang/terms'
+    | '/terms'
     | '/account/settings'
+    | '/auth/login'
+    | '/auth/register'
     | '/email/change'
     | '/account/storage'
     | '/account'
   id:
     | '__root__'
     | '/'
-    | '/$lang'
     | '/about-us'
     | '/account'
     | '/contact-us'
     | '/features'
-    | '/login'
-    | '/register'
     | '/support'
-    | '/$lang/terms'
+    | '/terms'
     | '/account/settings'
+    | '/auth/login'
+    | '/auth/register'
     | '/email/change'
     | '/account/storage'
     | '/account/'
@@ -355,27 +325,27 @@ export interface FileRouteTypes {
 
 export interface RootRouteChildren {
   IndexLazyRoute: typeof IndexLazyRoute
-  LangRoute: typeof LangRouteWithChildren
   AboutUsRoute: typeof AboutUsRoute
   AccountRoute: typeof AccountRouteWithChildren
   ContactUsRoute: typeof ContactUsRoute
   FeaturesRoute: typeof FeaturesRoute
-  LoginRoute: typeof LoginRoute
-  RegisterRoute: typeof RegisterRoute
   SupportRoute: typeof SupportRoute
+  TermsRoute: typeof TermsRoute
+  AuthLoginRoute: typeof AuthLoginRoute
+  AuthRegisterRoute: typeof AuthRegisterRoute
   EmailChangeRoute: typeof EmailChangeRoute
 }
 
 const rootRouteChildren: RootRouteChildren = {
   IndexLazyRoute: IndexLazyRoute,
-  LangRoute: LangRouteWithChildren,
   AboutUsRoute: AboutUsRoute,
   AccountRoute: AccountRouteWithChildren,
   ContactUsRoute: ContactUsRoute,
   FeaturesRoute: FeaturesRoute,
-  LoginRoute: LoginRoute,
-  RegisterRoute: RegisterRoute,
   SupportRoute: SupportRoute,
+  TermsRoute: TermsRoute,
+  AuthLoginRoute: AuthLoginRoute,
+  AuthRegisterRoute: AuthRegisterRoute,
   EmailChangeRoute: EmailChangeRoute,
 }
 
@@ -390,25 +360,19 @@ export const routeTree = rootRoute
       "filePath": "__root.tsx",
       "children": [
         "/",
-        "/$lang",
         "/about-us",
         "/account",
         "/contact-us",
         "/features",
-        "/login",
-        "/register",
         "/support",
+        "/terms",
+        "/auth/login",
+        "/auth/register",
         "/email/change"
       ]
     },
     "/": {
       "filePath": "index.lazy.tsx"
-    },
-    "/$lang": {
-      "filePath": "$lang.tsx",
-      "children": [
-        "/$lang/terms"
-      ]
     },
     "/about-us": {
       "filePath": "about-us.tsx"
@@ -427,22 +391,21 @@ export const routeTree = rootRoute
     "/features": {
       "filePath": "features.tsx"
     },
-    "/login": {
-      "filePath": "login.tsx"
-    },
-    "/register": {
-      "filePath": "register.tsx"
-    },
     "/support": {
       "filePath": "support.tsx"
     },
-    "/$lang/terms": {
-      "filePath": "$lang/terms.tsx",
-      "parent": "/$lang"
+    "/terms": {
+      "filePath": "terms.tsx"
     },
     "/account/settings": {
       "filePath": "account/settings.tsx",
       "parent": "/account"
+    },
+    "/auth/login": {
+      "filePath": "auth/login.tsx"
+    },
+    "/auth/register": {
+      "filePath": "auth/register.tsx"
     },
     "/email/change": {
       "filePath": "email.change.tsx"

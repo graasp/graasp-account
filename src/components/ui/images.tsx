@@ -1,6 +1,6 @@
 import { styled } from '@mui/material';
 
-export const ZoomingImage = styled('img')(() => ({
+const baseIllustrationImageStyle = {
   // needed so image does not bleed out
   width: '100%',
   objectFit: 'cover',
@@ -8,6 +8,10 @@ export const ZoomingImage = styled('img')(() => ({
 
   minHeight: '0px',
   minWidth: '0px',
+} as const;
+
+export const ZoomingImage = styled('img')(() => ({
+  ...baseIllustrationImageStyle,
 
   // add a small zoom effect
   transition: 'all cubic-bezier(.75,.1,.24,.94) 250ms',
@@ -15,4 +19,8 @@ export const ZoomingImage = styled('img')(() => ({
   '&:hover': {
     transform: 'scale(1.05)',
   },
+}));
+
+export const Image = styled('img')(() => ({
+  ...baseIllustrationImageStyle,
 }));

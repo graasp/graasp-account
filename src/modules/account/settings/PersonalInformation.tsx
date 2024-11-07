@@ -17,7 +17,8 @@ import {
 import { ACCOUNT } from '@/langs/account';
 
 import { MemberProfileItem } from '~account/common/MemberProfileItem';
-import EditPersonalInformation from '~account/profile/EditPersonalInformation';
+
+import EditPersonalInformation from './EditPersonalInformation';
 
 const PersonalInformation = (): JSX.Element | null => {
   const { data: member } = hooks.useCurrentMember();

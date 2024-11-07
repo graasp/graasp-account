@@ -2,7 +2,7 @@ import { useTranslation } from 'react-i18next';
 
 import { Button, Stack, Typography } from '@mui/material';
 
-import { ZoomingImage } from '@/components/ui/Image';
+import { Image } from '@/components/ui/images';
 import { GRAASP_LIBRARY_HOST } from '@/config/env';
 
 import { ButtonLink } from '../../../components/ui/ButtonLink';
@@ -29,10 +29,7 @@ export function TitleSection(): JSX.Element {
           borderRadius={4}
           overflow="hidden"
         >
-          <ZoomingImage
-            alt="cover"
-            src="/illustration/learning-old-cropped.jpeg"
-          />
+          <Image alt="cover" src="/illustration/learning-old-cropped.jpeg" />
         </Stack>
         <Stack direction="column" gap={10} flex={{ lg: 2 }}>
           <Stack direction="column" gap={4}>
@@ -71,13 +68,13 @@ export function TitleSection(): JSX.Element {
               alignItems="center"
               gap={4}
             >
-              <ButtonLink variant="contained" to="/register">
+              <ButtonLink variant="contained" to="/auth/register">
                 {t('Start Here')}
               </ButtonLink>
               <Button
                 component="a"
                 variant="contained"
-                color="secondary"
+                color="library"
                 href={GRAASP_LIBRARY_HOST}
               >
                 {t('Visit the Library')}

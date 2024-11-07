@@ -119,8 +119,9 @@ export function PlatformButton({
       </Stack>
 
       <Button
+        variant="contained"
         href={href}
-        sx={{ backgroundColor: color, color: 'white' }}
+        color={platform}
         {...(!isSmallScreen ? { fullWidth: true } : {})}
       >
         {buttonText}

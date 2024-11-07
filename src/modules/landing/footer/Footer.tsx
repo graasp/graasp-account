@@ -15,8 +15,8 @@ import {
   LinkedInIcon,
   MastodonIcon,
   TwitterIcon,
-} from './Icons';
-import { ExternalLink, InternalLink, SocialLink } from './Links';
+} from './icons';
+import { ExternalLink, InternalLink, SocialLink } from './links';
 
 const partnerLinks = [
   {
@@ -99,7 +99,9 @@ export function Footer(): JSX.Element {
         <Typography textAlign="center">{t(LANDING.FOOTER_TAG_LINE)}</Typography>
         <Stack direction={{ xs: 'column', sm: 'row' }} m={4} gap={10}>
           <FooterSection name={t(LANDING.FOOTER_CONTENT_TITLE)}>
-            <InternalLink to="/">{t(LANDING.FOOTER_CONTENT_HOME)}</InternalLink>
+            <InternalLink to="/" activeProps={() => ({ sx: { color: 'red' } })}>
+              {t(LANDING.FOOTER_CONTENT_HOME)}
+            </InternalLink>
             <InternalLink to="/features">
               {t(LANDING.FOOTER_CONTENT_FEATURES)}
             </InternalLink>

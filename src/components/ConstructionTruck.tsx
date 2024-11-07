@@ -27,7 +27,7 @@ const ShakingBox = styled(Box)({
   '@keyframes shake': {
     '0%': { transform: 'rotate(0deg) translate(0,0)' },
     '25%': { transform: 'rotate(1deg) translate(0,0)' },
-    '50%': { transform: 'rotate(0deg) translate(0,2px)' },
+    '50%': { transform: 'rotate(0deg) translate(0,1px)' },
     '75%': { transform: 'rotate(-1deg) translate(0,0)' },
     '100%': { transform: 'rotate(0deg) translate(0,0)' },
   },

@@ -14,7 +14,7 @@ import {
 } from '@/config/selectors';
 import { ACCOUNT } from '@/langs/account';
 
-export const Route = createLazyFileRoute('/login')({
+export const Route = createLazyFileRoute('/auth/login')({
   component: LoginRoute,
 });
 
