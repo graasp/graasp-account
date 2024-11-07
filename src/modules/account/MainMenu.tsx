@@ -1,3 +1,5 @@
+import { useTranslation } from 'react-i18next';
+
 import List from '@mui/material/List';
 
 import { DRAWER_WIDTH } from '@graasp/ui';
@@ -7,7 +9,6 @@ import { HardDriveIcon, HouseIcon, SettingsIcon } from 'lucide-react';
 import { ACCOUNT } from '@/langs/account';
 
 import { MainMenuItem } from '../../components/ui/MainMenuItem';
-import { useAccountTranslation } from '../../config/i18n';
 import {
   ACCOUNT_HOME_PATH,
   ACCOUNT_SETTINGS_PATH,
@@ -15,7 +16,7 @@ import {
 } from '../../config/paths';
 
 const MainMenu = (): JSX.Element => {
-  const { t } = useAccountTranslation();
+  const { t } = useTranslation();
 
   return (
     <List sx={{ width: DRAWER_WIDTH }}>

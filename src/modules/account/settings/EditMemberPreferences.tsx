@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { useTranslation } from 'react-i18next';
 
 import { Button, Stack, Switch, Tooltip } from '@mui/material';
 
@@ -9,7 +10,6 @@ import LanguageSwitch from '@/components/common/LanguageSwitch';
 import { BorderedSection } from '@/components/layout/BorderedSection';
 import FormProperty from '@/components/layout/FormProperty';
 import { DEFAULT_EMAIL_FREQUENCY } from '@/config/constants';
-import { useAccountTranslation, useCommonTranslation } from '@/config/i18n';
 import { mutations } from '@/config/queryClient';
 import {
   PREFERENCES_ANALYTICS_SWITCH_ID,
@@ -31,8 +31,8 @@ const EditMemberPreferences = ({
   member,
   onClose,
 }: EditPreferencesProp): JSX.Element => {
-  const { t } = useAccountTranslation();
-  const { t: translateCommon } = useCommonTranslation();
+  const { t } = useTranslation();
+  const { t: translateCommon } = useTranslation('common');
   const { mutate: editMember } = mutations.useEditCurrentMember();
 
   const memberLang = member?.extra?.lang ?? DEFAULT_LANG;

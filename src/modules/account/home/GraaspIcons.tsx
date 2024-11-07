@@ -1,3 +1,5 @@
+import { useTranslation } from 'react-i18next';
+
 import { Box, Grid2 as Grid, Stack, Typography } from '@mui/material';
 
 import { Context } from '@graasp/sdk';
@@ -14,7 +16,6 @@ import {
 import { Link } from '@tanstack/react-router';
 
 import { platformsHostsMap } from '@/config/hostMapper';
-import { useEnumsTranslation } from '@/config/i18n';
 
 const DEFAULT_ICON_SIZE = 100;
 
@@ -45,7 +46,7 @@ const PlatformIcon = ({ text, href, color, icon }: PlatformProps) => (
 );
 
 const GraaspIcons = (): JSX.Element => {
-  const { t } = useEnumsTranslation();
+  const { t } = useTranslation();
   const getNavigationEvents = usePlatformNavigation(platformsHostsMap);
   const platforms = [
     {

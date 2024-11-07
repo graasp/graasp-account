@@ -1,4 +1,5 @@
 import { useRef, useState } from 'react';
+import { useTranslation } from 'react-i18next';
 
 import { Dialog, Stack, styled, useTheme } from '@mui/material';
 
@@ -7,7 +8,6 @@ import { CompleteMember, ThumbnailSize } from '@graasp/sdk';
 import { ImageUp as ImageUpIcon } from 'lucide-react';
 
 import { AVATAR_SIZE } from '@/config/constants';
-import { useAccountTranslation } from '@/config/i18n';
 import { hooks, mutations } from '@/config/queryClient';
 import {
   AVATAR_UPLOAD_ICON_ID,
@@ -63,7 +63,7 @@ const AvatarUploader = ({ member }: Props): JSX.Element => {
   const [showCropModal, setShowCropModal] = useState(false);
   const [fileSource, setFileSource] = useState<string>();
   const theme = useTheme();
-  const { t } = useAccountTranslation();
+  const { t } = useTranslation();
 
   const onSelectFile = ({ target }: { target: HTMLInputElement }) => {
     if (target.files && target.files?.length > 0) {

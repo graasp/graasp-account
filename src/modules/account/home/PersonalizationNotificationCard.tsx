@@ -1,3 +1,5 @@
+import { useTranslation } from 'react-i18next';
+
 import {
   Box,
   Card,
@@ -9,13 +11,12 @@ import {
 
 import { ImageUp } from 'lucide-react';
 
-import { useAccountTranslation } from '@/config/i18n';
 import { hooks } from '@/config/queryClient';
 import { CARD_TIP_ID } from '@/config/selectors';
 import { ACCOUNT } from '@/langs/account';
 
 export function PersonalizationNotificationCard(): JSX.Element | null {
-  const { t } = useAccountTranslation();
+  const { t } = useTranslation();
 
   const { data: member } = hooks.useCurrentMember();
 

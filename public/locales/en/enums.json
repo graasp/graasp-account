@@ -1,0 +1,38 @@
+{
+  "read": "read",
+  "write": "write",
+  "admin": "admin",
+
+  "app": "app",
+  "document": "document",
+  "embeddedLink": "link",
+  "file": "file",
+  "folder": "folder",
+  "h5p": "h5p",
+  "s3File": "file",
+  "shortcut": "shortcut",
+
+  "builder": "builder",
+  "player": "player",
+  "analytics": "analytics",
+  "library": "library",
+  "account": "account",
+  "auth": "auth",
+
+  "inappropriate-content": "Inappropriate Content",
+  "hate-speech": "Hate Speech",
+  "fraud-plagiarism": "Fraud / Plagiarism",
+  "spam": "Spam",
+  "targeted-harassment": "Targeted Harassment",
+  "false-information": "False Information",
+
+  "xs": "Extra Small",
+  "sm": "Small",
+  "md": "Medium",
+  "lg": "Large",
+  "xl": "Extra Large",
+
+  "guest": "guest",
+  "individual": "member",
+  "group": "group"
+}

@@ -1,0 +1,62 @@
+{
+  "HOME": {
+    "TITLE": "Graasp",
+    "SUBTITLE": "Your learning experience platform",
+    "DESCRIPTION": "Revolutionize your education and professional development! Our platform cares for the needs of educators and researchers, seeking a complete solution for content creation, presentation, and collaborative knowledge sharing.",
+    "REGISTER_CALL_TO_ACTION": "Create an account",
+    "LIBRARY_CALL_TO_ACTION": "Visit the Library",
+    "SUPPORTERS_LABEL": "Supported by",
+    "MISSION": {
+      "TITLE": "Our mission",
+      "DESCRIPTION": "We aim at empowering educators to become the best professionals they can be, through technology and revolutionizing their teaching and learning experiences in a <strong>wide learning community</strong>!",
+      "CALL_TO_ACTION_LABEL": "Do you want to know more?",
+      "CALL_TO_ACTION_BUTTON_TEXT": "Get to know us"
+    },
+    "PUZZLE": {
+      "TITLE": "An all-in-one tool, how?",
+      "BUILDER": {
+        "LEAD_SENTENCE": "Use the",
+        "DESCRIPTION": "To create rich and interactive material",
+        "BUTTON_TEXT": "Create"
+      },
+      "PLAYER": {
+        "LEAD_SENTENCE": "Use the",
+        "DESCRIPTION": "And let learners access material in a new way",
+        "BUTTON_TEXT": "Experience"
+      },
+      "ANALYTICS": {
+        "LEAD_SENTENCE": "Access the",
+        "DESCRIPTION": "To collect insights and data about your className",
+        "BUTTON_TEXT": "Analyze"
+      },
+      "LIBRARY": {
+        "LEAD_SENTENCE": "Navigate the",
+        "DESCRIPTION": "To find resources and be part of a community",
+        "BUTTON_TEXT": "Explore"
+      }
+    }
+  },
+  "FOOTER": {
+    "TAG_LINE": "Developed in Switzerland by the Graasp Association",
+    "CONTENT": {
+      "TITLE": "Content",
+      "HOME": "Home",
+      "FEATURES": "Features",
+      "ABOUT_US": "About Us",
+      "SUPPORT": "Support",
+      "CONTACT_US": "Contact Us"
+    },
+    "PARTNERS": {
+      "TITLE": "Partners"
+    },
+    "SOCIAL": {
+      "TITLE": "Social"
+    },
+    "OTHER": {
+      "TITLE": "Other",
+      "TERMS": "Terms of Service",
+      "POLICY": "Privacy Policy",
+      "DISCLAIMER": "Disclaimer"
+    }
+  }
+}

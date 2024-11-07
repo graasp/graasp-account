@@ -1,9 +1,9 @@
+import { useTranslation } from 'react-i18next';
+
 import { SelectChangeEvent } from '@mui/material';
 
 import { CompleteMember, EmailFrequency } from '@graasp/sdk';
 import { Select } from '@graasp/ui';
-
-import { useAccountTranslation } from '@/config/i18n';
 
 import { emailFrequency } from '../../../config/constants';
 
@@ -18,7 +18,7 @@ export function EmailPreferenceSwitch({
   emailFreq,
   onChange,
 }: EmailPreferenceSwitchProps): JSX.Element {
-  const { t } = useAccountTranslation();
+  const { t } = useTranslation();
 
   const handleChange = (event: SelectChangeEvent<string>) => {
     const newEmailFreq = event.target.value as `${EmailFrequency}`;

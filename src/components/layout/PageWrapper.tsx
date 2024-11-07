@@ -1,4 +1,5 @@
 import { ReactNode } from 'react';
+import { useTranslation } from 'react-i18next';
 
 import { styled, useTheme } from '@mui/material';
 
@@ -17,7 +18,6 @@ import { UserRoundIcon } from 'lucide-react';
 
 import UserSwitchWrapper from '@/components/common/UserSwitchWrapper';
 import { platformsHostsMap } from '@/config/hostMapper';
-import { useAccountTranslation } from '@/config/i18n';
 import { ACCOUNT_HOME_PATH } from '@/config/paths';
 
 import MainMenu from '~account/MainMenu';
@@ -42,7 +42,7 @@ export function PageWrapper({
 }: {
   children: ReactNode;
 }): JSX.Element {
-  const { t } = useAccountTranslation();
+  const { t } = useTranslation();
   const theme = useTheme();
   const { isMobile } = useMobileView();
   const getNavigationEvents = usePlatformNavigation(platformsHostsMap);

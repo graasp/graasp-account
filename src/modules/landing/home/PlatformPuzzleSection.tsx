@@ -1,14 +1,16 @@
+import { useTranslation } from 'react-i18next';
+
 import { Grid2, Stack, Typography } from '@mui/material';
 
 import { Platform } from '@graasp/ui';
 
-import { useAccountTranslation } from '@/config/i18n';
+import { NS } from '@/config/constants';
 
 import { PlatformButton } from './PlatformButton';
 import { BuilderPuzzle } from './icons/BuilderPuzzle';
 
 export function PlatformPuzzleSection(): JSX.Element {
-  const { t } = useAccountTranslation();
+  const { t } = useTranslation(NS.Landing);
   return (
     <Stack
       component="section"
@@ -18,7 +20,7 @@ export function PlatformPuzzleSection(): JSX.Element {
     >
       <Stack direction="column" alignItems="center" gap={5}>
         <Typography variant="h2" textAlign="center">
-          {t('An all-in-one tool, how?')}
+          {t('HOME.PUZZLE.TITLE')}
         </Typography>
         <Grid2
           container
@@ -44,17 +46,17 @@ export function PlatformPuzzleSection(): JSX.Element {
             justifyContent="space-between"
           >
             <PlatformButton
-              caption={t('Use the')}
+              caption={t('HOME.PUZZLE.BUILDER.LEAD_SENTENCE')}
               platform={Platform.Builder}
-              buttonText={t('Create')}
-              description={t('To create rich and interactive material')}
+              buttonText={t('HOME.PUZZLE.BUILDER.BUTTON_TEXT')}
+              description={t('HOME.PUZZLE.BUILDER.DESCRIPTION')}
               direction="left"
             />
             <PlatformButton
-              caption={t('Use the')}
+              caption={t('HOME.PUZZLE.PLAYER.LEAD_SENTENCE')}
               platform={Platform.Player}
-              buttonText={t('Experience')}
-              description={t('And let learners access material in a new way')}
+              buttonText={t('HOME.PUZZLE.PLAYER.BUTTON_TEXT')}
+              description={t('HOME.PUZZLE.PLAYER.DESCRIPTION')}
               direction="left"
             />
           </Grid2>
@@ -67,20 +69,18 @@ export function PlatformPuzzleSection(): JSX.Element {
             justifyContent="space-between"
           >
             <PlatformButton
-              caption={t('Access the')}
+              caption={t('HOME.PUZZLE.ANALYTICS.LEAD_SENTENCE')}
               platform={Platform.Analytics}
               direction="right"
-              buttonText={t('Analyze')}
-              description={t(
-                'To collect insights and data about your className',
-              )}
+              buttonText={t('HOME.PUZZLE.ANALYTICS.BUTTON_TEXT')}
+              description={t('HOME.PUZZLE.ANALYTICS.DESCRIPTION')}
             />
             <PlatformButton
-              caption={t('Navigate the')}
+              caption={t('HOME.PUZZLE.LIBRARY.LEAD_SENTENCE')}
               platform={Platform.Library}
               direction="right"
-              buttonText={t('Explore')}
-              description={t('To find resources and be part of a community')}
+              buttonText={t('HOME.PUZZLE.LIBRARY.BUTTON_TEXT')}
+              description={t('HOME.PUZZLE.LIBRARY.DESCRIPTION')}
             />
           </Grid2>
         </Grid2>

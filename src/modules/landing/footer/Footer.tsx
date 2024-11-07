@@ -4,8 +4,7 @@ import { Stack, Typography } from '@mui/material';
 
 import { PRIMARY_COLOR } from '@graasp/ui';
 
-import { TRANS_NS } from '@/config/i18n';
-import { LANDING } from '@/langs/landing';
+import { NS } from '@/config/constants';
 
 import { FooterSection } from './FooterSection';
 import {
@@ -84,7 +83,7 @@ const socialLinks = [
 ];
 
 export function Footer(): JSX.Element {
-  const { t, i18n } = useTranslation(TRANS_NS.LANDING);
+  const { t, i18n } = useTranslation(NS.Landing);
   return (
     <Stack
       component="footer"
@@ -96,27 +95,27 @@ export function Footer(): JSX.Element {
       p={3}
     >
       <Stack maxWidth="lg" m="auto" width="100%">
-        <Typography textAlign="center">{t(LANDING.FOOTER_TAG_LINE)}</Typography>
+        <Typography textAlign="center">{t('FOOTER.TAG_LINE')}</Typography>
         <Stack direction={{ xs: 'column', sm: 'row' }} m={4} gap={10}>
-          <FooterSection name={t(LANDING.FOOTER_CONTENT_TITLE)}>
+          <FooterSection name={t('FOOTER.CONTENT.TITLE')}>
             <InternalLink to="/" activeProps={() => ({ sx: { color: 'red' } })}>
-              {t(LANDING.FOOTER_CONTENT_HOME)}
+              {t('FOOTER.CONTENT.HOME')}
             </InternalLink>
             <InternalLink to="/features">
-              {t(LANDING.FOOTER_CONTENT_FEATURES)}
+              {t('FOOTER.CONTENT.FEATURES')}
             </InternalLink>
             <InternalLink to="/about-us">
-              {t(LANDING.FOOTER_CONTENT_ABOUT_US)}
+              {t('FOOTER.CONTENT.ABOUT_US')}
             </InternalLink>
             <InternalLink to="/support">
-              {t(LANDING.FOOTER_CONTENT_SUPPORT)}
+              {t('FOOTER.CONTENT.SUPPORT')}
             </InternalLink>
             <InternalLink to="/contact-us">
-              {t(LANDING.FOOTER_CONTENT_CONTACT_US)}
+              {t('FOOTER.CONTENT.CONTACT_US')}
             </InternalLink>
           </FooterSection>
 
-          <FooterSection name={t(LANDING.FOOTER_PARTNERS_TITLE)}>
+          <FooterSection name={t('FOOTER.PARTNERS.TITLE')}>
             {partnerLinks.map(({ href, title }) => (
               <ExternalLink key={title} href={href}>
                 {title}
@@ -124,7 +123,7 @@ export function Footer(): JSX.Element {
             ))}
           </FooterSection>
 
-          <FooterSection name={t(LANDING.FOOTER_SOCIAL_TITLE)}>
+          <FooterSection name={t('FOOTER.SOCIAL.TITLE')}>
             {socialLinks.map(({ href, Icon, title }) => (
               <SocialLink key={title} href={href} icon={<Icon size={24} />}>
                 {title}
@@ -132,15 +131,15 @@ export function Footer(): JSX.Element {
             ))}
           </FooterSection>
 
-          <FooterSection name={t(LANDING.FOOTER_OTHER_TITLE)}>
+          <FooterSection name={t('FOOTER.OTHER.TITLE')}>
             <InternalLink to={`/${i18n.language}/terms`}>
-              {t('Terms of Service')}
+              {t('FOOTER.OTHER.TERMS')}
             </InternalLink>
             <InternalLink to={`/${i18n.language}/policy`}>
-              {t('Privacy Policy')}
+              {t('FOOTER.OTHER.POLICY')}
             </InternalLink>
             <InternalLink to={`/${i18n.language}/disclaimer`}>
-              {t('Disclaimer')}
+              {t('FOOTER.OTHER.DISCLAIMER')}
             </InternalLink>
           </FooterSection>
         </Stack>

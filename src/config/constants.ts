@@ -18,3 +18,10 @@ export const ADMIN_CONTACT = 'admin@graasp.org';
 export const LINKEDIN_DOMAIN = 'linkedin';
 export const FACEBOOK_DOMAIN = 'facebook';
 export const TWITTER_DOMAIN = 'twitter';
+
+export const NS = {
+  Landing: 'landing',
+  Account: 'account',
+  Common: 'common',
+  Enums: 'enums',
+} as const;

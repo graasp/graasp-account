@@ -1,3 +1,5 @@
+import { useTranslation } from 'react-i18next';
+
 import { Stack, Typography } from '@mui/material';
 
 import { useButtonColor } from '@graasp/ui';
@@ -5,7 +7,7 @@ import { useButtonColor } from '@graasp/ui';
 import { Link } from '@tanstack/react-router';
 import { RadarIcon } from 'lucide-react';
 
-import { useAccountTranslation } from '@/config/i18n';
+// import { useAccountTranslation } from '@/config/i18n';
 import { LANDING_PAGE_PATH } from '@/config/paths';
 import {
   GO_TO_LANDING_ID,
@@ -15,7 +17,7 @@ import {
 import { ACCOUNT } from '@/langs/account';
 
 export function NotFoundComponent(): JSX.Element {
-  const { t } = useAccountTranslation();
+  const { t } = useTranslation();
   const { color } = useButtonColor('primary');
   return (
     <Stack gap={2} alignItems="center" justifyContent="center" height="100vh">

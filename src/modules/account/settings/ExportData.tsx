@@ -1,15 +1,15 @@
 import { useState } from 'react';
+import { useTranslation } from 'react-i18next';
 
 import { Button, Stack, Typography } from '@mui/material';
 
 import { BorderedSection } from '@/components/layout/BorderedSection';
-import { useAccountTranslation } from '@/config/i18n';
 import { mutations } from '@/config/queryClient';
 import { EXPORT_DATA_BUTTON_ID } from '@/config/selectors';
 import { ACCOUNT } from '@/langs/account';
 
 const ExportData = (): JSX.Element => {
-  const { t } = useAccountTranslation();
+  const { t } = useTranslation();
   const [isExported, setIsExported] = useState(false);
   const { mutate: exportData } = mutations.useExportMemberData();
   const onClick = () => {

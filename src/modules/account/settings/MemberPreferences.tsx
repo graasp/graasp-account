@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { useTranslation } from 'react-i18next';
 
 import { Button } from '@mui/material';
 
@@ -6,7 +7,6 @@ import { AccountType } from '@graasp/sdk';
 import { DEFAULT_LANG, langs } from '@graasp/translations';
 
 import { BorderedSection } from '@/components/layout/BorderedSection';
-import { useAccountTranslation } from '@/config/i18n';
 import { hooks } from '@/config/queryClient';
 import {
   PREFERENCES_ANALYTICS_SWITCH_ID,
@@ -23,7 +23,7 @@ import EditMemberPreferences from './EditMemberPreferences';
 export const MemberPreferences = (): JSX.Element | null => {
   const { data: member } = hooks.useCurrentMember();
 
-  const { t } = useAccountTranslation();
+  const { t } = useTranslation();
   const [isEditing, setIsEditing] = useState(false);
 
   // in case there is no member or they are not of the individual type, we render nothing

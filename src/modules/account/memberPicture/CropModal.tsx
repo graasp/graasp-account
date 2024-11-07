@@ -1,4 +1,5 @@
 import { ReactEventHandler, useRef, useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import ReactCrop, {
   Crop,
   PixelCrop,
@@ -17,7 +18,6 @@ import {
 
 import { Button } from '@graasp/ui';
 
-import { useAccountTranslation, useCommonTranslation } from '@/config/i18n';
 import { CROP_MODAL_CONFIRM_BUTTON_ID } from '@/config/selectors';
 import { ACCOUNT } from '@/langs/account';
 
@@ -56,8 +56,8 @@ const CropModal = ({ onConfirm, onClose, src }: CropProps): JSX.Element => {
   const [completedCrop, setCompletedCrop] = useState<PixelCrop>();
   const [isError, setIsError] = useState(false);
   const imageRef = useRef<HTMLImageElement | null>(null);
-  const { t } = useAccountTranslation();
-  const { t: translateCommon } = useCommonTranslation();
+  const { t } = useTranslation();
+  const { t: translateCommon } = useTranslation('common');
 
   const handleOnConfirm = async () => {
     // get the image html element

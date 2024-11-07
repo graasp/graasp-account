@@ -1,7 +1,8 @@
+import { useTranslation } from 'react-i18next';
+
 import { UserSwitchWrapper as GraaspUserSwitch } from '@graasp/ui';
 
 import { GRAASP_AUTH_HOST } from '@/config/env';
-import { useAccountTranslation } from '@/config/i18n';
 
 import { ACCOUNT_HOME_PATH } from '../../config/paths';
 import { hooks, mutations } from '../../config/queryClient';
@@ -13,7 +14,7 @@ type Props = {
 };
 
 const UserSwitchWrapper = ({ ButtonContent }: Props): JSX.Element => {
-  const { i18n } = useAccountTranslation();
+  const { i18n } = useTranslation();
   const { data: member, isLoading } = hooks.useCurrentMember();
   const { mutateAsync: signOut } = mutations.useSignOut();
   const { mutate } = mutations.useEditCurrentMember();

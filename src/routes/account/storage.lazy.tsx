@@ -1,4 +1,4 @@
-import { Trans } from 'react-i18next';
+import { Trans, useTranslation } from 'react-i18next';
 
 import { Alert, Stack, Typography } from '@mui/material';
 
@@ -6,7 +6,6 @@ import { createLazyFileRoute } from '@tanstack/react-router';
 
 import { ScreenLayout } from '@/components/layout/ScreenLayout';
 import { ADMIN_CONTACT } from '@/config/constants';
-import { useAccountTranslation } from '@/config/i18n';
 import { ACCOUNT } from '@/langs/account';
 
 import { StorageBar } from '~account/storage/StorageBar';
@@ -17,7 +16,7 @@ export const Route = createLazyFileRoute('/account/storage')({
 });
 
 function StorageRoute(): JSX.Element {
-  const { t } = useAccountTranslation();
+  const { t } = useTranslation();
 
   return (
     <ScreenLayout title={t(ACCOUNT.STORAGE_TITLE)}>

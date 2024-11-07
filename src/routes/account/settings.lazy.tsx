@@ -1,7 +1,8 @@
-import { createFileRoute } from '@tanstack/react-router';
+import { useTranslation } from 'react-i18next';
+
+import { createLazyFileRoute } from '@tanstack/react-router';
 
 import { ScreenLayout } from '@/components/layout/ScreenLayout';
-import { useAccountTranslation } from '@/config/i18n';
 import { SETTINGS_PAGE_CONTAINER_ID } from '@/config/selectors';
 import { ACCOUNT } from '@/langs/account';
 
@@ -12,12 +13,12 @@ import PersonalInformation from '~account/settings/PersonalInformation';
 import DisplayPassword from '~account/settings/password/DisplayPassword';
 import PublicProfile from '~account/settings/public/PublicProfile';
 
-export const Route = createFileRoute('/account/settings')({
+export const Route = createLazyFileRoute('/account/settings')({
   component: SettingsRoute,
 });
 
 function SettingsRoute(): JSX.Element {
-  const { t: translateAccount } = useAccountTranslation();
+  const { t: translateAccount } = useTranslation();
 
   return (
     <ScreenLayout

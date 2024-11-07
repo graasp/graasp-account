@@ -1,9 +1,11 @@
+import { Trans, useTranslation } from 'react-i18next';
+
 import { Button, Stack, Typography } from '@mui/material';
 
-import { useAccountTranslation } from '@/config/i18n';
+import { NS } from '@/config/constants';
 
 export function OurMissionSection(): JSX.Element {
-  const { t } = useAccountTranslation();
+  const { t } = useTranslation(NS.Landing);
   return (
     <Stack component={'section'} direction="column" justifyItems="center">
       <Stack
@@ -18,20 +20,18 @@ export function OurMissionSection(): JSX.Element {
         borderRadius={8}
       >
         <Typography variant="h2" color="primary" fontWeight="bold">
-          {t('Our Mission')}
+          {t('HOME.MISSION.TITLE')}
         </Typography>
 
         <Typography maxWidth="50ch" fontSize="1.25rem" textAlign="center">
-          We aim at empowering educators to become the best professionals they
-          can be, through technology and revolutionizing their teaching and
-          learning experiences in a <strong>wide learning community</strong>!
+          <Trans t={t} i18nKey="HOME.MISSION.DESCRIPTION" />
         </Typography>
         <Stack direction="column" gap={1}>
           <Typography color="textSecondary">
-            Do you want to know more?
+            {t('HOME.MISSION.CALL_TO_ACTION_LABEL')}
           </Typography>
           <Button variant="contained" size="small" href="">
-            Get to Know Us
+            {t('HOME.MISSION.CALL_TO_ACTION_BUTTON_TEXT')}
           </Button>
         </Stack>
       </Stack>

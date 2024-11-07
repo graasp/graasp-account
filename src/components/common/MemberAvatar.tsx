@@ -1,8 +1,10 @@
+import { useTranslation } from 'react-i18next';
+
 import { ThumbnailSize } from '@graasp/sdk';
 import { COMMON } from '@graasp/translations';
 import { Avatar } from '@graasp/ui';
 
-import { useCommonTranslation } from '../../config/i18n';
+// import { useCommonTranslation } from '../../config/i18n';
 import { hooks } from '../../config/queryClient';
 
 type Props = {
@@ -20,7 +22,7 @@ const MemberAvatar = ({
   maxHeight = AVATAR_HEADER_SIZE,
   component = 'avatar',
 }: Props): JSX.Element => {
-  const { t } = useCommonTranslation();
+  const { t } = useTranslation();
   const { data: member, isLoading } = hooks.useCurrentMember();
   const { data: avatarUrl, isLoading: isLoadingAvatar } = hooks.useAvatarUrl({
     id,

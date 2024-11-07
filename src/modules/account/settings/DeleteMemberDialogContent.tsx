@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { useTranslation } from 'react-i18next';
 
 import { Stack, TextField } from '@mui/material';
 import DialogActions from '@mui/material/DialogActions';
@@ -8,7 +9,6 @@ import DialogTitle from '@mui/material/DialogTitle';
 
 import { Button } from '@graasp/ui';
 
-import { useAccountTranslation } from '@/config/i18n';
 import { mutations } from '@/config/queryClient';
 import {
   DELETE_MEMBER_DIALOG_CONFIRMATION_BUTTON_ID,
@@ -23,7 +23,7 @@ type Props = {
 };
 
 const DeleteMemberDialogContent = ({ closeModal }: Props): JSX.Element => {
-  const { t: translateAccount } = useAccountTranslation();
+  const { t: translateAccount } = useTranslation();
   const [confirmationDeleteValue, setConfirmationDeleteValue] = useState('');
 
   const { mutateAsync: deleteMember } = mutations.useDeleteCurrentMember();

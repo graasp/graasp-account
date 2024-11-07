@@ -1,3 +1,5 @@
+import { useTranslation } from 'react-i18next';
+
 import { Button, Stack } from '@mui/material';
 
 import { buildSignInPath } from '@graasp/sdk';
@@ -7,7 +9,6 @@ import { Link } from '@tanstack/react-router';
 
 import { useAuth } from '@/AuthContext';
 import { GRAASP_AUTH_HOST } from '@/config/env';
-import { useAccountTranslation } from '@/config/i18n';
 import { mutations } from '@/config/queryClient';
 import { ACCOUNT } from '@/langs/account';
 
@@ -15,7 +16,7 @@ import LanguageSwitch from '../../../components/common/LanguageSwitch';
 
 export function LeftHeaderWrapper(): JSX.Element {
   const { isAuthenticated, user, logout } = useAuth();
-  const { t, i18n } = useAccountTranslation();
+  const { t, i18n } = useTranslation();
   const { mutate } = mutations.useEditCurrentMember();
 
   const handleLanguageChange = (lang: string) => {

@@ -19,7 +19,7 @@ importers:
         version: 11.13.0(@emotion/react@11.13.3(@types/react@18.3.12)(react@18.3.1))(@types/react@18.3.12)(react@18.3.1)
       '@graasp/query-client':
         specifier: 5.1.0
-        version: 5.1.0(@graasp/sdk@4.33.2(date-fns@4.1.0)(uuid@11.0.2))(@graasp/translations@1.40.0(i18next@23.16.4))(react@18.3.1)
+        version: 5.1.0(@graasp/sdk@4.33.2(date-fns@4.1.0)(uuid@11.0.2))(@graasp/translations@https://codeload.github.com/graasp/graasp-translations/tar.gz/3db50fbc76793d53a977103248b56dbc7d5db974(i18next@23.16.4))(react@18.3.1)
       '@graasp/sdk':
         specifier: 4.33.2
         version: 4.33.2(date-fns@4.1.0)(uuid@11.0.2)
@@ -27,11 +27,11 @@ importers:
         specifier: 2.2.0
         version: 2.2.0(stylis@4.3.4)
       '@graasp/translations':
-        specifier: 1.40.0
-        version: 1.40.0(i18next@23.16.4)
+        specifier: github:graasp/graasp-translations#add-options
+        version: https://codeload.github.com/graasp/graasp-translations/tar.gz/3db50fbc76793d53a977103248b56dbc7d5db974(i18next@23.16.4)
       '@graasp/ui':
         specifier: github:graasp/graasp-ui#theme-secondary
-        version: https://codeload.github.com/graasp/graasp-ui/tar.gz/d71a22dc8812a0edb741beb1af8bb92c6a237bf8(oxoju7n3nirj5fsuyot323wjje)
+        version: https://codeload.github.com/graasp/graasp-ui/tar.gz/d71a22dc8812a0edb741beb1af8bb92c6a237bf8(atqwgzhszhax3iplanajx6cofy)
       '@mui/icons-material':
         specifier: 6.1.6
         version: 6.1.6(@mui/material@6.1.6(@emotion/react@11.13.3(@types/react@18.3.12)(react@18.3.1))(@emotion/styled@11.13.0(@emotion/react@11.13.3(@types/react@18.3.12)(react@18.3.1))(@types/react@18.3.12)(react@18.3.1))(@types/react@18.3.12)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(@types/react@18.3.12)(react@18.3.1)
@@ -62,6 +62,9 @@ importers:
       i18next:
         specifier: 23.16.4
         version: 23.16.4
+      i18next-fetch-backend:
+        specifier: 6.0.0
+        version: 6.0.0
       lodash.truncate:
         specifier: 4.4.2
         version: 4.4.2
@@ -1397,6 +1400,7 @@ packages:
 
   '@graasp/query-client@5.1.0':
     resolution: {integrity: sha512-JKi3jSK2C2otDZv+KlWdcQVtFpaFvISTop0F3xVMpNQocUKe/wkEEkdvVrUA93qLMkcidbPi8c95+tCPSfH5sQ==}
+    version: 5.1.0
     peerDependencies:
       '@graasp/sdk': ^4.0.0
       '@graasp/translations': '*'
@@ -1413,8 +1417,9 @@ packages:
     peerDependencies:
       stylis: 4.x
 
-  '@graasp/translations@1.40.0':
-    resolution: {integrity: sha512-oP/Gnbla4+IDpAlBeAn1vywvLLaFpDHo1OSQ75ZTs81Ljsy2mVbnUyPf1PEbiyBd2ZezdovhDg7AlPuGxIjqEQ==}
+  '@graasp/translations@https://codeload.github.com/graasp/graasp-translations/tar.gz/3db50fbc76793d53a977103248b56dbc7d5db974':
+    resolution: {tarball: https://codeload.github.com/graasp/graasp-translations/tar.gz/3db50fbc76793d53a977103248b56dbc7d5db974}
+    version: 1.41.0
     engines: {node: '>=20.0.0'}
     peerDependencies:
       i18next: ^23.8.1
@@ -3229,6 +3234,10 @@ packages:
     resolution: {integrity: sha512-sqbjZKK7kf44hfdE94EoX8MZNk0n7HeW37O4YrVGCF4wzgQjp+akPAkfUK5LZ6KuR/6sqeAVuXHji+RzQgOn5A==}
     engines: {node: '>=18'}
     hasBin: true
+
+  i18next-fetch-backend@6.0.0:
+    resolution: {integrity: sha512-kVqnydqLVMZfVlOuP2nf71cREydlxEKLH43jUXAFdOku/GF+6b9fBg31anoos5XncdhdtiYgL9fheqMrtXRwng==}
+    engines: {node: '>=18'}
 
   i18next@23.16.4:
     resolution: {integrity: sha512-9NIYBVy9cs4wIqzurf7nLXPyf3R78xYbxExVqHLK9od3038rjpyOEzW+XB130kZ1N4PZ9inTtJ471CRJ4Ituyg==}
@@ -6296,10 +6305,10 @@ snapshots:
 
   '@floating-ui/utils@0.2.8': {}
 
-  '@graasp/query-client@5.1.0(@graasp/sdk@4.33.2(date-fns@4.1.0)(uuid@11.0.2))(@graasp/translations@1.40.0(i18next@23.16.4))(react@18.3.1)':
+  '@graasp/query-client@5.1.0(@graasp/sdk@4.33.2(date-fns@4.1.0)(uuid@11.0.2))(@graasp/translations@https://codeload.github.com/graasp/graasp-translations/tar.gz/3db50fbc76793d53a977103248b56dbc7d5db974(i18next@23.16.4))(react@18.3.1)':
     dependencies:
       '@graasp/sdk': 4.33.2(date-fns@4.1.0)(uuid@11.0.2)
-      '@graasp/translations': 1.40.0(i18next@23.16.4)
+      '@graasp/translations': https://codeload.github.com/graasp/graasp-translations/tar.gz/3db50fbc76793d53a977103248b56dbc7d5db974(i18next@23.16.4)
       '@tanstack/react-query': 5.59.8(react@18.3.1)
       '@tanstack/react-query-devtools': 5.59.8(@tanstack/react-query@5.59.8(react@18.3.1))(react@18.3.1)
       axios: 1.7.7
@@ -6322,18 +6331,18 @@ snapshots:
       cssjanus: 2.3.0
       stylis: 4.3.4
 
-  '@graasp/translations@1.40.0(i18next@23.16.4)':
+  '@graasp/translations@https://codeload.github.com/graasp/graasp-translations/tar.gz/3db50fbc76793d53a977103248b56dbc7d5db974(i18next@23.16.4)':
     dependencies:
       i18next: 23.16.4
 
-  '@graasp/ui@https://codeload.github.com/graasp/graasp-ui/tar.gz/d71a22dc8812a0edb741beb1af8bb92c6a237bf8(oxoju7n3nirj5fsuyot323wjje)':
+  '@graasp/ui@https://codeload.github.com/graasp/graasp-ui/tar.gz/d71a22dc8812a0edb741beb1af8bb92c6a237bf8(atqwgzhszhax3iplanajx6cofy)':
     dependencies:
       '@emotion/cache': 11.13.1
       '@emotion/react': 11.13.3(@types/react@18.3.12)(react@18.3.1)
       '@emotion/styled': 11.13.0(@emotion/react@11.13.3(@types/react@18.3.12)(react@18.3.1))(@types/react@18.3.12)(react@18.3.1)
       '@graasp/sdk': 4.33.2(date-fns@4.1.0)(uuid@11.0.2)
       '@graasp/stylis-plugin-rtl': 2.2.0(stylis@4.3.4)
-      '@graasp/translations': 1.40.0(i18next@23.16.4)
+      '@graasp/translations': https://codeload.github.com/graasp/graasp-translations/tar.gz/3db50fbc76793d53a977103248b56dbc7d5db974(i18next@23.16.4)
       '@mui/icons-material': 6.1.6(@mui/material@6.1.6(@emotion/react@11.13.3(@types/react@18.3.12)(react@18.3.1))(@emotion/styled@11.13.0(@emotion/react@11.13.3(@types/react@18.3.12)(react@18.3.1))(@types/react@18.3.12)(react@18.3.1))(@types/react@18.3.12)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(@types/react@18.3.12)(react@18.3.1)
       '@mui/lab': 6.0.0-beta.14(@emotion/react@11.13.3(@types/react@18.3.12)(react@18.3.1))(@emotion/styled@11.13.0(@emotion/react@11.13.3(@types/react@18.3.12)(react@18.3.1))(@types/react@18.3.12)(react@18.3.1))(@mui/material@6.1.6(@emotion/react@11.13.3(@types/react@18.3.12)(react@18.3.1))(@emotion/styled@11.13.0(@emotion/react@11.13.3(@types/react@18.3.12)(react@18.3.1))(@types/react@18.3.12)(react@18.3.1))(@types/react@18.3.12)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(@types/react@18.3.12)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       '@mui/material': 6.1.6(@emotion/react@11.13.3(@types/react@18.3.12)(react@18.3.1))(@emotion/styled@11.13.0(@emotion/react@11.13.3(@types/react@18.3.12)(react@18.3.1))(@types/react@18.3.12)(react@18.3.1))(@types/react@18.3.12)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
@@ -8485,6 +8494,8 @@ snapshots:
   human-signals@1.1.1: {}
 
   husky@9.1.6: {}
+
+  i18next-fetch-backend@6.0.0: {}
 
   i18next@23.16.4:
     dependencies:

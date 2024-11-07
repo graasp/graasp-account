@@ -1,3 +1,5 @@
+import { useTranslation } from 'react-i18next';
+
 import {
   Alert,
   AlertTitle,
@@ -14,7 +16,6 @@ import { HttpStatusCode, isAxiosError } from 'axios';
 
 import CenteredContainer from '@/components/layout/CenteredContainer';
 import { GRAASP_AUTH_HOST } from '@/config/env';
-import { useAccountTranslation } from '@/config/i18n';
 import { ACCOUNT_SETTINGS_PATH } from '@/config/paths';
 import { mutations } from '@/config/queryClient';
 import {
@@ -56,7 +57,7 @@ const EmailChangeContent = ({
   newEmail,
   jwtToken,
 }: EmailChangeContentProps): JSX.Element => {
-  const { t: translate } = useAccountTranslation();
+  const { t: translate } = useTranslation();
   const {
     mutate: validateEmail,
     error,

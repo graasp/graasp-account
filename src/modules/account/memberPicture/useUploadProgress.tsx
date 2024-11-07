@@ -1,9 +1,9 @@
 import { useRef } from 'react';
+import { useTranslation } from 'react-i18next';
 import { Id, toast } from 'react-toastify';
 
 import { AxiosProgressEvent } from 'axios';
 
-import { useAccountTranslation } from '@/config/i18n';
 import { ACCOUNT } from '@/langs/account';
 
 export const useUploadProgress = (): {
@@ -13,7 +13,7 @@ export const useUploadProgress = (): {
 } => {
   // we need to keep a reference of the toastId to be able to update it
   const toastId = useRef<Id | null>(null);
-  const { t } = useAccountTranslation();
+  const { t } = useTranslation();
 
   const show = (progress = 0) => {
     toastId.current = toast.info(t(ACCOUNT.UPLOADING_TOAST_TEXT), {

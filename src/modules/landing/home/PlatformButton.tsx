@@ -1,3 +1,5 @@
+import { useTranslation } from 'react-i18next';
+
 import {
   Button,
   Grid2,
@@ -7,7 +9,6 @@ import {
   useTheme,
 } from '@mui/material';
 
-import { Context } from '@graasp/sdk';
 import {
   AccentColors,
   AnalyticsIcon,
@@ -17,19 +18,19 @@ import {
   PlayIcon,
 } from '@graasp/ui';
 
+import { NS } from '@/config/constants';
 import {
   GRAASP_ANALYTICS_HOST,
   GRAASP_BUILDER_HOST,
   GRAASP_LIBRARY_HOST,
   GRAASP_PLAYER_HOST,
 } from '@/config/env';
-import { useEnumsTranslation } from '@/config/i18n';
 
 const PlatformProps = {
   [Platform.Builder]: {
     color: AccentColors.builder,
     Icon: BuildIcon,
-    name: Context.Builder,
+    name: Platform.Builder,
     href: GRAASP_BUILDER_HOST,
   },
   [Platform.Player]: {
@@ -66,7 +67,7 @@ export function PlatformButton({
   caption,
   buttonText,
 }: PlatformButtonProps): JSX.Element {
-  const { t: translatePlatforms } = useEnumsTranslation();
+  const { t: translatePlatforms } = useTranslation(NS.Enums);
   const { color, name, Icon, href } = PlatformProps[platform];
   const alignItems = {
     xs: 'center',
@@ -89,9 +90,6 @@ export function PlatformButton({
       gap={2}
       direction="column"
       alignItems={alignItems}
-
-      // height="100%"
-      // flex={1}
     >
       <Stack alignItems={alignItems}>
         {isSmallScreen && icon}

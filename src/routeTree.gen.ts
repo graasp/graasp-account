@@ -19,16 +19,16 @@ import { Route as FeaturesImport } from './routes/features'
 import { Route as ContactUsImport } from './routes/contact-us'
 import { Route as AccountImport } from './routes/account'
 import { Route as AboutUsImport } from './routes/about-us'
-import { Route as AccountIndexImport } from './routes/account/index'
 import { Route as EmailChangeImport } from './routes/email.change'
 import { Route as AuthRegisterImport } from './routes/auth/register'
 import { Route as AuthLoginImport } from './routes/auth/login'
-import { Route as AccountSettingsImport } from './routes/account/settings'
 
 // Create Virtual Routes
 
 const IndexLazyImport = createFileRoute('/')()
+const AccountIndexLazyImport = createFileRoute('/account/')()
 const AccountStorageLazyImport = createFileRoute('/account/storage')()
+const AccountSettingsLazyImport = createFileRoute('/account/settings')()
 
 // Create/Update Routes
 
@@ -74,11 +74,11 @@ const IndexLazyRoute = IndexLazyImport.update({
   getParentRoute: () => rootRoute,
 } as any).lazy(() => import('./routes/index.lazy').then((d) => d.Route))
 
-const AccountIndexRoute = AccountIndexImport.update({
+const AccountIndexLazyRoute = AccountIndexLazyImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => AccountRoute,
-} as any)
+} as any).lazy(() => import('./routes/account/index.lazy').then((d) => d.Route))
 
 const AccountStorageLazyRoute = AccountStorageLazyImport.update({
   id: '/storage',
@@ -86,6 +86,14 @@ const AccountStorageLazyRoute = AccountStorageLazyImport.update({
   getParentRoute: () => AccountRoute,
 } as any).lazy(() =>
   import('./routes/account/storage.lazy').then((d) => d.Route),
+)
+
+const AccountSettingsLazyRoute = AccountSettingsLazyImport.update({
+  id: '/settings',
+  path: '/settings',
+  getParentRoute: () => AccountRoute,
+} as any).lazy(() =>
+  import('./routes/account/settings.lazy').then((d) => d.Route),
 )
 
 const EmailChangeRoute = EmailChangeImport.update({
@@ -105,12 +113,6 @@ const AuthLoginRoute = AuthLoginImport.update({
   path: '/auth/login',
   getParentRoute: () => rootRoute,
 } as any).lazy(() => import('./routes/auth/login.lazy').then((d) => d.Route))
-
-const AccountSettingsRoute = AccountSettingsImport.update({
-  id: '/settings',
-  path: '/settings',
-  getParentRoute: () => AccountRoute,
-} as any)
 
 // Populate the FileRoutesByPath interface
 
@@ -165,13 +167,6 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof TermsImport
       parentRoute: typeof rootRoute
     }
-    '/account/settings': {
-      id: '/account/settings'
-      path: '/settings'
-      fullPath: '/account/settings'
-      preLoaderRoute: typeof AccountSettingsImport
-      parentRoute: typeof AccountImport
-    }
     '/auth/login': {
       id: '/auth/login'
       path: '/auth/login'
@@ -193,6 +188,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof EmailChangeImport
       parentRoute: typeof rootRoute
     }
+    '/account/settings': {
+      id: '/account/settings'
+      path: '/settings'
+      fullPath: '/account/settings'
+      preLoaderRoute: typeof AccountSettingsLazyImport
+      parentRoute: typeof AccountImport
+    }
     '/account/storage': {
       id: '/account/storage'
       path: '/storage'
@@ -204,7 +206,7 @@ declare module '@tanstack/react-router' {
       id: '/account/'
       path: '/'
       fullPath: '/account/'
-      preLoaderRoute: typeof AccountIndexImport
+      preLoaderRoute: typeof AccountIndexLazyImport
       parentRoute: typeof AccountImport
     }
   }
@@ -213,15 +215,15 @@ declare module '@tanstack/react-router' {
 // Create and export the route tree
 
 interface AccountRouteChildren {
-  AccountSettingsRoute: typeof AccountSettingsRoute
+  AccountSettingsLazyRoute: typeof AccountSettingsLazyRoute
   AccountStorageLazyRoute: typeof AccountStorageLazyRoute
-  AccountIndexRoute: typeof AccountIndexRoute
+  AccountIndexLazyRoute: typeof AccountIndexLazyRoute
 }
 
 const AccountRouteChildren: AccountRouteChildren = {
-  AccountSettingsRoute: AccountSettingsRoute,
+  AccountSettingsLazyRoute: AccountSettingsLazyRoute,
   AccountStorageLazyRoute: AccountStorageLazyRoute,
-  AccountIndexRoute: AccountIndexRoute,
+  AccountIndexLazyRoute: AccountIndexLazyRoute,
 }
 
 const AccountRouteWithChildren =
@@ -235,12 +237,12 @@ export interface FileRoutesByFullPath {
   '/features': typeof FeaturesRoute
   '/support': typeof SupportRoute
   '/terms': typeof TermsRoute
-  '/account/settings': typeof AccountSettingsRoute
   '/auth/login': typeof AuthLoginRoute
   '/auth/register': typeof AuthRegisterRoute
   '/email/change': typeof EmailChangeRoute
+  '/account/settings': typeof AccountSettingsLazyRoute
   '/account/storage': typeof AccountStorageLazyRoute
-  '/account/': typeof AccountIndexRoute
+  '/account/': typeof AccountIndexLazyRoute
 }
 
 export interface FileRoutesByTo {
@@ -250,12 +252,12 @@ export interface FileRoutesByTo {
   '/features': typeof FeaturesRoute
   '/support': typeof SupportRoute
   '/terms': typeof TermsRoute
-  '/account/settings': typeof AccountSettingsRoute
   '/auth/login': typeof AuthLoginRoute
   '/auth/register': typeof AuthRegisterRoute
   '/email/change': typeof EmailChangeRoute
+  '/account/settings': typeof AccountSettingsLazyRoute
   '/account/storage': typeof AccountStorageLazyRoute
-  '/account': typeof AccountIndexRoute
+  '/account': typeof AccountIndexLazyRoute
 }
 
 export interface FileRoutesById {
@@ -267,12 +269,12 @@ export interface FileRoutesById {
   '/features': typeof FeaturesRoute
   '/support': typeof SupportRoute
   '/terms': typeof TermsRoute
-  '/account/settings': typeof AccountSettingsRoute
   '/auth/login': typeof AuthLoginRoute
   '/auth/register': typeof AuthRegisterRoute
   '/email/change': typeof EmailChangeRoute
+  '/account/settings': typeof AccountSettingsLazyRoute
   '/account/storage': typeof AccountStorageLazyRoute
-  '/account/': typeof AccountIndexRoute
+  '/account/': typeof AccountIndexLazyRoute
 }
 
 export interface FileRouteTypes {
@@ -285,10 +287,10 @@ export interface FileRouteTypes {
     | '/features'
     | '/support'
     | '/terms'
-    | '/account/settings'
     | '/auth/login'
     | '/auth/register'
     | '/email/change'
+    | '/account/settings'
     | '/account/storage'
     | '/account/'
   fileRoutesByTo: FileRoutesByTo
@@ -299,10 +301,10 @@ export interface FileRouteTypes {
     | '/features'
     | '/support'
     | '/terms'
-    | '/account/settings'
     | '/auth/login'
     | '/auth/register'
     | '/email/change'
+    | '/account/settings'
     | '/account/storage'
     | '/account'
   id:
@@ -314,10 +316,10 @@ export interface FileRouteTypes {
     | '/features'
     | '/support'
     | '/terms'
-    | '/account/settings'
     | '/auth/login'
     | '/auth/register'
     | '/email/change'
+    | '/account/settings'
     | '/account/storage'
     | '/account/'
   fileRoutesById: FileRoutesById
@@ -397,10 +399,6 @@ export const routeTree = rootRoute
     "/terms": {
       "filePath": "terms.tsx"
     },
-    "/account/settings": {
-      "filePath": "account/settings.tsx",
-      "parent": "/account"
-    },
     "/auth/login": {
       "filePath": "auth/login.tsx"
     },
@@ -410,12 +408,16 @@ export const routeTree = rootRoute
     "/email/change": {
       "filePath": "email.change.tsx"
     },
+    "/account/settings": {
+      "filePath": "account/settings.lazy.tsx",
+      "parent": "/account"
+    },
     "/account/storage": {
       "filePath": "account/storage.lazy.tsx",
       "parent": "/account"
     },
     "/account/": {
-      "filePath": "account/index.tsx",
+      "filePath": "account/index.lazy.tsx",
       "parent": "/account"
     }
   }

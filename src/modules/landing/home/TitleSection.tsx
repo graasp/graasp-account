@@ -3,6 +3,7 @@ import { useTranslation } from 'react-i18next';
 import { Button, Stack, Typography } from '@mui/material';
 
 import { Image } from '@/components/ui/images';
+import { NS } from '@/config/constants';
 import { GRAASP_LIBRARY_HOST } from '@/config/env';
 
 import { ButtonLink } from '../../../components/ui/ButtonLink';
@@ -13,7 +14,7 @@ import { GoLab } from './icons/GoLab';
 import { Unine } from './icons/Unine';
 
 export function TitleSection(): JSX.Element {
-  const { t } = useTranslation();
+  const { t } = useTranslation(NS.Landing);
   return (
     <Stack component="section" direction="column" my={5} maxWidth="lg">
       <Stack
@@ -39,7 +40,7 @@ export function TitleSection(): JSX.Element {
                 color="primary"
                 alignSelf={{ xs: 'center', lg: 'flex-start' }}
               >
-                Graasp
+                {t('HOME.TITLE')}
               </Typography>
               <Typography
                 variant="h1"
@@ -47,7 +48,7 @@ export function TitleSection(): JSX.Element {
                 textAlign={{ xs: 'center', lg: 'unset' }}
                 alignSelf={{ xs: 'center', lg: 'flex-start' }}
               >
-                {t('Your learning experience platform')}
+                {t('HOME.SUBTITLE')}
               </Typography>
             </Stack>
             <Typography
@@ -56,8 +57,7 @@ export function TitleSection(): JSX.Element {
               textAlign={{ xs: 'center', lg: 'unset' }}
               alignSelf={{ xs: 'center', lg: 'flex-start' }}
             >
-              {t(`Revolutionize your education and professional development!
-              Our platform cares for the needs of educators and researchers, seeking a complete solution for content creation, presentation, and collaborative knowledge sharing.`)}
+              {t('HOME.DESCRIPTION')}
             </Typography>
           </Stack>
           <Stack direction="column" gap={4}>
@@ -69,7 +69,7 @@ export function TitleSection(): JSX.Element {
               gap={4}
             >
               <ButtonLink variant="contained" to="/auth/register">
-                {t('Start Here')}
+                {t('HOME.REGISTER_CALL_TO_ACTION')}
               </ButtonLink>
               <Button
                 component="a"
@@ -77,12 +77,14 @@ export function TitleSection(): JSX.Element {
                 color="library"
                 href={GRAASP_LIBRARY_HOST}
               >
-                {t('Visit the Library')}
+                {t('HOME.LIBRARY_CALL_TO_ACTION')}
               </Button>
             </Stack>
           </Stack>
           <Stack direction="column" gap={1}>
-            <Typography color="textSecondary">{t('Supported by')}</Typography>
+            <Typography color="textSecondary">
+              {t('HOME.SUPPORTERS_LABEL')}
+            </Typography>
             <Stack
               id="logosContainer"
               direction="row"

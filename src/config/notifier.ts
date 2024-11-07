@@ -5,7 +5,8 @@ import { FAILURE_MESSAGES, namespaces } from '@graasp/translations';
 
 import axios from 'axios';
 
-import i18n from './i18n';
+import i18n from '~landing/i18next';
+
 import { CHANGE_PLAN_SUCCESS_MESSAGE } from './messages';
 
 const {

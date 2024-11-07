@@ -1,9 +1,9 @@
 import { useState } from 'react';
+import { useTranslation } from 'react-i18next';
 
 import { Button, Dialog, Stack, Typography } from '@mui/material';
 
 import { BorderedSection } from '@/components/layout/BorderedSection';
-import { useAccountTranslation } from '@/config/i18n';
 import {
   DELETE_MEMBER_BUTTON_ID,
   DELETE_MEMBER_DIALOG_DESCRIPTION_ID,
@@ -17,7 +17,7 @@ import DeleteMemberDialogContent from './DeleteMemberDialogContent';
 const DeleteMemberSection = (): JSX.Element => {
   const [open, setOpen] = useState(false);
 
-  const { t } = useAccountTranslation();
+  const { t } = useTranslation();
 
   const closeModal = () => {
     setOpen(false);

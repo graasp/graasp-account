@@ -1,10 +1,11 @@
+import { useTranslation } from 'react-i18next';
+
 import { Alert, Stack, Typography } from '@mui/material';
 
 import { AccountType } from '@graasp/sdk';
 
 import { formatDistanceToNow } from 'date-fns';
 
-import i18n, { useAccountTranslation } from '@/config/i18n';
 import { hooks } from '@/config/queryClient';
 import {
   MEMBER_CREATED_AT_ID,
@@ -16,7 +17,7 @@ import { getLocalForDateFns } from '@/langs/utils';
 import AvatarUploader from '~account/memberPicture/AvatarUploader';
 
 const MemberCard = (): JSX.Element | null => {
-  const { t } = useAccountTranslation();
+  const { t, i18n } = useTranslation();
   const { data: member } = hooks.useCurrentMember();
 
   if (member?.type !== AccountType.Individual) {
