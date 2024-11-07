@@ -9,7 +9,7 @@ import { z } from 'zod';
 
 import { GRAASP_AUTH_HOST } from '@/config/env';
 import { useAccountTranslation } from '@/config/i18n';
-import { ACCOUNT } from '@/langs/constants';
+import { ACCOUNT } from '@/langs/account';
 
 const registerSearchSchema = z.object({
   url: z.string().url().optional(),

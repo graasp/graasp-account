@@ -12,7 +12,7 @@ import {
   LOGIN_REQUIRED_BUTTON_ID,
   LOGIN_REQUIRED_TEXT_ID,
 } from '@/config/selectors';
-import { ACCOUNT } from '@/langs/constants';
+import { ACCOUNT } from '@/langs/account';
 
 export const Route = createLazyFileRoute('/login')({
   component: LoginRoute,

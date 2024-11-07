@@ -23,7 +23,7 @@ import {
   EMAIL_VALIDATION_SUCCESS_MESSAGE_ID,
   EMAIL_VALIDATION_UNAUTHORIZED_MESSAGE_ID,
 } from '@/config/selectors';
-import { ACCOUNT } from '@/langs/constants';
+import { ACCOUNT } from '@/langs/account';
 
 type EmailChangeSearch = {
   newEmail: string;

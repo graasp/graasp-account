@@ -12,7 +12,7 @@ import {
   NOT_FOUND_MESSAGE_ID,
   NOT_FOUND_TEXT_ID,
 } from '@/config/selectors';
-import { ACCOUNT } from '@/langs/constants';
+import { ACCOUNT } from '@/langs/account';
 
 export function NotFoundComponent(): JSX.Element {
   const { t } = useAccountTranslation();

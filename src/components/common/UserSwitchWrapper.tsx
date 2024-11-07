@@ -5,8 +5,8 @@ import { useAccountTranslation } from '@/config/i18n';
 
 import { ACCOUNT_HOME_PATH } from '../../config/paths';
 import { hooks, mutations } from '../../config/queryClient';
-import LanguageSwitch from '../main/LanguageSwitch';
-import MemberAvatar from '../main/MemberAvatar';
+import LanguageSwitch from './LanguageSwitch';
+import MemberAvatar from './MemberAvatar';
 
 type Props = {
   ButtonContent?: JSX.Element;

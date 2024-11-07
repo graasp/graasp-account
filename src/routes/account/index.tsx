@@ -2,9 +2,9 @@ import { Stack } from '@mui/material';
 
 import { createFileRoute } from '@tanstack/react-router';
 
-import GraaspIcons from '@/components/main/GraaspIcons';
-import MemberCard from '@/components/main/MemberCard';
-import PersonalizationNotificationCard from '@/components/main/PersonalizationNotificationCard';
+import GraaspIcons from '~account/home/GraaspIcons';
+import MemberCard from '~account/home/MemberCard';
+import PersonalizationNotificationCard from '~account/home/PersonalizationNotificationCard';
 
 export const Route = createFileRoute('/account/')({
   component: HomeRoute,

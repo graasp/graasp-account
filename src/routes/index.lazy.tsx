@@ -10,12 +10,12 @@ import {
 import { Link, createLazyFileRoute } from '@tanstack/react-router';
 
 import { useAuth } from '@/AuthContext';
-import { LeftHeaderWrapper } from '@/components/header/LeftHeaderWrapper';
-import { Footer } from '@/components/landing/footer/Footer';
-import { OurMissionSection } from '@/components/landing/home/OurMissionSection';
-import { PlatformPuzzleSection } from '@/components/landing/home/PlatformPuzzleSection';
-import { TitleSection } from '@/components/landing/home/TitleSection';
 import { ACCOUNT_HOME_PATH, LANDING_PAGE_PATH } from '@/config/paths';
+import { Footer } from '@/modules/landing/footer/Footer';
+import { LeftHeaderWrapper } from '@/modules/landing/header/LeftHeaderWrapper';
+import { OurMissionSection } from '@/modules/landing/home/OurMissionSection';
+import { PlatformPuzzleSection } from '@/modules/landing/home/PlatformPuzzleSection';
+import { TitleSection } from '@/modules/landing/home/TitleSection';
 
 export const Route = createLazyFileRoute('/')({
   component: Index,
@@ -27,11 +27,7 @@ function Index() {
   const { fill: primary } = useButtonColor('primary');
 
   return (
-    <Stack
-      alignItems="center"
-      // height="100svh"
-      id="pageWrapper"
-    >
+    <Stack alignItems="center" id="pageWrapper">
       <Stack
         id="navBar"
         // take maximum width

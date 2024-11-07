@@ -1,6 +1,6 @@
 import { EmailFrequency } from '@graasp/sdk';
 
-import { ACCOUNT } from '@/langs/constants';
+import { ACCOUNT } from '@/langs/account';
 
 export const DEFAULT_EMAIL_FREQUENCY = EmailFrequency.Always;
 

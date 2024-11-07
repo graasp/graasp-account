@@ -2,8 +2,8 @@ import { Container } from '@mui/material';
 
 import { Outlet, createFileRoute, redirect } from '@tanstack/react-router';
 
+import { PageWrapper } from '@/components/layout/PageWrapper';
 import { LOGIN_PAGE_PATH } from '@/config/paths';
-import PageWrapper from '@/pages/PageWrapper';
 
 export const Route = createFileRoute('/account')({
   beforeLoad: ({ context, location }) => {
