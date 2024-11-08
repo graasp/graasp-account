@@ -4,9 +4,9 @@ import { Notifier, routines } from '@graasp/query-client';
 import { FAILURE_MESSAGES, namespaces } from '@graasp/translations';
 
 import axios from 'axios';
+import i18n from 'i18next';
 
-import i18n from '~landing/i18next';
-
+import { NS } from './constants';
 import { CHANGE_PLAN_SUCCESS_MESSAGE } from './messages';
 
 const {
@@ -90,10 +90,14 @@ export default ({
 
   // error notification
   if (payload?.error && message) {
-    toast.error(i18n.t(message, { ns: namespaces.messages }));
+    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+    // @ts-expect-error
+    toast.error(i18n.t(message, { ns: NS.Messages }));
   }
   // success notification
   else if (message) {
+    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+    // @ts-expect-error
     toast.success(i18n.t(message, { ns: namespaces.messages }));
   }
 };

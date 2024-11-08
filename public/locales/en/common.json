@@ -18,7 +18,10 @@
     "BUTTON_TEXT": "Save"
   },
   "CANCEL": {
-    "BUTTON_TEXT": "CANCEL"
+    "BUTTON_TEXT": "Cancel"
+  },
+  "CONFIRM": {
+    "BUTTON_TEXT": "Confirm"
   },
   "CONJONCTION": {
     "OR": "or"

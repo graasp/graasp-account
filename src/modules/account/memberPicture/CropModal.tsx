@@ -193,14 +193,14 @@ const CropModal = ({ onConfirm, onClose, src }: CropProps): JSX.Element => {
       </DialogContent>
       <DialogActions>
         <Button onClick={onClose} variant="text">
-          {translateCommon('CANCEL_BUTTON')}
+          {translateCommon('CANCEL.BUTTON_TEXT')}
         </Button>
         <Button
           onClick={handleOnConfirm}
           disabled={isError}
           id={CROP_MODAL_CONFIRM_BUTTON_ID}
         >
-          {translateCommon('CONFIRM_BUTTON')}
+          {translateCommon('CONFIRM.BUTTON_TEXT')}
         </Button>
       </DialogActions>
     </>

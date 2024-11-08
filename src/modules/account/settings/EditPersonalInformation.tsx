@@ -1,4 +1,5 @@
 import { ChangeEvent, useState } from 'react';
+import { useTranslation } from 'react-i18next';
 
 import { Button, Stack, TextField } from '@mui/material';
 
@@ -11,7 +12,7 @@ import {
 
 import { BorderedSection } from '@/components/layout/BorderedSection';
 import FormProperty from '@/components/layout/FormProperty';
-import { useAccountTranslation, useCommonTranslation } from '@/config/i18n';
+import { NS } from '@/config/constants';
 import { mutations } from '@/config/queryClient';
 import {
   PERSONAL_INFO_CANCEL_BUTTON_ID,
@@ -55,8 +56,8 @@ const EditPersonalInformation = ({
   onEmailUpdate,
   onClose,
 }: EditMemberPersonalInformationProp): JSX.Element => {
-  const { t } = useAccountTranslation();
-  const { t: translateCommon } = useCommonTranslation();
+  const { t } = useTranslation(NS.Account);
+  const { t: translateCommon } = useTranslation(NS.Common);
   const { mutate: editMember } = mutations.useEditCurrentMember();
   const { mutate: updateEmail } = mutations.useUpdateMemberEmail();
   const [newUserName, setNewUserName] = useState(member.name);
@@ -75,6 +76,8 @@ const EditPersonalInformation = ({
     const errorMessage = verifyUsername(value);
     if (errorMessage) {
       setError(
+        // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+        //@ts-expect-error
         t(errorMessage, {
           min: MIN_USERNAME_LENGTH,
           max: MAX_USERNAME_LENGTH,
@@ -117,9 +120,9 @@ const EditPersonalInformation = ({
   return (
     <BorderedSection
       id={PERSONAL_INFO_EDIT_CONTAINER_ID}
-      title={t(ACCOUNT.PERSONAL_INFORMATION_TITLE)}
+      title={t('PERSONAL_INFORMATION_TITLE')}
     >
-      <FormProperty title={t(ACCOUNT.PROFILE_MEMBER_NAME)}>
+      <FormProperty title={t('PROFILE_MEMBER_NAME')}>
         <TextField
           id={PERSONAL_INFO_INPUT_USERNAME_ID}
           variant="outlined"
@@ -133,7 +136,7 @@ const EditPersonalInformation = ({
           onChange={handleChange}
         />
       </FormProperty>
-      <FormProperty title={t(ACCOUNT.PROFILE_EMAIL_TITLE)}>
+      <FormProperty title={t('PROFILE_EMAIL_TITLE')}>
         <TextField
           id={PERSONAL_INFO_INPUT_EMAIL_ID}
           variant="outlined"
@@ -152,7 +155,7 @@ const EditPersonalInformation = ({
           id={PERSONAL_INFO_CANCEL_BUTTON_ID}
           size="small"
         >
-          {translateCommon('CANCEL_BUTTON')}
+          {translateCommon('CANCEL.BUTTON_TEXT')}
         </Button>
         <Button
           variant="contained"
@@ -162,7 +165,7 @@ const EditPersonalInformation = ({
           id={PERSONAL_INFO_SAVE_BUTTON_ID}
           size="small"
         >
-          {translateCommon('SAVE_BUTTON')}
+          {translateCommon('SAVE.BUTTON_TEXT')}
         </Button>
       </Stack>
     </BorderedSection>

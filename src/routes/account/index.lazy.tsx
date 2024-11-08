@@ -1,14 +1,14 @@
-import { Stack } from '@mui/material'
+import { Stack } from '@mui/material';
 
-import { createLazyFileRoute } from '@tanstack/react-router'
+import { createLazyFileRoute } from '@tanstack/react-router';
 
-import GraaspIcons from '~account/home/GraaspIcons'
-import MemberCard from '~account/home/MemberCard'
-import PersonalizationNotificationCard from '~account/home/PersonalizationNotificationCard'
+import GraaspIcons from '~account/home/GraaspIcons';
+import MemberCard from '~account/home/MemberCard';
+import PersonalizationNotificationCard from '~account/home/PersonalizationNotificationCard';
 
 export const Route = createLazyFileRoute('/account/')({
   component: HomeRoute,
-})
+});
 
 function HomeRoute() {
   return (
@@ -17,5 +17,5 @@ function HomeRoute() {
       <PersonalizationNotificationCard />
       <GraaspIcons />
     </Stack>
-  )
+  );
 }

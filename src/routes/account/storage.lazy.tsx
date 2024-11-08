@@ -5,8 +5,7 @@ import { Alert, Stack, Typography } from '@mui/material';
 import { createLazyFileRoute } from '@tanstack/react-router';
 
 import { ScreenLayout } from '@/components/layout/ScreenLayout';
-import { ADMIN_CONTACT } from '@/config/constants';
-import { ACCOUNT } from '@/langs/account';
+import { ADMIN_CONTACT, NS } from '@/config/constants';
 
 import { StorageBar } from '~account/storage/StorageBar';
 import { StorageFiles } from '~account/storage/StorageFiles';
@@ -16,15 +15,15 @@ export const Route = createLazyFileRoute('/account/storage')({
 });
 
 function StorageRoute(): JSX.Element {
-  const { t } = useTranslation();
+  const { t } = useTranslation(NS.Account);
 
   return (
-    <ScreenLayout title={t(ACCOUNT.STORAGE_TITLE)}>
+    <ScreenLayout title={t('STORAGE_TITLE')}>
       <Stack gap={2}>
         <Typography variant="body1">
           <Trans
             t={t}
-            i18nKey={ACCOUNT.STORAGE_TEXT}
+            i18nKey={'STORAGE_TEXT'}
             values={{
               email: ADMIN_CONTACT,
             }}
@@ -34,7 +33,7 @@ function StorageRoute(): JSX.Element {
             }
           />
         </Typography>
-        <Alert severity="info">{t(ACCOUNT.STORAGE_INFO)}</Alert>
+        <Alert severity="info">{t('STORAGE_INFO')}</Alert>
       </Stack>
       <StorageBar />
       <StorageFiles />

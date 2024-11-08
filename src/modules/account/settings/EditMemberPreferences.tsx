@@ -100,7 +100,7 @@ const EditMemberPreferences = ({
           id={PREFERENCES_CANCEL_BUTTON_ID}
           size="small"
         >
-          {translateCommon('CANCEL_BUTTON')}
+          {translateCommon('CANCEL.BUTTON_TEXT')}
         </Button>
         <Button
           variant="contained"
@@ -109,7 +109,7 @@ const EditMemberPreferences = ({
           disabled={!hasChanges}
           size="small"
         >
-          {translateCommon('SAVE_BUTTON')}
+          {translateCommon('SAVE.BUTTON_TEXT')}
         </Button>
       </Stack>
     </BorderedSection>
