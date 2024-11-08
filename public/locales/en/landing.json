@@ -34,6 +34,24 @@
         "DESCRIPTION": "To find resources and be part of a community",
         "BUTTON_TEXT": "Explore"
       }
+    },
+    "USER_STORY": {
+      "TEACHER": {
+        "LEADING_SENTENCE": "Are you a teacher wanting to enhance your content creation?",
+        "TITLE": "Build your material with Graasp, a structured way to…",
+        "USE_CASE_1": "Embed interactive apps in your class material",
+        "USE_CASE_2": "Connect with a wide community of educators",
+        "USE_CASE_3": "Explore detailed analytics about your students",
+        "BUTTON_TEXT": "Start Today"
+      },
+      "RESEARCHER": {
+        "LEADING_SENTENCE": "Are you a researcher seeking a platform that seamlessly integrates data collection and interactive experiences?",
+        "TITLE": "Start using Graasp for your research",
+        "USE_CASE_1": "Access a secure and controlled environment for conducting experiments",
+        "USE_CASE_2": "Conduct tests with several different options",
+        "USE_CASE_3": "Join a lively community focused on advancing digital education",
+        "BUTTON_TEXT": "Register Now"
+      }
     }
   },
   "FOOTER": {

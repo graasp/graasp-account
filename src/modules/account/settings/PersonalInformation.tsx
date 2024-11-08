@@ -1,11 +1,12 @@
 import { useState } from 'react';
+import { useTranslation } from 'react-i18next';
 
 import { Alert, AlertTitle, Button } from '@mui/material';
 
 import { AccountType } from '@graasp/sdk';
 
 import { BorderedSection } from '@/components/layout/BorderedSection';
-import { useAccountTranslation } from '@/config/i18n';
+import { NS } from '@/config/constants';
 import { hooks } from '@/config/queryClient';
 import {
   PERSONAL_INFO_DISPLAY_CONTAINER_ID,
@@ -14,7 +15,6 @@ import {
   PERSONAL_INFO_EMAIL_UPDATE_ALERT_ID,
   PERSONAL_INFO_USERNAME_DISPLAY_ID,
 } from '@/config/selectors';
-import { ACCOUNT } from '@/langs/account';
 
 import { MemberProfileItem } from '~account/common/MemberProfileItem';
 
@@ -22,7 +22,7 @@ import EditPersonalInformation from './EditPersonalInformation';
 
 const PersonalInformation = (): JSX.Element | null => {
   const { data: member } = hooks.useCurrentMember();
-  const { t } = useAccountTranslation();
+  const { t } = useTranslation(NS.Account);
 
   const [isEditing, setIsEditing] = useState(false);
   const [newEmail, setNewEmail] = useState('');
@@ -54,28 +54,26 @@ const PersonalInformation = (): JSX.Element | null => {
           variant="contained"
           size="small"
         >
-          {t(ACCOUNT.EDIT_BUTTON_LABEL)}
+          {t('EDIT_BUTTON_LABEL')}
         </Button>,
       ]}
     >
       <MemberProfileItem
         key="name"
-        title={t(ACCOUNT.PROFILE_MEMBER_NAME)}
+        title={t('PROFILE_MEMBER_NAME')}
         content={member?.name}
         contentId={PERSONAL_INFO_USERNAME_DISPLAY_ID}
       />
       <MemberProfileItem
         key="email"
-        title={t(ACCOUNT.PROFILE_EMAIL_TITLE)}
+        title={t('PROFILE_EMAIL_TITLE')}
         content={member?.email}
         contentId={PERSONAL_INFO_EMAIL_DISPLAY_ID}
       />
       {newEmail && (
         <Alert severity="info" id={PERSONAL_INFO_EMAIL_UPDATE_ALERT_ID}>
-          <AlertTitle>
-            {t(ACCOUNT.PROFILE_EMAIL_UPDATED_ALERT_TITLE)}
-          </AlertTitle>
-          {t(ACCOUNT.PROFILE_EMAIL_UPDATED_ALERT_MESSAGE, { email: newEmail })}
+          <AlertTitle>{t('PROFILE_EMAIL_UPDATED_ALERT_TITLE')}</AlertTitle>
+          {t('PROFILE_EMAIL_UPDATED_ALERT_MESSAGE', { email: newEmail })}
         </Alert>
       )}
     </BorderedSection>

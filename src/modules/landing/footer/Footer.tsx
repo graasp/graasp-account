@@ -97,7 +97,9 @@ export function Footer(): JSX.Element {
       p={3}
     >
       <Stack maxWidth="lg" m="auto" width="100%">
-        <Typography textAlign="center">{t('FOOTER.TAG_LINE')}</Typography>
+        <Typography textAlign="center" fontWeight="bold">
+          {t('FOOTER.TAG_LINE')}
+        </Typography>
         <Stack direction={{ xs: 'column', sm: 'row' }} m={4} gap={10}>
           <FooterSection name={t('FOOTER.CONTENT.TITLE')}>
             <InternalLink to="/" activeProps={internalLinkActiveProp}>

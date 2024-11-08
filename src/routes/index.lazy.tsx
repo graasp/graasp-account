@@ -11,12 +11,13 @@ import { Link, createLazyFileRoute } from '@tanstack/react-router';
 
 import { useAuth } from '@/AuthContext';
 import { ACCOUNT_HOME_PATH, LANDING_PAGE_PATH } from '@/config/paths';
-import { Footer } from '@/modules/landing/footer/Footer';
-import { OurMissionSection } from '@/modules/landing/home/OurMissionSection';
-import { PlatformPuzzleSection } from '@/modules/landing/home/PlatformPuzzleSection';
-import { TitleSection } from '@/modules/landing/home/TitleSection';
 
+import { Footer } from '~landing/footer/Footer';
 import { RightHeader } from '~landing/header/RightHeader';
+import { OurMissionSection } from '~landing/home/OurMissionSection';
+import { PuzzleSection } from '~landing/home/PuzzleSection';
+import { TitleSection } from '~landing/home/TitleSection';
+import { UserStorySection } from '~landing/home/UserStorySection';
 
 export const Route = createLazyFileRoute('/')({
   component: Index,
@@ -91,8 +92,8 @@ function Index() {
         bgcolor={DEFAULT_BACKGROUND_COLOR}
       >
         <TitleSection />
-        <PlatformPuzzleSection />
-        {/* <CalloutSection/> */}
+        <PuzzleSection />
+        <UserStorySection />
         <OurMissionSection />
       </Stack>
       <Footer />

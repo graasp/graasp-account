@@ -14,11 +14,20 @@
   "HOME": {
     "BUTTON_TEXT": "Go Home"
   },
+  "SAVE": {
+    "BUTTON_TEXT": "Save"
+  },
+  "CANCEL": {
+    "BUTTON_TEXT": "CANCEL"
+  },
   "CONJONCTION": {
     "OR": "or"
   },
   "CONSTRUCTION": {
     "TITLE": "This page is under construction",
     "DESCRIPTION": " We are working on improving this part of the app. We ask for your comprehension while we make the necessary changes."
+  },
+  "ERRORS": {
+    "UNEXPECTED": "An unexpected Error occurred"
   }
 }

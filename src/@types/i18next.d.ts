@@ -1,4 +1,6 @@
 // import the original type declarations
+import { FAILURE_MESSAGES } from '@graasp/translations';
+
 import 'i18next';
 
 import account from '../../public/locales/en/account.json';
@@ -13,6 +15,8 @@ declare module 'i18next' {
       landing: typeof landing;
       enums: typeof enums;
       common: typeof common;
+      // TODO: make it work with the messages from translations
+      messages: typeof FAILURE_MESSAGES;
     };
   }
 }

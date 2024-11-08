@@ -9,7 +9,7 @@ import { NS } from '@/config/constants';
 import { PlatformButton } from './PlatformButton';
 import { BuilderPuzzle } from './icons/BuilderPuzzle';
 
-export function PlatformPuzzleSection(): JSX.Element {
+export function PuzzleSection(): JSX.Element {
   const { t } = useTranslation(NS.Landing);
   return (
     <Stack

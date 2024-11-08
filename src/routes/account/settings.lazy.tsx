@@ -3,8 +3,8 @@ import { useTranslation } from 'react-i18next';
 import { createLazyFileRoute } from '@tanstack/react-router';
 
 import { ScreenLayout } from '@/components/layout/ScreenLayout';
+import { NS } from '@/config/constants';
 import { SETTINGS_PAGE_CONTAINER_ID } from '@/config/selectors';
-import { ACCOUNT } from '@/langs/account';
 
 import DeleteMemberSection from '~account/settings/DeleteMemberSection';
 import ExportData from '~account/settings/ExportData';
@@ -18,12 +18,12 @@ export const Route = createLazyFileRoute('/account/settings')({
 });
 
 function SettingsRoute(): JSX.Element {
-  const { t: translateAccount } = useTranslation();
+  const { t } = useTranslation(NS.Account);
 
   return (
     <ScreenLayout
       id={SETTINGS_PAGE_CONTAINER_ID}
-      title={translateAccount(ACCOUNT.MAIN_MENU_SETTINGS)}
+      title={t('MAIN_MENU_SETTINGS')}
     >
       <PersonalInformation />
       <DisplayPassword />

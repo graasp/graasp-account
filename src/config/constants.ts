@@ -24,4 +24,5 @@ export const NS = {
   Account: 'account',
   Common: 'common',
   Enums: 'enums',
+  Messages: 'messages',
 } as const;

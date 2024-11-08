@@ -1,20 +1,17 @@
 import { FieldError, SubmitHandler, useForm } from 'react-hook-form';
+import { useTranslation } from 'react-i18next';
 
 import { LoadingButton } from '@mui/lab';
 import { Alert, Button, Stack } from '@mui/material';
 import Typography from '@mui/material/Typography';
 
 import { isPasswordStrong } from '@graasp/sdk';
-import { COMMON, FAILURE_MESSAGES } from '@graasp/translations';
+import { FAILURE_MESSAGES } from '@graasp/translations';
 
 import axios from 'axios';
 
 import { BorderedSection } from '@/components/layout/BorderedSection';
-import {
-  useAccountTranslation,
-  useCommonTranslation,
-  useMessagesTranslation,
-} from '@/config/i18n';
+import { NS } from '@/config/constants';
 import { mutations } from '@/config/queryClient';
 import {
   PASSWORD_CREATE_CONTAINER_ID,
@@ -35,11 +32,10 @@ type Inputs = {
   confirmNewPassword: string;
 };
 
-export const getValidationMessage = (
-  fieldError?: FieldError,
-): string | undefined => {
+// eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
+export const getValidationMessage = (fieldError?: FieldError) => {
   if (fieldError?.type === 'required') {
-    return 'REQUIRED_FIELD_ERROR';
+    return 'REQUIRED_FIELD_ERROR' as const;
   }
   return fieldError?.message;
 };
@@ -51,9 +47,9 @@ const CreatePassword = ({ onClose }: CreatePasswordProps): JSX.Element => {
     formState: { errors },
   } = useForm<Inputs>();
 
-  const { t } = useAccountTranslation();
-  const { t: translateMessage } = useMessagesTranslation();
-  const { t: translateCommon } = useCommonTranslation();
+  const { t } = useTranslation(NS.Account);
+  const { t: translateMessage } = useTranslation(NS.Messages);
+  const { t: translateCommon } = useTranslation(NS.Common);
 
   const {
     mutateAsync: createPassword,
@@ -87,17 +83,22 @@ const CreatePassword = ({ onClose }: CreatePasswordProps): JSX.Element => {
   return (
     <BorderedSection
       id={PASSWORD_CREATE_CONTAINER_ID}
-      title={t(ACCOUNT.PASSWORD_TITLE)}
+      title={t('PASSWORD_TITLE')}
     >
       <Typography variant="body1">
-        {t(ACCOUNT.PASSWORD_SETTINGS_CONFIRM_INFORMATION)}
+        {t('PASSWORD_SETTINGS_CONFIRM_INFORMATION')}
       </Typography>
       <Stack spacing={2} component="form" onSubmit={handleSubmit(onSubmit)}>
         <Stack direction="row" spacing={2}>
           <PasswordField
-            label={t(ACCOUNT.PASSWORD_SETTINGS_NEW_LABEL)}
+            label={t('PASSWORD_SETTINGS_NEW_LABEL')}
             error={Boolean(newPasswordErrorMessage)}
-            helperText={newPasswordErrorMessage && t(newPasswordErrorMessage)}
+            helperText={
+              newPasswordErrorMessage &&
+              // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+              //@ts-expect-error
+              t(newPasswordErrorMessage)
+            }
             id={PASSWORD_INPUT_NEW_PASSWORD_ID}
             form={register('newPassword', {
               required: true,
@@ -108,10 +109,12 @@ const CreatePassword = ({ onClose }: CreatePasswordProps): JSX.Element => {
             })}
           />
           <PasswordField
-            label={t(ACCOUNT.PASSWORD_SETTINGS_NEW_CONFIRM_LABEL)}
+            label={t('PASSWORD_SETTINGS_NEW_CONFIRM_LABEL')}
             error={Boolean(confirmNewPasswordErrorMessage)}
             helperText={
               confirmNewPasswordErrorMessage &&
+              // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+              //@ts-expect-error
               t(confirmNewPasswordErrorMessage)
             }
             id={PASSWORD_INPUT_CONFIRM_PASSWORD_ID}
@@ -130,7 +133,7 @@ const CreatePassword = ({ onClose }: CreatePasswordProps): JSX.Element => {
         )}
         <Stack direction="row" gap={1} justifyContent="flex-end">
           <Button variant="outlined" onClick={onClose} size="small">
-            {translateCommon(COMMON.CANCEL_BUTTON)}
+            {translateCommon('CANCEL.BUTTON_TEXT')}
           </Button>
           <LoadingButton
             variant="contained"
@@ -142,7 +145,7 @@ const CreatePassword = ({ onClose }: CreatePasswordProps): JSX.Element => {
             loading={isCreatePasswordLoading}
             data-umami-event="create-password"
           >
-            {translateCommon(COMMON.SAVE_BUTTON)}
+            {translateCommon('SAVE.BUTTON_TEXT')}
           </LoadingButton>
         </Stack>
       </Stack>
