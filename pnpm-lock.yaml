@@ -31,7 +31,7 @@ importers:
         version: 1.41.0(i18next@23.16.4)
       '@graasp/ui':
         specifier: github:graasp/graasp-ui#theme-secondary
-        version: https://codeload.github.com/graasp/graasp-ui/tar.gz/d71a22dc8812a0edb741beb1af8bb92c6a237bf8(s7jcnluo27xuqwiy6yuq7rikdq)
+        version: https://codeload.github.com/graasp/graasp-ui/tar.gz/d71a22dc8812a0edb741beb1af8bb92c6a237bf8(hemuic4puwxulg7qdtnchj2rge)
       '@mui/icons-material':
         specifier: 6.1.6
         version: 6.1.6(@mui/material@6.1.6(@emotion/react@11.13.3(@types/react@18.3.12)(react@18.3.1))(@emotion/styled@11.13.0(@emotion/react@11.13.3(@types/react@18.3.12)(react@18.3.1))(@types/react@18.3.12)(react@18.3.1))(@types/react@18.3.12)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(@types/react@18.3.12)(react@18.3.1)
@@ -69,8 +69,8 @@ importers:
         specifier: 4.4.2
         version: 4.4.2
       lucide-react:
-        specifier: 0.454.0
-        version: 0.454.0(react@18.3.1)
+        specifier: 0.455.0
+        version: 0.455.0(react@18.3.1)
       react:
         specifier: 18.3.1
         version: 18.3.1
@@ -3681,8 +3681,8 @@ packages:
   lru-cache@5.1.1:
     resolution: {integrity: sha512-KpNARQA3Iwv+jTA0utUVVbrh+Jlrr1Fv0e56GGzAFOXN7dk/FviaDW8LHmK52DlcH4WP2n6gI8vN1aesBFgo9w==}
 
-  lucide-react@0.454.0:
-    resolution: {integrity: sha512-hw7zMDwykCLnEzgncEEjHeA6+45aeEzRYuKHuyRSOPkhko+J3ySGjGIzu+mmMfDFG1vazHepMaYFYHbTFAZAAQ==}
+  lucide-react@0.455.0:
+    resolution: {integrity: sha512-XQoi58X4COfjy6s1P4TVsXMhU2r1KsfUTRFyds/yJvdzBNOfu0F9RRIas626T8UaNZzEv4llF7ivh4uLkYp3rw==}
     peerDependencies:
       react: ^16.5.1 || ^17.0.0 || ^18.0.0 || ^19.0.0-rc
 
@@ -6333,7 +6333,7 @@ snapshots:
     dependencies:
       i18next: 23.16.4
 
-  '@graasp/ui@https://codeload.github.com/graasp/graasp-ui/tar.gz/d71a22dc8812a0edb741beb1af8bb92c6a237bf8(s7jcnluo27xuqwiy6yuq7rikdq)':
+  '@graasp/ui@https://codeload.github.com/graasp/graasp-ui/tar.gz/d71a22dc8812a0edb741beb1af8bb92c6a237bf8(hemuic4puwxulg7qdtnchj2rge)':
     dependencies:
       '@emotion/cache': 11.13.1
       '@emotion/react': 11.13.3(@types/react@18.3.12)(react@18.3.1)
@@ -6349,7 +6349,7 @@ snapshots:
       interweave: 13.1.0(react@18.3.1)
       katex: 0.16.11
       lodash.truncate: 4.4.2
-      lucide-react: 0.454.0(react@18.3.1)
+      lucide-react: 0.455.0(react@18.3.1)
       react: 18.3.1
       react-cookie-consent: 9.0.0(react@18.3.1)
       react-dnd: 16.0.1(@types/node@22.8.4)(@types/react@18.3.12)(react@18.3.1)
@@ -8916,7 +8916,7 @@ snapshots:
     dependencies:
       yallist: 3.1.1
 
-  lucide-react@0.454.0(react@18.3.1):
+  lucide-react@0.455.0(react@18.3.1):
     dependencies:
       react: 18.3.1
 

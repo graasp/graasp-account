@@ -1,4 +1,4 @@
-import * as React from 'react';
+import { ReactNode, createContext, useCallback, useContext } from 'react';
 
 import { getCurrentAccountLang } from '@graasp/sdk';
 import { DEFAULT_LANG } from '@graasp/translations';
@@ -33,23 +33,23 @@ type AuthContextSignedOut = {
  */
 export type AuthContextType = AuthContextLoggedMember | AuthContextSignedOut;
 
-const AuthContext = React.createContext<AuthContextType | null>(null);
+const AuthContext = createContext<AuthContextType | null>(null);
 
 export function AuthProvider({
   children,
 }: {
-  children: React.ReactNode;
-}): React.JSX.Element {
+  children: ReactNode;
+}): JSX.Element {
   const { data: currentMember, isPending } = hooks.useCurrentMember();
 
   const useLogin = mutations.useSignIn();
   const useLogout = mutations.useSignOut();
 
-  const logout = React.useCallback(async () => {
+  const logout = useCallback(async () => {
     await useLogout.mutateAsync();
   }, [useLogout]);
 
-  const login = React.useCallback(
+  const login = useCallback(
     async (args: LoginInput) => {
       await useLogin.mutateAsync(args);
     },
@@ -81,7 +81,7 @@ export function AuthProvider({
  * Auth context accessible via the router to know if the user is logged in
  */
 export function useAuth(): AuthContextType {
-  const context = React.useContext(AuthContext);
+  const context = useContext(AuthContext);
   if (!context) {
     throw new Error('useAuth must be used within an AuthProvider');
   }
