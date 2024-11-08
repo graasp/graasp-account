@@ -1,18 +1,14 @@
 import { useTranslation } from 'react-i18next';
 
-import { Button, Stack } from '@mui/material';
-
-import { buildSignInPath } from '@graasp/sdk';
-import { Avatar } from '@graasp/ui';
-
-import { Link } from '@tanstack/react-router';
+import { Stack } from '@mui/material';
 
 import { useAuth } from '@/AuthContext';
+import { ButtonLink } from '@/components/ui/ButtonLink';
 import { NS } from '@/config/constants';
-import { GRAASP_AUTH_HOST } from '@/config/env';
 import { mutations } from '@/config/queryClient';
 
 import LanguageSwitch from '../../../components/common/LanguageSwitch';
+import { UserAvatar } from './UserAvatar';
 
 export function RightHeader(): JSX.Element {
   const { isAuthenticated, user, logout } = useAuth();
@@ -23,11 +19,11 @@ export function RightHeader(): JSX.Element {
     mutate({ extra: { lang } });
     i18n.changeLanguage(lang);
   };
+
   if (isAuthenticated) {
     return (
       <Stack direction="row" alignItems="center">
-        <Avatar alt={user.name} />
-        <Button onClick={logout}>{t('LOGOUT.BUTTON_TEXT')}</Button>
+        <UserAvatar user={user} logout={logout} />
       </Stack>
     );
   }
@@ -35,19 +31,15 @@ export function RightHeader(): JSX.Element {
   return (
     <Stack gap={2} direction="row" id="leftTitleWrapper" alignItems="center">
       <LanguageSwitch lang={i18n.language} onChange={handleLanguageChange} />
-      <Button
-        component={Link}
-        to={buildSignInPath({
-          host: GRAASP_AUTH_HOST,
-          redirectionUrl: window.location.href,
-          lang: i18n.language,
-        })}
-      >
+      <ButtonLink to="/auth/login" search={{ url: window.location.toString() }}>
         {t('LOG_IN.BUTTON_TEXT')}
-      </Button>
-      <Button component={Link} to="/register">
+      </ButtonLink>
+      <ButtonLink
+        to="/auth/register"
+        search={{ url: window.location.toString() }}
+      >
         {t('REGISTER.BUTTON_TEXT')}
-      </Button>
+      </ButtonLink>
     </Stack>
   );
 }

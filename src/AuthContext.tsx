@@ -11,14 +11,14 @@ type LoginInput = {
   captcha: string;
   url?: string;
 };
-
+export type AuthenticatedMember = {
+  name: string;
+  id: string;
+  lang: string;
+};
 type AuthContextLoggedMember = {
   isAuthenticated: true;
-  user: {
-    name: string;
-    id: string;
-    lang: string;
-  };
+  user: AuthenticatedMember;
   logout: () => Promise<void>;
   login: null;
 };
