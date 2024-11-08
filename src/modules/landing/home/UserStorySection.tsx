@@ -36,7 +36,12 @@ export function UserStorySection(): JSX.Element {
         caption={t('HOME.USER_STORY.RESEARCHER.LEADING_SENTENCE')}
         buttonText={t('HOME.USER_STORY.RESEARCHER.BUTTON_TEXT')}
         title={t('HOME.USER_STORY.RESEARCHER.TITLE')}
-        image={<Image src="/illustration/research.webp" />}
+        image={
+          <Image
+            src="/illustration/research.webp"
+            alt="students experimenting in a lab session"
+          />
+        }
       >
         <Typography>
           <span>{t('HOME.USER_STORY.RESEARCHER.USE_CASE_1')}</span>

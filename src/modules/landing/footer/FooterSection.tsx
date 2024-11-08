@@ -12,7 +12,14 @@ export function FooterSection({
 }: FooterSectionProps): JSX.Element {
   return (
     <Stack flexGrow={1}>
-      <Typography variant="h5" fontWeight="bold" mb={2} color="white">
+      <Typography
+        variant="h5"
+        // do not use the title semantics for this element
+        component="span"
+        fontWeight="bold"
+        mb={2}
+        color="white"
+      >
         {name}
       </Typography>
       <Stack direction="column">{children}</Stack>
