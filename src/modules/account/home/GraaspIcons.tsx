@@ -15,6 +15,7 @@ import {
 
 import { Link } from '@tanstack/react-router';
 
+import { NS } from '@/config/constants';
 import { platformsHostsMap } from '@/config/hostMapper';
 
 const DEFAULT_ICON_SIZE = 100;
@@ -46,7 +47,7 @@ const PlatformIcon = ({ text, href, color, icon }: PlatformProps) => (
 );
 
 const GraaspIcons = (): JSX.Element => {
-  const { t } = useTranslation();
+  const { t } = useTranslation(NS.Enums);
   const getNavigationEvents = usePlatformNavigation(platformsHostsMap);
   const platforms = [
     {

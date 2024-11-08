@@ -1,6 +1,7 @@
 import { DEFAULT_LANG, langs } from '@graasp/translations';
 
 import { Locale } from 'date-fns';
+import { ar } from 'date-fns/locale/ar';
 import { de } from 'date-fns/locale/de';
 import { enUS } from 'date-fns/locale/en-US';
 import { es } from 'date-fns/locale/es';
@@ -13,6 +14,7 @@ const dateFnsLocales = {
   [langs.de]: de,
   [langs.it]: it,
   [langs.es]: es,
+  [langs.ar]: ar,
 };
 
 export function getLocalForDateFns(i18nLocale: string): Locale {

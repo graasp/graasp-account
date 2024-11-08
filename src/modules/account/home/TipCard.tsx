@@ -11,12 +11,12 @@ import {
 
 import { ImageUp } from 'lucide-react';
 
+import { NS } from '@/config/constants';
 import { hooks } from '@/config/queryClient';
 import { CARD_TIP_ID } from '@/config/selectors';
-import { ACCOUNT } from '@/langs/account';
 
-export function PersonalizationNotificationCard(): JSX.Element | null {
-  const { t } = useTranslation();
+export function TipCard(): JSX.Element | null {
+  const { t } = useTranslation(NS.Account);
 
   const { data: member } = hooks.useCurrentMember();
 
@@ -35,13 +35,13 @@ export function PersonalizationNotificationCard(): JSX.Element | null {
             title={
               <Box display="flex" justifyContent="center" gap={2}>
                 <ImageUp fontSize="large" />
-                {t(ACCOUNT.PERSONALIZATION_TITLE)}
+                {t('PERSONALIZATION_TITLE')}
               </Box>
             }
           />
           <CardContent>
             <Typography textAlign="center">
-              {t(ACCOUNT.PERSONALIZATION_INFORMATION)}
+              {t('PERSONALIZATION_INFORMATION')}
             </Typography>
           </CardContent>
         </Card>
@@ -49,5 +49,3 @@ export function PersonalizationNotificationCard(): JSX.Element | null {
     </Grid>
   );
 }
-
-export default PersonalizationNotificationCard;
