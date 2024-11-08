@@ -3,19 +3,23 @@ import { useTranslation } from 'react-i18next';
 
 import {
   Avatar,
+  Divider,
   IconButton,
   ListItemIcon,
   Menu,
   MenuItem,
+  Stack,
 } from '@mui/material';
 
 import { ThumbnailSize } from '@graasp/sdk';
 
-import { LogOutIcon } from 'lucide-react';
+import { LogOutIcon, SettingsIcon } from 'lucide-react';
 
 import { AuthenticatedMember } from '@/AuthContext';
 import { NS } from '@/config/constants';
 import { hooks } from '@/config/queryClient';
+
+import { MenuItemLink } from './userMenu/MenuItemLink';
 
 type UserAvatarProps = {
   user: AuthenticatedMember;
@@ -42,7 +46,6 @@ export function UserAvatar({ user, logout }: UserAvatarProps): JSX.Element {
       <IconButton
         onClick={handleClick}
         size="small"
-        sx={{ ml: 2 }}
         aria-controls={open ? 'account-menu' : undefined}
         aria-haspopup="true"
         aria-expanded={open ? 'true' : undefined}
@@ -58,10 +61,30 @@ export function UserAvatar({ user, logout }: UserAvatarProps): JSX.Element {
         transformOrigin={{ horizontal: 'right', vertical: 'top' }}
         anchorOrigin={{ horizontal: 'right', vertical: 'bottom' }}
       >
-        <MenuItem>Hello</MenuItem>
+        <MenuItemLink to="/account">
+          <Stack direction="row" alignItems="center">
+            <ListItemIcon>
+              <Avatar
+                src={avatarUrl}
+                alt={user.name}
+                sx={{ width: 24, height: 24 }}
+              />
+            </ListItemIcon>
+            {user.name}
+          </Stack>
+        </MenuItemLink>
+        <MenuItemLink to="/account/settings">
+          <Stack direction="row" alignItems="center">
+            <ListItemIcon>
+              <SettingsIcon size="1.2rem" />
+            </ListItemIcon>
+            {t('USER_MENU.SETTINGS')}
+          </Stack>
+        </MenuItemLink>
+        <Divider />
         <MenuItem onClick={logout}>
           <ListItemIcon>
-            <LogOutIcon />
+            <LogOutIcon size="1.2rem" />
           </ListItemIcon>
           {t('LOGOUT.BUTTON_TEXT')}
         </MenuItem>

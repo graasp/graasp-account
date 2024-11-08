@@ -33,6 +33,9 @@
     "TITLE": "This page is under construction",
     "DESCRIPTION": " We are working on improving this part of the app. We ask for your comprehension while we make the necessary changes."
   },
+  "USER_MENU": {
+    "SETTINGS": "Settings"
+  },
   "ERRORS": {
     "UNEXPECTED": "An unexpected Error occurred"
   }

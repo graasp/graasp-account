@@ -22,7 +22,8 @@ export function RightHeader(): JSX.Element {
 
   if (isAuthenticated) {
     return (
-      <Stack direction="row" alignItems="center">
+      <Stack gap={2} direction="row" alignItems="center">
+        <LanguageSwitch lang={i18n.language} onChange={handleLanguageChange} />
         <UserAvatar user={user} logout={logout} />
       </Stack>
     );

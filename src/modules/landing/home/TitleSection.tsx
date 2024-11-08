@@ -97,9 +97,9 @@ export function TitleSection(): JSX.Element {
               <EdTech width="150px" height="3rem" />
               <Unine width="150px" height="3rem" />
               <GoLab width="150px" height="3rem" />
-              <span>GOGA</span>
+              {/* <span>GOGA</span>
               <span>IHUB4SCHOOL</span>
-              <span>UNCTAD</span>
+              <span>UNCTAD</span> */}
             </Stack>
           </Stack>
         </Stack>
