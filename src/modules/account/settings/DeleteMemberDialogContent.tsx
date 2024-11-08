@@ -9,6 +9,7 @@ import DialogTitle from '@mui/material/DialogTitle';
 
 import { Button } from '@graasp/ui';
 
+import { NS } from '@/config/constants';
 import { mutations } from '@/config/queryClient';
 import {
   DELETE_MEMBER_DIALOG_CONFIRMATION_BUTTON_ID,
@@ -16,20 +17,19 @@ import {
   DELETE_MEMBER_DIALOG_DESCRIPTION_ID,
   DELETE_MEMBER_DIALOG_TITLE_ID,
 } from '@/config/selectors';
-import { ACCOUNT } from '@/langs/account';
 
 type Props = {
   closeModal: () => void;
 };
 
 const DeleteMemberDialogContent = ({ closeModal }: Props): JSX.Element => {
-  const { t: translateAccount } = useTranslation();
+  const { t: translateAccount } = useTranslation(NS.Account);
   const [confirmationDeleteValue, setConfirmationDeleteValue] = useState('');
 
   const { mutateAsync: deleteMember } = mutations.useDeleteCurrentMember();
 
   const confirmationDeleteTextToCompare = translateAccount(
-    ACCOUNT.PROFILE_DELETE_CONFIRMATION_VALUE,
+    'PROFILE_DELETE_CONFIRMATION_VALUE',
   );
 
   // confirmation is disabled when the two texts do not match
@@ -39,15 +39,15 @@ const DeleteMemberDialogContent = ({ closeModal }: Props): JSX.Element => {
   return (
     <>
       <DialogTitle id={DELETE_MEMBER_DIALOG_TITLE_ID}>
-        {translateAccount(ACCOUNT.PROFILE_DELETE_ACCOUNT_MODAL_TITLE)}
+        {translateAccount('PROFILE_DELETE_ACCOUNT_MODAL_TITLE')}
       </DialogTitle>
       <DialogContent>
         <Stack spacing={2}>
           <DialogContentText id={DELETE_MEMBER_DIALOG_DESCRIPTION_ID}>
-            {translateAccount(ACCOUNT.PROFILE_DELETE_ACCOUNT_MODAL_INFORMATION)}
+            {translateAccount('PROFILE_DELETE_ACCOUNT_MODAL_INFORMATION')}
           </DialogContentText>
           <DialogContentText>
-            {translateAccount(ACCOUNT.PROFILE_DELETE_TYPE_CONFIRMATION_TEXT, {
+            {translateAccount('PROFILE_DELETE_TYPE_CONFIRMATION_TEXT', {
               text: confirmationDeleteTextToCompare,
             })}
           </DialogContentText>
@@ -72,7 +72,7 @@ const DeleteMemberDialogContent = ({ closeModal }: Props): JSX.Element => {
           onClick={closeModal}
           variant={isConfirmationDisabled ? 'contained' : 'text'}
         >
-          {translateAccount(ACCOUNT.PROFILE_DELETE_ACCOUNT_MODAL_CANCEL_BUTTON)}
+          {translateAccount('PROFILE_DELETE_ACCOUNT_MODAL_CANCEL_BUTTON')}
         </Button>
         <Button
           id={DELETE_MEMBER_DIALOG_CONFIRMATION_BUTTON_ID}
@@ -82,9 +82,7 @@ const DeleteMemberDialogContent = ({ closeModal }: Props): JSX.Element => {
           color="error"
           disabled={isConfirmationDisabled}
         >
-          {translateAccount(
-            ACCOUNT.PROFILE_DELETE_ACCOUNT_MODAL_CONFIRM_BUTTON,
-          )}
+          {translateAccount('PROFILE_DELETE_ACCOUNT_MODAL_CONFIRM_BUTTON')}
         </Button>
       </DialogActions>
     </>

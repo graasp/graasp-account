@@ -9,7 +9,7 @@ import { DEFAULT_LANG } from '@graasp/translations';
 import LanguageSwitch from '@/components/common/LanguageSwitch';
 import { BorderedSection } from '@/components/layout/BorderedSection';
 import FormProperty from '@/components/layout/FormProperty';
-import { DEFAULT_EMAIL_FREQUENCY } from '@/config/constants';
+import { DEFAULT_EMAIL_FREQUENCY, NS } from '@/config/constants';
 import { mutations } from '@/config/queryClient';
 import {
   PREFERENCES_ANALYTICS_SWITCH_ID,
@@ -19,7 +19,6 @@ import {
   PREFERENCES_LANGUAGE_SWITCH_ID,
   PREFERENCES_SAVE_BUTTON_ID,
 } from '@/config/selectors';
-import { ACCOUNT } from '@/langs/account';
 
 import { EmailPreferenceSwitch } from './EmailPreferenceSwitch';
 
@@ -31,8 +30,8 @@ const EditMemberPreferences = ({
   member,
   onClose,
 }: EditPreferencesProp): JSX.Element => {
-  const { t } = useTranslation();
-  const { t: translateCommon } = useTranslation('common');
+  const { t } = useTranslation(NS.Account);
+  const { t: translateCommon } = useTranslation(NS.Common);
   const { mutate: editMember } = mutations.useEditCurrentMember();
 
   const memberLang = member?.extra?.lang ?? DEFAULT_LANG;
@@ -67,24 +66,24 @@ const EditMemberPreferences = ({
   return (
     <BorderedSection
       id={PREFERENCES_EDIT_CONTAINER_ID}
-      title={t(ACCOUNT.PROFILE_PREFERENCES_TITLE)}
+      title={t('PROFILE_PREFERENCES_TITLE')}
     >
-      <FormProperty title={t(ACCOUNT.PROFILE_LANGUAGE_TITLE)}>
+      <FormProperty title={t('PROFILE_LANGUAGE_TITLE')}>
         <LanguageSwitch
           lang={selectedLang}
           id={PREFERENCES_LANGUAGE_SWITCH_ID}
           onChange={setSelectedLang}
         />
       </FormProperty>
-      <FormProperty title={t(ACCOUNT.PROFILE_EMAIL_FREQUENCY_TITLE)}>
+      <FormProperty title={t('PROFILE_EMAIL_FREQUENCY_TITLE')}>
         <EmailPreferenceSwitch
           emailFreq={member.extra?.emailFreq || DEFAULT_EMAIL_FREQUENCY}
           onChange={setSelectedEmailFreq}
           id={PREFERENCES_EMAIL_FREQUENCY_ID}
         />
       </FormProperty>
-      <FormProperty title={t(ACCOUNT.PROFILE_SAVE_ACTIONS_TITLE)}>
-        <Tooltip title={t(ACCOUNT.SAVE_ACTIONS_TOGGLE_TOOLTIP)}>
+      <FormProperty title={t('PROFILE_SAVE_ACTIONS_TITLE')}>
+        <Tooltip title={t('SAVE_ACTIONS_TOGGLE_TOOLTIP')}>
           <Switch
             id={PREFERENCES_ANALYTICS_SWITCH_ID}
             onChange={handleOnToggle}

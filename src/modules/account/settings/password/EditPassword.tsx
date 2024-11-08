@@ -20,7 +20,6 @@ import {
   PASSWORD_INPUT_NEW_PASSWORD_ID,
   PASSWORD_SAVE_BUTTON_ID,
 } from '@/config/selectors';
-import { ACCOUNT } from '@/langs/account';
 
 import { PasswordField } from './PasswordField';
 
@@ -145,7 +144,7 @@ const EditPassword = ({ onClose }: EditPasswordProps): JSX.Element => {
               validate: {
                 different: (newPassword, formState) =>
                   newPassword !== formState.currentPassword ||
-                  ACCOUNT.NEW_PASSWORD_SHOULD_NOT_MATCH_CURRENT_PASSWORD_ERROR,
+                  'NEW_PASSWORD_SHOULD_NOT_MATCH_CURRENT_PASSWORD_ERROR',
                 strong: (value) =>
                   isPasswordStrong(value) || 'PASSWORD_WEAK_ERROR',
               },
@@ -166,7 +165,7 @@ const EditPassword = ({ onClose }: EditPasswordProps): JSX.Element => {
               validate: {
                 match: (confirmPassword, formState) =>
                   confirmPassword === formState.newPassword ||
-                  ACCOUNT.PASSWORD_DO_NOT_MATCH_ERROR,
+                  'PASSWORD_DO_NOT_MATCH_ERROR',
               },
             })}
           />

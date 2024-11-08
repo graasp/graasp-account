@@ -9,8 +9,8 @@ import { zodSearchValidator } from '@tanstack/router-zod-adapter';
 import { ArrowRightIcon, UserPlus2Icon } from 'lucide-react';
 import { z } from 'zod';
 
+import { NS } from '@/config/constants';
 import { GRAASP_AUTH_HOST } from '@/config/env';
-import { ACCOUNT } from '@/langs/account';
 
 const registerSearchSchema = z.object({
   url: z.string().url().optional(),
@@ -43,13 +43,13 @@ function buildRegisterUrl({
 
 function RegisterPage() {
   const { url } = Route.useSearch();
-  const { t, i18n } = useTranslation();
+  const { t, i18n } = useTranslation(NS.Account);
   const { color } = useButtonColor('primary');
 
   return (
     <Stack height="100vh" alignItems="center" justifyContent="center" gap={2}>
       <UserPlus2Icon color={color} />
-      <Typography>{t(ACCOUNT.LOGIN_REQUIRED_TEXT)}</Typography>
+      <Typography>{t('LOGIN_REQUIRED_TEXT')}</Typography>
       <Button
         component="a"
         variant="contained"
@@ -61,7 +61,7 @@ function RegisterPage() {
         })}
         endIcon={<ArrowRightIcon />}
       >
-        {t(ACCOUNT.LOGIN_REQUIRED_BUTTON_TEXT)}
+        {t('LOGIN_REQUIRED_BUTTON_TEXT')}
       </Button>
     </Stack>
   );

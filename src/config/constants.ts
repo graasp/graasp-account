@@ -1,14 +1,12 @@
 import { EmailFrequency } from '@graasp/sdk';
 
-import { ACCOUNT } from '@/langs/account';
-
 export const DEFAULT_EMAIL_FREQUENCY = EmailFrequency.Always;
 
 export const emailFrequency = {
-  [EmailFrequency.Always]: ACCOUNT.ALWAYS_RECEIVE_EMAILS,
+  [EmailFrequency.Always]: 'ALWAYS_RECEIVE_EMAILS',
   // todo: schedule a digest of the notifications
   // daily: 'Receive email notifications once per day',
-  [EmailFrequency.Never]: ACCOUNT.DISABLE_EMAILS,
+  [EmailFrequency.Never]: 'DISABLE_EMAILS',
 };
 
 export const AVATAR_SIZE = 128;
