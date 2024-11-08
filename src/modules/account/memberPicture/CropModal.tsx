@@ -18,8 +18,8 @@ import {
 
 import { Button } from '@graasp/ui';
 
+import { NS } from '@/config/constants';
 import { CROP_MODAL_CONFIRM_BUTTON_ID } from '@/config/selectors';
-import { ACCOUNT } from '@/langs/account';
 
 const THUMBNAIL_ASPECT = 1;
 
@@ -56,8 +56,8 @@ const CropModal = ({ onConfirm, onClose, src }: CropProps): JSX.Element => {
   const [completedCrop, setCompletedCrop] = useState<PixelCrop>();
   const [isError, setIsError] = useState(false);
   const imageRef = useRef<HTMLImageElement | null>(null);
-  const { t } = useTranslation();
-  const { t: translateCommon } = useTranslation('common');
+  const { t } = useTranslation(NS.Account);
+  const { t: translateCommon } = useTranslation(NS.Common);
 
   const handleOnConfirm = async () => {
     // get the image html element
@@ -162,11 +162,11 @@ const CropModal = ({ onConfirm, onClose, src }: CropProps): JSX.Element => {
   return (
     <>
       <DialogTitle id={MODAL_TITLE_ARIA_LABEL_ID}>
-        {t(ACCOUNT.CROP_IMAGE_MODAL_TITLE)}
+        {t('CROP_IMAGE_MODAL_TITLE')}
       </DialogTitle>
       <DialogContent sx={{ textAlign: 'center' }}>
         <DialogContentText>
-          {t(ACCOUNT.CROP_IMAGE_MODAL_CONTENT_TEXT)}
+          {t('CROP_IMAGE_MODAL_CONTENT_TEXT')}
         </DialogContentText>
         <ReactCrop
           crop={crop}
@@ -178,7 +178,7 @@ const CropModal = ({ onConfirm, onClose, src }: CropProps): JSX.Element => {
         >
           <img
             ref={imageRef}
-            alt={t(ACCOUNT.CROP_IMAGE_MODAL_IMAGE_ALT_TEXT)}
+            alt={t('CROP_IMAGE_MODAL_IMAGE_ALT_TEXT')}
             width="100%"
             height="100%"
             src={src}
@@ -187,7 +187,7 @@ const CropModal = ({ onConfirm, onClose, src }: CropProps): JSX.Element => {
         </ReactCrop>
         {isError && (
           <Alert severity="error">
-            {t(ACCOUNT.CROP_IMAGE_MODAL_UNEXPECTED_ERROR)}
+            {t('CROP_IMAGE_MODAL_UNEXPECTED_ERROR')}
           </Alert>
         )}
       </DialogContent>

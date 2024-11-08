@@ -19,7 +19,6 @@ import {
   PASSWORD_INPUT_NEW_PASSWORD_ID,
   PASSWORD_SAVE_BUTTON_ID,
 } from '@/config/selectors';
-import { ACCOUNT } from '@/langs/account';
 
 import { PasswordField } from './PasswordField';
 
@@ -123,7 +122,7 @@ const CreatePassword = ({ onClose }: CreatePasswordProps): JSX.Element => {
               validate: {
                 match: (confirmPassword, formState) =>
                   confirmPassword === formState.newPassword ||
-                  ACCOUNT.PASSWORD_DO_NOT_MATCH_ERROR,
+                  'PASSWORD_DO_NOT_MATCH_ERROR',
               },
             })}
           />

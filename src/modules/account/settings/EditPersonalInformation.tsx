@@ -21,25 +21,33 @@ import {
   PERSONAL_INFO_INPUT_USERNAME_ID,
   PERSONAL_INFO_SAVE_BUTTON_ID,
 } from '@/config/selectors';
-import { ACCOUNT } from '@/langs/account';
+
+import i18n from '~landing/i18next';
 
 const USER_NAME_REGEX = MemberConstants.USERNAME_FORBIDDEN_CHARS_REGEX;
 
 const verifyUsername = (username: string): string | null => {
   const trimmedUsername = username.trim();
   if (trimmedUsername === '') {
-    return ACCOUNT.USERNAME_EMPTY_ERROR;
+    return i18n.t('USERNAME_EMPTY_ERROR', { ns: NS.Account });
   }
 
   if (
     trimmedUsername.length < MIN_USERNAME_LENGTH ||
     trimmedUsername.length > MAX_USERNAME_LENGTH
   ) {
-    return ACCOUNT.USERNAME_LENGTH_ERROR;
+    return i18n.t(
+      'USERNAME_LENGTH_ERROR',
+      { ns: NS.Account },
+      // {
+      //   min: MIN_USERNAME_LENGTH,
+      //   max: MAX_USERNAME_LENGTH,
+      // },
+    );
   }
 
   if (USER_NAME_REGEX.test(trimmedUsername)) {
-    return ACCOUNT.USERNAME_SPECIAL_CHARACTERS_ERROR;
+    return i18n.t('USERNAME_SPECIAL_CHARACTERS_ERROR', { ns: NS.Account });
   }
 
   return null;
@@ -75,14 +83,7 @@ const EditPersonalInformation = ({
     setNewUserName(value);
     const errorMessage = verifyUsername(value);
     if (errorMessage) {
-      setError(
-        // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-        //@ts-expect-error
-        t(errorMessage, {
-          min: MIN_USERNAME_LENGTH,
-          max: MAX_USERNAME_LENGTH,
-        }),
-      );
+      setError(errorMessage);
     } else {
       setError(null);
     }

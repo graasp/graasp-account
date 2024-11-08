@@ -7,6 +7,7 @@ import { AccountType } from '@graasp/sdk';
 import { DEFAULT_LANG, langs } from '@graasp/translations';
 
 import { BorderedSection } from '@/components/layout/BorderedSection';
+import { NS } from '@/config/constants';
 import { hooks } from '@/config/queryClient';
 import {
   PREFERENCES_ANALYTICS_SWITCH_ID,
@@ -14,7 +15,6 @@ import {
   PREFERENCES_EMAIL_FREQUENCY_ID,
   PREFERENCES_LANGUAGE_DISPLAY_ID,
 } from '@/config/selectors';
-import { ACCOUNT } from '@/langs/account';
 
 import { MemberProfileItem } from '~account/common/MemberProfileItem';
 
@@ -23,7 +23,8 @@ import EditMemberPreferences from './EditMemberPreferences';
 export const MemberPreferences = (): JSX.Element | null => {
   const { data: member } = hooks.useCurrentMember();
 
-  const { t } = useTranslation();
+  const { t } = useTranslation(NS.Account);
+  const { t: translateCommon } = useTranslation(NS.Common);
   const [isEditing, setIsEditing] = useState(false);
 
   // in case there is no member or they are not of the individual type, we render nothing
@@ -48,7 +49,7 @@ export const MemberPreferences = (): JSX.Element | null => {
   }
   return (
     <BorderedSection
-      title={t(ACCOUNT.PROFILE_PREFERENCES_TITLE)}
+      title={t('PROFILE_PREFERENCES_TITLE')}
       topActions={[
         <Button
           key="edit"
@@ -57,30 +58,30 @@ export const MemberPreferences = (): JSX.Element | null => {
           id={PREFERENCES_EDIT_BUTTON_ID}
           size="small"
         >
-          {t(ACCOUNT.EDIT_BUTTON_LABEL)}
+          {translateCommon('EDIT.BUTTON_TEXT')}
         </Button>,
       ]}
     >
       <MemberProfileItem
-        title={t(ACCOUNT.PROFILE_LANGUAGE_TITLE)}
+        title={t('PROFILE_LANGUAGE_TITLE')}
         content={languageName}
         contentId={PREFERENCES_LANGUAGE_DISPLAY_ID}
       />
       <MemberProfileItem
-        title={t(ACCOUNT.PROFILE_EMAIL_FREQUENCY_TITLE)}
+        title={t('PROFILE_EMAIL_FREQUENCY_TITLE')}
         content={
           member.extra?.emailFreq === 'always'
-            ? t(ACCOUNT.ALWAYS_RECEIVE_EMAILS)
-            : t(ACCOUNT.DISABLE_EMAILS)
+            ? t('ALWAYS_RECEIVE_EMAILS')
+            : t('DISABLE_EMAILS')
         }
         contentId={PREFERENCES_EMAIL_FREQUENCY_ID}
       />
       <MemberProfileItem
-        title={t(ACCOUNT.PROFILE_SAVE_ACTIONS_TITLE)}
+        title={t('PROFILE_SAVE_ACTIONS_TITLE')}
         content={
           member.enableSaveActions
-            ? t(ACCOUNT.PROFILE_SAVE_ACTIONS_ENABLED)
-            : t(ACCOUNT.PROFILE_SAVE_ACTIONS_DISABLED)
+            ? t('PROFILE_SAVE_ACTIONS_ENABLED')
+            : t('PROFILE_SAVE_ACTIONS_DISABLED')
         }
         contentId={PREFERENCES_ANALYTICS_SWITCH_ID}
       />

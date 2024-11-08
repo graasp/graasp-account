@@ -20,6 +20,9 @@
   "CANCEL": {
     "BUTTON_TEXT": "Cancel"
   },
+  "EDIT": {
+    "BUTTON_TEXT": "Edit"
+  },
   "CONFIRM": {
     "BUTTON_TEXT": "Confirm"
   },

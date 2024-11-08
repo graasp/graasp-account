@@ -7,7 +7,6 @@ import { DRAWER_WIDTH } from '@graasp/ui';
 import { HardDriveIcon, HouseIcon, SettingsIcon } from 'lucide-react';
 
 import { NS } from '@/config/constants';
-import { ACCOUNT } from '@/langs/account';
 
 import { MainMenuItem } from '../../components/ui/MainMenuItem';
 import {
