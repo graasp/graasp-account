@@ -19,7 +19,7 @@ export function UserStorySection(): JSX.Element {
         image={
           <Image
             alt={`Photo by <a href="https://unsplash.com/@thutra0803?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">Tra  Nguyen</a> on <a href="https://unsplash.com/photos/womens-blue-dress-shirt-TVSRWmnW8Us?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">Unsplash</a>`}
-            src="/illustration/teacher.jpg"
+            src="/illustration/teacher.webp"
           />
         }
       >
@@ -36,7 +36,7 @@ export function UserStorySection(): JSX.Element {
         caption={t('HOME.USER_STORY.RESEARCHER.LEADING_SENTENCE')}
         buttonText={t('HOME.USER_STORY.RESEARCHER.BUTTON_TEXT')}
         title={t('HOME.USER_STORY.RESEARCHER.TITLE')}
-        image={<Image src="/illustration/research.jpg" />}
+        image={<Image src="/illustration/research.webp" />}
       >
         <Typography>
           <span>{t('HOME.USER_STORY.RESEARCHER.USE_CASE_1')}</span>

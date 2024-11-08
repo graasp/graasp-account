@@ -30,7 +30,7 @@ export function TitleSection(): JSX.Element {
           borderRadius={4}
           overflow="hidden"
         >
-          <Image alt="cover" src="/illustration/learning-old-cropped.jpeg" />
+          <Image alt="cover" src="/illustration/children-old.webp" />
         </Stack>
         <Stack direction="column" gap={10} flex={{ lg: 2 }}>
           <Stack direction="column" gap={4}>
