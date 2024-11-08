@@ -26,9 +26,6 @@ importers:
       '@graasp/stylis-plugin-rtl':
         specifier: 2.2.0
         version: 2.2.0(stylis@4.3.4)
-      '@graasp/translations':
-        specifier: github:graasp/graasp-translations#add-options
-        version: https://codeload.github.com/graasp/graasp-translations/tar.gz/3db50fbc76793d53a977103248b56dbc7d5db974(i18next@23.16.4)
       '@graasp/ui':
         specifier: github:graasp/graasp-ui#theme-secondary
         version: https://codeload.github.com/graasp/graasp-ui/tar.gz/d71a22dc8812a0edb741beb1af8bb92c6a237bf8(atqwgzhszhax3iplanajx6cofy)

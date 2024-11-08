@@ -20,7 +20,6 @@
     "@graasp/query-client": "5.1.0",
     "@graasp/sdk": "4.33.2",
     "@graasp/stylis-plugin-rtl": "2.2.0",
-    "@graasp/translations": "github:graasp/graasp-translations#add-options",
     "@graasp/ui": "github:graasp/graasp-ui#theme-secondary",
     "@mui/icons-material": "6.1.6",
     "@mui/lab": "6.0.0-beta.14",
