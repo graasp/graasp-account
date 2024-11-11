@@ -18,6 +18,8 @@
     "noUnusedParameters": true,
     "noFallthroughCasesInSwitch": true,
     "paths": {
+      "~account/*": ["./src/modules/account/*"],
+      "~landing/*": ["./src/modules/landing/*"],
       "@/*": ["./src/*"]
     }
   },
