@@ -45,6 +45,13 @@ export default function umamiPlugin(options: UmamiPluginOptions): Plugin {
 
       return [
         {
+          tag: 'link',
+          attrs: {
+            rel: 'preconnect',
+            href: options.host,
+          },
+        },
+        {
           tag: 'script',
           attrs: {
             defer: true,
