@@ -1,6 +1,3 @@
-import { FAILURE_MESSAGES, namespaces } from '@graasp/translations';
-
-import i18n, { ACCOUNT_NAMESPACE } from '../../../src/config/i18n';
 import { ACCOUNT_SETTINGS_PATH } from '../../../src/config/paths';
 import {
   PASSWORD_CREATE_CONTAINER_ID,
@@ -12,7 +9,6 @@ import {
   PASSWORD_INPUT_NEW_PASSWORD_ID,
   PASSWORD_SAVE_BUTTON_ID,
 } from '../../../src/config/selectors';
-import { ACCOUNT } from '../../../src/langs/constants';
 import { BOB } from '../../fixtures/members';
 
 const MOCK_CURRENT_PASSWORD = 'qwertzuiop1!D';
@@ -51,20 +47,14 @@ describe('Create new password', () => {
     });
     cy.visit(ACCOUNT_SETTINGS_PATH);
     cy.wait('@getCurrentMember');
-
-    i18n.changeLanguage(BOB.extra.lang);
-    i18n.setDefaultNamespace(ACCOUNT_NAMESPACE);
   });
 
   it('Show configure message when no password is set', () => {
     cy.get(`#${PASSWORD_DISPLAY_CONTAINER_ID}`).should(
       'contain',
-      i18n.t(ACCOUNT.PASSWORD_SETTINGS_INFORMATION_NEW_PASSWORD),
+      "Add a password by clicking on the 'Configure' button",
     );
-    cy.get(`#${PASSWORD_EDIT_BUTTON_ID}`).should(
-      'contain',
-      i18n.t(ACCOUNT.CONFIGURE_BUTTON_LABEL),
-    );
+    cy.get(`#${PASSWORD_EDIT_BUTTON_ID}`).should('contain', 'Configure');
   });
 
   it('Show error on empty inputs', () => {
@@ -76,11 +66,11 @@ describe('Create new password', () => {
     // should show input required message
     cy.get(`#${PASSWORD_INPUT_NEW_PASSWORD_ID}-helper-text`).should(
       'contain',
-      i18n.t(ACCOUNT.REQUIRED_FIELD_ERROR),
+      'This field is required',
     );
     cy.get(`#${PASSWORD_INPUT_CONFIRM_PASSWORD_ID}-helper-text`).should(
       'contain',
-      i18n.t(ACCOUNT.REQUIRED_FIELD_ERROR),
+      'This field is required',
     );
   });
 
@@ -96,7 +86,7 @@ describe('Create new password', () => {
     // should show weak message
     cy.get(`#${PASSWORD_CREATE_CONTAINER_ID}`).should(
       'contain',
-      i18n.t(ACCOUNT.PASSWORD_WEAK_ERROR),
+      'This password is too weak, please follow the password requirements above.',
     );
   });
 
@@ -113,7 +103,7 @@ describe('Create new password', () => {
     // should show not-matching new passwords
     cy.get(`#${PASSWORD_CREATE_CONTAINER_ID}`).should(
       'contain',
-      i18n.t(ACCOUNT.PASSWORD_DO_NOT_MATCH_ERROR),
+      'This input does not match the new password.',
     );
   });
 
@@ -143,9 +133,6 @@ describe('Create new password - network error', () => {
     cy.visit(ACCOUNT_SETTINGS_PATH);
     cy.wait('@getCurrentMember');
 
-    i18n.changeLanguage(BOB.extra.lang);
-    i18n.setDefaultNamespace(ACCOUNT_NAMESPACE);
-
     openPasswordEdition();
 
     submitPasswordForm({
@@ -157,9 +144,7 @@ describe('Create new password - network error', () => {
 
     cy.get(`#${PASSWORD_CREATE_CONTAINER_ID}`).should(
       'contain',
-      i18n.t(FAILURE_MESSAGES.UNEXPECTED_ERROR, {
-        ns: namespaces.messages,
-      }),
+      'An unexpected error occurred',
     );
   });
 });
@@ -172,9 +157,6 @@ describe('Update password', () => {
     });
     cy.visit(ACCOUNT_SETTINGS_PATH);
     cy.wait('@getCurrentMember');
-
-    i18n.changeLanguage(BOB.extra.lang);
-    i18n.setDefaultNamespace(ACCOUNT_NAMESPACE);
   });
 
   it('Show error on empty inputs', () => {
@@ -186,27 +168,24 @@ describe('Update password', () => {
     // should show input required message
     cy.get(`#${PASSWORD_INPUT_NEW_PASSWORD_ID}-helper-text`).should(
       'contain',
-      i18n.t(ACCOUNT.REQUIRED_FIELD_ERROR),
+      'This field is required',
     );
     cy.get(`#${PASSWORD_INPUT_CONFIRM_PASSWORD_ID}-helper-text`).should(
       'contain',
-      i18n.t(ACCOUNT.REQUIRED_FIELD_ERROR),
+      'This field is required',
     );
     cy.get(`#${PASSWORD_INPUT_CURRENT_PASSWORD_ID}-helper-text`).should(
       'contain',
-      i18n.t(ACCOUNT.REQUIRED_FIELD_ERROR),
+      'This field is required',
     );
   });
 
   it('Show edit message when a password is set', () => {
     cy.get(`#${PASSWORD_DISPLAY_CONTAINER_ID}`).should(
       'contain',
-      i18n.t(ACCOUNT.PASSWORD_SETTINGS_INFORMATION),
+      "Update your password by clicking on the 'Edit' button",
     );
-    cy.get(`#${PASSWORD_EDIT_BUTTON_ID}`).should(
-      'contain',
-      i18n.t(ACCOUNT.EDIT_BUTTON_LABEL),
-    );
+    cy.get(`#${PASSWORD_EDIT_BUTTON_ID}`).should('contain', 'Edit');
   });
 
   it('Show error on weak new password', () => {
@@ -223,7 +202,7 @@ describe('Update password', () => {
     // should show weak message
     cy.get(`#${PASSWORD_EDIT_CONTAINER_ID}`).should(
       'contain',
-      i18n.t(ACCOUNT.PASSWORD_WEAK_ERROR),
+      'This password is too weak, please follow the password requirements above.',
     );
   });
 
@@ -241,7 +220,7 @@ describe('Update password', () => {
     // should show not-matching new passwords
     cy.get(`#${PASSWORD_EDIT_CONTAINER_ID}`).should(
       'contain',
-      i18n.t(ACCOUNT.PASSWORD_DO_NOT_MATCH_ERROR),
+      'This input does not match the new password.',
     );
   });
 
@@ -259,7 +238,7 @@ describe('Update password', () => {
     // should show matching current and new password
     cy.get(`#${PASSWORD_EDIT_CONTAINER_ID}`).should(
       'contain',
-      i18n.t(ACCOUNT.NEW_PASSWORD_SHOULD_NOT_MATCH_CURRENT_PASSWORD_ERROR),
+      'The new password should not match the current one.',
     );
   });
 
@@ -291,9 +270,6 @@ describe('Update password - network error', () => {
     cy.visit(ACCOUNT_SETTINGS_PATH);
     cy.wait('@getCurrentMember');
 
-    i18n.changeLanguage(BOB.extra.lang);
-    i18n.setDefaultNamespace(ACCOUNT_NAMESPACE);
-
     openPasswordEdition();
 
     // fill current password with mock password
@@ -307,9 +283,7 @@ describe('Update password - network error', () => {
 
     cy.get(`#${PASSWORD_EDIT_CONTAINER_ID}`).should(
       'contain',
-      i18n.t(FAILURE_MESSAGES.UNEXPECTED_ERROR, {
-        ns: namespaces.messages,
-      }),
+      'An unexpected error occurred',
     );
   });
 });

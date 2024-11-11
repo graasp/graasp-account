@@ -60,6 +60,7 @@
     "prettier:write": "pnpm prettier --write 'src/**/*.{ts,tsx}'",
     "check:format": "pnpm prettier --check 'src/**/*.{ts,tsx}'",
     "check:type": "tsc --noEmit -p tsconfig.app.json",
+    "check:type-tests": "tsc --noEmit -p cypress/tsconfig.json",
     "check:lint": "eslint .",
     "check": "pnpm run \"/^check:.*/\"",
     "hooks:install": "husky",

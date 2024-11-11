@@ -5,7 +5,6 @@ import { formatDistanceToNow } from 'date-fns';
 import { StatusCodes } from 'http-status-codes';
 
 import { getLocalForDateFns } from '../../src/components/langs';
-import i18n from '../../src/config/i18n';
 import { ACCOUNT_HOME_PATH } from '../../src/config/paths';
 import {
   AVATAR_UPLOAD_ICON_ID,
@@ -139,9 +138,10 @@ describe('Check member info', () => {
       'contain',
       MEMBER_WITH_AVATAR.name,
     );
+    const lang = MEMBER_WITH_AVATAR.extra.lang || 'en';
     // displays the correct creation date
     const formattedDate = formatDistanceToNow(MEMBER_WITH_AVATAR.createdAt, {
-      locale: getLocalForDateFns(i18n.language),
+      locale: getLocalForDateFns(lang),
     });
     cy.get(`#${MEMBER_CREATED_AT_ID}`).should('contain', formattedDate);
   });

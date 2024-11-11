@@ -1,6 +1,5 @@
 import { formatDate, formatFileSize } from '@graasp/sdk';
 
-import i18n from '../../src/config/i18n';
 import { ACCOUNT_STORAGE_PATH } from '../../src/config/paths';
 import {
   MEMBER_STORAGE_FILE_NAME_ID,
@@ -64,10 +63,7 @@ describe('Storage files', () => {
             ).should('contain', formatFileSize(file.size));
             cy.get(
               `#${getCellId(MEMBER_STORAGE_FILE_UPDATED_AT_ID, file.id)}`,
-            ).should(
-              'contain',
-              formatDate(file.updatedAt, { locale: i18n.language }),
-            );
+            ).should('contain', formatDate(file.updatedAt, { locale: 'en' }));
             cy.get(
               `#${getCellId(MEMBER_STORAGE_PARENT_FOLDER_ID, file.id)}`,
             ).should('contain', file.parent?.name ?? '-');
