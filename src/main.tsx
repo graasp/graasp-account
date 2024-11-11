@@ -1,6 +1,6 @@
 import React, { ReactNode, useEffect } from 'react';
 import ReactDOM from 'react-dom/client';
-import { I18nextProvider } from 'react-i18next';
+import { useTranslation } from 'react-i18next';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
@@ -22,7 +22,7 @@ import { CacheProvider, EmotionCache } from '@emotion/react';
 import { RouterProvider, createRouter } from '@tanstack/react-router';
 import { prefixer } from 'stylis';
 
-import i18n, { useAccountTranslation } from '@/config/i18n';
+import '@/config/i18n';
 
 import { AuthProvider, useAuth } from './AuthContext';
 import { GRAASP_BUILDER_HOST } from './config/env';
@@ -68,7 +68,7 @@ const getCacheForDirection = (direction?: Direction): EmotionCache =>
 
 function ThemeWrapper({ children }: ThemeWrapperProps): JSX.Element {
   // use the hook as it allows to use the correct instance of i18n
-  const { i18n: i18nInstance } = useAccountTranslation();
+  const { i18n: i18nInstance } = useTranslation();
   const direction = i18nInstance.dir(i18nInstance.language);
 
   // needed to set the right attribute on the HTML
@@ -96,24 +96,31 @@ function ThemeWrapper({ children }: ThemeWrapperProps): JSX.Element {
 
 function TranslationWrapper({ children }: { children: ReactNode }) {
   const { data: currentMember } = hooks.useCurrentMember();
+  const { i18n } = useTranslation();
 
   // react to member changes and update the language
-  useEffect(() => {
-    let lang = DEFAULT_LANG;
-    if (currentMember) {
-      lang = getCurrentAccountLang(currentMember, DEFAULT_LANG) ?? DEFAULT_LANG;
-    } else {
-      // get the language from the preferred lang of the browser UI
-      // this is usually what we take on first render
-      const navigatorLang = navigator.language;
-      // normalize lang (remove the locale part, "it-CH" -> "it")
-      lang = navigatorLang.split('-')[0];
-    }
-    i18n.changeLanguage(lang);
-    console.debug(lang);
-  }, [currentMember]);
+  useEffect(
+    () => {
+      let lang = DEFAULT_LANG;
+      if (currentMember) {
+        lang =
+          getCurrentAccountLang(currentMember, DEFAULT_LANG) ?? DEFAULT_LANG;
+      } else {
+        // get the language from the preferred lang of the browser UI
+        // this is usually what we take on first render
+        const navigatorLang = navigator.language;
+        // normalize lang (remove the locale part, "it-CH" -> "it")
+        lang = navigatorLang.split('-')[0];
+      }
+      i18n.changeLanguage(lang);
+      console.debug(lang);
+    },
 
-  return <I18nextProvider i18n={i18n}>{children}</I18nextProvider>;
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    [currentMember],
+  );
+
+  return children;
 }
 
 function App() {

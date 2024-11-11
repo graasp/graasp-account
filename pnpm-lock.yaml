@@ -62,6 +62,9 @@ importers:
       i18next:
         specifier: 23.16.4
         version: 23.16.4
+      i18next-fetch-backend:
+        specifier: 6.0.0
+        version: 6.0.0
       lodash.truncate:
         specifier: 4.4.2
         version: 4.4.2
@@ -2039,6 +2042,7 @@ packages:
 
   acorn-import-assertions@1.9.0:
     resolution: {integrity: sha512-cmMwop9x+8KFhxvKrKfPYmN6/pKTYYHBqLa0DfvVZcKMJWNyWLnaqND7dx/qn66R7ewM1UX5XMaDVP5wlVTaVA==}
+    deprecated: package has been renamed to acorn-import-attributes
     peerDependencies:
       acorn: ^8
 
@@ -3223,6 +3227,10 @@ packages:
     resolution: {integrity: sha512-sqbjZKK7kf44hfdE94EoX8MZNk0n7HeW37O4YrVGCF4wzgQjp+akPAkfUK5LZ6KuR/6sqeAVuXHji+RzQgOn5A==}
     engines: {node: '>=18'}
     hasBin: true
+
+  i18next-fetch-backend@6.0.0:
+    resolution: {integrity: sha512-kVqnydqLVMZfVlOuP2nf71cREydlxEKLH43jUXAFdOku/GF+6b9fBg31anoos5XncdhdtiYgL9fheqMrtXRwng==}
+    engines: {node: '>=18'}
 
   i18next@23.16.4:
     resolution: {integrity: sha512-9NIYBVy9cs4wIqzurf7nLXPyf3R78xYbxExVqHLK9od3038rjpyOEzW+XB130kZ1N4PZ9inTtJ471CRJ4Ituyg==}
@@ -8473,6 +8481,8 @@ snapshots:
   human-signals@1.1.1: {}
 
   husky@9.1.6: {}
+
+  i18next-fetch-backend@6.0.0: {}
 
   i18next@23.16.4:
     dependencies:
