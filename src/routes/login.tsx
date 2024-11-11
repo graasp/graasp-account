@@ -10,6 +10,7 @@ import { zodSearchValidator } from '@tanstack/router-zod-adapter';
 import { ArrowRightIcon, LockIcon } from 'lucide-react';
 import { z } from 'zod';
 
+import { NS } from '@/config/constants';
 import { GRAASP_AUTH_HOST } from '@/config/env';
 import {
   LOGIN_REQUIRED_BUTTON_ID,
@@ -27,7 +28,7 @@ export const Route = createFileRoute('/login')({
 
 function LoginRoute() {
   const { url } = Route.useSearch();
-  const { t, i18n } = useTranslation();
+  const { t, i18n } = useTranslation(NS.Account);
   const { color } = useButtonColor('primary');
   return (
     <Stack height="100vh" alignItems="center" justifyContent="center" gap={2}>

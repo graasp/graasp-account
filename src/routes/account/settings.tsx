@@ -3,6 +3,7 @@ import { useTranslation } from 'react-i18next';
 import { createFileRoute } from '@tanstack/react-router';
 
 import { ScreenLayout } from '@/components/layout/ScreenLayout';
+import { NS } from '@/config/constants';
 import { SETTINGS_PAGE_CONTAINER_ID } from '@/config/selectors';
 
 import { DeleteMemberSection } from '~account/settings/DeleteMemberSection';
@@ -17,7 +18,7 @@ export const Route = createFileRoute('/account/settings')({
 });
 
 function SettingsRoute(): JSX.Element {
-  const { t: translateAccount } = useTranslation();
+  const { t: translateAccount } = useTranslation(NS.Account);
 
   return (
     <ScreenLayout

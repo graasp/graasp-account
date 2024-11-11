@@ -1,8 +1,9 @@
-import React, { useState } from 'react';
+import { ChangeEvent, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 
 import {
   Alert,
+  Skeleton,
   Table,
   TableBody,
   TableCell,
@@ -17,7 +18,6 @@ import {
   formatDate,
   formatFileSize,
 } from '@graasp/sdk';
-import { Loader } from '@graasp/ui';
 
 import { Link } from '@tanstack/react-router';
 
@@ -42,10 +42,7 @@ export const StorageFiles = (): JSX.Element | null => {
     return clientHostManager.getItemLink(Context.Builder, id);
   };
 
-  const handlePageChange = (
-    _: React.MouseEvent<HTMLButtonElement> | null,
-    newPage: number,
-  ) => {
+  const handlePageChange = (_: unknown, newPage: number) => {
     setPagination((prev) => {
       if (prev.page !== newPage + 1) {
         return { ...prev, page: newPage + 1 };
@@ -55,7 +52,7 @@ export const StorageFiles = (): JSX.Element | null => {
   };
 
   const handlePageSizeChange = (
-    event: React.ChangeEvent<HTMLTextAreaElement | HTMLInputElement>,
+    event: ChangeEvent<HTMLTextAreaElement | HTMLInputElement>,
   ) => {
     const newSize = parseInt(event.target.value, 10);
     setPagination((prev) => {
@@ -126,7 +123,7 @@ export const StorageFiles = (): JSX.Element | null => {
   }
 
   if (isLoading) {
-    return <Loader />;
+    return <Skeleton />;
   }
 
   return <Alert severity="error">{t('MEMBER_STORAGE_FILES_ERROR')}</Alert>;
