@@ -3,18 +3,16 @@ import { Stack, Typography } from '@mui/material';
 import { Link } from '@tanstack/react-router';
 
 type Props = {
-  icon?: JSX.Element;
-  contentId: string;
-  content?: string;
-  href?: string;
-  hrefId?: string;
+  readonly icon?: JSX.Element;
+  readonly contentId: string;
+  readonly content?: string;
+  readonly href?: string;
 };
 export function DisplayLinks({
   icon,
   contentId,
   content,
   href,
-  hrefId,
 }: Props): JSX.Element {
   return (
     <Stack direction="row" spacing={1}>
@@ -23,13 +21,7 @@ export function DisplayLinks({
       </Typography>
 
       <Typography variant="body1" id={contentId}>
-        {href ? (
-          <Link to={href} id={hrefId}>
-            {content}
-          </Link>
-        ) : (
-          content
-        )}
+        {href ? <Link to={href}>{content}</Link> : content}
       </Typography>
     </Stack>
   );
