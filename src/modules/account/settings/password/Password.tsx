@@ -1,22 +1,23 @@
 import { useState } from 'react';
+import { useTranslation } from 'react-i18next';
 
 import { Alert, Button, Skeleton, Typography } from '@mui/material';
 
 import BorderedSection from '@/components/layout/BorderedSection';
-import { useAccountTranslation } from '@/config/i18n';
+import { NS } from '@/config/constants';
 import { hooks } from '@/config/queryClient';
 import {
   PASSWORD_DISPLAY_CONTAINER_ID,
   PASSWORD_DISPLAY_INFORMATION_ID,
   PASSWORD_EDIT_BUTTON_ID,
 } from '@/config/selectors';
-import { ACCOUNT } from '@/langs/constants';
 
 import CreatePassword from './CreatePassword';
 import EditPassword from './EditPassword';
 
 export function Password(): JSX.Element {
-  const { t } = useAccountTranslation();
+  const { t } = useTranslation(NS.Account);
+  const { t: translateCommon } = useTranslation(NS.Common);
   const [isEditing, setIsEditing] = useState(false);
   const { data: passwordStatus, isPending: isPasswordStatusPending } =
     hooks.usePasswordStatus();
@@ -42,7 +43,7 @@ export function Password(): JSX.Element {
     return (
       <BorderedSection
         id={PASSWORD_DISPLAY_CONTAINER_ID}
-        title={t(ACCOUNT.PASSWORD_TITLE)}
+        title={t('PASSWORD_TITLE')}
         topActions={[
           <Button
             key="edit"
@@ -53,8 +54,8 @@ export function Password(): JSX.Element {
             data-umami-event="edit-password"
           >
             {passwordStatus?.hasPassword
-              ? t(ACCOUNT.EDIT_BUTTON_LABEL)
-              : t(ACCOUNT.CONFIGURE_BUTTON_LABEL)}
+              ? t('EDIT_BUTTON_LABEL')
+              : t('CONFIGURE_BUTTON_LABEL')}
           </Button>,
         ]}
       >
@@ -64,8 +65,8 @@ export function Password(): JSX.Element {
           color="textSecondary"
         >
           {passwordStatus?.hasPassword
-            ? t(ACCOUNT.PASSWORD_SETTINGS_INFORMATION)
-            : t(ACCOUNT.PASSWORD_SETTINGS_INFORMATION_NEW_PASSWORD)}
+            ? t('PASSWORD_SETTINGS_INFORMATION')
+            : t('PASSWORD_SETTINGS_INFORMATION_NEW_PASSWORD')}
         </Typography>
       </BorderedSection>
     );
@@ -75,5 +76,5 @@ export function Password(): JSX.Element {
     return <Skeleton />;
   }
 
-  return <Alert severity="error">{t('UNEXPECTED_ERROR')}</Alert>;
+  return <Alert severity="error">{translateCommon('ERRORS.UNEXPECTED')}</Alert>;
 }

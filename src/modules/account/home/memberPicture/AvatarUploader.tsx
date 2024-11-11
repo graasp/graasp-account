@@ -1,4 +1,5 @@
 import { useRef, useState } from 'react';
+import { useTranslation } from 'react-i18next';
 
 import { Dialog, Stack, styled, useTheme } from '@mui/material';
 
@@ -7,8 +8,7 @@ import { ThumbnailSize } from '@graasp/sdk';
 import { ImageUp as ImageUpIcon } from 'lucide-react';
 
 import { useAuth } from '@/AuthContext';
-import { AVATAR_SIZE } from '@/config/constants';
-import { useAccountTranslation } from '@/config/i18n';
+import { AVATAR_SIZE, NS } from '@/config/constants';
 import { hooks, mutations } from '@/config/queryClient';
 import {
   AVATAR_UPLOAD_ICON_ID,
@@ -16,7 +16,6 @@ import {
   MEMBER_AVATAR_IMAGE_ID,
   MEMBER_AVATAR_WRAPPER_ID,
 } from '@/config/selectors';
-import { ACCOUNT } from '@/langs/constants';
 
 import CropModal, { MODAL_TITLE_ARIA_LABEL_ID } from './CropModal';
 import { useUploadProgress } from './useUploadProgress';
@@ -61,7 +60,7 @@ export function AvatarUploader(): JSX.Element {
   const [showCropModal, setShowCropModal] = useState(false);
   const [fileSource, setFileSource] = useState<string>();
   const theme = useTheme();
-  const { t } = useAccountTranslation();
+  const { t } = useTranslation(NS.Account);
 
   const onSelectFile = ({ target }: { target: HTMLInputElement }) => {
     if (target.files && target.files?.length > 0) {
@@ -134,7 +133,7 @@ export function AvatarUploader(): JSX.Element {
         {avatarUrl ? (
           <img
             id={MEMBER_AVATAR_IMAGE_ID}
-            alt={t(ACCOUNT.PROFILE_AVATAR_CURRENT_ALT)}
+            alt={t('PROFILE_AVATAR_CURRENT_ALT')}
             src={avatarUrl}
             height={AVATAR_SIZE}
             width={AVATAR_SIZE}

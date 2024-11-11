@@ -108,5 +108,6 @@
   "REGISTER_BUTTON": "Register",
   "LOGOUT_BUTTON": "Log Out",
   "HERE_BUTTON": "Here",
-  "TEMPORARY_MOVED_ACCOUNT_HOME_PAGE_MESSAGE": "The home page of account has moved"
+  "TEMPORARY_MOVED_ACCOUNT_HOME_PAGE_MESSAGE": "The home page of account has moved",
+  "DRAWER_OPEN_ARIA_LABEL": "Open drawer"
 }

@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { useTranslation } from 'react-i18next';
 
 import FacebookIcon from '@mui/icons-material/Facebook';
 import LinkedInIcon from '@mui/icons-material/LinkedIn';
@@ -8,7 +9,7 @@ import { Button, Typography } from '@mui/material';
 import SocialLinks from 'social-links';
 
 import BorderedSection from '@/components/layout/BorderedSection';
-import { useAccountTranslation } from '@/config/i18n';
+import { NS } from '@/config/constants';
 import { hooks } from '@/config/queryClient';
 import {
   PUBLIC_PROFILE_BIO_ID,
@@ -18,7 +19,6 @@ import {
   PUBLIC_PROFILE_LINKEDIN_ID,
   PUBLIC_PROFILE_TWITTER_ID,
 } from '@/config/selectors';
-import { ACCOUNT } from '@/langs/constants';
 
 import { DisplayLink } from './DisplayLink';
 import { EditPublicProfile } from './EditPublicProfile';
@@ -26,7 +26,7 @@ import { EditPublicProfile } from './EditPublicProfile';
 export function PublicProfile(): JSX.Element {
   const socialLinks = new SocialLinks();
 
-  const { t } = useAccountTranslation();
+  const { t } = useTranslation(NS.Account);
   const { data: publicProfile } = hooks.useOwnProfile();
 
   const { bio, linkedinID, twitterID, facebookID } = publicProfile || {};
@@ -42,7 +42,7 @@ export function PublicProfile(): JSX.Element {
   return (
     <BorderedSection
       id={PUBLIC_PROFILE_DISPLAY_CONTAINER_ID}
-      title={t(ACCOUNT.PUBLIC_PROFILE_TITLE)}
+      title={t('PUBLIC_PROFILE_TITLE')}
       topActions={[
         <Button
           key="edit"
@@ -51,7 +51,7 @@ export function PublicProfile(): JSX.Element {
           id={PUBLIC_PROFILE_EDIT_BUTTON_ID}
           size="small"
         >
-          {t(ACCOUNT.EDIT_BUTTON_LABEL)}
+          {t('EDIT_BUTTON_LABEL')}
         </Button>,
       ]}
     >
@@ -59,7 +59,7 @@ export function PublicProfile(): JSX.Element {
         {t('PUBLIC_PROFILE_BIO')}
       </Typography>
       <Typography variant="body1" id={PUBLIC_PROFILE_BIO_ID}>
-        {bio || t(ACCOUNT.PUBLIC_PROFILE_BIO_EMPTY_MSG)}
+        {bio || t('PUBLIC_PROFILE_BIO_EMPTY_MSG')}
       </Typography>
       {linkedinID ? (
         <DisplayLink
@@ -72,7 +72,7 @@ export function PublicProfile(): JSX.Element {
         <DisplayLink
           icon={<LinkedInIcon />}
           contentId={PUBLIC_PROFILE_LINKEDIN_ID}
-          content={t(ACCOUNT.PUBLIC_PROFILE_LINKEDIN_EMPTY_MSG)}
+          content={t('PUBLIC_PROFILE_LINKEDIN_EMPTY_MSG')}
         />
       )}
 
@@ -87,7 +87,7 @@ export function PublicProfile(): JSX.Element {
         <DisplayLink
           icon={<TwitterIcon />}
           contentId={PUBLIC_PROFILE_TWITTER_ID}
-          content={t(ACCOUNT.PUBLIC_PROFILE_TWITTER_EMPTY_MSG)}
+          content={t('PUBLIC_PROFILE_TWITTER_EMPTY_MSG')}
         />
       )}
       {facebookID ? (
@@ -101,7 +101,7 @@ export function PublicProfile(): JSX.Element {
         <DisplayLink
           icon={<FacebookIcon />}
           contentId={PUBLIC_PROFILE_FACEBOOK_ID}
-          content={t(ACCOUNT.PUBLIC_PROFILE_FACEBOOK_EMPTY_MSG)}
+          content={t('PUBLIC_PROFILE_FACEBOOK_EMPTY_MSG')}
         />
       )}
     </BorderedSection>

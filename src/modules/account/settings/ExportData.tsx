@@ -1,15 +1,16 @@
 import { useState } from 'react';
+import { useTranslation } from 'react-i18next';
 
 import { Button, Stack, Typography } from '@mui/material';
 
 import BorderedSection from '@/components/layout/BorderedSection';
-import { useAccountTranslation } from '@/config/i18n';
+import { NS } from '@/config/constants';
 import { mutations } from '@/config/queryClient';
 import { EXPORT_DATA_BUTTON_ID } from '@/config/selectors';
-import { ACCOUNT } from '@/langs/constants';
 
 export function ExportData(): JSX.Element {
-  const { t } = useAccountTranslation();
+  const { t } = useTranslation(NS.Account);
+
   const [isExported, setIsExported] = useState(false);
   const { mutate: exportData } = mutations.useExportMemberData();
   const onClick = () => {
@@ -17,10 +18,10 @@ export function ExportData(): JSX.Element {
     setIsExported(true);
   };
   return (
-    <BorderedSection title={t(ACCOUNT.EXPORT_INFORMATIONS_TITLE)}>
+    <BorderedSection title={t('EXPORT_INFORMATIONS_TITLE')}>
       <Stack direction="column" spacing={2}>
         <Typography variant="body2">
-          {t(ACCOUNT.EXPORT_INFORMATIONS_DESCRIPTION)}
+          {t('EXPORT_INFORMATIONS_DESCRIPTION')}
         </Typography>
         <Button
           onClick={onClick}
@@ -29,7 +30,7 @@ export function ExportData(): JSX.Element {
           variant="contained"
           sx={{ textWrap: 'nowrap', maxWidth: 'min-content' }}
         >
-          {t(ACCOUNT.EXPORT_INFORMATIONS_BUTTON_TEXT)}
+          {t('EXPORT_INFORMATIONS_BUTTON_TEXT')}
         </Button>
       </Stack>
     </BorderedSection>

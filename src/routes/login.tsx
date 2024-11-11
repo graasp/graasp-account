@@ -1,3 +1,5 @@
+import { useTranslation } from 'react-i18next';
+
 import { Button, Stack, Typography } from '@mui/material';
 
 import { buildSignInPath } from '@graasp/sdk';
@@ -9,12 +11,10 @@ import { ArrowRightIcon, LockIcon } from 'lucide-react';
 import { z } from 'zod';
 
 import { GRAASP_AUTH_HOST } from '@/config/env';
-import { useAccountTranslation } from '@/config/i18n';
 import {
   LOGIN_REQUIRED_BUTTON_ID,
   LOGIN_REQUIRED_TEXT_ID,
 } from '@/config/selectors';
-import { ACCOUNT } from '@/langs/constants';
 
 const loginSearchSchema = z.object({
   url: z.string().url().optional(),
@@ -27,13 +27,13 @@ export const Route = createFileRoute('/login')({
 
 function LoginRoute() {
   const { url } = Route.useSearch();
-  const { t, i18n } = useAccountTranslation();
+  const { t, i18n } = useTranslation();
   const { color } = useButtonColor('primary');
   return (
     <Stack height="100vh" alignItems="center" justifyContent="center" gap={2}>
       <LockIcon color={color} />
       <Typography id={LOGIN_REQUIRED_TEXT_ID}>
-        {t(ACCOUNT.LOGIN_REQUIRED_TEXT)}
+        {t('LOGIN_REQUIRED_TEXT')}
       </Typography>
       <Button
         id={LOGIN_REQUIRED_BUTTON_ID}
@@ -47,7 +47,7 @@ function LoginRoute() {
         })}
         endIcon={<ArrowRightIcon />}
       >
-        {t(ACCOUNT.LOGIN_REQUIRED_BUTTON_TEXT)}
+        {t('LOGIN_REQUIRED_BUTTON_TEXT')}
       </Button>
     </Stack>
   );

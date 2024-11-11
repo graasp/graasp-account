@@ -1,9 +1,10 @@
+import { useTranslation } from 'react-i18next';
+
 import { Alert, Skeleton, Stack, styled } from '@mui/material';
 
 import { formatFileSize } from '@graasp/sdk';
-import { FAILURE_MESSAGES } from '@graasp/translations';
 
-import { useMessagesTranslation } from '@/config/i18n';
+import { NS } from '@/config/constants';
 import { hooks } from '@/config/queryClient';
 import { STORAGE_BAR_ID, STORAGE_BAR_LABEL_ID } from '@/config/selectors';
 
@@ -46,7 +47,7 @@ const StorageBarIndicator = styled('progress')(({ theme }) => ({
 }));
 
 export function StorageBar(): JSX.Element {
-  const { t: translateMessages } = useMessagesTranslation();
+  const { t } = useTranslation(NS.Common);
   const { data: storage, isLoading } = hooks.useMemberStorage();
   if (storage) {
     const { current, maximum } = storage;
@@ -67,9 +68,5 @@ export function StorageBar(): JSX.Element {
     return <Skeleton width={BAR_WIDTH} height={BAR_HEIGHT} />;
   }
 
-  return (
-    <Alert severity="error">
-      {translateMessages(FAILURE_MESSAGES.UNEXPECTED_ERROR)}
-    </Alert>
-  );
+  return <Alert severity="error">{t('ERRORS.UNEXPECTED')}</Alert>;
 }

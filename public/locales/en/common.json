@@ -1,0 +1,42 @@
+{
+  "LOGOUT": {
+    "BUTTON_TEXT": "Log out"
+  },
+  "LOG_IN": {
+    "BUTTON_TEXT": "Log in"
+  },
+  "REGISTER": {
+    "BUTTON_TEXT": "Register"
+  },
+  "BACK": {
+    "BUTTON_TEXT": "Back"
+  },
+  "HOME": {
+    "BUTTON_TEXT": "Go Home"
+  },
+  "SAVE": {
+    "BUTTON_TEXT": "Save"
+  },
+  "CANCEL": {
+    "BUTTON_TEXT": "Cancel"
+  },
+  "EDIT": {
+    "BUTTON_TEXT": "Edit"
+  },
+  "CONFIRM": {
+    "BUTTON_TEXT": "Confirm"
+  },
+  "CONJONCTION": {
+    "OR": "or"
+  },
+  "CONSTRUCTION": {
+    "TITLE": "This page is under construction",
+    "DESCRIPTION": " We are working on improving this part of the app. We ask for your comprehension while we make the necessary changes."
+  },
+  "USER_MENU": {
+    "SETTINGS": "Settings"
+  },
+  "ERRORS": {
+    "UNEXPECTED": "An unexpected Error occurred"
+  }
+}

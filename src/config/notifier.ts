@@ -1,10 +1,11 @@
 import { toast } from 'react-toastify';
 
 import { Notifier, routines } from '@graasp/query-client';
-import { FAILURE_MESSAGES, namespaces } from '@graasp/translations';
+import { FAILURE_MESSAGES } from '@graasp/translations';
 
 import axios from 'axios';
 
+import { NS } from './constants';
 import i18n from './i18n';
 import { CHANGE_PLAN_SUCCESS_MESSAGE } from './messages';
 
@@ -86,13 +87,21 @@ export default ({
 
     default:
   }
-
+  const t = i18n.getFixedT(null, NS.Messages);
   // error notification
   if (payload?.error && message) {
-    toast.error(i18n.t(message, { ns: namespaces.messages }));
+    toast.error(
+      // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+      // @ts-expect-error
+      t(message),
+    );
   }
   // success notification
   else if (message) {
-    toast.success(i18n.t(message, { ns: namespaces.messages }));
+    toast.success(
+      // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+      // @ts-expect-error
+      t(message),
+    );
   }
 };

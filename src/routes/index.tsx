@@ -1,3 +1,5 @@
+import { useTranslation } from 'react-i18next';
+
 import { Stack, Typography } from '@mui/material';
 
 import { Button, DEFAULT_LIGHT_PRIMARY_COLOR, GraaspLogo } from '@graasp/ui';
@@ -6,9 +8,8 @@ import { Link, createFileRoute } from '@tanstack/react-router';
 
 import { useAuth } from '@/AuthContext';
 import { LeftHeaderWrapper } from '@/components/header/LeftHeaderWrapper';
-import { useAccountTranslation } from '@/config/i18n';
+import { NS } from '@/config/constants';
 import { ACCOUNT_HOME_PATH, LANDING_PAGE_PATH } from '@/config/paths';
-import { ACCOUNT } from '@/langs/constants';
 
 export const Route = createFileRoute('/')({
   component: Index,
@@ -16,7 +17,7 @@ export const Route = createFileRoute('/')({
 
 function Index() {
   const { isAuthenticated } = useAuth();
-  const { t } = useAccountTranslation();
+  const { t } = useTranslation(NS.Account);
 
   return (
     <Stack alignItems="center" height="100svh" id="pageWrapper">
@@ -58,10 +59,10 @@ function Index() {
         gap={2}
       >
         <Typography>
-          {t(ACCOUNT.TEMPORARY_MOVED_ACCOUNT_HOME_PAGE_MESSAGE)}
+          {t('TEMPORARY_MOVED_ACCOUNT_HOME_PAGE_MESSAGE')}
         </Typography>
         <Link to={ACCOUNT_HOME_PATH}>
-          <Button>{t(ACCOUNT.HERE_BUTTON)}</Button>
+          <Button>{t('HERE_BUTTON')}</Button>
         </Link>
       </Stack>
     </Stack>

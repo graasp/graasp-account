@@ -1,4 +1,5 @@
 import { ChangeEvent, useState } from 'react';
+import { useTranslation } from 'react-i18next';
 
 import { Button, Stack, TextField } from '@mui/material';
 
@@ -11,7 +12,7 @@ import {
 
 import BorderedSection from '@/components/layout/BorderedSection';
 import FormProperty from '@/components/layout/FormProperty';
-import { useAccountTranslation, useCommonTranslation } from '@/config/i18n';
+import { NS } from '@/config/constants';
 import { mutations } from '@/config/queryClient';
 import {
   PERSONAL_INFO_CANCEL_BUTTON_ID,
@@ -20,25 +21,24 @@ import {
   PERSONAL_INFO_INPUT_USERNAME_ID,
   PERSONAL_INFO_SAVE_BUTTON_ID,
 } from '@/config/selectors';
-import { ACCOUNT } from '@/langs/constants';
 
 const USER_NAME_REGEX = MemberConstants.USERNAME_FORBIDDEN_CHARS_REGEX;
 
 const verifyUsername = (username: string): string | null => {
   const trimmedUsername = username.trim();
   if (trimmedUsername === '') {
-    return ACCOUNT.USERNAME_EMPTY_ERROR;
+    return 'USERNAME_EMPTY_ERROR';
   }
 
   if (
     trimmedUsername.length < MIN_USERNAME_LENGTH ||
     trimmedUsername.length > MAX_USERNAME_LENGTH
   ) {
-    return ACCOUNT.USERNAME_LENGTH_ERROR;
+    return 'USERNAME_LENGTH_ERROR';
   }
 
   if (USER_NAME_REGEX.test(trimmedUsername)) {
-    return ACCOUNT.USERNAME_SPECIAL_CHARACTERS_ERROR;
+    return 'USERNAME_SPECIAL_CHARACTERS_ERROR';
   }
 
   return null;
@@ -55,8 +55,8 @@ export function EditPersonalInformation({
   onEmailUpdate,
   onClose,
 }: EditMemberPersonalInformationProp): JSX.Element {
-  const { t } = useAccountTranslation();
-  const { t: translateCommon } = useCommonTranslation();
+  const { t } = useTranslation(NS.Account);
+  const { t: translateCommon } = useTranslation(NS.Common);
   const { mutate: editMember } = mutations.useEditCurrentMember();
   const { mutate: updateEmail } = mutations.useUpdateMemberEmail();
   const [newUserName, setNewUserName] = useState(member.name);
@@ -75,6 +75,8 @@ export function EditPersonalInformation({
     const errorMessage = verifyUsername(value);
     if (errorMessage) {
       setError(
+        // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+        // @ts-expect-error
         t(errorMessage, {
           min: MIN_USERNAME_LENGTH,
           max: MAX_USERNAME_LENGTH,
@@ -117,9 +119,9 @@ export function EditPersonalInformation({
   return (
     <BorderedSection
       id={PERSONAL_INFO_EDIT_CONTAINER_ID}
-      title={t(ACCOUNT.PERSONAL_INFORMATION_TITLE)}
+      title={t('PERSONAL_INFORMATION_TITLE')}
     >
-      <FormProperty title={t(ACCOUNT.PROFILE_MEMBER_NAME)}>
+      <FormProperty title={t('PROFILE_MEMBER_NAME')}>
         <TextField
           id={PERSONAL_INFO_INPUT_USERNAME_ID}
           variant="outlined"
@@ -133,7 +135,7 @@ export function EditPersonalInformation({
           onChange={handleChange}
         />
       </FormProperty>
-      <FormProperty title={t(ACCOUNT.PROFILE_EMAIL_TITLE)}>
+      <FormProperty title={t('PROFILE_EMAIL_TITLE')}>
         <TextField
           id={PERSONAL_INFO_INPUT_EMAIL_ID}
           variant="outlined"
@@ -152,7 +154,7 @@ export function EditPersonalInformation({
           id={PERSONAL_INFO_CANCEL_BUTTON_ID}
           size="small"
         >
-          {translateCommon('CANCEL_BUTTON')}
+          {translateCommon('CANCEL.BUTTON_TEXT')}
         </Button>
         <Button
           variant="contained"
@@ -162,7 +164,7 @@ export function EditPersonalInformation({
           id={PERSONAL_INFO_SAVE_BUTTON_ID}
           size="small"
         >
-          {translateCommon('SAVE_BUTTON')}
+          {translateCommon('SAVE.BUTTON_TEXT')}
         </Button>
       </Stack>
     </BorderedSection>

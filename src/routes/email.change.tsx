@@ -1,3 +1,5 @@
+import { useTranslation } from 'react-i18next';
+
 import {
   Alert,
   AlertTitle,
@@ -13,8 +15,8 @@ import { Link, createFileRoute } from '@tanstack/react-router';
 import { HttpStatusCode, isAxiosError } from 'axios';
 
 import CenteredContainer from '@/components/layout/CenteredContainer';
+import { NS } from '@/config/constants';
 import { GRAASP_AUTH_HOST } from '@/config/env';
-import { useAccountTranslation } from '@/config/i18n';
 import { ACCOUNT_SETTINGS_PATH } from '@/config/paths';
 import { mutations } from '@/config/queryClient';
 import {
@@ -23,7 +25,6 @@ import {
   EMAIL_VALIDATION_SUCCESS_MESSAGE_ID,
   EMAIL_VALIDATION_UNAUTHORIZED_MESSAGE_ID,
 } from '@/config/selectors';
-import { ACCOUNT } from '@/langs/constants';
 
 type EmailChangeSearch = {
   newEmail: string;
@@ -56,7 +57,7 @@ const EmailChangeContent = ({
   newEmail,
   jwtToken,
 }: EmailChangeContentProps): JSX.Element => {
-  const { t: translate } = useAccountTranslation();
+  const { t: translate } = useTranslation(NS.Account);
   const {
     mutate: validateEmail,
     error,
@@ -77,13 +78,11 @@ const EmailChangeContent = ({
       return (
         <>
           <Alert id={EMAIL_VALIDATION_SUCCESS_MESSAGE_ID} severity="success">
-            <AlertTitle>
-              {translate(ACCOUNT.EMAIL_UPDATE_SUCCESS_TITLE)}
-            </AlertTitle>
-            {translate(ACCOUNT.EMAIL_UPDATE_SUCCESS_TEXT)}
+            <AlertTitle>{translate('EMAIL_UPDATE_SUCCESS_TITLE')}</AlertTitle>
+            {translate('EMAIL_UPDATE_SUCCESS_TEXT')}
           </Alert>
           <Button component={Link} to={loginLink}>
-            {translate(ACCOUNT.EMAIL_UPDATE_SUCCESS_BUTTON_TEXT)}
+            {translate('EMAIL_UPDATE_SUCCESS_BUTTON_TEXT')}
           </Button>
         </>
       );
@@ -96,22 +95,18 @@ const EmailChangeContent = ({
         return (
           <Alert severity="error" id={EMAIL_VALIDATION_UNAUTHORIZED_MESSAGE_ID}>
             <AlertTitle>
-              {translate(ACCOUNT.EMAIL_UPDATE_UNAUTHORIZED_TITLE)}
+              {translate('EMAIL_UPDATE_UNAUTHORIZED_TITLE')}
             </AlertTitle>
             <Stack direction="column" gap={1}>
               <Typography>
-                {translate(
-                  ACCOUNT.EMAIL_UPDATE_UNAUTHORIZED_TEXT_LINK_VALIDITY,
-                )}
+                {translate('EMAIL_UPDATE_UNAUTHORIZED_TEXT_LINK_VALIDITY')}
               </Typography>
               <Typography>
-                {translate(
-                  ACCOUNT.EMAIL_UPDATE_UNAUTHORIZED_TEXT_LINK_GENERATION,
-                )}
+                {translate('EMAIL_UPDATE_UNAUTHORIZED_TEXT_LINK_GENERATION')}
               </Typography>
               <Button component={Link} to={ACCOUNT_SETTINGS_PATH}>
                 {translate(
-                  ACCOUNT.EMAIL_UPDATE_UNAUTHORIZED_TEXT_LINK_GENERATION_BUTTON,
+                  'EMAIL_UPDATE_UNAUTHORIZED_TEXT_LINK_GENERATION_BUTTON',
                 )}
               </Button>
             </Stack>
@@ -122,10 +117,8 @@ const EmailChangeContent = ({
       if (statusCode === HttpStatusCode.Conflict) {
         return (
           <Alert severity="error" id={EMAIL_VALIDATION_CONFLICT_MESSAGE_ID}>
-            <AlertTitle>
-              {translate(ACCOUNT.EMAIL_UPDATE_CONFLICT_TITLE)}
-            </AlertTitle>
-            {translate(ACCOUNT.EMAIL_UPDATE_CONFLICT_TEXT)}
+            <AlertTitle>{translate('EMAIL_UPDATE_CONFLICT_TITLE')}</AlertTitle>
+            {translate('EMAIL_UPDATE_CONFLICT_TEXT')}
           </Alert>
         );
       }
@@ -134,11 +127,11 @@ const EmailChangeContent = ({
     return (
       <>
         <Typography variant="h2" component="h1">
-          {translate(ACCOUNT.VALIDATE_EMAIL_TITLE)}
+          {translate('VALIDATE_EMAIL_TITLE')}
         </Typography>
         <Card>
           <Stack direction="column" alignItems="center" gap={1} p={2}>
-            <Typography>{translate(ACCOUNT.VALIDATE_EMAIL_TEXT)}</Typography>
+            <Typography>{translate('VALIDATE_EMAIL_TEXT')}</Typography>
             <Typography fontWeight="bold">{newEmail}</Typography>
             <Button
               id={EMAIL_VALIDATION_BUTTON_ID}
@@ -146,14 +139,12 @@ const EmailChangeContent = ({
               onClick={handleEmailValidation}
               sx={{ width: 'min-content' }}
             >
-              {translate(ACCOUNT.VALIDATE_EMAIL_BUTTON_TEXT)}
+              {translate('VALIDATE_EMAIL_BUTTON_TEXT')}
             </Button>
           </Stack>
         </Card>
       </>
     );
   }
-  return (
-    <Typography>{translate(ACCOUNT.EMAIL_UPDATE_MISSING_TOKEN)}</Typography>
-  );
+  return <Typography>{translate('EMAIL_UPDATE_MISSING_TOKEN')}</Typography>;
 };

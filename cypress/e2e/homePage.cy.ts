@@ -4,6 +4,7 @@ import { HttpMethod } from '@graasp/sdk';
 import { formatDistanceToNow } from 'date-fns';
 import { StatusCodes } from 'http-status-codes';
 
+import { getLocalForDateFns } from '../../src/components/langs';
 import i18n from '../../src/config/i18n';
 import { ACCOUNT_HOME_PATH } from '../../src/config/paths';
 import {
@@ -15,7 +16,6 @@ import {
   MEMBER_CREATED_AT_ID,
   MEMBER_USERNAME_DISPLAY_ID,
 } from '../../src/config/selectors';
-import { getLocalForDateFns } from '../../src/langs/utils';
 import { BOB, MEMBER_WITH_AVATAR } from '../fixtures/members';
 import {
   AVATAR_LINK,

@@ -1,4 +1,5 @@
 import { ReactNode } from 'react';
+import { useTranslation } from 'react-i18next';
 
 import PersonIcon from '@mui/icons-material/Person';
 import { styled, useTheme } from '@mui/material';
@@ -15,8 +16,8 @@ import {
 
 import { Link } from '@tanstack/react-router';
 
+import { NS } from '@/config/constants';
 import { platformsHostsMap } from '@/config/hostMapper';
-import { useAccountTranslation } from '@/config/i18n';
 import { ACCOUNT_HOME_PATH } from '@/config/paths';
 
 import { MainMenu } from './MainMenu';
@@ -38,7 +39,8 @@ const AccountIcon: PlatformSwitchProps['CustomMobileIcon'] = (props) => (
 );
 
 const PageWrapper = ({ children }: { children: ReactNode }): JSX.Element => {
-  const { t } = useAccountTranslation();
+  const { t } = useTranslation(NS.Account);
+
   const theme = useTheme();
   const { isMobile } = useMobileView();
   const getNavigationEvents = usePlatformNavigation(platformsHostsMap);
@@ -62,7 +64,7 @@ const PageWrapper = ({ children }: { children: ReactNode }): JSX.Element => {
       open
       context={Context.Account}
       drawerContent={<MainMenu />}
-      drawerOpenAriaLabel={t('Open Drawer')}
+      drawerOpenAriaLabel={t('DRAWER_OPEN_ARIA_LABEL')}
       LinkComponent={LinkComponent}
       PlatformComponent={
         <PlatformSwitch

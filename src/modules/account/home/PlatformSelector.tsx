@@ -1,3 +1,5 @@
+import { useTranslation } from 'react-i18next';
+
 import { Box, Grid2 as Grid, Stack, Typography } from '@mui/material';
 
 import { Context } from '@graasp/sdk';
@@ -13,8 +15,8 @@ import {
 
 import { Link } from '@tanstack/react-router';
 
+import { NS } from '@/config/constants';
 import { platformsHostsMap } from '@/config/hostMapper';
-import { useEnumsTranslation } from '@/config/i18n';
 
 const DEFAULT_ICON_SIZE = 100;
 
@@ -45,7 +47,7 @@ const PlatformIcon = ({ text, href, color, icon }: PlatformProps) => (
 );
 
 export function PlatformSelector(): JSX.Element {
-  const { t } = useEnumsTranslation();
+  const { t } = useTranslation(NS.Enums);
   const getNavigationEvents = usePlatformNavigation(platformsHostsMap);
   const platforms = [
     {
