@@ -2,12 +2,9 @@ import { ACCOUNT_SETTINGS_PATH } from '../../../src/config/paths';
 import {
   PUBLIC_PROFILE_BIO_ID,
   PUBLIC_PROFILE_EDIT_BUTTON_ID,
-  PUBLIC_PROFILE_FACEBOOK_HREF_ID,
   PUBLIC_PROFILE_FACEBOOK_ID,
-  PUBLIC_PROFILE_LINKEDIN_HREF_ID,
   PUBLIC_PROFILE_LINKEDIN_ID,
   PUBLIC_PROFILE_SAVE_BUTTON_ID,
-  PUBLIC_PROFILE_TWITTER_HREF_ID,
   PUBLIC_PROFILE_TWITTER_ID,
 } from '../../../src/config/selectors';
 import {
@@ -46,7 +43,7 @@ describe('Display public profile', () => {
         MEMBER_PUBLIC_PROFILE.linkedinID,
       );
       // displays the correct member linkedIn link
-      cy.get(`#${PUBLIC_PROFILE_LINKEDIN_HREF_ID}`).should(
+      cy.get(`#${PUBLIC_PROFILE_LINKEDIN_ID} a`).should(
         'have.attr',
         'href',
         `https://linkedin.com/in/${MEMBER_PUBLIC_PROFILE.linkedinID}`,
@@ -58,7 +55,7 @@ describe('Display public profile', () => {
         MEMBER_PUBLIC_PROFILE.twitterID,
       );
       // displays the correct member twitter link
-      cy.get(`#${PUBLIC_PROFILE_TWITTER_HREF_ID}`).should(
+      cy.get(`#${PUBLIC_PROFILE_TWITTER_ID} a`).should(
         'have.attr',
         'href',
         `https://twitter.com/${MEMBER_PUBLIC_PROFILE.twitterID}`,
@@ -70,7 +67,7 @@ describe('Display public profile', () => {
         MEMBER_PUBLIC_PROFILE.facebookID,
       );
       // displays the correct member facebook link
-      cy.get(`#${PUBLIC_PROFILE_FACEBOOK_HREF_ID}`).should(
+      cy.get(`#${PUBLIC_PROFILE_FACEBOOK_ID} a`).should(
         'have.attr',
         'href',
         `https://facebook.com/${MEMBER_PUBLIC_PROFILE.facebookID}`,
