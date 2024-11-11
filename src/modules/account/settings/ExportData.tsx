@@ -8,7 +8,7 @@ import { mutations } from '@/config/queryClient';
 import { EXPORT_DATA_BUTTON_ID } from '@/config/selectors';
 import { ACCOUNT } from '@/langs/constants';
 
-const ExportData = (): JSX.Element => {
+export function ExportData(): JSX.Element {
   const { t } = useAccountTranslation();
   const [isExported, setIsExported] = useState(false);
   const { mutate: exportData } = mutations.useExportMemberData();
@@ -34,6 +34,4 @@ const ExportData = (): JSX.Element => {
       </Stack>
     </BorderedSection>
   );
-};
-
-export default ExportData;
+}

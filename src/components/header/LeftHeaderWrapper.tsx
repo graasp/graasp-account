@@ -11,7 +11,7 @@ import { useAccountTranslation } from '@/config/i18n';
 import { mutations } from '@/config/queryClient';
 import { ACCOUNT } from '@/langs/constants';
 
-import LanguageSwitch from '../main/LanguageSwitch';
+import LanguageSwitch from '~account/common/LanguageSwitch';
 
 export function LeftHeaderWrapper(): JSX.Element {
   const { isAuthenticated, user, logout } = useAuth();

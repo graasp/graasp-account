@@ -14,7 +14,7 @@ import { hooks } from '@/config/queryClient';
 import { CARD_TIP_ID } from '@/config/selectors';
 import { ACCOUNT } from '@/langs/constants';
 
-const PersonalizationNotificationCard = (): JSX.Element | null => {
+export function TipCard(): JSX.Element | null {
   const { t } = useAccountTranslation();
 
   const { data: member } = hooks.useCurrentMember();
@@ -47,6 +47,4 @@ const PersonalizationNotificationCard = (): JSX.Element | null => {
       </Grid>
     </Grid>
   );
-};
-
-export default PersonalizationNotificationCard;
+}

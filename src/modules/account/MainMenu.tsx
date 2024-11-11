@@ -4,17 +4,16 @@ import { DRAWER_WIDTH } from '@graasp/ui';
 
 import { HardDriveIcon, HouseIcon, SettingsIcon } from 'lucide-react';
 
-import { ACCOUNT } from '@/langs/constants';
-
-import { useAccountTranslation } from '../../config/i18n';
+import { MainMenuItem } from '@/components/ui/MainMenuItem';
+import { useAccountTranslation } from '@/config/i18n';
 import {
   ACCOUNT_HOME_PATH,
   ACCOUNT_SETTINGS_PATH,
   ACCOUNT_STORAGE_PATH,
-} from '../../config/paths';
-import { MainMenuItem } from '../ui/MainMenuItem';
+} from '@/config/paths';
+import { ACCOUNT } from '@/langs/constants';
 
-const MainMenu = (): JSX.Element => {
+export function MainMenu(): JSX.Element {
   const { t } = useAccountTranslation();
 
   return (
@@ -36,6 +35,4 @@ const MainMenu = (): JSX.Element => {
       />
     </List>
   );
-};
-
-export default MainMenu;
+}

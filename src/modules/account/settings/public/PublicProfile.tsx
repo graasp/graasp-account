@@ -23,10 +23,10 @@ import {
 } from '@/config/selectors';
 import { ACCOUNT } from '@/langs/constants';
 
-import DisplayLinks from './DisplayLinks';
-import EditPublicProfile from './EditPublicProfile';
+import { DisplayLinks } from './DisplayLinks';
+import { EditPublicProfile } from './EditPublicProfile';
 
-const MemberPublicProfile = (): JSX.Element => {
+export function PublicProfile(): JSX.Element {
   const socialLinks = new SocialLinks();
 
   const { t } = useAccountTranslation();
@@ -112,6 +112,4 @@ const MemberPublicProfile = (): JSX.Element => {
       )}
     </BorderedSection>
   );
-};
-
-export default MemberPublicProfile;
+}

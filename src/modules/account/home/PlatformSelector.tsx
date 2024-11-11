@@ -44,7 +44,7 @@ const PlatformIcon = ({ text, href, color, icon }: PlatformProps) => (
   </Stack>
 );
 
-const GraaspIcons = (): JSX.Element => {
+export function PlatformSelector(): JSX.Element {
   const { t } = useEnumsTranslation();
   const getNavigationEvents = usePlatformNavigation(platformsHostsMap);
   const platforms = [
@@ -87,6 +87,4 @@ const GraaspIcons = (): JSX.Element => {
       ))}
     </Grid>
   );
-};
-
-export default GraaspIcons;
+}

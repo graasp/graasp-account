@@ -4,12 +4,13 @@ import { Alert, Stack, Typography } from '@mui/material';
 
 import { createFileRoute } from '@tanstack/react-router';
 
-import { StorageFiles } from '@/components/StorageFiles';
-import { StorageBar } from '@/components/account/StorageBar';
-import ScreenLayout from '@/components/layout/ScreenLayout';
+import { ScreenLayout } from '@/components/layout/ScreenLayout';
 import { ADMIN_CONTACT } from '@/config/constants';
 import { useAccountTranslation } from '@/config/i18n';
 import { ACCOUNT } from '@/langs/constants';
+
+import { StorageBar } from '~account/storage/StorageBar';
+import { StorageFiles } from '~account/storage/StorageFiles';
 
 export const Route = createFileRoute('/account/storage')({
   component: StorageRoute,

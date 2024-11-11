@@ -50,11 +50,11 @@ type EditMemberPersonalInformationProp = {
   onClose: () => void;
 };
 
-const EditPersonalInformation = ({
+export function EditPersonalInformation({
   member,
   onEmailUpdate,
   onClose,
-}: EditMemberPersonalInformationProp): JSX.Element => {
+}: EditMemberPersonalInformationProp): JSX.Element {
   const { t } = useAccountTranslation();
   const { t: translateCommon } = useCommonTranslation();
   const { mutate: editMember } = mutations.useEditCurrentMember();
@@ -167,6 +167,4 @@ const EditPersonalInformation = ({
       </Stack>
     </BorderedSection>
   );
-};
-
-export default EditPersonalInformation;
+}

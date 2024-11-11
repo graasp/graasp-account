@@ -5,8 +5,8 @@ import { Button, Stack, Switch, Tooltip } from '@mui/material';
 import { CompleteMember } from '@graasp/sdk';
 import { DEFAULT_LANG } from '@graasp/translations';
 
-import EmailPreferenceSwitch from '@/components/main/EmailPreferenceSwitch';
-import LanguageSwitch from '@/components/main/LanguageSwitch';
+import BorderedSection from '@/components/layout/BorderedSection';
+import FormProperty from '@/components/layout/FormProperty';
 import { DEFAULT_EMAIL_FREQUENCY } from '@/config/constants';
 import { useAccountTranslation, useCommonTranslation } from '@/config/i18n';
 import { mutations } from '@/config/queryClient';
@@ -20,17 +20,17 @@ import {
 } from '@/config/selectors';
 import { ACCOUNT } from '@/langs/constants';
 
-import BorderedSection from '../layout/BorderedSection';
-import FormProperty from '../layout/FormProperty';
+import LanguageSwitch from '~account/common/LanguageSwitch';
+import EmailPreferenceSwitch from '~account/settings/EmailPreferenceSwitch';
 
 type EditPreferencesProp = {
   member: CompleteMember;
   onClose: () => void;
 };
-const EditMemberPreferences = ({
+export function EditPreferences({
   member,
   onClose,
-}: EditPreferencesProp): JSX.Element => {
+}: EditPreferencesProp): JSX.Element {
   const { t } = useAccountTranslation();
   const { t: translateCommon } = useCommonTranslation();
   const { mutate: editMember } = mutations.useEditCurrentMember();
@@ -114,6 +114,4 @@ const EditMemberPreferences = ({
       </Stack>
     </BorderedSection>
   );
-};
-
-export default EditMemberPreferences;
+}

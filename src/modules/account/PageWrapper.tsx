@@ -15,11 +15,12 @@ import {
 
 import { Link } from '@tanstack/react-router';
 
-import UserSwitchWrapper from '@/components/common/UserSwitchWrapper';
-import MainMenu from '@/components/main/MainMenu';
 import { platformsHostsMap } from '@/config/hostMapper';
 import { useAccountTranslation } from '@/config/i18n';
 import { ACCOUNT_HOME_PATH } from '@/config/paths';
+
+import { MainMenu } from './MainMenu';
+import UserSwitchWrapper from './UserSwitchWrapper';
 
 const StyledLink = styled(Link)(() => ({
   textDecoration: 'none',

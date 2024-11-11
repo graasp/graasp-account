@@ -13,9 +13,9 @@ import {
 import { ACCOUNT } from '@/langs/constants';
 import { getLocalForDateFns } from '@/langs/utils';
 
-import AvatarUploader from '../ProfilePicture/AvatarUploader';
+import { AvatarUploader } from './memberPicture/AvatarUploader';
 
-const MemberCard = (): JSX.Element | null => {
+export function MemberCard(): JSX.Element | null {
   const { t } = useAccountTranslation();
   const { data: member } = hooks.useCurrentMember();
 
@@ -52,6 +52,4 @@ const MemberCard = (): JSX.Element | null => {
 
   // improvement: add a loading interface
   return null;
-};
-
-export default MemberCard;
+}

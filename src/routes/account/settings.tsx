@@ -1,15 +1,16 @@
 import { createFileRoute } from '@tanstack/react-router';
 
-import ScreenLayout from '@/components/layout/ScreenLayout';
-import DeleteMemberSection from '@/components/main/DeleteMemberSection';
-import { MemberPreferences } from '@/components/main/MemberPreferences';
+import { ScreenLayout } from '@/components/layout/ScreenLayout';
 import { useAccountTranslation } from '@/config/i18n';
 import { SETTINGS_PAGE_CONTAINER_ID } from '@/config/selectors';
 import { ACCOUNT } from '@/langs/constants';
-import PersonalInformation from '@/modules/profile/PersonalInformation';
-import DisplayPassword from '@/modules/profile/password/DisplayPassword';
-import PublicProfile from '@/modules/profile/public/PublicProfile';
-import ExportData from '@/modules/settings/ExportData';
+
+import { DeleteMemberSection } from '~account/settings/DeleteMemberSection';
+import { ExportData } from '~account/settings/ExportData';
+import { Password } from '~account/settings/password/Password';
+import { Preferences } from '~account/settings/preferences/Preferences';
+import { PersonalInformation } from '~account/settings/profile/PersonalInformation';
+import { PublicProfile } from '~account/settings/public/PublicProfile';
 
 export const Route = createFileRoute('/account/settings')({
   component: SettingsRoute,
@@ -24,9 +25,9 @@ function SettingsRoute(): JSX.Element {
       title={translateAccount(ACCOUNT.MAIN_MENU_SETTINGS)}
     >
       <PersonalInformation />
-      <DisplayPassword />
+      <Password />
       <PublicProfile />
-      <MemberPreferences />
+      <Preferences />
       <ExportData />
       <DeleteMemberSection />
     </ScreenLayout>

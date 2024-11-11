@@ -2,6 +2,7 @@ import { useState } from 'react';
 
 import { Button, Dialog, Stack, Typography } from '@mui/material';
 
+import BorderedSection from '@/components/layout/BorderedSection';
 import { useAccountTranslation } from '@/config/i18n';
 import {
   DELETE_MEMBER_BUTTON_ID,
@@ -11,10 +12,9 @@ import {
 } from '@/config/selectors';
 import { ACCOUNT } from '@/langs/constants';
 
-import BorderedSection from '../layout/BorderedSection';
-import DeleteMemberDialogContent from './DeleteMemberDialogContent';
+import { DeleteMemberDialogContent } from './DeleteMemberDialogContent';
 
-const DeleteMemberSection = (): JSX.Element => {
+export function DeleteMemberSection(): JSX.Element {
   const [open, setOpen] = useState(false);
 
   const { t } = useAccountTranslation();
@@ -56,6 +56,4 @@ const DeleteMemberSection = (): JSX.Element => {
       </Dialog>
     </BorderedSection>
   );
-};
-
-export default DeleteMemberSection;
+}

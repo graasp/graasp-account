@@ -5,7 +5,6 @@ import { Alert, AlertTitle, Button } from '@mui/material';
 import { AccountType } from '@graasp/sdk';
 
 import BorderedSection from '@/components/layout/BorderedSection';
-import MemberProfileItem from '@/components/main/MemberProfileItem';
 import { useAccountTranslation } from '@/config/i18n';
 import { hooks } from '@/config/queryClient';
 import {
@@ -16,9 +15,12 @@ import {
   PERSONAL_INFO_USERNAME_DISPLAY_ID,
 } from '@/config/selectors';
 import { ACCOUNT } from '@/langs/constants';
-import EditPersonalInformation from '@/modules/profile/EditPersonalInformation';
 
-const PersonalInformation = (): JSX.Element | null => {
+import { SettingItem } from '~account/common/SettingItem';
+
+import { EditPersonalInformation } from './EditPersonalInformation';
+
+export function PersonalInformation(): JSX.Element | null {
   const { data: member } = hooks.useCurrentMember();
   const { t } = useAccountTranslation();
 
@@ -56,13 +58,13 @@ const PersonalInformation = (): JSX.Element | null => {
         </Button>,
       ]}
     >
-      <MemberProfileItem
+      <SettingItem
         key="name"
         title={t(ACCOUNT.PROFILE_MEMBER_NAME)}
         content={member?.name}
         contentId={PERSONAL_INFO_USERNAME_DISPLAY_ID}
       />
-      <MemberProfileItem
+      <SettingItem
         key="email"
         title={t(ACCOUNT.PROFILE_EMAIL_TITLE)}
         content={member?.email}
@@ -78,6 +80,4 @@ const PersonalInformation = (): JSX.Element | null => {
       )}
     </BorderedSection>
   );
-};
-
-export default PersonalInformation;
+}

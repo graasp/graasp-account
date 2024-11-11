@@ -52,7 +52,7 @@ type Props = {
   member: CompleteMember;
 };
 
-const AvatarUploader = ({ member }: Props): JSX.Element => {
+export function AvatarUploader({ member }: Props): JSX.Element {
   const uploadAvatar = mutations.useUploadAvatar();
   const { data: avatarUrl } = hooks.useAvatarUrl({
     id: member?.id,
@@ -170,6 +170,4 @@ const AvatarUploader = ({ member }: Props): JSX.Element => {
       )}
     </Stack>
   );
-};
-
-export default AvatarUploader;
+}

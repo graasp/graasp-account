@@ -15,7 +15,7 @@ import { ACCOUNT } from '@/langs/constants';
 import CreatePassword from './CreatePassword';
 import EditPassword from './EditPassword';
 
-const DisplayPassword = (): JSX.Element => {
+export function Password(): JSX.Element {
   const { t } = useAccountTranslation();
   const [isEditing, setIsEditing] = useState(false);
   const { data: passwordStatus, isPending: isPasswordStatusPending } =
@@ -76,6 +76,4 @@ const DisplayPassword = (): JSX.Element => {
   }
 
   return <Alert severity="error">{t('UNEXPECTED_ERROR')}</Alert>;
-};
-
-export default DisplayPassword;
+}

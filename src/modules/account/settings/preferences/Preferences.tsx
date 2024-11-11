@@ -5,6 +5,7 @@ import { Button } from '@mui/material';
 import { AccountType } from '@graasp/sdk';
 import { DEFAULT_LANG, langs } from '@graasp/translations';
 
+import BorderedSection from '@/components/layout/BorderedSection';
 import { useAccountTranslation } from '@/config/i18n';
 import { hooks } from '@/config/queryClient';
 import {
@@ -15,11 +16,11 @@ import {
 } from '@/config/selectors';
 import { ACCOUNT } from '@/langs/constants';
 
-import BorderedSection from '../layout/BorderedSection';
-import EditMemberPreferences from './EditMemberPreferences';
-import MemberProfileItem from './MemberProfileItem';
+import { SettingItem } from '~account/common/SettingItem';
 
-export const MemberPreferences = (): JSX.Element | null => {
+import { EditPreferences } from './EditPreferences';
+
+export const Preferences = (): JSX.Element | null => {
   const { data: member } = hooks.useCurrentMember();
 
   const { t } = useAccountTranslation();
@@ -43,7 +44,7 @@ export const MemberPreferences = (): JSX.Element | null => {
   };
 
   if (isEditing) {
-    return <EditMemberPreferences member={member} onClose={handleClose} />;
+    return <EditPreferences member={member} onClose={handleClose} />;
   }
   return (
     <BorderedSection
@@ -60,12 +61,12 @@ export const MemberPreferences = (): JSX.Element | null => {
         </Button>,
       ]}
     >
-      <MemberProfileItem
+      <SettingItem
         title={t(ACCOUNT.PROFILE_LANGUAGE_TITLE)}
         content={languageName}
         contentId={PREFERENCES_LANGUAGE_DISPLAY_ID}
       />
-      <MemberProfileItem
+      <SettingItem
         title={t(ACCOUNT.PROFILE_EMAIL_FREQUENCY_TITLE)}
         content={
           member.extra?.emailFreq === 'always'
@@ -74,7 +75,7 @@ export const MemberPreferences = (): JSX.Element | null => {
         }
         contentId={PREFERENCES_EMAIL_FREQUENCY_ID}
       />
-      <MemberProfileItem
+      <SettingItem
         title={t(ACCOUNT.PROFILE_SAVE_ACTIONS_TITLE)}
         content={
           member.enableSaveActions

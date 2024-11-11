@@ -16,14 +16,14 @@ import {
 } from '@/config/selectors';
 import { ACCOUNT } from '@/langs/constants';
 
-import { useAccountTranslation } from '../../config/i18n';
-import { mutations } from '../../config/queryClient';
+import { useAccountTranslation } from '../../../config/i18n';
+import { mutations } from '../../../config/queryClient';
 
 type Props = {
   closeModal: () => void;
 };
 
-const DeleteMemberDialogContent = ({ closeModal }: Props): JSX.Element => {
+export function DeleteMemberDialogContent({ closeModal }: Props): JSX.Element {
   const { t: translateAccount } = useAccountTranslation();
   const [confirmationDeleteValue, setConfirmationDeleteValue] = useState('');
 
@@ -90,6 +90,4 @@ const DeleteMemberDialogContent = ({ closeModal }: Props): JSX.Element => {
       </DialogActions>
     </>
   );
-};
-
-export default DeleteMemberDialogContent;
+}

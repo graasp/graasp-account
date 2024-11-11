@@ -2,11 +2,11 @@ import { UserSwitchWrapper as GraaspUserSwitch } from '@graasp/ui';
 
 import { GRAASP_AUTH_HOST } from '@/config/env';
 import { useAccountTranslation } from '@/config/i18n';
+import { ACCOUNT_HOME_PATH } from '@/config/paths';
+import { hooks, mutations } from '@/config/queryClient';
 
-import { ACCOUNT_HOME_PATH } from '../../config/paths';
-import { hooks, mutations } from '../../config/queryClient';
-import LanguageSwitch from '../main/LanguageSwitch';
-import MemberAvatar from '../main/MemberAvatar';
+import MemberAvatar from './MemberAvatar';
+import LanguageSwitch from './common/LanguageSwitch';
 
 type Props = {
   ButtonContent?: JSX.Element;

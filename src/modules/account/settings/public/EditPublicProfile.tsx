@@ -14,7 +14,6 @@ import {
 
 import { Config, SocialLinks } from 'social-links';
 
-import TextFieldWithValidation from '@/components/common/TextField';
 import BorderedSection from '@/components/layout/BorderedSection';
 import {
   FACEBOOK_DOMAIN,
@@ -32,6 +31,8 @@ import {
   PUBLIC_PROFILE_TWITTER_ID,
 } from '@/config/selectors';
 import { ACCOUNT } from '@/langs/constants';
+
+import { CustomTextField } from './CustomTextField';
 
 const config: Config = {
   usePredefinedProfiles: true,
@@ -61,9 +62,9 @@ type EditPublicProfileProps = {
   onClose: () => void;
 };
 
-const EditPublicProfile = ({
+export function EditPublicProfile({
   onClose,
-}: EditPublicProfileProps): JSX.Element => {
+}: EditPublicProfileProps): JSX.Element {
   const { t } = useAccountTranslation();
   const { t: translateCommon } = useCommonTranslation();
 
@@ -156,7 +157,7 @@ const EditPublicProfile = ({
       )}
 
       <Stack direction="column">
-        <TextFieldWithValidation
+        <CustomTextField
           name="bio"
           value={profileData.bio}
           helperText={
@@ -171,7 +172,7 @@ const EditPublicProfile = ({
           multiline
           id={PUBLIC_PROFILE_BIO_ID}
         />
-        <TextFieldWithValidation
+        <CustomTextField
           Icon={<LinkedInIcon />}
           name="linkedinID"
           value={profileData.linkedinID}
@@ -187,7 +188,7 @@ const EditPublicProfile = ({
           onChange={onInputChange}
           id={PUBLIC_PROFILE_LINKEDIN_ID}
         />
-        <TextFieldWithValidation
+        <CustomTextField
           Icon={<TwitterIcon />}
           label={t(ACCOUNT.PUBLIC_PROFILE_TWITTER_LINK)}
           onChange={onInputChange}
@@ -201,7 +202,7 @@ const EditPublicProfile = ({
           isError={dirtyFields.twitterID && !isValidUrl(profileData.twitterID)}
           id={PUBLIC_PROFILE_TWITTER_ID}
         />
-        <TextFieldWithValidation
+        <CustomTextField
           name="facebookID"
           label={t(ACCOUNT.PUBLIC_PROFILE_FACEBOOK_LINK)}
           onChange={onInputChange}
@@ -254,6 +255,4 @@ const EditPublicProfile = ({
       </Stack>
     </BorderedSection>
   );
-};
-
-export default EditPublicProfile;
+}

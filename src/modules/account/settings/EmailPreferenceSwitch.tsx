@@ -5,7 +5,7 @@ import { Select } from '@graasp/ui';
 
 import { useAccountTranslation } from '@/config/i18n';
 
-import { emailFrequency } from '../../config/constants';
+import { emailFrequency } from '../../../config/constants';
 
 type EmailPreferenceSwitchProps = {
   id?: string;
