@@ -31,7 +31,7 @@ export function MemberCard(): JSX.Element | null {
     return (
       <Stack direction="row" gap={2} alignItems="center">
         <Stack alignItems="center" gap={2}>
-          <AvatarUploader member={member} />
+          <AvatarUploader />
         </Stack>
         <Stack>
           <Typography variant="h4" id={MEMBER_USERNAME_DISPLAY_ID}>

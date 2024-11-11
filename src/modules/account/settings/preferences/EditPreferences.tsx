@@ -24,8 +24,8 @@ import LanguageSwitch from '~account/common/LanguageSwitch';
 import EmailPreferenceSwitch from '~account/settings/EmailPreferenceSwitch';
 
 type EditPreferencesProp = {
-  member: CompleteMember;
-  onClose: () => void;
+  readonly member: CompleteMember;
+  readonly onClose: () => void;
 };
 export function EditPreferences({
   member,

@@ -45,9 +45,9 @@ const verifyUsername = (username: string): string | null => {
 };
 
 type EditMemberPersonalInformationProp = {
-  member: CompleteMember;
-  onEmailUpdate: (newEmail: string) => void;
-  onClose: () => void;
+  readonly member: CompleteMember;
+  readonly onEmailUpdate: (newEmail: string) => void;
+  readonly onClose: () => void;
 };
 
 export function EditPersonalInformation({

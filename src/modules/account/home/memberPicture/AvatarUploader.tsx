@@ -2,10 +2,11 @@ import { useRef, useState } from 'react';
 
 import { Dialog, Stack, styled, useTheme } from '@mui/material';
 
-import { CompleteMember, ThumbnailSize } from '@graasp/sdk';
+import { ThumbnailSize } from '@graasp/sdk';
 
 import { ImageUp as ImageUpIcon } from 'lucide-react';
 
+import { useAuth } from '@/AuthContext';
 import { AVATAR_SIZE } from '@/config/constants';
 import { useAccountTranslation } from '@/config/i18n';
 import { hooks, mutations } from '@/config/queryClient';
@@ -48,14 +49,11 @@ const HoveredBox = styled(Stack)(
   }),
 );
 
-type Props = {
-  member: CompleteMember;
-};
-
-export function AvatarUploader({ member }: Props): JSX.Element {
+export function AvatarUploader(): JSX.Element {
+  const { user } = useAuth();
   const uploadAvatar = mutations.useUploadAvatar();
   const { data: avatarUrl } = hooks.useAvatarUrl({
-    id: member?.id,
+    id: user!.id,
     size: ThumbnailSize.Medium,
   });
   const { update } = useUploadProgress();

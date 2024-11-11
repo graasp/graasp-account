@@ -6,11 +6,11 @@ import { IconButton, InputAdornment, TextField } from '@mui/material';
 import { Eye } from 'lucide-react';
 
 type Props<T extends string> = {
-  id: string;
-  label: string;
-  error: boolean;
-  helperText?: string;
-  form: UseFormRegisterReturn<T>;
+  readonly id: string;
+  readonly label: string;
+  readonly error: boolean;
+  readonly helperText?: string;
+  readonly form: UseFormRegisterReturn<T>;
 };
 
 export function PasswordField<T extends string>({

@@ -14,11 +14,8 @@ import {
   PUBLIC_PROFILE_BIO_ID,
   PUBLIC_PROFILE_DISPLAY_CONTAINER_ID,
   PUBLIC_PROFILE_EDIT_BUTTON_ID,
-  PUBLIC_PROFILE_FACEBOOK_HREF_ID,
   PUBLIC_PROFILE_FACEBOOK_ID,
-  PUBLIC_PROFILE_LINKEDIN_HREF_ID,
   PUBLIC_PROFILE_LINKEDIN_ID,
-  PUBLIC_PROFILE_TWITTER_HREF_ID,
   PUBLIC_PROFILE_TWITTER_ID,
 } from '@/config/selectors';
 import { ACCOUNT } from '@/langs/constants';
@@ -70,7 +67,6 @@ export function PublicProfile(): JSX.Element {
           contentId={PUBLIC_PROFILE_LINKEDIN_ID}
           href={socialLinks.sanitize('linkedin', linkedinID)}
           content={linkedinID}
-          hrefId={PUBLIC_PROFILE_LINKEDIN_HREF_ID}
         />
       ) : (
         <DisplayLinks
@@ -86,7 +82,6 @@ export function PublicProfile(): JSX.Element {
           contentId={PUBLIC_PROFILE_TWITTER_ID}
           href={socialLinks.sanitize('twitter', twitterID)}
           content={twitterID}
-          hrefId={PUBLIC_PROFILE_TWITTER_HREF_ID}
         />
       ) : (
         <DisplayLinks
@@ -101,7 +96,6 @@ export function PublicProfile(): JSX.Element {
           contentId={PUBLIC_PROFILE_FACEBOOK_ID}
           href={socialLinks.sanitize('facebook', facebookID)}
           content={facebookID}
-          hrefId={PUBLIC_PROFILE_FACEBOOK_HREF_ID}
         />
       ) : (
         <DisplayLinks

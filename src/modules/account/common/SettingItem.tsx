@@ -3,9 +3,9 @@ import { ReactNode } from 'react';
 import { Stack, Typography } from '@mui/material';
 
 type Props = {
-  title: string;
-  content?: ReactNode;
-  contentId: string;
+  readonly title: string;
+  readonly content?: ReactNode;
+  readonly contentId: string;
 };
 export function SettingItem({ title, content, contentId }: Props): JSX.Element {
   return (

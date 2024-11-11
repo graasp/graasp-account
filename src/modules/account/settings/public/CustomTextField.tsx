@@ -2,19 +2,19 @@ import React from 'react';
 
 import { InputAdornment, TextField } from '@mui/material';
 
-interface Props {
-  label: string;
-  value: string;
-  name: string;
-  helperText: string | false;
-  onChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
-  Icon?: JSX.Element;
-  isError: boolean;
-  rows?: number;
-  multiline?: boolean;
-  required?: boolean;
-  id: string;
-}
+type CustomTextFieldProps = {
+  readonly label: string;
+  readonly value: string;
+  readonly name: string;
+  readonly helperText: string | false;
+  readonly onChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
+  readonly Icon?: JSX.Element;
+  readonly isError: boolean;
+  readonly rows?: number;
+  readonly multiline?: boolean;
+  readonly required?: boolean;
+  readonly id: string;
+};
 export function CustomTextField({
   label,
   onChange,
@@ -27,7 +27,7 @@ export function CustomTextField({
   multiline = false,
   required = false,
   id,
-}: Props): JSX.Element {
+}: CustomTextFieldProps): JSX.Element {
   return (
     <TextField
       label={label}

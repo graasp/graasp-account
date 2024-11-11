@@ -75,7 +75,7 @@ const CreatePassword = ({ onClose }: CreatePasswordProps): JSX.Element => {
     errors.confirmNewPassword,
   );
   const hasErrors = Boolean(
-    newPasswordErrorMessage || confirmNewPasswordErrorMessage,
+    newPasswordErrorMessage ?? confirmNewPasswordErrorMessage,
   );
 
   const createNetworkError = axios.isAxiosError(createPasswordError)

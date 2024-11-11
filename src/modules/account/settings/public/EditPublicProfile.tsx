@@ -59,7 +59,7 @@ const initialDirtyFieldsState = {
   visibility: false,
 };
 type EditPublicProfileProps = {
-  onClose: () => void;
+  readonly onClose: () => void;
 };
 
 export function EditPublicProfile({

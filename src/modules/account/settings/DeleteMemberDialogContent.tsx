@@ -20,7 +20,7 @@ import { useAccountTranslation } from '../../../config/i18n';
 import { mutations } from '../../../config/queryClient';
 
 type Props = {
-  closeModal: () => void;
+  readonly closeModal: () => void;
 };
 
 export function DeleteMemberDialogContent({ closeModal }: Props): JSX.Element {

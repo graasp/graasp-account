@@ -3,9 +3,9 @@ import { ReactNode } from 'react';
 import { Divider, Stack, Typography } from '@mui/material';
 
 type ScreenLayoutProps = {
-  id?: string;
-  title: string;
-  children: ReactNode;
+  readonly id?: string;
+  readonly title: string;
+  readonly children: ReactNode;
 };
 export function ScreenLayout({
   id,
