@@ -31,7 +31,7 @@ importers:
         version: 1.40.0(i18next@23.16.4)
       '@graasp/ui':
         specifier: 5.4.0
-        version: 5.4.0(vjdrhlzhwm6ubakhpjfw4ipwji)
+        version: 5.4.0(rdhgw4bhcijucgrr7sx4ubvcpi)
       '@mui/icons-material':
         specifier: 6.1.6
         version: 6.1.6(@mui/material@6.1.6(@emotion/react@11.13.3(@types/react@18.3.12)(react@18.3.1))(@emotion/styled@11.13.0(@emotion/react@11.13.3(@types/react@18.3.12)(react@18.3.1))(@types/react@18.3.12)(react@18.3.1))(@types/react@18.3.12)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(@types/react@18.3.12)(react@18.3.1)
@@ -81,8 +81,8 @@ importers:
         specifier: 7.53.1
         version: 7.53.1(react@18.3.1)
       react-i18next:
-        specifier: 15.1.0
-        version: 15.1.0(i18next@23.16.4)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
+        specifier: 15.1.1
+        version: 15.1.1(i18next@23.16.4)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       react-image-crop:
         specifier: 11.0.7
         version: 11.0.7(react@18.3.1)
@@ -4043,8 +4043,8 @@ packages:
     peerDependencies:
       react: ^16.8.0 || ^17 || ^18 || ^19
 
-  react-i18next@15.1.0:
-    resolution: {integrity: sha512-zj3nJynMnZsy2gPZiOTC7XctCY5eQGqT3tcKMmfJWC9FMvgd+960w/adq61j8iPzpwmsXejqID9qC3Mqu1Xu2Q==}
+  react-i18next@15.1.1:
+    resolution: {integrity: sha512-R/Vg9wIli2P3FfeI8o1eNJUJue5LWpFsQePCHdQDmX0Co3zkr6kdT8gAseb/yGeWbNz1Txc4bKDQuZYsC0kQfw==}
     peerDependencies:
       i18next: '>= 23.2.3'
       react: '>= 16.8.0'
@@ -6322,7 +6322,7 @@ snapshots:
     dependencies:
       i18next: 23.16.4
 
-  '@graasp/ui@5.4.0(vjdrhlzhwm6ubakhpjfw4ipwji)':
+  '@graasp/ui@5.4.0(rdhgw4bhcijucgrr7sx4ubvcpi)':
     dependencies:
       '@emotion/cache': 11.13.1
       '@emotion/react': 11.13.3(@types/react@18.3.12)(react@18.3.1)
@@ -6344,7 +6344,7 @@ snapshots:
       react-dnd: 16.0.1(@types/node@22.8.4)(@types/react@18.3.12)(react@18.3.1)
       react-dnd-html5-backend: 16.0.1
       react-dom: 18.3.1(react@18.3.1)
-      react-i18next: 15.1.0(i18next@23.16.4)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
+      react-i18next: 15.1.1(i18next@23.16.4)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       react-quill: 2.0.0(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       react-rnd: 10.4.13(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       react-router-dom: 6.27.0(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
@@ -7212,7 +7212,7 @@ snapshots:
 
   babel-plugin-macros@3.1.0:
     dependencies:
-      '@babel/runtime': 7.25.9
+      '@babel/runtime': 7.26.0
       cosmiconfig: 7.1.0
       resolve: 1.22.8
 
@@ -9297,9 +9297,9 @@ snapshots:
     dependencies:
       react: 18.3.1
 
-  react-i18next@15.1.0(i18next@23.16.4)(react-dom@18.3.1(react@18.3.1))(react@18.3.1):
+  react-i18next@15.1.1(i18next@23.16.4)(react-dom@18.3.1(react@18.3.1))(react@18.3.1):
     dependencies:
-      '@babel/runtime': 7.25.9
+      '@babel/runtime': 7.26.0
       html-parse-stringify: 3.0.1
       i18next: 23.16.4
       react: 18.3.1
