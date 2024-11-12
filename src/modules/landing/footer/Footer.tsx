@@ -99,52 +99,77 @@ export function Footer(): JSX.Element {
         <Typography textAlign="center" fontWeight="bold">
           {t('FOOTER.TAG_LINE')}
         </Typography>
-        <Stack direction={{ xs: 'column', sm: 'row' }} m={4} gap={10}>
-          <FooterSection name={t('FOOTER.CONTENT.TITLE')}>
-            <InternalLink to="/" activeProps={internalLinkActiveProp}>
-              {t('FOOTER.CONTENT.HOME')}
-            </InternalLink>
-            <InternalLink to="/features" activeProps={internalLinkActiveProp}>
-              {t('FOOTER.CONTENT.FEATURES')}
-            </InternalLink>
-            <InternalLink to="/about-us" activeProps={internalLinkActiveProp}>
-              {t('FOOTER.CONTENT.ABOUT_US')}
-            </InternalLink>
-            <InternalLink to="/support" activeProps={internalLinkActiveProp}>
-              {t('FOOTER.CONTENT.SUPPORT')}
-            </InternalLink>
-            <InternalLink to="/contact-us" activeProps={internalLinkActiveProp}>
-              {t('FOOTER.CONTENT.CONTACT_US')}
-            </InternalLink>
-          </FooterSection>
+        <Stack
+          direction={{ xs: 'column', md: 'row' }}
+          m={4}
+          gap={5}
+          justifyContent="space-between"
+        >
+          <Stack
+            direction={{ xs: 'column', sm: 'row' }}
+            gap={5}
+            flex={1}
+            justifyContent="space-around"
+          >
+            <FooterSection name={t('FOOTER.CONTENT.TITLE')}>
+              <InternalLink to="/" activeProps={internalLinkActiveProp}>
+                {t('FOOTER.CONTENT.HOME')}
+              </InternalLink>
+              <InternalLink to="/features" activeProps={internalLinkActiveProp}>
+                {t('FOOTER.CONTENT.FEATURES')}
+              </InternalLink>
+              <InternalLink to="/about-us" activeProps={internalLinkActiveProp}>
+                {t('FOOTER.CONTENT.ABOUT_US')}
+              </InternalLink>
+              <InternalLink to="/support" activeProps={internalLinkActiveProp}>
+                {t('FOOTER.CONTENT.SUPPORT')}
+              </InternalLink>
+              <InternalLink
+                to="/contact-us"
+                activeProps={internalLinkActiveProp}
+              >
+                {t('FOOTER.CONTENT.CONTACT_US')}
+              </InternalLink>
+            </FooterSection>
 
-          <FooterSection name={t('FOOTER.PARTNERS.TITLE')}>
-            {partnerLinks.map(({ href, title }) => (
-              <ExternalLink key={title} href={href}>
-                {title}
-              </ExternalLink>
-            ))}
-          </FooterSection>
+            <FooterSection name={t('FOOTER.PARTNERS.TITLE')}>
+              {partnerLinks.map(({ href, title }) => (
+                <ExternalLink key={title} href={href}>
+                  {title}
+                </ExternalLink>
+              ))}
+            </FooterSection>
+          </Stack>
 
-          <FooterSection name={t('FOOTER.SOCIAL.TITLE')}>
-            {socialLinks.map(({ href, Icon, title }) => (
-              <SocialLink key={title} href={href} icon={<Icon size={24} />}>
-                {title}
-              </SocialLink>
-            ))}
-          </FooterSection>
+          <Stack
+            direction={{ xs: 'column', sm: 'row' }}
+            gap={5}
+            flex={1}
+            justifyContent="space-around"
+          >
+            <FooterSection name={t('FOOTER.SOCIAL.TITLE')}>
+              {socialLinks.map(({ href, Icon, title }) => (
+                <SocialLink key={title} href={href} icon={<Icon size={24} />}>
+                  {title}
+                </SocialLink>
+              ))}
+            </FooterSection>
 
-          <FooterSection name={t('FOOTER.OTHER.TITLE')}>
-            <InternalLink to="/terms" activeProps={internalLinkActiveProp}>
-              {t('FOOTER.OTHER.TERMS')}
-            </InternalLink>
-            <InternalLink to="/policy" activeProps={internalLinkActiveProp}>
-              {t('FOOTER.OTHER.POLICY')}
-            </InternalLink>
-            <InternalLink to="/disclaimer" activeProps={internalLinkActiveProp}>
-              {t('FOOTER.OTHER.DISCLAIMER')}
-            </InternalLink>
-          </FooterSection>
+            <FooterSection name={t('FOOTER.OTHER.TITLE')}>
+              <InternalLink to="/terms" activeProps={internalLinkActiveProp}>
+                {t('FOOTER.OTHER.TERMS')}
+              </InternalLink>
+              <InternalLink to="/policy" activeProps={internalLinkActiveProp}>
+                {t('FOOTER.OTHER.POLICY')}
+              </InternalLink>
+              <InternalLink
+                to="/disclaimer"
+                activeProps={internalLinkActiveProp}
+              >
+                {t('FOOTER.OTHER.DISCLAIMER')}
+              </InternalLink>
+            </FooterSection>
+          </Stack>
         </Stack>
         <Typography textAlign="center" variant="note">
           &copy; Graasp 2014 - {new Date().getFullYear()}
