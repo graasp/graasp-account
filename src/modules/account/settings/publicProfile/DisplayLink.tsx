@@ -8,7 +8,7 @@ type Props = {
   readonly content?: string;
   readonly href?: string;
 };
-export function DisplayLinks({
+export function DisplayLink({
   icon,
   contentId,
   content,

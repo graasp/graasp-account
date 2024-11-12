@@ -20,7 +20,7 @@ import {
 } from '@/config/selectors';
 import { ACCOUNT } from '@/langs/constants';
 
-import { DisplayLinks } from './DisplayLinks';
+import { DisplayLink } from './DisplayLink';
 import { EditPublicProfile } from './EditPublicProfile';
 
 export function PublicProfile(): JSX.Element {
@@ -62,14 +62,14 @@ export function PublicProfile(): JSX.Element {
         {bio || t(ACCOUNT.PUBLIC_PROFILE_BIO_EMPTY_MSG)}
       </Typography>
       {linkedinID ? (
-        <DisplayLinks
+        <DisplayLink
           icon={<LinkedInIcon />}
           contentId={PUBLIC_PROFILE_LINKEDIN_ID}
           href={socialLinks.sanitize('linkedin', linkedinID)}
           content={linkedinID}
         />
       ) : (
-        <DisplayLinks
+        <DisplayLink
           icon={<LinkedInIcon />}
           contentId={PUBLIC_PROFILE_LINKEDIN_ID}
           content={t(ACCOUNT.PUBLIC_PROFILE_LINKEDIN_EMPTY_MSG)}
@@ -77,28 +77,28 @@ export function PublicProfile(): JSX.Element {
       )}
 
       {twitterID ? (
-        <DisplayLinks
+        <DisplayLink
           icon={<TwitterIcon />}
           contentId={PUBLIC_PROFILE_TWITTER_ID}
           href={socialLinks.sanitize('twitter', twitterID)}
           content={twitterID}
         />
       ) : (
-        <DisplayLinks
+        <DisplayLink
           icon={<TwitterIcon />}
           contentId={PUBLIC_PROFILE_TWITTER_ID}
           content={t(ACCOUNT.PUBLIC_PROFILE_TWITTER_EMPTY_MSG)}
         />
       )}
       {facebookID ? (
-        <DisplayLinks
+        <DisplayLink
           icon={<FacebookIcon />}
           contentId={PUBLIC_PROFILE_FACEBOOK_ID}
           href={socialLinks.sanitize('facebook', facebookID)}
           content={facebookID}
         />
       ) : (
-        <DisplayLinks
+        <DisplayLink
           icon={<FacebookIcon />}
           contentId={PUBLIC_PROFILE_FACEBOOK_ID}
           content={t(ACCOUNT.PUBLIC_PROFILE_FACEBOOK_EMPTY_MSG)}

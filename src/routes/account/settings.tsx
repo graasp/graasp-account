@@ -10,7 +10,7 @@ import { ExportData } from '~account/settings/ExportData';
 import { Password } from '~account/settings/password/Password';
 import { Preferences } from '~account/settings/preferences/Preferences';
 import { PersonalInformation } from '~account/settings/profile/PersonalInformation';
-import { PublicProfile } from '~account/settings/public/PublicProfile';
+import { PublicProfile } from '~account/settings/publicProfile/PublicProfile';
 
 export const Route = createFileRoute('/account/settings')({
   component: SettingsRoute,
