@@ -56,6 +56,7 @@ type UserStoryProps = {
   buttonText: string;
   children: ReactNode;
   image: ReactNode;
+  imageAttribution?: ReactNode;
 };
 export function UserStory({
   caption,
@@ -64,16 +65,19 @@ export function UserStory({
   buttonText,
   children,
   image,
+  imageAttribution,
 }: UserStoryProps): JSX.Element {
   return (
     <InvertingStack gap={5}>
-      <Stack
-        borderRadius={6}
-        overflow="hidden"
-        flex={1}
-        boxShadow={`20px 20px 0px ${SECONDARY_COLOR}`}
-      >
-        {image}
+      <Stack flex={1} gap={2}>
+        <Stack
+          borderRadius={6}
+          overflow="hidden"
+          boxShadow={`20px 20px 0px ${SECONDARY_COLOR}`}
+        >
+          {image}
+        </Stack>
+        {imageAttribution}
       </Stack>
       <Stack gap={2} flex={2}>
         <Box>

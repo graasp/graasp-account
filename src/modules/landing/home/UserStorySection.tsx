@@ -16,11 +16,19 @@ export function UserStorySection(): JSX.Element {
         caption={t('HOME.USER_STORY.TEACHER.LEADING_SENTENCE')}
         buttonText={t('HOME.USER_STORY.TEACHER.BUTTON_TEXT')}
         title={t('HOME.USER_STORY.TEACHER.TITLE')}
-        image={
-          <Image
-            alt={`Photo by <a href="https://unsplash.com/@thutra0803?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">Tra  Nguyen</a> on <a href="https://unsplash.com/photos/womens-blue-dress-shirt-TVSRWmnW8Us?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">Unsplash</a>`}
-            src="/illustration/teacher.webp"
-          />
+        image={<Image src="/illustration/teacher.webp" />}
+        imageAttribution={
+          <Typography
+            variant="caption"
+            color="textSecondary"
+            sx={{ '& a': { color: 'inherit' } }}
+          >
+            Photo by <a href="https://unsplash.com/@thutra0803">Tra Nguyen</a>{' '}
+            on{' '}
+            <a href="https://unsplash.com/photos/womens-blue-dress-shirt-TVSRWmnW8Us">
+              Unsplash
+            </a>
+          </Typography>
         }
       >
         <Typography>
