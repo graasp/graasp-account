@@ -19,10 +19,10 @@ importers:
         version: 11.13.0(@emotion/react@11.13.3(@types/react@18.3.12)(react@18.3.1))(@types/react@18.3.12)(react@18.3.1)
       '@graasp/query-client':
         specifier: 5.1.0
-        version: 5.1.0(@graasp/sdk@4.33.2(date-fns@4.1.0)(uuid@11.0.2))(@graasp/translations@1.40.0(i18next@23.16.4))(react@18.3.1)
+        version: 5.1.0(@graasp/sdk@5.2.1(date-fns@4.1.0)(uuid@11.0.2))(@graasp/translations@1.40.0(i18next@23.16.4))(react@18.3.1)
       '@graasp/sdk':
-        specifier: 4.33.2
-        version: 4.33.2(date-fns@4.1.0)(uuid@11.0.2)
+        specifier: 5.2.1
+        version: 5.2.1(date-fns@4.1.0)(uuid@11.0.2)
       '@graasp/stylis-plugin-rtl':
         specifier: 2.2.0
         version: 2.2.0(stylis@4.3.4)
@@ -31,7 +31,7 @@ importers:
         version: 1.40.0(i18next@23.16.4)
       '@graasp/ui':
         specifier: 5.4.0
-        version: 5.4.0(vjdrhlzhwm6ubakhpjfw4ipwji)
+        version: 5.4.0(kdlhsciffnhczrw2p4gw5boknu)
       '@mui/icons-material':
         specifier: 6.1.6
         version: 6.1.6(@mui/material@6.1.6(@emotion/react@11.13.3(@types/react@18.3.12)(react@18.3.1))(@emotion/styled@11.13.0(@emotion/react@11.13.3(@types/react@18.3.12)(react@18.3.1))(@types/react@18.3.12)(react@18.3.1))(@types/react@18.3.12)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(@types/react@18.3.12)(react@18.3.1)
@@ -1375,8 +1375,8 @@ packages:
     resolution: {integrity: sha512-HFZ4Mp26nbWk9d/BpvP0YNL6W4UoZF0VFcTw/aPPA8RpOxeFQgK+ClABGgAUXs9Y/RGX/l1vOmrqz1MQt9MNuw==}
     engines: {node: ^18.18.0 || ^20.9.0 || >=21.1.0}
 
-  '@faker-js/faker@9.1.0':
-    resolution: {integrity: sha512-GJvX9iM9PBtKScJVlXQ0tWpihK3i0pha/XAhzQa1hPK/ILLa1Wq3I63Ij7lRtqTwmdTxRCyrUhLC5Sly9SLbug==}
+  '@faker-js/faker@9.2.0':
+    resolution: {integrity: sha512-ulqQu4KMr1/sTFIYvqSdegHT8NIkt66tFAkugGnHA+1WAfEn6hMzNR+svjXGFRVLnapxvej67Z/LwchFrnLBUg==}
     engines: {node: '>=18.0.0', npm: '>=9.0.0'}
 
   '@floating-ui/core@1.6.8':
@@ -1401,8 +1401,8 @@ packages:
       '@graasp/translations': '*'
       react: ^18.0.0
 
-  '@graasp/sdk@4.33.2':
-    resolution: {integrity: sha512-zkzvihp9VeOwZS/nY4574WOygHAWCduWMhIW4qPhpI9rwJGdVs7BSyrZ0eJtz4qQbKeWizkLxVwRqifZrU+4Kg==}
+  '@graasp/sdk@5.2.1':
+    resolution: {integrity: sha512-dYRUS65OPUuxL4w0yQJptmf/er30bEd2gt11DZMNl5CHEb02gE4h81gUzWbyvWLXKpn2CoMHTCYGNmgW7KX/Ew==}
     peerDependencies:
       date-fns: ^3 || ^4.0.0
       uuid: ^9 || ^10 || ^11.0.0
@@ -4638,10 +4638,6 @@ packages:
     resolution: {integrity: sha512-+NYs2QeMWy+GWFOEm9xnn6HCDp0l7QBD7ml8zLUmJ+93Q5NF0NocErnwkTkXVFNiX3/fpC6afS8Dhb/gz7R7eg==}
     hasBin: true
 
-  validator@13.12.0:
-    resolution: {integrity: sha512-c1Q0mCiPlgdTVVVIJIrBuxNicYE+t/7oKeI9MWLj3fh/uq2Pxh/3eeWbVZ4OcGW1TUf53At0njHw5SMdA3tmMg==}
-    engines: {node: '>= 0.10'}
-
   verror@1.10.0:
     resolution: {integrity: sha512-ZZKSmDAEFOijERBLkmYfJ+vmk3w+7hOLYDNkRCuRuMJGEmqYNCNLyBBFwWKVMhfwaEF3WOd0Zlw86U/WC/+nYw==}
     engines: {'0': node >=0.6.0}
@@ -6273,7 +6269,7 @@ snapshots:
     dependencies:
       levn: 0.4.1
 
-  '@faker-js/faker@9.1.0': {}
+  '@faker-js/faker@9.2.0': {}
 
   '@floating-ui/core@1.6.8':
     dependencies:
@@ -6292,9 +6288,9 @@ snapshots:
 
   '@floating-ui/utils@0.2.8': {}
 
-  '@graasp/query-client@5.1.0(@graasp/sdk@4.33.2(date-fns@4.1.0)(uuid@11.0.2))(@graasp/translations@1.40.0(i18next@23.16.4))(react@18.3.1)':
+  '@graasp/query-client@5.1.0(@graasp/sdk@5.2.1(date-fns@4.1.0)(uuid@11.0.2))(@graasp/translations@1.40.0(i18next@23.16.4))(react@18.3.1)':
     dependencies:
-      '@graasp/sdk': 4.33.2(date-fns@4.1.0)(uuid@11.0.2)
+      '@graasp/sdk': 5.2.1(date-fns@4.1.0)(uuid@11.0.2)
       '@graasp/translations': 1.40.0(i18next@23.16.4)
       '@tanstack/react-query': 5.59.8(react@18.3.1)
       '@tanstack/react-query-devtools': 5.59.8(@tanstack/react-query@5.59.8(react@18.3.1))(react@18.3.1)
@@ -6304,14 +6300,13 @@ snapshots:
     transitivePeerDependencies:
       - debug
 
-  '@graasp/sdk@4.33.2(date-fns@4.1.0)(uuid@11.0.2)':
+  '@graasp/sdk@5.2.1(date-fns@4.1.0)(uuid@11.0.2)':
     dependencies:
-      '@faker-js/faker': 9.1.0
+      '@faker-js/faker': 9.2.0
       date-fns: 4.1.0
       filesize: 10.1.6
       js-cookie: 3.0.5
       uuid: 11.0.2
-      validator: 13.12.0
 
   '@graasp/stylis-plugin-rtl@2.2.0(stylis@4.3.4)':
     dependencies:
@@ -6322,12 +6317,12 @@ snapshots:
     dependencies:
       i18next: 23.16.4
 
-  '@graasp/ui@5.4.0(vjdrhlzhwm6ubakhpjfw4ipwji)':
+  '@graasp/ui@5.4.0(kdlhsciffnhczrw2p4gw5boknu)':
     dependencies:
       '@emotion/cache': 11.13.1
       '@emotion/react': 11.13.3(@types/react@18.3.12)(react@18.3.1)
       '@emotion/styled': 11.13.0(@emotion/react@11.13.3(@types/react@18.3.12)(react@18.3.1))(@types/react@18.3.12)(react@18.3.1)
-      '@graasp/sdk': 4.33.2(date-fns@4.1.0)(uuid@11.0.2)
+      '@graasp/sdk': 5.2.1(date-fns@4.1.0)(uuid@11.0.2)
       '@graasp/stylis-plugin-rtl': 2.2.0(stylis@4.3.4)
       '@graasp/translations': 1.40.0(i18next@23.16.4)
       '@mui/icons-material': 6.1.6(@mui/material@6.1.6(@emotion/react@11.13.3(@types/react@18.3.12)(react@18.3.1))(@emotion/styled@11.13.0(@emotion/react@11.13.3(@types/react@18.3.12)(react@18.3.1))(@types/react@18.3.12)(react@18.3.1))(@types/react@18.3.12)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(@types/react@18.3.12)(react@18.3.1)
@@ -9910,8 +9905,6 @@ snapshots:
   uuid@11.0.2: {}
 
   uuid@8.3.2: {}
-
-  validator@13.12.0: {}
 
   verror@1.10.0:
     dependencies:
