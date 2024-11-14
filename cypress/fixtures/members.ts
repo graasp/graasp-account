@@ -50,7 +50,6 @@ export const MEMBER_WITH_AVATAR: MemberForTest = {
 
 export const MEMBER_PUBLIC_PROFILE: PublicProfile = {
   id: 'ecafbd2a-5642-31fb-ae93-0242ac130004',
-  member: BOB,
   bio: 'text',
   twitterID: 'twitter_handle',
   facebookID: 'fb_handle',
@@ -61,7 +60,6 @@ export const MEMBER_PUBLIC_PROFILE: PublicProfile = {
 };
 export const MEMBER_EMPTY_PUBLIC_PROFILE: PublicProfile = {
   id: 'ecafbd2a-5642-31fb-ae93-0242ac130004',
-  member: BOB,
   bio: '',
   twitterID: '',
   facebookID: '',

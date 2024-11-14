@@ -15,6 +15,7 @@ import {
 
 import { Config, SocialLinks } from 'social-links';
 
+import { useAuth } from '@/AuthContext';
 import { BorderedSection } from '@/components/layout/BorderedSection';
 import {
   FACEBOOK_DOMAIN,
@@ -65,6 +66,7 @@ type EditPublicProfileProps = {
 export function EditPublicProfile({
   onClose,
 }: EditPublicProfileProps): JSX.Element {
+  const { user } = useAuth();
   const { t } = useTranslation(NS.Account);
   const { t: translateCommon } = useTranslation(NS.Common);
 
@@ -148,8 +150,8 @@ export function EditPublicProfile({
   return (
     <BorderedSection title={t('PUBLIC_PROFILE_TITLE')}>
       <Typography variant="body1">{t('PUBLIC_PROFILE_DESCRIPTION')}</Typography>
-      {ownProfile && (
-        <a href={`${GRAASP_LIBRARY_HOST}/members/${ownProfile.member.id}`}>
+      {ownProfile && user && (
+        <a href={`${GRAASP_LIBRARY_HOST}/members/${user.id}`}>
           {t('PUBLIC_PROFILE_CHECK_TEXT')}
         </a>
       )}
