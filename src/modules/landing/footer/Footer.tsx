@@ -61,8 +61,7 @@ const socialLinks = [
   },
   {
     title: 'Instragram',
-    // TODO: this link needs to be updated
-    href: 'https://www.facebook.com/graasp',
+    href: 'https://www.instagram.com/graasper',
     Icon: InstagramIcon,
   },
   {
