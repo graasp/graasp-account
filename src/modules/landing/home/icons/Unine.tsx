@@ -8,9 +8,6 @@ export function Unine({
   return (
     <svg
       version="1.1"
-      id="svg2"
-      // width={width}
-      // height={height}
       viewBox="0 0 1203.2533 514.58667"
       style={{ maxHeight: height, maxWidth: width }}
     >

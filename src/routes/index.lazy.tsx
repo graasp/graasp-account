@@ -29,9 +29,8 @@ function Index() {
   const { fill: primary } = useButtonColor('primary');
 
   return (
-    <Stack alignItems="center" id="pageWrapper">
+    <Stack alignItems="center">
       <Stack
-        id="navBar"
         // take maximum width
         width="100%"
         // make some room around the buttons

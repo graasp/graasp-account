@@ -7,9 +7,7 @@ export function EdTech({
 }): JSX.Element {
   return (
     <svg
-      // id="logo"
       viewBox="-15 0 185 110.7"
-      // style="width: 110px; height: 50px; fill: rgb(238, 238, 238);"
       style={{ maxHeight: height, maxWidth: width }}
     >
       <path
