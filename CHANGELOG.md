@@ -1,5 +1,20 @@
 # Changelog
 
+## [2.17.0](https://github.com/graasp/graasp-account/compare/v2.16.0...v2.17.0) (2024-11-14)
+
+
+### Features
+
+* add landing page ([#434](https://github.com/graasp/graasp-account/issues/434)) ([94bafb2](https://github.com/graasp/graasp-account/commit/94bafb2468f359073f57ae76023c056e98f07b71))
+
+
+### Bug Fixes
+
+* add alias for modules import ([#430](https://github.com/graasp/graasp-account/issues/430)) ([3614581](https://github.com/graasp/graasp-account/commit/3614581c168a3b92f18cee7bcfbd65997341f352))
+* add pre-connect directive via umami plugin ([#431](https://github.com/graasp/graasp-account/issues/431)) ([19f7a9c](https://github.com/graasp/graasp-account/commit/19f7a9ccae88bda8aebfe53db3f6d87f0c0b7cd3))
+* update deployments to use propper install steps ([#429](https://github.com/graasp/graasp-account/issues/429)) ([8ec092b](https://github.com/graasp/graasp-account/commit/8ec092b6cd6a8143a02f23c3ce69ca4d4c1ec56a))
+* update i18n config ([#433](https://github.com/graasp/graasp-account/issues/433)) ([b0c10a9](https://github.com/graasp/graasp-account/commit/b0c10a962808728abc7af930b645aedd43e67a30))
+
 ## [2.16.0](https://github.com/graasp/graasp-account/compare/v2.15.2...v2.16.0) (2024-11-04)
 
 
