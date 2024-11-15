@@ -60,11 +60,10 @@ describe('Email and Password Validation', () => {
       },
     ).as('signInWithPassword');
 
-    const { INVALID_PASSWORD: WRONG_PASSWORD } = AUTH_MEMBERS;
     cy.visit(LOG_IN_PAGE_PATH);
 
-    // Signing in with a valid email but empty password
-    fillPasswordSignInLayout(WRONG_PASSWORD);
+    // Signing in with a valid email but wrong password
+    fillPasswordSignInLayout(AUTH_MEMBERS.WRONG_PASSWORD);
     cy.get(`#${PASSWORD_SIGN_IN_BUTTON_ID}`).click();
     cy.get(`#${EMAIL_SIGN_IN_FIELD_ID}-helper-text`).should('not.exist');
     cy.get(`#${PASSWORD_SIGN_IN_FIELD_ID}-helper-text`).should('not.exist');
