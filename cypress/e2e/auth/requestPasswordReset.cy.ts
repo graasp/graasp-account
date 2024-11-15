@@ -10,7 +10,8 @@ import { AUTH_MEMBERS } from '../../fixtures/members';
 
 describe('Request password reset', () => {
   it('For existing member', () => {
-    cy.setUpApi({});
+    cy.setUpApi({ currentMember: null });
+
     cy.visit(REQUEST_PASSWORD_RESET_PATH);
     // request password reset for an existing member
     cy.get(`#${REQUEST_PASSWORD_RESET_EMAIL_FIELD_ID}`).type(
@@ -22,7 +23,8 @@ describe('Request password reset', () => {
     );
   });
   it('For non-email', () => {
-    cy.setUpApi({});
+    cy.setUpApi({ currentMember: null });
+
     cy.visit(REQUEST_PASSWORD_RESET_PATH);
 
     cy.get(`#${REQUEST_PASSWORD_RESET_EMAIL_FIELD_ID}`).type(
@@ -39,7 +41,7 @@ describe('Request password reset', () => {
     );
   });
   it('For non-member', () => {
-    cy.setUpApi({ shouldFailRequestPasswordReset: true });
+    cy.setUpApi({ currentMember: null, shouldFailRequestPasswordReset: true });
     cy.visit(REQUEST_PASSWORD_RESET_PATH);
 
     cy.get(`#${REQUEST_PASSWORD_RESET_EMAIL_FIELD_ID}`).type(

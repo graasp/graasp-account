@@ -16,7 +16,7 @@ import { generateJWT } from './util';
 describe('Reset password', () => {
   describe('With valid token', () => {
     it('With strong password', () => {
-      cy.setUpApi({});
+      cy.setUpApi({ currentMember: null });
 
       // this allows to run async code in cypress
       cy.wrap(null).then(async () => {
@@ -39,7 +39,7 @@ describe('Reset password', () => {
     });
 
     it('With weak password', () => {
-      cy.setUpApi({});
+      cy.setUpApi({ currentMember: null });
 
       // this allows to run async code in cypress
       cy.wrap(null).then(async () => {
@@ -64,7 +64,7 @@ describe('Reset password', () => {
     });
 
     it('Without matching passwords', () => {
-      cy.setUpApi({});
+      cy.setUpApi({ currentMember: null });
 
       // this allows to run async code in cypress
       cy.wrap(null).then(async () => {
@@ -85,7 +85,7 @@ describe('Reset password', () => {
     });
 
     it('With server error', () => {
-      cy.setUpApi({ shouldFailResetPassword: true });
+      cy.setUpApi({ currentMember: null, shouldFailResetPassword: true });
 
       // this allows to run async code in cypress
       cy.wrap(null).then(async () => {
@@ -110,7 +110,7 @@ describe('Reset password', () => {
 
   describe('Invalid token', () => {
     it('Without token', () => {
-      cy.setUpApi({});
+      cy.setUpApi({ currentMember: null });
       cy.visit(RESET_PASSWORD_PATH);
 
       // a rough error message is displayed when the url does not
@@ -122,7 +122,7 @@ describe('Reset password', () => {
     });
 
     it('Not a JWT token', () => {
-      cy.setUpApi({});
+      cy.setUpApi({ currentMember: null });
       cy.visit(`${RESET_PASSWORD_PATH}?t=${'1234'}`);
 
       // a rough error message is displayed when the url does not
@@ -134,7 +134,7 @@ describe('Reset password', () => {
     });
 
     it('Expired token', () => {
-      cy.setUpApi({});
+      cy.setUpApi({ currentMember: null });
 
       // this allows to run async code in cypress
       cy.wrap(null).then(async () => {

@@ -15,8 +15,8 @@ import { GraaspLogo } from '@graasp/ui';
 import { Link, useNavigate } from '@tanstack/react-router';
 
 import { NS } from '@/config/constants';
+import { hooks, mutations } from '@/config/queryClient';
 
-import { hooks, mutations } from '../../config/queryClient';
 import {
   EMAIL_SIGN_UP_FIELD_ID,
   NAME_SIGN_UP_FIELD_ID,
@@ -86,6 +86,8 @@ export function Register({ search }: RegisterProps) {
     isSuccess: isInvitationSuccess,
     isLoading: isLoadingInvitations,
   } = hooks.useInvitation(search.invitationId);
+
+  console.log(invitation);
 
   useEffect(() => {
     if (isInvitationSuccess && invitation) {

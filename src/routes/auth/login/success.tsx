@@ -13,6 +13,7 @@ import { z } from 'zod';
 import { ButtonLink } from '@/components/ui/ButtonLink';
 import { NS } from '@/config/constants';
 import { mutations } from '@/config/queryClient';
+import { SUCCESS_CONTENT_ID } from '@/config/selectors';
 
 import { LeftContentContainer } from '~auth/components/LeftContentContainer';
 import { useRecaptcha } from '~auth/context/RecaptchaContext';
@@ -60,7 +61,7 @@ function RouteComponent() {
 
   return (
     <LeftContentContainer>
-      <Box maxWidth="sm">
+      <Box maxWidth="sm" id={SUCCESS_CONTENT_ID}>
         <Stack direction="column" spacing={2}>
           <Typography
             variant="h4"

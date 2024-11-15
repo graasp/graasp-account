@@ -43,7 +43,6 @@ jobs:
           VITE_VERSION: ${{ github.event.client_payload.tag }}
           VITE_GRAASP_DOMAIN: ${{ vars.VITE_GRAASP_DOMAIN }}
           VITE_GRAASP_API_HOST: ${{ vars.VITE_GRAASP_API_HOST }}
-          VITE_GRAASP_AUTH_HOST: ${{ vars.VITE_GRAASP_AUTH_HOST }}
           VITE_GRAASP_BUILDER_HOST: ${{ vars.VITE_GRAASP_BUILDER_HOST }}
           VITE_GRAASP_PLAYER_HOST: ${{ vars.VITE_GRAASP_PLAYER_HOST }}
           VITE_GRAASP_LIBRARY_HOST: ${{ vars.VITE_GRAASP_LIBRARY_HOST }}

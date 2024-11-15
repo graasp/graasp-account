@@ -1,10 +1,5 @@
 import { API_ROUTES } from '@graasp/query-client';
-import {
-  CompleteMember,
-  HttpMethod,
-  PublicProfile,
-  buildSignInPath,
-} from '@graasp/sdk';
+import { CompleteMember, HttpMethod, PublicProfile } from '@graasp/sdk';
 
 import { StatusCodes } from 'http-status-codes';
 
@@ -29,11 +24,7 @@ const {
   buildDeleteCurrentMemberRoute,
 } = API_ROUTES;
 
-export const SIGN_IN_PATH = buildSignInPath({
-  host: Cypress.env('VITE_GRAASP_AUTH_HOST'),
-});
 const API_HOST = Cypress.env('VITE_GRAASP_API_HOST');
-const DEFAULT_REDIRECTION_URL = Cypress.env('VITE_DEFAULT_REDIRECTION_URL');
 
 export const redirectionReply = {
   headers: { 'content-type': 'text/html' },
@@ -367,20 +358,6 @@ export const mockResetPassword = (shouldThrowServerError = false) => {
       return reply({ statusCode: StatusCodes.NO_CONTENT });
     },
   ).as('resetPassword');
-};
-
-export const mockRedirection = () => {
-  cy.intercept(
-    {
-      method: HttpMethod.Get,
-      url: DEFAULT_REDIRECTION_URL,
-    },
-    ({ reply }) =>
-      reply({
-        body: '<h1>Content</h1>',
-        headers: { 'content-type': 'text/html' },
-      }),
-  ).as('redirectionContent');
 };
 
 export const mockLogin = (shouldThrowServerError = false) => {

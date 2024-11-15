@@ -51,7 +51,7 @@ export function LeftContentContainer({ children }: Props): JSX.Element {
       >
         <Stack
           display={{ xs: 'none', md: 'flex' }}
-          flex={1}
+          flexGrow={1}
           justifyContent="center"
           alignItems="center"
           px={3}
@@ -92,6 +92,8 @@ export function LeftContentContainer({ children }: Props): JSX.Element {
           px={{ xs: 2, sm: 8 }}
           py={{ xs: 2, sm: 2 }}
           gap={2}
+          flexGrow={1}
+          flexShrink={0}
         >
           <Stack
             alignItems="center"

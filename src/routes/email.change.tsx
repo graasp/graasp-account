@@ -9,14 +9,12 @@ import {
   Typography,
 } from '@mui/material';
 
-import { buildSignInPath } from '@graasp/sdk';
-
 import { Link, createFileRoute } from '@tanstack/react-router';
 import { HttpStatusCode, isAxiosError } from 'axios';
 
 import CenteredContainer from '@/components/layout/CenteredContainer';
+import { ButtonLink } from '@/components/ui/ButtonLink';
 import { NS } from '@/config/constants';
-import { GRAASP_AUTH_HOST } from '@/config/env';
 import { ACCOUNT_SETTINGS_PATH } from '@/config/paths';
 import { mutations } from '@/config/queryClient';
 import {
@@ -70,20 +68,15 @@ const EmailChangeContent = ({
     };
 
     if (isSuccess) {
-      const loginLink = buildSignInPath({
-        host: GRAASP_AUTH_HOST,
-        // redirect to the home page of account
-        redirectionUrl: new URL('/', window.location.origin).toString(),
-      });
       return (
         <>
           <Alert id={EMAIL_VALIDATION_SUCCESS_MESSAGE_ID} severity="success">
             <AlertTitle>{t('EMAIL_UPDATE_SUCCESS_TITLE')}</AlertTitle>
             {t('EMAIL_UPDATE_SUCCESS_TEXT')}
           </Alert>
-          <Button component={Link} to={loginLink}>
+          <ButtonLink to="/auth/login">
             {t('EMAIL_UPDATE_SUCCESS_BUTTON_TEXT')}
-          </Button>
+          </ButtonLink>
         </>
       );
     }

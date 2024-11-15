@@ -287,7 +287,7 @@ export const AUTH_MEMBERS = {
     enableSaveActions: true,
     isValidated: true,
   },
-} satisfies {
+} as const satisfies {
   [name: string]: CompleteMember & {
     nameValid?: boolean;
     emailValid?: boolean;

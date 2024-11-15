@@ -1,7 +1,7 @@
 import { isAfter } from 'date-fns/isAfter';
 import { jwtDecode } from 'jwt-decode';
 
-export const useValidateJWTToken = (token: string | null) => {
+export const useValidateJWTToken = (token: string | undefined) => {
   if (token) {
     // decode JWT
     try {

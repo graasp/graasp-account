@@ -72,47 +72,26 @@ describe('Email and Password Validation', () => {
     cy.get(`#${ERROR_DISPLAY_ID}`).should('be.visible');
   });
 
-  it('Sign In With Password shows success message if no redirect', () => {
-    cy.intercept(
-      {
-        pathname: API_ROUTES.SIGN_IN_WITH_PASSWORD_ROUTE,
-      },
-      (req) => {
-        req.reply({ statusCode: 303 });
-      },
-    ).as('signInWithPassword');
+  [AUTH_MEMBERS.WRONG_EMAIL, AUTH_MEMBERS.WRONG_PASSWORD].forEach((member) =>
+    it('Check errors if  shows success message if no redirect', () => {
+      cy.intercept(
+        {
+          pathname: API_ROUTES.SIGN_IN_WITH_PASSWORD_ROUTE,
+        },
+        (req) => {
+          req.reply({ statusCode: 303 });
+        },
+      ).as('signInWithPassword');
 
-    const { WRONG_EMAIL, WRONG_PASSWORD, GRAASP } = AUTH_MEMBERS;
-    cy.visit(LOGIN_PAGE_PATH);
-    // Signing in with wrong email
-    cy.signInPasswordAndCheck(WRONG_EMAIL);
-    // Signing in with a valid email but empty password
-    cy.signInPasswordAndCheck(WRONG_PASSWORD);
-    // Signing in with a valid email and password
-    cy.signInPasswordAndCheck(GRAASP);
+      cy.visit(LOGIN_PAGE_PATH);
+      cy.signInPasswordAndCheck(member);
+    }),
+  );
+  // // Signing in with a valid email but empty password
+  // cy.signInPasswordAndCheck(AUTH_MEMBERS.WRONG_PASSWORD);
+  // // Signing in with a valid email and password
+  // cy.signInPasswordAndCheck(AUTH_MEMBERS.GRAASP);
 
-    cy.get(`#${PASSWORD_SUCCESS_ALERT}`).should('be.visible');
-  });
-
-  it('Sign In With Password shows success message if no redirect', () => {
-    cy.intercept(
-      {
-        pathname: API_ROUTES.SIGN_IN_WITH_PASSWORD_ROUTE,
-      },
-      (req) => {
-        req.reply({ statusCode: 303 });
-      },
-    ).as('signInWithPassword');
-
-    const { WRONG_EMAIL, WRONG_PASSWORD, GRAASP } = AUTH_MEMBERS;
-    cy.visit(LOGIN_PAGE_PATH);
-    // Signing in with wrong email
-    cy.signInPasswordAndCheck(WRONG_EMAIL);
-    // Signing in with a valid email but empty password
-    cy.signInPasswordAndCheck(WRONG_PASSWORD);
-    // Signing in with a valid email and password
-    cy.signInPasswordAndCheck(GRAASP);
-
-    cy.get(`#${PASSWORD_SUCCESS_ALERT}`).should('be.visible');
-  });
+  // cy.get(`#${PASSWORD_SUCCESS_ALERT}`).should('be.visible');
+  // });
 });

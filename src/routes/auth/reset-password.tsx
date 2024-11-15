@@ -43,12 +43,11 @@ import {
 } from '../../config/selectors';
 
 const resetPasswordSchema = z.object({
-  t: z.string(),
+  t: z.string().optional(),
 });
 
 export const Route = createFileRoute('/auth/reset-password')({
   validateSearch: zodSearchValidator(resetPasswordSchema),
-  errorComponent: InvalidTokenScreen,
   component: ResetPassword,
 });
 
@@ -61,8 +60,8 @@ type Inputs = {
 
 export function ResetPassword() {
   const { t } = useTranslation(NS.Auth);
-  const { t: rawToken } = Route.useSearch();
-  const { isValid, token } = useValidateJWTToken(rawToken);
+  const search = Route.useSearch();
+  const { isValid, token } = useValidateJWTToken(search.t);
 
   const [showPasswords, setShowPasswords] = useState(false);
 

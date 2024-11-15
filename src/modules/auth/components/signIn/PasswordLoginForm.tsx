@@ -124,7 +124,10 @@ export function PasswordLoginForm({ search }: PasswordLoginProps) {
         <TypographyLink
           color="textSecondary"
           variant="caption"
-          sx={{ textDecoration: 'none' }}
+          sx={{
+            textDecoration: 'none',
+            '&:hover': { color: (theme) => theme.palette.primary.main },
+          }}
           to="/auth/forgot-password"
         >
           {t(AUTH.REQUEST_PASSWORD_RESET_LINK)}

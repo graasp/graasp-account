@@ -1,5 +1,9 @@
-import { CookieKeys, MemberStorageItem, PublicProfile } from '@graasp/sdk';
-import { Member } from '@graasp/sdk';
+import {
+  CookieKeys,
+  Member,
+  MemberStorageItem,
+  PublicProfile,
+} from '@graasp/sdk';
 
 import {
   EMAIL_SIGN_IN_FIELD_ID,
@@ -33,19 +37,16 @@ import {
   mockGetMemberStorageFiles,
   mockGetOwnProfile,
   mockGetPasswordStatus,
+  mockGetStatus,
   mockGetStorage,
+  mockLogin,
   mockPostAvatar,
+  mockRequestPasswordReset,
+  mockResetPassword,
   mockSignInRedirection,
   mockSignOut,
   mockUpdateEmail,
   mockUpdatePassword,
-} from './server';
-import {
-  mockGetStatus,
-  mockLogin,
-  mockRedirection,
-  mockRequestPasswordReset,
-  mockResetPassword,
 } from './server';
 import { MemberForTest } from './utils';
 
@@ -166,7 +167,6 @@ Cypress.Commands.add(
     mockGetStatus();
     mockRequestPasswordReset(shouldFailRequestPasswordReset);
     mockResetPassword(shouldFailResetPassword);
-    mockRedirection();
     mockLogin(shouldFailLogin);
   },
 );

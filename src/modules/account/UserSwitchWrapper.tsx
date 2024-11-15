@@ -4,7 +4,6 @@ import { UserSwitchWrapper as GraaspUserSwitch } from '@graasp/ui';
 
 import { useAuth } from '@/AuthContext';
 import { NS } from '@/config/constants';
-import { GRAASP_AUTH_HOST } from '@/config/env';
 
 import { ACCOUNT_HOME_PATH } from '../../config/paths';
 import { hooks, mutations } from '../../config/queryClient';
@@ -42,7 +41,7 @@ const UserSwitchWrapper = ({ ButtonContent }: Props): JSX.Element | null => {
           isCurrentMemberLoading={isLoading}
           avatar={<MemberAvatar id={user.id} />}
           profilePath={ACCOUNT_HOME_PATH}
-          redirectPath={GRAASP_AUTH_HOST}
+          redirectPath="/auth/login"
           userMenuItems={[]}
         />
       </>
