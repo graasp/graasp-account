@@ -8,11 +8,10 @@ import { EyeIcon, EyeOffIcon } from 'lucide-react';
 
 import { NS } from '@/config/constants';
 
-import { AUTH } from '../../langs/constants';
+import { AUTH } from '~auth/langs';
+
 import { PasswordAdornment } from './Adornments';
 import { StyledTextField } from './StyledTextField';
-
-const { PASSWORD_INPUT_PLACEHOLDER } = AUTH;
 
 type Props = {
   id: string;
@@ -58,7 +57,7 @@ export function PasswordInput({ id, error, form }: Props): JSX.Element {
         // @ts-expect-error
         t(error)
       }
-      placeholder={t(PASSWORD_INPUT_PLACEHOLDER)}
+      placeholder={t(AUTH.PASSWORD_INPUT_PLACEHOLDER)}
       id={id}
       type={showPassword ? 'text' : 'password'}
       {...form}

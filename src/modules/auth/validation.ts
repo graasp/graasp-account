@@ -8,7 +8,7 @@ import {
   isPasswordStrong,
 } from '@graasp/sdk';
 
-import { AUTH } from '../langs/constants';
+import { AUTH } from '~auth/langs';
 
 const {
   USERNAME_TOO_LONG_ERROR,

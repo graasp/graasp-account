@@ -9,11 +9,10 @@ import { ArrowRightIcon } from 'lucide-react';
 
 import { ButtonLink } from '@/components/ui/ButtonLink';
 import { NS } from '@/config/constants';
+import { hooks } from '@/config/queryClient';
+import { REDIRECTION_CONTENT_CONTAINER_ID } from '@/config/selectors';
 
-import { DEFAULT_REDIRECTION_URL } from '../config/env';
-import { hooks } from '../config/queryClient';
-import { REDIRECTION_CONTENT_CONTAINER_ID } from '../config/selectors';
-import { AUTH } from '../langs/constants';
+import { AUTH } from '~auth/langs';
 
 type Props = {
   children: ReactNode;
@@ -23,7 +22,6 @@ export function Redirection({ children }: Props) {
   const theme = useTheme();
   const { data: member } = hooks.useCurrentMember();
   const { t } = useTranslation(NS.Auth);
-  const targetLink = DEFAULT_REDIRECTION_URL;
 
   if (member) {
     return (
@@ -54,7 +52,7 @@ export function Redirection({ children }: Props) {
             <ButtonLink
               role="button"
               variant="contained"
-              to={targetLink}
+              to="/account"
               endIcon={<ArrowRightIcon />}
             >
               {t(AUTH.REDIRECTION_BUTTON)}

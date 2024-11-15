@@ -3,7 +3,6 @@ import {
   LOGIN_REQUIRED_BUTTON_ID,
   LOGIN_REQUIRED_TEXT_ID,
 } from '../../src/config/selectors';
-import { SIGN_IN_PATH } from '../support/server';
 
 describe('Redirect when not logged in', () => {
   beforeEach(() => {
@@ -16,6 +15,6 @@ describe('Redirect when not logged in', () => {
     cy.get(`#${LOGIN_REQUIRED_TEXT_ID}`).should('be.visible');
     cy.get(`#${LOGIN_REQUIRED_BUTTON_ID}`).click();
     cy.wait('@signInRedirection');
-    cy.url().should('contain', `${SIGN_IN_PATH}?url=`);
+    cy.url().should('contain', `/auth/login?url=`);
   });
 });

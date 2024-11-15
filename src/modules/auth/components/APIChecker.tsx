@@ -6,10 +6,10 @@ import { Alert, AlertTitle, Box, Stack, Typography } from '@mui/material';
 import { RotateCcwIcon } from 'lucide-react';
 
 import { NS } from '@/config/constants';
+import { API_HOST } from '@/config/env';
+import { axios, useQuery } from '@/config/queryClient';
 
-import { API_HOST } from '../config/env';
-import { axios, useQuery } from '../config/queryClient';
-import { AUTH } from '../langs/constants';
+import { AUTH } from '~auth/langs';
 
 export function APIChecker(): JSX.Element | null {
   const { t } = useTranslation(NS.Auth);

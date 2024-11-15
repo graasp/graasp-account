@@ -117,18 +117,17 @@ describe('Success Content', () => {
     });
 
     it('Resend email', () => {
-      const { GRAASP, GRAASP_OTHER } = AUTH_MEMBERS;
       cy.visit('/auth/register');
 
       // Signing up with a valid email
-      cy.signUpAndCheck(GRAASP_OTHER, true);
+      cy.signUpAndCheck(AUTH_MEMBERS.GRAASP_OTHER, true);
       cy.get(`#${BACK_BUTTON_ID}`).click();
 
-      cy.signUpAndCheck(GRAASP, true);
+      cy.signUpAndCheck(AUTH_MEMBERS.GRAASP, true);
 
       // checks so request body contains correct email
       cy.intercept(API_ROUTES.SIGN_IN_ROUTE, ({ body }) => {
-        expect(body.email).to.eq(GRAASP.email);
+        expect(body.email).to.eq(AUTH_MEMBERS.GRAASP.email);
       });
 
       // checks resend email button is disabled after one click

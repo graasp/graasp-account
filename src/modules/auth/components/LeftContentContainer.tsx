@@ -11,10 +11,11 @@ import {
 } from '@graasp/ui';
 
 import { NS } from '@/config/constants';
+import { PLATFORM_ADVERTISEMENT_CONTAINER_ID } from '@/config/selectors';
 
-import { BACKGROUND_PATTERN } from '../config/constants';
-import { PLATFORM_ADVERTISEMENT_CONTAINER_ID } from '../config/selectors';
-import { AUTH } from '../langs/constants';
+import { AUTH } from '~auth/langs';
+
+import { BACKGROUND_PATTERN } from '../constants';
 import { APIChecker } from './APIChecker';
 import { BrandingLogo } from './BrandingLogo';
 import { Footer } from './Footer';

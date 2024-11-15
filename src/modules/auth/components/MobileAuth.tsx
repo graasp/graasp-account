@@ -6,7 +6,8 @@ import { Button, Stack, Typography } from '@mui/material';
 import { TypographyLink } from '@/components/ui/TypographyLink';
 import { NS } from '@/config/constants';
 
-import { AUTH } from '../langs/constants';
+import { AUTH } from '~auth/langs';
+
 import { LeftContentContainer } from './LeftContentContainer';
 
 const PLAY_STORE_LINK =

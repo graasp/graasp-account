@@ -8,7 +8,6 @@ import {
   ERROR_DISPLAY_ID,
   PASSWORD_SIGN_IN_BUTTON_ID,
   PASSWORD_SIGN_IN_FIELD_ID,
-  PASSWORD_SUCCESS_ALERT,
 } from '../../../src/config/selectors';
 import { AUTH_MEMBERS } from '../../fixtures/members';
 import { fillPasswordSignInLayout } from './util';

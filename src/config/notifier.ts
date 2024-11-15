@@ -7,6 +7,7 @@ import axios from 'axios';
 import { MessageKeys } from '@/@types/i18next';
 
 import { NS } from './constants';
+import { SHOW_NOTIFICATIONS } from './env';
 
 const {
   updatePasswordRoutine,
@@ -14,6 +15,10 @@ const {
   patchPublicProfileRoutine,
   updateEmailRoutine,
   exportMemberDataRoutine,
+  getInvitationRoutine,
+  signInRoutine,
+  signUpRoutine,
+  signInWithPasswordRoutine,
 } = routines;
 
 // todo: find a way to use the i18n instance instead
@@ -50,10 +55,19 @@ export default ({
   type: string;
   payload?: Payload;
 }): void => {
+  if (!SHOW_NOTIFICATIONS) {
+    return;
+  }
+
   let message: keyof MessageKeys | undefined = undefined;
 
   switch (type) {
     // error messages
+    // auth
+    case signInRoutine.FAILURE:
+    case signUpRoutine.FAILURE:
+    case signInWithPasswordRoutine.FAILURE:
+    case getInvitationRoutine.FAILURE:
     case updatePasswordRoutine.FAILURE:
     case postPublicProfileRoutine.FAILURE:
     case updateEmailRoutine.FAILURE:
@@ -64,6 +78,10 @@ export default ({
     }
 
     // success messages
+    // auth
+    case signInRoutine.SUCCESS:
+    case signUpRoutine.SUCCESS:
+    case signInWithPasswordRoutine.SUCCESS:
     case updatePasswordRoutine.SUCCESS:
     case postPublicProfileRoutine.SUCCESS:
     case updateEmailRoutine.SUCCESS:
@@ -72,7 +90,6 @@ export default ({
       message = getSuccessMessageFromPayload(payload);
       break;
     }
-
     default:
   }
 

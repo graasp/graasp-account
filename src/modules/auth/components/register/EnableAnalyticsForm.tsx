@@ -9,11 +9,9 @@ import {
 } from '@mui/material';
 
 import { NS } from '@/config/constants';
+import { SIGN_UP_SAVE_ACTIONS_ID } from '@/config/selectors';
 
-import { SIGN_UP_SAVE_ACTIONS_ID } from '../../config/selectors';
-import { AUTH } from '../../langs/constants';
-
-const { SIGN_UP_SAVE_ACTIONS_TOOLTIP, SIGN_UP_SAVE_ACTIONS_LABEL } = AUTH;
+import { AUTH } from '~auth/langs';
 
 type Props = {
   enableSaveActions: boolean;
@@ -27,7 +25,7 @@ export function EnableAnalyticsForm({
   const { t } = useTranslation(NS.Auth);
 
   return (
-    <Tooltip title={t(SIGN_UP_SAVE_ACTIONS_TOOLTIP)} placement="right">
+    <Tooltip title={t(AUTH.SIGN_UP_SAVE_ACTIONS_TOOLTIP)} placement="right">
       <FormGroup>
         <FormControlLabel
           control={
@@ -40,7 +38,7 @@ export function EnableAnalyticsForm({
           }
           label={
             <Typography fontSize="small">
-              {t(SIGN_UP_SAVE_ACTIONS_LABEL)}
+              {t(AUTH.SIGN_UP_SAVE_ACTIONS_LABEL)}
             </Typography>
           }
         />

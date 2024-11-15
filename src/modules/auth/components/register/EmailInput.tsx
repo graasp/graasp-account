@@ -3,12 +3,11 @@ import { useTranslation } from 'react-i18next';
 
 import { NS } from '@/config/constants';
 
-import { AUTH } from '../../langs/constants';
-import { emailValidator } from '../../utils/validation';
+import { AUTH } from '~auth/langs';
+import { emailValidator } from '~auth/validation';
+
 import { EmailAdornment } from '../common/Adornments';
 import { StyledTextField } from '../common/StyledTextField';
-
-const { EMAIL_INPUT_PLACEHOLDER } = AUTH;
 
 type Props = {
   required?: boolean;
@@ -66,7 +65,7 @@ export function EmailInput({
         t(error)
       }
       placeholder={t(
-        `${EMAIL_INPUT_PLACEHOLDER}${required ? '_REQUIRED' : ''}`,
+        `${AUTH.EMAIL_INPUT_PLACEHOLDER}${required ? '_REQUIRED' : ''}`,
       )}
       // eslint-disable-next-line jsx-a11y/no-autofocus
       autoFocus={autoFocus}

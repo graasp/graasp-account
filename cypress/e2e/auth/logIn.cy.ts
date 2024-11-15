@@ -39,6 +39,8 @@ describe('Sign In', () => {
     cy.get(`#${MAGIC_LINK_EMAIL_FIELD_ID}`).type(
       `${AUTH_MEMBERS.BOB.email}{Enter}`,
     );
-    cy.get(`h4`).should('contain.text', 'Welcome back');
+    cy.get(`#${SUCCESS_CONTENT_ID}`)
+      .should('be.visible')
+      .and('contain.text', 'Welcome back');
   });
 });

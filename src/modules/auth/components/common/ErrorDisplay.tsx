@@ -3,9 +3,8 @@ import { useTranslation } from 'react-i18next';
 import { Alert } from '@mui/material';
 
 import { NS } from '@/config/constants';
-
-import { getErrorMessage } from '../../config/notifier';
-import { ERROR_DISPLAY_ID } from '../../config/selectors';
+import { getErrorMessageFromPayload } from '@/config/notifier';
+import { ERROR_DISPLAY_ID } from '@/config/selectors';
 
 export function ErrorDisplay({
   error,
@@ -20,7 +19,7 @@ export function ErrorDisplay({
 
   return (
     <Alert id={ERROR_DISPLAY_ID} severity="error">
-      {translateMessages(getErrorMessage(error))}
+      {translateMessages(getErrorMessageFromPayload({ payload: error }))}
     </Alert>
   );
 }

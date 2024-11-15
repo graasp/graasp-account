@@ -19,9 +19,7 @@ import { useSearch } from '@tanstack/react-router';
 import { ButtonLink } from '@/components/ui/ButtonLink';
 import { TypographyLink } from '@/components/ui/TypographyLink';
 import { NS } from '@/config/constants';
-
-import { HELP_EMAIL } from '../../config/constants';
-import { mutations } from '../../config/queryClient';
+import { mutations } from '@/config/queryClient';
 import {
   RESET_PASSWORD_BACK_TO_LOGIN_BUTTON_ID,
   RESET_PASSWORD_ERROR_MESSAGE_ID,
@@ -31,10 +29,13 @@ import {
   RESET_PASSWORD_NEW_PASSWORD_FIELD_ID,
   RESET_PASSWORD_SUBMIT_BUTTON_ID,
   RESET_PASSWORD_SUCCESS_MESSAGE_ID,
-} from '../../config/selectors';
-import { useValidateJWTToken } from '../../hooks/useValidateJWTToken';
-import { AUTH } from '../../langs/constants';
-import { getValidationMessage } from '../../utils/validation';
+} from '@/config/selectors';
+
+import { HELP_EMAIL } from '~auth/constants';
+import { useValidateJWTToken } from '~auth/hooks/useValidateJWTToken';
+import { AUTH } from '~auth/langs';
+import { getValidationMessage } from '~auth/validation';
+
 import { PasswordAdornment } from '../common/Adornments';
 import { CenteredContent } from '../layout/CenteredContent';
 import { DialogHeader } from '../layout/DialogHeader';

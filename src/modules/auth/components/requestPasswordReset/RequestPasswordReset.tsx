@@ -4,7 +4,7 @@ import { useTranslation } from 'react-i18next';
 import { LoadingButton } from '@mui/lab';
 import { Alert, Stack, TextField } from '@mui/material';
 
-import { RecaptchaAction } from '@graasp/sdk';
+import { RecaptchaAction, isEmail } from '@graasp/sdk';
 
 import { TypographyLink } from '@/components/ui/TypographyLink';
 import { NS } from '@/config/constants';
@@ -17,11 +17,11 @@ import {
   REQUEST_PASSWORD_RESET_SUCCESS_MESSAGE_ID,
 } from '@/config/selectors';
 
-import { HELP_EMAIL } from '~auth/config/constants';
+import { HELP_EMAIL } from '~auth/constants';
+import { AUTH } from '~auth/langs';
+import { getValidationMessage } from '~auth/validation';
 
 import { useRecaptcha } from '../../context/RecaptchaContext';
-import { AUTH } from '../../langs/constants';
-import { getValidationMessage, isEmailValid } from '../../utils/validation';
 import { EmailAdornment } from '../common/Adornments';
 import { CenteredContent } from '../layout/CenteredContent';
 import { DialogHeader } from '../layout/DialogHeader';
@@ -77,7 +77,8 @@ export function RequestPasswordReset() {
           autoFocus
           {...register('email', {
             required: true,
-            validate: isEmailValid,
+            validate: (email) =>
+              isEmail(email, {}) || t(AUTH.INVALID_EMAIL_ERROR),
           })}
           FormHelperTextProps={{
             id: REQUEST_PASSWORD_RESET_EMAIL_FIELD_HELPER_ID,
@@ -86,12 +87,7 @@ export function RequestPasswordReset() {
             startAdornment: EmailAdornment,
           }}
           placeholder={t(AUTH.EMAIL_INPUT_PLACEHOLDER)}
-          helperText={
-            errorMessage &&
-            // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-            // @ts-expect-error
-            t(errorMessage)
-          }
+          helperText={errorMessage}
           error={hasErrors}
           // once the request is sent disable the input
           disabled={isSuccess || isError}

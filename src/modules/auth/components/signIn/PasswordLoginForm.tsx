@@ -8,18 +8,19 @@ import { RecaptchaAction } from '@graasp/sdk';
 
 import { TypographyLink } from '@/components/ui/TypographyLink';
 import { NS } from '@/config/constants';
-
-import { mutations } from '../../config/queryClient';
+import { mutations } from '@/config/queryClient';
 import {
   EMAIL_SIGN_IN_FIELD_ID,
   PASSWORD_SIGN_IN_BUTTON_ID,
   PASSWORD_SIGN_IN_FIELD_ID,
   PASSWORD_SUCCESS_ALERT,
-} from '../../config/selectors';
-import { useRecaptcha } from '../../context/RecaptchaContext';
-import { useMobileAppLogin } from '../../hooks/mobile';
-import { AUTH } from '../../langs/constants';
-import { getValidationMessage, isEmailValid } from '../../utils/validation';
+} from '@/config/selectors';
+
+import { useRecaptcha } from '~auth/context/RecaptchaContext';
+import { useMobileAppLogin } from '~auth/hooks/useMobileAppLogin';
+import { AUTH } from '~auth/langs';
+import { getValidationMessage, isEmailValid } from '~auth/validation';
+
 import { ErrorDisplay } from '../common/ErrorDisplay';
 import { PasswordInput } from '../common/PasswordInput';
 import { EmailInput } from './EmailInput';

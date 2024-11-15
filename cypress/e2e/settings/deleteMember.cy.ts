@@ -5,7 +5,7 @@ import {
   DELETE_MEMBER_DIALOG_CONFIRMATION_FIELD_ID,
   DELETE_MEMBER_DIALOG_TITLE_ID,
   DELETE_MEMBER_SECTION_ID,
-  LOGIN_REQUIRED_TEXT_ID,
+  MAGIC_LINK_EMAIL_FIELD_ID,
 } from '../../../src/config/selectors';
 import { CURRENT_MEMBER } from '../../fixtures/members';
 
@@ -36,6 +36,6 @@ describe('Unauthenticated member', () => {
     cy.visit(ACCOUNT_SETTINGS_PATH);
 
     // there is no authenticated user, we expect the login text to be displayed
-    cy.get(`#${LOGIN_REQUIRED_TEXT_ID}`).should('be.visible');
+    cy.get(`#${MAGIC_LINK_EMAIL_FIELD_ID}`).should('be.visible');
   });
 });

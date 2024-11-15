@@ -4,9 +4,10 @@ import { Alert } from '@mui/material';
 
 import { ButtonLink } from '@/components/ui/ButtonLink';
 import { NS } from '@/config/constants';
+import { RESET_PASSWORD_TOKEN_ERROR_ID } from '@/config/selectors';
 
-import { RESET_PASSWORD_TOKEN_ERROR_ID } from '../../config/selectors';
-import { AUTH } from '../../langs/constants';
+import { AUTH } from '~auth/langs';
+
 import { CenteredContent } from '../layout/CenteredContent';
 import { DialogHeader } from '../layout/DialogHeader';
 

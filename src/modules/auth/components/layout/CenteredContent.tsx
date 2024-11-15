@@ -2,7 +2,7 @@ import { ReactNode } from 'react';
 
 import { Stack } from '@mui/material';
 
-import { BACKGROUND_PATTERN } from '../../config/constants';
+import { BACKGROUND_PATTERN } from '../../constants';
 import { APIChecker } from '../APIChecker';
 import { Footer } from '../Footer';
 import { styledBox } from '../styles';

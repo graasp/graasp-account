@@ -7,11 +7,14 @@ import {
   Typography,
 } from '@mui/material';
 
-import { NS } from '@/config/constants';
+import { Link } from '@tanstack/react-router';
 
-import { SIGN_UP_AGREEMENTS_CHECKBOX_ID } from '../../config/selectors';
+import { NS } from '@/config/constants';
+import { SIGN_UP_AGREEMENTS_CHECKBOX_ID } from '@/config/selectors';
+
+import { AUTH } from '~auth/langs';
+
 import { UseAgreementForm } from '../../hooks/useAgreementForm';
-import { AUTH } from '../../langs/constants';
 
 type Props = {
   useAgreementForm: UseAgreementForm;
@@ -20,13 +23,8 @@ type Props = {
 export function AgreementForm({ useAgreementForm }: Props) {
   const { t } = useTranslation(NS.Auth);
 
-  const {
-    userHasAcceptedAllTerms,
-    updateUserAgreements,
-    hasError,
-    privacyPolicyLink,
-    termsOfServiceLink,
-  } = useAgreementForm;
+  const { userHasAcceptedAllTerms, updateUserAgreements, hasError } =
+    useAgreementForm;
 
   const errorColor = 'error';
 
@@ -58,22 +56,22 @@ export function AgreementForm({ useAgreementForm }: Props) {
               }}
               components={[
                 <strong key="sign_up_btn"></strong>,
-                <a
+                <Link
                   key="terms_of_service_link"
-                  href={termsOfServiceLink}
+                  to="/terms"
                   target="_blank"
                   rel="noreferrer"
                 >
                   _
-                </a>,
-                <a
+                </Link>,
+                <Link
                   key="privacy_policy_link"
-                  href={privacyPolicyLink}
+                  to="/policy"
                   target="_blank"
                   rel="noreferrer"
                 >
                   _
-                </a>,
+                </Link>,
               ]}
               t={t}
             />

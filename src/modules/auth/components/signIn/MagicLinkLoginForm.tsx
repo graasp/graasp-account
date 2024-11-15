@@ -9,20 +9,19 @@ import { RecaptchaAction } from '@graasp/sdk';
 import { useNavigate } from '@tanstack/react-router';
 
 import { NS } from '@/config/constants';
-
-import { mutations } from '../../config/queryClient';
+import { mutations } from '@/config/queryClient';
 import {
   MAGIC_LINK_EMAIL_FIELD_ID,
   SIGN_IN_BUTTON_ID,
-} from '../../config/selectors';
+} from '@/config/selectors';
+
+import { AUTH } from '~auth/langs';
+import { getValidationMessage, isEmailValid } from '~auth/validation';
+
 import { useRecaptcha } from '../../context/RecaptchaContext';
-import { useMobileAppLogin } from '../../hooks/mobile';
-import { AUTH } from '../../langs/constants';
-import { getValidationMessage, isEmailValid } from '../../utils/validation';
+import { useMobileAppLogin } from '../../hooks/useMobileAppLogin';
 import { ErrorDisplay } from '../common/ErrorDisplay';
 import { EmailInput } from './EmailInput';
-
-const { SIGN_IN_BUTTON } = AUTH;
 
 type Inputs = {
   email: string;
@@ -116,7 +115,7 @@ export function MagicLinkLoginForm({ search }: MagicLinkLoginFormProps) {
         fullWidth
         loading={isLoadingMobileSignIn || isLoadingSignIn}
       >
-        {t(SIGN_IN_BUTTON)}
+        {t(AUTH.SIGN_IN_BUTTON)}
       </LoadingButton>
     </Stack>
   );
