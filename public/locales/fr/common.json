@@ -1,0 +1,42 @@
+{
+  "LOGOUT": {
+    "BUTTON_TEXT": "Se déconnecter"
+  },
+  "LOG_IN": {
+    "BUTTON_TEXT": "Se connecter"
+  },
+  "REGISTER": {
+    "BUTTON_TEXT": "Registre"
+  },
+  "BACK": {
+    "BUTTON_TEXT": "Dos"
+  },
+  "HOME": {
+    "BUTTON_TEXT": "Rentrer à la maison"
+  },
+  "SAVE": {
+    "BUTTON_TEXT": "Sauvegarder"
+  },
+  "CANCEL": {
+    "BUTTON_TEXT": "Annuler"
+  },
+  "EDIT": {
+    "BUTTON_TEXT": "Modifier"
+  },
+  "CONFIRM": {
+    "BUTTON_TEXT": "Confirmer"
+  },
+  "CONJONCTION": {
+    "OR": "ou"
+  },
+  "CONSTRUCTION": {
+    "TITLE": "Cette page est en construction",
+    "DESCRIPTION": "Nous travaillons à l'amélioration de cette partie de l'application. Nous vous demandons votre compréhension pendant que nous effectuons les changements nécessaires."
+  },
+  "USER_MENU": {
+    "SETTINGS": "Paramètres"
+  },
+  "ERRORS": {
+    "UNEXPECTED": "Une erreur inattendue s'est produite"
+  }
+}
