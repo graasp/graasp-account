@@ -6,7 +6,7 @@ import { Stack } from '@mui/material';
 
 import { RecaptchaAction } from '@graasp/sdk';
 
-import { useNavigate } from '@tanstack/react-router';
+import { useLocation, useNavigate } from '@tanstack/react-router';
 
 import { NS } from '@/config/constants';
 import { mutations } from '@/config/queryClient';
@@ -35,6 +35,7 @@ type MagicLinkLoginFormProps = {
 
 export function MagicLinkLoginForm({ search }: MagicLinkLoginFormProps) {
   const navigate = useNavigate();
+  const location = useLocation();
   const { t } = useTranslation(NS.Auth);
 
   const { executeCaptcha } = useRecaptcha();
@@ -76,8 +77,8 @@ export function MagicLinkLoginForm({ search }: MagicLinkLoginFormProps) {
 
       // navigate to success path
       navigate({
-        to: '/auth/login/success',
-        search: { email },
+        to: '/auth/success',
+        search: { email, back: location.pathname },
       });
     } catch (e) {
       console.error(e);

@@ -7,8 +7,8 @@ import {
   NAME_SIGN_UP_FIELD_ID,
   PASSWORD_SIGN_IN_BUTTON_ID,
   PASSWORD_SIGN_IN_FIELD_ID,
+  REGISTER_BUTTON_ID,
   SIGN_IN_BUTTON_ID,
-  SIGN_UP_BUTTON_ID,
 } from '../../../src/config/selectors';
 
 export const fillSignUpLayout = ({
@@ -52,7 +52,7 @@ export const submitSignIn = (): void => {
 };
 
 export const submitSignUp = (): void => {
-  cy.get(`#${SIGN_UP_BUTTON_ID}`).click();
+  cy.get(`#${REGISTER_BUTTON_ID}`).click();
 };
 
 export const fillPasswordSignInLayout = ({

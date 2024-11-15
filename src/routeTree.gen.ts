@@ -24,13 +24,13 @@ import { Route as AccountImport } from './routes/account'
 import { Route as AboutUsImport } from './routes/about-us'
 import { Route as AccountIndexImport } from './routes/account/index'
 import { Route as EmailChangeImport } from './routes/email.change'
+import { Route as AuthSuccessImport } from './routes/auth/success'
 import { Route as AuthResetPasswordImport } from './routes/auth/reset-password'
 import { Route as AuthRegisterImport } from './routes/auth/register'
+import { Route as AuthLoginImport } from './routes/auth/login'
 import { Route as AuthForgotPasswordImport } from './routes/auth/forgot-password'
 import { Route as AccountStorageImport } from './routes/account/storage'
 import { Route as AccountSettingsImport } from './routes/account/settings'
-import { Route as AuthLoginIndexImport } from './routes/auth/login/index'
-import { Route as AuthLoginSuccessImport } from './routes/auth/login/success'
 
 // Create Virtual Routes
 
@@ -110,6 +110,12 @@ const EmailChangeRoute = EmailChangeImport.update({
   getParentRoute: () => rootRoute,
 } as any)
 
+const AuthSuccessRoute = AuthSuccessImport.update({
+  id: '/success',
+  path: '/success',
+  getParentRoute: () => AuthRoute,
+} as any)
+
 const AuthResetPasswordRoute = AuthResetPasswordImport.update({
   id: '/reset-password',
   path: '/reset-password',
@@ -119,6 +125,12 @@ const AuthResetPasswordRoute = AuthResetPasswordImport.update({
 const AuthRegisterRoute = AuthRegisterImport.update({
   id: '/register',
   path: '/register',
+  getParentRoute: () => AuthRoute,
+} as any)
+
+const AuthLoginRoute = AuthLoginImport.update({
+  id: '/login',
+  path: '/login',
   getParentRoute: () => AuthRoute,
 } as any)
 
@@ -138,18 +150,6 @@ const AccountSettingsRoute = AccountSettingsImport.update({
   id: '/settings',
   path: '/settings',
   getParentRoute: () => AccountRoute,
-} as any)
-
-const AuthLoginIndexRoute = AuthLoginIndexImport.update({
-  id: '/login/',
-  path: '/login/',
-  getParentRoute: () => AuthRoute,
-} as any)
-
-const AuthLoginSuccessRoute = AuthLoginSuccessImport.update({
-  id: '/login/success',
-  path: '/login/success',
-  getParentRoute: () => AuthRoute,
 } as any)
 
 // Populate the FileRoutesByPath interface
@@ -247,6 +247,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AuthForgotPasswordImport
       parentRoute: typeof AuthImport
     }
+    '/auth/login': {
+      id: '/auth/login'
+      path: '/login'
+      fullPath: '/auth/login'
+      preLoaderRoute: typeof AuthLoginImport
+      parentRoute: typeof AuthImport
+    }
     '/auth/register': {
       id: '/auth/register'
       path: '/register'
@@ -259,6 +266,13 @@ declare module '@tanstack/react-router' {
       path: '/reset-password'
       fullPath: '/auth/reset-password'
       preLoaderRoute: typeof AuthResetPasswordImport
+      parentRoute: typeof AuthImport
+    }
+    '/auth/success': {
+      id: '/auth/success'
+      path: '/success'
+      fullPath: '/auth/success'
+      preLoaderRoute: typeof AuthSuccessImport
       parentRoute: typeof AuthImport
     }
     '/email/change': {
@@ -274,20 +288,6 @@ declare module '@tanstack/react-router' {
       fullPath: '/account/'
       preLoaderRoute: typeof AccountIndexImport
       parentRoute: typeof AccountImport
-    }
-    '/auth/login/success': {
-      id: '/auth/login/success'
-      path: '/login/success'
-      fullPath: '/auth/login/success'
-      preLoaderRoute: typeof AuthLoginSuccessImport
-      parentRoute: typeof AuthImport
-    }
-    '/auth/login/': {
-      id: '/auth/login/'
-      path: '/login'
-      fullPath: '/auth/login'
-      preLoaderRoute: typeof AuthLoginIndexImport
-      parentRoute: typeof AuthImport
     }
   }
 }
@@ -311,18 +311,18 @@ const AccountRouteWithChildren =
 
 interface AuthRouteChildren {
   AuthForgotPasswordRoute: typeof AuthForgotPasswordRoute
+  AuthLoginRoute: typeof AuthLoginRoute
   AuthRegisterRoute: typeof AuthRegisterRoute
   AuthResetPasswordRoute: typeof AuthResetPasswordRoute
-  AuthLoginSuccessRoute: typeof AuthLoginSuccessRoute
-  AuthLoginIndexRoute: typeof AuthLoginIndexRoute
+  AuthSuccessRoute: typeof AuthSuccessRoute
 }
 
 const AuthRouteChildren: AuthRouteChildren = {
   AuthForgotPasswordRoute: AuthForgotPasswordRoute,
+  AuthLoginRoute: AuthLoginRoute,
   AuthRegisterRoute: AuthRegisterRoute,
   AuthResetPasswordRoute: AuthResetPasswordRoute,
-  AuthLoginSuccessRoute: AuthLoginSuccessRoute,
-  AuthLoginIndexRoute: AuthLoginIndexRoute,
+  AuthSuccessRoute: AuthSuccessRoute,
 }
 
 const AuthRouteWithChildren = AuthRoute._addFileChildren(AuthRouteChildren)
@@ -341,12 +341,12 @@ export interface FileRoutesByFullPath {
   '/account/settings': typeof AccountSettingsRoute
   '/account/storage': typeof AccountStorageRoute
   '/auth/forgot-password': typeof AuthForgotPasswordRoute
+  '/auth/login': typeof AuthLoginRoute
   '/auth/register': typeof AuthRegisterRoute
   '/auth/reset-password': typeof AuthResetPasswordRoute
+  '/auth/success': typeof AuthSuccessRoute
   '/email/change': typeof EmailChangeRoute
   '/account/': typeof AccountIndexRoute
-  '/auth/login/success': typeof AuthLoginSuccessRoute
-  '/auth/login': typeof AuthLoginIndexRoute
 }
 
 export interface FileRoutesByTo {
@@ -362,12 +362,12 @@ export interface FileRoutesByTo {
   '/account/settings': typeof AccountSettingsRoute
   '/account/storage': typeof AccountStorageRoute
   '/auth/forgot-password': typeof AuthForgotPasswordRoute
+  '/auth/login': typeof AuthLoginRoute
   '/auth/register': typeof AuthRegisterRoute
   '/auth/reset-password': typeof AuthResetPasswordRoute
+  '/auth/success': typeof AuthSuccessRoute
   '/email/change': typeof EmailChangeRoute
   '/account': typeof AccountIndexRoute
-  '/auth/login/success': typeof AuthLoginSuccessRoute
-  '/auth/login': typeof AuthLoginIndexRoute
 }
 
 export interface FileRoutesById {
@@ -385,12 +385,12 @@ export interface FileRoutesById {
   '/account/settings': typeof AccountSettingsRoute
   '/account/storage': typeof AccountStorageRoute
   '/auth/forgot-password': typeof AuthForgotPasswordRoute
+  '/auth/login': typeof AuthLoginRoute
   '/auth/register': typeof AuthRegisterRoute
   '/auth/reset-password': typeof AuthResetPasswordRoute
+  '/auth/success': typeof AuthSuccessRoute
   '/email/change': typeof EmailChangeRoute
   '/account/': typeof AccountIndexRoute
-  '/auth/login/success': typeof AuthLoginSuccessRoute
-  '/auth/login/': typeof AuthLoginIndexRoute
 }
 
 export interface FileRouteTypes {
@@ -409,12 +409,12 @@ export interface FileRouteTypes {
     | '/account/settings'
     | '/account/storage'
     | '/auth/forgot-password'
+    | '/auth/login'
     | '/auth/register'
     | '/auth/reset-password'
+    | '/auth/success'
     | '/email/change'
     | '/account/'
-    | '/auth/login/success'
-    | '/auth/login'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
@@ -429,12 +429,12 @@ export interface FileRouteTypes {
     | '/account/settings'
     | '/account/storage'
     | '/auth/forgot-password'
+    | '/auth/login'
     | '/auth/register'
     | '/auth/reset-password'
+    | '/auth/success'
     | '/email/change'
     | '/account'
-    | '/auth/login/success'
-    | '/auth/login'
   id:
     | '__root__'
     | '/'
@@ -450,12 +450,12 @@ export interface FileRouteTypes {
     | '/account/settings'
     | '/account/storage'
     | '/auth/forgot-password'
+    | '/auth/login'
     | '/auth/register'
     | '/auth/reset-password'
+    | '/auth/success'
     | '/email/change'
     | '/account/'
-    | '/auth/login/success'
-    | '/auth/login/'
   fileRoutesById: FileRoutesById
 }
 
@@ -528,10 +528,10 @@ export const routeTree = rootRoute
       "filePath": "auth.tsx",
       "children": [
         "/auth/forgot-password",
+        "/auth/login",
         "/auth/register",
         "/auth/reset-password",
-        "/auth/login/success",
-        "/auth/login/"
+        "/auth/success"
       ]
     },
     "/contact-us": {
@@ -564,6 +564,10 @@ export const routeTree = rootRoute
       "filePath": "auth/forgot-password.tsx",
       "parent": "/auth"
     },
+    "/auth/login": {
+      "filePath": "auth/login.tsx",
+      "parent": "/auth"
+    },
     "/auth/register": {
       "filePath": "auth/register.tsx",
       "parent": "/auth"
@@ -572,20 +576,16 @@ export const routeTree = rootRoute
       "filePath": "auth/reset-password.tsx",
       "parent": "/auth"
     },
+    "/auth/success": {
+      "filePath": "auth/success.tsx",
+      "parent": "/auth"
+    },
     "/email/change": {
       "filePath": "email.change.tsx"
     },
     "/account/": {
       "filePath": "account/index.tsx",
       "parent": "/account"
-    },
-    "/auth/login/success": {
-      "filePath": "auth/login/success.tsx",
-      "parent": "/auth"
-    },
-    "/auth/login/": {
-      "filePath": "auth/login/index.tsx",
-      "parent": "/auth"
     }
   }
 }

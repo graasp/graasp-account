@@ -13,7 +13,11 @@ import { z } from 'zod';
 import { ButtonLink } from '@/components/ui/ButtonLink';
 import { NS } from '@/config/constants';
 import { mutations } from '@/config/queryClient';
-import { SUCCESS_CONTENT_ID } from '@/config/selectors';
+import {
+  BACK_BUTTON_ID,
+  RESEND_EMAIL_BUTTON_ID,
+  SUCCESS_CONTENT_ID,
+} from '@/config/selectors';
 
 import { LeftContentContainer } from '~auth/components/LeftContentContainer';
 import { useRecaptcha } from '~auth/context/RecaptchaContext';
@@ -21,15 +25,16 @@ import { useRecaptcha } from '~auth/context/RecaptchaContext';
 const signInSuccessSchema = z.object({
   email: z.string().email(),
   url: z.string().url().optional(),
+  back: z.string().optional(),
 });
 
-export const Route = createFileRoute('/auth/login/success')({
+export const Route = createFileRoute('/auth/success')({
   validateSearch: zodSearchValidator(signInSuccessSchema),
   component: RouteComponent,
 });
 
 function RouteComponent() {
-  const { email, url } = Route.useSearch();
+  const { email, url, back } = Route.useSearch();
   const { t } = useTranslation(NS.Auth);
   const { executeCaptcha } = useRecaptcha();
   const [isEmailSent, setIsEmailSent] = useState(false);
@@ -84,10 +89,18 @@ function RouteComponent() {
             {t('SIGN_IN_SUCCESS_EMAIL_PROBLEM')}
           </Typography>
           <Stack direction="row" justifyContent="center" spacing={1}>
-            <ButtonLink variant="text" color="primary" to="/auth/login">
-              {t('BACK_BUTTON')}
-            </ButtonLink>
+            {back && (
+              <ButtonLink
+                variant="text"
+                color="primary"
+                to={back}
+                id={BACK_BUTTON_ID}
+              >
+                {t('BACK_BUTTON')}
+              </ButtonLink>
+            )}
             <Button
+              id={RESEND_EMAIL_BUTTON_ID}
               variant="outlined"
               color="primary"
               onClick={onClickResendEmail}

@@ -6,7 +6,7 @@ import { v4 } from 'uuid';
 import {
   EMAIL_SIGN_UP_FIELD_ID,
   NAME_SIGN_UP_FIELD_ID,
-  SIGN_UP_BUTTON_ID,
+  REGISTER_BUTTON_ID,
   SIGN_UP_SAVE_ACTIONS_ID,
   SUCCESS_CONTENT_ID,
 } from '../../../src/config/selectors';
@@ -25,15 +25,15 @@ describe('Register', () => {
     });
 
     it('Cannot register without accepting terms', () => {
-      cy.get(`#${SIGN_UP_BUTTON_ID}`).should('be.disabled');
+      cy.get(`#${REGISTER_BUTTON_ID}`).should('be.disabled');
     });
 
     it('Register is available when accepting all terms', () => {
       fillSignUpLayout({ name: 'name', email: 'email' });
-      cy.get(`#${SIGN_UP_BUTTON_ID}`).should('be.disabled');
+      cy.get(`#${REGISTER_BUTTON_ID}`).should('be.disabled');
 
       cy.agreeWithAllTerms();
-      cy.get(`#${SIGN_UP_BUTTON_ID}`).should('not.be.disabled');
+      cy.get(`#${REGISTER_BUTTON_ID}`).should('not.be.disabled');
     });
   });
 
@@ -102,7 +102,7 @@ describe('Register', () => {
       const search = new URLSearchParams();
       search.set('invitationId', invitation.id);
       cy.visit(`/auth/register?${search.toString()}`);
-      cy.get(`#${SIGN_UP_BUTTON_ID}`).should('be.visible');
+      cy.get(`#${REGISTER_BUTTON_ID}`).should('be.visible');
     });
 
     it('Username can not contain special characters', () => {
@@ -114,7 +114,7 @@ describe('Register', () => {
       cy.get(`#${EMAIL_SIGN_UP_FIELD_ID}`).clear();
       cy.get(`#${EMAIL_SIGN_UP_FIELD_ID}`).type('test@test.lol');
       cy.agreeWithAllTerms();
-      cy.get(`#${SIGN_UP_BUTTON_ID}`).click();
+      cy.get(`#${REGISTER_BUTTON_ID}`).click();
 
       // The helper text should display the message about special characters
       cy.get('[id$=-helper-text]').should(

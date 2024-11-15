@@ -10,6 +10,7 @@ import { z } from 'zod';
 
 import { ButtonLink } from '@/components/ui/ButtonLink';
 import { NS } from '@/config/constants';
+import { LOG_IN_HEADER_ID } from '@/config/selectors';
 
 import { LeftContentContainer } from '~auth/components/LeftContentContainer';
 import { MagicLinkLoginForm } from '~auth/components/signIn/MagicLinkLoginForm';
@@ -20,9 +21,8 @@ const loginSearchSchema = z.object({
   m: z.string().optional(),
 });
 
-export const Route = createFileRoute('/auth/login/')({
+export const Route = createFileRoute('/auth/login')({
   validateSearch: zodSearchValidator(loginSearchSchema),
-
   component: LoginRoute,
 });
 
@@ -33,7 +33,7 @@ function LoginRoute() {
   return (
     <LeftContentContainer>
       <Stack direction="column" alignItems="center" gap={3}>
-        <Stack spacing={1}>
+        <Stack spacing={1} id={LOG_IN_HEADER_ID}>
           <GraaspLogo height={90} sx={{ fill: theme.palette.primary.main }} />
           <Typography textAlign="center" variant="h4" component="h2">
             {t('SIGN_IN_HEADER')}
