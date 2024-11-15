@@ -19,19 +19,19 @@ importers:
         version: 11.13.0(@emotion/react@11.13.3(@types/react@18.3.12)(react@18.3.1))(@types/react@18.3.12)(react@18.3.1)
       '@graasp/query-client':
         specifier: 5.4.2
-        version: 5.4.2(@graasp/sdk@5.2.1(date-fns@4.1.0)(uuid@11.0.3))(@graasp/translations@1.41.0(i18next@23.16.5))(react@18.3.1)
+        version: 5.4.2(@graasp/sdk@5.3.0(date-fns@4.1.0)(uuid@11.0.3))(@graasp/translations@1.42.0(i18next@23.16.5))(react@18.3.1)
       '@graasp/sdk':
-        specifier: 5.2.1
-        version: 5.2.1(date-fns@4.1.0)(uuid@11.0.3)
+        specifier: 5.3.0
+        version: 5.3.0(date-fns@4.1.0)(uuid@11.0.3)
       '@graasp/stylis-plugin-rtl':
         specifier: 2.2.0
         version: 2.2.0(stylis@4.3.4)
       '@graasp/translations':
-        specifier: 1.41.0
-        version: 1.41.0(i18next@23.16.5)
+        specifier: 1.42.0
+        version: 1.42.0(i18next@23.16.5)
       '@graasp/ui':
         specifier: 5.4.1
-        version: 5.4.1(nmuqcabnblswqdlvcwdzlz776m)
+        version: 5.4.1(luulnnb7er7giwfuqrm7txj6ri)
       '@mui/icons-material':
         specifier: 6.1.7
         version: 6.1.7(@mui/material@6.1.7(@emotion/react@11.13.3(@types/react@18.3.12)(react@18.3.1))(@emotion/styled@11.13.0(@emotion/react@11.13.3(@types/react@18.3.12)(react@18.3.1))(@types/react@18.3.12)(react@18.3.1))(@types/react@18.3.12)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(@types/react@18.3.12)(react@18.3.1)
@@ -1364,8 +1364,8 @@ packages:
       '@graasp/translations': '*'
       react: ^18.0.0
 
-  '@graasp/sdk@5.2.1':
-    resolution: {integrity: sha512-dYRUS65OPUuxL4w0yQJptmf/er30bEd2gt11DZMNl5CHEb02gE4h81gUzWbyvWLXKpn2CoMHTCYGNmgW7KX/Ew==}
+  '@graasp/sdk@5.3.0':
+    resolution: {integrity: sha512-4qclV6Xc2cdWrvmipIr4yq89fOyyKRdUCyof6ciBRHsC6/VogJEfl5Y0ZOhkEBexKo22b03QPGP6VewrxFaHCA==}
     peerDependencies:
       date-fns: ^3 || ^4.0.0
       uuid: ^9 || ^10 || ^11.0.0
@@ -1375,8 +1375,8 @@ packages:
     peerDependencies:
       stylis: 4.x
 
-  '@graasp/translations@1.41.0':
-    resolution: {integrity: sha512-MW9EUcme8o7oDAbpcEJwAbRhNsZTJpArSe5DOm1+JkIm4z138MozbF2ObHNjlfh3mAgA8hCnRb+MX1yDtDWj+Q==}
+  '@graasp/translations@1.42.0':
+    resolution: {integrity: sha512-XObE34ai/gbgksRQvQqIC5c0U0iPCWG3xz/eTVrBOfDMsS4eMNjl82jPw8gDmW8RuGKZIBBLL+YfJwNx5WsADg==}
     engines: {node: '>=20.0.0'}
     peerDependencies:
       i18next: ^23.8.1
@@ -6168,10 +6168,10 @@ snapshots:
 
   '@floating-ui/utils@0.2.8': {}
 
-  '@graasp/query-client@5.4.2(@graasp/sdk@5.2.1(date-fns@4.1.0)(uuid@11.0.3))(@graasp/translations@1.41.0(i18next@23.16.5))(react@18.3.1)':
+  '@graasp/query-client@5.4.2(@graasp/sdk@5.3.0(date-fns@4.1.0)(uuid@11.0.3))(@graasp/translations@1.42.0(i18next@23.16.5))(react@18.3.1)':
     dependencies:
-      '@graasp/sdk': 5.2.1(date-fns@4.1.0)(uuid@11.0.3)
-      '@graasp/translations': 1.41.0(i18next@23.16.5)
+      '@graasp/sdk': 5.3.0(date-fns@4.1.0)(uuid@11.0.3)
+      '@graasp/translations': 1.42.0(i18next@23.16.5)
       '@tanstack/react-query': 5.59.20(react@18.3.1)
       '@tanstack/react-query-devtools': 5.59.20(@tanstack/react-query@5.59.20(react@18.3.1))(react@18.3.1)
       axios: 1.7.7
@@ -6180,7 +6180,7 @@ snapshots:
     transitivePeerDependencies:
       - debug
 
-  '@graasp/sdk@5.2.1(date-fns@4.1.0)(uuid@11.0.3)':
+  '@graasp/sdk@5.3.0(date-fns@4.1.0)(uuid@11.0.3)':
     dependencies:
       '@faker-js/faker': 9.2.0
       date-fns: 4.1.0
@@ -6193,18 +6193,18 @@ snapshots:
       cssjanus: 2.3.0
       stylis: 4.3.4
 
-  '@graasp/translations@1.41.0(i18next@23.16.5)':
+  '@graasp/translations@1.42.0(i18next@23.16.5)':
     dependencies:
       i18next: 23.16.5
 
-  '@graasp/ui@5.4.1(nmuqcabnblswqdlvcwdzlz776m)':
+  '@graasp/ui@5.4.1(luulnnb7er7giwfuqrm7txj6ri)':
     dependencies:
       '@emotion/cache': 11.13.1
       '@emotion/react': 11.13.3(@types/react@18.3.12)(react@18.3.1)
       '@emotion/styled': 11.13.0(@emotion/react@11.13.3(@types/react@18.3.12)(react@18.3.1))(@types/react@18.3.12)(react@18.3.1)
-      '@graasp/sdk': 5.2.1(date-fns@4.1.0)(uuid@11.0.3)
+      '@graasp/sdk': 5.3.0(date-fns@4.1.0)(uuid@11.0.3)
       '@graasp/stylis-plugin-rtl': 2.2.0(stylis@4.3.4)
-      '@graasp/translations': 1.41.0(i18next@23.16.5)
+      '@graasp/translations': 1.42.0(i18next@23.16.5)
       '@mui/icons-material': 6.1.7(@mui/material@6.1.7(@emotion/react@11.13.3(@types/react@18.3.12)(react@18.3.1))(@emotion/styled@11.13.0(@emotion/react@11.13.3(@types/react@18.3.12)(react@18.3.1))(@types/react@18.3.12)(react@18.3.1))(@types/react@18.3.12)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(@types/react@18.3.12)(react@18.3.1)
       '@mui/lab': 6.0.0-beta.15(@emotion/react@11.13.3(@types/react@18.3.12)(react@18.3.1))(@emotion/styled@11.13.0(@emotion/react@11.13.3(@types/react@18.3.12)(react@18.3.1))(@types/react@18.3.12)(react@18.3.1))(@mui/material@6.1.7(@emotion/react@11.13.3(@types/react@18.3.12)(react@18.3.1))(@emotion/styled@11.13.0(@emotion/react@11.13.3(@types/react@18.3.12)(react@18.3.1))(@types/react@18.3.12)(react@18.3.1))(@types/react@18.3.12)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(@types/react@18.3.12)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       '@mui/material': 6.1.7(@emotion/react@11.13.3(@types/react@18.3.12)(react@18.3.1))(@emotion/styled@11.13.0(@emotion/react@11.13.3(@types/react@18.3.12)(react@18.3.1))(@types/react@18.3.12)(react@18.3.1))(@types/react@18.3.12)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
