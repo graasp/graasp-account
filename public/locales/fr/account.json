@@ -108,5 +108,6 @@
   "REGISTER_BUTTON": "Créer un compte",
   "LOGOUT_BUTTON": "Se déconnecter",
   "HERE_BUTTON": "Ici",
-  "TEMPORARY_MOVED_ACCOUNT_HOME_PAGE_MESSAGE": "La page d'accueil du compte a été déplacée"
+  "TEMPORARY_MOVED_ACCOUNT_HOME_PAGE_MESSAGE": "La page d'accueil du compte a été déplacée",
+  "DRAWER_OPEN_ARIA_LABEL": "Ouvrir le tiroir"
 }
