@@ -2,7 +2,7 @@ import { API_ROUTES } from '@graasp/query-client';
 
 import { StatusCodes } from 'http-status-codes';
 
-import { LOGIN_PAGE_PATH } from '../../../src/config/paths';
+import { LOG_IN_PAGE_PATH } from '../../../src/config/paths';
 import {
   EMAIL_SIGN_IN_FIELD_ID,
   ERROR_DISPLAY_ID,
@@ -37,7 +37,7 @@ describe('Email and Password Validation', () => {
     ).as('redirectionPage');
 
     const { WRONG_EMAIL, GRAASP } = AUTH_MEMBERS;
-    cy.visit(LOGIN_PAGE_PATH);
+    cy.visit(LOG_IN_PAGE_PATH);
     // Signing in with wrong email
     cy.signInPasswordAndCheck(WRONG_EMAIL);
 
@@ -61,7 +61,7 @@ describe('Email and Password Validation', () => {
     ).as('signInWithPassword');
 
     const { WRONG_PASSWORD } = AUTH_MEMBERS;
-    cy.visit(LOGIN_PAGE_PATH);
+    cy.visit(LOG_IN_PAGE_PATH);
 
     // Signing in with a valid email but empty password
     fillPasswordSignInLayout(WRONG_PASSWORD);
@@ -82,7 +82,7 @@ describe('Email and Password Validation', () => {
         },
       ).as('signInWithPassword');
 
-      cy.visit(LOGIN_PAGE_PATH);
+      cy.visit(LOG_IN_PAGE_PATH);
       cy.signInPasswordAndCheck(member);
     }),
   );

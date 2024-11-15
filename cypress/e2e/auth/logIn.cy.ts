@@ -1,4 +1,4 @@
-import { LOGIN_PAGE_PATH } from '../../../src/config/paths';
+import { LOG_IN_PAGE_PATH } from '../../../src/config/paths';
 import {
   MAGIC_LINK_EMAIL_FIELD_ID,
   SUCCESS_CONTENT_ID,
@@ -11,7 +11,7 @@ describe('Name and Email Validation', () => {
   });
   it('Log In', () => {
     const { GRAASP, WRONG_EMAIL } = AUTH_MEMBERS;
-    cy.visit(LOGIN_PAGE_PATH);
+    cy.visit(LOG_IN_PAGE_PATH);
     // Signing in with a wrong email format
     cy.signInByMailAndCheck(WRONG_EMAIL);
     // Signing in with a valid email
@@ -33,7 +33,7 @@ describe('Already signed in', () => {
 describe('Sign In', () => {
   beforeEach(() => {
     cy.setUpApi({ currentMember: null });
-    cy.visit(LOGIN_PAGE_PATH);
+    cy.visit(LOG_IN_PAGE_PATH);
   });
   it('Can use Enter to validate email', () => {
     cy.get(`#${MAGIC_LINK_EMAIL_FIELD_ID}`).type(

@@ -2,7 +2,7 @@ import { Container } from '@mui/material';
 
 import { Outlet, createFileRoute, redirect } from '@tanstack/react-router';
 
-import { LOGIN_PAGE_PATH } from '@/config/paths';
+import { LOG_IN_PAGE_PATH } from '@/config/paths';
 
 import { PageWrapper } from '~account/PageWrapper';
 
@@ -12,7 +12,7 @@ export const Route = createFileRoute('/account')({
     // if not, redirect to `/auth/login` so the user can log in their account
     if (!context.auth.isAuthenticated) {
       throw redirect({
-        to: LOGIN_PAGE_PATH,
+        to: LOG_IN_PAGE_PATH,
         search: {
           url: `${window.location.origin}${location.href}`,
         },
