@@ -1,4 +1,4 @@
-import { useTranslation } from 'react-i18next';
+import { Trans, useTranslation } from 'react-i18next';
 
 import { Stack, Typography } from '@mui/material';
 
@@ -23,11 +23,18 @@ export function UserStorySection(): JSX.Element {
             color="textSecondary"
             sx={{ '& a': { color: 'inherit' } }}
           >
-            Photo by <a href="https://unsplash.com/@thutra0803">Tra Nguyen</a>{' '}
-            on{' '}
-            <a href="https://unsplash.com/photos/womens-blue-dress-shirt-TVSRWmnW8Us">
-              Unsplash
-            </a>
+            <Trans
+              t={t}
+              i18nKey="HOME.USER_STORY.TEACHER.IMAGE_ATTRIBUTION"
+              components={{
+                author: <a href="https://unsplash.com/@thutra0803">_</a>,
+                image: (
+                  <a href="https://unsplash.com/photos/womens-blue-dress-shirt-TVSRWmnW8Us">
+                    _
+                  </a>
+                ),
+              }}
+            />
           </Typography>
         }
       >

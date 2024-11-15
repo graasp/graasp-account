@@ -42,7 +42,8 @@
         "USE_CASE_1": "Embed interactive apps in your class material",
         "USE_CASE_2": "Connect with a wide community of educators",
         "USE_CASE_3": "Explore detailed analytics about your students",
-        "BUTTON_TEXT": "Start Today"
+        "BUTTON_TEXT": "Start Today",
+        "IMAGE_ATTRIBUTION": "Photo by <author>Tra Nguyen</author> on <image>Unsplash</image>"
       },
       "RESEARCHER": {
         "LEADING_SENTENCE": "Are you a researcher seeking a platform that seamlessly integrates data collection and interactive experiences?",
