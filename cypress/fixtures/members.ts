@@ -235,7 +235,7 @@ export const AUTH_MEMBERS = {
     enableSaveActions: true,
     isValidated: true,
   },
-  WRONG_EMAIL: {
+  INVALID_EMAIL: {
     id: 'id2',
     name: 'graasp',
     email: 'wrong',
@@ -250,11 +250,11 @@ export const AUTH_MEMBERS = {
     enableSaveActions: true,
     isValidated: true,
   },
-  WRONG_PASSWORD: {
+  INVALID_PASSWORD: {
     id: 'id3',
     name: 'graasp',
     email: 'graasp@graasp.org',
-    password: 'test',
+    password: '',
     nameValid: true,
     emailValid: true,
     passwordValid: false,

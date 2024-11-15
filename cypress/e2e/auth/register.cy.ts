@@ -39,7 +39,7 @@ describe('Register', () => {
 
   describe('Name and Email Validation', () => {
     it('Register', () => {
-      const { GRAASP, WRONG_NAME, WRONG_EMAIL } = AUTH_MEMBERS;
+      const { GRAASP, WRONG_NAME, INVALID_EMAIL: WRONG_EMAIL } = AUTH_MEMBERS;
       cy.visit('/auth/register');
       cy.intercept({ method: 'post', pathname: '/register' }, ({ reply }) => {
         return reply({

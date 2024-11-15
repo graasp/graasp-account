@@ -10,7 +10,7 @@ describe('Name and Email Validation', () => {
     cy.setUpApi({ currentMember: null });
   });
   it('Log In', () => {
-    const { GRAASP, WRONG_EMAIL } = AUTH_MEMBERS;
+    const { GRAASP, INVALID_EMAIL: WRONG_EMAIL } = AUTH_MEMBERS;
     cy.visit(LOG_IN_PAGE_PATH);
     // Signing in with a wrong email format
     cy.signInByMailAndCheck(WRONG_EMAIL);

@@ -28,7 +28,7 @@ describe('Request password reset', () => {
     cy.visit(REQUEST_PASSWORD_RESET_PATH);
 
     cy.get(`#${REQUEST_PASSWORD_RESET_EMAIL_FIELD_ID}`).type(
-      AUTH_MEMBERS.WRONG_EMAIL.email,
+      AUTH_MEMBERS.INVALID_EMAIL.email,
     );
 
     // click the button to trigger the validation
