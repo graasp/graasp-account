@@ -4,7 +4,7 @@
     "SUBTITLE": "Votre plateforme d'expérience d'apprentissage",
     "DESCRIPTION": "Révolutionnez votre éducation et votre développement professionnel ! Notre plateforme répond aux besoins des enseignants et des chercheurs, à la recherche d'une solution complète pour la création de contenu, la présentation et le partage collaboratif des connaissances.",
     "REGISTER_CALL_TO_ACTION": "Créer un compte",
-    "LIBRARY_CALL_TO_ACTION": "Visitez la bibliothèque",
+    "LIBRARY_CALL_TO_ACTION": "Visiter la bibliothèque",
     "SUPPORTERS_LABEL": "Soutenu par",
     "MISSION": {
       "TITLE": "Notre mission",
@@ -22,7 +22,7 @@
       "PLAYER": {
         "LEAD_SENTENCE": "Utilisez le",
         "DESCRIPTION": "Et permettez aux apprenants d'accéder au matériel d'une nouvelle manière",
-        "BUTTON_TEXT": "Expérience"
+        "BUTTON_TEXT": "Essayer"
       },
       "ANALYTICS": {
         "LEAD_SENTENCE": "Accéder au",
@@ -37,12 +37,12 @@
     },
     "USER_STORY": {
       "TEACHER": {
-        "LEADING_SENTENCE": "Êtes-vous un enseignant souhaitant améliorer votre création de contenu ?",
+        "LEADING_SENTENCE": "Êtes-vous un enseignant souhaitant améliorer sa création de contenu ?",
         "TITLE": "Construisez votre matériel avec Graasp, une manière structurée de…",
         "USE_CASE_1": "Intégrez des applications interactives dans votre matériel de cours",
         "USE_CASE_2": "Connectez-vous à une large communauté d'éducateurs",
         "USE_CASE_3": "Explorez des analyses détaillées sur vos étudiants",
-        "BUTTON_TEXT": "Commencez aujourd'hui"
+        "BUTTON_TEXT": "Commencer aujourd'hui"
       },
       "RESEARCHER": {
         "LEADING_SENTENCE": "Êtes-vous un chercheur à la recherche d’une plateforme qui intègre de manière transparente la collecte de données et les expériences interactives ?",
@@ -50,7 +50,7 @@
         "USE_CASE_1": "Accéder à un environnement sécurisé et contrôlé pour mener des expériences",
         "USE_CASE_2": "Effectuer des tests avec plusieurs options différentes",
         "USE_CASE_3": "Rejoignez une communauté dynamique axée sur l'avancement de l'éducation numérique",
-        "BUTTON_TEXT": "Inscrivez-vous maintenant"
+        "BUTTON_TEXT": "S'inscrire maintenant"
       }
     }
   },
@@ -58,22 +58,22 @@
     "TAG_LINE": "Développé en Suisse par l'association Graasp",
     "CONTENT": {
       "TITLE": "Contenu",
-      "HOME": "Maison",
-      "FEATURES": "Caractéristiques",
+      "HOME": "Accueil",
+      "FEATURES": "Fonctionnalité",
       "ABOUT_US": "À propos de nous",
-      "SUPPORT": "Soutien",
+      "SUPPORT": "Support utilisateur",
       "CONTACT_US": "Contactez-nous"
     },
     "PARTNERS": {
       "TITLE": "Partenaires"
     },
     "SOCIAL": {
-      "TITLE": "Sociale"
+      "TITLE": "Réseaux sociaux"
     },
     "OTHER": {
       "TITLE": "Autre",
       "TERMS": "Conditions d'utilisation",
-      "POLICY": "politique de confidentialité",
+      "POLICY": "Politique de confidentialité",
       "DISCLAIMER": "Clause de non-responsabilité"
     }
   }
