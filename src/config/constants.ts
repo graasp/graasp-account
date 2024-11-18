@@ -25,3 +25,5 @@ export const NS = {
   Common: 'common',
   Enums: 'enums',
 } as const;
+
+export const PRIVACY_EMAIL = 'privacy@graasp.org';
