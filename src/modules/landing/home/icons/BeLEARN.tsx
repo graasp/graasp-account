@@ -17,23 +17,7 @@ export function BeLEARN({
       <title>BeLEARN</title>
       <defs>
         <style>
-          {`
-      .cls-1 {
-        fill: none;
-      }
-
-      .cls-2 {
-        clip-path: url(#clippath-1);
-      }
-
-      .cls-3 {
-        clip-path: url(#clippath-2);
-      }
-
-      .cls-4 {
-        clip-path: url(#clippath);
-      }
-        `}
+          {`.cls-1 {fill: none;}.cls-2 {clip-path: url(#clippath-1);}.cls-3 {clip-path: url(#clippath-2);}.cls-4 {clip-path: url(#clippath);}`}
         </style>
         <clipPath id="clippath">
           <path
