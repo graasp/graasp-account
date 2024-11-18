@@ -13,15 +13,9 @@ import { createFileRoute } from '@tanstack/react-router'
 // Import Routes
 
 import { Route as rootRoute } from './routes/__root'
-import { Route as TermsImport } from './routes/terms'
-import { Route as SupportImport } from './routes/support'
-import { Route as PolicyImport } from './routes/policy'
-import { Route as FeaturesImport } from './routes/features'
-import { Route as DisclaimerImport } from './routes/disclaimer'
-import { Route as ContactUsImport } from './routes/contact-us'
 import { Route as AuthImport } from './routes/auth'
 import { Route as AccountImport } from './routes/account'
-import { Route as AboutUsImport } from './routes/about-us'
+import { Route as LandingImport } from './routes/_landing'
 import { Route as AccountIndexImport } from './routes/account/index'
 import { Route as EmailChangeImport } from './routes/email.change'
 import { Route as AuthSuccessImport } from './routes/auth/success'
@@ -31,48 +25,19 @@ import { Route as AuthLoginImport } from './routes/auth/login'
 import { Route as AuthForgotPasswordImport } from './routes/auth/forgot-password'
 import { Route as AccountStorageImport } from './routes/account/storage'
 import { Route as AccountSettingsImport } from './routes/account/settings'
+import { Route as LandingTermsImport } from './routes/_landing/terms'
+import { Route as LandingSupportImport } from './routes/_landing/support'
+import { Route as LandingPolicyImport } from './routes/_landing/policy'
+import { Route as LandingFeaturesImport } from './routes/_landing/features'
+import { Route as LandingDisclaimerImport } from './routes/_landing/disclaimer'
+import { Route as LandingContactUsImport } from './routes/_landing/contact-us'
+import { Route as LandingAboutUsImport } from './routes/_landing/about-us'
 
 // Create Virtual Routes
 
 const IndexLazyImport = createFileRoute('/')()
 
 // Create/Update Routes
-
-const TermsRoute = TermsImport.update({
-  id: '/terms',
-  path: '/terms',
-  getParentRoute: () => rootRoute,
-} as any)
-
-const SupportRoute = SupportImport.update({
-  id: '/support',
-  path: '/support',
-  getParentRoute: () => rootRoute,
-} as any)
-
-const PolicyRoute = PolicyImport.update({
-  id: '/policy',
-  path: '/policy',
-  getParentRoute: () => rootRoute,
-} as any)
-
-const FeaturesRoute = FeaturesImport.update({
-  id: '/features',
-  path: '/features',
-  getParentRoute: () => rootRoute,
-} as any)
-
-const DisclaimerRoute = DisclaimerImport.update({
-  id: '/disclaimer',
-  path: '/disclaimer',
-  getParentRoute: () => rootRoute,
-} as any)
-
-const ContactUsRoute = ContactUsImport.update({
-  id: '/contact-us',
-  path: '/contact-us',
-  getParentRoute: () => rootRoute,
-} as any)
 
 const AuthRoute = AuthImport.update({
   id: '/auth',
@@ -86,9 +51,8 @@ const AccountRoute = AccountImport.update({
   getParentRoute: () => rootRoute,
 } as any)
 
-const AboutUsRoute = AboutUsImport.update({
-  id: '/about-us',
-  path: '/about-us',
+const LandingRoute = LandingImport.update({
+  id: '/_landing',
   getParentRoute: () => rootRoute,
 } as any)
 
@@ -152,6 +116,48 @@ const AccountSettingsRoute = AccountSettingsImport.update({
   getParentRoute: () => AccountRoute,
 } as any)
 
+const LandingTermsRoute = LandingTermsImport.update({
+  id: '/terms',
+  path: '/terms',
+  getParentRoute: () => LandingRoute,
+} as any)
+
+const LandingSupportRoute = LandingSupportImport.update({
+  id: '/support',
+  path: '/support',
+  getParentRoute: () => LandingRoute,
+} as any)
+
+const LandingPolicyRoute = LandingPolicyImport.update({
+  id: '/policy',
+  path: '/policy',
+  getParentRoute: () => LandingRoute,
+} as any)
+
+const LandingFeaturesRoute = LandingFeaturesImport.update({
+  id: '/features',
+  path: '/features',
+  getParentRoute: () => LandingRoute,
+} as any)
+
+const LandingDisclaimerRoute = LandingDisclaimerImport.update({
+  id: '/disclaimer',
+  path: '/disclaimer',
+  getParentRoute: () => LandingRoute,
+} as any)
+
+const LandingContactUsRoute = LandingContactUsImport.update({
+  id: '/contact-us',
+  path: '/contact-us',
+  getParentRoute: () => LandingRoute,
+} as any)
+
+const LandingAboutUsRoute = LandingAboutUsImport.update({
+  id: '/about-us',
+  path: '/about-us',
+  getParentRoute: () => LandingRoute,
+} as any)
+
 // Populate the FileRoutesByPath interface
 
 declare module '@tanstack/react-router' {
@@ -163,11 +169,11 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexLazyImport
       parentRoute: typeof rootRoute
     }
-    '/about-us': {
-      id: '/about-us'
-      path: '/about-us'
-      fullPath: '/about-us'
-      preLoaderRoute: typeof AboutUsImport
+    '/_landing': {
+      id: '/_landing'
+      path: ''
+      fullPath: ''
+      preLoaderRoute: typeof LandingImport
       parentRoute: typeof rootRoute
     }
     '/account': {
@@ -184,47 +190,54 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AuthImport
       parentRoute: typeof rootRoute
     }
-    '/contact-us': {
-      id: '/contact-us'
+    '/_landing/about-us': {
+      id: '/_landing/about-us'
+      path: '/about-us'
+      fullPath: '/about-us'
+      preLoaderRoute: typeof LandingAboutUsImport
+      parentRoute: typeof LandingImport
+    }
+    '/_landing/contact-us': {
+      id: '/_landing/contact-us'
       path: '/contact-us'
       fullPath: '/contact-us'
-      preLoaderRoute: typeof ContactUsImport
-      parentRoute: typeof rootRoute
+      preLoaderRoute: typeof LandingContactUsImport
+      parentRoute: typeof LandingImport
     }
-    '/disclaimer': {
-      id: '/disclaimer'
+    '/_landing/disclaimer': {
+      id: '/_landing/disclaimer'
       path: '/disclaimer'
       fullPath: '/disclaimer'
-      preLoaderRoute: typeof DisclaimerImport
-      parentRoute: typeof rootRoute
+      preLoaderRoute: typeof LandingDisclaimerImport
+      parentRoute: typeof LandingImport
     }
-    '/features': {
-      id: '/features'
+    '/_landing/features': {
+      id: '/_landing/features'
       path: '/features'
       fullPath: '/features'
-      preLoaderRoute: typeof FeaturesImport
-      parentRoute: typeof rootRoute
+      preLoaderRoute: typeof LandingFeaturesImport
+      parentRoute: typeof LandingImport
     }
-    '/policy': {
-      id: '/policy'
+    '/_landing/policy': {
+      id: '/_landing/policy'
       path: '/policy'
       fullPath: '/policy'
-      preLoaderRoute: typeof PolicyImport
-      parentRoute: typeof rootRoute
+      preLoaderRoute: typeof LandingPolicyImport
+      parentRoute: typeof LandingImport
     }
-    '/support': {
-      id: '/support'
+    '/_landing/support': {
+      id: '/_landing/support'
       path: '/support'
       fullPath: '/support'
-      preLoaderRoute: typeof SupportImport
-      parentRoute: typeof rootRoute
+      preLoaderRoute: typeof LandingSupportImport
+      parentRoute: typeof LandingImport
     }
-    '/terms': {
-      id: '/terms'
+    '/_landing/terms': {
+      id: '/_landing/terms'
       path: '/terms'
       fullPath: '/terms'
-      preLoaderRoute: typeof TermsImport
-      parentRoute: typeof rootRoute
+      preLoaderRoute: typeof LandingTermsImport
+      parentRoute: typeof LandingImport
     }
     '/account/settings': {
       id: '/account/settings'
@@ -294,6 +307,29 @@ declare module '@tanstack/react-router' {
 
 // Create and export the route tree
 
+interface LandingRouteChildren {
+  LandingAboutUsRoute: typeof LandingAboutUsRoute
+  LandingContactUsRoute: typeof LandingContactUsRoute
+  LandingDisclaimerRoute: typeof LandingDisclaimerRoute
+  LandingFeaturesRoute: typeof LandingFeaturesRoute
+  LandingPolicyRoute: typeof LandingPolicyRoute
+  LandingSupportRoute: typeof LandingSupportRoute
+  LandingTermsRoute: typeof LandingTermsRoute
+}
+
+const LandingRouteChildren: LandingRouteChildren = {
+  LandingAboutUsRoute: LandingAboutUsRoute,
+  LandingContactUsRoute: LandingContactUsRoute,
+  LandingDisclaimerRoute: LandingDisclaimerRoute,
+  LandingFeaturesRoute: LandingFeaturesRoute,
+  LandingPolicyRoute: LandingPolicyRoute,
+  LandingSupportRoute: LandingSupportRoute,
+  LandingTermsRoute: LandingTermsRoute,
+}
+
+const LandingRouteWithChildren =
+  LandingRoute._addFileChildren(LandingRouteChildren)
+
 interface AccountRouteChildren {
   AccountSettingsRoute: typeof AccountSettingsRoute
   AccountStorageRoute: typeof AccountStorageRoute
@@ -329,15 +365,16 @@ const AuthRouteWithChildren = AuthRoute._addFileChildren(AuthRouteChildren)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexLazyRoute
-  '/about-us': typeof AboutUsRoute
+  '': typeof LandingRouteWithChildren
   '/account': typeof AccountRouteWithChildren
   '/auth': typeof AuthRouteWithChildren
-  '/contact-us': typeof ContactUsRoute
-  '/disclaimer': typeof DisclaimerRoute
-  '/features': typeof FeaturesRoute
-  '/policy': typeof PolicyRoute
-  '/support': typeof SupportRoute
-  '/terms': typeof TermsRoute
+  '/about-us': typeof LandingAboutUsRoute
+  '/contact-us': typeof LandingContactUsRoute
+  '/disclaimer': typeof LandingDisclaimerRoute
+  '/features': typeof LandingFeaturesRoute
+  '/policy': typeof LandingPolicyRoute
+  '/support': typeof LandingSupportRoute
+  '/terms': typeof LandingTermsRoute
   '/account/settings': typeof AccountSettingsRoute
   '/account/storage': typeof AccountStorageRoute
   '/auth/forgot-password': typeof AuthForgotPasswordRoute
@@ -351,14 +388,15 @@ export interface FileRoutesByFullPath {
 
 export interface FileRoutesByTo {
   '/': typeof IndexLazyRoute
-  '/about-us': typeof AboutUsRoute
+  '': typeof LandingRouteWithChildren
   '/auth': typeof AuthRouteWithChildren
-  '/contact-us': typeof ContactUsRoute
-  '/disclaimer': typeof DisclaimerRoute
-  '/features': typeof FeaturesRoute
-  '/policy': typeof PolicyRoute
-  '/support': typeof SupportRoute
-  '/terms': typeof TermsRoute
+  '/about-us': typeof LandingAboutUsRoute
+  '/contact-us': typeof LandingContactUsRoute
+  '/disclaimer': typeof LandingDisclaimerRoute
+  '/features': typeof LandingFeaturesRoute
+  '/policy': typeof LandingPolicyRoute
+  '/support': typeof LandingSupportRoute
+  '/terms': typeof LandingTermsRoute
   '/account/settings': typeof AccountSettingsRoute
   '/account/storage': typeof AccountStorageRoute
   '/auth/forgot-password': typeof AuthForgotPasswordRoute
@@ -373,15 +411,16 @@ export interface FileRoutesByTo {
 export interface FileRoutesById {
   __root__: typeof rootRoute
   '/': typeof IndexLazyRoute
-  '/about-us': typeof AboutUsRoute
+  '/_landing': typeof LandingRouteWithChildren
   '/account': typeof AccountRouteWithChildren
   '/auth': typeof AuthRouteWithChildren
-  '/contact-us': typeof ContactUsRoute
-  '/disclaimer': typeof DisclaimerRoute
-  '/features': typeof FeaturesRoute
-  '/policy': typeof PolicyRoute
-  '/support': typeof SupportRoute
-  '/terms': typeof TermsRoute
+  '/_landing/about-us': typeof LandingAboutUsRoute
+  '/_landing/contact-us': typeof LandingContactUsRoute
+  '/_landing/disclaimer': typeof LandingDisclaimerRoute
+  '/_landing/features': typeof LandingFeaturesRoute
+  '/_landing/policy': typeof LandingPolicyRoute
+  '/_landing/support': typeof LandingSupportRoute
+  '/_landing/terms': typeof LandingTermsRoute
   '/account/settings': typeof AccountSettingsRoute
   '/account/storage': typeof AccountStorageRoute
   '/auth/forgot-password': typeof AuthForgotPasswordRoute
@@ -397,9 +436,10 @@ export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
   fullPaths:
     | '/'
-    | '/about-us'
+    | ''
     | '/account'
     | '/auth'
+    | '/about-us'
     | '/contact-us'
     | '/disclaimer'
     | '/features'
@@ -418,8 +458,9 @@ export interface FileRouteTypes {
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
-    | '/about-us'
+    | ''
     | '/auth'
+    | '/about-us'
     | '/contact-us'
     | '/disclaimer'
     | '/features'
@@ -438,15 +479,16 @@ export interface FileRouteTypes {
   id:
     | '__root__'
     | '/'
-    | '/about-us'
+    | '/_landing'
     | '/account'
     | '/auth'
-    | '/contact-us'
-    | '/disclaimer'
-    | '/features'
-    | '/policy'
-    | '/support'
-    | '/terms'
+    | '/_landing/about-us'
+    | '/_landing/contact-us'
+    | '/_landing/disclaimer'
+    | '/_landing/features'
+    | '/_landing/policy'
+    | '/_landing/support'
+    | '/_landing/terms'
     | '/account/settings'
     | '/account/storage'
     | '/auth/forgot-password'
@@ -461,29 +503,17 @@ export interface FileRouteTypes {
 
 export interface RootRouteChildren {
   IndexLazyRoute: typeof IndexLazyRoute
-  AboutUsRoute: typeof AboutUsRoute
+  LandingRoute: typeof LandingRouteWithChildren
   AccountRoute: typeof AccountRouteWithChildren
   AuthRoute: typeof AuthRouteWithChildren
-  ContactUsRoute: typeof ContactUsRoute
-  DisclaimerRoute: typeof DisclaimerRoute
-  FeaturesRoute: typeof FeaturesRoute
-  PolicyRoute: typeof PolicyRoute
-  SupportRoute: typeof SupportRoute
-  TermsRoute: typeof TermsRoute
   EmailChangeRoute: typeof EmailChangeRoute
 }
 
 const rootRouteChildren: RootRouteChildren = {
   IndexLazyRoute: IndexLazyRoute,
-  AboutUsRoute: AboutUsRoute,
+  LandingRoute: LandingRouteWithChildren,
   AccountRoute: AccountRouteWithChildren,
   AuthRoute: AuthRouteWithChildren,
-  ContactUsRoute: ContactUsRoute,
-  DisclaimerRoute: DisclaimerRoute,
-  FeaturesRoute: FeaturesRoute,
-  PolicyRoute: PolicyRoute,
-  SupportRoute: SupportRoute,
-  TermsRoute: TermsRoute,
   EmailChangeRoute: EmailChangeRoute,
 }
 
@@ -498,23 +528,26 @@ export const routeTree = rootRoute
       "filePath": "__root.tsx",
       "children": [
         "/",
-        "/about-us",
+        "/_landing",
         "/account",
         "/auth",
-        "/contact-us",
-        "/disclaimer",
-        "/features",
-        "/policy",
-        "/support",
-        "/terms",
         "/email/change"
       ]
     },
     "/": {
       "filePath": "index.lazy.tsx"
     },
-    "/about-us": {
-      "filePath": "about-us.tsx"
+    "/_landing": {
+      "filePath": "_landing.tsx",
+      "children": [
+        "/_landing/about-us",
+        "/_landing/contact-us",
+        "/_landing/disclaimer",
+        "/_landing/features",
+        "/_landing/policy",
+        "/_landing/support",
+        "/_landing/terms"
+      ]
     },
     "/account": {
       "filePath": "account.tsx",
@@ -534,23 +567,33 @@ export const routeTree = rootRoute
         "/auth/success"
       ]
     },
-    "/contact-us": {
-      "filePath": "contact-us.tsx"
+    "/_landing/about-us": {
+      "filePath": "_landing/about-us.tsx",
+      "parent": "/_landing"
     },
-    "/disclaimer": {
-      "filePath": "disclaimer.tsx"
+    "/_landing/contact-us": {
+      "filePath": "_landing/contact-us.tsx",
+      "parent": "/_landing"
     },
-    "/features": {
-      "filePath": "features.tsx"
+    "/_landing/disclaimer": {
+      "filePath": "_landing/disclaimer.tsx",
+      "parent": "/_landing"
     },
-    "/policy": {
-      "filePath": "policy.tsx"
+    "/_landing/features": {
+      "filePath": "_landing/features.tsx",
+      "parent": "/_landing"
     },
-    "/support": {
-      "filePath": "support.tsx"
+    "/_landing/policy": {
+      "filePath": "_landing/policy.tsx",
+      "parent": "/_landing"
     },
-    "/terms": {
-      "filePath": "terms.tsx"
+    "/_landing/support": {
+      "filePath": "_landing/support.tsx",
+      "parent": "/_landing"
+    },
+    "/_landing/terms": {
+      "filePath": "_landing/terms.tsx",
+      "parent": "/_landing"
     },
     "/account/settings": {
       "filePath": "account/settings.tsx",
