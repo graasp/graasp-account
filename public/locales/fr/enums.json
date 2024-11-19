@@ -1,0 +1,12 @@
+{
+  "read": "lecture",
+  "write": "écriture",
+  "admin": "administration",
+  "file": "fichier",
+  "s3File": "fichier",
+  "builder": "builder",
+  "player": "player",
+  "analytics": "analytics",
+  "library": "bibliothèque",
+  "auth": "auth"
+}
