@@ -13,7 +13,7 @@ import {
   Paragraphs,
   Section,
   SubSection,
-} from '~landing/privacyPolicy/Layout';
+} from '~landing/privacyPolicy/layouts';
 
 export const Route = createFileRoute('/_landing/policy')({
   component: RouteComponent,

@@ -7,6 +7,12 @@ import { createFileRoute } from '@tanstack/react-router';
 import { TypographyLink } from '@/components/ui/TypographyLink';
 import { NS } from '@/config/constants';
 
+import {
+  EnumeratedParagraph,
+  ListItem,
+  Paragraphs,
+} from '~landing/privacyPolicy/layouts';
+
 export const Route = createFileRoute('/_landing/terms')({
   component: RouteComponent,
 });
@@ -21,17 +27,16 @@ function RouteComponent() {
       <Typography variant="h1" color="primary">
         {t('TITLE')}
       </Typography>
-      <Box>
-        <Typography>{t('INTRODUCTION')}</Typography>
-        <Stack component="ol" gap={1}>
-          <Typography component="li">{t('TERM_1')}</Typography>
-          <Typography component="li">{t('TERM_2')}</Typography>
-          <Typography component="li">{t('TERM_3')}</Typography>
-          <Typography component="li">{t('TERM_4')}</Typography>
-          <Typography component="li">{t('TERM_5')}</Typography>
-        </Stack>
+      <Paragraphs>
+        <EnumeratedParagraph text={t('INTRODUCTION')}>
+          <ListItem>{t('TERM_1')}</ListItem>
+          <ListItem>{t('TERM_2')}</ListItem>
+          <ListItem>{t('TERM_3')}</ListItem>
+          <ListItem>{t('TERM_4')}</ListItem>
+          <ListItem>{t('TERM_5')}</ListItem>
+        </EnumeratedParagraph>
         <Typography>{t('FINAL_NOTE')}</Typography>
-      </Box>
+      </Paragraphs>
       <Box>
         <Typography variant="h4" color="primary">
           {t('REFERENCES')}
