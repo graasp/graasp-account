@@ -42,7 +42,8 @@
         "USE_CASE_1": "Intégrez des applications interactives dans votre matériel de cours",
         "USE_CASE_2": "Connectez-vous à une large communauté d'éducateurs",
         "USE_CASE_3": "Explorez des analyses détaillées sur vos étudiants",
-        "BUTTON_TEXT": "Commencer aujourd'hui"
+        "BUTTON_TEXT": "Commencer aujourd'hui",
+        "IMAGE_ATTRIBUTION": "Photo de <author>Tra Nguyen</author> sur <image>Unsplash</image>"
       },
       "RESEARCHER": {
         "LEADING_SENTENCE": "Êtes-vous un chercheur à la recherche d’une plateforme qui intègre de manière transparente la collecte de données et les expériences interactives ?",
