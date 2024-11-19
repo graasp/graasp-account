@@ -6,7 +6,6 @@ import { type UserConfigExport, defineConfig, loadEnv } from 'vite';
 import checker from 'vite-plugin-checker';
 import istanbul from 'vite-plugin-istanbul';
 
-import { recaptchaPlugin } from './recaptcha.plugin';
 import { umamiPlugin } from './umami.plugin';
 
 // https://vitejs.dev/config/
@@ -24,7 +23,6 @@ const config = ({ mode }: { mode: string }): UserConfigExport => {
     VITE_UMAMI_WEBSITE_ID,
     VITE_UMAMI_HOST,
     VITE_GRAASP_API_HOST,
-    VITE_RECAPTCHA_SITE_KEY,
   } = process.env;
   // compute the port to use
   const PORT = parseInt(VITE_PORT || '3114', 10);
@@ -89,11 +87,6 @@ const config = ({ mode }: { mode: string }): UserConfigExport => {
         host: VITE_UMAMI_HOST,
         enableInDevMode: true,
         requireInProduction: false,
-      }),
-      recaptchaPlugin({
-        recaptchaKey: VITE_RECAPTCHA_SITE_KEY,
-        enableInDevMode: false,
-        requireInProduction: true,
       }),
     ],
     resolve: {

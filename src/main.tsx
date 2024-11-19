@@ -1,5 +1,6 @@
 import React, { ReactNode, useEffect } from 'react';
 import ReactDOM from 'react-dom/client';
+import { HelmetProvider } from 'react-helmet-async';
 import { useTranslation } from 'react-i18next';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
@@ -157,17 +158,19 @@ function TranslationWrapper({ children }: { children: ReactNode }) {
 
 function App() {
   return (
-    <QueryClientProvider client={queryClient}>
-      <TranslationWrapper>
-        <CssBaseline />
-        <ThemeWrapper>
-          <AuthProvider>
-            <ToastContainer stacked position="bottom-left" />
-            <InnerApp />
-          </AuthProvider>
-        </ThemeWrapper>
-      </TranslationWrapper>
-    </QueryClientProvider>
+    <HelmetProvider>
+      <QueryClientProvider client={queryClient}>
+        <TranslationWrapper>
+          <CssBaseline />
+          <ThemeWrapper>
+            <AuthProvider>
+              <ToastContainer stacked position="bottom-left" />
+              <InnerApp />
+            </AuthProvider>
+          </ThemeWrapper>
+        </TranslationWrapper>
+      </QueryClientProvider>
+    </HelmetProvider>
   );
 }
 
