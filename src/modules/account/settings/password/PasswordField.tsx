@@ -24,15 +24,17 @@ export function PasswordField<T extends string>({
 
   return (
     <TextField
-      InputProps={{
-        sx: { paddingRight: 0 },
-        endAdornment: (
-          <InputAdornment position="end" sx={{ margin: 0 }}>
-            <IconButton onClick={() => setShowPassword((s) => !s)}>
-              <Eye />
-            </IconButton>
-          </InputAdornment>
-        ),
+      slotProps={{
+        input: {
+          sx: { paddingRight: 0 },
+          endAdornment: (
+            <InputAdornment position="end" sx={{ margin: 0 }}>
+              <IconButton onClick={() => setShowPassword((s) => !s)}>
+                <Eye />
+              </IconButton>
+            </InputAdornment>
+          ),
+        },
       }}
       label={label}
       variant="outlined"

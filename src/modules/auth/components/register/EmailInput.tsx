@@ -52,8 +52,10 @@ export function EmailInput({
 
   return (
     <StyledTextField
-      InputProps={{
-        startAdornment: EmailAdornment,
+      slotProps={{
+        input: {
+          startAdornment: EmailAdornment,
+        },
       }}
       variant="outlined"
       value={value}

@@ -43,11 +43,13 @@ export function CustomTextField({
       rows={rows}
       required={required}
       multiline={multiline}
-      InputProps={
+      slotProps={
         Icon && {
-          startAdornment: (
-            <InputAdornment position="start">{Icon}</InputAdornment>
-          ),
+          input: {
+            startAdornment: (
+              <InputAdornment position="start">{Icon}</InputAdornment>
+            ),
+          },
         }
       }
       id={id}

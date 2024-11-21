@@ -28,8 +28,10 @@ export function EmailInput({
   return (
     <StyledTextField
       id={id}
-      InputProps={{
-        startAdornment: EmailAdornment,
+      slotProps={{
+        input: {
+          startAdornment: EmailAdornment,
+        },
       }}
       variant="outlined"
       error={Boolean(error)}

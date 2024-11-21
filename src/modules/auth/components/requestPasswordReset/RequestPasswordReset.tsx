@@ -79,11 +79,13 @@ export function RequestPasswordReset() {
             validate: (email) =>
               isEmail(email, {}) || t(AUTH.INVALID_EMAIL_ERROR),
           })}
-          FormHelperTextProps={{
-            id: REQUEST_PASSWORD_RESET_EMAIL_FIELD_HELPER_ID,
-          }}
-          InputProps={{
-            startAdornment: EmailAdornment,
+          slotProps={{
+            input: {
+              startAdornment: EmailAdornment,
+            },
+            formHelperText: {
+              id: REQUEST_PASSWORD_RESET_EMAIL_FIELD_HELPER_ID,
+            },
           }}
           placeholder={t(AUTH.EMAIL_INPUT_PLACEHOLDER)}
           helperText={errorMessage}
