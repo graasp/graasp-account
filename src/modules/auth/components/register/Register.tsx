@@ -31,7 +31,7 @@ import { emailValidator, nameValidator } from '~auth/validation';
 import { ErrorDisplay } from '../common/ErrorDisplay';
 import { FormHeader } from '../common/FormHeader';
 import { StyledTextField } from '../common/StyledTextField';
-import { NameAdornment } from '../common/adornment';
+import { NameAdornment } from '../common/adornments';
 import { AgreementForm } from '../register/AgreementForm';
 import { EmailInput } from './EmailInput';
 import { EnableAnalyticsForm } from './EnableAnalyticsForm';

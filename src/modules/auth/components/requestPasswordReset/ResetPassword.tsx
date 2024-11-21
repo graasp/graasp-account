@@ -35,7 +35,7 @@ import { HELP_EMAIL } from '~auth/constants';
 import { useValidateJWTToken } from '~auth/hooks/useValidateJWTToken';
 import { AUTH } from '~auth/langs';
 
-import { PasswordAdornment } from '../common/adornment';
+import { PasswordAdornment } from '../common/adornments';
 import { CenteredContent } from '../layout/CenteredContent';
 import { DialogHeader } from '../layout/DialogHeader';
 import { InvalidTokenScreen } from './InvalidTokenScreen';

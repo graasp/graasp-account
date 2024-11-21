@@ -11,7 +11,7 @@ import { NS } from '@/config/constants';
 import { AUTH } from '~auth/langs';
 
 import { StyledTextField } from './StyledTextField';
-import { PasswordAdornment } from './adornment';
+import { PasswordAdornment } from './adornments';
 
 type Props = {
   id: string;
