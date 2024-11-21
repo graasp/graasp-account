@@ -73,6 +73,7 @@ function RouteComponent() {
             display="flex"
             justifyContent="center"
             alignItems="center"
+            gap={2}
           >
             <MailIcon size={30} />
             {t('SIGN_IN_SUCCESS_TITLE')}

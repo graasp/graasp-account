@@ -15,7 +15,6 @@ type Props = {
   id?: string;
   disabled?: boolean;
   setValue: (str: string) => void;
-  onKeyPress?: React.KeyboardEventHandler<unknown>;
   shouldValidate: boolean;
   autoFocus?: boolean;
 };
@@ -26,7 +25,6 @@ export function EmailInput({
   id,
   disabled = false,
   setValue,
-  onKeyPress,
   shouldValidate = true,
   autoFocus = false,
 }: Props) {
@@ -75,7 +73,6 @@ export function EmailInput({
       id={id}
       type="email"
       disabled={disabled}
-      onKeyPress={onKeyPress}
     />
   );
 }

@@ -121,12 +121,12 @@ export const RESET_PASSWORD_BACK_TO_LOGIN_BUTTON_ID =
 
 export const PASSWORD_SIGN_IN_FIELD_ID = 'passwordSignInField';
 export const PASSWORD_SIGN_IN_BUTTON_ID = 'passwordSignInButton';
-export const SIGN_UP_AGREEMENTS_CHECKBOX_ID = 'signUpAgreementsCheckbox';
+export const REGISTER_AGREEMENTS_CHECKBOX_ID = 'registerAgreementsCheckbox';
 export const SIGN_IN_BUTTON_ID = 'signInButton';
 export const REGISTER_BUTTON_ID = 'registerButton';
 export const REGISTER_HEADER_ID = 'registerHeader';
 export const LOG_IN_HEADER_ID = 'logInHeader';
-export const SIGN_UP_SAVE_ACTIONS_ID = 'signUpSaveActions';
+export const REGISTER_SAVE_ACTIONS_ID = 'registerSaveActions';
 export const EMAIL_SIGN_IN_METHOD_BUTTON_ID = 'emailSignInMethodButton';
 export const USER_SWITCH_ID = 'userSwitch';
 export const SUCCESS_CONTENT_ID = 'successContent';

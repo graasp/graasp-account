@@ -16,7 +16,6 @@ export const Route = createFileRoute('/auth')({
       });
     }
   },
-
   component: RouteComponent,
 });
 

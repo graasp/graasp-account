@@ -33,15 +33,8 @@ export function RightHeader(): JSX.Element {
   return (
     <Stack gap={2} direction="row" id="leftTitleWrapper" alignItems="center">
       <LanguageSwitch lang={i18n.language} onChange={handleLanguageChange} />
-      <ButtonLink to="/auth/login" search={{ url: window.location.toString() }}>
-        {t('LOG_IN.BUTTON_TEXT')}
-      </ButtonLink>
-      <ButtonLink
-        to="/auth/register"
-        search={{ url: window.location.toString() }}
-      >
-        {t('REGISTER.BUTTON_TEXT')}
-      </ButtonLink>
+      <ButtonLink to="/auth/login">{t('LOG_IN.BUTTON_TEXT')}</ButtonLink>
+      <ButtonLink to="/auth/register">{t('REGISTER.BUTTON_TEXT')}</ButtonLink>
     </Stack>
   );
 }

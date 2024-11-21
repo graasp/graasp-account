@@ -17,7 +17,6 @@ const {
   exportMemberDataRoutine,
   getInvitationRoutine,
   signInRoutine,
-  signUpRoutine,
   signInWithPasswordRoutine,
 } = routines;
 
@@ -65,7 +64,6 @@ export default ({
     // error messages
     // auth
     case signInRoutine.FAILURE:
-    case signUpRoutine.FAILURE:
     case signInWithPasswordRoutine.FAILURE:
     case getInvitationRoutine.FAILURE:
     case updatePasswordRoutine.FAILURE:
@@ -80,7 +78,6 @@ export default ({
     // success messages
     // auth
     case signInRoutine.SUCCESS:
-    case signUpRoutine.SUCCESS:
     case signInWithPasswordRoutine.SUCCESS:
     case updatePasswordRoutine.SUCCESS:
     case postPublicProfileRoutine.SUCCESS:

@@ -7,7 +7,7 @@ import {
   EMAIL_SIGN_UP_FIELD_ID,
   NAME_SIGN_UP_FIELD_ID,
   REGISTER_BUTTON_ID,
-  SIGN_UP_SAVE_ACTIONS_ID,
+  REGISTER_SAVE_ACTIONS_ID,
   SUCCESS_CONTENT_ID,
 } from '../../../src/config/selectors';
 import { AUTH_MEMBERS } from '../../fixtures/members';
@@ -135,7 +135,7 @@ describe('Register', () => {
     });
 
     it('Analytics should be visible and checked', () => {
-      cy.get(`#${SIGN_UP_SAVE_ACTIONS_ID}`)
+      cy.get(`#${REGISTER_SAVE_ACTIONS_ID}`)
         .should('exist')
         .should('be.checked');
     });
@@ -148,7 +148,7 @@ describe('Register', () => {
     });
 
     it('Register with analytics disabled', () => {
-      cy.get(`#${SIGN_UP_SAVE_ACTIONS_ID}`).click().should('not.be.checked');
+      cy.get(`#${REGISTER_SAVE_ACTIONS_ID}`).click().should('not.be.checked');
       cy.signUpAndCheck(AUTH_MEMBERS.GRAASP, true);
       cy.wait('@waitOnRegister')
         .its('request.body.enableSaveActions')

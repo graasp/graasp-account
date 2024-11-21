@@ -126,7 +126,7 @@ export function PasswordLoginForm({ search }: PasswordLoginProps) {
           variant="caption"
           sx={{
             textDecoration: 'none',
-            '&:hover': { color: (theme) => theme.palette.primary.main },
+            '&:hover': { color: 'palette.primary.main' },
           }}
           to="/auth/forgot-password"
         >
