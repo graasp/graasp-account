@@ -22,7 +22,7 @@ import { ButtonLink } from '@/components/ui/ButtonLink';
 import { TypographyLink } from '@/components/ui/TypographyLink';
 import { NS } from '@/config/constants';
 
-import { PasswordAdornment } from '~auth/components/common/Adornments';
+import { PasswordAdornment } from '~auth/components/common/aadornments';
 import { CenteredContent } from '~auth/components/layout/CenteredContent';
 import { DialogHeader } from '~auth/components/layout/DialogHeader';
 import { InvalidTokenScreen } from '~auth/components/requestPasswordReset/InvalidTokenScreen';

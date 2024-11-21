@@ -6,8 +6,8 @@ import { NS } from '@/config/constants';
 import { AUTH } from '~auth/langs';
 import { emailValidator } from '~auth/validation';
 
-import { EmailAdornment } from '../common/Adornments';
 import { StyledTextField } from '../common/StyledTextField';
+import { EmailAdornment } from '../common/adornments';
 
 type Props = {
   required?: boolean;

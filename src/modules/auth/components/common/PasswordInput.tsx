@@ -10,8 +10,8 @@ import { NS } from '@/config/constants';
 
 import { AUTH } from '~auth/langs';
 
-import { PasswordAdornment } from './Adornments';
 import { StyledTextField } from './StyledTextField';
+import { PasswordAdornment } from './adornments';
 
 type Props = {
   id: string;

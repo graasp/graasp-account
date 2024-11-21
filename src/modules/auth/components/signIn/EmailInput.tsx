@@ -3,8 +3,8 @@ import { useTranslation } from 'react-i18next';
 
 import { NS } from '@/config/constants';
 
-import { EmailAdornment } from '../common/Adornments';
 import { StyledTextField } from '../common/StyledTextField';
+import { EmailAdornment } from '../common/adornments';
 
 type Props = {
   id?: string;

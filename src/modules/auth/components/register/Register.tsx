@@ -28,10 +28,10 @@ import { useMobileAppLogin } from '~auth/hooks/useMobileAppLogin';
 import { AUTH } from '~auth/langs';
 import { emailValidator, nameValidator } from '~auth/validation';
 
-import { NameAdornment } from '../common/Adornments';
 import { ErrorDisplay } from '../common/ErrorDisplay';
 import { FormHeader } from '../common/FormHeader';
 import { StyledTextField } from '../common/StyledTextField';
+import { NameAdornment } from '../common/adornments';
 import { AgreementForm } from '../register/AgreementForm';
 import { EmailInput } from './EmailInput';
 import { EnableAnalyticsForm } from './EnableAnalyticsForm';
