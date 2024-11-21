@@ -83,7 +83,7 @@ describe('Name and Email Validation', () => {
   });
 });
 
-describe.only('Invitations', () => {
+describe('Invitations', () => {
   it('Register from invitation with name', () => {
     const invitation = {
       id: v4(),
@@ -121,7 +121,7 @@ describe.only('Invitations', () => {
     };
     cy.intercept(API_ROUTES.buildGetInvitationRoute(invitation.id), {
       statusCode: 404,
-      body: { message: '404 Not Found!' },
+      body: { message: 'Invitation not found!' },
     });
     const search = new URLSearchParams();
     search.set('invitationId', invitation.id);
@@ -130,7 +130,7 @@ describe.only('Invitations', () => {
   });
 });
 
-describe.only('Defining analytics on register', () => {
+describe('Defining analytics on register', () => {
   beforeEach(() => {
     cy.visit('/auth/register');
     cy.intercept({ method: 'post', pathname: '/register' }, ({ reply }) => {

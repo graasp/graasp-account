@@ -21,59 +21,54 @@ const registerSearchSchema = z.object({
 export const Route = createFileRoute('/auth/register')({
   validateSearch: zodSearchValidator(registerSearchSchema),
   search: { middlewares: [retainSearchParams(['url'])] },
-  component: RegisterPage,
-});
-
-function RegisterWithoutInvitation(): JSX.Element {
-  const search = Route.useSearch();
-  return (
+  component: () => (
     <LeftContentContainer>
-      <RegisterForm search={search} initialData={{}} />
+      <RegisterPage />
     </LeftContentContainer>
-  );
-}
+  ),
+});
 
 function RegisterWithInvitation() {
   const search = Route.useSearch();
   const { t } = useTranslation(NS.Auth);
 
-  const {
-    data: invitation,
-    isPending: isLoadingInvitations,
-    error,
-  } = hooks.useInvitation(search.invitationId);
+  const { data: invitation, isPending: isLoadingInvitations } =
+    hooks.useInvitation(search.invitationId);
 
   if (invitation) {
     return (
-      <LeftContentContainer>
-        <RegisterForm
-          search={search}
-          initialData={{ name: invitation.name, email: invitation.email }}
-        />
-      </LeftContentContainer>
+      <RegisterForm
+        search={search}
+        initialData={{ name: invitation.name, email: invitation.email }}
+      />
     );
   }
 
   // invitations loading
   if (isLoadingInvitations) {
     return (
-      <LeftContentContainer>
-        <Stack direction="column" spacing={1}>
-          <Typography>{t('INVITATIONS_LOADING_MESSAGE')}</Typography>
-          <LinearProgress />
-        </Stack>
-      </LeftContentContainer>
+      <Stack direction="column" spacing={1}>
+        <Typography>{t('INVITATION_LOADING_MESSAGE')}</Typography>
+        <LinearProgress />
+      </Stack>
     );
   }
 
-  return <Alert severity="error">{error.message}</Alert>;
+  return (
+    <Stack gap={2} alignItems="center">
+      <Alert severity="warning" sx={{ maxWidth: '35ch' }}>
+        {t('INVITATION_NOT_FOUND_MESSAGE')}
+      </Alert>
+      <RegisterForm search={search} initialData={{}} />
+    </Stack>
+  );
 }
 
 function RegisterPage() {
-  const { invitationId } = Route.useSearch();
-  if (invitationId) {
+  const search = Route.useSearch();
+  if (search.invitationId) {
     return <RegisterWithInvitation />;
   }
 
-  return <RegisterWithoutInvitation />;
+  return <RegisterForm search={search} initialData={{}} />;
 }
