@@ -10,7 +10,7 @@ import { NS } from '@/config/constants';
 import { hooks } from '@/config/queryClient';
 
 import { LeftContentContainer } from '~auth/components/LeftContentContainer';
-import { RegisterForm } from '~auth/components/register/RegisterForm';
+import { RegisterForm } from '~auth/components/register/Register';
 
 const registerSearchSchema = z.object({
   invitationId: z.string().uuid().optional(),
