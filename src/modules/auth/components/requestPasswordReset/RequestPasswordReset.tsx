@@ -21,7 +21,7 @@ import { HELP_EMAIL } from '~auth/constants';
 import { AUTH } from '~auth/langs';
 
 import { useRecaptcha } from '../../context/RecaptchaContext';
-import { EmailAdornment } from '../common/adornments';
+import { EmailAdornment } from '../common/adornment';
 import { CenteredContent } from '../layout/CenteredContent';
 import { DialogHeader } from '../layout/DialogHeader';
 

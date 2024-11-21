@@ -7,7 +7,7 @@ import { AUTH } from '~auth/langs';
 import { emailValidator } from '~auth/validation';
 
 import { StyledTextField } from '../common/StyledTextField';
-import { EmailAdornment } from '../common/adornments';
+import { EmailAdornment } from '../common/adornment';
 
 type Props = {
   required?: boolean;
