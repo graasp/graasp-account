@@ -61,6 +61,8 @@
   "PROFILE_DELETE_CONFIRMATION_VALUE": "delete",
   "USERNAME_EMPTY_ERROR": "The field cannot be empty",
   "USERNAME_LENGTH_ERROR": "Username must be between {{min}} and {{max}} characters long",
+  "USERNAME_MAX_LENGTH_ERROR": "Username must be less than {{max}} characters",
+  "USERNAME_MIN_LENGTH_ERROR": "Username must be longer than {{min}} characters",
   "USERNAME_SPECIAL_CHARACTERS_ERROR": "User name must not contain \" \", \", <, >, ^, %, \\",
   "EDIT_BUTTON_LABEL": "Edit",
   "CONFIGURE_BUTTON_LABEL": "Configure",

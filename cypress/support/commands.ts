@@ -18,8 +18,8 @@ import {
   fillSignInByMailLayout,
   fillSignUpLayout,
   submitPasswordSignIn,
+  submitRegister,
   submitSignIn,
-  submitSignUp,
 } from '../e2e/auth/util';
 import {
   CURRENT_MEMBER,
@@ -187,7 +187,7 @@ Cypress.Commands.add('signUpAndCheck', (user, acceptAllTerms) => {
   if (acceptAllTerms) {
     cy.agreeWithAllTerms();
   }
-  submitSignUp();
+  submitRegister();
 
   cy.checkErrorTextField(NAME_SIGN_UP_FIELD_ID, user.nameValid);
   cy.checkErrorTextField(EMAIL_SIGN_UP_FIELD_ID, user.emailValid);

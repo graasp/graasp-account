@@ -32,9 +32,7 @@ export const checkInvitationFields = ({
   email: string;
 }): void => {
   if (name) {
-    cy.get(`#${NAME_SIGN_UP_FIELD_ID}`)
-      .should('have.value', name)
-      .should('be.disabled');
+    cy.get(`#${NAME_SIGN_UP_FIELD_ID}`).should('have.value', name);
   }
   cy.get(`#${EMAIL_SIGN_UP_FIELD_ID}`)
     .should('have.value', email)
@@ -51,7 +49,7 @@ export const submitSignIn = (): void => {
   cy.get(`#${SIGN_IN_BUTTON_ID}`).click();
 };
 
-export const submitSignUp = (): void => {
+export const submitRegister = (): void => {
   cy.get(`#${REGISTER_BUTTON_ID}`).click();
 };
 

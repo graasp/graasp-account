@@ -151,6 +151,9 @@ const defaultRedirection = new URL(
 
 export function RegisterForm({ search, initialData }: RegisterProps) {
   const { t, i18n } = useTranslation(NS.Auth);
+  const { t: translateCommon } = useTranslation(NS.Common, {
+    keyPrefix: 'FIELD_ERROR',
+  });
 
   const navigate = useNavigate();
   const location = useLocation();
@@ -238,13 +241,22 @@ export function RegisterForm({ search, initialData }: RegisterProps) {
           helperText={nameError}
           error={Boolean(nameError)}
           {...register('name', {
-            required: t('REQUIRED_FIELD_ERROR'),
-            maxLength: MAX_USERNAME_LENGTH,
-            minLength: MIN_USERNAME_LENGTH,
+            required: translateCommon('REQUIRED'),
+            maxLength: {
+              value: MAX_USERNAME_LENGTH,
+              message: translateCommon('USERNAME_MAX_LENGTH', {
+                max: MAX_USERNAME_LENGTH,
+              }),
+            },
+            minLength: {
+              value: MIN_USERNAME_LENGTH,
+              message: translateCommon('USERNAME_MIN_LENGTH', {
+                min: MIN_USERNAME_LENGTH,
+              }),
+            },
             validate: (name) =>
-              MemberConstants.USERNAME_FORBIDDEN_CHARS_REGEX.test(
-                name.trim(),
-              ) == false || t(AUTH.USERNAME_SPECIAL_CHARACTERS_ERROR),
+              MemberConstants.USERNAME_FORMAT_REGEX.test(name.trim()) ||
+              translateCommon('USERNAME_SPECIAL_CHARACTERS'),
           })}
           placeholder={t(NAME_FIELD_LABEL)}
           // todo: Should we not allow users to change their name when creating a count from an invitation ?
@@ -258,12 +270,13 @@ export function RegisterForm({ search, initialData }: RegisterProps) {
             },
           }}
           variant="outlined"
-          type="email"
+          // type="email"
           error={Boolean(emailError)}
           helperText={emailError}
           {...register('email', {
-            required: t('REQUIRED_FIELD_ERROR'),
-            validate: (email) => isEmail(email, {}) || t('INVALID_EMAIL_ERROR'),
+            required: translateCommon('REQUIRED'),
+            validate: (email) =>
+              isEmail(email, {}) || translateCommon('INVALID_EMAIL'),
           })}
           placeholder={t('EMAIL_INPUT_PLACEHOLDER_REQUIRED')}
           // do not allow to modify the email if it was provided
