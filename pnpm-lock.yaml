@@ -19,7 +19,7 @@ importers:
         version: 11.13.0(@emotion/react@11.13.3(@types/react@18.3.12)(react@18.3.1))(@types/react@18.3.12)(react@18.3.1)
       '@graasp/query-client':
         specifier: 5.4.2
-        version: 5.4.2(@graasp/sdk@5.3.0(date-fns@4.1.0)(uuid@11.0.3))(@graasp/translations@1.42.0(i18next@23.16.5))(react@18.3.1)
+        version: 5.4.2(@graasp/sdk@5.3.0(date-fns@4.1.0)(uuid@11.0.3))(@graasp/translations@1.42.0(i18next@24.0.0(typescript@5.6.3)))(react@18.3.1)
       '@graasp/sdk':
         specifier: 5.3.0
         version: 5.3.0(date-fns@4.1.0)(uuid@11.0.3)
@@ -28,10 +28,10 @@ importers:
         version: 2.2.0(stylis@4.3.4)
       '@graasp/translations':
         specifier: 1.42.0
-        version: 1.42.0(i18next@23.16.5)
+        version: 1.42.0(i18next@24.0.0(typescript@5.6.3))
       '@graasp/ui':
         specifier: 5.4.1
-        version: 5.4.1(wzvg7bv6xr6544lluykabht4gm)
+        version: 5.4.1(lu4huymlihnox6mcaam2b63u6i)
       '@mui/icons-material':
         specifier: 6.1.7
         version: 6.1.7(@mui/material@6.1.7(@emotion/react@11.13.3(@types/react@18.3.12)(react@18.3.1))(@emotion/styled@11.13.0(@emotion/react@11.13.3(@types/react@18.3.12)(react@18.3.1))(@types/react@18.3.12)(react@18.3.1))(@types/react@18.3.12)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(@types/react@18.3.12)(react@18.3.1)
@@ -63,8 +63,8 @@ importers:
         specifier: 2.3.0
         version: 2.3.0
       i18next:
-        specifier: 23.16.5
-        version: 23.16.5
+        specifier: 24.0.0
+        version: 24.0.0(typescript@5.6.3)
       i18next-fetch-backend:
         specifier: 6.0.0
         version: 6.0.0
@@ -91,7 +91,7 @@ importers:
         version: 7.53.2(react@18.3.1)
       react-i18next:
         specifier: 15.1.1
-        version: 15.1.1(i18next@23.16.5)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
+        version: 15.1.1(i18next@24.0.0(typescript@5.6.3))(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       react-image-crop:
         specifier: 11.0.7
         version: 11.0.7(react@18.3.1)
@@ -3244,8 +3244,13 @@ packages:
     resolution: {integrity: sha512-kVqnydqLVMZfVlOuP2nf71cREydlxEKLH43jUXAFdOku/GF+6b9fBg31anoos5XncdhdtiYgL9fheqMrtXRwng==}
     engines: {node: '>=18'}
 
-  i18next@23.16.5:
-    resolution: {integrity: sha512-KTlhE3EP9x6pPTAW7dy0WKIhoCpfOGhRQlO+jttQLgzVaoOjWwBWramu7Pp0i+8wDNduuzXfe3kkVbzrKyrbTA==}
+  i18next@24.0.0:
+    resolution: {integrity: sha512-ORGCwMrXxpmB/AljFbGEe0UK/9Pz6umb9aZgLZ9qJGE+kjKhlnLj423WX2mt+N0MlEJ78pQXFMBmeMzrkLxriQ==}
+    peerDependencies:
+      typescript: ^5
+    peerDependenciesMeta:
+      typescript:
+        optional: true
 
   ieee754@1.2.1:
     resolution: {integrity: sha512-dcyqhDvX1C46lXZcVqCpK+FtMRQVdIMN6/Df5js2zouUsqG7I6sFxitIC+7KYK29KdXOLHdu9zL4sFnoVQnqaA==}
@@ -6223,10 +6228,10 @@ snapshots:
 
   '@floating-ui/utils@0.2.8': {}
 
-  '@graasp/query-client@5.4.2(@graasp/sdk@5.3.0(date-fns@4.1.0)(uuid@11.0.3))(@graasp/translations@1.42.0(i18next@23.16.5))(react@18.3.1)':
+  '@graasp/query-client@5.4.2(@graasp/sdk@5.3.0(date-fns@4.1.0)(uuid@11.0.3))(@graasp/translations@1.42.0(i18next@24.0.0(typescript@5.6.3)))(react@18.3.1)':
     dependencies:
       '@graasp/sdk': 5.3.0(date-fns@4.1.0)(uuid@11.0.3)
-      '@graasp/translations': 1.42.0(i18next@23.16.5)
+      '@graasp/translations': 1.42.0(i18next@24.0.0(typescript@5.6.3))
       '@tanstack/react-query': 5.59.20(react@18.3.1)
       '@tanstack/react-query-devtools': 5.59.20(@tanstack/react-query@5.59.20(react@18.3.1))(react@18.3.1)
       axios: 1.7.7
@@ -6248,23 +6253,23 @@ snapshots:
       cssjanus: 2.3.0
       stylis: 4.3.4
 
-  '@graasp/translations@1.42.0(i18next@23.16.5)':
+  '@graasp/translations@1.42.0(i18next@24.0.0(typescript@5.6.3))':
     dependencies:
-      i18next: 23.16.5
+      i18next: 24.0.0(typescript@5.6.3)
 
-  '@graasp/ui@5.4.1(wzvg7bv6xr6544lluykabht4gm)':
+  '@graasp/ui@5.4.1(lu4huymlihnox6mcaam2b63u6i)':
     dependencies:
       '@emotion/cache': 11.13.1
       '@emotion/react': 11.13.3(@types/react@18.3.12)(react@18.3.1)
       '@emotion/styled': 11.13.0(@emotion/react@11.13.3(@types/react@18.3.12)(react@18.3.1))(@types/react@18.3.12)(react@18.3.1)
       '@graasp/sdk': 5.3.0(date-fns@4.1.0)(uuid@11.0.3)
       '@graasp/stylis-plugin-rtl': 2.2.0(stylis@4.3.4)
-      '@graasp/translations': 1.42.0(i18next@23.16.5)
+      '@graasp/translations': 1.42.0(i18next@24.0.0(typescript@5.6.3))
       '@mui/icons-material': 6.1.7(@mui/material@6.1.7(@emotion/react@11.13.3(@types/react@18.3.12)(react@18.3.1))(@emotion/styled@11.13.0(@emotion/react@11.13.3(@types/react@18.3.12)(react@18.3.1))(@types/react@18.3.12)(react@18.3.1))(@types/react@18.3.12)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(@types/react@18.3.12)(react@18.3.1)
       '@mui/lab': 6.0.0-beta.15(@emotion/react@11.13.3(@types/react@18.3.12)(react@18.3.1))(@emotion/styled@11.13.0(@emotion/react@11.13.3(@types/react@18.3.12)(react@18.3.1))(@types/react@18.3.12)(react@18.3.1))(@mui/material@6.1.7(@emotion/react@11.13.3(@types/react@18.3.12)(react@18.3.1))(@emotion/styled@11.13.0(@emotion/react@11.13.3(@types/react@18.3.12)(react@18.3.1))(@types/react@18.3.12)(react@18.3.1))(@types/react@18.3.12)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(@types/react@18.3.12)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       '@mui/material': 6.1.7(@emotion/react@11.13.3(@types/react@18.3.12)(react@18.3.1))(@emotion/styled@11.13.0(@emotion/react@11.13.3(@types/react@18.3.12)(react@18.3.1))(@types/react@18.3.12)(react@18.3.1))(@types/react@18.3.12)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       http-status-codes: 2.3.0
-      i18next: 23.16.5
+      i18next: 24.0.0(typescript@5.6.3)
       interweave: 13.1.0(react@18.3.1)
       katex: 0.16.11
       lodash.truncate: 4.4.2
@@ -6274,7 +6279,7 @@ snapshots:
       react-dnd: 16.0.1(@types/node@22.9.0)(@types/react@18.3.12)(react@18.3.1)
       react-dnd-html5-backend: 16.0.1
       react-dom: 18.3.1(react@18.3.1)
-      react-i18next: 15.1.1(i18next@23.16.5)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
+      react-i18next: 15.1.1(i18next@24.0.0(typescript@5.6.3))(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       react-quill: 2.0.0(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       react-rnd: 10.4.13(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       react-router-dom: 6.28.0(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
@@ -8478,9 +8483,11 @@ snapshots:
 
   i18next-fetch-backend@6.0.0: {}
 
-  i18next@23.16.5:
+  i18next@24.0.0(typescript@5.6.3):
     dependencies:
       '@babel/runtime': 7.26.0
+    optionalDependencies:
+      typescript: 5.6.3
 
   ieee754@1.2.1: {}
 
@@ -9304,11 +9311,11 @@ snapshots:
     dependencies:
       react: 18.3.1
 
-  react-i18next@15.1.1(i18next@23.16.5)(react-dom@18.3.1(react@18.3.1))(react@18.3.1):
+  react-i18next@15.1.1(i18next@24.0.0(typescript@5.6.3))(react-dom@18.3.1(react@18.3.1))(react@18.3.1):
     dependencies:
       '@babel/runtime': 7.26.0
       html-parse-stringify: 3.0.1
-      i18next: 23.16.5
+      i18next: 24.0.0(typescript@5.6.3)
       react: 18.3.1
     optionalDependencies:
       react-dom: 18.3.1(react@18.3.1)
