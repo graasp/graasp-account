@@ -41,8 +41,6 @@ import { FormHeader } from '../common/FormHeader';
 import { StyledTextField } from '../common/StyledTextField';
 import { EmailAdornment, NameAdornment } from '../common/adornments';
 
-const { SIGN_IN_LINK_TEXT, NAME_FIELD_LABEL, SIGN_UP_BUTTON } = AUTH;
-
 type RegisterInputs = {
   name: string;
   email: string;
@@ -50,11 +48,11 @@ type RegisterInputs = {
   userHasAcceptedAllTerms: boolean;
 };
 
-function EnableAnalyticsForm({
-  control,
-}: {
+type FormElementProps = {
   control: Control<RegisterInputs>;
-}): JSX.Element {
+};
+
+function EnableAnalyticsForm({ control }: FormElementProps): JSX.Element {
   const { field } = useController({ control, name: 'enableSaveActions' });
   const { t } = useTranslation(NS.Auth);
 
@@ -79,11 +77,7 @@ function EnableAnalyticsForm({
   );
 }
 
-export function AgreementForm({
-  control,
-}: {
-  control: Control<RegisterInputs>;
-}) {
+export function AgreementForm({ control }: FormElementProps) {
   const { t } = useTranslation(NS.Auth);
   const {
     field,
@@ -91,9 +85,9 @@ export function AgreementForm({
   } = useController({
     control,
     name: 'userHasAcceptedAllTerms',
-    rules: { required: 'yes' },
+    rules: { required: t('USER_AGREEMENTS_REQUIRED') },
   });
-  const hasError = Boolean(errors.userHasAcceptedAllTerms?.message);
+  const validationError = errors.userHasAcceptedAllTerms?.message;
 
   return (
     <>
@@ -102,7 +96,7 @@ export function AgreementForm({
           <Checkbox
             checked={field.value}
             onChange={(_, checked) => field.onChange(checked)}
-            color={hasError ? 'error' : 'primary'}
+            color={validationError ? 'error' : 'primary'}
             data-cy={REGISTER_AGREEMENTS_CHECKBOX_ID}
             size="small"
           />
@@ -111,7 +105,7 @@ export function AgreementForm({
           <Typography
             display="inline"
             fontSize="small"
-            color={hasError ? 'error' : 'default'}
+            color={validationError ? 'error' : 'default'}
           >
             <Trans
               t={t}
@@ -124,9 +118,9 @@ export function AgreementForm({
           </Typography>
         }
       />
-      {hasError && (
+      {validationError && (
         <Typography variant="caption" color="error">
-          {t('USER_AGREEMENTS_REQUIRED')}
+          {validationError}
         </Typography>
       )}
     </>
@@ -138,7 +132,7 @@ type RegisterProps = {
     url?: string;
     invitationId?: string;
   };
-  initialData: {
+  initialData?: {
     name?: string;
     email?: string;
   };
@@ -158,9 +152,7 @@ export function RegisterForm({ search, initialData }: RegisterProps) {
   const navigate = useNavigate();
   const location = useLocation();
   const { executeCaptcha } = useRecaptcha();
-
   const { isMobile, challenge } = useMobileAppLogin();
-
   const {
     register,
     handleSubmit,
@@ -180,8 +172,6 @@ export function RegisterForm({ search, initialData }: RegisterProps) {
     isPending: isLoadingMobileSignUp,
     error: mobileRegisterError,
   } = mutations.useMobileSignUp();
-
-  const registerError = webRegisterError || mobileRegisterError;
 
   const handleRegister = async (inputs: RegisterInputs) => {
     // lowercase email
@@ -216,8 +206,9 @@ export function RegisterForm({ search, initialData }: RegisterProps) {
     });
   };
 
-  const nameError = errors.name?.message satisfies string | undefined;
-  const emailError = errors.email?.message satisfies string | undefined;
+  const nameError = errors.name?.message;
+  const emailError = errors.email?.message;
+  const disableRegister = Boolean(Object.keys(errors).length > 0);
 
   return (
     <Stack direction="column" gap={4} alignItems="center" maxWidth="300px">
@@ -258,9 +249,7 @@ export function RegisterForm({ search, initialData }: RegisterProps) {
               MemberConstants.USERNAME_FORMAT_REGEX.test(name.trim()) ||
               translateCommon('USERNAME_SPECIAL_CHARACTERS'),
           })}
-          placeholder={t(NAME_FIELD_LABEL)}
-          // todo: Should we not allow users to change their name when creating a count from an invitation ?
-          // disabled={Boolean(invitation?.name)}
+          placeholder={t('NAME_FIELD_LABEL')}
         />
         <StyledTextField
           id={EMAIL_SIGN_UP_FIELD_ID}
@@ -270,7 +259,6 @@ export function RegisterForm({ search, initialData }: RegisterProps) {
             },
           }}
           variant="outlined"
-          // type="email"
           error={Boolean(emailError)}
           helperText={emailError}
           {...register('email', {
@@ -280,26 +268,26 @@ export function RegisterForm({ search, initialData }: RegisterProps) {
           })}
           placeholder={t('EMAIL_INPUT_PLACEHOLDER_REQUIRED')}
           // do not allow to modify the email if it was provided
-          disabled={Boolean(initialData.email)}
+          disabled={Boolean(initialData?.email)}
         />
         <Stack>
           <EnableAnalyticsForm control={control} />
           <AgreementForm control={control} />
         </Stack>
-        <ErrorDisplay error={registerError} />
+        <ErrorDisplay error={webRegisterError || mobileRegisterError} />
         <LoadingButton
+          id={REGISTER_BUTTON_ID}
           type="submit"
           variant="contained"
-          id={REGISTER_BUTTON_ID}
           loading={isLoadingSignUp || isLoadingMobileSignUp}
           fullWidth
-          disabled={Boolean(Object.keys(errors).length > 0)}
+          disabled={disableRegister}
         >
-          {t(SIGN_UP_BUTTON)}
+          {t('SIGN_UP_BUTTON')}
         </LoadingButton>
       </Stack>
       <TypographyLink color="textSecondary" to="/auth/login" search={search}>
-        {t(SIGN_IN_LINK_TEXT)}
+        {t('SIGN_IN_LINK_TEXT')}
       </TypographyLink>
     </Stack>
   );

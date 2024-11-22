@@ -59,7 +59,7 @@ function RegisterWithInvitation() {
       <Alert severity="warning" sx={{ maxWidth: '35ch' }}>
         {t('INVITATION_NOT_FOUND_MESSAGE')}
       </Alert>
-      <RegisterForm search={search} initialData={{}} />
+      <RegisterForm search={search} />
     </Stack>
   );
 }
@@ -70,5 +70,5 @@ function RegisterPage() {
     return <RegisterWithInvitation />;
   }
 
-  return <RegisterForm search={search} initialData={{}} />;
+  return <RegisterForm search={search} />;
 }
