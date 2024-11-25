@@ -61,6 +61,8 @@
   "PROFILE_DELETE_CONFIRMATION_VALUE": "supprimer",
   "USERNAME_EMPTY_ERROR": "Le champ ne peut pas être vide",
   "USERNAME_LENGTH_ERROR": "Le nom d'utilisateur doit contenir entre {{min}} et {{max}} caractères",
+  "USERNAME_MAX_LENGTH_ERROR": "Le nom d'utilisateur doit contenir moins de {{max}} caractères",
+  "USERNAME_MIN_LENGTH_ERROR": "Le nom d'utilisateur doit comporter plus de {{min}} caractères",
   "USERNAME_SPECIAL_CHARACTERS_ERROR": "Le nom d'utilisateur ne doit pas contenir \" \", \", <, >, ^, %, \\",
   "EDIT_BUTTON_LABEL": "Modifier",
   "CONFIGURE_BUTTON_LABEL": "Configurer",

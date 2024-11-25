@@ -38,5 +38,12 @@
   },
   "ERRORS": {
     "UNEXPECTED": "Une erreur inattendue s'est produite"
+  },
+  "FIELD_ERROR": {
+    "REQUIRED": "Ce champ est obligatoire",
+    "USERNAME_MIN_LENGTH": "Le nom d'utilisateur doit comporter plus de {{min}} caractères",
+    "USERNAME_MAX_LENGTH": "Le nom d'utilisateur doit contenir moins de {{max}} caractères",
+    "USERNAME_SPECIAL_CHARACTERS": "Le nom d'utilisateur ne doit pas contenir de guillemets, d'anti-slash, <, >, ^, %",
+    "INVALID_EMAIL": "Cela ne ressemble pas à une adresse e-mail valide"
   }
 }
