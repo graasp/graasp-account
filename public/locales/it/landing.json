@@ -1,0 +1,107 @@
+{
+  "HOME": {
+    "TITLE": "Graasp",
+    "MISSION": {
+    },
+    "PUZZLE": {
+      "BUILDER": {
+      },
+      "PLAYER": {
+      },
+      "ANALYTICS": {
+      },
+      "LIBRARY": {
+      }
+    },
+    "USER_STORY": {
+      "TEACHER": {
+      },
+      "RESEARCHER": {
+      }
+    }
+  },
+  "TERMS": {
+    "GRAASP_LEGAL_DISCLAIMER": {
+    },
+    "EPFL_LEGAL_DISCLAIMER": {
+    }
+  },
+  "DISCLAIMER": {
+  },
+  "PRIVACY_POLICY": {
+    "SECTION_1": {
+    },
+    "RESPONSIBILITIES": {
+      "USER_OBLIGATIONS": {
+        "NOTIFICATION": {
+        }
+      },
+      "GRAASP_OBLIGATIONS": {
+      }
+    },
+    "DATA_USAGE": {
+      "ACCOUNT": {
+      },
+      "PROVIDE_SERVICES": {
+      },
+      "ANALYZE_USAGE": {
+      },
+      "COMPLIANCE": {
+      },
+      "RESEARCH": {
+      }
+    },
+    "DATA_COLLECTION": {
+      "ACCOUNT": {
+      },
+      "METADATA": {
+      },
+      "OPERATIONAL_DATA": {
+      },
+      "UPLOADED_DATA": {
+      }
+    },
+    "COOKIES": {
+      "PURPOSE": {
+      },
+      "MANAGEMENT": {
+      },
+      "FINALITY": {
+      }
+    },
+    "DATA_RETENTION": {
+    },
+    "DATA_SHARING": {
+    },
+    "SERVICE_PROVIDERS": {
+      "AWS": {
+      },
+      "OTHER_PROVIDERS": {
+      },
+      "TRANSFERS": {
+      }
+    },
+    "SECURITY": {
+    },
+    "YOUR_RIGHTS": {
+      "RIGHTS": {
+      }
+    },
+    "POLICY_CHANGES": {
+    },
+    "FINAL_PROVISIONS": {
+      "APPLICABLE_LAW": {
+      }
+    }
+  },
+  "FOOTER": {
+    "CONTENT": {
+    },
+    "PARTNERS": {
+    },
+    "SOCIAL": {
+    },
+    "OTHER": {
+    }
+  }
+}
