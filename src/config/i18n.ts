@@ -24,5 +24,4 @@ i18n
       order: ['localStorage', 'navigator', 'querystring'],
       caches: ['localStorage'],
     },
-    debug: true,
   });
