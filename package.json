@@ -14,9 +14,9 @@
   },
   "type": "module",
   "dependencies": {
-    "@emotion/cache": "11.13.1",
-    "@emotion/react": "11.13.3",
-    "@emotion/styled": "11.13.0",
+    "@emotion/cache": "11.13.5",
+    "@emotion/react": "11.13.5",
+    "@emotion/styled": "11.13.5",
     "@graasp/chatbox": "3.3.0",
     "@graasp/query-client": "5.4.2",
     "@graasp/sdk": "5.3.1",
