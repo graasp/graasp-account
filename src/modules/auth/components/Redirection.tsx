@@ -50,7 +50,6 @@ export function Redirection({ children }: Props) {
               {t(AUTH.REDIRECTION_DESCRIPTION)}
             </Typography>
             <ButtonLink
-              role="button"
               variant="contained"
               to="/account"
               endIcon={<ArrowRightIcon />}

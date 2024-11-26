@@ -122,9 +122,7 @@ function AutoLogin(): JSX.Element {
   return (
     <Wrapper id={AUTO_LOGIN_CONTAINER_ID}>
       <Typography variant="h2">{t('AUTO_LOGIN_WELCOME_TITLE')}</Typography>
-      <Button role="button" onClick={autoLogin}>
-        {t('AUTO_LOGIN_START_BUTTON')}
-      </Button>
+      <Button onClick={autoLogin}>{t('AUTO_LOGIN_START_BUTTON')}</Button>
     </Wrapper>
   );
 }

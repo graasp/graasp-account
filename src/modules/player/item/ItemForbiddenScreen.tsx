@@ -42,7 +42,6 @@ export function ItemForbiddenScreen(): JSX.Element {
       />
       {isAuthenticated ? (
         <Button
-          role="button"
           onClick={() => {
             logout();
             navigate(redirectionProps);
