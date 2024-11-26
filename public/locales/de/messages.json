@@ -148,5 +148,13 @@
   "ACCOUNT_NOT_FOUND": "Es wurde kein Konto gefunden",
   "CANNOT_CREATE_MEMBERSHIP_CAUSE_ITEM_LOGIN_SCHEMA_EXISTS": "Sie können keine Mitgliedschaft beantragen, da die Zielressource pseudonymisierte Benutzer zulässt",
   "CANNOT_MODIFY_GUEST_ITEM_MEMBERSHIP": "Die Berechtigung des Zielkontos kann nicht geändert werden, da es sich um einen pseudonymisierten Benutzer handelt",
-  "CANNOT_ENROLL_ITEM_WITHOUT_ITEM_LOGIN_SCHEMA": "Eine Registrierung für das Zielelement ist nicht möglich, da keine pseudonymisierten Benutzer zulässig sind."
+  "CANNOT_ENROLL_ITEM_WITHOUT_ITEM_LOGIN_SCHEMA": "Eine Registrierung für das Zielelement ist nicht möglich, da keine pseudonymisierten Benutzer zulässig sind.",
+  "REQUEST_MEMBERSHIP": "Mitgliedschaftsanfragen wurden erfolgreich gesendet!",
+  "DELETE_MEMBERSHIP_REQUEST": "Die Mitgliedschaftsanfrage wurde erfolgreich gelöscht.",
+  "ENROLL": "Sie haben sich erfolgreich für den Artikel angemeldet.",
+  "CANNOT_REGISTER_ON_FROZEN_ITEM_LOGIN_SCHEMA": "Eine Registrierung für den gewünschten Artikel ist nicht möglich, da das Abonnement vom Besitzer eingefroren wurde.",
+  "CANNOT_ENROLL_FROZEN_ITEM_LOGIN_SCHEMA": "Eine Registrierung für das gewünschte Produkt ist nicht möglich, da das Abonnement vom Besitzer eingefroren wurde.",
+  "NOT_MEMBER_OR_GUEST": "Ihr Konto ist nicht als Mitglied oder pseudonymisierter Benutzer registriert",
+  "INVALID_ITEM_NAME_PATTERN_ERROR": "Der Name des Artikels ist ungültig. Er muss mit einem alphabetischen Zeichen beginnen und enden.",
+  "INVALID_ITEM_NAME_MAX_LENGTH_ERROR": "Der Name des Artikels ist zu lang."
 }
