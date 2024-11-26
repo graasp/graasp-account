@@ -128,47 +128,47 @@ function ThemeWrapper({ children }: ThemeWrapperProps): JSX.Element {
   );
 }
 
-function TranslationWrapper({ children }: { children: ReactNode }) {
-  const { data: currentMember } = hooks.useCurrentMember();
-  const { i18n } = useTranslation();
+// function TranslationWrapper({ children }: { children: ReactNode }) {
+//   const { data: currentMember } = hooks.useCurrentMember();
+//   const { i18n } = useTranslation();
 
-  // react to member changes and update the language
-  useEffect(
-    () => {
-      let lang = DEFAULT_LANG;
-      if (currentMember) {
-        lang =
-          getCurrentAccountLang(currentMember, DEFAULT_LANG) ?? DEFAULT_LANG;
-      } else {
-        // get the language from the preferred lang of the browser UI
-        // this is usually what we take on first render
-        const navigatorLang = navigator.language;
-        // normalize lang (remove the locale part, "it-CH" -> "it")
-        lang = navigatorLang.split('-')[0];
-      }
-      i18n.changeLanguage(lang);
-      console.debug(lang);
-    },
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-    [currentMember],
-  );
+//   // react to member changes and update the language
+//   useEffect(
+//     () => {
+//       let lang = DEFAULT_LANG;
+//       if (currentMember) {
+//         lang =
+//           getCurrentAccountLang(currentMember, DEFAULT_LANG) ?? DEFAULT_LANG;
+//       } else {
+//         // get the language from the preferred lang of the browser UI
+//         // this is usually what we take on first render
+//         const navigatorLang = navigator.language;
+//         // normalize lang (remove the locale part, "it-CH" -> "it")
+//         lang = navigatorLang.split('-')[0];
+//       }
+//       i18n.changeLanguage(lang);
+//       console.debug(lang);
+//     },
+//     // eslint-disable-next-line react-hooks/exhaustive-deps
+//     [currentMember],
+//   );
 
-  return children;
-}
+//   return children;
+// }
 
 function App() {
   return (
     <HelmetProvider>
       <QueryClientProvider client={queryClient}>
-        <TranslationWrapper>
-          <CssBaseline />
-          <ThemeWrapper>
-            <AuthProvider>
-              <ToastContainer stacked position="bottom-left" />
-              <InnerApp />
-            </AuthProvider>
-          </ThemeWrapper>
-        </TranslationWrapper>
+        {/* <TranslationWrapper> */}
+        <CssBaseline />
+        <ThemeWrapper>
+          <AuthProvider>
+            <ToastContainer stacked position="bottom-left" />
+            <InnerApp />
+          </AuthProvider>
+        </ThemeWrapper>
+        {/* </TranslationWrapper> */}
       </QueryClientProvider>
     </HelmetProvider>
   );

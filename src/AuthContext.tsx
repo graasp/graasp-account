@@ -3,6 +3,7 @@ import {
   createContext,
   useCallback,
   useContext,
+  useEffect,
   useMemo,
 } from 'react';
 
@@ -62,6 +63,17 @@ export function AuthProvider({
     },
     [useLogin],
   );
+
+  useEffect(() => {
+    if (currentMember) {
+      localStorage.setItem(
+        'i18nextLng',
+        getCurrentAccountLang(currentMember, DEFAULT_LANG),
+      );
+    } else {
+      localStorage.removeItem('i18nextLng');
+    }
+  }, [currentMember]);
 
   const value = useMemo(() => {
     if (currentMember) {
