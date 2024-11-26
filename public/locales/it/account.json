@@ -61,6 +61,8 @@
   "PROFILE_DELETE_CONFIRMATION_VALUE": "Elimina",
   "USERNAME_EMPTY_ERROR": "Il campo non può essere vuoto",
   "USERNAME_LENGTH_ERROR": "Il nome utente deve contenere tra {{min}} e {{max}} caratteri",
+  "USERNAME_MAX_LENGTH_ERROR": "Il nome utente deve essere inferiore a {{max}} caratteri",
+  "USERNAME_MIN_LENGTH_ERROR": "Il nome utente deve essere più lungo di {{min}} caratteri",
   "USERNAME_SPECIAL_CHARACTERS_ERROR": "Il nome utente non deve contenere \" \", \", <, >, ^, %, \\",
   "EDIT_BUTTON_LABEL": "Modificare",
   "CONFIGURE_BUTTON_LABEL": "Configurare",
@@ -108,5 +110,6 @@
   "REGISTER_BUTTON": "Registro",
   "LOGOUT_BUTTON": "Esci",
   "HERE_BUTTON": "Qui",
-  "TEMPORARY_MOVED_ACCOUNT_HOME_PAGE_MESSAGE": "La home page dell'account è stata spostata"
+  "TEMPORARY_MOVED_ACCOUNT_HOME_PAGE_MESSAGE": "La home page dell'account è stata spostata",
+  "DRAWER_OPEN_ARIA_LABEL": "Aprire il cassetto"
 }
