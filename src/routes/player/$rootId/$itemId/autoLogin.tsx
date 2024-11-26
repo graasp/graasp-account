@@ -1,10 +1,9 @@
 import { ReactNode } from 'react';
 import { useTranslation } from 'react-i18next';
 
-import { Alert, Stack, Typography } from '@mui/material';
+import { Alert, Button, Stack, Typography } from '@mui/material';
 
 import { ItemLoginSchemaType } from '@graasp/sdk';
-import { Button } from '@graasp/ui';
 
 import { Navigate, createFileRoute, useNavigate } from '@tanstack/react-router';
 import { zodValidator } from '@tanstack/zod-adapter';
@@ -95,7 +94,7 @@ function AutoLogin(): JSX.Element {
           <Typography variant="h2">
             {t('AUTO_LOGIN_ALREADY_LOGGED_IN')}
           </Typography>
-          <Button onClick={signOut}>
+          <Button variant="contained" onClick={() => signOut}>
             {t('AUTO_LOGIN_SIGN_OUT_AND_BACK_IN')}
           </Button>
         </Stack>
@@ -122,7 +121,9 @@ function AutoLogin(): JSX.Element {
   return (
     <Wrapper id={AUTO_LOGIN_CONTAINER_ID}>
       <Typography variant="h2">{t('AUTO_LOGIN_WELCOME_TITLE')}</Typography>
-      <Button onClick={autoLogin}>{t('AUTO_LOGIN_START_BUTTON')}</Button>
+      <Button variant="contained" onClick={autoLogin}>
+        {t('AUTO_LOGIN_START_BUTTON')}
+      </Button>
     </Wrapper>
   );
 }
