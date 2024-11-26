@@ -1,5 +1,44 @@
 # Changelog
 
+## [2.17.0](https://github.com/graasp/client/compare/v2.16.0...v2.17.0) (2024-11-25)
+
+
+### Features
+
+* add landing page ([#434](https://github.com/graasp/client/issues/434)) ([94bafb2](https://github.com/graasp/client/commit/94bafb2468f359073f57ae76023c056e98f07b71))
+* add react-hook-form on register ([#474](https://github.com/graasp/client/issues/474)) ([9c54420](https://github.com/graasp/client/commit/9c54420ac74afddee7d42c8ca30f05f226e499ac))
+* add terms, disclaimer and privacy policy pages ([#456](https://github.com/graasp/client/issues/456)) ([19f81cc](https://github.com/graasp/client/commit/19f81cc60a7c78c2e8b1c0521958e24634b3982b))
+
+
+### Bug Fixes
+
+* add alias for modules import ([#430](https://github.com/graasp/client/issues/430)) ([3614581](https://github.com/graasp/client/commit/3614581c168a3b92f18cee7bcfbd65997341f352))
+* add new formHeader for login and register ([#470](https://github.com/graasp/client/issues/470)) ([6411b88](https://github.com/graasp/client/commit/6411b88f787879add893b9838223a1afa8a6daf0))
+* add pre-connect directive via umami plugin ([#431](https://github.com/graasp/client/issues/431)) ([19f7a9c](https://github.com/graasp/client/commit/19f7a9ccae88bda8aebfe53db3f6d87f0c0b7cd3))
+* add recaptcha env var ([d287925](https://github.com/graasp/client/commit/d287925f1ac6f292ec2b7b289759bda393793671))
+* **deps:** update dependency @sentry/react to v8.40.0 ([#461](https://github.com/graasp/client/issues/461)) ([ef9cb78](https://github.com/graasp/client/commit/ef9cb785451232fda5640d6c3147e79beae75de5))
+* **deps:** update dependency i18next to v24 ([#478](https://github.com/graasp/client/issues/478)) ([a0264db](https://github.com/graasp/client/commit/a0264db4602d6b8a71ddf5abe35e7ddc914ed2ff))
+* **deps:** update dependency lucide-react to v0.460.0 ([#427](https://github.com/graasp/client/issues/427)) ([a088364](https://github.com/graasp/client/commit/a088364683b0b33ec54b986fd14ae6ff633ce037))
+* **deps:** update dependency lucide-react to v0.460.0 ([#455](https://github.com/graasp/client/issues/455)) ([56506db](https://github.com/graasp/client/commit/56506db129e09843531236bc415de3b172136b0e))
+* **deps:** update graasp packages ([#348](https://github.com/graasp/client/issues/348)) ([4a7657b](https://github.com/graasp/client/commit/4a7657b439a19549dcc14aa666bc93feac352eec))
+* **deps:** update tanstack-router monorepo to v1.81.14 ([#449](https://github.com/graasp/client/issues/449)) ([b6a1dc2](https://github.com/graasp/client/commit/b6a1dc2f016e0c591a15a9173b52c75effce0bc0))
+* **deps:** update tanstack-router monorepo to v1.81.9 ([#443](https://github.com/graasp/client/issues/443)) ([412d7d1](https://github.com/graasp/client/commit/412d7d126cbaf8ae7c8a6e6663b372b49cfa7089))
+* **deps:** update tanstack-router monorepo to v1.82.1 ([#423](https://github.com/graasp/client/issues/423)) ([e55dde5](https://github.com/graasp/client/commit/e55dde589b14aed6496d6b79cf8e5b219f213519))
+* **deps:** update tanstack-router monorepo to v1.82.8 ([#476](https://github.com/graasp/client/issues/476)) ([08639bc](https://github.com/graasp/client/commit/08639bc7ff6cd779235d65fb850185fd4a494ace))
+* **french:** update translations ([#446](https://github.com/graasp/client/issues/446)) ([1b7a79a](https://github.com/graasp/client/commit/1b7a79a0dd35b04a173e192fed1067ecfa1a62a2))
+* **french:** update translations ([#447](https://github.com/graasp/client/issues/447)) ([41b1037](https://github.com/graasp/client/commit/41b10379ead07bc2e7da2e5e8aedbdb90152c06e))
+* **french:** update translations ([#457](https://github.com/graasp/client/issues/457)) ([d7160ed](https://github.com/graasp/client/commit/d7160ede27a58b76e9f046840e1bcbe61a03285e))
+* **french:** update translations ([#479](https://github.com/graasp/client/issues/479)) ([e685fd0](https://github.com/graasp/client/commit/e685fd0078f56a8597a456abf76d5b9e5ca09a41))
+* landing page with small adjustments ([#438](https://github.com/graasp/client/issues/438)) ([e0991ef](https://github.com/graasp/client/commit/e0991efae647deb8fc7ca9c67a024f2bb93882c3))
+* make auth work in client ([bb840b3](https://github.com/graasp/client/commit/bb840b30bbf0a609922421d9b759a0411a4e8e7a))
+* make proxy work as expected ([#436](https://github.com/graasp/client/issues/436)) ([41883e8](https://github.com/graasp/client/commit/41883e8bc4125f6fd98e132442bf904a55b2e0d4))
+* move recaptcha to auth layout so we do not track on all pages ([#460](https://github.com/graasp/client/issues/460)) ([0888ecb](https://github.com/graasp/client/commit/0888ecbd13841be88fe3b510c31ca00f2b0b6f20))
+* recaptcha script was not loaded in the html ([#448](https://github.com/graasp/client/issues/448)) ([6245fbe](https://github.com/graasp/client/commit/6245fbeee828a7e48c943a8299b45d063efdc930))
+* update adornemnt and use slotprops ([#468](https://github.com/graasp/client/issues/468)) ([b552437](https://github.com/graasp/client/commit/b552437327295a7222aca3c1478b0fa833fd4f20))
+* update deployments to use propper install steps ([#429](https://github.com/graasp/client/issues/429)) ([8ec092b](https://github.com/graasp/client/commit/8ec092b6cd6a8143a02f23c3ce69ca4d4c1ec56a))
+* update i18n config ([#433](https://github.com/graasp/client/issues/433)) ([b0c10a9](https://github.com/graasp/client/commit/b0c10a962808728abc7af930b645aedd43e67a30))
+* use translation for required validation ([#469](https://github.com/graasp/client/issues/469)) ([d8d89c6](https://github.com/graasp/client/commit/d8d89c69fbcd711e1acdaa7d8f3b03253efd1ee2))
+
 ## [2.16.0](https://github.com/graasp/graasp-account/compare/v2.15.2...v2.16.0) (2024-11-04)
 
 
