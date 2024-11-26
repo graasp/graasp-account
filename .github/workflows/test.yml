@@ -49,6 +49,9 @@ jobs:
         env:
           VITE_RECAPTCHA_SITE_KEY: 123456789
 
+      - name: Unit tests
+        run: pnpm test:unit
+
   cypress:
     name: Cypress
     runs-on: ubuntu-latest

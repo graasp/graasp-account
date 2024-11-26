@@ -8,14 +8,8 @@ import 'react-toastify/dist/ReactToastify.css';
 import { CssBaseline } from '@mui/material';
 import { Direction, ThemeProvider as MuiThemeProvider } from '@mui/material';
 
-import {
-  BUILDER_ITEMS_PREFIX,
-  ClientHostManager,
-  Context,
-  getCurrentAccountLang,
-} from '@graasp/sdk';
+import { BUILDER_ITEMS_PREFIX, ClientHostManager, Context } from '@graasp/sdk';
 import rtlPlugin from '@graasp/stylis-plugin-rtl';
-import { DEFAULT_LANG } from '@graasp/translations';
 import { theme } from '@graasp/ui';
 
 import createCache from '@emotion/cache';
@@ -38,7 +32,7 @@ import {
   SENTRY_DSN,
   SENTRY_ENV,
 } from './config/env';
-import { QueryClientProvider, hooks, queryClient } from './config/queryClient';
+import { QueryClientProvider, queryClient } from './config/queryClient';
 import { routeTree } from './routeTree.gen';
 
 SentryInit({
@@ -128,39 +122,10 @@ function ThemeWrapper({ children }: ThemeWrapperProps): JSX.Element {
   );
 }
 
-// function TranslationWrapper({ children }: { children: ReactNode }) {
-//   const { data: currentMember } = hooks.useCurrentMember();
-//   const { i18n } = useTranslation();
-
-//   // react to member changes and update the language
-//   useEffect(
-//     () => {
-//       let lang = DEFAULT_LANG;
-//       if (currentMember) {
-//         lang =
-//           getCurrentAccountLang(currentMember, DEFAULT_LANG) ?? DEFAULT_LANG;
-//       } else {
-//         // get the language from the preferred lang of the browser UI
-//         // this is usually what we take on first render
-//         const navigatorLang = navigator.language;
-//         // normalize lang (remove the locale part, "it-CH" -> "it")
-//         lang = navigatorLang.split('-')[0];
-//       }
-//       i18n.changeLanguage(lang);
-//       console.debug(lang);
-//     },
-//     // eslint-disable-next-line react-hooks/exhaustive-deps
-//     [currentMember],
-//   );
-
-//   return children;
-// }
-
 function App() {
   return (
     <HelmetProvider>
       <QueryClientProvider client={queryClient}>
-        {/* <TranslationWrapper> */}
         <CssBaseline />
         <ThemeWrapper>
           <AuthProvider>
@@ -168,7 +133,6 @@ function App() {
             <InnerApp />
           </AuthProvider>
         </ThemeWrapper>
-        {/* </TranslationWrapper> */}
       </QueryClientProvider>
     </HelmetProvider>
   );

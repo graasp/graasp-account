@@ -76,8 +76,9 @@
     "preinstall": "npx only-allow pnpm",
     "cypress:open": "env-cmd -f ./.env.test cypress open --browser chrome",
     "cypress": "pnpm test",
+    "cypress:run": "env-cmd -f ./.env.test cypress run --browser chrome",
     "test": "pnpm build:test && concurrently -k -s first \"pnpm preview:test\" \"pnpm cypress:run\"",
-    "cypress:run": "env-cmd -f ./.env.test cypress run --browser chrome"
+    "test:unit": "vitest"
   },
   "browserslist": {
     "production": [
