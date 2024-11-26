@@ -1,107 +1,279 @@
 {
   "HOME": {
     "TITLE": "Graasp",
+    "SUBTITLE": "La tua piattaforma di esperienza di apprendimento",
+    "DESCRIPTION": "Rivoluziona la tua formazione e il tuo sviluppo professionale! La nostra piattaforma si prende cura delle esigenze di educatori e ricercatori, cercando una soluzione completa per la creazione di contenuti, la presentazione e la condivisione collaborativa delle conoscenze.",
+    "REGISTER_CALL_TO_ACTION": "Creare un account",
+    "LIBRARY_CALL_TO_ACTION": "Visita la Biblioteca",
+    "SUPPORTERS_LABEL": "Supportato da",
     "MISSION": {
+      "TITLE": "La nostra missione",
+      "DESCRIPTION": "Il nostro obiettivo è quello di consentire agli insegnanti di diventare i migliori professionisti possibili, attraverso la tecnologia e rivoluzionando le loro esperienze di insegnamento e apprendimento in una <strong>ampia comunità di apprendimento</strong>!",
+      "CALL_TO_ACTION_LABEL": "Vuoi saperne di più?",
+      "CALL_TO_ACTION_BUTTON_TEXT": "Conosciamoci meglio"
     },
     "PUZZLE": {
+      "TITLE": "Uno strumento tutto in uno, come?",
       "BUILDER": {
+        "LEAD_SENTENCE": "Utilizzare il",
+        "DESCRIPTION": "Per creare materiale ricco e interattivo",
+        "BUTTON_TEXT": "Creare"
       },
       "PLAYER": {
+        "LEAD_SENTENCE": "Utilizzare il",
+        "DESCRIPTION": "E consentire agli studenti di accedere al materiale in un modo nuovo",
+        "BUTTON_TEXT": "Esperienza"
       },
       "ANALYTICS": {
+        "LEAD_SENTENCE": "Accedi al",
+        "DESCRIPTION": "Per raccogliere informazioni e dati sulla tua classeName",
+        "BUTTON_TEXT": "Analizzare"
       },
       "LIBRARY": {
+        "LEAD_SENTENCE": "Navigare il",
+        "DESCRIPTION": "Per trovare risorse e far parte di una comunità",
+        "BUTTON_TEXT": "Esplorare"
       }
     },
     "USER_STORY": {
       "TEACHER": {
+        "LEADING_SENTENCE": "Sei un insegnante e vuoi migliorare la tua creazione di contenuti?",
+        "TITLE": "Costruisci il tuo materiale con Graasp, un modo strutturato per...",
+        "USE_CASE_1": "Incorpora app interattive nel materiale didattico",
+        "USE_CASE_2": "Connettiti con un'ampia comunità di educatori",
+        "USE_CASE_3": "Esplora analisi dettagliate sui tuoi studenti",
+        "BUTTON_TEXT": "Inizia oggi",
+        "IMAGE_ATTRIBUTION": "Foto di <author>Tra Nguyen</author> su <image>Unsplash</image>"
       },
       "RESEARCHER": {
+        "LEADING_SENTENCE": "Sei un ricercatore alla ricerca di una piattaforma che integri perfettamente la raccolta dati e le esperienze interattive?",
+        "TITLE": "Inizia a usare Graasp per la tua ricerca",
+        "USE_CASE_1": "Accedi a un ambiente sicuro e controllato per condurre esperimenti",
+        "USE_CASE_2": "Eseguire test con diverse opzioni",
+        "USE_CASE_3": "Unisciti a una comunità vivace focalizzata sul progresso dell'istruzione digitale",
+        "BUTTON_TEXT": "Registrati ora"
       }
     }
   },
   "TERMS": {
+    "TITLE": "Termini di servizio",
+    "INTRODUCTION": "Utilizzando la piattaforma Graasp e il suo software, puoi:",
+    "TERM_1": "Conferma che non userai impropriamente Graasp o che non aiuterai nessun altro a farlo",
+    "TERM_2": "Conferma che non utilizzerai Graasp per scopi illeciti",
+    "TERM_3": "Conferma di essere l'unico responsabile dei set di dati e dei risultati gestiti o generati da Graasp",
+    "TERM_4": "Accetta che l'Associazione Graasp e l'École Polytechnique Fédérale de Lausanne (EPFL) non possono essere ritenute responsabili per eventuali danni derivanti dall'utilizzo di Graasp, inclusa qualsiasi perdita di contenuti e dati.",
+    "TERM_5": "Accetta che l'accesso a Graasp ti venga fornito \"così com'è\", senza alcuna garanzia, inclusa quella relativa al suo corretto funzionamento e all'idoneità per uno scopo particolare",
+    "FINAL_NOTE": "Questi Termini di servizio sono regolati dalle leggi della Svizzera. La giurisdizione legale per qualsiasi controversia sarà Valais (VS), Svizzera.",
+    "REFERENCES": "Riferimenti",
     "GRAASP_LEGAL_DISCLAIMER": {
+      "TEXT": "Graasp Disclaimer legale"
     },
     "EPFL_LEGAL_DISCLAIMER": {
+      "TEXT": "Disclaimer dei siti web EPFL"
     }
   },
   "DISCLAIMER": {
+    "TITLE": "Disclaimer",
+    "TEXT": "Graasp (il \"software\") e il suo codice sorgente sono distribuiti liberamente sotto la licenza GNU Affero General Public License (AGPLv3). Il software e il codice sorgente ti vengono forniti \"così come sono\", senza alcuna garanzia, espressa o implicita. Senza limitare la generalità di quanto precede, la Graasp Association e l'École Polytechnique Fédérale de Lausanne (EPFL) non rilasciano alcuna dichiarazione o garanzia in merito alla funzionalità, affidabilità o prestazioni del software, o ai risultati che si ottengono tramite l'uso del software, o che il funzionamento del software sarà privo di errori. In nessun caso la Graasp Association o l'EPFL saranno responsabili per eventuali danni derivanti dall'uso di Graasp, inclusi ma non limitati alla distribuzione, all'uso improprio, alla perdita o al furto di file o set di dati originali o duplicati degli stessi gestiti, elaborati o generati dal software."
   },
   "PRIVACY_POLICY": {
+    "TITLE": "politica sulla riservatezza",
     "SECTION_1": {
+      "TITLE": "Chi siamo e come contattarci",
+      "DEFINITION": "Graasp è sviluppato e gestito dalla Graasp Association e supportato dall'École Polytechnique Fédérale de Lausanne (EPFL), un'università pubblica di scienza e tecnologia in Svizzera.",
+      "COMPLIANCE": "Graasp rispetta le norme sulla privacy dell'EPFL, la legge federale svizzera sulla protezione dei dati (LPD) e il GDPR europeo.",
+      "CONTACT": "Per qualsiasi domanda relativa alla presente Informativa sulla privacy puoi contattare Graasp: <mail>{{email}}</mail>"
     },
     "RESPONSIBILITIES": {
+      "TITLE": "Responsabilità",
       "USER_OBLIGATIONS": {
+        "TITLE": "Obblighi dell’utente",
+        "TEXT": "In qualità di utente, accetti:",
+        "AGREEMENT_1": "che ti assumi la piena responsabilità per i Dati caricati (vedi Sezione 4.4) in Graasp. Graasp non controlla i contenuti caricati/creati dagli utenti per quanto riguarda l'appropriatezza, le violazioni dei diritti alla privacy o dei Diritti di proprietà intellettuale. Sei responsabile dei contenuti che carichi, perché sei il gestore dei dati sui tuoi Dati caricati;",
+        "AGREEMENT_2": "che rispetterai in ogni momento gli obblighi pertinenti in materia di segreto professionale e aziendale, ove applicabili;",
+        "AGREEMENT_3": "che Graasp agisce solo come gestore dei dati per quanto riguarda l'archiviazione e l'uso dei tuoi Dati Caricati. Graasp fornisce solo spazi di archiviazione e unità di elaborazione centrale;",
+        "AGREEMENT_4": "di essere a conoscenza delle misure di sicurezza tecniche e organizzative implementate in Graasp;",
+        "AGREEMENT_5": "che informerai tempestivamente Graasp di:",
         "NOTIFICATION": {
+          "CASE_1": "qualsiasi richiesta giuridicamente vincolante di divulgazione dei dati personali da parte di un'autorità di contrasto, salvo diversamente vietato;",
+          "CASE_2": "qualsiasi accesso accidentale o non autorizzato a Dati proprietari, Personali o Caricati, qualora sia richiesta assistenza tecnica.",
+          "CASE_3": "per gestire tempestivamente e correttamente tutte le richieste relative al trattamento dei Dati Personali, come richiesto dalle leggi applicabili."
         }
       },
       "GRAASP_OBLIGATIONS": {
+        "TITLE": "Obblighi di Graasp",
+        "TEXT": "Graasp accetta e garantisce di fornire i servizi in base ai Termini di utilizzo. Graasp agisce in qualità di gestore dei dati e garantisce:",
+        "AGREEMENT_1": "che Graasp conservi registri dettagliati e aggiornati di tutte le attività di gestione svolte sui Dati Personali e Caricati;",
+        "AGREEMENT_2": "per garantire la riservatezza dei tuoi Dati Personali e Caricati se configurati come privati;",
+        "AGREEMENT_3": "soddisfare tempestivamente qualsiasi richiesta degli utenti che richieda a Graasp di modificare, trasferire, eliminare o altrimenti smaltire i Dati personali e caricati, o di cessare, mitigare o porre rimedio a qualsiasi elaborazione autorizzata;",
+        "AGREEMENT_4": "che Graasp non elaborerà i dati personali o caricati per il proprio vantaggio commerciale o per quello di terzi;",
+        "AGREEMENT_5": "informare gli utenti senza indebito ritardo di qualsiasi sospetta o effettiva violazione dei dati che coinvolga i loro Dati Personali o Caricati;",
+        "AGREEMENT_6": "di informare immediatamente l'utente qualora Graasp riceva reclami, richieste o altre comunicazioni riguardanti il trattamento dei Dati Personali o Caricati.",
+        "AGREEMENT_7": "per assistere gli utenti con misure appropriate e fornendo informazioni per l'adempimento dei propri obblighi ai sensi della legge applicabile."
       }
     },
     "DATA_USAGE": {
+      "TITLE": "Come Graasp utilizza i tuoi dati personali e caricati",
       "ACCOUNT": {
+        "TITLE": "Gestisci il tuo account",
+        "TEXT": "Graasp elabora i tuoi Dati Account (vedi Sezione 4.1) allo scopo di gestire la piattaforma e il software Graasp, fornire i servizi Graasp e comunicare con te in merito a Graasp. La base giuridica per l'elaborazione dei Dati Account è il contratto tra gli utenti e Graasp come indicato nei Termini di Utilizzo."
       },
       "PROVIDE_SERVICES": {
+        "TITLE": "Fornire i nostri servizi",
+        "TEXT": "Graasp elabora i tuoi Meta-dati (vedi Sezione 4.2) per fornire i servizi Graasp. Ad esempio, vengono utilizzati per descrivere la fonte dei Dati personali e caricati, la discendenza e per visualizzare le attività eseguite sui Dati personali e caricati. La base giuridica per la gestione dei Meta-dati è il contratto tra gli utenti e Graasp come stabilito nei Termini di utilizzo."
       },
       "ANALYZE_USAGE": {
+        "TITLE": "Garantire le funzionalità e comprendere l'uso di Graasp",
+        "TEXT": "Graasp elabora i Dati operativi (vedere Sezione 4.3) allo scopo di analizzare l'uso di Graasp, ma anche per garantire le funzionalità di Graasp e il comfort di utilizzo. La base giuridica per l'elaborazione dei Dati operativi è il contratto tra gli utenti e Graasp come stabilito nei Termini di utilizzo."
       },
       "COMPLIANCE": {
+        "TITLE": "Rispetto della legge",
+        "TEXT": "Graasp può elaborare Dati personali e caricati, in caso di sospetti o effettivi procedimenti penali o amministrativi condotti dalle autorità competenti (vedere Sezione 4.4). La base giuridica per questo trattamento è necessaria per adempiere a un obbligo legale."
       },
       "RESEARCH": {
+        "TITLE": "Scopi di ricerca",
+        "TEXT": "Graasp può raccogliere e utilizzare i tuoi Dati personali e di caricamento per scopi di ricerca. I risultati scientifici pubblicati contengono solo dati anonimizzati."
       }
     },
     "DATA_COLLECTION": {
+      "TITLE": "Dati raccolti",
+      "TEXT": "Graasp può raccogliere tutti i seguenti Dati personali (definiti « Dati personali »).",
       "ACCOUNT": {
+        "TITLE": "Dati dell'account",
+        "TEXT": "Per gestire l'account di un utente, Graasp ha bisogno di elaborare i seguenti Dati Personali (« Dati dell'Account »):",
+        "DATA_1": "Indirizzo e-mail",
+        "DATA_2": "Nome e cognome",
+        "DATA_3": "ID utente",
+        "DATA_4": "Password",
+        "DATA_5": "Altre informazioni del registro",
+        "DATA_6": "Indirizzo IP",
+        "DATA_7": "Timestamp di accesso a Graasp",
+        "DATA_8": "Registri di consenso"
       },
       "METADATA": {
+        "TITLE": "Metadati",
+        "TEXT": "Per fornire i servizi Graasp, sono necessarie le informazioni raccolte dalle tue attività in Graasp. Ad esempio, raccogliere la provenienza dei dati (da dove provengono questi dati, come sono stati creati) e la loro discendenza (chi utilizza i dati e come). Le informazioni sulla provenienza non vengono raccolte automaticamente senza la conoscenza dell'utente, la loro creazione e la successiva raccolta sono soggette all'azione deliberata di un utente che utilizza Graasp."
       },
       "OPERATIONAL_DATA": {
+        "TITLE": "Dati operativi",
+        "TEXT": "Per garantire il funzionamento operativo di Graasp e comprenderne l'utilizzo, Graasp ha bisogno di elaborare i seguenti Dati Personali («Dati Operativi»):",
+        "DATA_1": "Indirizzi IP degli utenti",
+        "DATA_2": "ID utente",
+        "DATA_3": "Dati di telemetria, ovvero dati di sistema, utilizzati per avere un'idea del sistema, di come vengono utilizzate le risorse hardware, da chi e capire perché le cose falliscono, in modo che il team Graasp possa risolverli o fornire supporto all'utente",
+        "DATA_4": "Registri del servizio firewall",
+        "DATA_5": "Altri registri necessari per garantire le funzionalità di Graasp",
+        "DATA_6": "Il numero e la durata delle tue visite",
+        "DATA_7": "Informazioni sulle parti di Graasp che hai visitato"
       },
       "UPLOADED_DATA": {
+        "TITLE": "Dati caricati",
+        "TEXT": "Puoi creare contenuti (\"Dati caricati\") che possono includere Dati personali (ad esempio dati educativi, documenti digitali, ecc.). Hai il controllo su questi dati, come spiegato nei Termini di utilizzo. Come menzionato nei Termini di utilizzo, gli utenti possono decidere di rendere pubblici i Dati caricati. In questo caso, altri utenti possono utilizzare i tuoi Dati caricati per i propri scopi e Graasp non può essere ritenuta responsabile per il loro ulteriore utilizzo. Con la presente Graasp declina ogni responsabilità per l'ulteriore utilizzo dei tuoi Dati caricati da parte di terze parti."
       }
     },
     "COOKIES": {
+      "TITLE": "Biscotti",
+      "DEFINITION": "Un cookie è un file contenente un identificatore (una stringa di lettere e numeri) che viene inviato da un server web a un browser web e memorizzato dal browser. Quando accedi alla piattaforma Graasp, l'installazione di cookie sui tuoi dispositivi è possibile in base alle tue impostazioni, che consentiranno a Graasp di riconoscere il tuo browser, durante il periodo di validità dei cookie.",
       "PURPOSE": {
+        "TEXT": "I cookie generati da Graasp consentono:",
+        "PURPOSE_1": "per preparare statistiche riguardanti la frequenza di accesso, l'utilizzo e le prestazioni dei siti web;",
+        "PURPOSE_2": "per memorizzare preferenze e parametri (autenticazione)",
+        "PURPOSE_3": "per consentirti di accedere a contenuti riservati o personali sulla piattaforma Graasp",
+        "PURPOSE_4": "per migliorare la nostra comunicazione e i nostri servizi."
       },
       "MANAGEMENT": {
+        "TEXT": "La maggior parte dei browser Web accetta automaticamente i cookie, ma fornisce controlli che consentono di bloccarli o eliminarli. Si prega di fare riferimento alla documentazione sulla privacy o alla guida del browser per trovare istruzioni su come bloccare o eliminare i cookie. Ad esempio:",
+        "EDGE": "Bordo",
+        "SAFARI": "Safari",
+        "CHROME": "Cromo",
+        "FIREFOX": "Moschettone"
       },
       "FINALITY": {
+        "TEXT": "Se scegli di rifiutare i cookie, potresti non avere accesso a determinate funzionalità di Graasp, di cui non possiamo essere ritenuti responsabili. L'identificativo viene quindi inviato al server ogni volta che il browser richiede una pagina dal server. I cookie o tecnologie simili possono essere utili in molti modi per rendere la tua visita a Graasp più semplice, più piacevole e più pertinente. In Graasp sono presenti vari tipi di cookie:",
+        "NECESSARY": "Cookie strettamente necessari, necessari per la navigazione, insieme al token di autenticazione dopo l'accesso e per proteggere Graasp",
+        "FUNCTIONAL": "Cookie di funzionalità, che raccolgono alcune delle tue preferenze di navigazione come le preferenze linguistiche",
+        "ADVERTISING": "Graasp non utilizza cookie pubblicitari"
       }
     },
     "DATA_RETENTION": {
+      "TITLE": "Conservazione dei dati",
+      "TEXT": "Graasp conserva i tuoi Dati personali e caricati finché esiste il tuo account. Per adempiere ai nostri obblighi legali o per adempiere al nostro scopo descritto nella Sezione 4.3, i Dati operativi possono essere resi anonimi e/o possono essere conservati per un periodo più lungo.",
+      "STORAGE_LOCATION": "I tuoi dati personali sono archiviati su server sicuri presso la sede del nostro fornitore di servizi nell'Europa continentale (Germania e Svizzera)."
     },
     "DATA_SHARING": {
+      "TITLE": "Condivisione dei dati",
+      "TEXT": "Graasp condivide i tuoi dati personali esclusivamente con i seguenti destinatari:",
+      "SHARE_1": "Dipendenti autorizzati e responsabili Graasp",
+      "SHARE_2": "I nostri fornitori di servizi"
     },
     "SERVICE_PROVIDERS": {
+      "TITLE": "Fornitori di servizi e trasferimenti",
       "AWS": {
+        "TITLE": "Amazon Web Services (fornitore principale di servizi)",
+        "TEXT": "Graasp utilizza i servizi di AWS (Amazon Web Services). Non sono previsti trasferimenti internazionali, ma il loro framework sulla privacy è consultabile al link sottostante.",
+        "PRIVACY_POLICY_LINK": "Informativa sulla privacy di AWS"
       },
       "OTHER_PROVIDERS": {
+        "TITLE": "Altri fornitori di servizi",
+        "GOOGLE_ANALYTICS": "Graasp utilizza i servizi anonimizzati di Google Analytics e Google ReCaptcha per proteggere e comprendere l'utilizzo della piattaforma.",
+        "SENTRY": "I dati resi anonimi vengono inoltre condivisi con Sentry.io per scopi di debug e risoluzione dei problemi, al fine di garantire ai nostri utenti un'esperienza fluida e stabile.",
+        "GOOGLE_FONTS": "Graasp può utilizzare i servizi di Google Fonts e altre librerie javascript ospitate su server di terze parti. In tali casi, solo gli indirizzi IP verrebbero comunicati a tali fornitori di servizi."
       },
       "TRANSFERS": {
+        "TITLE": "Trasferimenti",
+        "TEXT": "Tutti i tuoi dati personali e caricati sono ospitati da AWS, nell'Europa continentale (Germania e Svizzera). Una copia dei dati potrebbe essere temporaneamente archiviata nei locali di Graasp per scopi di assicurazione della qualità."
       }
     },
     "SECURITY": {
+      "TITLE": "Sicurezza",
+      "TEXT": "Graasp ha adottato misure di sicurezza appropriate in conformità con lo stato dell'arte riconosciuto. Si prega di notare tuttavia che Graasp non può garantire una sicurezza assoluta per i tuoi Dati personali e caricati, nella misura in cui la conservazione dei dati e la trasmissione elettronica comportano determinati rischi."
     },
     "YOUR_RIGHTS": {
+      "TITLE": "I tuoi diritti",
+      "TEXT": "L'utente ha una serie di diritti in base alla legislazione sulla protezione dei dati. Questi diritti possono essere limitati in particolare quando incidono sui diritti e sulla libertà di altri. Graasp ti informerà delle eccezioni applicabili nella nostra risposta alla tua potenziale richiesta.",
       "RIGHTS": {
-      }
+        "TEXT": "Questi diritti includono:",
+        "RIGHT_1": "diritto di accesso: Hai il diritto di sapere quali Dati Personali Graasp detiene su di te e di chiedere, per iscritto, di vedere i tuoi Dati Personali. Puoi avere direttamente queste informazioni contattando i titolari del trattamento dei dati: contact@graasp.org",
+        "RIGHT_2": "diritto di essere informato: hai il diritto di essere informato su come verranno utilizzati i tuoi Dati personali e caricati. La presente Informativa sulla privacy, nonché qualsiasi informazione o avviso aggiuntivo che ti viene fornito al momento in cui hai fornito i tuoi dati o in altro modo, ha lo scopo di fornirti tali informazioni.",
+        "RIGHT_3": "diritto di revocare il consenso: Graasp elabora i tuoi dati personali e i dati caricati sulla base del tuo consenso; puoi revocare tale consenso in qualsiasi momento.",
+        "RIGHT_4": "diritto alla cancellazione: in alcuni casi, hai il diritto di far cancellare i tuoi dati personali e caricati.",
+        "RIGHT_5": "diritto di rettifica: se ritieni che i tuoi dati personali siano inesatti, hai il diritto di chiederne l'aggiornamento.",
+        "RIGHT_6": "diritto di presentare un reclamo: se non sei soddisfatto del modo in cui Graasp ha gestito i tuoi dati personali o caricati, hai il diritto di presentare un reclamo al Commissario federale per la protezione dei dati e l'informazione (FDPIC) o all'autorità di controllo del tuo paese o di residenza."
+      },
+      "RESERVATION": "Graasp si riserva il diritto di rifiutare qualsiasi richiesta abusiva o contraria alle leggi applicabili."
     },
     "POLICY_CHANGES": {
+      "TITLE": "Modifiche alla presente Informativa sulla privacy",
+      "TEXT": "Potremmo rivedere questa Informativa sulla privacy di tanto in tanto. La versione più aggiornata dell'informativa regolerà il nostro trattamento dei tuoi Dati personali e caricati e sarà sempre disponibile su https://graasp.org/privacy. In caso di modifiche, saranno pubblicate su https://graasp.org/. Se non sei d'accordo con una qualsiasi delle modifiche all'Informativa sulla privacy, devi smettere di usare Graasp e chiedere l'eliminazione del tuo account."
     },
     "FINAL_PROVISIONS": {
+      "TITLE": "Disposizioni finali",
       "APPLICABLE_LAW": {
+        "TITLE": "Legge applicabile e giurisdizione",
+        "TEXT": "Sono applicabili le leggi materiali svizzere. Il luogo di esecuzione e di giurisdizione è il Vallese."
       }
     }
   },
   "FOOTER": {
+    "TAG_LINE": "Sviluppato in Svizzera dall'Associazione Graasp",
     "CONTENT": {
+      "TITLE": "Contenuto",
+      "HOME": "Casa",
+      "FEATURES": "Caratteristiche",
+      "ABOUT_US": "Chi siamo",
+      "SUPPORT": "Supporto",
+      "CONTACT_US": "Contattaci"
     },
     "PARTNERS": {
+      "TITLE": "Partner"
     },
     "SOCIAL": {
+      "TITLE": "Sociale"
     },
     "OTHER": {
+      "TITLE": "Altro",
+      "TERMS": "Termini di servizio",
+      "POLICY": "politica sulla riservatezza",
+      "DISCLAIMER": "Disclaimer"
     }
   }
 }
