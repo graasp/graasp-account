@@ -43,9 +43,9 @@ const AccountIcon: PlatformSwitchProps['CustomMobileIcon'] = (props) => (
 
 export function PageWrapper({
   children,
-}: {
+}: Readonly<{
   children: ReactNode;
-}): JSX.Element {
+}>): JSX.Element {
   const { t } = useTranslation(NS.Account);
   const theme = useTheme();
   const { isMobile } = useMobileView();

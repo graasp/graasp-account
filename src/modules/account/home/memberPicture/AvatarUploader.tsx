@@ -110,7 +110,6 @@ export function AvatarUploader(): JSX.Element {
           }
         }}
         aria-label="change folder avatar"
-        role="button"
         tabIndex={0}
         height={AVATAR_SIZE}
         width={AVATAR_SIZE}
@@ -128,7 +127,7 @@ export function AvatarUploader(): JSX.Element {
           borderRadius={2}
           zIndex={theme.zIndex.drawer - 2}
         >
-          <ImageUpIcon color={theme.palette.secondary.light} />
+          <ImageUpIcon color="white" />
         </HoveredBox>
         {avatarUrl ? (
           <img

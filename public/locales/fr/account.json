@@ -8,9 +8,12 @@
   "CROP_IMAGE_MODAL_TITLE": "Couper l'Image",
   "CROP_IMAGE_MODAL_IMAGE_ALT_TEXT": "Recadrer l'image",
   "CROP_IMAGE_MODAL_UNEXPECTED_ERROR": "Une erreur inattendue s'est produite lors de la tentative de recadrage de l'image. Veuillez réessayer plus tard.",
-  "MAIN_MENU_HOME_PAGE": "Accueil",
-  "MAIN_MENU_SETTINGS": "Paramètres",
-  "MAIN_MENU_STORAGE": "Stockage",
+  "MAIN_MENU": {
+    "HOME": "Accueil",
+    "SETTINGS": "Paramètres",
+    "STORAGE": "Stockage",
+    "LANDING": "Page d'accueil"
+  },
   "SAVE_ACTIONS_TOGGLE_TOOLTIP": "Nous recueillons des données analytiques afin d'améliorer votre expérience utilisateur lorsque vous naviguez sur Graasp.",
   "PERSONAL_INFORMATION_TITLE": "Informations personelles",
   "PROFILE_MEMBER_NAME": "Nom de l'utilisateur",

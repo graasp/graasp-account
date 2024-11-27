@@ -8,9 +8,11 @@
   "CROP_IMAGE_MODAL_TITLE": "Delimitar imagen",
   "CROP_IMAGE_MODAL_IMAGE_ALT_TEXT": "Delimitar imagen",
   "CROP_IMAGE_MODAL_UNEXPECTED_ERROR": "Se produjo un error inesperado al intentar recortar la imagen. Vuelva a intentarlo más tarde.",
-  "MAIN_MENU_HOME_PAGE": "Hogar",
-  "MAIN_MENU_SETTINGS": "Ajustes",
-  "MAIN_MENU_STORAGE": "Almacenamiento",
+  "MAIN_MENU": {
+    "HOME": "Hogar",
+    "SETTINGS": "Ajustes",
+    "STORAGE": "Almacenamiento"
+  },
   "SAVE_ACTIONS_TOGGLE_TOOLTIP": "Recopilamos datos analíticos para mejorar su experiencia de usuario mientras navega por Graasp.",
   "PERSONAL_INFORMATION_TITLE": "Informacion personal",
   "PROFILE_MEMBER_NAME": "Nombre de usuario",

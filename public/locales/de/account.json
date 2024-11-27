@@ -8,9 +8,11 @@
   "CROP_IMAGE_MODAL_TITLE": "Bild beschneiden",
   "CROP_IMAGE_MODAL_IMAGE_ALT_TEXT": "Bild zuschneiden",
   "CROP_IMAGE_MODAL_UNEXPECTED_ERROR": "Beim Versuch, das Bild zuzuschneiden, ist ein unerwarteter Fehler aufgetreten. Bitte versuchen Sie es später erneut",
-  "MAIN_MENU_HOME_PAGE": "Heim",
-  "MAIN_MENU_SETTINGS": "Einstellungen",
-  "MAIN_MENU_STORAGE": "Speicher",
+  "MAIN_MENU": {
+    "HOME": "Heim",
+    "SETTINGS": "Einstellungen",
+    "STORAGE": "Speicher"
+  },
   "SAVE_ACTIONS_TOGGLE_TOOLTIP": "Wir sammeln Analysedaten, um Ihre Benutzererfahrung beim Surfen auf Graasp zu verbessern.",
   "PERSONAL_INFORMATION_TITLE": "Persönliche Angaben",
   "PROFILE_MEMBER_NAME": "Nutzername",

@@ -52,12 +52,12 @@ function PlayerWrapper(): JSX.Element {
   const { t } = useTranslation(NS.Player);
   const theme = useTheme();
   const { isMobile } = useMobileView();
-  const { rootId } = Route.useParams();
+  const { rootId, itemId } = Route.useParams();
   const { data: item } = hooks.useItem();
 
   const platformProps = {
     [Platform.Builder]: {
-      href: GRAASP_BUILDER_HOST,
+      href: `${GRAASP_BUILDER_HOST}/items/${itemId}`,
     },
     [Platform.Player]: {
       href: '/player',
@@ -66,7 +66,7 @@ function PlayerWrapper(): JSX.Element {
       href: GRAASP_LIBRARY_HOST,
     },
     [Platform.Analytics]: {
-      href: GRAASP_ANALYTICS_HOST,
+      href: `${GRAASP_ANALYTICS_HOST}/items/${itemId}`,
     },
   };
 

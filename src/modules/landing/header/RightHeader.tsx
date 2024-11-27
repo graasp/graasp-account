@@ -2,16 +2,16 @@ import { useTranslation } from 'react-i18next';
 
 import { Stack } from '@mui/material';
 
+import { ArrowRightIcon } from 'lucide-react';
+
 import { useAuth } from '@/AuthContext';
 import { ButtonLink } from '@/components/ui/ButtonLink';
 import LanguageSwitch from '@/components/ui/LanguageSwitch';
 import { NS } from '@/config/constants';
 import { mutations } from '@/config/queryClient';
 
-import { UserAvatar } from './UserAvatar';
-
 export function RightHeader(): JSX.Element {
-  const { isAuthenticated, user, logout } = useAuth();
+  const { isAuthenticated } = useAuth();
   const { t, i18n } = useTranslation(NS.Common);
   const { mutate } = mutations.useEditCurrentMember();
 
@@ -24,7 +24,9 @@ export function RightHeader(): JSX.Element {
     return (
       <Stack gap={2} direction="row" alignItems="center">
         <LanguageSwitch lang={i18n.language} onChange={handleLanguageChange} />
-        <UserAvatar user={user} logout={logout} />
+        <ButtonLink to="/account" endIcon={<ArrowRightIcon />}>
+          {t('To the App')}
+        </ButtonLink>
       </Stack>
     );
   }

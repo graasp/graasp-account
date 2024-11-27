@@ -81,5 +81,7 @@ const MUILinkComponent = React.forwardRef<HTMLAnchorElement, MUILinkProps>(
 const CreatedLinkComponent = createLink(MUILinkComponent);
 
 export const InternalLink: LinkComponent<typeof MUILinkComponent> = (props) => {
-  return <CreatedLinkComponent preload={'intent'} {...props} />;
+  return (
+    <CreatedLinkComponent preload={'intent'} resetScroll={true} {...props} />
+  );
 };

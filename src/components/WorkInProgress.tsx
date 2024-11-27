@@ -34,24 +34,32 @@ export function WorkInProgress(): JSX.Element {
   const { t } = useTranslation(NS.Common);
   const { color } = useButtonColor('warning');
   return (
-    <Stack
-      direction="column"
-      height="100svh"
-      alignItems="center"
-      justifyContent="center"
-      p={4}
-    >
-      <Stack gap={3}>
-        <ConstructionIcon size={80} color={color} />
-        <Stack maxWidth="60ch" alignItems="center" gap={2}>
-          <Typography variant="h1">{t('CONSTRUCTION.TITLE')}</Typography>
-          <Typography color="textSecondary">
-            {t('CONSTRUCTION.DESCRIPTION')}
-          </Typography>
+    <>
+      <Stack
+        minHeight="60ch"
+        alignItems="center"
+        justifyContent="center"
+        flex={1}
+      >
+        <Stack
+          direction="column"
+          alignItems="center"
+          justifyContent="center"
+          p={4}
+        >
+          <Stack gap={3}>
+            <ConstructionIcon size={80} color={color} />
+            <Stack maxWidth="60ch" alignItems="center" gap={2}>
+              <Typography variant="h1">{t('CONSTRUCTION.TITLE')}</Typography>
+              <Typography color="textSecondary" textAlign="justify">
+                {t('CONSTRUCTION.DESCRIPTION')}
+              </Typography>
+            </Stack>
+            <ActionButtons />
+          </Stack>
         </Stack>
-        <ActionButtons />
-        <ConstructionAnimation />
       </Stack>
-    </Stack>
+      <ConstructionAnimation />
+    </>
   );
 }

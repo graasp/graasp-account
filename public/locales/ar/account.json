@@ -8,9 +8,11 @@
   "CROP_IMAGE_MODAL_TITLE": "قَصْ الصّوره",
   "CROP_IMAGE_MODAL_IMAGE_ALT_TEXT": "قص الصوره",
   "CROP_IMAGE_MODAL_UNEXPECTED_ERROR": "حدث خطأ غير متوقع أثناء محاولة اقتصاص الصورة، يرجى المحاولة مرة أخرى لاحقًا",
-  "MAIN_MENU_HOME_PAGE": "بيت",
-  "MAIN_MENU_SETTINGS": "إعدادات",
-  "MAIN_MENU_STORAGE": "تخزين",
+  "MAIN_MENU": {
+    "HOME": "بيت",
+    "SETTINGS": "إعدادات",
+    "STORAGE": "تخزين"
+  },
   "SAVE_ACTIONS_TOGGLE_TOOLTIP": "نجمع بيانات التحليلات لتحسين تجربة المستخدم أثناء تصفح Graasp.",
   "PERSONAL_INFORMATION_TITLE": "معلومات شخصية",
   "PROFILE_MEMBER_NAME": "اسم المستخدم",

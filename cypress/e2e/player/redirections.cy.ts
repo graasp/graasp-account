@@ -33,7 +33,7 @@ describe('Item page', () => {
     });
 
     it('Should redirect to auth with url parameter', () => {
-      cy.get(`#${FORBIDDEN_CONTENT_CONTAINER_ID} [role="button"]`)
+      cy.get(`#${FORBIDDEN_CONTENT_CONTAINER_ID} a`)
         .should('be.visible')
         .click();
       cy.url().should('include', `?url=`);
@@ -54,7 +54,7 @@ describe('Item page', () => {
     });
 
     it('Should redirect to auth with url parameter', () => {
-      cy.get(`#${FORBIDDEN_CONTENT_CONTAINER_ID} button`)
+      cy.get(`#${FORBIDDEN_CONTENT_CONTAINER_ID} a`)
         .should('be.visible')
         .click();
       cy.url().should('include', `?url=`);

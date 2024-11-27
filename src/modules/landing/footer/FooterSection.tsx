@@ -9,7 +9,7 @@ type FooterSectionProps = {
 export function FooterSection({
   name,
   children,
-}: FooterSectionProps): JSX.Element {
+}: Readonly<FooterSectionProps>): JSX.Element {
   return (
     <Stack flexGrow={1}>
       <Typography
@@ -22,7 +22,9 @@ export function FooterSection({
       >
         {name}
       </Typography>
-      <Stack direction="column">{children}</Stack>
+      <Stack direction="column" flex={1}>
+        {children}
+      </Stack>
     </Stack>
   );
 }

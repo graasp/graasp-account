@@ -8,9 +8,11 @@
   "CROP_IMAGE_MODAL_TITLE": "Ritaglia Immagine",
   "CROP_IMAGE_MODAL_IMAGE_ALT_TEXT": "Ritaglia l'immagine",
   "CROP_IMAGE_MODAL_UNEXPECTED_ERROR": "Si è verificato un errore imprevisto durante il tentativo di ritagliare l'immagine. Riprova più tardi",
-  "MAIN_MENU_HOME_PAGE": "Casa",
-  "MAIN_MENU_SETTINGS": "Impostazioni",
-  "MAIN_MENU_STORAGE": "Archiviazione",
+  "MAIN_MENU": {
+    "HOME": "Casa",
+    "SETTINGS": "Impostazioni",
+    "STORAGE": "Archiviazione"
+  },
   "SAVE_ACTIONS_TOGGLE_TOOLTIP": "Raccogliamo dati analitici per migliorare l'esperienza dell'utente durante la navigazione su Graasp.",
   "PERSONAL_INFORMATION_TITLE": "Informazione personale",
   "PROFILE_MEMBER_NAME": "Nome utente",

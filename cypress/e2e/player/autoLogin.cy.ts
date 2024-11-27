@@ -53,7 +53,7 @@ describe('Auto Login on pseudonimized item', () => {
       };
       cy.visit(buildAutoLoginPath(routeArgs));
       cy.get(`#${AUTO_LOGIN_CONTAINER_ID}`).should('be.visible');
-      cy.get(`#${AUTO_LOGIN_CONTAINER_ID} button`).click();
+      cy.get(`#${AUTO_LOGIN_CONTAINER_ID} a`).click();
 
       // checks that the user was correctly redirected to the item page
       const { searchParams: _, ...pathArgs } = routeArgs;
@@ -69,7 +69,7 @@ describe('Auto Login on pseudonimized item', () => {
     };
     cy.visit(buildAutoLoginPath(routeArgs));
     cy.get(`#${AUTO_LOGIN_ERROR_CONTAINER_ID}`).should('be.visible');
-    cy.get(`#${AUTO_LOGIN_ERROR_CONTAINER_ID} [role="button"]`).click();
+    cy.get(`#${AUTO_LOGIN_ERROR_CONTAINER_ID} a`).click();
 
     cy.location('pathname').should('equal', '/');
   });

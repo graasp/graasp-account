@@ -69,7 +69,7 @@ const config = ({ mode }: { mode: string }): UserConfigExport => {
               lintCommand: 'eslint "./**/*.{ts,tsx}"',
               useFlatConfig: true,
             },
-            overlay: { initialIsOpen: false },
+            overlay: { initialIsOpen: false, position: 'br' },
           })
         : istanbul({
             include: 'src/*',

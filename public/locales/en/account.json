@@ -8,9 +8,12 @@
   "CROP_IMAGE_MODAL_TITLE": "Crop Image",
   "CROP_IMAGE_MODAL_IMAGE_ALT_TEXT": "Crop image",
   "CROP_IMAGE_MODAL_UNEXPECTED_ERROR": "An unexpected error occurred when trying to crop the image, please try again later",
-  "MAIN_MENU_HOME_PAGE": "Home",
-  "MAIN_MENU_SETTINGS": "Settings",
-  "MAIN_MENU_STORAGE": "Storage",
+  "MAIN_MENU": {
+    "HOME": "Home",
+    "SETTINGS": "Settings",
+    "STORAGE": "Storage",
+    "LANDING": "Landing page"
+  },
   "SAVE_ACTIONS_TOGGLE_TOOLTIP": "We collect analytics data to improve your user experience while browsing Graasp.",
   "PERSONAL_INFORMATION_TITLE": "Personal information",
   "PROFILE_MEMBER_NAME": "Username",

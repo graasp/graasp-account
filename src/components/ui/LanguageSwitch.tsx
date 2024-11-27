@@ -1,7 +1,10 @@
-import { SelectChangeEvent } from '@mui/material';
+import {
+  MenuItem,
+  Select as MuiSelect,
+  SelectChangeEvent,
+} from '@mui/material';
 
 import { langs } from '@graasp/translations';
-import { Select } from '@graasp/ui';
 
 type Props = {
   id?: string;
@@ -19,16 +22,27 @@ const LanguageSwitch = ({ id, lang, onChange }: Props): JSX.Element => {
     }
   };
 
+  const values = Object.entries(langs).map(([value, text]) => ({
+    value,
+    text,
+  }));
+
   return (
-    <Select
-      variant="outlined"
+    <MuiSelect
       id={id}
-      size="small"
       onChange={handleChange}
+      renderValue={(v) => v.toUpperCase()}
+      variant="outlined"
       value={lang}
-      buildOptionId={(value) => value}
-      values={Object.entries(langs).map(([value, text]) => ({ value, text }))}
-    />
+      size="small"
+      sx={{ backgroundColor: 'rgb(255,255,255,45%)' }}
+    >
+      {values.map(({ value, text }) => (
+        <MenuItem key={value} id={value} value={value}>
+          {text}
+        </MenuItem>
+      ))}
+    </MuiSelect>
   );
 };
 

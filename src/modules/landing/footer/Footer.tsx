@@ -1,10 +1,13 @@
 import { useTranslation } from 'react-i18next';
 
-import { Stack, Typography } from '@mui/material';
+import { Box, Stack, Typography } from '@mui/material';
 
 import { PRIMARY_COLOR } from '@graasp/ui';
 
+import { useAuth } from '@/AuthContext';
+import LanguageSwitch from '@/components/ui/LanguageSwitch';
 import { NS } from '@/config/constants';
+import { mutations } from '@/config/queryClient';
 
 import { FooterSection } from './FooterSection';
 import {
@@ -88,7 +91,16 @@ const internalLinkActiveProp = () => ({
 });
 
 export function Footer(): JSX.Element {
-  const { t } = useTranslation(NS.Landing);
+  const { t, i18n } = useTranslation(NS.Landing, { keyPrefix: 'FOOTER' });
+  const { mutate } = mutations.useEditCurrentMember();
+  const { isAuthenticated } = useAuth();
+
+  const handleLanguageChange = (lang: string) => {
+    if (isAuthenticated) {
+      mutate({ extra: { lang } });
+    }
+    i18n.changeLanguage(lang);
+  };
   return (
     <Stack
       component="footer"
@@ -101,7 +113,7 @@ export function Footer(): JSX.Element {
     >
       <Stack maxWidth="lg" m="auto" width="100%">
         <Typography textAlign="center" fontWeight="bold">
-          {t('FOOTER.TAG_LINE')}
+          {t('TAG_LINE')}
         </Typography>
         <Stack
           direction={{ xs: 'column', md: 'row' }}
@@ -115,28 +127,28 @@ export function Footer(): JSX.Element {
             flex={1}
             justifyContent="space-around"
           >
-            <FooterSection name={t('FOOTER.CONTENT.TITLE')}>
+            <FooterSection name={t('CONTENT.TITLE')}>
               <InternalLink to="/" activeProps={internalLinkActiveProp}>
-                {t('FOOTER.CONTENT.HOME')}
+                {t('CONTENT.HOME')}
               </InternalLink>
               <InternalLink to="/features" activeProps={internalLinkActiveProp}>
-                {t('FOOTER.CONTENT.FEATURES')}
+                {t('CONTENT.FEATURES')}
               </InternalLink>
               <InternalLink to="/about-us" activeProps={internalLinkActiveProp}>
-                {t('FOOTER.CONTENT.ABOUT_US')}
+                {t('CONTENT.ABOUT_US')}
               </InternalLink>
               <InternalLink to="/support" activeProps={internalLinkActiveProp}>
-                {t('FOOTER.CONTENT.SUPPORT')}
+                {t('CONTENT.SUPPORT')}
               </InternalLink>
               <InternalLink
                 to="/contact-us"
                 activeProps={internalLinkActiveProp}
               >
-                {t('FOOTER.CONTENT.CONTACT_US')}
+                {t('CONTENT.CONTACT_US')}
               </InternalLink>
             </FooterSection>
 
-            <FooterSection name={t('FOOTER.PARTNERS.TITLE')}>
+            <FooterSection name={t('PARTNERS.TITLE')}>
               {partnerLinks.map(({ href, title }) => (
                 <ExternalLink key={title} href={href}>
                   {title}
@@ -151,7 +163,7 @@ export function Footer(): JSX.Element {
             flex={1}
             justifyContent="space-around"
           >
-            <FooterSection name={t('FOOTER.SOCIAL.TITLE')}>
+            <FooterSection name={t('SOCIAL.TITLE')}>
               {socialLinks.map(({ href, Icon, title }) => (
                 <SocialLink key={title} href={href} icon={<Icon size={24} />}>
                   {title}
@@ -159,25 +171,38 @@ export function Footer(): JSX.Element {
               ))}
             </FooterSection>
 
-            <FooterSection name={t('FOOTER.OTHER.TITLE')}>
+            <FooterSection name={t('OTHER.TITLE')}>
               <InternalLink to="/terms" activeProps={internalLinkActiveProp}>
-                {t('FOOTER.OTHER.TERMS')}
+                {t('OTHER.TERMS')}
               </InternalLink>
               <InternalLink to="/policy" activeProps={internalLinkActiveProp}>
-                {t('FOOTER.OTHER.POLICY')}
+                {t('OTHER.POLICY')}
               </InternalLink>
               <InternalLink
                 to="/disclaimer"
                 activeProps={internalLinkActiveProp}
               >
-                {t('FOOTER.OTHER.DISCLAIMER')}
+                {t('OTHER.DISCLAIMER')}
               </InternalLink>
+              <Box>
+                <LanguageSwitch
+                  lang={i18n.language}
+                  onChange={handleLanguageChange}
+                />
+              </Box>
             </FooterSection>
           </Stack>
         </Stack>
-        <Typography textAlign="center" variant="note">
-          &copy; Graasp 2014 - {new Date().getFullYear()}
-        </Typography>
+        <Stack
+          direction="row"
+          gap={2}
+          alignItems="center"
+          justifyContent="center"
+        >
+          <Typography textAlign="center" variant="note">
+            &copy; Graasp 2014 - {new Date().getFullYear()}
+          </Typography>
+        </Stack>
       </Stack>
     </Stack>
   );
