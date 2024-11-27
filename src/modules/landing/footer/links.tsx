@@ -24,7 +24,7 @@ type ExternalLinkProps = {
 export function ExternalLink({
   href,
   children,
-}: ExternalLinkProps): JSX.Element {
+}: Readonly<ExternalLinkProps>): JSX.Element {
   return (
     <StyledLink href={href}>
       <Stack direction="row" display="inline" gap={1} alignItems="center">
@@ -56,7 +56,7 @@ export function SocialLink({
   icon,
   children,
   href,
-}: SocialLinkProps): JSX.Element {
+}: Readonly<SocialLinkProps>): JSX.Element {
   return (
     <StyledLink href={href}>
       <Stack direction="row" gap={2}>
