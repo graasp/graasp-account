@@ -11,7 +11,7 @@ import { BACK_TO_SHORTCUT_ID } from '@/config/selectors';
 
 export const ID_FORMAT = '(?=.*[0-9])(?=.*[a-zA-Z])([a-z0-9-]+)';
 
-const FromShortcutButton = (): JSX.Element | null => {
+export function FromShortcutButton(): JSX.Element | null {
   const search = useSearch({ from: '/player/$rootId/$itemId/' });
   const { t } = useTranslation(NS.Player);
   const { from: fromUrl, fromName } = search;
@@ -44,6 +44,4 @@ const FromShortcutButton = (): JSX.Element | null => {
   }
 
   return null;
-};
-
-export default FromShortcutButton;
+}

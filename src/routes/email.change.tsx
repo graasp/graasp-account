@@ -14,7 +14,7 @@ import { zodValidator } from '@tanstack/zod-adapter';
 import { HttpStatusCode, isAxiosError } from 'axios';
 import { z } from 'zod';
 
-import CenteredContainer from '@/components/layout/CenteredContainer';
+import { CenteredContainer } from '@/components/layout/CenteredContainer';
 import { ButtonLink } from '@/components/ui/ButtonLink';
 import { NS } from '@/config/constants';
 import { ACCOUNT_SETTINGS_PATH } from '@/config/paths';
@@ -53,7 +53,7 @@ type EmailChangeContentProps = {
 function EmailChangeContent({
   newEmail,
   jwtToken,
-}: EmailChangeContentProps): JSX.Element {
+}: Readonly<EmailChangeContentProps>): JSX.Element {
   const { t } = useTranslation(NS.Account);
   const {
     mutate: validateEmail,

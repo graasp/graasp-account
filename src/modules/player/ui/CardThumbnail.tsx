@@ -16,7 +16,7 @@ export function CardThumbnail({
   width,
   minHeight,
   type = ItemType.FOLDER,
-}: CardThumbnailProps): JSX.Element {
+}: Readonly<CardThumbnailProps>): JSX.Element {
   const theme = useTheme();
 
   if (thumbnail) {

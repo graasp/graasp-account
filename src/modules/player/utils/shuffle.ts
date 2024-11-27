@@ -43,7 +43,7 @@ export function factorial(n: number): number {
   return n ? n * factorial(n - 1) : 1;
 }
 
-export function combineUuids(uuid1: string, uuid2: string): string {
+export function combineUuids(uuid1: string, uuid2?: string): string {
   const combinedUUID = uuid1 + uuid2;
   // use v5 UUID with URL namespace
   return uuidv5(combinedUUID, uuidv5.URL);

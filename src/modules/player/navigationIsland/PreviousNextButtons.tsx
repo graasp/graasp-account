@@ -13,10 +13,33 @@ import {
 
 import { LoadingButton, NavigationButton } from './customButtons';
 
-const usePreviousNextButtons = (): {
+function getPrevious(
+  itemId: string,
+  // includes the rootItem
+  folderHierarchy: DiscriminatedItem[],
+): DiscriminatedItem | null {
+  const idx = folderHierarchy.findIndex(({ id }) => id === itemId);
+  if (idx < 0) {
+    return null;
+  }
+  return folderHierarchy[idx - 1];
+}
+
+function getNext(
+  itemId: string,
+  folderHierarchy: DiscriminatedItem[],
+): DiscriminatedItem | null {
+  const idx = folderHierarchy.findIndex(({ id }) => id === itemId);
+  if (idx < 0 || idx + 1 < folderHierarchy.length) {
+    return null;
+  }
+  return folderHierarchy[idx + 1];
+}
+
+export function usePreviousNextButtons(): {
   previousButton: JSX.Element | null;
   nextButton: JSX.Element | null;
-} => {
+} {
   const { rootId, itemId } = useParams({ from: '/player/$rootId/$itemId/' });
   const search = useSearch({ from: '/player/$rootId/$itemId/' });
   const { user } = useAuth();
@@ -46,48 +69,19 @@ const usePreviousNextButtons = (): {
     };
   }
 
-  const prevRoot: DiscriminatedItem | null = rootItem || null;
-  let prev: DiscriminatedItem | null = null;
-  let next: DiscriminatedItem | null = null;
-
   // if there are no descendants then there is no need to navigate
-  if (!Array.isArray(descendants)) {
+  if (!Array.isArray(descendants) || !rootItem) {
     return { previousButton: null, nextButton: null };
   }
 
-  let folderHierarchy = descendants;
+  const folderHierarchy = shuffle
+    ? // seed for shuffling is consistent for member + root (base) item combination
+      shuffleAllButLastItemInArray(descendants, combineUuids(rootId, user?.id))
+    : descendants;
+  const folderHierarchyIncludingRoot = [rootItem, ...folderHierarchy];
 
-  if (shuffle) {
-    // seed for shuffling is consistent for member + root (base) item combination
-    const baseId = rootId || '';
-    const memberId = user?.id || '';
-    const combinedUuids = combineUuids(baseId, memberId);
-    folderHierarchy = shuffleAllButLastItemInArray(
-      folderHierarchy,
-      combinedUuids,
-    );
-  }
-
-  // when focusing on the root item
-  if (itemId === rootId && folderHierarchy.length) {
-    // there is no previous and the nex in the first item in the hierarchy
-    [next] = folderHierarchy;
-    // when focusing on the descendants
-  } else {
-    const idx = folderHierarchy.findIndex(({ id }) => id === itemId);
-
-    // if index is not found, then do not show navigation
-    if (idx < 0) {
-      return { previousButton: null, nextButton: null };
-    }
-
-    // if index is 0, previous is root
-    prev = idx === 0 ? prevRoot : folderHierarchy[idx - 1];
-    // check if the next element is inside the bounds of folderHierarchy, of not, next will simply stay null
-    if (idx + 1 < folderHierarchy.length) {
-      next = folderHierarchy[idx + 1];
-    }
-  }
+  const prev = getPrevious(itemId, folderHierarchyIncludingRoot);
+  const next = getNext(itemId, folderHierarchyIncludingRoot);
 
   // should we display both buttons if they are disabled ?
   if (!prev && !next) {
@@ -119,5 +113,4 @@ const usePreviousNextButtons = (): {
       </NavigationButton>
     ),
   };
-};
-export default usePreviousNextButtons;
+}

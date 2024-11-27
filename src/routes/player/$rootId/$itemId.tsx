@@ -6,8 +6,7 @@ import { Box, Typography, useTheme } from '@mui/material';
 import { Context } from '@graasp/sdk';
 import { Main, Platform, PlatformSwitch, useMobileView } from '@graasp/ui';
 
-import { createFileRoute } from '@tanstack/react-router';
-import { Outlet } from '@tanstack/react-router';
+import { Outlet, createFileRoute } from '@tanstack/react-router';
 import { fallback, zodValidator } from '@tanstack/zod-adapter';
 import { z } from 'zod';
 

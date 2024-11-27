@@ -1,6 +1,5 @@
 import { useTranslation } from 'react-i18next';
 
-import Refresh from '@mui/icons-material/Refresh';
 import {
   Alert,
   AlertTitle,
@@ -9,6 +8,8 @@ import {
   Tooltip,
   Typography,
 } from '@mui/material';
+
+import { RefreshCwIcon } from 'lucide-react';
 
 import { NS } from '@/config/constants';
 
@@ -29,7 +30,7 @@ export function NetworkErrorAlert(): JSX.Element {
           <Tooltip title="Reload">
             <span>
               <IconButton onClick={() => window.location.reload()}>
-                <Refresh />
+                <RefreshCwIcon />
               </IconButton>
             </span>
           </Tooltip>

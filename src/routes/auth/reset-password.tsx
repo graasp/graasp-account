@@ -60,14 +60,14 @@ type Inputs = {
 export function ResetPassword() {
   const { t } = useTranslation(NS.Auth);
   const search = Route.useSearch();
-  const { isValid, token } = useValidateJWTToken(search.t);
+  const { isValid: isTokenValid, token } = useValidateJWTToken(search.t);
 
   const [showPasswords, setShowPasswords] = useState(false);
 
   const {
     register,
     handleSubmit,
-    formState: { errors },
+    formState: { errors, isValid },
   } = useForm<Inputs>();
 
   const {
@@ -77,7 +77,7 @@ export function ResetPassword() {
     isSuccess,
   } = useResolvePasswordResetRequest();
 
-  if (!isValid) {
+  if (!isTokenValid) {
     return <InvalidTokenScreen />;
   }
 
@@ -87,9 +87,6 @@ export function ResetPassword() {
 
   const passwordErrorMessage = errors.password?.message;
   const confirmPasswordErrorMessage = errors.confirmPassword?.message;
-  const hasErrors = Boolean(
-    passwordErrorMessage || confirmPasswordErrorMessage,
-  );
 
   return (
     <CenteredContent
@@ -232,7 +229,7 @@ export function ResetPassword() {
             loading={isLoading}
             fullWidth
             type="submit"
-            disabled={hasErrors || isError}
+            disabled={!isValid || isError}
           >
             {t('RESET_PASSWORD_BUTTON')}
           </LoadingButton>

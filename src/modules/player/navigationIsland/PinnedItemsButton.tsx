@@ -26,7 +26,7 @@ const usePinnedItemsButton = (): { pinnedButton: JSX.Element | null } => {
 
   const childrenPinnedCount =
     children?.filter(({ settings: s, hidden }) => s.isPinned && !hidden)
-      ?.length || 0;
+      ?.length ?? 0;
 
   // don't show the button if there are no items pinned in all descendants
   if (childrenPinnedCount <= 0) {

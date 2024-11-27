@@ -31,7 +31,7 @@ export function TreeNode({
   level,
   isSelected,
   firstLevelStyle = {},
-}: NodeProps): JSX.Element {
+}: Readonly<NodeProps>): JSX.Element {
   return (
     <Box
       {...getNodeProps()}

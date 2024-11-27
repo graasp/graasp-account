@@ -12,7 +12,7 @@ import { NS } from '@/config/constants.ts';
 import { axios, hooks } from '@/config/queryClient';
 import { MAIN_MENU_ID, TREE_VIEW_ID } from '@/config/selectors';
 
-import LoadingTree from './tree/LoadingTree.tsx';
+import { LoadingTree } from './tree/LoadingTree.tsx';
 import { TreeView } from './tree/TreeView.tsx';
 import { combineUuids, shuffleAllButLastItemInArray } from './utils/shuffle.ts';
 

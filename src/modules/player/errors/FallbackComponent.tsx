@@ -6,7 +6,7 @@ import { Box, Stack, Typography } from '@mui/material';
 import { ButtonLink } from '@/components/ui/ButtonLink';
 import { NS } from '@/config/constants';
 
-const FallbackComponent = (): JSX.Element => {
+export function FallbackComponent(): JSX.Element {
   const { t: translateBuilder } = useTranslation(NS.Player);
 
   return (
@@ -41,6 +41,4 @@ const FallbackComponent = (): JSX.Element => {
       />
     </Stack>
   );
-};
-
-export default FallbackComponent;
+}

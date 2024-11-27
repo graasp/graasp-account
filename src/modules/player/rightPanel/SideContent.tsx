@@ -92,15 +92,14 @@ const SideContent = ({ content, item }: Props): JSX.Element | null => {
   const pinnedItems = children?.filter(
     ({ settings: s, hidden }) => s.isPinned && !hidden,
   );
-  const pinnedCount = pinnedItems?.length || 0;
+  const pinnedCount = pinnedItems?.length ?? 0;
 
   const toggleFullscreen = () => {
     setIsFullscreen(!isFullscreen);
   };
 
   const displayFullscreenButton = () => {
-    // todo: add this to settings (?)
-    const fullscreen = search.fullscreen;
+    const { fullscreen } = search;
     if (isMobile || !fullscreen) {
       return null;
     }
@@ -157,7 +156,7 @@ const SideContent = ({ content, item }: Props): JSX.Element | null => {
           {/* show children pinned items */}
           <Stack id={ITEM_PINNED_ID} gap={2} mt={1} pb={9}>
             {pinnedItems.map((pinnedItem) => (
-              <ItemContentWrapper item={pinnedItem} />
+              <ItemContentWrapper key={pinnedItem.id} item={pinnedItem} />
             ))}
           </Stack>
         </SideDrawer>

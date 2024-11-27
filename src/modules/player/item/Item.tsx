@@ -47,7 +47,7 @@ import { getRouteApi } from '@tanstack/react-router';
 import { useAuth } from '@/AuthContext';
 import { NS } from '@/config/constants';
 import { API_HOST, GRAASP_ASSETS_URL, H5P_INTEGRATION_URL } from '@/config/env';
-import { axios, hooks, mutations } from '@/config/queryClient';
+import { axios, hooks } from '@/config/queryClient';
 import {
   buildAppId,
   buildCollapsibleId,
@@ -60,8 +60,9 @@ import {
 import NavigationIsland from '~player/navigationIsland/NavigationIsland';
 import { FolderCard } from '~player/ui/FolderCard';
 
-import FromShortcutButton from './FromShortcutButton';
-import SectionHeader from './SectionHeader';
+import { FromShortcutButton } from './FromShortcutButton';
+import { SectionHeader } from './SectionHeader';
+import { useCollapseAction } from './useCollapseAction';
 import usePageTitle from './usePageTitle';
 
 const paginationContentFilter = (items: PackedItem[]): PackedItem[] =>
@@ -134,16 +135,7 @@ const FileContent = ({ item }: FileContentProps) => {
     isLoading: isFileContentLoading,
     isError: isFileError,
   } = useFileContentUrl(item.id);
-  const { mutate: triggerAction } = mutations.usePostItemAction();
-
-  const onCollapse = (c: boolean) => {
-    triggerAction({
-      itemId: item.id,
-      payload: {
-        type: c ? ActionTriggers.CollapseItem : ActionTriggers.UnCollapseItem,
-      },
-    });
-  };
+  const { triggerAction, onCollapse } = useCollapseAction(item.id);
 
   const onDownloadClick = useCallback(() => {
     triggerAction({
@@ -183,22 +175,13 @@ const FileContent = ({ item }: FileContentProps) => {
 
 const LinkContent = ({ item }: { item: LinkItemType }): JSX.Element => {
   const { user } = useAuth();
+  const { triggerAction, onCollapse } = useCollapseAction(item.id);
 
-  const { mutate: triggerAction } = mutations.usePostItemAction();
   const handleLinkClick = () => {
     // trigger player Action for link click
     triggerAction({
       itemId: item.id,
       payload: { type: ActionTriggers.LinkOpen },
-    });
-  };
-
-  const onCollapse = (c: boolean) => {
-    triggerAction({
-      itemId: item.id,
-      payload: {
-        type: c ? ActionTriggers.CollapseItem : ActionTriggers.UnCollapseItem,
-      },
     });
   };
 
@@ -221,16 +204,8 @@ const LinkContent = ({ item }: { item: LinkItemType }): JSX.Element => {
 };
 
 const DocumentContent = ({ item }: { item: DocumentItemType }): JSX.Element => {
-  const { mutate: triggerAction } = mutations.usePostItemAction();
+  const { onCollapse } = useCollapseAction(item.id);
 
-  const onCollapse = (c: boolean) => {
-    triggerAction({
-      itemId: item.id,
-      payload: {
-        type: c ? ActionTriggers.CollapseItem : ActionTriggers.UnCollapseItem,
-      },
-    });
-  };
   return (
     <DocumentItem
       id={buildDocumentId(item.id)}
@@ -243,16 +218,7 @@ const DocumentContent = ({ item }: { item: DocumentItemType }): JSX.Element => {
 
 const AppContent = ({ item }: { item: AppItemType }): JSX.Element => {
   const { user } = useAuth();
-  const { mutate: triggerAction } = mutations.usePostItemAction();
-
-  const onCollapse = (c: boolean) => {
-    triggerAction({
-      itemId: item.id,
-      payload: {
-        type: c ? ActionTriggers.CollapseItem : ActionTriggers.UnCollapseItem,
-      },
-    });
-  };
+  const { onCollapse } = useCollapseAction(item.id);
 
   return (
     <>
@@ -290,20 +256,12 @@ const AppContent = ({ item }: { item: AppItemType }): JSX.Element => {
 
 const H5PContent = ({ item }: { item: H5PItemType }): JSX.Element => {
   const { t } = useTranslation(NS.Common);
-  const { mutate: triggerAction } = mutations.usePostItemAction();
+  const { onCollapse } = useCollapseAction(item.id);
 
   const contentId = item?.extra?.h5p?.contentId;
   if (!contentId) {
     return <Alert severity="error">{t('ERRORS.UNEXPECTED')}</Alert>;
   }
-  const onCollapse = (c: boolean) => {
-    triggerAction({
-      itemId: item.id,
-      payload: {
-        type: c ? ActionTriggers.CollapseItem : ActionTriggers.UnCollapseItem,
-      },
-    });
-  };
 
   return (
     <H5PItem

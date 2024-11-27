@@ -21,7 +21,7 @@ import { ItemMetaData, getItemTree } from './utils';
 
 export const GRAASP_MENU_ITEMS: string[] = [ItemType.FOLDER, ItemType.SHORTCUT];
 
-type Props = {
+type TreeViewProps = {
   id: string;
   header?: string;
   rootItems: DiscriminatedItem[];
@@ -43,7 +43,7 @@ export function TreeView({
   firstLevelStyle,
   sx = {},
   itemId,
-}: Props): JSX.Element {
+}: Readonly<TreeViewProps>): JSX.Element {
   const itemsToShow = items?.filter((item) =>
     onlyShowContainerItems ? GRAASP_MENU_ITEMS.includes(item.type) : true,
   );

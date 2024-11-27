@@ -12,7 +12,7 @@ type SectionHeaderProps = {
   item: PackedItem;
 };
 
-const SectionHeader = ({ item }: SectionHeaderProps): JSX.Element => {
+export function SectionHeader({ item }: SectionHeaderProps): JSX.Element {
   const { t, i18n } = useTranslation(NS.Player);
   const thumbnailSrc = item.thumbnails?.medium;
 
@@ -42,5 +42,4 @@ const SectionHeader = ({ item }: SectionHeaderProps): JSX.Element => {
       <TextDisplay content={item.description ?? ''} />
     </Stack>
   );
-};
-export default SectionHeader;
+}

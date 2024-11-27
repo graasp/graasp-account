@@ -15,7 +15,7 @@ export function BorderedSection({
   title,
   topActions,
   children,
-}: BorderedSectionProps): JSX.Element {
+}: Readonly<BorderedSectionProps>): JSX.Element {
   return (
     <RoundedStack id={id}>
       <Stack direction="row" justifyContent="space-between">

@@ -17,7 +17,7 @@ const {
 type Props = {
   item: DiscriminatedItem;
 };
-// todo: add chatbox in the project
+
 const Chatbox = ({ item }: Props): JSX.Element => {
   const { data: messages, isLoading: isChatLoading } = useItemChat(item.id);
   const { data: itemPermissions, isLoading: isLoadingItemPermissions } =

@@ -5,7 +5,7 @@ import { NAVIGATION_ISLAND_CY } from '@/config/selectors';
 import useChatButton from './ChatButton';
 import useGeolocationButton from './GeolocationButton';
 import usePinnedItemsButton from './PinnedItemsButton';
-import usePreviousNextButtons from './PreviousNextButtons';
+import { usePreviousNextButtons } from './PreviousNextButtons';
 
 const NavigationIslandBox = (): JSX.Element | null => {
   const { previousButton, nextButton } = usePreviousNextButtons();

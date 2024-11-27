@@ -132,7 +132,6 @@ export const USER_SWITCH_ID = 'userSwitch';
 export const SUCCESS_CONTENT_ID = 'successContent';
 export const BACK_BUTTON_ID = 'backButtonId';
 export const RESEND_EMAIL_BUTTON_ID = 'resendEmailButton';
-export const buildMemberMenuItemId = (id: string) => `memberMenuItemId-${id}`;
 export const PASSWORD_SUCCESS_ALERT = 'passwordSuccessAlert';
 
 export const PLATFORM_ADVERTISEMENT_CONTAINER_ID =

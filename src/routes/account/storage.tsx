@@ -27,10 +27,11 @@ function StorageRoute(): JSX.Element {
             values={{
               email: ADMIN_CONTACT,
             }}
-            components={
-              // eslint-disable-next-line jsx-a11y/anchor-has-content
-              [<a key="email" href={`mailto:${ADMIN_CONTACT}`} />]
-            }
+            components={[
+              <a key="email" href={`mailto:${ADMIN_CONTACT}`}>
+                _
+              </a>,
+            ]}
           />
         </Typography>
         <Alert severity="info">{t('STORAGE_INFO')}</Alert>
