@@ -60,7 +60,7 @@ const socialLinks = [
     Icon: TwitterIcon,
   },
   {
-    title: 'Instragram',
+    title: 'Instagram',
     href: 'https://www.instagram.com/graasper',
     Icon: InstagramIcon,
   },
