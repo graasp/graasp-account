@@ -13,6 +13,7 @@ import { mutations } from '@/config/queryClient';
 export function RightHeader(): JSX.Element {
   const { isAuthenticated } = useAuth();
   const { t, i18n } = useTranslation(NS.Common);
+  const { t: translateLanding } = useTranslation(NS.Landing);
   const { mutate } = mutations.useEditCurrentMember();
 
   const handleLanguageChange = (lang: string) => {
@@ -25,7 +26,7 @@ export function RightHeader(): JSX.Element {
       <Stack gap={2} direction="row" alignItems="center">
         <LanguageSwitch lang={i18n.language} onChange={handleLanguageChange} />
         <ButtonLink to="/account" endIcon={<ArrowRightIcon />}>
-          {t('To the App')}
+          {translateLanding('NAV.GO_TO_GRAASP')}
         </ButtonLink>
       </Stack>
     );

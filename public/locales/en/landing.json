@@ -275,5 +275,8 @@
       "POLICY": "Privacy Policy",
       "DISCLAIMER": "Disclaimer"
     }
+  },
+  "NAV": {
+    "GO_TO_GRAASP": "To the App"
   }
 }

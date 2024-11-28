@@ -23,7 +23,7 @@ function SettingsRoute(): JSX.Element {
   return (
     <ScreenLayout
       id={SETTINGS_PAGE_CONTAINER_ID}
-      title={t('MAIN_MENU_SETTINGS')}
+      title={t('MAIN_MENU.SETTINGS')}
     >
       <PersonalInformation />
       <Password />
