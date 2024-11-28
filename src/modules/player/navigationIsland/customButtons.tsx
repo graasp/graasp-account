@@ -71,5 +71,5 @@ const CreatedLinkComponent = createLink(StyledNavigationComponent);
 export const NavigationButton: LinkComponent<
   typeof StyledNavigationComponent
 > = (props) => {
-  return <CreatedLinkComponent preload={'intent'} {...props} />;
+  return <CreatedLinkComponent preload="intent" {...props} />;
 };

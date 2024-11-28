@@ -21,5 +21,5 @@ const CreatedMenuItemComponent = createLink(MUIMenuItemComponent);
 export const MenuItemLink: LinkComponent<typeof MUIMenuItemComponent> = (
   props,
 ) => {
-  return <CreatedMenuItemComponent preload={'intent'} {...props} />;
+  return <CreatedMenuItemComponent preload="intent" {...props} />;
 };

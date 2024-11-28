@@ -21,5 +21,5 @@ const CreatedLinkComponent = createLink(MUITypographyComponent);
 export const TypographyLink: LinkComponent<typeof MUITypographyComponent> = (
   props,
 ) => {
-  return <CreatedLinkComponent preload={'intent'} {...props} />;
+  return <CreatedLinkComponent preload="intent" {...props} />;
 };

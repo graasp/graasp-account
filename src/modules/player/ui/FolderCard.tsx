@@ -105,5 +105,5 @@ const CreatedLinkComponent = createLink(FolderCardComponent);
 export const FolderCard: LinkComponent<typeof FolderCardComponent> = (
   props,
 ) => {
-  return <CreatedLinkComponent preload={'intent'} {...props} />;
+  return <CreatedLinkComponent preload="intent" {...props} />;
 };

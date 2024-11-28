@@ -18,5 +18,5 @@ const MUILinkComponent = React.forwardRef<HTMLAnchorElement, MUILinkProps>(
 const CreatedLinkComponent = createLink(MUILinkComponent);
 
 export const ButtonLink: LinkComponent<typeof MUILinkComponent> = (props) => {
-  return <CreatedLinkComponent preload={'intent'} {...props} />;
+  return <CreatedLinkComponent preload="intent" {...props} />;
 };

@@ -58,5 +58,5 @@ const MUILinkComponent = React.forwardRef<
 const CreatedLinkComponent = createLink(MUILinkComponent);
 
 export const MainMenuItem: LinkComponent<typeof MUILinkComponent> = (props) => {
-  return <CreatedLinkComponent preload={'intent'} {...props} />;
+  return <CreatedLinkComponent preload="intent" {...props} />;
 };

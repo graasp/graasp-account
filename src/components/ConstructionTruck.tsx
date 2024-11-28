@@ -3,12 +3,9 @@ import { useState } from 'react';
 import { Box, styled } from '@mui/material';
 
 const MovingBox = styled(Box)({
-  // animation: 'shake 500ms linear, move 40s linear infinite',
   animation: 'move 40s linear infinite',
-  // position: 'relative',
   bottom: '0px',
   right: '-200px',
-  // width: 'fit-content',
   '@keyframes move': {
     from: {
       transform: 'translate(50vw,130px)',

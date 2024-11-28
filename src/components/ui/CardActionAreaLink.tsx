@@ -21,5 +21,5 @@ const CreatedLinkComponent = createLink(MUICardActionAreaComponent);
 export const CardActionAreaLink: LinkComponent<
   typeof MUICardActionAreaComponent
 > = (props) => {
-  return <CreatedLinkComponent preload={'intent'} {...props} />;
+  return <CreatedLinkComponent preload="intent" {...props} />;
 };
