@@ -129,7 +129,7 @@ describe('Edit preferences', () => {
       // Ensure the selected language is shown as the select value
       cy.get(`#${PREFERENCES_LANGUAGE_SWITCH_ID}`).should(
         'contain.text',
-        langs[newLang],
+        newLang.toUpperCase(),
       );
 
       cy.get(`#${PREFERENCES_SAVE_BUTTON_ID}`).click();

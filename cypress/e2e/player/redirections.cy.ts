@@ -54,7 +54,7 @@ describe('Item page', () => {
     });
 
     it('Should redirect to auth with url parameter', () => {
-      cy.get(`#${FORBIDDEN_CONTENT_CONTAINER_ID} a`)
+      cy.get(`#${FORBIDDEN_CONTENT_CONTAINER_ID} button`)
         .should('be.visible')
         .click();
       cy.url().should('include', `?url=`);
