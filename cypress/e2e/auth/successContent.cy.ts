@@ -75,8 +75,7 @@ describe('Success Content', () => {
       });
 
       // checks resend email button is disabled after one click
-      // FIXME: this does not work, since we reset the queries
-      // cy.get(`#${RESEND_EMAIL_BUTTON_ID}`).click().should('be.disabled');
+      cy.get(`#${RESEND_EMAIL_BUTTON_ID}`).click().should('be.disabled');
     });
   });
 
