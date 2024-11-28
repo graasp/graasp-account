@@ -67,7 +67,7 @@ export function ResetPassword() {
   const {
     register,
     handleSubmit,
-    formState: { errors, isValid },
+    formState: { errors },
   } = useForm<Inputs>();
 
   const {
@@ -87,6 +87,9 @@ export function ResetPassword() {
 
   const passwordErrorMessage = errors.password?.message;
   const confirmPasswordErrorMessage = errors.confirmPassword?.message;
+  const hasErrors = Boolean(
+    passwordErrorMessage || confirmPasswordErrorMessage,
+  );
 
   return (
     <CenteredContent
@@ -229,7 +232,7 @@ export function ResetPassword() {
             loading={isLoading}
             fullWidth
             type="submit"
-            disabled={!isValid || isError}
+            disabled={hasErrors || isError}
           >
             {t('RESET_PASSWORD_BUTTON')}
           </LoadingButton>
