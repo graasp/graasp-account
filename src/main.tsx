@@ -5,8 +5,11 @@ import { useTranslation } from 'react-i18next';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
-import { CssBaseline } from '@mui/material';
-import { Direction, ThemeProvider as MuiThemeProvider } from '@mui/material';
+import {
+  CssBaseline,
+  Direction,
+  ThemeProvider as MuiThemeProvider,
+} from '@mui/material';
 
 import { BUILDER_ITEMS_PREFIX, ClientHostManager, Context } from '@graasp/sdk';
 import rtlPlugin from '@graasp/stylis-plugin-rtl';
@@ -94,7 +97,7 @@ const getCacheForDirection = (direction?: Direction): EmotionCache =>
     stylisPlugins: [prefixer, ...(direction === 'rtl' ? [rtlPlugin] : [])],
   });
 
-function ThemeWrapper({ children }: ThemeWrapperProps): JSX.Element {
+function ThemeWrapper({ children }: Readonly<ThemeWrapperProps>): JSX.Element {
   // use the hook as it allows to use the correct instance of i18n
   const { i18n: i18nInstance } = useTranslation();
   const direction = i18nInstance.dir(i18nInstance.language);

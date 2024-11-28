@@ -11,7 +11,7 @@ export function MemberProfileItem({
   title,
   content,
   contentId,
-}: Props): JSX.Element {
+}: Readonly<Props>): JSX.Element {
   return (
     <Stack direction="row" gap={2} alignItems="center">
       <Typography variant="body1" color="textSecondary">
