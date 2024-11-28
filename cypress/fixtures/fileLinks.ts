@@ -1,6 +1,6 @@
 // we use real links for items
 // because we cannot return fixture urls?
-// todo: internal links? host our own links?
+// Question: internal links? host our own links?
 
 export const MOCK_IMAGE_URL = 'https://picsum.photos/100';
 export const MOCK_VIDEO_URL =
