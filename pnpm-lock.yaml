@@ -18,11 +18,11 @@ importers:
         specifier: 11.13.5
         version: 11.13.5(@emotion/react@11.13.5(@types/react@18.3.12)(react@18.3.1))(@types/react@18.3.12)(react@18.3.1)
       '@graasp/chatbox':
-        specifier: 3.3.0
-        version: 3.3.0(u2objqymde3tv2rylgerrx5inm)
+        specifier: 3.3.1
+        version: 3.3.1(pnjuvvrujj23ipi2ybtd2gtuxm)
       '@graasp/query-client':
-        specifier: 5.6.0
-        version: 5.6.0(@graasp/sdk@5.3.1(date-fns@4.1.0)(uuid@11.0.3))(@graasp/translations@1.42.0(i18next@24.0.2(typescript@5.7.2)))(react@18.3.1)
+        specifier: 5.6.1
+        version: 5.6.1(@graasp/sdk@5.3.1(date-fns@4.1.0)(uuid@11.0.3))(@graasp/translations@1.42.0(i18next@24.0.2(typescript@5.7.2)))(react@18.3.1)
       '@graasp/sdk':
         specifier: 5.3.1
         version: 5.3.1(date-fns@4.1.0)(uuid@11.0.3)
@@ -1528,8 +1528,8 @@ packages:
   '@floating-ui/utils@0.2.8':
     resolution: {integrity: sha512-kym7SodPp8/wloecOpcmSnWJsK7M0E5Wg8UcFA+uO4B9s5d0ywXOEro/8HM9x0rW+TljRzul/14UYz3TleT3ig==}
 
-  '@graasp/chatbox@3.3.0':
-    resolution: {integrity: sha512-9f+ZUfniE/ot+11s9NwLnxrZxcscdXgoPt3oTjDcq/ABZnGMRHJUI8b/FffFvTp/61hzjR7N7SxwkHI5BiIzyA==}
+  '@graasp/chatbox@3.3.1':
+    resolution: {integrity: sha512-Vy4EGNxuZ6P2OaCJOVoSaroXUu6uA5gHlCL0bxmeYT/aDmSzMydnmMmZm6wiGACeLY2liY+VzqcFr+rQKZADWw==}
     peerDependencies:
       '@emotion/react': ^11.11.1
       '@emotion/styled': ^11.11.0
@@ -1538,19 +1538,19 @@ packages:
       '@graasp/stylis-plugin-rtl': '*'
       '@graasp/translations': '*'
       '@graasp/ui': '*'
-      '@mui/icons-material': ^5
+      '@mui/icons-material': ^5 || ^6.0.0
       '@mui/lab': ^5.0.0-alpha.121
-      '@mui/material': ^5
+      '@mui/material': ^5 || ^6.0.0
       '@tanstack/react-query': ^4
-      date-fns: ^3.2.0
-      i18next: ^23.7.0
+      date-fns: ^3.2.0 || ^4.0.0
+      i18next: ^23.7.0 || ^24.0.0
       lucide-react: '*'
       react: '*'
       react-dom: '*'
       react-i18next: ^13.0.0 || ^14.0.0 || ^15.0.0
 
-  '@graasp/query-client@5.6.0':
-    resolution: {integrity: sha512-TFoPRxGxaT3rFO1CjJpe8vt8oZNBtq/HTtD8XOCN3lOScoQx2TkNqB9r4V9ZeMkO11f9EfUE7MDWGLDTsJ+B+Q==}
+  '@graasp/query-client@5.6.1':
+    resolution: {integrity: sha512-hQ7XDB1/72o9WpS80wK3VEGgAizutHE4s0KNmybx59Hdx8tfUquO7gEqaY0RBcHWloGw/DXgGIJqfTLdMGWL9Q==}
     peerDependencies:
       '@graasp/sdk': ^4.0.0 || ^5.0.0
       '@graasp/translations': '*'
@@ -7052,11 +7052,11 @@ snapshots:
 
   '@floating-ui/utils@0.2.8': {}
 
-  '@graasp/chatbox@3.3.0(u2objqymde3tv2rylgerrx5inm)':
+  '@graasp/chatbox@3.3.1(pnjuvvrujj23ipi2ybtd2gtuxm)':
     dependencies:
       '@emotion/react': 11.13.5(@types/react@18.3.12)(react@18.3.1)
       '@emotion/styled': 11.13.5(@emotion/react@11.13.5(@types/react@18.3.12)(react@18.3.1))(@types/react@18.3.12)(react@18.3.1)
-      '@graasp/query-client': 5.6.0(@graasp/sdk@5.3.1(date-fns@4.1.0)(uuid@11.0.3))(@graasp/translations@1.42.0(i18next@24.0.2(typescript@5.7.2)))(react@18.3.1)
+      '@graasp/query-client': 5.6.1(@graasp/sdk@5.3.1(date-fns@4.1.0)(uuid@11.0.3))(@graasp/translations@1.42.0(i18next@24.0.2(typescript@5.7.2)))(react@18.3.1)
       '@graasp/sdk': 5.3.1(date-fns@4.1.0)(uuid@11.0.3)
       '@graasp/stylis-plugin-rtl': 2.2.0(stylis@4.3.4)
       '@graasp/translations': 1.42.0(i18next@24.0.2(typescript@5.7.2))
@@ -7081,7 +7081,7 @@ snapshots:
       - '@types/react'
       - supports-color
 
-  '@graasp/query-client@5.6.0(@graasp/sdk@5.3.1(date-fns@4.1.0)(uuid@11.0.3))(@graasp/translations@1.42.0(i18next@24.0.2(typescript@5.7.2)))(react@18.3.1)':
+  '@graasp/query-client@5.6.1(@graasp/sdk@5.3.1(date-fns@4.1.0)(uuid@11.0.3))(@graasp/translations@1.42.0(i18next@24.0.2(typescript@5.7.2)))(react@18.3.1)':
     dependencies:
       '@graasp/sdk': 5.3.1(date-fns@4.1.0)(uuid@11.0.3)
       '@graasp/translations': 1.42.0(i18next@24.0.2(typescript@5.7.2))
