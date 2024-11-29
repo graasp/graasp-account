@@ -22,7 +22,7 @@ export function EmailInput({
   form,
   error,
   placeholder,
-}: Props): JSX.Element {
+}: Readonly<Props>): JSX.Element {
   const { t } = useTranslation(NS.Auth);
 
   return (

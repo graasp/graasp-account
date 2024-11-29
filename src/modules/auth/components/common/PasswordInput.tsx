@@ -19,7 +19,11 @@ type Props = {
   error: string | undefined;
 };
 
-export function PasswordInput({ id, error, form }: Props): JSX.Element {
+export function PasswordInput({
+  id,
+  error,
+  form,
+}: Readonly<Props>): JSX.Element {
   const { t } = useTranslation(NS.Auth);
 
   const [showPassword, setShowPassword] = useState(false);

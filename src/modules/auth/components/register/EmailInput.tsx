@@ -27,7 +27,7 @@ export function EmailInput({
   setValue,
   shouldValidate = true,
   autoFocus = false,
-}: Props) {
+}: Readonly<Props>) {
   const { t } = useTranslation(NS.Auth);
 
   const [error, setError] = useState<string | null>(null);

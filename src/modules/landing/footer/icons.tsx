@@ -1,5 +1,5 @@
 type Props = { size: number };
-export function FacebookIcon({ size }: Props): JSX.Element {
+export function FacebookIcon({ size }: Readonly<Props>): JSX.Element {
   return (
     <svg
       width={size}
@@ -16,7 +16,7 @@ export function FacebookIcon({ size }: Props): JSX.Element {
   );
 }
 
-export function GithubIcon({ size }: Props): JSX.Element {
+export function GithubIcon({ size }: Readonly<Props>): JSX.Element {
   return (
     <svg
       width={size}
@@ -35,7 +35,7 @@ export function GithubIcon({ size }: Props): JSX.Element {
   );
 }
 
-export function InstagramIcon({ size }: Props): JSX.Element {
+export function InstagramIcon({ size }: Readonly<Props>): JSX.Element {
   return (
     <svg
       width={size}
@@ -54,7 +54,7 @@ export function InstagramIcon({ size }: Props): JSX.Element {
   );
 }
 
-export function LinkedInIcon({ size }: Props): JSX.Element {
+export function LinkedInIcon({ size }: Readonly<Props>): JSX.Element {
   return (
     <svg
       width={size}
@@ -71,7 +71,7 @@ export function LinkedInIcon({ size }: Props): JSX.Element {
   );
 }
 
-export function MastodonIcon({ size }: Props): JSX.Element {
+export function MastodonIcon({ size }: Readonly<Props>): JSX.Element {
   return (
     <svg
       width={size}
@@ -90,7 +90,7 @@ export function MastodonIcon({ size }: Props): JSX.Element {
   );
 }
 
-export function TwitterIcon({ size }: Props): JSX.Element {
+export function TwitterIcon({ size }: Readonly<Props>): JSX.Element {
   return (
     <svg
       width={size}

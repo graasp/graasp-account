@@ -20,7 +20,7 @@ import {
 } from '@/config/selectors';
 
 import { LeftContentContainer } from '~auth/components/LeftContentContainer';
-import { useRecaptcha } from '~auth/context/RecaptchaContext';
+import { executeCaptcha } from '~auth/context/RecaptchaContext';
 
 const signInSuccessSchema = z.object({
   email: z.string().email(),
@@ -36,7 +36,6 @@ export const Route = createFileRoute('/auth/success')({
 function RouteComponent() {
   const { email, url, back } = Route.useSearch();
   const { t } = useTranslation(NS.Auth);
-  const { executeCaptcha } = useRecaptcha();
   const [isEmailSent, setIsEmailSent] = useState(false);
 
   const { mutate: signIn } = mutations.useSignIn();

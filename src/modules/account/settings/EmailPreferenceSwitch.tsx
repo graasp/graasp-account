@@ -17,7 +17,7 @@ export function EmailPreferenceSwitch({
   id,
   emailFreq,
   onChange,
-}: EmailPreferenceSwitchProps): JSX.Element {
+}: Readonly<EmailPreferenceSwitchProps>): JSX.Element {
   const { t } = useTranslation(NS.Account);
 
   const handleChange = (event: SelectChangeEvent<string>) => {

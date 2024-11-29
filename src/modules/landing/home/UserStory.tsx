@@ -66,7 +66,7 @@ export function UserStory({
   children,
   image,
   imageAttribution,
-}: UserStoryProps): JSX.Element {
+}: Readonly<UserStoryProps>): JSX.Element {
   return (
     <InvertingStack gap={5}>
       <Stack flex={1} gap={2}>

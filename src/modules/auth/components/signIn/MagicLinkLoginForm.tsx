@@ -18,7 +18,7 @@ import {
 import { AUTH } from '~auth/langs';
 import { isEmailValid } from '~auth/validation';
 
-import { useRecaptcha } from '../../context/RecaptchaContext';
+import { executeCaptcha } from '../../context/RecaptchaContext';
 import { useMobileAppLogin } from '../../hooks/useMobileAppLogin';
 import { ErrorDisplay } from '../common/ErrorDisplay';
 import { EmailInput } from './EmailInput';
@@ -33,12 +33,13 @@ type MagicLinkLoginFormProps = {
   };
 };
 
-export function MagicLinkLoginForm({ search }: MagicLinkLoginFormProps) {
+export function MagicLinkLoginForm({
+  search,
+}: Readonly<MagicLinkLoginFormProps>) {
   const navigate = useNavigate();
   const location = useLocation();
   const { t } = useTranslation(NS.Auth);
 
-  const { executeCaptcha } = useRecaptcha();
   const {
     register,
     handleSubmit,

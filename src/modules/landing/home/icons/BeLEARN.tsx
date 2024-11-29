@@ -1,17 +1,15 @@
 export function BeLEARN({
   width,
   height,
-}: {
+}: Readonly<{
   width: string;
   height: string;
-}): JSX.Element {
+}>): JSX.Element {
   return (
     <svg
       id="Ebene_1"
       xmlns="http://www.w3.org/2000/svg"
       viewBox="0 0 290 114.77"
-      // width={width}
-      // height={height}
       style={{ maxHeight: height, maxWidth: width }}
     >
       <title>BeLEARN</title>

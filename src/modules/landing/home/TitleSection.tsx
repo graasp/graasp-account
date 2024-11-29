@@ -8,7 +8,7 @@ import { GRAASP_LIBRARY_HOST } from '@/config/env';
 
 import { ButtonLink } from '../../../components/ui/ButtonLink';
 import { BeLEARN } from './icons/BeLEARN';
-import { EPFL } from './icons/EPFL';
+import { Epfl } from './icons/EPFL';
 import { EdTech } from './icons/EdTech';
 import { GoLab } from './icons/GoLab';
 import { Unine } from './icons/Unine';
@@ -92,7 +92,7 @@ export function TitleSection(): JSX.Element {
               flexWrap="wrap"
               alignItems="center"
             >
-              <EPFL width="150px" height="3rem" />
+              <Epfl width="150px" height="3rem" />
               <BeLEARN width="150px" height="3rem" />
               <EdTech width="150px" height="3rem" />
               <Unine width="150px" height="3rem" />

@@ -32,7 +32,7 @@ import {
   REGISTER_SAVE_ACTIONS_ID,
 } from '@/config/selectors';
 
-import { useRecaptcha } from '~auth/context/RecaptchaContext';
+import { executeCaptcha } from '~auth/context/RecaptchaContext';
 import { useMobileAppLogin } from '~auth/hooks/useMobileAppLogin';
 import { AUTH } from '~auth/langs';
 
@@ -52,7 +52,9 @@ type FormElementProps = {
   control: Control<RegisterInputs>;
 };
 
-function EnableAnalyticsForm({ control }: FormElementProps): JSX.Element {
+function EnableAnalyticsForm({
+  control,
+}: Readonly<FormElementProps>): JSX.Element {
   const { field } = useController({ control, name: 'enableSaveActions' });
   const { t } = useTranslation(NS.Auth);
 
@@ -77,7 +79,7 @@ function EnableAnalyticsForm({ control }: FormElementProps): JSX.Element {
   );
 }
 
-export function AgreementForm({ control }: FormElementProps) {
+export function AgreementForm({ control }: Readonly<FormElementProps>) {
   const { t } = useTranslation(NS.Auth);
   const {
     field,
@@ -143,7 +145,7 @@ const defaultRedirection = new URL(
   window.location.origin,
 ).toString();
 
-export function RegisterForm({ search, initialData }: RegisterProps) {
+export function RegisterForm({ search, initialData }: Readonly<RegisterProps>) {
   const { t, i18n } = useTranslation(NS.Auth);
   const { t: translateCommon } = useTranslation(NS.Common, {
     keyPrefix: 'FIELD_ERROR',
@@ -151,7 +153,6 @@ export function RegisterForm({ search, initialData }: RegisterProps) {
 
   const navigate = useNavigate();
   const location = useLocation();
-  const { executeCaptcha } = useRecaptcha();
   const { isMobile, challenge } = useMobileAppLogin();
   const {
     register,

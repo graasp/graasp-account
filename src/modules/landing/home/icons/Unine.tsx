@@ -1,10 +1,10 @@
 export function Unine({
   width,
   height,
-}: {
+}: Readonly<{
   width: string;
   height: string;
-}): JSX.Element {
+}>): JSX.Element {
   return (
     <svg
       version="1.1"

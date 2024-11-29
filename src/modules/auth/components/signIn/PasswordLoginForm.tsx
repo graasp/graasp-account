@@ -16,7 +16,7 @@ import {
   PASSWORD_SUCCESS_ALERT,
 } from '@/config/selectors';
 
-import { useRecaptcha } from '~auth/context/RecaptchaContext';
+import { executeCaptcha } from '~auth/context/RecaptchaContext';
 import { useMobileAppLogin } from '~auth/hooks/useMobileAppLogin';
 import { AUTH } from '~auth/langs';
 
@@ -35,10 +35,9 @@ type PasswordLoginProps = {
   };
 };
 
-export function PasswordLoginForm({ search }: PasswordLoginProps) {
+export function PasswordLoginForm({ search }: Readonly<PasswordLoginProps>) {
   const { t } = useTranslation(NS.Auth);
   const { isMobile, challenge } = useMobileAppLogin();
-  const { executeCaptcha } = useRecaptcha();
   const {
     register,
     handleSubmit,

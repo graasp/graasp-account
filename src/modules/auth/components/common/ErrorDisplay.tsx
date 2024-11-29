@@ -8,9 +8,9 @@ import { ERROR_DISPLAY_ID } from '@/config/selectors';
 
 export function ErrorDisplay({
   error,
-}: {
+}: Readonly<{
   error: Error | null;
-}): JSX.Element | null {
+}>): JSX.Element | null {
   const { t: translateMessages } = useTranslation(NS.Messages);
 
   if (!error) {

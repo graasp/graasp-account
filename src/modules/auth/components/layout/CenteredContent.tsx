@@ -10,10 +10,10 @@ import { styledBox } from '../styles';
 export function CenteredContent({
   children,
   header,
-}: {
+}: Readonly<{
   children: ReactNode;
   header: ReactNode;
-}) {
+}>) {
   return (
     <Stack
       direction="column"

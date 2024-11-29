@@ -5,10 +5,10 @@ import { Stack, Typography } from '@mui/material';
 export function Section({
   children,
   title,
-}: {
+}: Readonly<{
   children: ReactNode;
   title: ReactNode;
-}): JSX.Element {
+}>): JSX.Element {
   return (
     <Stack gap={2}>
       <SectionTitle>{title}</SectionTitle>
@@ -21,9 +21,9 @@ export function Section({
 
 export function SectionTitle({
   children,
-}: {
+}: Readonly<{
   children: ReactNode;
-}): JSX.Element {
+}>): JSX.Element {
   return (
     <Typography component="li" variant="h2" color="primary">
       {children}
@@ -31,10 +31,15 @@ export function SectionTitle({
   );
 }
 
-export function ListItem({ children }: { children: ReactNode }): JSX.Element {
+export function ListItem({
+  children,
+}: Readonly<{ children: ReactNode }>): JSX.Element {
   return <Typography component="li">{children}</Typography>;
 }
-export function Paragraphs({ children }: { children: ReactNode }): JSX.Element {
+
+export function Paragraphs({
+  children,
+}: Readonly<{ children: ReactNode }>): JSX.Element {
   return (
     <Stack direction="column" gap={2}>
       {children}
@@ -45,10 +50,10 @@ export function Paragraphs({ children }: { children: ReactNode }): JSX.Element {
 export function SubSection({
   children,
   title,
-}: {
+}: Readonly<{
   children: ReactNode;
   title: string;
-}): JSX.Element {
+}>): JSX.Element {
   return (
     <Paragraphs>
       <Typography variant="h5" component="li">
@@ -62,10 +67,10 @@ export function SubSection({
 export function EnumeratedParagraph({
   children,
   text,
-}: {
+}: Readonly<{
   children: ReactNode;
   text: ReactNode;
-}): JSX.Element {
+}>): JSX.Element {
   return (
     <Stack gap={1}>
       <Typography>{text}</Typography>
@@ -88,10 +93,10 @@ export function EnumeratedParagraph({
 export function ListedParagraph({
   children,
   text,
-}: {
+}: Readonly<{
   children: ReactNode;
   text?: ReactNode;
-}): JSX.Element {
+}>): JSX.Element {
   return (
     <Stack gap={1}>
       {text && <Typography>{text}</Typography>}

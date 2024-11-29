@@ -18,7 +18,7 @@ type Props = {
   children: ReactNode;
 };
 
-export function Redirection({ children }: Props) {
+export function Redirection({ children }: Readonly<Props>) {
   const theme = useTheme();
   const { data: member } = hooks.useCurrentMember();
   const { t } = useTranslation(NS.Auth);

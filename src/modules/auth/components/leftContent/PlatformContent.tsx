@@ -7,7 +7,7 @@ type Props = {
   color: string;
 };
 
-export function PlatformContent({ Icon, name, text, color }: Props) {
+export function PlatformContent({ Icon, name, text, color }: Readonly<Props>) {
   return (
     <Stack width="100%" direction="row" alignItems="center">
       <Icon primaryColor={color} size={110} />

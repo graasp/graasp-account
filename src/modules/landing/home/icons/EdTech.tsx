@@ -1,10 +1,10 @@
 export function EdTech({
   width,
   height,
-}: {
+}: Readonly<{
   width: string;
   height: string;
-}): JSX.Element {
+}>): JSX.Element {
   return (
     <svg
       viewBox="-15 0 185 110.7"

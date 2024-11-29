@@ -8,7 +8,10 @@ type DialogHeaderProps = {
   title: string;
   description?: string | ReactNode;
 };
-export function DialogHeader({ title, description }: DialogHeaderProps) {
+export function DialogHeader({
+  title,
+  description,
+}: Readonly<DialogHeaderProps>) {
   const theme = useTheme();
 
   return (

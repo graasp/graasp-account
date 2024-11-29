@@ -1,10 +1,10 @@
 export function GoLab({
   width,
   height,
-}: {
+}: Readonly<{
   width: string;
   height: string;
-}): JSX.Element {
+}>): JSX.Element {
   return (
     <svg
       viewBox="-40 -20 560 130"

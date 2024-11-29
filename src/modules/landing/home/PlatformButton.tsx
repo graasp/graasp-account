@@ -66,7 +66,7 @@ export function PlatformButton({
   description,
   caption,
   buttonText,
-}: PlatformButtonProps): JSX.Element {
+}: Readonly<PlatformButtonProps>): JSX.Element {
   const { t: translatePlatforms } = useTranslation(NS.Enums);
   const { color, name, Icon, href } = PlatformProps[platform];
   const alignItems = {

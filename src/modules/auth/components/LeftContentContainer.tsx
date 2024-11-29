@@ -26,7 +26,9 @@ type Props = {
   children: JSX.Element | JSX.Element[];
 };
 
-export function LeftContentContainer({ children }: Props): JSX.Element {
+export function LeftContentContainer({
+  children,
+}: Readonly<Props>): JSX.Element {
   const { t } = useTranslation(NS.Auth);
 
   return (

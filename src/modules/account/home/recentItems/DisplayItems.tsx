@@ -17,10 +17,10 @@ const GridWrapper = ({ children }: { children: ReactNode }): JSX.Element => (
 export function DisplayItems({
   items,
   isLoading,
-}: {
+}: Readonly<{
   items?: PackedItem[];
   isLoading: boolean;
-}): ReactNode | null {
+}>): ReactNode | null {
   const { t } = useTranslation(NS.Player);
 
   if (items) {
