@@ -29,7 +29,7 @@ describe('shuffleAllButLastItemInArray', () => {
     expect(shuffledArray1).to.not.deep.equal(shuffledArray2);
   });
 
-  // todo: commenting out temporarily as test should be deterministic
+  // MARK: commenting out temporarily as test should be deterministic
   // it('should produce all possible orderings with uniform distribution', () => {
   //   // only testing short arrays, as otherwise distribution is too sparse
   //   // (actual number of items shuffled is one fewer than this, as we keep the last item fixed).
@@ -39,7 +39,7 @@ describe('shuffleAllButLastItemInArray', () => {
   //     (_, index) => index,
   //   );
   //
-  //   // todo: only test few participants, to be realistic
+  //   // improvement: only test few participants, to be realistic
   //   const numIterations = 10000;
   //   const permutationCounts: Record<string, number> = {};
   //

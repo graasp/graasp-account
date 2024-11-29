@@ -25,13 +25,6 @@ const DrawerNavigation = (): JSX.Element | null => {
   const navigate = useNavigate();
   const { user } = useAuth();
 
-  // TODO: see if we still need this hack
-  // const [prevRootId, setPrevRootId] = useState(rootId);
-
-  // useEffect(() => {
-  //   setPrevRootId(rootId);
-  // }, [rootId]);
-
   const { shuffle } = search;
 
   const { t } = useTranslation(NS.Common);
@@ -54,14 +47,6 @@ const DrawerNavigation = (): JSX.Element | null => {
       search,
     });
   };
-
-  // on root change, we need to destroy the tree
-  // since it keeps the same data on reload despite prop changes
-  // we cannot rely on isLoading because the data is taken from the cache
-  // bc of our query client optimization
-  // if (prevRootId !== rootId) {
-  //   return <LoadingTree />;
-  // }
 
   let shuffledDescendants = [...(descendants || [])];
   if (shuffle) {

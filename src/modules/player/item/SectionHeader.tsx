@@ -12,7 +12,9 @@ type SectionHeaderProps = {
   item: PackedItem;
 };
 
-export function SectionHeader({ item }: SectionHeaderProps): JSX.Element {
+export function SectionHeader({
+  item,
+}: Readonly<SectionHeaderProps>): JSX.Element {
   const { t, i18n } = useTranslation(NS.Player);
   const thumbnailSrc = item.thumbnails?.medium;
 
