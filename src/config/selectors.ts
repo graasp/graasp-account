@@ -179,7 +179,7 @@ export const FORBIDDEN_CONTENT_CONTAINER_ID = 'forbiddenContentContainer';
 
 export const USER_SWITCH_SIGN_IN_BUTTON_ID = 'userSwitchSignInButton';
 
-export const NAVIGATION_ISLAND_CY = 'navigationIsland';
+export const NAVIGATION_ISLAND_ID = 'navigationIsland';
 export const ITEM_CHATBOX_BUTTON_ID = 'itemChatboxButton';
 export const ITEM_MAP_BUTTON_ID = 'itemMapButton';
 export const ITEM_PINNED_BUTTON_ID = 'itemPinnedButton';

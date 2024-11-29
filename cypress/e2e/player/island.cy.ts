@@ -7,7 +7,7 @@ import {
 import {
   ITEM_CHATBOX_BUTTON_ID,
   ITEM_MAP_BUTTON_ID,
-  NAVIGATION_ISLAND_CY,
+  NAVIGATION_ISLAND_ID,
   buildDocumentId,
   buildTreeItemClass,
 } from '../../../src/config/selectors';
@@ -128,7 +128,7 @@ describe('Island', () => {
       'contain',
       getDocumentExtra(documentTarget.extra as DocumentItemExtra).content,
     );
-    cy.get(`[data-cy=${NAVIGATION_ISLAND_CY}]`)
+    cy.get(`#${NAVIGATION_ISLAND_ID}`)
       .should('be.visible')
       .and('have.length', 1);
   });
