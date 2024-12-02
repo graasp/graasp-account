@@ -22,14 +22,18 @@ function PlatformDisplayGlass({
   return (
     <Stack
       flex={1}
+      // set a maximum height
       height="150px"
-      // minWidth={{ xs: '150px', md: 'unset' }}
-      borderRadius={4}
+      // use all width available
+      width="100%"
+      // center elements inside
       alignItems="center"
       justifyContent="center"
+      // use position relative so children can use absolute and stack over one another
       position="relative"
-      width="100%"
+      // make a nice rounded borders
       overflow="hidden"
+      borderRadius={4}
     >
       <Image src={imageSrc} width="100%" height="100%" />
       <Stack
@@ -79,6 +83,7 @@ function PlatformOverview({ platform }: Readonly<PlatformOverviewProps>) {
     <Stack
       direction={{ xs: 'row', md: 'column' }}
       alignItems="center"
+      // stretch so all elements take the same height
       justifyContent="stretch"
       textAlign={{ md: 'center' }}
       gap={2}
@@ -107,11 +112,15 @@ export function PlatformOverviewSection() {
     keyPrefix: 'FEATURES.PLATFORM_OVERVIEW',
   });
   return (
-    <Stack maxWidth={{ xs: '600px', md: 'lg' }} gap={2}>
-      <Typography variant="h2" color="primary">
+    <Stack gap={2} maxWidth="lg" alignItems="center" width="100%">
+      <Typography variant="h2" color="primary" width={{ md: '100%' }}>
         {t('TITLE')}
       </Typography>
-      <Stack direction={{ xs: 'column', md: 'row' }} gap={4}>
+      <Stack
+        direction={{ xs: 'column', md: 'row' }}
+        maxWidth={{ xs: '600px', md: 'lg' }}
+        gap={4}
+      >
         <PlatformOverview platform="builder" />
         <PlatformOverview platform="player" />
         <PlatformOverview platform="analytics" />

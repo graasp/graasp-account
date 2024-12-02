@@ -280,6 +280,12 @@
         "DESCRIPTION": "Collaborative Knowledge Sharing and Discovery",
         "BUTTON_TEXT": "Read More"
       }
+    },
+    "BLENDED_LEARNING": {
+      "TITLE": "What is Blended Learning?",
+      "DESCRIPTION_1": "Blended learning merges <strong>traditional classroom teaching</strong> with <strong>online resources</strong>, creating a flexible learning environment. It combines face-to-face instruction with digital tools, allowing students to learn at their own pace and access materials anytime, anywhere.",
+      "DESCRIPTION_2": "This approach fosters student <strong>autonomy</strong> and <strong>self-direction</strong> skills by offering personalized learning experiences. Educators can use data-driven insights to tailor instruction and support individual student needs, leading to improved learning outcomes.",
+      "DESCRIPTION_3": "Blended learning combines the strengths of classroom teaching with the flexibility of online tools, creating an adaptable and enriched learning atmosphere for students."
     }
   },
   "FOOTER": {

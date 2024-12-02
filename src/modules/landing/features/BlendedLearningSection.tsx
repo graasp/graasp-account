@@ -1,3 +1,41 @@
+import { Trans, useTranslation } from 'react-i18next';
+
+import { Stack, Typography, styled } from '@mui/material';
+
+import { NS } from '@/config/constants';
+
+const StyledVideo = styled('video')({
+  flex: 1,
+});
+
 export function BlendedLearningSection() {
-  return 'BlendedLearning';
+  const { t } = useTranslation(NS.Landing, {
+    keyPrefix: 'FEATURES.BLENDED_LEARNING',
+  });
+  return (
+    <Stack maxWidth="lg" width="100%" alignItems="flex-start" gap={4}>
+      <Typography variant="h2" color="primary">
+        {t('TITLE')}
+      </Typography>
+      <Stack
+        direction={{ xs: 'column', md: 'row' }}
+        alignItems="center"
+        gap={4}
+        width="100%"
+      >
+        <Stack gap={2} flex={1}>
+          <Typography>
+            <Trans i18nKey="DESCRIPTION_1" t={t} />
+          </Typography>
+          <Typography>
+            <Trans i18nKey="DESCRIPTION_2" t={t} />
+          </Typography>
+          <Typography>
+            <Trans i18nKey="DESCRIPTION_3" t={t} />
+          </Typography>
+        </Stack>
+        <StyledVideo poster="/illustration/video-thumbnail.webp"></StyledVideo>
+      </Stack>
+    </Stack>
+  );
 }
