@@ -253,6 +253,35 @@
       }
     }
   },
+  "FEATURES": {
+    "TITLE": "Transform your teaching experience with Graasp",
+    "DESCRIPTION": "Whether you're <bold>crafting tailored content</bold>, <bold>engaging learners in dynamic presentations</bold>, or conducting studies to improve the landscape of digital education, our platform offers a wide range of functionalities to support the creation, presentation, sharing, and analysis of your educational content. <bold>Register for free to Graasp today</bold>, and start creating and sharing your knowledge in a global network of people strongly passionate about education like you!",
+    "CALL_TO_ACTION_TEXT": "Support your digital learning journey with our four core services",
+    "CALL_TO_ACTION_BUTTON_TEXT": "Register to Graasp",
+    "PLATFORM_OVERVIEW": {
+      "TITLE": "Graasp at a glance",
+      "builder": {
+        "TITLE": "Builder",
+        "DESCRIPTION": "Tailored for structured content creation",
+        "BUTTON_TEXT": "Read More"
+      },
+      "player": {
+        "TITLE": "Player",
+        "DESCRIPTION": "Interactive engagement made easy",
+        "BUTTON_TEXT": "Read More"
+      },
+      "analytics": {
+        "TITLE": "Analytics",
+        "DESCRIPTION": "Discover, Measure, Interpret Data and Insights",
+        "BUTTON_TEXT": "Read More"
+      },
+      "library": {
+        "TITLE": "Library",
+        "DESCRIPTION": "Collaborative Knowledge Sharing and Discovery",
+        "BUTTON_TEXT": "Read More"
+      }
+    }
+  },
   "FOOTER": {
     "TAG_LINE": "Developed in Switzerland by the Graasp Association",
     "CONTENT": {
@@ -277,6 +306,6 @@
     }
   },
   "NAV": {
-    "GO_TO_GRAASP": "To the App"
+    "GO_TO_GRAASP": "Get Started"
   }
 }
