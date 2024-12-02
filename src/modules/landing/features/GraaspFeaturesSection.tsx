@@ -1,14 +1,26 @@
-import { Stack } from '@mui/material';
+import { useTranslation } from 'react-i18next';
+
+import { Stack, Typography } from '@mui/material';
+
+import { NS } from '@/config/constants';
 
 import { GraaspFeature } from './graaspFeature/GraaspFeature';
 
 export function GraaspFeaturesSection() {
+  const { t } = useTranslation(NS.Landing, {
+    keyPrefix: 'FEATURES.GRAASP_FEATURES',
+  });
   return (
-    <Stack>
-      <GraaspFeature />
-      <GraaspFeature />
-      <GraaspFeature />
-      <GraaspFeature />
+    <Stack maxWidth="lg" width="100%" gap={4}>
+      <Typography variant="h2" color="primary">
+        {t('TITLE')}
+      </Typography>
+      <Stack gap={20}>
+        <GraaspFeature platform="builder" />
+        <GraaspFeature platform="player" />
+        <GraaspFeature platform="analytics" />
+        <GraaspFeature platform="library" />
+      </Stack>
     </Stack>
   );
 }

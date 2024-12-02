@@ -286,6 +286,41 @@
       "DESCRIPTION_1": "Blended learning merges <strong>traditional classroom teaching</strong> with <strong>online resources</strong>, creating a flexible learning environment. It combines face-to-face instruction with digital tools, allowing students to learn at their own pace and access materials anytime, anywhere.",
       "DESCRIPTION_2": "This approach fosters student <strong>autonomy</strong> and <strong>self-direction</strong> skills by offering personalized learning experiences. Educators can use data-driven insights to tailor instruction and support individual student needs, leading to improved learning outcomes.",
       "DESCRIPTION_3": "Blended learning combines the strengths of classroom teaching with the flexibility of online tools, creating an adaptable and enriched learning atmosphere for students."
+    },
+    "GRAASP_FEATURES": {
+      "TITLE": "Graasp Features",
+      "builder": {
+        "LEAD_SENTENCE": "Start with the Builder",
+        "TITLE": "Use the <color>Builder</color> to give shape to your ideas and lectures",
+        "DESCRIPTION": "Create content freely or by using templates aligned with various your teaching style and pedagogical strategy.<br/>Even without templates, our platform's intuitive design ensures a guided and structured content creation experience, reminiscent of familiar file systems. <br/>Collaboration is encouraged, enabling multiple contributors to create cohesive content, and easing the process for teams working collaboratively.",
+        "CTA_BUTTON_TEXT": "Start Creating",
+        "SECONDARY_ACTION_BUTTON_TEXT": "How to set up",
+        "TERTIARY_ACTION_BUTTON_TEXT": "How to manage it"
+      },
+      "player": {
+        "LEAD_SENTENCE": "Present to your audience",
+        "TITLE": "Elevate your material with the <color>Player</color>",
+        "DESCRIPTION": "Engage learners with an array of interactive tools and features.<br/>From assessment tools such as quizzes, tests, and open questions, to simulating real-world experiments through physics or chemistry labs, coding skill assessments with the code capsule and more!<br/>Embed multimedia content, create shared writing pads, and interact with chatbots.<br/>Our platform enables educators to engage learners effectively and in a variety of ways, ensuring a rich and educative experience both in traditional classrooms and remote learning environments.",
+        "CTA_BUTTON_TEXT": "Begin Experiencing",
+        "SECONDARY_ACTION_BUTTON_TEXT": "How to add Apps",
+        "TERTIARY_ACTION_BUTTON_TEXT": "Player tutorial"
+      },
+      "analytics": {
+        "LEAD_SENTENCE": "Present to your audience",
+        "TITLE": "Elevate your material with the <color>Player</color>",
+        "DESCRIPTION": "Engage learners with an array of interactive tools and features.<br/>From assessment tools such as quizzes, tests, and open questions, to simulating real-world experiments through physics or chemistry labs, coding skill assessments with the code capsule and more!<br/>Embed multimedia content, create shared writing pads, and interact with chatbots.<br/>Our platform enables educators to engage learners effectively and in a variety of ways, ensuring a rich and educative experience both in traditional classrooms and remote learning environments.",
+        "CTA_BUTTON_TEXT": "Begin Experiencing",
+        "SECONDARY_ACTION_BUTTON_TEXT": "How to add Apps",
+        "TERTIARY_ACTION_BUTTON_TEXT": "Player tutorial"
+      },
+      "library": {
+        "LEAD_SENTENCE": "Present to your audience",
+        "TITLE": "Elevate your material with the <color>Player</color>",
+        "DESCRIPTION": "Engage learners with an array of interactive tools and features.<br/>From assessment tools such as quizzes, tests, and open questions, to simulating real-world experiments through physics or chemistry labs, coding skill assessments with the code capsule and more!<br/>Embed multimedia content, create shared writing pads, and interact with chatbots.<br/>Our platform enables educators to engage learners effectively and in a variety of ways, ensuring a rich and educative experience both in traditional classrooms and remote learning environments.",
+        "CTA_BUTTON_TEXT": "Begin Experiencing",
+        "SECONDARY_ACTION_BUTTON_TEXT": "How to add Apps",
+        "TERTIARY_ACTION_BUTTON_TEXT": "Player tutorial"
+      }
     }
   },
   "FOOTER": {
