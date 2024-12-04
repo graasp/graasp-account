@@ -5,6 +5,7 @@ import { resolve } from 'path';
 import { type UserConfigExport, defineConfig, loadEnv } from 'vite';
 import checker from 'vite-plugin-checker';
 import istanbul from 'vite-plugin-istanbul';
+import { viteStaticCopy } from 'vite-plugin-static-copy';
 
 import { umamiPlugin } from './umami.plugin';
 
@@ -87,6 +88,9 @@ const config = ({ mode }: { mode: string }): UserConfigExport => {
         host: VITE_UMAMI_HOST,
         enableInDevMode: true,
         requireInProduction: false,
+      }),
+      viteStaticCopy({
+        targets: [{ src: 'src/locales', dest: '' }],
       }),
     ],
     resolve: {

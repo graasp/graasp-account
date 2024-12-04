@@ -55,12 +55,7 @@ export function PasswordInput({
       }}
       variant="outlined"
       error={Boolean(error)}
-      helperText={
-        error &&
-        // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-        // @ts-expect-error
-        t(error)
-      }
+      helperText={error}
       placeholder={t(AUTH.PASSWORD_INPUT_PLACEHOLDER)}
       id={id}
       type={showPassword ? 'text' : 'password'}

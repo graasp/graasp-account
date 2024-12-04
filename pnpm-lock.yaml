@@ -276,6 +276,9 @@ importers:
       vite-plugin-istanbul:
         specifier: 6.0.2
         version: 6.0.2(vite@6.0.1(@types/node@22.9.0)(jiti@1.21.6)(terser@5.36.0)(tsx@4.19.2))
+      vite-plugin-static-copy:
+        specifier: 2.2.0
+        version: 2.2.0(vite@6.0.1(@types/node@22.9.0)(jiti@1.21.6)(terser@5.36.0)(tsx@4.19.2))
       vitest:
         specifier: 2.1.6
         version: 2.1.6(@types/node@22.9.0)(@vitest/browser@2.1.6)(@vitest/ui@2.1.6)(jiti@1.21.6)(msw@2.6.6(@types/node@22.9.0)(typescript@5.7.2))(terser@5.36.0)(tsx@4.19.2)
@@ -5831,6 +5834,12 @@ packages:
     resolution: {integrity: sha512-0/sKwjEEIwbEyl43xX7onX3dIbMJAsigNsKyyVPalG1oRFo5jn3qkJbS2PUfp9wrr3piy1eT6qRoeeum2p4B2A==}
     peerDependencies:
       vite: '>=4 <=6'
+
+  vite-plugin-static-copy@2.2.0:
+    resolution: {integrity: sha512-ytMrKdR9iWEYHbUxs6x53m+MRl4SJsOSoMu1U1+Pfg0DjPeMlsRVx3RR5jvoonineDquIue83Oq69JvNsFSU5w==}
+    engines: {node: ^18.0.0 || >=20.0.0}
+    peerDependencies:
+      vite: ^5.0.0 || ^6.0.0
 
   vite@6.0.1:
     resolution: {integrity: sha512-Ldn6gorLGr4mCdFnmeAOLweJxZ34HjKnDm4HGo6P66IEqTxQb36VEdFJQENKxWjupNfoIjvRUnswjn1hpYEpjQ==}
@@ -12606,6 +12615,14 @@ snapshots:
       vite: 6.0.1(@types/node@22.9.0)(jiti@1.21.6)(terser@5.36.0)(tsx@4.19.2)
     transitivePeerDependencies:
       - supports-color
+
+  vite-plugin-static-copy@2.2.0(vite@6.0.1(@types/node@22.9.0)(jiti@1.21.6)(terser@5.36.0)(tsx@4.19.2)):
+    dependencies:
+      chokidar: 3.6.0
+      fast-glob: 3.3.2
+      fs-extra: 11.2.0
+      picocolors: 1.1.1
+      vite: 6.0.1(@types/node@22.9.0)(jiti@1.21.6)(terser@5.36.0)(tsx@4.19.2)
 
   vite@6.0.1(@types/node@22.9.0)(jiti@1.21.6)(terser@5.36.0)(tsx@4.19.2):
     dependencies:

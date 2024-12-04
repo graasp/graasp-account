@@ -1,13 +1,13 @@
 // import the original type declarations
 import 'i18next';
 
-import account from '../../public/locales/en/account.json';
-import auth from '../../public/locales/en/auth.json';
-import common from '../../public/locales/en/common.json';
-import enums from '../../public/locales/en/enums.json';
-import landing from '../../public/locales/en/landing.json';
-import messages from '../../public/locales/en/messages.json';
-import player from '../../public/locales/en/player.json';
+import account from '../locales/en/account.json';
+import auth from '../locales/en/auth.json';
+import common from '../locales/en/common.json';
+import enums from '../locales/en/enums.json';
+import landing from '../locales/en/landing.json';
+import messages from '../locales/en/messages.json';
+import player from '../locales/en/player.json';
 
 declare module 'i18next' {
   interface CustomTypeOptions {

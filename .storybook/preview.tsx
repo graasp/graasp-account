@@ -1,4 +1,5 @@
 import * as React from 'react';
+import { I18nextProvider } from 'react-i18next';
 
 import { CssBaseline, ThemeProvider } from '@mui/material';
 
@@ -15,7 +16,7 @@ import {
 import type { PartialStoryFn } from 'storybook/internal/types';
 
 import '../src/app.css';
-import '../src/config/i18n';
+import i18n from './i18nTestInstance';
 
 const globalTypes = {
   direction: {
@@ -100,6 +101,13 @@ const preview: Preview = {
           <CssBaseline />
           <Story />
         </ThemeProvider>
+      );
+    },
+    (Story) => {
+      return (
+        <I18nextProvider i18n={i18n}>
+          <Story />
+        </I18nextProvider>
       );
     },
   ],

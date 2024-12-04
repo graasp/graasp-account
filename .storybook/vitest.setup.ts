@@ -1,7 +1,6 @@
 import { setProjectAnnotations } from '@storybook/react';
 import { beforeAll } from 'vitest';
 
-import '../src/config/i18n';
 import * as projectAnnotations from './preview';
 
 // This is an important step to apply the right configuration when testing your stories.
