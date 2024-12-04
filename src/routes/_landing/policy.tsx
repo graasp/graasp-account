@@ -1,6 +1,6 @@
 import { Trans, useTranslation } from 'react-i18next';
 
-import { Link as MuiLink, Stack, Typography } from '@mui/material';
+import { Link as MuiLink, Typography } from '@mui/material';
 
 import { createFileRoute } from '@tanstack/react-router';
 
@@ -10,6 +10,7 @@ import {
   EnumeratedParagraph,
   ListItem,
   ListedParagraph,
+  Page,
   Paragraphs,
   Section,
   SubSection,
@@ -22,25 +23,20 @@ export const Route = createFileRoute('/_landing/policy')({
 function RouteComponent() {
   const { t } = useTranslation(NS.Landing, { keyPrefix: 'PRIVACY_POLICY' });
   return (
-    <Stack direction="column" maxWidth="md" gap={8} mt={8}>
-      <Typography variant="h1" color="primary">
-        {t('TITLE')}
-      </Typography>
-      <Stack component="ol" gap={10} sx={{ textAlign: 'justify' }}>
-        <WhoWeAre />
-        <Responsibilities />
-        <DataUsage />
-        <DataCollection />
-        <Cookies />
-        <DataRetention />
-        <DataSharing />
-        <ServiceProviders />
-        <Security />
-        <YourRights />
-        <PolicyChanges />
-        <FinalProvisions />
-      </Stack>
-    </Stack>
+    <Page title={t('TITLE')}>
+      <WhoWeAre />
+      <Responsibilities />
+      <DataUsage />
+      <DataCollection />
+      <Cookies />
+      <DataRetention />
+      <DataSharing />
+      <ServiceProviders />
+      <Security />
+      <YourRights />
+      <PolicyChanges />
+      <FinalProvisions />
+    </Page>
   );
 }
 

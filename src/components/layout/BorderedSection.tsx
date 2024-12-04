@@ -2,8 +2,6 @@ import { ReactNode } from 'react';
 
 import { Stack, Typography } from '@mui/material';
 
-import RoundedStack from './RoundedStack';
-
 type BorderedSectionProps = {
   id?: string;
   title: string;
@@ -17,7 +15,14 @@ export function BorderedSection({
   children,
 }: Readonly<BorderedSectionProps>): JSX.Element {
   return (
-    <RoundedStack id={id}>
+    <Stack
+      id={id}
+      border="1px solid"
+      borderColor="divider"
+      borderRadius={1}
+      p={2}
+      spacing={1}
+    >
       <Stack direction="row" justifyContent="space-between">
         <Typography variant="h5">{title}</Typography>
         <Stack direction="row" gap={1}>
@@ -25,6 +30,6 @@ export function BorderedSection({
         </Stack>
       </Stack>
       {children}
-    </RoundedStack>
+    </Stack>
   );
 }

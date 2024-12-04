@@ -29,6 +29,7 @@ import '@/config/i18n';
 
 import pkg from '../package.json';
 import { AuthProvider, useAuth } from './AuthContext';
+import './app.css';
 import {
   APP_VERSION,
   GRAASP_BUILDER_HOST,

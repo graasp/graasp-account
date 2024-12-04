@@ -3,11 +3,15 @@ import { ReactNode } from 'react';
 import { Stack, Typography } from '@mui/material';
 
 type Props = {
-  readonly title: string;
-  readonly content?: ReactNode;
-  readonly contentId: string;
+  title: string;
+  content?: ReactNode;
+  contentId: string;
 };
-export function SettingItem({ title, content, contentId }: Props): JSX.Element {
+export function SettingItem({
+  title,
+  content,
+  contentId,
+}: Readonly<Props>): JSX.Element {
   return (
     <Stack direction="row" gap={2} alignItems="center">
       <Typography variant="body1" color="textSecondary">

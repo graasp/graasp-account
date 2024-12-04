@@ -45,3 +45,5 @@ cypress/videos
 
 # ts build artifacts
 *.tsbuildinfo
+
+*storybook.log

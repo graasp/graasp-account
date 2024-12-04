@@ -2,6 +2,34 @@ import { ReactNode } from 'react';
 
 import { Stack, Typography } from '@mui/material';
 
+export function Page({
+  title,
+  children,
+}: Readonly<{ title: string; children: ReactNode }>) {
+  return (
+    <Stack direction="column" maxWidth="md" gap={8} mt={8}>
+      <Typography variant="h1" color="primary">
+        {title}
+      </Typography>
+      <Stack component="ol" gap={10} sx={{ textAlign: 'justify' }}>
+        {children}
+      </Stack>
+    </Stack>
+  );
+}
+
+function SectionTitle({
+  children,
+}: Readonly<{
+  children: ReactNode;
+}>): JSX.Element {
+  return (
+    <Typography component="li" variant="h2" color="primary">
+      {children}
+    </Typography>
+  );
+}
+
 export function Section({
   children,
   title,
@@ -16,18 +44,6 @@ export function Section({
         {children}
       </Stack>
     </Stack>
-  );
-}
-
-export function SectionTitle({
-  children,
-}: Readonly<{
-  children: ReactNode;
-}>): JSX.Element {
-  return (
-    <Typography component="li" variant="h2" color="primary">
-      {children}
-    </Typography>
   );
 }
 
