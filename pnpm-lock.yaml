@@ -201,6 +201,9 @@ importers:
       '@vitest/browser':
         specifier: 2.1.6
         version: 2.1.6(@types/node@22.9.0)(playwright@1.49.0)(typescript@5.7.2)(vite@6.0.1(@types/node@22.9.0)(jiti@1.21.6)(terser@5.36.0)(tsx@4.19.2))(vitest@2.1.6)
+      '@vitest/ui':
+        specifier: 2.1.6
+        version: 2.1.6(vitest@2.1.6)
       concurrently:
         specifier: 9.1.0
         version: 9.1.0
@@ -275,7 +278,7 @@ importers:
         version: 6.0.2(vite@6.0.1(@types/node@22.9.0)(jiti@1.21.6)(terser@5.36.0)(tsx@4.19.2))
       vitest:
         specifier: 2.1.6
-        version: 2.1.6(@types/node@22.9.0)(@vitest/browser@2.1.6)(jiti@1.21.6)(msw@2.6.6(@types/node@22.9.0)(typescript@5.7.2))(terser@5.36.0)(tsx@4.19.2)
+        version: 2.1.6(@types/node@22.9.0)(@vitest/browser@2.1.6)(@vitest/ui@2.1.6)(jiti@1.21.6)(msw@2.6.6(@types/node@22.9.0)(typescript@5.7.2))(terser@5.36.0)(tsx@4.19.2)
 
 packages:
 
@@ -2471,6 +2474,11 @@ packages:
   '@vitest/spy@2.1.6':
     resolution: {integrity: sha512-oTFObV8bd4SDdRka5O+mSh5w9irgx5IetrD5i+OsUUsk/shsBoHifwCzy45SAORzAhtNiprUVaK3hSCCzZh1jQ==}
 
+  '@vitest/ui@2.1.6':
+    resolution: {integrity: sha512-SrpLAM0/xpOjXBDv3mayFh5TDEYM59fmEmJXgp1AqtpUWHVw4Tonp6Z9dVBhChU/Q+BY57m74nrQZK8vxKDrMQ==}
+    peerDependencies:
+      vitest: 2.1.6
+
   '@vitest/utils@2.0.5':
     resolution: {integrity: sha512-d8HKbqIcya+GR67mkZbrzhS5kKhtp8dQLcmRZLGTscGVg7yImT82cIrhtn2L8+VujWcy6KZweApgNmPsTAO/UQ==}
 
@@ -3567,6 +3575,17 @@ packages:
 
   fd-slicer@1.1.0:
     resolution: {integrity: sha512-cE1qsB/VwyQozZ+q1dGxR8LBYNZeofhEdUNGSMbQD3Gw2lAzX9Zb3uIU6Ebc/Fmyjo9AWWfnn0AUCHqtevs/8g==}
+
+  fdir@6.4.2:
+    resolution: {integrity: sha512-KnhMXsKSPZlAhp7+IjUkRZKPb4fUyccpDrdFXbi4QL1qkmFh9kVY09Yox+n4MaOb3lHZ1Tv829C3oaaXoMYPDQ==}
+    peerDependencies:
+      picomatch: ^3 || ^4
+    peerDependenciesMeta:
+      picomatch:
+        optional: true
+
+  fflate@0.8.2:
+    resolution: {integrity: sha512-cPJU47OaAoCbg0pBvzsgpTPhmhqI5eJjh/JIu8tPj5q+T7iLvW/JAYUqmE7KOB4R1ZyEhzBaIQpQpardBF5z8A==}
 
   figures@3.2.0:
     resolution: {integrity: sha512-yaduQFRKLXYOGgEn6AZau90j3ggSOyiqXU0F9JZfeXYhNa+Jk4X+s45A2zg5jns87GAFa34BBm2kXw4XpNcbdg==}
@@ -5511,6 +5530,10 @@ packages:
 
   tinyexec@0.3.1:
     resolution: {integrity: sha512-WiCJLEECkO18gwqIp6+hJg0//p23HXp4S+gGtAKu3mI2F2/sXC4FvHvXvB0zJVVaTPhx1/tOwdbRsa1sOBIKqQ==}
+
+  tinyglobby@0.2.10:
+    resolution: {integrity: sha512-Zc+8eJlFMvgatPZTl6A9L/yht8QqdmUNtURHaKZLmKBE12hNPSrqNkUp2cs3M/UKmNVVAMFQYSjYIVHDjW5zew==}
+    engines: {node: '>=12.0.0'}
 
   tinypool@1.0.2:
     resolution: {integrity: sha512-al6n+QEANGFOMf/dmUMsuS5/r9B06uwlyNjZZql/zv8J7ybHCgoihBNORZCY2mzUuAnomQa2JdhyHKzZxPCrFA==}
@@ -8023,7 +8046,7 @@ snapshots:
     optionalDependencies:
       '@vitest/browser': 2.1.6(@types/node@22.9.0)(playwright@1.49.0)(typescript@5.7.2)(vite@6.0.1(@types/node@22.9.0)(jiti@1.21.6)(terser@5.36.0)(tsx@4.19.2))(vitest@2.1.6)
       '@vitest/runner': 2.1.6
-      vitest: 2.1.6(@types/node@22.9.0)(@vitest/browser@2.1.6)(jiti@1.21.6)(msw@2.6.6(@types/node@22.9.0)(typescript@5.7.2))(terser@5.36.0)(tsx@4.19.2)
+      vitest: 2.1.6(@types/node@22.9.0)(@vitest/browser@2.1.6)(@vitest/ui@2.1.6)(jiti@1.21.6)(msw@2.6.6(@types/node@22.9.0)(typescript@5.7.2))(terser@5.36.0)(tsx@4.19.2)
     transitivePeerDependencies:
       - react
       - react-dom
@@ -8529,7 +8552,7 @@ snapshots:
       msw: 2.6.6(@types/node@22.9.0)(typescript@5.7.2)
       sirv: 3.0.0
       tinyrainbow: 1.2.0
-      vitest: 2.1.6(@types/node@22.9.0)(@vitest/browser@2.1.6)(jiti@1.21.6)(msw@2.6.6(@types/node@22.9.0)(typescript@5.7.2))(terser@5.36.0)(tsx@4.19.2)
+      vitest: 2.1.6(@types/node@22.9.0)(@vitest/browser@2.1.6)(@vitest/ui@2.1.6)(jiti@1.21.6)(msw@2.6.6(@types/node@22.9.0)(typescript@5.7.2))(terser@5.36.0)(tsx@4.19.2)
       ws: 8.18.0
     optionalDependencies:
       playwright: 1.49.0
@@ -8589,6 +8612,17 @@ snapshots:
   '@vitest/spy@2.1.6':
     dependencies:
       tinyspy: 3.0.2
+
+  '@vitest/ui@2.1.6(vitest@2.1.6)':
+    dependencies:
+      '@vitest/utils': 2.1.6
+      fflate: 0.8.2
+      flatted: 3.3.1
+      pathe: 1.1.2
+      sirv: 3.0.0
+      tinyglobby: 0.2.10
+      tinyrainbow: 1.2.0
+      vitest: 2.1.6(@types/node@22.9.0)(@vitest/browser@2.1.6)(@vitest/ui@2.1.6)(jiti@1.21.6)(msw@2.6.6(@types/node@22.9.0)(typescript@5.7.2))(terser@5.36.0)(tsx@4.19.2)
 
   '@vitest/utils@2.0.5':
     dependencies:
@@ -9993,6 +10027,12 @@ snapshots:
   fd-slicer@1.1.0:
     dependencies:
       pend: 1.2.0
+
+  fdir@6.4.2(picomatch@4.0.2):
+    optionalDependencies:
+      picomatch: 4.0.2
+
+  fflate@0.8.2: {}
 
   figures@3.2.0:
     dependencies:
@@ -12252,6 +12292,11 @@ snapshots:
 
   tinyexec@0.3.1: {}
 
+  tinyglobby@0.2.10:
+    dependencies:
+      fdir: 6.4.2(picomatch@4.0.2)
+      picomatch: 4.0.2
+
   tinypool@1.0.2: {}
 
   tinyrainbow@1.2.0: {}
@@ -12574,7 +12619,7 @@ snapshots:
       terser: 5.36.0
       tsx: 4.19.2
 
-  vitest@2.1.6(@types/node@22.9.0)(@vitest/browser@2.1.6)(jiti@1.21.6)(msw@2.6.6(@types/node@22.9.0)(typescript@5.7.2))(terser@5.36.0)(tsx@4.19.2):
+  vitest@2.1.6(@types/node@22.9.0)(@vitest/browser@2.1.6)(@vitest/ui@2.1.6)(jiti@1.21.6)(msw@2.6.6(@types/node@22.9.0)(typescript@5.7.2))(terser@5.36.0)(tsx@4.19.2):
     dependencies:
       '@vitest/expect': 2.1.6
       '@vitest/mocker': 2.1.6(msw@2.6.6(@types/node@22.9.0)(typescript@5.7.2))(vite@6.0.1(@types/node@22.9.0)(jiti@1.21.6)(terser@5.36.0)(tsx@4.19.2))
@@ -12599,6 +12644,7 @@ snapshots:
     optionalDependencies:
       '@types/node': 22.9.0
       '@vitest/browser': 2.1.6(@types/node@22.9.0)(playwright@1.49.0)(typescript@5.7.2)(vite@6.0.1(@types/node@22.9.0)(jiti@1.21.6)(terser@5.36.0)(tsx@4.19.2))(vitest@2.1.6)
+      '@vitest/ui': 2.1.6(vitest@2.1.6)
     transitivePeerDependencies:
       - jiti
       - less
