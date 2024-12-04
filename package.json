@@ -74,13 +74,13 @@
     "check": "pnpm run \"/^check:.*/\"",
     "hooks:install": "husky",
     "preinstall": "npx only-allow pnpm",
+    "test:e2e": "pnpm build:test && concurrently -k -s first \"pnpm preview:test\" \"pnpm cypress:run\"",
     "cypress:open": "env-cmd -f ./.env.test cypress open --browser chrome",
-    "cypress": "pnpm test",
     "cypress:run": "env-cmd -f ./.env.test cypress run --browser chrome",
-    "test": "pnpm build:test && concurrently -k -s first \"pnpm preview:test\" \"pnpm cypress:run\"",
     "test:unit": "vitest",
     "storybook": "storybook dev -p 6006",
-    "storybook:build": "storybook build"
+    "storybook:build": "storybook build",
+    "test:ui": "vitest --project storybook"
   },
   "browserslist": {
     "production": [

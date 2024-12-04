@@ -17,7 +17,7 @@ const meta: Meta<RightHeaderProps> = {
   component: RightHeader,
   args: {
     isAuthenticated: true,
-    onChange: fn(),
+    onChangeLang: fn(),
   },
   // tags: ['autodocs'],
   render: function Render({ isAuthenticated, ...args }) {
