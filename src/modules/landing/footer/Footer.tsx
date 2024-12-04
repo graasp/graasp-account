@@ -4,10 +4,9 @@ import { Box, Stack, Typography } from '@mui/material';
 
 import { PRIMARY_COLOR } from '@graasp/ui';
 
-import { useAuth } from '@/AuthContext';
 import LanguageSwitch from '@/components/ui/LanguageSwitch';
 import { NS } from '@/config/constants';
-import { mutations } from '@/config/queryClient';
+import { OnChangeLangProp } from '@/types';
 
 import { FooterSection } from './FooterSection';
 import {
@@ -90,17 +89,13 @@ const internalLinkActiveProp = () => ({
   },
 });
 
-export function Footer(): JSX.Element {
-  const { t, i18n } = useTranslation(NS.Landing, { keyPrefix: 'FOOTER' });
-  const { mutate } = mutations.useEditCurrentMember();
-  const { isAuthenticated } = useAuth();
+type FooterProps = {
+  onChangeLang: OnChangeLangProp;
+};
 
-  const handleLanguageChange = (lang: string) => {
-    if (isAuthenticated) {
-      mutate({ extra: { lang } });
-    }
-    i18n.changeLanguage(lang);
-  };
+export function Footer({ onChangeLang }: Readonly<FooterProps>): JSX.Element {
+  const { t, i18n } = useTranslation(NS.Landing, { keyPrefix: 'FOOTER' });
+
   return (
     <Stack
       component="footer"
@@ -185,10 +180,7 @@ export function Footer(): JSX.Element {
                 {t('OTHER.DISCLAIMER')}
               </InternalLink>
               <Box>
-                <LanguageSwitch
-                  lang={i18n.language}
-                  onChange={handleLanguageChange}
-                />
+                <LanguageSwitch lang={i18n.language} onChange={onChangeLang} />
               </Box>
             </FooterSection>
           </Stack>

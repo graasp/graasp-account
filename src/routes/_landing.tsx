@@ -1,3 +1,5 @@
+import { useTranslation } from 'react-i18next';
+
 import { Stack, Typography } from '@mui/material';
 
 import {
@@ -10,7 +12,10 @@ import {
 import { Link, Outlet, createFileRoute } from '@tanstack/react-router';
 
 import { useAuth } from '@/AuthContext';
+import { NS } from '@/config/constants';
 import { ACCOUNT_HOME_PATH, LANDING_PAGE_PATH } from '@/config/paths';
+import { mutations } from '@/config/queryClient';
+import { OnChangeLangProp } from '@/types';
 
 import { Footer } from '~landing/footer/Footer';
 import { RightHeader } from '~landing/header/RightHeader';
@@ -20,9 +25,18 @@ export const Route = createFileRoute('/_landing')({
 });
 
 function RouteComponent() {
+  const { i18n } = useTranslation(NS.Landing);
   const { isAuthenticated } = useAuth();
   const { isMobile } = useMobileView();
   const { fill: primary } = useButtonColor('primary');
+  const { mutate } = mutations.useEditCurrentMember();
+
+  const onChangeLang: OnChangeLangProp = (lang: string) => {
+    if (isAuthenticated) {
+      mutate({ extra: { lang } });
+    }
+    i18n.changeLanguage(lang);
+  };
 
   return (
     <Stack alignItems="center" minHeight="100svh">
@@ -66,7 +80,7 @@ function RouteComponent() {
               </Typography>
             )}
           </Stack>
-          <RightHeader />
+          <RightHeader onChangeLang={onChangeLang} />
         </Stack>
       </Stack>
       <Stack
@@ -89,7 +103,7 @@ function RouteComponent() {
       >
         <Outlet />
       </Stack>
-      <Footer />
+      <Footer onChangeLang={onChangeLang} />
     </Stack>
   );
 }

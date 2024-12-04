@@ -40,7 +40,7 @@ import { Route as PlayerRootIdItemIdAutoLoginImport } from './routes/player/$roo
 
 // Create Virtual Routes
 
-const IndexLazyImport = createFileRoute('/')()
+const LandingIndexLazyImport = createFileRoute('/_landing/')()
 
 // Create/Update Routes
 
@@ -61,11 +61,13 @@ const LandingRoute = LandingImport.update({
   getParentRoute: () => rootRoute,
 } as any)
 
-const IndexLazyRoute = IndexLazyImport.update({
+const LandingIndexLazyRoute = LandingIndexLazyImport.update({
   id: '/',
   path: '/',
-  getParentRoute: () => rootRoute,
-} as any).lazy(() => import('./routes/index.lazy').then((d) => d.Route))
+  getParentRoute: () => LandingRoute,
+} as any).lazy(() =>
+  import('./routes/_landing/index.lazy').then((d) => d.Route),
+)
 
 const PlayerIndexRoute = PlayerIndexImport.update({
   id: '/player/',
@@ -198,13 +200,6 @@ const PlayerRootIdItemIdAutoLoginRoute =
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
-    '/': {
-      id: '/'
-      path: '/'
-      fullPath: '/'
-      preLoaderRoute: typeof IndexLazyImport
-      parentRoute: typeof rootRoute
-    }
     '/_landing': {
       id: '/_landing'
       path: ''
@@ -345,6 +340,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof PlayerIndexImport
       parentRoute: typeof rootRoute
     }
+    '/_landing/': {
+      id: '/_landing/'
+      path: '/'
+      fullPath: '/'
+      preLoaderRoute: typeof LandingIndexLazyImport
+      parentRoute: typeof LandingImport
+    }
     '/player/$rootId/$itemId': {
       id: '/player/$rootId/$itemId'
       path: '/player/$rootId/$itemId'
@@ -386,6 +388,7 @@ interface LandingRouteChildren {
   LandingPolicyRoute: typeof LandingPolicyRoute
   LandingSupportRoute: typeof LandingSupportRoute
   LandingTermsRoute: typeof LandingTermsRoute
+  LandingIndexLazyRoute: typeof LandingIndexLazyRoute
 }
 
 const LandingRouteChildren: LandingRouteChildren = {
@@ -396,6 +399,7 @@ const LandingRouteChildren: LandingRouteChildren = {
   LandingPolicyRoute: LandingPolicyRoute,
   LandingSupportRoute: LandingSupportRoute,
   LandingTermsRoute: LandingTermsRoute,
+  LandingIndexLazyRoute: LandingIndexLazyRoute,
 }
 
 const LandingRouteWithChildren =
@@ -448,7 +452,6 @@ const PlayerRootIdItemIdRouteWithChildren =
   PlayerRootIdItemIdRoute._addFileChildren(PlayerRootIdItemIdRouteChildren)
 
 export interface FileRoutesByFullPath {
-  '/': typeof IndexLazyRoute
   '': typeof LandingRouteWithChildren
   '/account': typeof AccountRouteWithChildren
   '/auth': typeof AuthRouteWithChildren
@@ -469,6 +472,7 @@ export interface FileRoutesByFullPath {
   '/email/change': typeof EmailChangeRoute
   '/account/': typeof AccountIndexRoute
   '/player': typeof PlayerIndexRoute
+  '/': typeof LandingIndexLazyRoute
   '/player/$rootId/$itemId': typeof PlayerRootIdItemIdRouteWithChildren
   '/player/$rootId': typeof PlayerRootIdIndexRoute
   '/player/$rootId/$itemId/autoLogin': typeof PlayerRootIdItemIdAutoLoginRoute
@@ -476,8 +480,6 @@ export interface FileRoutesByFullPath {
 }
 
 export interface FileRoutesByTo {
-  '/': typeof IndexLazyRoute
-  '': typeof LandingRouteWithChildren
   '/auth': typeof AuthRouteWithChildren
   '/about-us': typeof LandingAboutUsRoute
   '/contact-us': typeof LandingContactUsRoute
@@ -496,6 +498,7 @@ export interface FileRoutesByTo {
   '/email/change': typeof EmailChangeRoute
   '/account': typeof AccountIndexRoute
   '/player': typeof PlayerIndexRoute
+  '/': typeof LandingIndexLazyRoute
   '/player/$rootId': typeof PlayerRootIdIndexRoute
   '/player/$rootId/$itemId/autoLogin': typeof PlayerRootIdItemIdAutoLoginRoute
   '/player/$rootId/$itemId': typeof PlayerRootIdItemIdIndexRoute
@@ -503,7 +506,6 @@ export interface FileRoutesByTo {
 
 export interface FileRoutesById {
   __root__: typeof rootRoute
-  '/': typeof IndexLazyRoute
   '/_landing': typeof LandingRouteWithChildren
   '/account': typeof AccountRouteWithChildren
   '/auth': typeof AuthRouteWithChildren
@@ -524,6 +526,7 @@ export interface FileRoutesById {
   '/email/change': typeof EmailChangeRoute
   '/account/': typeof AccountIndexRoute
   '/player/': typeof PlayerIndexRoute
+  '/_landing/': typeof LandingIndexLazyRoute
   '/player/$rootId/$itemId': typeof PlayerRootIdItemIdRouteWithChildren
   '/player/$rootId/': typeof PlayerRootIdIndexRoute
   '/player/$rootId/$itemId/autoLogin': typeof PlayerRootIdItemIdAutoLoginRoute
@@ -533,7 +536,6 @@ export interface FileRoutesById {
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
   fullPaths:
-    | '/'
     | ''
     | '/account'
     | '/auth'
@@ -554,14 +556,13 @@ export interface FileRouteTypes {
     | '/email/change'
     | '/account/'
     | '/player'
+    | '/'
     | '/player/$rootId/$itemId'
     | '/player/$rootId'
     | '/player/$rootId/$itemId/autoLogin'
     | '/player/$rootId/$itemId/'
   fileRoutesByTo: FileRoutesByTo
   to:
-    | '/'
-    | ''
     | '/auth'
     | '/about-us'
     | '/contact-us'
@@ -580,12 +581,12 @@ export interface FileRouteTypes {
     | '/email/change'
     | '/account'
     | '/player'
+    | '/'
     | '/player/$rootId'
     | '/player/$rootId/$itemId/autoLogin'
     | '/player/$rootId/$itemId'
   id:
     | '__root__'
-    | '/'
     | '/_landing'
     | '/account'
     | '/auth'
@@ -606,6 +607,7 @@ export interface FileRouteTypes {
     | '/email/change'
     | '/account/'
     | '/player/'
+    | '/_landing/'
     | '/player/$rootId/$itemId'
     | '/player/$rootId/'
     | '/player/$rootId/$itemId/autoLogin'
@@ -614,7 +616,6 @@ export interface FileRouteTypes {
 }
 
 export interface RootRouteChildren {
-  IndexLazyRoute: typeof IndexLazyRoute
   LandingRoute: typeof LandingRouteWithChildren
   AccountRoute: typeof AccountRouteWithChildren
   AuthRoute: typeof AuthRouteWithChildren
@@ -625,7 +626,6 @@ export interface RootRouteChildren {
 }
 
 const rootRouteChildren: RootRouteChildren = {
-  IndexLazyRoute: IndexLazyRoute,
   LandingRoute: LandingRouteWithChildren,
   AccountRoute: AccountRouteWithChildren,
   AuthRoute: AuthRouteWithChildren,
@@ -645,7 +645,6 @@ export const routeTree = rootRoute
     "__root__": {
       "filePath": "__root.tsx",
       "children": [
-        "/",
         "/_landing",
         "/account",
         "/auth",
@@ -654,9 +653,6 @@ export const routeTree = rootRoute
         "/player/$rootId/$itemId",
         "/player/$rootId/"
       ]
-    },
-    "/": {
-      "filePath": "index.lazy.tsx"
     },
     "/_landing": {
       "filePath": "_landing.tsx",
@@ -667,7 +663,8 @@ export const routeTree = rootRoute
         "/_landing/features",
         "/_landing/policy",
         "/_landing/support",
-        "/_landing/terms"
+        "/_landing/terms",
+        "/_landing/"
       ]
     },
     "/account": {
@@ -753,6 +750,10 @@ export const routeTree = rootRoute
     },
     "/player/": {
       "filePath": "player/index.tsx"
+    },
+    "/_landing/": {
+      "filePath": "_landing/index.lazy.tsx",
+      "parent": "/_landing"
     },
     "/player/$rootId/$itemId": {
       "filePath": "player/$rootId/$itemId.tsx",
