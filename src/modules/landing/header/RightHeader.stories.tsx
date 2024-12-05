@@ -19,7 +19,6 @@ const meta: Meta<RightHeaderProps> = {
     isAuthenticated: true,
     onChangeLang: fn(),
   },
-  // tags: ['autodocs'],
   render: function Render({ isAuthenticated, ...args }) {
     const user = isAuthenticated
       ? {

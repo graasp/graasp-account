@@ -18,24 +18,9 @@ import type { PartialStoryFn } from 'storybook/internal/types';
 import '../src/app.css';
 import i18n from './i18nTestInstance';
 
-const globalTypes = {
-  direction: {
-    name: 'Direction',
-    description: 'Direction for the components',
-    defaultValue: 'ltr',
-    toolbar: {
-      items: [
-        { value: 'ltr', title: 'left-to-right' },
-        { value: 'rtl', title: 'right-to-left' },
-      ],
-      // Property that specifies if the name of the item will be displayed
-      showName: true,
-      // Change title based on selected value
-      dynamicTitle: true,
-    },
-  },
-};
-
+// All stories will be decorated with a fake router instance that supports dynamic routes
+// as well as translations pulled from the filesystem
+// and a theme provider
 const preview: Preview = {
   parameters: {
     controls: {
@@ -45,8 +30,26 @@ const preview: Preview = {
       },
     },
   },
-  globalTypes,
+  globalTypes: {
+    direction: {
+      name: 'Direction',
+      description: 'Direction for the components',
+      defaultValue: 'ltr',
+      toolbar: {
+        items: [
+          { value: 'ltr', title: 'left-to-right' },
+          { value: 'rtl', title: 'right-to-left' },
+        ],
+        // Property that specifies if the name of the item will be displayed
+        showName: true,
+        // Change title based on selected value
+        dynamicTitle: true,
+      },
+    },
+  },
   decorators: [
+    // some components use tanstack router functions
+    // so we need to provide a router when displaying stories.
     (Story: PartialStoryFn, { parameters }: StoryContext) => {
       const {
         initialEntries = ['/'],
@@ -86,6 +89,7 @@ const preview: Preview = {
 
       return <RouterProvider router={router} />;
     },
+    // provide the MUI theme to the stories
     (Story, { globals }) => {
       return (
         <ThemeProvider
@@ -103,6 +107,9 @@ const preview: Preview = {
         </ThemeProvider>
       );
     },
+    // wrap the stories with a translations provider
+    // the instance is different from the one used in production
+    // we directly load the files from the file system instead of using the fetch backend
     (Story) => {
       return (
         <I18nextProvider i18n={i18n}>
