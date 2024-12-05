@@ -2,7 +2,11 @@ import React, { Suspense } from 'react';
 
 import { Stack } from '@mui/material';
 
-import { Outlet, createRootRouteWithContext } from '@tanstack/react-router';
+import {
+  Outlet,
+  ScrollRestoration,
+  createRootRouteWithContext,
+} from '@tanstack/react-router';
 
 import { AuthContextType } from '@/AuthContext';
 import { NotFoundComponent } from '@/components/NotFoundComponent';
@@ -27,6 +31,7 @@ const TanStackRouterDevtools =
 function RootComponent() {
   return (
     <Stack id="__root">
+      <ScrollRestoration />
       <Outlet />
       {import.meta.env.MODE !== 'test' && <ReactQueryDevtools />}
       <Suspense>
