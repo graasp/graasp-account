@@ -323,6 +323,13 @@
       }
     }
   },
+  "NEWSLETTER": {
+    "LEAD_SENTENCE": "Do you want to be updated?",
+    "TITLE": "Subscribe to our newsletter!",
+    "INPUT_LABEL": "Email Address",
+    "INPUT_PLACEHOLDER": "Where should we contact you ?",
+    "BUTTON_TEXT": "Subscribe"
+  },
   "FOOTER": {
     "TAG_LINE": "Developed in Switzerland by the Graasp Association",
     "CONTENT": {

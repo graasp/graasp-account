@@ -11,11 +11,11 @@ export function GraaspFeaturesSection() {
     keyPrefix: 'FEATURES.GRAASP_FEATURES',
   });
   return (
-    <Stack maxWidth="lg" width="100%" gap={4}>
+    <Stack maxWidth="lg" width="100%" gap={4} alignItems="center">
       <Typography variant="h2" color="primary">
         {t('TITLE')}
       </Typography>
-      <Stack gap={20}>
+      <Stack gap={20} maxWidth={{ xs: '600px', md: 'lg' }}>
         <GraaspFeature platform="builder" />
         <GraaspFeature platform="player" />
         <GraaspFeature platform="analytics" />

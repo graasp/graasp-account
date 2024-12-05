@@ -11,7 +11,7 @@ import {
 } from '@graasp/ui';
 
 import { ButtonLink } from '@/components/ui/ButtonLink';
-import { Image } from '@/components/ui/images';
+import { Image } from '@/components/ui/StyledImages';
 import { NS } from '@/config/constants';
 
 function PlatformDisplayGlass({

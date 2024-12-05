@@ -1,6 +1,6 @@
 import { Meta, StoryObj } from '@storybook/react';
 
-import { Image } from './images';
+import { Image } from './StyledImages';
 
 const meta = {
   component: Image,

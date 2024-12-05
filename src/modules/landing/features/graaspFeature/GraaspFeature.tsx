@@ -22,6 +22,7 @@ const FeatureContainer = styled(Stack)(({ theme }) => ({
     flexDirection: 'column-reverse',
   },
   [theme.breakpoints.up('md')]: {
+    maxWidth: '100%',
     justifyContent: 'flex-start',
     textAlign: 'left',
     [`.${TEXT_CONTAINER}`]: {
@@ -57,7 +58,13 @@ export function GraaspFeature({ platform }: Readonly<GraaspFeatureProps>) {
   return (
     <FeatureContainer gap={2}>
       <Stack className={TEXT_CONTAINER} gap={8}>
-        <Box width="200px" height="200px" bgcolor="red" flexShrink={0}></Box>
+        <Box
+          width="200px"
+          height="200px"
+          bgcolor={color}
+          borderRadius={4}
+          flexShrink={0}
+        ></Box>
         <Stack gap={4}>
           <Box>
             <Typography variant="note" color="textSecondary">
@@ -71,7 +78,7 @@ export function GraaspFeature({ platform }: Readonly<GraaspFeatureProps>) {
               />
             </Typography>
           </Box>
-          <Typography>
+          <Typography textAlign={{ xs: 'justify' }}>
             <Trans i18nKey="DESCRIPTION" t={t} />
           </Typography>
         </Stack>

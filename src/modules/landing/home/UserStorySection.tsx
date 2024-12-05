@@ -2,7 +2,7 @@ import { Trans, useTranslation } from 'react-i18next';
 
 import { Stack, Typography } from '@mui/material';
 
-import { Image } from '@/components/ui/images';
+import { Image } from '@/components/ui/StyledImages';
 import { NS } from '@/config/constants';
 
 import { UserStory } from './UserStory';

@@ -6,6 +6,7 @@ import { NS } from '@/config/constants';
 
 const StyledVideo = styled('video')({
   flex: 1,
+  width: '100%',
 });
 
 export function BlendedLearningSection() {
@@ -13,7 +14,12 @@ export function BlendedLearningSection() {
     keyPrefix: 'FEATURES.BLENDED_LEARNING',
   });
   return (
-    <Stack maxWidth="lg" width="100%" alignItems="flex-start" gap={4}>
+    <Stack
+      maxWidth={{ xs: '600px', md: 'lg' }}
+      width="100%"
+      alignItems={{ xs: 'center', md: 'flex-start' }}
+      gap={4}
+    >
       <Typography variant="h2" color="primary">
         {t('TITLE')}
       </Typography>
@@ -22,6 +28,7 @@ export function BlendedLearningSection() {
         alignItems="center"
         gap={4}
         width="100%"
+        textAlign="justify"
       >
         <Stack gap={2} flex={1}>
           <Typography>
