@@ -1,11 +1,26 @@
 import { createFileRoute } from '@tanstack/react-router';
 
-import { WorkInProgress } from '@/components/WorkInProgress';
+import { BlendedLearningSection } from '~landing/features/BlendedLearningSection';
+import { GraaspFeaturesSection } from '~landing/features/GraaspFeaturesSection';
+import { PlatformOverviewSection } from '~landing/features/PlatformOverviewSection';
+import { PricingPlansSection } from '~landing/features/PricingPlansSection';
+import { TitleSection } from '~landing/features/TitleSection';
+import { NewsLetter } from '~landing/home/Newsletter';
 
 export const Route = createFileRoute('/_landing/features')({
   component: RouteComponent,
 });
 
 function RouteComponent() {
-  return <WorkInProgress />;
+  return (
+    <>
+      <TitleSection />
+      <PlatformOverviewSection />
+      <BlendedLearningSection />
+      <GraaspFeaturesSection />
+      <PricingPlansSection />
+      {/* <BlogSection /> */}
+      <NewsLetter />
+    </>
+  );
 }

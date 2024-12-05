@@ -130,8 +130,8 @@ function App() {
   return (
     <HelmetProvider>
       <QueryClientProvider client={queryClient}>
-        <CssBaseline />
         <ThemeWrapper>
+          <CssBaseline />
           <AuthProvider>
             <ToastContainer stacked position="bottom-left" />
             <InnerApp />
