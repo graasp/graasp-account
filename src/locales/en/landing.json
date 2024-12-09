@@ -321,6 +321,29 @@
         "SECONDARY_ACTION_BUTTON_TEXT": "How to add Apps",
         "TERTIARY_ACTION_BUTTON_TEXT": "Player tutorial"
       }
+    },
+    "PRICING": {
+      "TITLE": "Unlock even more with Graasp Premium",
+      "CALL_TO_ACTION": "Upgrade to Premium today",
+      "FREE": {
+        "NAME": "Basic Plan",
+        "STORAGE": "5 GB of storage for video, images, documents",
+        "SUPPORT": "Free tutorials",
+        "TEMPLATES": "Standard templates",
+        "PRICE": "Free"
+      },
+      "PREMIUM": {
+        "NAME": "Premium Plan",
+        "STORAGE": "15 GB of storage for video, images, documents",
+        "SUPPORT": "Direct support line",
+        "TEMPLATES": "Extended templates selection",
+        "PRICE": "XX CHF/month"
+      },
+      "CUSTOM": {
+        "NAME": "Custom plan",
+        "CONTACT_US": "Contact our team to discuss a solution that fits your needs.",
+        "GET_A_QUOTE": "Get a quote for your desired services"
+      }
     }
   },
   "NEWSLETTER": {

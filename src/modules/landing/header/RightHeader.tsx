@@ -25,7 +25,11 @@ export function RightHeader({
     return (
       <Stack gap={2} direction="row" alignItems="center">
         <LanguageSwitch lang={i18n.language} onChange={onChangeLang} />
-        <ButtonLink to="/account" endIcon={<ArrowRightIcon />}>
+        <ButtonLink
+          variant="contained"
+          to="/account"
+          endIcon={<ArrowRightIcon />}
+        >
           {translateLanding('NAV.GO_TO_GRAASP')}
         </ButtonLink>
       </Stack>
