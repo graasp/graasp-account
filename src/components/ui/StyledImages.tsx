@@ -4,6 +4,7 @@ const baseIllustrationImageStyle = {
   // needed so image does not bleed out
   width: '100%',
   objectFit: 'cover',
+
   objectPosition: '50% 0',
 
   minHeight: '0px',

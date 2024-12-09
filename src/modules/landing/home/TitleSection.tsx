@@ -2,7 +2,7 @@ import { useTranslation } from 'react-i18next';
 
 import { Button, Stack, Typography } from '@mui/material';
 
-import { Image } from '@/components/ui/images';
+import { Image } from '@/components/ui/StyledImages';
 import { NS } from '@/config/constants';
 import { GRAASP_LIBRARY_HOST } from '@/config/env';
 
