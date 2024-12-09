@@ -2,7 +2,7 @@ import { Box, Button, Stack } from '@mui/material';
 
 import { Meta, StoryObj } from '@storybook/react';
 
-import { CallOutSection } from './CalloutSection';
+import { CallOutSection } from './CallOutSection';
 
 const meta = {
   component: CallOutSection,
@@ -10,7 +10,7 @@ const meta = {
     lead: 'New and exciting',
     title: 'Try this new thing out!',
     children: 'hey! lorem ipsum is great !',
-    actions: [<Button>Some action</Button>],
+    actions: [<Button key="action">Some action</Button>],
     image: <Box height="200" width="200" color="builder" />,
   },
   parameters: {},
@@ -24,7 +24,7 @@ export const Default = {
     lead: 'New and exciting',
     title: 'Try this new thing out!',
     children: 'hey! lorem ipsum is great !',
-    actions: [<Button>Some action</Button>],
+    actions: [<Button key="action">Some action</Button>],
     image: <Box height="100%" width="100%" bgcolor="builder.main" />,
   },
 } satisfies Story;
