@@ -1,6 +1,6 @@
 import { Meta, StoryObj } from '@storybook/react';
 
-import { NewsLetter } from './Newsletters';
+import { NewsLetter } from './NewsLetter';
 
 const meta = {
   component: NewsLetter,
