@@ -13,7 +13,7 @@ import { Link, Outlet, createFileRoute } from '@tanstack/react-router';
 
 import { useAuth } from '@/AuthContext';
 import { NS } from '@/config/constants';
-import { ACCOUNT_HOME_PATH, LANDING_PAGE_PATH } from '@/config/paths';
+import { LANDING_PAGE_PATH } from '@/config/paths';
 import { mutations } from '@/config/queryClient';
 import { OnChangeLangProp } from '@/types';
 
@@ -68,7 +68,7 @@ function RouteComponent() {
             alignItems="center"
             id="rightTitleWrapper"
             component={Link}
-            to={isAuthenticated ? ACCOUNT_HOME_PATH : LANDING_PAGE_PATH}
+            to={LANDING_PAGE_PATH}
             // override link styling
             sx={{ textDecoration: 'none', color: 'inherit' }}
             gap={1}
