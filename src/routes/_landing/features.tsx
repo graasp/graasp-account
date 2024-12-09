@@ -4,7 +4,6 @@ import { BlendedLearningSection } from '~landing/features/BlendedLearningSection
 import { GraaspFeaturesSection } from '~landing/features/GraaspFeaturesSection';
 import { PlatformOverviewSection } from '~landing/features/PlatformOverviewSection';
 import { TitleSection } from '~landing/features/TitleSection';
-import { PricingPlansSection } from '~landing/features/pricing/PricingPlansSection';
 import { NewsLetter } from '~landing/home/NewsLetter';
 
 export const Route = createFileRoute('/_landing/features')({
@@ -18,7 +17,7 @@ function RouteComponent() {
       <PlatformOverviewSection />
       <BlendedLearningSection />
       <GraaspFeaturesSection />
-      <PricingPlansSection />
+      {/* <PricingPlansSection /> */}
       {/* <BlogSection /> */}
       <NewsLetter />
     </>
