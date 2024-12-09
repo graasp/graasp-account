@@ -5,7 +5,7 @@ import { GraaspFeaturesSection } from '~landing/features/GraaspFeaturesSection';
 import { PlatformOverviewSection } from '~landing/features/PlatformOverviewSection';
 import { PricingPlansSection } from '~landing/features/PricingPlansSection';
 import { TitleSection } from '~landing/features/TitleSection';
-import { NewsLetter } from '~landing/home/Newsletters';
+import { NewsLetter } from '~landing/home/NewsLetter';
 
 export const Route = createFileRoute('/_landing/features')({
   component: RouteComponent,
