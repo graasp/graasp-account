@@ -25,7 +25,9 @@ function RouteComponent() {
       {/* <Preview>
         <BlogSection />
       </Preview> */}
-      <NewsLetter />
+      <Preview>
+        <NewsLetter />
+      </Preview>
     </>
   );
 }

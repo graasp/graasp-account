@@ -19,6 +19,8 @@ const PreviewContext = createContext<PreviewContextType>({
 });
 
 const isPreviewEnabled = () => {
+  // only check if the element is present, value is not checked for the moment
+  // maybe if we extend the feature later we will need to
   const isPresent = localStorage.getItem(PREVIEW_STORAGE_KEY) != null;
   return isPresent;
 };

@@ -77,7 +77,7 @@ function RouteComponent() {
             <GraaspLogo height={44} sx={{ fill: primary! }} />
             {!isMobile && (
               <Typography fontWeight="bold" variant="h2" color="primary">
-                Graasp{' '}
+                Graasp
                 {isPreviewEnabled ? (
                   <Typography variant="note">preview</Typography>
                 ) : (

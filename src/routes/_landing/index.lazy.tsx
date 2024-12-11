@@ -6,6 +6,7 @@ import { OurMissionSection } from '~landing/home/OurMissionSection';
 import { TitleSection } from '~landing/home/TitleSection';
 import { UserStorySection } from '~landing/home/UserStorySection';
 import { UserTestimoniesSection } from '~landing/home/UserTestimoniesSection';
+import { Preview } from '~landing/preview/PreviewModeContext';
 
 export const Route = createLazyFileRoute('/_landing/')({
   component: Index,
@@ -18,8 +19,12 @@ function Index() {
       <PlatformCube />
       <UserStorySection />
       <OurMissionSection />
-      <UserTestimoniesSection />
-      <NewsLetter />
+      <Preview>
+        <UserTestimoniesSection />
+      </Preview>
+      <Preview>
+        <NewsLetter />
+      </Preview>
     </>
   );
 }
