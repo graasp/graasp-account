@@ -18,7 +18,12 @@ export function CopyrightText() {
     }
   };
   return (
-    <Typography textAlign="center" variant="note" onClick={handleClick}>
+    <Typography
+      textAlign="center"
+      variant="note"
+      onClick={handleClick}
+      sx={{ userSelect: 'none' }}
+    >
       &copy; Graasp 2014 - {new Date().getFullYear()}
       {isPreviewEnabled ? ' (preview)' : ''}
     </Typography>
