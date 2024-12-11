@@ -37,7 +37,10 @@
     "SETTINGS": "Paramètres"
   },
   "ERRORS": {
-    "UNEXPECTED": "Une erreur inattendue s'est produite"
+    "UNEXPECTED": "Une erreur inattendue s'est produite",
+    "NETWORK": {
+      "TITLE": "Erreur réseau"
+    }
   },
   "FIELD_ERROR": {
     "REQUIRED": "Ce champ est obligatoire",
