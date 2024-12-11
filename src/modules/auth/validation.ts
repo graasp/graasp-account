@@ -19,7 +19,7 @@ const {
   EMPTY_EMAIL_ERROR,
 } = AUTH;
 
-const USER_NAME_REGEX = MemberConstants.USERNAME_FORBIDDEN_CHARS_REGEX;
+const USER_NAME_REGEX = MemberConstants.USERNAME_FORMAT_REGEX;
 
 export const nameValidator = (name: string) => {
   const trimmedName = name.trim();
@@ -29,7 +29,7 @@ export const nameValidator = (name: string) => {
   if (trimmedName.length < MIN_USERNAME_LENGTH) {
     return USERNAME_TOO_SHORT_ERROR;
   }
-  if (USER_NAME_REGEX.test(trimmedName)) {
+  if (!USER_NAME_REGEX.test(trimmedName)) {
     return USERNAME_SPECIAL_CHARACTERS_ERROR;
   }
   return null;

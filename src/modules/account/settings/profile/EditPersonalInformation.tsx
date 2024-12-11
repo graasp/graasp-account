@@ -22,7 +22,7 @@ import {
   PERSONAL_INFO_SAVE_BUTTON_ID,
 } from '@/config/selectors';
 
-const USER_NAME_REGEX = MemberConstants.USERNAME_FORBIDDEN_CHARS_REGEX;
+const USER_NAME_REGEX = MemberConstants.USERNAME_FORMAT_REGEX;
 
 const verifyUsername = (username: string): string | null => {
   const trimmedUsername = username.trim();
@@ -37,7 +37,7 @@ const verifyUsername = (username: string): string | null => {
     return 'USERNAME_LENGTH_ERROR';
   }
 
-  if (USER_NAME_REGEX.test(trimmedUsername)) {
+  if (!USER_NAME_REGEX.test(trimmedUsername)) {
     return 'USERNAME_SPECIAL_CHARACTERS_ERROR';
   }
 
