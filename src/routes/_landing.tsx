@@ -19,6 +19,7 @@ import { OnChangeLangProp } from '@/types';
 
 import { Footer } from '~landing/footer/Footer';
 import { RightHeader } from '~landing/header/RightHeader';
+import { usePreviewMode } from '~landing/preview/PreviewModeContext';
 
 export const Route = createFileRoute('/_landing')({
   component: RouteComponent,
@@ -30,7 +31,7 @@ function RouteComponent() {
   const { isMobile } = useMobileView();
   const { fill: primary } = useButtonColor('primary');
   const { mutate } = mutations.useEditCurrentMember();
-
+  const { isEnabled: isPreviewEnabled } = usePreviewMode();
   const onChangeLang: OnChangeLangProp = (lang: string) => {
     if (isAuthenticated) {
       mutate({ extra: { lang } });
@@ -76,7 +77,12 @@ function RouteComponent() {
             <GraaspLogo height={44} sx={{ fill: primary! }} />
             {!isMobile && (
               <Typography fontWeight="bold" variant="h2" color="primary">
-                Graasp
+                Graasp{' '}
+                {isPreviewEnabled ? (
+                  <Typography variant="note">preview</Typography>
+                ) : (
+                  ''
+                )}
               </Typography>
             )}
           </Stack>

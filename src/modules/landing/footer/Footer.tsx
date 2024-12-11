@@ -8,6 +8,7 @@ import LanguageSwitch from '@/components/ui/LanguageSwitch';
 import { NS } from '@/config/constants';
 import { OnChangeLangProp } from '@/types';
 
+import { CopyrightText } from './CopyrightText';
 import { FooterSection } from './FooterSection';
 import {
   FacebookIcon,
@@ -191,9 +192,7 @@ export function Footer({ onChangeLang }: Readonly<FooterProps>): JSX.Element {
           alignItems="center"
           justifyContent="center"
         >
-          <Typography textAlign="center" variant="note">
-            &copy; Graasp 2014 - {new Date().getFullYear()}
-          </Typography>
+          <CopyrightText />
         </Stack>
       </Stack>
     </Stack>
