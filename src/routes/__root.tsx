@@ -12,6 +12,8 @@ import { AuthContextType } from '@/AuthContext';
 import { NotFoundComponent } from '@/components/NotFoundComponent';
 import { ReactQueryDevtools } from '@/config/queryClient';
 
+import { PreviewContextProvider } from '~landing/preview/PreviewModeContext';
+
 export const Route = createRootRouteWithContext<{ auth: AuthContextType }>()({
   component: RootComponent,
   notFoundComponent: NotFoundComponent,
@@ -32,7 +34,9 @@ function RootComponent() {
   return (
     <Stack id="__root">
       <ScrollRestoration />
-      <Outlet />
+      <PreviewContextProvider>
+        <Outlet />
+      </PreviewContextProvider>
       {import.meta.env.MODE !== 'test' && <ReactQueryDevtools />}
       <Suspense>
         <TanStackRouterDevtools />
