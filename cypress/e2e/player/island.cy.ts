@@ -7,7 +7,7 @@ import {
 import {
   ITEM_CHATBOX_BUTTON_ID,
   ITEM_MAP_BUTTON_ID,
-  NAVIGATION_ISLAND_ID,
+  NAVIGATION_ISLAND_CLASSNAME,
   buildDocumentId,
   buildTreeItemClass,
 } from '../../../src/config/selectors';
@@ -118,6 +118,7 @@ describe('Island', () => {
     });
   });
 
+  // test is flaky
   it('Shows only one island when folder contains shortcut', () => {
     const items = getFolderWithShortcutFixture();
     const parent = items[0];
@@ -128,7 +129,7 @@ describe('Island', () => {
       'contain',
       getDocumentExtra(documentTarget.extra as DocumentItemExtra).content,
     );
-    cy.get(`#${NAVIGATION_ISLAND_ID}`)
+    cy.get(`.${NAVIGATION_ISLAND_CLASSNAME}`)
       .should('be.visible')
       .and('have.length', 1);
   });

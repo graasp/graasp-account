@@ -1,6 +1,6 @@
 import { Box, Stack } from '@mui/material';
 
-import { NAVIGATION_ISLAND_ID } from '@/config/selectors';
+import { NAVIGATION_ISLAND_CLASSNAME } from '@/config/selectors';
 
 import useChatButton from './ChatButton';
 import useGeolocationButton from './GeolocationButton';
@@ -26,7 +26,7 @@ const NavigationIslandBox = (): JSX.Element | null => {
 
   return (
     <Box
-      id={NAVIGATION_ISLAND_ID}
+      className={NAVIGATION_ISLAND_CLASSNAME}
       // set some background and shadow
       bgcolor="white"
       boxShadow="0px 3px 6px 0px rgba(0, 0, 0, 0.25)"
