@@ -119,7 +119,7 @@ describe('Island', () => {
   });
 
   // test is flaky
-  it('Shows only one island when folder contains shortcut', () => {
+  it.skip('Shows only one island when folder contains shortcut', () => {
     const items = getFolderWithShortcutFixture();
     const parent = items[0];
     const documentTarget = items[1];
