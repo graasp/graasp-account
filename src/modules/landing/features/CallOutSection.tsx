@@ -41,7 +41,7 @@ export function CallOutSection({
         <Typography variant="note" color="textSecondary">
           {lead}
         </Typography>
-        <Typography variant="h2" color="primary">
+        <Typography variant="h2" color="primary" maxWidth="50ch">
           {title}
         </Typography>
         {children}

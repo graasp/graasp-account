@@ -344,6 +344,12 @@
         "CONTACT_US": "Contact our team to discuss a solution that fits your needs.",
         "GET_A_QUOTE": "Get a quote for your desired services"
       }
+    },
+    "BLOG": {
+      "LEAD_SENTENCE": "Graasp is constantly growing!",
+      "TITLE": "Visit our blog to discover all the latest updates!",
+      "DESCRIPTION": "Discover updates, enrich your Graasp experience",
+      "BUTTON_TEXT": "Visit our Blog"
     }
   },
   "NEWSLETTER": {

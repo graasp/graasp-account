@@ -34,7 +34,7 @@ export function PricingPlan({
 export function PricingPlansSection() {
   const { t } = useTranslation(NS.Landing, { keyPrefix: 'FEATURES.PRICING' });
   return (
-    <Stack gap={4} alignItems="center">
+    <Stack maxWidth="lg" gap={4} alignItems="center">
       <Typography color="primary" variant="h2">
         {t('TITLE')}
       </Typography>

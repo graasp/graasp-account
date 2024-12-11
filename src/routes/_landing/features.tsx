@@ -1,6 +1,7 @@
 import { createFileRoute } from '@tanstack/react-router';
 
 import { BlendedLearningSection } from '~landing/features/BlendedLearningSection';
+import { BlogSection } from '~landing/features/BlogSection';
 import { GraaspFeaturesSection } from '~landing/features/GraaspFeaturesSection';
 import { PlatformOverviewSection } from '~landing/features/PlatformOverviewSection';
 import { TitleSection } from '~landing/features/TitleSection';
@@ -22,9 +23,9 @@ function RouteComponent() {
       <Preview>
         <PricingPlansSection />
       </Preview>
-      {/* <Preview>
+      <Preview>
         <BlogSection />
-      </Preview> */}
+      </Preview>
       <Preview>
         <NewsLetter />
       </Preview>
