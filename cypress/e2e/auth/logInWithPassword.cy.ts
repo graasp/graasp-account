@@ -86,12 +86,4 @@ describe('Email and Password Validation', () => {
     // Signing in with a valid email but empty password
     cy.signInPasswordAndCheck(AUTH_MEMBERS.INVALID_PASSWORD);
   });
-
-  // // Signing in with a valid email but empty password
-  // cy.signInPasswordAndCheck(AUTH_MEMBERS.WRONG_PASSWORD);
-  // // Signing in with a valid email and password
-  // cy.signInPasswordAndCheck(AUTH_MEMBERS.GRAASP);
-
-  // cy.get(`#${PASSWORD_SUCCESS_ALERT}`).should('be.visible');
-  // });
 });
