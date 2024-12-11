@@ -42,13 +42,17 @@
         "IMAGE_ATTRIBUTION": "Photo de <author>Tra Nguyen</author> sur <image>Unsplash</image>"
       },
       "RESEARCHER": {
+        "LEADING_SENTENCE": "Êtes-vous un chercheur en quête d’une plateforme qui intègre de manière transparente la collecte de données et les expériences d’apprentissage interactives ?",
         "TITLE": "Commencez à utiliser Graasp pour vos recherches",
         "USE_CASE_1": "Bénéficiez d'un environnement sécurisé pour vos recherches",
+        "USE_CASE_2": "Réalisez des tests avec diverses conditions expérimentales",
+        "USE_CASE_3": "Interagissez avec des collègues qui font progresser les sciences de l'apprentissage numérique",
         "BUTTON_TEXT": "S'inscrire maintenant"
       }
     },
     "USER_TESTIMONIES": {
-      "TITLE": "Ce que nos utilisateurs disent de nous"
+      "TITLE": "Ce que nos utilisateurs disent de nous",
+      "JOIN_US": "Rejoignez-nous et embarquez pour un brillant voyage dans l’éducation et la carrière professionnelle !"
     }
   },
   "TERMS": {
@@ -286,20 +290,26 @@
     "GRAASP_FEATURES": {
       "TITLE": "Caractéristiques de Graasp",
       "builder": {
+        "LEAD_SENTENCE": "Commencez avec le Builder",
+        "TITLE": "Utilisez le <color>Builder</color> pour donner forme à vos idées et à vos cours",
         "DESCRIPTION": "Créez du contenu librement ou en utilisant des modèles adaptés à votre style d'enseignement et à votre stratégie pédagogique.<br/>Même sans modèles, la conception intuitive de notre plateforme garantit une expérience de création de contenu guidée et structurée, rappelant les systèmes de fichiers familiers.<br/>La collaboration est encouragée, permettant à plusieurs contributeurs de créer du contenu cohérent et facilitant le processus pour les équipes travaillant en collaboration.",
         "CTA_BUTTON_TEXT": "Commencer à créer",
         "SECONDARY_ACTION_BUTTON_TEXT": "Comment configurer",
         "TERTIARY_ACTION_BUTTON_TEXT": "Comment le gérer"
       },
       "player": {
+        "LEAD_SENTENCE": "Présentez à votre audience",
         "TITLE": "Améliorez votre contenu avec le <color>Player</color>",
         "DESCRIPTION": "Engagez les apprenants avec une gamme d'outils et de fonctionnalités interactifs.<br/>Des outils d'évaluation tels que des quiz, des tests et des questions ouvertes, à la simulation d'expériences du monde réel via des laboratoires de physique ou de chimie, des évaluations des compétences de codage avec la capsule de code et plus encore !<br/>Intégrez du contenu multimédia, créez des blocs-notes partagés et interagissez avec des chatbots.<br/>Notre plateforme permet aux enseignants d'impliquer les apprenants de manière efficace et variée, garantissant une expérience riche et éducative à la fois dans les salles de classe traditionnelles et dans les environnements d'apprentissage à distance.",
         "CTA_BUTTON_TEXT": "Commencer à expérimenter",
-        "SECONDARY_ACTION_BUTTON_TEXT": "Comment ajouter des applications"
+        "SECONDARY_ACTION_BUTTON_TEXT": "Comment ajouter des applications",
+        "TERTIARY_ACTION_BUTTON_TEXT": "Tutoriel du Player"
       },
       "analytics": {
         "LEAD_SENTENCE": "Apprenez de vos succès et de vos erreurs",
+        "TITLE": "Améliorez votre contenu grâce à <color>Analytics</color>",
         "DESCRIPTION": "Découvrez des informations précieuses sur l'engagement des apprenants et les performances du contenu grâce à notre tableau de bord d'analyse. <br/> Suivez l'accès, les interactions, les téléchargements et bien plus encore, en fournissant aux enseignants des informations basées sur les données pour améliorer l'engagement des étudiants et adapter la diffusion du contenu aux besoins individuels de la classe",
+        "CTA_BUTTON_TEXT": "Commencer à analyser",
         "SECONDARY_ACTION_BUTTON_TEXT": "Tutoriel d'analyse",
         "TERTIARY_ACTION_BUTTON_TEXT": "Analyse des filtres"
       },
@@ -316,24 +326,28 @@
       "TITLE": "Débloquez encore plus avec Graasp Premium",
       "CALL_TO_ACTION": "Passez à Premium dès aujourd'hui",
       "FREE": {
+        "NAME": "Souscription de base",
         "STORAGE": "5 Go de stockage pour vidéos, images, documents",
         "SUPPORT": "Tutoriels gratuits",
         "TEMPLATES": "Modèles standards",
         "PRICE": "Gratuit"
       },
       "PREMIUM": {
+        "NAME": "Souscription Premium",
         "STORAGE": "15 Go de stockage pour vidéos, images, documents",
         "SUPPORT": "Ligne d'assistance directe",
         "TEMPLATES": "Sélection étendue de modèles",
         "PRICE": "XX CHF/mois"
       },
       "CUSTOM": {
+        "NAME": "Souscription personnalisé",
         "CONTACT_US": "Contactez notre équipe pour discuter d'une solution adaptée à vos besoins.",
         "GET_A_QUOTE": "Obtenez un devis pour les services souhaités"
       }
     }
   },
   "NEWSLETTER": {
+    "LEAD_SENTENCE": "Voulez-vous rester informé ?",
     "TITLE": "Abonnez-vous à notre newsletter !",
     "INPUT_LABEL": "Adresse email",
     "INPUT_PLACEHOLDER": "Où pouvons-nous vous contacter ?",
