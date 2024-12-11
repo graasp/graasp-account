@@ -21,7 +21,7 @@ export function PricingPlan({
   support,
   templates,
   price,
-}: PricingPlanProps) {
+}: Readonly<PricingPlanProps>) {
   return (
     <PlanLayout name={name} price={price}>
       <IncludedOption text={storage} />

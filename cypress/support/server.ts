@@ -490,54 +490,6 @@ export const mockGetItemChat = ({
   ).as('getItemChat');
 };
 
-// export const mockGetItemMembershipsForItem = (
-//   items: MockItem[],
-//   currentMember: Member | null,
-// ): void => {
-//   cy.intercept(
-//     {
-//       method: HttpMethod.Get,
-//       url: new RegExp(
-//         `${API_HOST}/${parseStringToRegExp(
-//           buildGetItemMembershipsForItemsRoute([]),
-//         )}`,
-//       ),
-//     },
-//     ({ reply, url }) => {
-//       const itemIds = new URLSearchParams(new URL(url).search).getAll('itemId');
-//       const selectedItems = items.filter(({ id }) => itemIds?.includes(id));
-//       const allMemberships = selectedItems.map(
-//         ({ creator, id, memberships }) => {
-//           // build default membership depending on current member
-//           // if the current member is the creator, it has membership
-//           // otherwise it should return an error
-//           const defaultMembership =
-//             creator?.id === currentMember?.id
-//               ? [
-//                   {
-//                     permission: PermissionLevel.Admin,
-//                     memberId: creator,
-//                     itemId: id,
-//                   },
-//                 ]
-//               : { statusCode: StatusCodes.UNAUTHORIZED };
-
-//           // if the defined memberships does not contain currentMember, it should throw
-//           const currentMemberHasMembership = memberships?.find(
-//             ({ memberId }) => memberId === currentMember?.id,
-//           );
-//           if (!currentMemberHasMembership) {
-//             return defaultMembership;
-//           }
-
-//           return memberships || defaultMembership;
-//         },
-//       );
-//       reply(allMemberships);
-//     },
-//   ).as('getItemMemberships');
-// };
-
 export const mockGetChildren = (
   items: MockItem[],
   member: Member | null,
@@ -647,46 +599,6 @@ export const mockDefaultDownloadFile = (
     },
   ).as('downloadFile');
 };
-
-// export const mockGetItemsTags = (
-//   items: MockItem[],
-//   member: Member | null,
-// ): void => {
-//   cy.intercept(
-//     {
-//       method: HttpMethod.Get,
-//       url: new RegExp(`${API_HOST}/items/tags\\?id\\=`),
-//     },
-//     ({ reply, url }) => {
-//       const ids = new URL(url).searchParams.getAll('id');
-
-//       const result = items
-//         .filter(({ id }) => ids.includes(id))
-//         .reduce(
-//           (acc, item) => {
-//             const error = checkMemberHasAccess({ item, items, member });
-
-//             return isError(error)
-//               ? { ...acc, error: [...acc.errors, error] }
-//               : {
-//                   ...acc,
-//                   data: {
-//                     ...acc.data,
-//                     [item.id]: ([item.public, item.hidden]
-//                       .filter(Boolean)
-//                       .map((t) => ({ item, ...t })) ?? []) as ItemVisibility[],
-//                   },
-//                 };
-//           },
-//           { data: {}, errors: [] } as ResultOf<ItemVisibility[]>,
-//         );
-//       reply({
-//         statusCode: StatusCodes.OK,
-//         body: result,
-//       });
-//     },
-//   ).as('getItemsTags');
-// };
 
 export const mockGetLoginSchemaType = (itemLogins: {
   [key: string]: string;

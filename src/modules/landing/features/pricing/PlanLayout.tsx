@@ -21,7 +21,7 @@ export function PlanLayout({
   name,
   price,
   children,
-}: PlanLayoutProps): JSX.Element {
+}: Readonly<PlanLayoutProps>): JSX.Element {
   return (
     <StyledStack borderRadius={4} p={4} gap={4} flex={1} alignItems="center">
       <Typography variant="h4" component="span">

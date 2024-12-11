@@ -31,7 +31,7 @@ export function CallOutSection({
   children,
   actions,
   image,
-}: CallOutSectionProps) {
+}: Readonly<CallOutSectionProps>) {
   return (
     <StyledStack gap={4} width="100%">
       <Stack flex={1} overflow="hidden" borderRadius={4}>

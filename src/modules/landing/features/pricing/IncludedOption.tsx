@@ -4,7 +4,7 @@ import { useButtonColor } from '@graasp/ui';
 
 import { CheckIcon } from 'lucide-react';
 
-export function IncludedOption({ text }: { text: string }) {
+export function IncludedOption({ text }: Readonly<{ text: string }>) {
   const { color } = useButtonColor('success');
 
   return (

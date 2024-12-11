@@ -211,9 +211,7 @@ Cypress.Commands.add(
       getItemError || getCurrentMemberError,
     );
     mockGetItemChat({ chatMessages });
-    // mockGetItemMembershipsForItem(items, currentMember);
 
-    // mockGetItemsTags(items, currentMember);
     mockGetLoginSchemaType(itemLogins);
 
     mockGetChildren(items, currentMember);
