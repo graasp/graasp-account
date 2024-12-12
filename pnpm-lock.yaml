@@ -22,13 +22,13 @@ importers:
         version: 5.1.0
       '@graasp/chatbox':
         specifier: 3.3.1
-        version: 3.3.1(m7rtnvbgo4ldziigcnvoq7lfii)
+        version: 3.3.1(xnfqzxm4deleiloinsbsjtnxs4)
       '@graasp/query-client':
         specifier: 5.7.0
-        version: 5.7.0(@graasp/sdk@5.4.0(date-fns@4.1.0)(uuid@11.0.3))(@graasp/translations@1.43.0(i18next@24.1.0(typescript@5.7.2)))(react@18.3.1)
+        version: 5.7.0(@graasp/sdk@5.5.0(date-fns@4.1.0)(uuid@11.0.3))(@graasp/translations@1.43.0(i18next@24.1.0(typescript@5.7.2)))(react@18.3.1)
       '@graasp/sdk':
-        specifier: 5.4.0
-        version: 5.4.0(date-fns@4.1.0)(uuid@11.0.3)
+        specifier: 5.5.0
+        version: 5.5.0(date-fns@4.1.0)(uuid@11.0.3)
       '@graasp/stylis-plugin-rtl':
         specifier: 2.2.0
         version: 2.2.0(stylis@4.3.4)
@@ -37,7 +37,7 @@ importers:
         version: 1.43.0(i18next@24.1.0(typescript@5.7.2))
       '@graasp/ui':
         specifier: 5.4.7
-        version: 5.4.7(3hnjqrt2337kjoo3hx5ftqwvnq)
+        version: 5.4.7(up22nf7pnd2a5aaa7mrlp6etce)
       '@mui/icons-material':
         specifier: 6.2.0
         version: 6.2.0(@mui/material@6.2.0(@emotion/react@11.14.0(@types/react@18.3.16)(react@18.3.1))(@emotion/styled@11.14.0(@emotion/react@11.14.0(@types/react@18.3.16)(react@18.3.1))(@types/react@18.3.16)(react@18.3.1))(@types/react@18.3.16)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(@types/react@18.3.16)(react@18.3.1)
@@ -1595,8 +1595,8 @@ packages:
       '@graasp/translations': '*'
       react: ^18.0.0
 
-  '@graasp/sdk@5.4.0':
-    resolution: {integrity: sha512-qgroInWC+GPsZCgxcHW+vhbubnq9cpNICq8E5TB8FJ3YP8gkgBV/sMaaYhtf1fMIzRjr246B0rNZqkUiZFnLFQ==}
+  '@graasp/sdk@5.5.0':
+    resolution: {integrity: sha512-K9U2fmdZRKiyiThdxPAHM9Dlbr+zkAsXURvg5oGkSqFETr4z8JvuX3mWTz4Ut3CsbWx/Jxyl++ihlutUWC+QSA==}
     peerDependencies:
       date-fns: ^3 || ^4.0.0
       uuid: ^9 || ^10 || ^11.0.0
@@ -7663,15 +7663,15 @@ snapshots:
 
   '@fontsource-variable/nunito@5.1.0': {}
 
-  '@graasp/chatbox@3.3.1(m7rtnvbgo4ldziigcnvoq7lfii)':
+  '@graasp/chatbox@3.3.1(xnfqzxm4deleiloinsbsjtnxs4)':
     dependencies:
       '@emotion/react': 11.14.0(@types/react@18.3.16)(react@18.3.1)
       '@emotion/styled': 11.14.0(@emotion/react@11.14.0(@types/react@18.3.16)(react@18.3.1))(@types/react@18.3.16)(react@18.3.1)
-      '@graasp/query-client': 5.7.0(@graasp/sdk@5.4.0(date-fns@4.1.0)(uuid@11.0.3))(@graasp/translations@1.43.0(i18next@24.1.0(typescript@5.7.2)))(react@18.3.1)
-      '@graasp/sdk': 5.4.0(date-fns@4.1.0)(uuid@11.0.3)
+      '@graasp/query-client': 5.7.0(@graasp/sdk@5.5.0(date-fns@4.1.0)(uuid@11.0.3))(@graasp/translations@1.43.0(i18next@24.1.0(typescript@5.7.2)))(react@18.3.1)
+      '@graasp/sdk': 5.5.0(date-fns@4.1.0)(uuid@11.0.3)
       '@graasp/stylis-plugin-rtl': 2.2.0(stylis@4.3.4)
       '@graasp/translations': 1.43.0(i18next@24.1.0(typescript@5.7.2))
-      '@graasp/ui': 5.4.7(3hnjqrt2337kjoo3hx5ftqwvnq)
+      '@graasp/ui': 5.4.7(up22nf7pnd2a5aaa7mrlp6etce)
       '@mui/icons-material': 6.2.0(@mui/material@6.2.0(@emotion/react@11.14.0(@types/react@18.3.16)(react@18.3.1))(@emotion/styled@11.14.0(@emotion/react@11.14.0(@types/react@18.3.16)(react@18.3.1))(@types/react@18.3.16)(react@18.3.1))(@types/react@18.3.16)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(@types/react@18.3.16)(react@18.3.1)
       '@mui/lab': 6.0.0-beta.19(@emotion/react@11.14.0(@types/react@18.3.16)(react@18.3.1))(@emotion/styled@11.14.0(@emotion/react@11.14.0(@types/react@18.3.16)(react@18.3.1))(@types/react@18.3.16)(react@18.3.1))(@mui/material@6.2.0(@emotion/react@11.14.0(@types/react@18.3.16)(react@18.3.1))(@emotion/styled@11.14.0(@emotion/react@11.14.0(@types/react@18.3.16)(react@18.3.1))(@types/react@18.3.16)(react@18.3.1))(@types/react@18.3.16)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(@types/react@18.3.16)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       '@mui/material': 6.2.0(@emotion/react@11.14.0(@types/react@18.3.16)(react@18.3.1))(@emotion/styled@11.14.0(@emotion/react@11.14.0(@types/react@18.3.16)(react@18.3.1))(@types/react@18.3.16)(react@18.3.1))(@types/react@18.3.16)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
@@ -7692,9 +7692,9 @@ snapshots:
       - '@types/react'
       - supports-color
 
-  '@graasp/query-client@5.7.0(@graasp/sdk@5.4.0(date-fns@4.1.0)(uuid@11.0.3))(@graasp/translations@1.43.0(i18next@24.1.0(typescript@5.7.2)))(react@18.3.1)':
+  '@graasp/query-client@5.7.0(@graasp/sdk@5.5.0(date-fns@4.1.0)(uuid@11.0.3))(@graasp/translations@1.43.0(i18next@24.1.0(typescript@5.7.2)))(react@18.3.1)':
     dependencies:
-      '@graasp/sdk': 5.4.0(date-fns@4.1.0)(uuid@11.0.3)
+      '@graasp/sdk': 5.5.0(date-fns@4.1.0)(uuid@11.0.3)
       '@graasp/translations': 1.43.0(i18next@24.1.0(typescript@5.7.2))
       '@tanstack/react-query': 5.61.5(react@18.3.1)
       '@tanstack/react-query-devtools': 5.61.5(@tanstack/react-query@5.61.5(react@18.3.1))(react@18.3.1)
@@ -7704,7 +7704,7 @@ snapshots:
     transitivePeerDependencies:
       - debug
 
-  '@graasp/sdk@5.4.0(date-fns@4.1.0)(uuid@11.0.3)':
+  '@graasp/sdk@5.5.0(date-fns@4.1.0)(uuid@11.0.3)':
     dependencies:
       '@faker-js/faker': 9.2.0
       date-fns: 4.1.0
@@ -7721,12 +7721,12 @@ snapshots:
     dependencies:
       i18next: 24.1.0(typescript@5.7.2)
 
-  '@graasp/ui@5.4.7(3hnjqrt2337kjoo3hx5ftqwvnq)':
+  '@graasp/ui@5.4.7(up22nf7pnd2a5aaa7mrlp6etce)':
     dependencies:
       '@emotion/cache': 11.14.0
       '@emotion/react': 11.14.0(@types/react@18.3.16)(react@18.3.1)
       '@emotion/styled': 11.14.0(@emotion/react@11.14.0(@types/react@18.3.16)(react@18.3.1))(@types/react@18.3.16)(react@18.3.1)
-      '@graasp/sdk': 5.4.0(date-fns@4.1.0)(uuid@11.0.3)
+      '@graasp/sdk': 5.5.0(date-fns@4.1.0)(uuid@11.0.3)
       '@graasp/stylis-plugin-rtl': 2.2.0(stylis@4.3.4)
       '@graasp/translations': 1.43.0(i18next@24.1.0(typescript@5.7.2))
       '@mui/icons-material': 6.2.0(@mui/material@6.2.0(@emotion/react@11.14.0(@types/react@18.3.16)(react@18.3.1))(@emotion/styled@11.14.0(@emotion/react@11.14.0(@types/react@18.3.16)(react@18.3.1))(@types/react@18.3.16)(react@18.3.1))(@types/react@18.3.16)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(@types/react@18.3.16)(react@18.3.1)
