@@ -22,7 +22,7 @@ importers:
         version: 5.1.0
       '@graasp/chatbox':
         specifier: 3.3.1
-        version: 3.3.1(m7rtnvbgo4ldziigcnvoq7lfii)
+        version: 3.3.1(ghbfvansjql2iri2whnpkvsr4i)
       '@graasp/query-client':
         specifier: 5.7.0
         version: 5.7.0(@graasp/sdk@5.4.0(date-fns@4.1.0)(uuid@11.0.3))(@graasp/translations@1.43.0(i18next@24.1.0(typescript@5.7.2)))(react@18.3.1)
@@ -37,7 +37,7 @@ importers:
         version: 1.43.0(i18next@24.1.0(typescript@5.7.2))
       '@graasp/ui':
         specifier: 5.4.7
-        version: 5.4.7(3hnjqrt2337kjoo3hx5ftqwvnq)
+        version: 5.4.7(3rxbnjheg6wig57cg3k6en6dmq)
       '@mui/icons-material':
         specifier: 6.2.0
         version: 6.2.0(@mui/material@6.2.0(@emotion/react@11.14.0(@types/react@18.3.16)(react@18.3.1))(@emotion/styled@11.14.0(@emotion/react@11.14.0(@types/react@18.3.16)(react@18.3.1))(@types/react@18.3.16)(react@18.3.1))(@types/react@18.3.16)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(@types/react@18.3.16)(react@18.3.1)
@@ -105,8 +105,8 @@ importers:
         specifier: 7.54.0
         version: 7.54.0(react@18.3.1)
       react-i18next:
-        specifier: 15.1.4
-        version: 15.1.4(i18next@24.1.0(typescript@5.7.2))(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
+        specifier: 15.2.0
+        version: 15.2.0(i18next@24.1.0(typescript@5.7.2))(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       react-image-crop:
         specifier: 11.0.7
         version: 11.0.7(react@18.3.1)
@@ -5146,8 +5146,8 @@ packages:
     peerDependencies:
       react: ^16.8.0 || ^17 || ^18 || ^19
 
-  react-i18next@15.1.4:
-    resolution: {integrity: sha512-2tai71gmehbvl9ZIqPMqlCCkm/cbeV1G4STpmM3C8Uzo6T2l8jDvZxEVSsQKt8blP9X34iRFP/k1ROqG2296MQ==}
+  react-i18next@15.2.0:
+    resolution: {integrity: sha512-iJNc8111EaDtVTVMKigvBtPHyrJV+KblWG73cUxqp+WmJCcwkzhWNFXmkAD5pwP2Z4woeDj/oXDdbjDsb3Gutg==}
     peerDependencies:
       i18next: '>= 23.2.3'
       react: '>= 16.8.0'
@@ -7663,7 +7663,7 @@ snapshots:
 
   '@fontsource-variable/nunito@5.1.0': {}
 
-  '@graasp/chatbox@3.3.1(m7rtnvbgo4ldziigcnvoq7lfii)':
+  '@graasp/chatbox@3.3.1(ghbfvansjql2iri2whnpkvsr4i)':
     dependencies:
       '@emotion/react': 11.14.0(@types/react@18.3.16)(react@18.3.1)
       '@emotion/styled': 11.14.0(@emotion/react@11.14.0(@types/react@18.3.16)(react@18.3.1))(@types/react@18.3.16)(react@18.3.1)
@@ -7671,7 +7671,7 @@ snapshots:
       '@graasp/sdk': 5.4.0(date-fns@4.1.0)(uuid@11.0.3)
       '@graasp/stylis-plugin-rtl': 2.2.0(stylis@4.3.4)
       '@graasp/translations': 1.43.0(i18next@24.1.0(typescript@5.7.2))
-      '@graasp/ui': 5.4.7(3hnjqrt2337kjoo3hx5ftqwvnq)
+      '@graasp/ui': 5.4.7(3rxbnjheg6wig57cg3k6en6dmq)
       '@mui/icons-material': 6.2.0(@mui/material@6.2.0(@emotion/react@11.14.0(@types/react@18.3.16)(react@18.3.1))(@emotion/styled@11.14.0(@emotion/react@11.14.0(@types/react@18.3.16)(react@18.3.1))(@types/react@18.3.16)(react@18.3.1))(@types/react@18.3.16)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(@types/react@18.3.16)(react@18.3.1)
       '@mui/lab': 6.0.0-beta.19(@emotion/react@11.14.0(@types/react@18.3.16)(react@18.3.1))(@emotion/styled@11.14.0(@emotion/react@11.14.0(@types/react@18.3.16)(react@18.3.1))(@types/react@18.3.16)(react@18.3.1))(@mui/material@6.2.0(@emotion/react@11.14.0(@types/react@18.3.16)(react@18.3.1))(@emotion/styled@11.14.0(@emotion/react@11.14.0(@types/react@18.3.16)(react@18.3.1))(@types/react@18.3.16)(react@18.3.1))(@types/react@18.3.16)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(@types/react@18.3.16)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       '@mui/material': 6.2.0(@emotion/react@11.14.0(@types/react@18.3.16)(react@18.3.1))(@emotion/styled@11.14.0(@emotion/react@11.14.0(@types/react@18.3.16)(react@18.3.1))(@types/react@18.3.16)(react@18.3.1))(@types/react@18.3.16)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
@@ -7683,7 +7683,7 @@ snapshots:
       prism-react-renderer: 2.4.0(react@18.3.1)
       react: 18.3.1
       react-dom: 18.3.1(react@18.3.1)
-      react-i18next: 15.1.4(i18next@24.1.0(typescript@5.7.2))(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
+      react-i18next: 15.2.0(i18next@24.1.0(typescript@5.7.2))(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       react-markdown: 9.0.1(@types/react@18.3.16)(react@18.3.1)
       react-mentions: 4.4.10(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       remark-breaks: 4.0.0
@@ -7721,7 +7721,7 @@ snapshots:
     dependencies:
       i18next: 24.1.0(typescript@5.7.2)
 
-  '@graasp/ui@5.4.7(3hnjqrt2337kjoo3hx5ftqwvnq)':
+  '@graasp/ui@5.4.7(3rxbnjheg6wig57cg3k6en6dmq)':
     dependencies:
       '@emotion/cache': 11.14.0
       '@emotion/react': 11.14.0(@types/react@18.3.16)(react@18.3.1)
@@ -7743,7 +7743,7 @@ snapshots:
       react-dnd: 16.0.1(@types/node@22.9.0)(@types/react@18.3.16)(react@18.3.1)
       react-dnd-html5-backend: 16.0.1
       react-dom: 18.3.1(react@18.3.1)
-      react-i18next: 15.1.4(i18next@24.1.0(typescript@5.7.2))(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
+      react-i18next: 15.2.0(i18next@24.1.0(typescript@5.7.2))(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       react-quill: 2.0.0(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       react-rnd: 10.4.13(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       react-router-dom: 6.28.0(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
@@ -11966,7 +11966,7 @@ snapshots:
     dependencies:
       react: 18.3.1
 
-  react-i18next@15.1.4(i18next@24.1.0(typescript@5.7.2))(react-dom@18.3.1(react@18.3.1))(react@18.3.1):
+  react-i18next@15.2.0(i18next@24.1.0(typescript@5.7.2))(react-dom@18.3.1(react@18.3.1))(react@18.3.1):
     dependencies:
       '@babel/runtime': 7.26.0
       html-parse-stringify: 3.0.1
@@ -12510,7 +12510,7 @@ snapshots:
 
   substyle@9.4.1(react@18.3.1):
     dependencies:
-      '@babel/runtime': 7.4.5
+      '@babel/runtime': 7.26.0
       invariant: 2.2.4
       react: 18.3.1
 
