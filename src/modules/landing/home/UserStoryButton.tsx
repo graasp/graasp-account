@@ -4,9 +4,12 @@ import { ChevronDownIcon } from 'lucide-react';
 
 const StyledAnchor = styled('a')(({ theme }) => ({
   display: 'flex',
+  flex: 1,
   flexDirection: 'column',
+  justifyContent: 'space-between',
   gap: theme.spacing(1),
   alignItems: 'center',
+  textAlign: 'center',
   color: 'unset',
   fontWeight: 'bold',
   textDecoration: 'none',

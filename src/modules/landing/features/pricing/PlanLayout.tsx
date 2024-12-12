@@ -4,7 +4,7 @@ import { Divider, Stack, Typography, styled } from '@mui/material';
 
 const StyledStack = styled(Stack)(({ theme }) => ({
   backgroundColor: '#e4dfff',
-  '&:nth-child(odd)': {
+  '&:nth-of-type(odd)': {
     backgroundColor: '#e2ecff',
     [theme.breakpoints.up('md')]: {
       marginBlockStart: theme.spacing(6),

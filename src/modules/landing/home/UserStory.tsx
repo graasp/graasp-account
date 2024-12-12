@@ -45,7 +45,7 @@ const InvertingStack = styled(Stack)(({ theme }) => ({
     },
 
     // override for "inverted" child
-    '&:nth-child(even)': {
+    '&:nth-of-type(even)': {
       // reverse the direction
       flexDirection: 'row-reverse',
       // invert text alignment
@@ -80,14 +80,10 @@ export function UserStory({
 }: Readonly<UserStoryProps>): JSX.Element {
   return (
     <>
-      <InvertingStack gap={5} mt={6} sx={{ position: 'relative' }}>
+      <InvertingStack gap={5} mt={6} position="relative">
         <Box id={id} sx={{ position: 'absolute', top: '-200px' }} />
         <Stack className={IMAGE_CONTAINER} flex={1} gap={1} alignItems="center">
-          <Stack
-            borderRadius={6}
-            overflow="hidden"
-            // boxShadow={`20px 20px 0px ${SECONDARY_COLOR}`}
-          >
+          <Stack borderRadius={6} overflow="hidden">
             {image}
           </Stack>
           <Typography

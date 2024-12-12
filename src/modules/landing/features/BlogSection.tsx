@@ -16,7 +16,7 @@ export function BlogSection() {
         title={t('TITLE')}
         children={<Typography>{t('DESCRIPTION')}</Typography>}
         actions={
-          <Button variant="contained" href="https://graasp.github.io/blog">
+          <Button variant="contained" href="https://graasp.github.io/docs/blog">
             {t('BUTTON_TEXT')}
           </Button>
         }

@@ -11,11 +11,13 @@ const BUTTON_CONTAINER = 'button-container';
 const TEXT_CONTAINER = 'text-container';
 
 const FeatureContainer = styled(Stack)(({ theme }) => ({
+  position: 'relative',
   justifyContent: 'center',
   textAlign: 'center',
   [`.${TEXT_CONTAINER}`]: {
     flexDirection: 'column',
     alignItems: 'center',
+    textAlign: 'justify',
   },
   [`.${BUTTON_CONTAINER}`]: {
     // default for small screens (always primary action on top)
@@ -24,19 +26,19 @@ const FeatureContainer = styled(Stack)(({ theme }) => ({
   [theme.breakpoints.up('md')]: {
     maxWidth: '100%',
     justifyContent: 'flex-start',
-    textAlign: 'left',
     [`.${TEXT_CONTAINER}`]: {
+      textAlign: 'left',
       flexDirection: 'row-reverse',
     },
     [`.${BUTTON_CONTAINER}`]: {
       flexDirection: 'row-reverse',
     },
   },
-  '&:nth-child(even)': {
+  '&:nth-of-type(even)': {
     [theme.breakpoints.up('md')]: {
       justifyContent: 'flex-end',
-      textAlign: 'right',
       [`.${TEXT_CONTAINER}`]: {
+        textAlign: 'right',
         flexDirection: 'row',
       },
       [`.${BUTTON_CONTAINER}`]: {
@@ -57,6 +59,7 @@ export function GraaspFeature({ platform }: Readonly<GraaspFeatureProps>) {
   const { color } = useButtonColor(platform);
   return (
     <FeatureContainer gap={2}>
+      <Box position="absolute" top="-150px" id={platform} />
       <Stack className={TEXT_CONTAINER} gap={8}>
         <Box
           width="200px"
@@ -78,7 +81,7 @@ export function GraaspFeature({ platform }: Readonly<GraaspFeatureProps>) {
               />
             </Typography>
           </Box>
-          <Typography textAlign={{ xs: 'justify' }}>
+          <Typography>
             <Trans i18nKey="DESCRIPTION" t={t} />
           </Typography>
         </Stack>

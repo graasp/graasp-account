@@ -97,8 +97,8 @@ function PlatformOverview({ platform }: Readonly<PlatformOverviewProps>) {
           {t('DESCRIPTION')}
         </Typography>
         <ButtonLink
-          color="primary"
           sx={{ backgroundColor: '#e4c8ff90', color: '#a84eff' }}
+          hash={platform}
         >
           {t('BUTTON_TEXT')}
         </ButtonLink>

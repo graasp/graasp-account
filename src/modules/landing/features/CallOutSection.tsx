@@ -9,7 +9,7 @@ const StyledStack = styled(Stack)(() => ({
     alignItems: 'flex-start',
     textAlign: 'right',
   },
-  '&:nth-child(even)': {
+  '&:nth-of-type(even)': {
     flexDirection: 'row',
     [`.${TEXT_CONTAINER}`]: {
       alignItems: 'flex-end',

@@ -14,6 +14,7 @@
   },
   "type": "module",
   "dependencies": {
+    "@5.4.6": "link:@graasp/@5.4.6",
     "@emotion/cache": "11.14.0",
     "@emotion/react": "11.14.0",
     "@emotion/styled": "11.14.0",
@@ -23,7 +24,7 @@
     "@graasp/sdk": "5.4.0",
     "@graasp/stylis-plugin-rtl": "2.2.0",
     "@graasp/translations": "1.43.0",
-    "@graasp/ui": "5.4.5",
+    "@graasp/ui": "5.4.6",
     "@mui/icons-material": "6.2.0",
     "@mui/lab": "6.0.0-beta.19",
     "@mui/material": "6.2.0",

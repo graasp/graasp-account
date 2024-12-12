@@ -8,7 +8,7 @@ const StyledStack = styled(Stack)(({ theme }) => ({
   flexDirection: 'row',
   textAlign: 'left',
   [theme.breakpoints.up('sm')]: {
-    '&:nth-child(even)': {
+    '&:nth-of-type(even)': {
       flexDirection: 'row-reverse',
       textAlign: 'right',
     },

@@ -13,7 +13,7 @@ export function UserStorySection(): JSX.Element {
   const { t } = useTranslation(NS.Landing);
   return (
     <Stack component="section" gap={20} maxWidth="md">
-      <Stack direction="row" gap={4} justifyContent="center">
+      <Stack direction="row" gap={{ xs: 2, md: 4 }} justifyContent="center">
         <UserStoryButton id={TEACHER_USER_STORY} text="Are you a teacher?" />
         <UserStoryButton
           id={RESEARCHER_USER_STORY}

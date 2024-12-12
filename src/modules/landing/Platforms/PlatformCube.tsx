@@ -1,7 +1,7 @@
 import { ReactNode } from 'react';
 import { Trans, useTranslation } from 'react-i18next';
 
-import { Stack } from '@mui/material';
+import { Stack, Typography } from '@mui/material';
 
 import {
   AnalyticsIcon,
@@ -71,20 +71,23 @@ export function PlatformCube() {
   } as const;
   return (
     <Stack
+      gap={8}
       maxWidth="md"
-      overflow="hidden"
-      borderRadius={8}
       direction="column"
-      gap="2px"
+      alignItems="center"
+      textAlign="center"
     >
-      <Row>
-        <PlatformColorSurface {...PlatformProps.builder} />
-        <PlatformColorSurface {...PlatformProps.analytics} />
-      </Row>
-      <Row>
-        <PlatformColorSurface {...PlatformProps.player} />
-        <PlatformColorSurface {...PlatformProps.library} />
-      </Row>
+      <Typography variant="h2">{t('TITLE')}</Typography>
+      <Stack overflow="hidden" borderRadius={8} direction="column" gap="2px">
+        <Row>
+          <PlatformColorSurface {...PlatformProps.builder} />
+          <PlatformColorSurface {...PlatformProps.analytics} />
+        </Row>
+        <Row>
+          <PlatformColorSurface {...PlatformProps.player} />
+          <PlatformColorSurface {...PlatformProps.library} />
+        </Row>
+      </Stack>
     </Stack>
   );
 }

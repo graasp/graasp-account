@@ -24,7 +24,6 @@ export function RightHeader({
   if (isAuthenticated) {
     return (
       <Stack gap={2} direction="row" alignItems="center">
-        <LanguageSwitch lang={i18n.language} onChange={onChangeLang} />
         <ButtonLink
           variant="contained"
           to="/account"
@@ -32,15 +31,16 @@ export function RightHeader({
         >
           {translateLanding('NAV.GO_TO_GRAASP')}
         </ButtonLink>
+        <LanguageSwitch lang={i18n.language} onChange={onChangeLang} />
       </Stack>
     );
   }
 
   return (
     <Stack gap={2} direction="row" id="leftTitleWrapper" alignItems="center">
-      <LanguageSwitch lang={i18n.language} onChange={onChangeLang} />
       <ButtonLink to="/auth/login">{t('LOG_IN.BUTTON_TEXT')}</ButtonLink>
       <ButtonLink to="/auth/register">{t('REGISTER.BUTTON_TEXT')}</ButtonLink>
+      <LanguageSwitch lang={i18n.language} onChange={onChangeLang} />
     </Stack>
   );
 }
