@@ -10,11 +10,10 @@
     "Basile Spaenlehauer"
   ],
   "engines": {
-    "node": ">=20"
+    "node": ">=22"
   },
   "type": "module",
   "dependencies": {
-    "@5.4.6": "link:@graasp/@5.4.6",
     "@emotion/cache": "11.14.0",
     "@emotion/react": "11.14.0",
     "@emotion/styled": "11.14.0",
@@ -96,7 +95,6 @@
     ]
   },
   "devDependencies": {
-    "@chromatic-com/storybook": "^3.2.2",
     "@commitlint/cli": "19.6.0",
     "@commitlint/config-conventional": "19.6.0",
     "@cypress/code-coverage": "3.13.9",
