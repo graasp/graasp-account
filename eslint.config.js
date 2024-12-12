@@ -23,6 +23,7 @@ export default [
   {
     ignores: [
       'node_modules/*',
+      'storybook-static/*',
       'public/*',
       'dist/*',
       'build',
