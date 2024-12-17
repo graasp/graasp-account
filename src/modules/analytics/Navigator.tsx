@@ -13,8 +13,8 @@ import {
   buildBreadcrumbsItemLink,
   buildMenuItemId,
   buildNavigationDropDownId,
-} from '../config/selectors';
-import { NAVIGATOR_BACKGROUND_COLOR } from '../constants';
+} from './config/selectors';
+import { NAVIGATOR_BACKGROUND_COLOR } from './constants';
 
 const { useItem, useParents, useCurrentMember, useChildren } = hooks;
 
