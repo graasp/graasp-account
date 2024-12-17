@@ -115,10 +115,12 @@ const ActionsByDayChart = (): JSX.Element | null => {
     ),
   );
 
-  const maxCountEntry = mergedData.reduce((a, b) =>
-    Math.max(a.averageCount, a.count) > Math.max(b.averageCount, b.count)
-      ? a
-      : b,
+  const maxCountEntry = mergedData.reduce(
+    (a, b) =>
+      Math.max(a.averageCount, a.count) > Math.max(b.averageCount, b.count)
+        ? a
+        : b,
+    { averageCount: 0, count: 0 },
   );
   const maxCount = Math.max(maxCountEntry.averageCount, maxCountEntry.count);
   let yAxisMax;
