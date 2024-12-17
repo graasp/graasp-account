@@ -7,14 +7,14 @@ import { Outlet, createLazyFileRoute } from '@tanstack/react-router';
 
 import { NS } from '@/config/constants';
 
+import { PageWrapper } from '~analytics/PageWrapper';
+import ActionsLegend from '~analytics/charts-layout/ActionsLegend';
 import StyledAlert from '~analytics/common/StyledAlert';
-import { CONTAINER_HEIGHT } from '~analytics/config/constants';
+import { CONTAINER_HEIGHT } from '~analytics/constants';
 import DataProvider, { DataContext } from '~analytics/context/DataProvider';
 import ViewDataProvider, {
   ViewDataContext,
 } from '~analytics/context/ViewDataProvider';
-import { PageWrapper } from '~analytics/layout/PageWrapper';
-import ActionsLegend from '~analytics/space/charts-layout/ActionsLegend';
 
 export const Route = createLazyFileRoute('/analytics/items/$itemId')({
   component: RouteComponent,

@@ -10,7 +10,7 @@ import { NS } from '@/config/constants';
 import { DataContext } from '~analytics/context/DataProvider';
 import { ViewDataContext } from '~analytics/context/ViewDataProvider';
 
-import StyledAlert from '../../common/StyledAlert';
+import StyledAlert from '../common/StyledAlert';
 
 const StyledRoot = styled('div')(({ theme }) => ({
   root: {

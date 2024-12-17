@@ -28,11 +28,11 @@ import { hooks } from '@/config/queryClient';
 import { DataContext } from '~analytics/context/DataProvider';
 import { ViewDataContext } from '~analytics/context/ViewDataProvider';
 
-import ChartContainer from '../../common/ChartContainer';
-import ChartTitle from '../../common/ChartTitle';
-import { COLORS, DEFAULT_REQUEST_SAMPLE_SIZE } from '../../config/constants';
-import { filterActionsByActionTypes } from '../../utils/utils';
-import EmptyChart from './EmptyChart';
+import ChartContainer from '../common/ChartContainer';
+import ChartTitle from '../common/ChartTitle';
+import { COLORS, DEFAULT_REQUEST_SAMPLE_SIZE } from '../constants';
+import { filterActionsByActionTypes } from '../utils';
+import { EmptyChart } from './EmptyChart';
 
 const ActionsByUserChart = (): JSX.Element | null => {
   const { t } = useTranslation(NS.Analytics);

@@ -8,7 +8,7 @@ import MOCK_ITEMS, {
   APP_ITEM_WITH_PARENT,
   CALC_APP_ITEM,
   CALC_APP_ITEM_WITH_PARENT,
-} from '../../../src/modules/analytics/cypress/fixtures/items';
+} from '../../fixtures/analytics/items';
 import { buildItemPath } from './utils';
 
 const visitItemPage = (item: { id: string }) => {

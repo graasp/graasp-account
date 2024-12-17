@@ -1,4 +1,4 @@
-import { Context } from '@graasp/sdk';
+import { Context, HttpMethod } from '@graasp/sdk';
 
 import {
   SELECT_ACTION_ID,
@@ -12,9 +12,18 @@ import {
   buildSelectedUserChipId,
   buildSidebarListItemId,
 } from '../../../src/modules/analytics/config/selectors';
-import MOCK_ACTION_DATA from '../../../src/modules/analytics/cypress/fixtures/actions';
-import MOCK_ITEMS from '../../../src/modules/analytics/cypress/fixtures/items';
-import MOCK_MEMBERS from '../../../src/modules/analytics/cypress/fixtures/members';
+import MOCK_ACTION_DATA from '../../fixtures/analytics/actions';
+import {
+  MOCK_AGGREGATE_ACTIONS_ACTIVE_USERS,
+  MOCK_AGGREGATE_ACTIONS_BY_DAY,
+  MOCK_AGGREGATE_ACTIONS_BY_TIME,
+  MOCK_AGGREGATE_ACTIONS_BY_WEEKDAY,
+  MOCK_AGGREGATE_ACTIONS_TOTAL_ACTIONS,
+  MOCK_AGGREGATE_ACTIONS_TOTAL_USERS,
+  MOCK_AGGREGATE_ACTIONS_TYPE,
+} from '../../fixtures/analytics/aggregateActions';
+import MOCK_ITEMS from '../../fixtures/analytics/items';
+import MOCK_MEMBERS from '../../fixtures/analytics/members';
 import { buildItemPath } from './utils';
 
 const visitItemPage = (item: { id: string }) => {
@@ -24,9 +33,84 @@ const visitItemPage = (item: { id: string }) => {
 const checkContainViewText = (view: Context) =>
   cy.get(`#${buildSelectViewId(view)}`).should('contain', view);
 
+const setupIntercepts = () => {
+  cy.intercept(
+    { method: HttpMethod.Get, pathname: /\/items\/(.*?)\/actions$/ },
+    MOCK_ACTION_DATA,
+  ).as('getItemActions');
+  cy.intercept(
+    {
+      method: HttpMethod.Get,
+      pathname: /\/items\/(.*?)\/actions\/aggregation$/,
+    },
+    (request) => {
+      const { countGroupBy, aggregateBy, aggregateMetric, aggregateFunction } =
+        request.query;
+
+      if (
+        countGroupBy === 'user' &&
+        aggregateMetric === 'user' &&
+        aggregateFunction === 'count'
+      ) {
+        return MOCK_AGGREGATE_ACTIONS_TOTAL_USERS;
+      }
+      if (
+        countGroupBy === 'createdDay' &&
+        aggregateBy === 'createdDay' &&
+        aggregateMetric === 'actionCount' &&
+        aggregateFunction === 'count'
+      ) {
+        return MOCK_AGGREGATE_ACTIONS_ACTIVE_USERS;
+      }
+      if (
+        countGroupBy === 'createdDay' &&
+        aggregateBy === 'createdDay' &&
+        aggregateMetric === 'actionCount' &&
+        aggregateFunction === 'avg'
+      ) {
+        return MOCK_AGGREGATE_ACTIONS_BY_DAY;
+      }
+      if (
+        countGroupBy === 'createdDay' &&
+        aggregateBy === 'createdDay' &&
+        aggregateMetric === 'actionCount' &&
+        aggregateFunction === 'sum'
+      ) {
+        return MOCK_AGGREGATE_ACTIONS_TOTAL_ACTIONS;
+      }
+      if (
+        countGroupBy === 'createdTimeOfDay' &&
+        aggregateBy === 'createdTimeOfDay' &&
+        aggregateMetric === 'actionCount' &&
+        aggregateFunction === 'avg'
+      ) {
+        return MOCK_AGGREGATE_ACTIONS_BY_TIME;
+      }
+      if (
+        countGroupBy === 'createdDayOfWeek' &&
+        aggregateBy === 'createdDayOfWeek' &&
+        aggregateMetric === 'actionCount' &&
+        aggregateFunction === 'avg'
+      ) {
+        return MOCK_AGGREGATE_ACTIONS_BY_WEEKDAY;
+      }
+      if (
+        countGroupBy === 'actionType' &&
+        aggregateBy === 'actionType' &&
+        aggregateMetric === 'actionCount' &&
+        aggregateFunction === 'sum'
+      ) {
+        return MOCK_AGGREGATE_ACTIONS_TYPE;
+      }
+      return [];
+    },
+  ).as('getAggregateActions');
+};
+
 describe('Select platform view ', () => {
   beforeEach(() => {
     cy.setUpApi({});
+    setupIntercepts();
   });
 
   it('select platform view should be library, or player, or builder', () => {
@@ -64,6 +148,7 @@ describe('Select platform view ', () => {
 describe('Select users', () => {
   beforeEach(() => {
     cy.setUpApi({});
+    setupIntercepts();
   });
   it('values of user select should be maintained when navigating within different routes', () => {
     visitItemPage(MOCK_ITEMS[0]);
@@ -90,9 +175,11 @@ describe('Select users', () => {
     );
   });
 });
+
 describe('Select actions', () => {
   beforeEach(() => {
     cy.setUpApi({});
+    setupIntercepts();
   });
   it('values of action select should be maintained when navigating within different routes', () => {
     visitItemPage(MOCK_ITEMS[0]);

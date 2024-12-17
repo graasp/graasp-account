@@ -19,17 +19,14 @@ import { NS } from '@/config/constants';
 
 import { DataContext } from '~analytics/context/DataProvider';
 
-import ChartContainer from '../../common/ChartContainer';
-import ChartTitle from '../../common/ChartTitle';
+import ChartContainer from '../common/ChartContainer';
+import ChartTitle from '../common/ChartTitle';
 import {
   ACTIONS_BY_USER_MAX_DISPLAYED_USERS,
   getColorForActionTriggerType,
-} from '../../config/constants';
-import {
-  filterActionsByActionTypes,
-  filterActionsByUsers,
-} from '../../utils/utils';
-import EmptyChart from './EmptyChart';
+} from '../constants';
+import { filterActionsByActionTypes, filterActionsByUsers } from '../utils';
+import { EmptyChart } from './EmptyChart';
 
 const UsersByActionByChart = (): JSX.Element => {
   const { t } = useTranslation(NS.Analytics);

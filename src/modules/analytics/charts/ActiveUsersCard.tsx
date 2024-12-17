@@ -20,7 +20,7 @@ import { hooks } from '@/config/queryClient';
 import { DataContext } from '~analytics/context/DataProvider';
 import { ViewDataContext } from '~analytics/context/ViewDataProvider';
 
-import { DEFAULT_REQUEST_SAMPLE_SIZE } from '../../config/constants';
+import { DEFAULT_REQUEST_SAMPLE_SIZE } from '../constants';
 import StatsCard from './StatsCard';
 
 const Icon = <FaceIcon fontSize="large" />;

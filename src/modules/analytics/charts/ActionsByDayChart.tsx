@@ -1,7 +1,7 @@
 import { useContext } from 'react';
 import { useTranslation } from 'react-i18next';
 
-import { Stack, useTheme } from '@mui/material';
+import { Box, useTheme } from '@mui/material';
 
 import {
   AggregateBy,
@@ -25,23 +25,25 @@ import {
 import { NS } from '@/config/constants';
 import { hooks } from '@/config/queryClient';
 
-import {
-  DEFAULT_REQUEST_SAMPLE_SIZE,
-  GENERAL_COLOR,
-} from '~analytics/config/constants';
 import { DataContext } from '~analytics/context/DataProvider';
 import { ViewDataContext } from '~analytics/context/ViewDataProvider';
 
-import ChartContainer from '../../common/ChartContainer';
-import ChartTitle from '../../common/ChartTitle';
-import EmptyChart from './EmptyChart';
+import ChartContainer from '../common/ChartContainer';
+import ChartTitle from '../common/ChartTitle';
+import {
+  AVERAGE_COLOR,
+  DEFAULT_REQUEST_SAMPLE_SIZE,
+  GENERAL_COLOR,
+} from '../constants';
+import { filterActions, formatActionsByDay, getActionsByDay } from '../utils';
+import { EmptyChart } from './EmptyChart';
 
-const ActiveUsersChart = (): JSX.Element | null => {
+const ActionsByDayChart = (): JSX.Element | null => {
   const { t } = useTranslation(NS.Analytics);
+  const { actions, selectedUsers, selectedActionTypes, dateRange, itemId } =
+    useContext(DataContext);
   const { view } = useContext(ViewDataContext);
-  const { selectedActionTypes, dateRange, itemId } = useContext(DataContext);
   const { direction } = useTheme();
-
   // get aggregate actions
   const {
     data: aggregateData,
@@ -52,7 +54,7 @@ const ActiveUsersChart = (): JSX.Element | null => {
     requestedSampleSize: DEFAULT_REQUEST_SAMPLE_SIZE,
     type: selectedActionTypes,
     countGroupBy: [CountGroupBy.User, CountGroupBy.CreatedDay],
-    aggregateFunction: AggregateFunction.Count,
+    aggregateFunction: AggregateFunction.Avg,
     aggregateMetric: AggregateMetric.ActionCount,
     aggregateBy: [AggregateBy.CreatedDay],
     startDate: formatISO(dateRange.startDate),
@@ -63,10 +65,19 @@ const ActiveUsersChart = (): JSX.Element | null => {
     return null;
   }
 
-  const title = t('ACTIVE_USERS_BY_DAY');
+  const title = t('ACTIONS_BY_DAY_TITLE');
   if (!aggregateData?.length) {
     return <EmptyChart chartTitle={title} />;
   }
+
+  // sort by creation date
+  const aggregateDataSorted = [...aggregateData];
+  aggregateDataSorted.sort((a, b) => {
+    if (!a.createdDay || !b.createdDay) {
+      return -1;
+    }
+    return new Date(a.createdDay).getTime() - new Date(b.createdDay).getTime();
+  });
 
   const formatDate = (datestring?: string) => {
     if (!datestring) {
@@ -77,22 +88,39 @@ const ActiveUsersChart = (): JSX.Element | null => {
     }-${new Date(datestring).getFullYear()}`;
   };
 
-  const aggregateDataSorted = [...aggregateData];
-  aggregateDataSorted.sort((a, b) => {
-    if (!a.createdDay || !b.createdDay) {
-      return -1;
-    }
-    return new Date(a.createdDay).getTime() - new Date(b.createdDay).getTime();
-  });
   const formattedAggregateData = aggregateDataSorted.map((d) => ({
-    count: d.aggregateResult,
+    averageCount: d.aggregateResult,
     date: formatDate(d.createdDay),
   }));
 
-  const maxCount = formattedAggregateData.reduce(
-    (max, cur) => Math.max(max, cur.count),
-    0,
+  let actionsByDay: { [key: string]: number } = {};
+  if (actions?.length) {
+    actionsByDay = filterActions({
+      selectedUsers,
+      selectedActionTypes,
+      actions,
+      chartFunction: getActionsByDay,
+    });
+  }
+
+  const formattedActionsByDay = formatActionsByDay(actionsByDay);
+  const mergedData: {
+    date: string;
+    count: number;
+    averageCount: number;
+  }[] = formattedAggregateData.map((o1) =>
+    Object.assign(
+      o1,
+      formattedActionsByDay.find((o2) => o2.date === o1.date) ?? { count: 0 },
+    ),
   );
+
+  const maxCountEntry = mergedData.reduce((a, b) =>
+    Math.max(a.averageCount, a.count) > Math.max(b.averageCount, b.count)
+      ? a
+      : b,
+  );
+  const maxCount = Math.max(maxCountEntry.averageCount, maxCountEntry.count);
   let yAxisMax;
   if (maxCount <= 100) {
     yAxisMax = Math.ceil(maxCount / 10) * 10;
@@ -101,10 +129,15 @@ const ActiveUsersChart = (): JSX.Element | null => {
   }
 
   return (
-    <Stack direction="column" flexGrow={3} width="100%">
+    <Box width="100%">
       <ChartTitle title={title} />
       <ChartContainer>
-        <LineChart data={formattedAggregateData}>
+        <LineChart
+          data={mergedData.map((entry) => ({
+            ...entry,
+            averageCount: entry.averageCount.toFixed(2),
+          }))}
+        >
           <CartesianGrid strokeDasharray="2" />
           <XAxis dataKey="date" tick={{ fontSize: 14 }} />
           <YAxis
@@ -118,13 +151,20 @@ const ActiveUsersChart = (): JSX.Element | null => {
             dataKey="count"
             name={t('COUNT')}
             stroke={GENERAL_COLOR}
-            strokeWidth={3}
             activeDot={{ r: 6 }}
+            strokeWidth={3}
+          />
+          <Line
+            dataKey="averageCount"
+            name={t('AVERAGE_COUNT')}
+            stroke={AVERAGE_COLOR}
+            activeDot={{ r: 6 }}
+            strokeWidth={3}
           />
         </LineChart>
       </ChartContainer>
-    </Stack>
+    </Box>
   );
 };
 
-export default ActiveUsersChart;
+export default ActionsByDayChart;

@@ -27,6 +27,7 @@ import { Route as AuthRegisterImport } from './routes/auth/register'
 import { Route as AuthLoginImport } from './routes/auth/login'
 import { Route as AuthForgotPasswordImport } from './routes/auth/forgot-password'
 import { Route as AccountStorageImport } from './routes/account/storage'
+import { Route as AccountStatsImport } from './routes/account/stats'
 import { Route as AccountSettingsImport } from './routes/account/settings'
 import { Route as LandingTermsImport } from './routes/_landing/terms'
 import { Route as LandingSupportImport } from './routes/_landing/support'
@@ -142,6 +143,12 @@ const AuthForgotPasswordRoute = AuthForgotPasswordImport.update({
 const AccountStorageRoute = AccountStorageImport.update({
   id: '/storage',
   path: '/storage',
+  getParentRoute: () => AccountRoute,
+} as any)
+
+const AccountStatsRoute = AccountStatsImport.update({
+  id: '/stats',
+  path: '/stats',
   getParentRoute: () => AccountRoute,
 } as any)
 
@@ -346,6 +353,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AccountSettingsImport
       parentRoute: typeof AccountImport
     }
+    '/account/stats': {
+      id: '/account/stats'
+      path: '/stats'
+      fullPath: '/account/stats'
+      preLoaderRoute: typeof AccountStatsImport
+      parentRoute: typeof AccountImport
+    }
     '/account/storage': {
       id: '/account/storage'
       path: '/storage'
@@ -525,12 +539,14 @@ const LandingRouteWithChildren =
 
 interface AccountRouteChildren {
   AccountSettingsRoute: typeof AccountSettingsRoute
+  AccountStatsRoute: typeof AccountStatsRoute
   AccountStorageRoute: typeof AccountStorageRoute
   AccountIndexRoute: typeof AccountIndexRoute
 }
 
 const AccountRouteChildren: AccountRouteChildren = {
   AccountSettingsRoute: AccountSettingsRoute,
+  AccountStatsRoute: AccountStatsRoute,
   AccountStorageRoute: AccountStorageRoute,
   AccountIndexRoute: AccountIndexRoute,
 }
@@ -618,6 +634,7 @@ export interface FileRoutesByFullPath {
   '/support': typeof LandingSupportRoute
   '/terms': typeof LandingTermsRoute
   '/account/settings': typeof AccountSettingsRoute
+  '/account/stats': typeof AccountStatsRoute
   '/account/storage': typeof AccountStorageRoute
   '/auth/forgot-password': typeof AuthForgotPasswordRoute
   '/auth/login': typeof AuthLoginRoute
@@ -651,6 +668,7 @@ export interface FileRoutesByTo {
   '/support': typeof LandingSupportRoute
   '/terms': typeof LandingTermsRoute
   '/account/settings': typeof AccountSettingsRoute
+  '/account/stats': typeof AccountStatsRoute
   '/account/storage': typeof AccountStorageRoute
   '/auth/forgot-password': typeof AuthForgotPasswordRoute
   '/auth/login': typeof AuthLoginRoute
@@ -686,6 +704,7 @@ export interface FileRoutesById {
   '/_landing/support': typeof LandingSupportRoute
   '/_landing/terms': typeof LandingTermsRoute
   '/account/settings': typeof AccountSettingsRoute
+  '/account/stats': typeof AccountStatsRoute
   '/account/storage': typeof AccountStorageRoute
   '/auth/forgot-password': typeof AuthForgotPasswordRoute
   '/auth/login': typeof AuthLoginRoute
@@ -724,6 +743,7 @@ export interface FileRouteTypes {
     | '/support'
     | '/terms'
     | '/account/settings'
+    | '/account/stats'
     | '/account/storage'
     | '/auth/forgot-password'
     | '/auth/login'
@@ -756,6 +776,7 @@ export interface FileRouteTypes {
     | '/support'
     | '/terms'
     | '/account/settings'
+    | '/account/stats'
     | '/account/storage'
     | '/auth/forgot-password'
     | '/auth/login'
@@ -789,6 +810,7 @@ export interface FileRouteTypes {
     | '/_landing/support'
     | '/_landing/terms'
     | '/account/settings'
+    | '/account/stats'
     | '/account/storage'
     | '/auth/forgot-password'
     | '/auth/login'
@@ -872,6 +894,7 @@ export const routeTree = rootRoute
       "filePath": "account.tsx",
       "children": [
         "/account/settings",
+        "/account/stats",
         "/account/storage",
         "/account/"
       ]
@@ -923,6 +946,10 @@ export const routeTree = rootRoute
     },
     "/account/settings": {
       "filePath": "account/settings.tsx",
+      "parent": "/account"
+    },
+    "/account/stats": {
+      "filePath": "account/stats.tsx",
       "parent": "/account"
     },
     "/account/storage": {

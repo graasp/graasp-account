@@ -19,14 +19,14 @@ import { hooks } from '@/config/queryClient';
 import { DataContext } from '~analytics/context/DataProvider';
 import { ViewDataContext } from '~analytics/context/ViewDataProvider';
 
-import ChartContainer from '../../common/ChartContainer';
-import ChartTitle from '../../common/ChartTitle';
+import ActionChartLabel from '../charts-layout/ActionChartLabel';
+import ChartContainer from '../common/ChartContainer';
+import ChartTitle from '../common/ChartTitle';
 import {
   DEFAULT_REQUEST_SAMPLE_SIZE,
   getColorForActionTriggerType,
-} from '../../config/constants';
-import ActionChartLabel from '../charts-layout/ActionChartLabel';
-import EmptyChart from './EmptyChart';
+} from '../constants';
+import { EmptyChart } from './EmptyChart';
 
 const TotalActionsByVerbChart = (): JSX.Element | null => {
   const { t } = useTranslation(NS.Analytics);

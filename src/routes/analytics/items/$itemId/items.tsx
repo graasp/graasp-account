@@ -4,10 +4,10 @@ import { createFileRoute } from '@tanstack/react-router';
 
 import { NS } from '@/config/constants';
 
+import ChartsAlerts from '~analytics/charts-layout/ChartsAlerts';
+import ChartsHeader from '~analytics/charts-layout/ChartsHeader';
+import ItemsAnalytics from '~analytics/charts-layout/ItemsAnalytics';
 import SectionTitle from '~analytics/common/SectionTitle';
-import ChartsAlerts from '~analytics/space/charts-layout/ChartsAlerts';
-import ChartsHeader from '~analytics/space/charts-layout/ChartsHeader';
-import ItemsAnalytics from '~analytics/space/charts-layout/ItemsAnalytics';
 
 export const Route = createFileRoute('/analytics/items/$itemId/items')({
   component: RouteComponent,

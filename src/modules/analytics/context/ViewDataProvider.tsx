@@ -3,7 +3,7 @@ import { createContext, useMemo, useState } from 'react';
 import {
   ActionViewContext,
   ActionViewContextUnion,
-} from '~analytics/config/constants';
+} from '~analytics/constants';
 
 const defaultValue: {
   view: ActionViewContextUnion;

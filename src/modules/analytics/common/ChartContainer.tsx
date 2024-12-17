@@ -2,7 +2,7 @@ import { Box } from '@mui/material';
 
 import { ResponsiveContainer } from 'recharts';
 
-import { CONTAINER_HEIGHT } from '../config/constants';
+import { CONTAINER_HEIGHT } from '../constants';
 
 const ChartContainer = ({
   children,

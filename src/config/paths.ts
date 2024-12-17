@@ -7,4 +7,5 @@ export const RESET_PASSWORD_PATH = '/auth/reset-password' as const;
 export const ACCOUNT_HOME_PATH = '/account' as const;
 export const ACCOUNT_STORAGE_PATH = '/account/storage' as const;
 export const ACCOUNT_SETTINGS_PATH = '/account/settings' as const;
+export const ACCOUNT_STATS_PATH = '/account/stats' as const;
 export const EMAIL_CHANGE_VALIDATION_PATH = '/email/change' as const;

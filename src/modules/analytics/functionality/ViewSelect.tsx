@@ -16,14 +16,14 @@ import { Context } from '@graasp/sdk';
 import { NS } from '@/config/constants';
 
 import {
-  ActionViewContext,
-  ActionViewContextUnion,
-} from '~analytics/config/constants';
-import {
   SELECT_VIEW_ID,
   SELECT_VIEW_RENDERED_TEXT_ID,
   buildSelectViewId,
 } from '~analytics/config/selectors';
+import {
+  ActionViewContext,
+  ActionViewContextUnion,
+} from '~analytics/constants';
 import { ViewDataContext } from '~analytics/context/ViewDataProvider';
 
 const ViewSelect = (): JSX.Element => {

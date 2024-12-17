@@ -4,7 +4,6 @@ import { createFileRoute } from '@tanstack/react-router';
 
 import { MemberCard } from '~account/home/MemberCard';
 import { TipCard } from '~account/home/TipCard';
-import { OwnAnalyticsWrapper } from '~account/home/memberAnalytics/OwnAnalytics';
 import { RecentItems } from '~account/home/recentItems/RecentItems';
 
 export const Route = createFileRoute('/account/')({
@@ -18,8 +17,6 @@ function HomeRoute() {
       <TipCard />
       <Divider flexItem />
       <RecentItems />
-      <Divider flexItem />
-      <OwnAnalyticsWrapper />
     </Stack>
   );
 }

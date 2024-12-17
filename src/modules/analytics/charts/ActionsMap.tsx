@@ -12,8 +12,8 @@ import { GOOGLE_KEY } from '@/config/env';
 import StyledAlert from '~analytics/common/StyledAlert';
 import { DataContext } from '~analytics/context/DataProvider';
 
-import ChartContainer from '../../common/ChartContainer';
-import ChartTitle from '../../common/ChartTitle';
+import ChartContainer from '../common/ChartContainer';
+import ChartTitle from '../common/ChartTitle';
 import {
   CLUSTER_RADIUS,
   DEFAULT_LATITUDE,
@@ -21,11 +21,11 @@ import {
   DEFAULT_ZOOM,
   ENTER_KEY,
   MAX_CLUSTER_ZOOM,
-} from '../../config/constants';
+} from '../constants';
 import {
   filterActionsByUsers,
   mapActionsToGeoJsonFeatureObjects,
-} from '../../utils/utils';
+} from '../utils';
 
 const Marker = ({ children }: { children: JSX.Element }) => children;
 

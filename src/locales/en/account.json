@@ -10,6 +10,7 @@
   "CROP_IMAGE_MODAL_UNEXPECTED_ERROR": "An unexpected error occurred when trying to crop the image, please try again later",
   "MAIN_MENU": {
     "HOME": "Home",
+    "STATS": "Statistics",
     "SETTINGS": "Settings",
     "STORAGE": "Storage",
     "LANDING": "Landing page"

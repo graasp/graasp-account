@@ -28,24 +28,25 @@ import { hooks } from '@/config/queryClient';
 import { DataContext } from '~analytics/context/DataProvider';
 import { ViewDataContext } from '~analytics/context/ViewDataProvider';
 
-import ChartContainer from '../../common/ChartContainer';
-import ChartTitle from '../../common/ChartTitle';
+import ChartContainer from '../common/ChartContainer';
+import ChartTitle from '../common/ChartTitle';
 import {
   AVERAGE_COLOR,
   DEFAULT_REQUEST_SAMPLE_SIZE,
   GENERAL_COLOR,
-} from '../../config/constants';
-import { filterActions } from '../../utils/array';
+} from '../constants';
 import {
-  formatActionsByTimeOfDay,
-  getActionsByTimeOfDay,
-} from '../../utils/utils';
-import EmptyChart from './EmptyChart';
+  filterActions,
+  formatActionsByWeekday,
+  getActionsByWeekday,
+} from '../utils';
+import { EmptyChart } from './EmptyChart';
 
-const ActionsByTimeOfDayChart = (): JSX.Element | null => {
+const ActionsByWeekdayChart = (): JSX.Element | null => {
   const { t } = useTranslation(NS.Analytics);
   const { actions, selectedUsers, selectedActionTypes, dateRange, itemId } =
     useContext(DataContext);
+
   const { view } = useContext(ViewDataContext);
   const { direction } = useTheme();
 
@@ -57,10 +58,10 @@ const ActionsByTimeOfDayChart = (): JSX.Element | null => {
     view,
     requestedSampleSize: DEFAULT_REQUEST_SAMPLE_SIZE,
     type: selectedActionTypes,
-    countGroupBy: [CountGroupBy.User, CountGroupBy.CreatedTimeOfDay],
+    countGroupBy: [CountGroupBy.User, CountGroupBy.CreatedDayOfWeek],
     aggregateFunction: AggregateFunction.Avg,
     aggregateMetric: AggregateMetric.ActionCount,
-    aggregateBy: [AggregateBy.CreatedTimeOfDay],
+    aggregateBy: [AggregateBy.CreatedDayOfWeek],
     startDate: formatISO(dateRange.startDate),
     endDate: formatISO(endOfDay(dateRange.endDate)),
   });
@@ -69,65 +70,78 @@ const ActionsByTimeOfDayChart = (): JSX.Element | null => {
     return null;
   }
 
-  const title = t('ACTIONS_BY_TIME_OF_DAY');
+  const title = t('ACTIONS_BY_WEEKDAY');
   if (!aggregateData?.length) {
     return <EmptyChart chartTitle={title} />;
   }
 
-  const formattedAggregateData = aggregateData.map((d) => ({
-    averageCount: d.aggregateResult,
-    timeOfDay: parseFloat(d.createdTimeOfDay ?? '0'),
+  const formattedAggregateData: {
+    aggregateResult: number;
+    createdDayOfWeek: number;
+  }[] = aggregateData.map((d) => ({
+    aggregateResult: d.aggregateResult,
+    createdDayOfWeek: parseFloat(d.createdDayOfWeek ?? '0'),
   }));
+  const createdDayOfWeekEntry = formattedAggregateData.map(
+    (o) => o.createdDayOfWeek,
+  );
 
-  const timeOfDayEntry = formattedAggregateData.map((o) => o.timeOfDay);
-
-  // fill with empty data for missing hour
-  for (let hour = 0; hour < 24; hour += 1) {
-    if (!timeOfDayEntry.includes(hour)) {
+  // fill with empty data
+  for (let day = 0; day < 7; day += 1) {
+    if (!createdDayOfWeekEntry.includes(day)) {
       formattedAggregateData.push({
-        averageCount: 0.0,
-        timeOfDay: hour,
+        aggregateResult: 0.0,
+        createdDayOfWeek: day,
       });
     }
   }
 
-  let actionsByTimeOfDay = {};
+  // we don't translate here because we need to compare with the raw data
+  const weekdayEnum = {
+    0: 'Sunday',
+    1: 'Monday',
+    2: 'Tuesday',
+    3: 'Wednesday',
+    4: 'Thursday',
+    5: 'Friday',
+    6: 'Saturday',
+  };
+
+  formattedAggregateData.sort(
+    (a, b) => a.createdDayOfWeek - b.createdDayOfWeek,
+  );
+  const formattedAggregateDataWithWeekday = formattedAggregateData.map((d) => ({
+    averageCount: d.aggregateResult,
+    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+    // @ts-ignore
+    day: weekdayEnum[d.createdDayOfWeek],
+  }));
+
+  // ActionsByWeekday is the object passed, after formatting, to the BarChart component below
+
+  let actionsByWeekday = {};
   if (actions?.length) {
-    actionsByTimeOfDay = filterActions({
+    actionsByWeekday = filterActions({
       selectedUsers,
       selectedActionTypes,
       actions,
-      chartFunction: getActionsByTimeOfDay,
+      chartFunction: getActionsByWeekday,
     });
   }
-  const formattedActionsByTimeOfDay =
-    formatActionsByTimeOfDay(actionsByTimeOfDay);
 
-  const mergedData = formattedAggregateData.map((o1) =>
-    Object.assign(
-      o1,
-      formattedActionsByTimeOfDay.find(
-        (o2) => o2.timeOfDay === o1.timeOfDay,
-      ) ?? {
-        count: 0,
-      },
-    ),
-  );
+  const formattedActionsByWeekday = formatActionsByWeekday(actionsByWeekday);
 
-  mergedData.sort((a, b) => a.timeOfDay - b.timeOfDay);
-
-  const maxCountEntry = mergedData.reduce((a, b) =>
-    Math.max(a.averageCount, a.count) > Math.max(b.averageCount, b.count)
-      ? a
-      : b,
-  );
-  const maxCount = Math.max(maxCountEntry.averageCount, maxCountEntry.count);
-  let yAxisMax;
-  if (maxCount <= 100) {
-    yAxisMax = Math.ceil(maxCount / 10) * 10;
-  } else {
-    yAxisMax = Math.ceil(maxCount / 100) * 100;
-  }
+  const mergedData = formattedAggregateDataWithWeekday
+    .map((o1) =>
+      Object.assign(
+        o1,
+        formattedActionsByWeekday.find((o2) => o2.day === o1.day) ?? {
+          count: 0,
+        },
+      ),
+    )
+    // translate weekdays
+    .map((d) => ({ ...d, day: t(d.day) }));
 
   return (
     <>
@@ -135,10 +149,9 @@ const ActionsByTimeOfDayChart = (): JSX.Element | null => {
       <ChartContainer>
         <BarChart data={mergedData}>
           <CartesianGrid strokeDasharray="2" />
-          <XAxis interval={0} dataKey="timeOfDay" tick={{ fontSize: 14 }} />
+          <XAxis interval={0} dataKey="day" tick={{ fontSize: 14 }} />
           <YAxis
             tick={{ fontSize: 14 }}
-            domain={[0, yAxisMax]}
             orientation={direction === 'rtl' ? 'right' : 'left'}
           />
           <Tooltip />
@@ -154,4 +167,4 @@ const ActionsByTimeOfDayChart = (): JSX.Element | null => {
     </>
   );
 };
-export default ActionsByTimeOfDayChart;
+export default ActionsByWeekdayChart;

@@ -50,7 +50,7 @@ const SelectFormatRadio = ({
 
 const itemApi = getRouteApi('/analytics/items/$itemId/export');
 
-const ExportData = (): JSX.Element => {
+export function ExportData(): JSX.Element {
   const { t } = useTranslation(NS.Analytics);
   const [format, setFormat] = useState(ExportActionsFormatting.CSV);
 
@@ -123,6 +123,4 @@ const ExportData = (): JSX.Element => {
       </Button>
     </>
   );
-};
-
-export default ExportData;
+}

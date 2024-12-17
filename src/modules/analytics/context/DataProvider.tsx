@@ -22,8 +22,8 @@ import { formatISO } from 'date-fns/formatISO';
 
 import { hooks } from '@/config/queryClient';
 
-import { DEFAULT_REQUEST_SAMPLE_SIZE } from '~analytics/config/constants';
 import { DateRange } from '~analytics/config/type';
+import { DEFAULT_REQUEST_SAMPLE_SIZE } from '~analytics/constants';
 
 import { ViewDataContext } from './ViewDataProvider';
 

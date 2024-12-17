@@ -12,16 +12,13 @@ import { NS } from '@/config/constants';
 
 import { DataContext } from '~analytics/context/DataProvider';
 
-import ChartContainer from '../../common/ChartContainer';
-import ChartTitle from '../../common/ChartTitle';
-import {
-  CONTAINER_HEIGHT,
-  getColorForActionTriggerType,
-} from '../../config/constants';
-import { filterActions } from '../../utils/array';
-import { formatActionsByVerb, getActionsByVerb } from '../../utils/utils';
 import ActionChartLabel from '../charts-layout/ActionChartLabel';
-import EmptyChart from './EmptyChart';
+import ChartContainer from '../common/ChartContainer';
+import ChartTitle from '../common/ChartTitle';
+import { CONTAINER_HEIGHT, getColorForActionTriggerType } from '../constants';
+import { filterActions } from '../utils';
+import { formatActionsByVerb, getActionsByVerb } from '../utils';
+import { EmptyChart } from './EmptyChart';
 
 const EmptyChartAlert = styled('div')({
   display: 'flex',

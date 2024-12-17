@@ -20,7 +20,7 @@ import { ActionTriggers } from '@graasp/sdk';
 
 import { NS } from '@/config/constants';
 
-import { getColorForActionTriggerType } from '~analytics/config/constants';
+import { getColorForActionTriggerType } from '~analytics/constants';
 
 const actionsDescriptionTransKeys = Object.values(ActionTriggers).reduce(
   (acc: { [key: string]: string }, cur) => {

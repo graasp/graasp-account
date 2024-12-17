@@ -12,12 +12,12 @@ import groupBy from 'lodash/groupBy';
 import { NS } from '@/config/constants';
 import { hooks } from '@/config/queryClient';
 
+import ActionsLegend from '~analytics/charts-layout/ActionsLegend';
 import DateRange from '~analytics/common/DateRangeInput';
 import SectionTitle from '~analytics/common/SectionTitle';
 import MyAnalyticsDateRangeProvider, {
   MyAnalyticsDateRangeDataContext,
 } from '~analytics/context/MyAnalyticsDateRangeContext';
-import ActionsLegend from '~analytics/space/charts-layout/ActionsLegend';
 
 import { MemberActionsChart } from './MemberActionsChart';
 import { MemberGeneralStatisticsCards } from './MemberGeneralStatisticsCards';

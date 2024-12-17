@@ -19,7 +19,7 @@ import { Navigate } from '@tanstack/react-router';
 import { NS } from '@/config/constants';
 import { hooks } from '@/config/queryClient';
 
-import { ExportData } from '~account/settings/ExportData';
+import { ExportData } from '~analytics/ExportData';
 import SectionTitle from '~analytics/common/SectionTitle';
 
 export const Route = createFileRoute('/analytics/items/$itemId/export')({

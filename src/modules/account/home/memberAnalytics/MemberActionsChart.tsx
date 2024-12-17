@@ -22,14 +22,14 @@ import {
 import { NS } from '@/config/constants';
 
 import ChartContainer from '~analytics/common/ChartContainer';
+import { GroupByInterval } from '~analytics/config/type';
 import {
   MAX_BARS_LARGE_SCREEN,
   MAX_BARS_SMALL_SCREEN,
   getColorForActionTriggerType,
-} from '~analytics/config/constants';
-import { GroupByInterval } from '~analytics/config/type';
+} from '~analytics/constants';
 import { MyAnalyticsDateRangeDataContext } from '~analytics/context/MyAnalyticsDateRangeContext';
-import { groupActions } from '~analytics/utils/utils';
+import { groupActions } from '~analytics/utils';
 
 export function MemberActionsChart({
   actions,

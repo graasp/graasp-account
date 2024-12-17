@@ -26,5 +26,13 @@
       "@/*": ["./src/*"]
     }
   },
-  "include": ["src"]
+  "include": [
+    "src",
+    "cypress/fixtures/analytics/actions.ts",
+    "cypress/fixtures/analytics/aggregateActions.ts",
+    "cypress/fixtures/analytics/items.ts",
+    "cypress/fixtures/analytics/members.ts",
+    "cypress/fixtures/analytics/membership.ts",
+    "cypress/fixtures/analytics/util.ts"
+  ]
 }

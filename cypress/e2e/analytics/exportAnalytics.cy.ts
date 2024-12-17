@@ -4,8 +4,8 @@ import {
   EXPORT_ACTIONS_BUTTON_ID,
   buildSelectExportFormatID,
 } from '../../../src/modules/analytics/config/selectors';
-import { ITEM_TO_EXPORT } from '../../../src/modules/analytics/cypress/fixtures/items';
-import MOCK_MEMBERS from '../../../src/modules/analytics/cypress/fixtures/members';
+import { ITEM_TO_EXPORT } from '../../fixtures/analytics/items';
+import MOCK_MEMBERS from '../../fixtures/analytics/members';
 
 describe('Check exporting analytics for allowed formats', () => {
   beforeEach(() => {

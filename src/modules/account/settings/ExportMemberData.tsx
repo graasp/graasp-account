@@ -8,7 +8,7 @@ import { NS } from '@/config/constants';
 import { mutations } from '@/config/queryClient';
 import { EXPORT_DATA_BUTTON_ID } from '@/config/selectors';
 
-export function ExportData(): JSX.Element {
+export function ExportMemberData(): JSX.Element {
   const { t } = useTranslation(NS.Account);
 
   const [isExported, setIsExported] = useState(false);

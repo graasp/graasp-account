@@ -7,7 +7,7 @@ import { NS } from '@/config/constants';
 import { SETTINGS_PAGE_CONTAINER_ID } from '@/config/selectors';
 
 import { DeleteMemberSection } from '~account/settings/DeleteMemberSection';
-import { ExportData } from '~account/settings/ExportData';
+import { ExportMemberData } from '~account/settings/ExportMemberData';
 import { Password } from '~account/settings/password/Password';
 import { Preferences } from '~account/settings/preferences/Preferences';
 import { PersonalInformation } from '~account/settings/profile/PersonalInformation';
@@ -29,7 +29,7 @@ function SettingsRoute(): JSX.Element {
       <Password />
       <PublicProfile />
       <Preferences />
-      <ExportData />
+      <ExportMemberData />
       <DeleteMemberSection />
     </ScreenLayout>
   );

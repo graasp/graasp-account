@@ -8,13 +8,13 @@ import { useNavigate } from '@tanstack/react-router';
 
 import { hooks } from '@/config/queryClient';
 
-import { NAVIGATOR_BACKGROUND_COLOR } from '../config/constants';
 import {
   BREADCRUMBS_NAVIGATOR_ID,
   buildBreadcrumbsItemLink,
   buildMenuItemId,
   buildNavigationDropDownId,
 } from '../config/selectors';
+import { NAVIGATOR_BACKGROUND_COLOR } from '../constants';
 
 const { useItem, useParents, useCurrentMember, useChildren } = hooks;
 

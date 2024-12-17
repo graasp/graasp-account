@@ -7,6 +7,7 @@ import { DRAWER_WIDTH } from '@graasp/ui';
 
 import {
   ArrowLeftIcon,
+  ChartColumnIcon,
   HardDriveIcon,
   HouseIcon,
   SettingsIcon,
@@ -17,6 +18,7 @@ import { NS } from '@/config/constants';
 import {
   ACCOUNT_HOME_PATH,
   ACCOUNT_SETTINGS_PATH,
+  ACCOUNT_STATS_PATH,
   ACCOUNT_STORAGE_PATH,
 } from '@/config/paths';
 
@@ -35,6 +37,11 @@ export function MainMenu(): JSX.Element {
           to={ACCOUNT_HOME_PATH}
           icon={<HouseIcon />}
           text={t('HOME')}
+        />
+        <MainMenuItem
+          to={ACCOUNT_STATS_PATH}
+          icon={<ChartColumnIcon />}
+          text={t('STATS')}
         />
         <MainMenuItem
           to={ACCOUNT_SETTINGS_PATH}
