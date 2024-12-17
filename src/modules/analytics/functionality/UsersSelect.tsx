@@ -24,7 +24,7 @@ const UsersSelect = (): JSX.Element | null => {
   const { selectedUsers, setSelectedUsers, allMembers } =
     useContext(DataContext);
 
-  if (!allMembers || !allMembers.length) {
+  if (!allMembers?.length) {
     return null;
   }
 

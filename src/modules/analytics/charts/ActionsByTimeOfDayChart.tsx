@@ -35,8 +35,11 @@ import {
   DEFAULT_REQUEST_SAMPLE_SIZE,
   GENERAL_COLOR,
 } from '../constants';
-import { formatActionsByTimeOfDay, getActionsByTimeOfDay } from '../utils';
-import { filterActions } from '../utils';
+import {
+  filterActions,
+  formatActionsByTimeOfDay,
+  getActionsByTimeOfDay,
+} from '../utils';
 import { EmptyChart } from './EmptyChart';
 
 const ActionsByTimeOfDayChart = (): JSX.Element | null => {

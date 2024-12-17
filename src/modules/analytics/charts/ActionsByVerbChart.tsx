@@ -16,8 +16,7 @@ import ActionChartLabel from '../charts-layout/ActionChartLabel';
 import ChartContainer from '../common/ChartContainer';
 import ChartTitle from '../common/ChartTitle';
 import { CONTAINER_HEIGHT, getColorForActionTriggerType } from '../constants';
-import { filterActions } from '../utils';
-import { formatActionsByVerb, getActionsByVerb } from '../utils';
+import { filterActions, formatActionsByVerb, getActionsByVerb } from '../utils';
 import { EmptyChart } from './EmptyChart';
 
 const EmptyChartAlert = styled('div')({
@@ -76,7 +75,7 @@ const ActionsByVerbChart = (): JSX.Element => {
             data={formattedActionsByVerbSorted}
             dataKey="percentage"
             nameKey="type"
-            label={(props) => <ActionChartLabel {...props} />}
+            label={ActionChartLabel}
             labelLine={false}
           >
             {formattedActionsByVerbSorted.map((entry) => (

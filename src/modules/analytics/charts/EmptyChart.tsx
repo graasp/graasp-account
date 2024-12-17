@@ -30,7 +30,7 @@ export function EmptyChart({
   chartTitle,
   selectFilter,
   isError = false,
-}: Props): JSX.Element {
+}: Readonly<Props>): JSX.Element {
   const { t } = useTranslation(NS.Analytics);
 
   const message = t('NO_ACTIONS_TO_SHOW_FOR_THIS_USER');
