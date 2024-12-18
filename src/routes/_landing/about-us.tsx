@@ -1,11 +1,25 @@
 import { createFileRoute } from '@tanstack/react-router';
 
-import { WorkInProgress } from '@/components/WorkInProgress';
+import Association from '~landing/aboutUs/Association';
+import PresentationVideoSection from '~landing/aboutUs/PresentationVideoSection';
+import TeamMembers from '~landing/aboutUs/TeamMembers';
+import { TitleSection } from '~landing/aboutUs/TitleSection';
+import { Preview } from '~landing/preview/PreviewModeContext';
 
 export const Route = createFileRoute('/_landing/about-us')({
   component: RouteComponent,
 });
 
 function RouteComponent() {
-  return <WorkInProgress />;
+  return (
+    <>
+      <TitleSection />
+      <Association />
+      <TeamMembers />
+
+      <Preview>
+        <PresentationVideoSection />
+      </Preview>
+    </>
+  );
 }

@@ -346,6 +346,49 @@
       }
     }
   },
+  "ABOUT_US": {
+    "TITLE": "Rencontre les personnes derrière Graasp",
+    "DESCRIPTION_1": "Fondée par une équipe dédiée de professionnels, notre mission est de combler l'écart entre la technologie de pointe et l'éducation, en autonomisant les éducateurs et les chercheurs à l'échelle mondiale.",
+    "DESCRIPTION_2": "Nous avons pour objectif de combler l'écart entre les environnements de recherche et les établissements éducatifs traditionnels tels que les écoles. Nous imaginons un avenir où Graasp permet aux éducateurs et aux étudiants des structures éducatives traditionnelles et au-delà, de révolutionner les méthodes d'enseignement et de favoriser des expériences d'apprentissage engageantes.",
+
+    "ASSOCIATION": {
+      "TITLE": "Association Graasp",
+      "DESCRIPTION": "Graasp est bien plus qu'une plateforme d'expérience d'apprentissage. C'est un produit porté par une organisation à but non lucratif suisse dédiée à l'avancement de l'éducation numérique. Notre objectif principal est de soutenir les éducateurs et les chercheurs à chaque étape de leur parcours, en leur offrant aide et formation pour atteindre leurs objectifs de manière efficace.",
+      "PROJECTS": {
+        "TITLE": "D'autres projets",
+        "HELVETAS": {
+          "TITLE": "Helvetas",
+          "DESCRIPTION": "Plateforme numérique collaborative pour former les jeunes sur les routes migratoires"
+        },
+        "CLIMATE": {
+          "TITLE": "Climate",
+          "DESCRIPTION": "Simulations d'apprentissage actif pour explorer la science du réchauffement climatique"
+        }
+      }
+    },
+    "TEAM": {
+      "TITLE": "Rencontre l'équipe !",
+      "STATUSES": {
+        "TITLE_PRESIDENT": "Président",
+        "TITLE_MANAGING_DIRECTOR": "Directrice Générale",
+        "TITLE_VP_RESEARCH": "VP Recherche",
+        "TITLE_VP_PRODUCT": "VP Produit",
+        "TITLE_VP_ENGINEERING": "VP Ingénieurie",
+        "TITLE_VP_OUTREACH": "VP Communication et Promotion",
+        "TITLE_VP_INNOVATION": "VP Innovation",
+        "TITLE_VP_TECHNOLOGY": "VP Technologie",
+        "TITLE_VP_EDUCATION_AND_CONTENT": "VP Formation et Contenu",
+        "TITLE_SOFTWARE_ENGINEER": "Ingénieur logiciel",
+        "TITLE_AMBASSADOR": "Ambassadeur",
+        "TITLE_PEDAGOGICAL_ENGINEER": "Ingénieur pédagogique"
+      }
+    },
+    "PRESENTATION_VIDEO": {
+      "TITLE": "Regardez notre vidéo de présentation",
+      "JOIN_BUTTON_TEXT": "Rejoins notre communauté",
+      "LIBRARY_BUTTON_TEXT": "Explore la Bibliothèque"
+    }
+  },
   "NEWSLETTER": {
     "LEAD_SENTENCE": "Voulez-vous rester informé ?",
     "TITLE": "Abonnez-vous à notre newsletter !",
