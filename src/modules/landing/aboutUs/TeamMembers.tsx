@@ -12,62 +12,62 @@ function TeamMembers() {
   const TEAM = [
     {
       name: 'Denis Gillet',
-      image: 'denis.png',
+      image: 'denis.webp',
       role: 'STATUSES.TITLE_PRESIDENT',
     },
     {
       name: 'Isabelle Vonèche Cardia',
-      image: 'isabelle.jpg',
+      image: 'isabelle.webp',
       role: 'STATUSES.TITLE_MANAGING_DIRECTOR',
     },
     {
       name: 'María Jesús Rodríguez-Triana',
-      image: 'maria.jpg',
+      image: 'maria.webp',
       role: 'STATUSES.TITLE_VP_RESEARCH',
     },
     {
       name: 'Juan Carlos Farah',
-      image: 'juancarlos.jpg',
+      image: 'juancarlos.webp',
       role: 'STATUSES.TITLE_VP_PRODUCT',
     },
     {
       name: 'Kim Lan Phan Hoang',
-      image: 'kim.jpg',
+      image: 'kim.webp',
       role: 'STATUSES.TITLE_VP_ENGINEERING',
     },
     {
       name: 'Jérémy La Scala',
-      image: 'jeremy.jpg',
+      image: 'jeremy.webp',
       role: 'STATUSES.TITLE_VP_OUTREACH',
     },
     {
       name: 'Sandy Ingram',
-      image: 'sandy.jpg',
+      image: 'sandy.webp',
       role: 'STATUSES.TITLE_VP_INNOVATION',
     },
     {
       name: 'Basile Spaenlehauer',
-      image: 'basile.jpg',
+      image: 'basile.webp',
       role: 'STATUSES.TITLE_VP_TECHNOLOGY',
     },
     {
       name: 'Michele Notari',
-      image: 'michele.jpg',
+      image: 'michele.webp',
       role: 'STATUSES.TITLE_VP_EDUCATION_AND_CONTENT',
     },
     {
       name: 'Hagop Taminian',
-      image: 'hagop.jpg',
+      image: 'hagop.webp',
       role: 'STATUSES.TITLE_SOFTWARE_ENGINEER',
     },
     {
       name: 'Philippe Kobel',
-      image: 'philippe.jpg',
+      image: 'philippe.webp',
       role: 'STATUSES.TITLE_AMBASSADOR',
     },
     {
       name: 'François Bierlaire',
-      image: 'francois.jpg',
+      image: 'francois.webp',
       role: 'STATUSES.TITLE_PEDAGOGICAL_ENGINEER',
     },
   ];
