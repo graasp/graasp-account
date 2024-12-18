@@ -1,6 +1,9 @@
 import { Card, Typography } from '@mui/material';
 
-function NumberCard({ number, title }: { number: string; title: string }) {
+function NumberCard({
+  number,
+  title,
+}: Readonly<{ number: string; title: string }>) {
   return (
     <Card
       sx={{

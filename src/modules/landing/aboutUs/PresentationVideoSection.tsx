@@ -2,8 +2,11 @@ import { useTranslation } from 'react-i18next';
 
 import { Stack, Typography } from '@mui/material';
 
+import { Button } from '@graasp/ui';
+
 import { ButtonLink } from '@/components/ui/ButtonLink';
 import { NS } from '@/config/constants';
+import { GRAASP_LIBRARY_HOST } from '@/config/env';
 
 function PresentationVideoSection() {
   const { t } = useTranslation(NS.Landing, {
@@ -34,9 +37,9 @@ function PresentationVideoSection() {
         <ButtonLink variant="contained" to="/auth/register">
           {t('JOIN_BUTTON_TEXT')}
         </ButtonLink>
-        <ButtonLink variant="contained" color="secondary" to="/library">
-          {t('LIBRARY_BUTTON_TEXT')}
-        </ButtonLink>
+        <a href={GRAASP_LIBRARY_HOST}>
+          <Button>{t('LIBRARY_BUTTON_TEXT')}</Button>
+        </a>
       </Stack>
     </Stack>
   );

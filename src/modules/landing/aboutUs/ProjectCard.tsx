@@ -5,12 +5,12 @@ export function ProjectCard({
   title,
   src,
   width,
-}: {
+}: Readonly<{
   description: string;
   title: string;
   src: string;
   width?: string | number;
-}) {
+}>) {
   return (
     <Card
       sx={{
