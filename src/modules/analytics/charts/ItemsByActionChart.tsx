@@ -43,6 +43,7 @@ const ItemsByActionChart = (): JSX.Element => {
     itemData: item,
     itemChildren: children,
   } = useContext(DataContext);
+
   const allActions = filterActionsByActionTypes(actions, selectedActionTypes);
   const types = [...new Set(allActions.map((a) => a.type))];
   const groupedItems = groupByFirstLevelItems(allActions, item);

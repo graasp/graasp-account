@@ -35,6 +35,7 @@ const UsersByActionByChart = (): JSX.Element => {
 
   const { actions, selectedUsers, selectedActionTypes, allMembers } =
     useContext(DataContext);
+
   const allActions = filterActionsByActionTypes(actions, selectedActionTypes);
   const types = [...new Set(allActions.map((a) => a.type))];
 

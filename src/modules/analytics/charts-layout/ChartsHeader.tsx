@@ -1,4 +1,4 @@
-import * as React from 'react';
+import { KeyboardEvent, MouseEvent, useContext, useState } from 'react';
 
 import { Badge, IconButton, Stack, SwipeableDrawer } from '@mui/material';
 
@@ -18,16 +18,16 @@ const ChartsHeader = (): JSX.Element => {
   const { isMobile } = useMobileView();
 
   const { dateRange, setDateRange, selectedUsers, selectedActionTypes } =
-    React.useContext(DataContext);
-  const [openDrawer, setOpenDrawer] = React.useState(false);
+    useContext(DataContext);
+  const [openDrawer, setOpenDrawer] = useState(false);
 
-  const toggleDrawer = (event: React.KeyboardEvent | React.MouseEvent) => {
+  const toggleDrawer = (event: KeyboardEvent | MouseEvent) => {
     // Keep the drawer open when using the Tab key to navigate between filter inputs
     if (
       event &&
       event.type === 'keydown' &&
-      ((event as React.KeyboardEvent).key === 'Tab' ||
-        (event as React.KeyboardEvent).key === 'Shift')
+      ((event as KeyboardEvent).key === 'Tab' ||
+        (event as KeyboardEvent).key === 'Shift')
     ) {
       return;
     }
@@ -35,8 +35,7 @@ const ChartsHeader = (): JSX.Element => {
     setOpenDrawer(!openDrawer);
   };
 
-  const filtersSelected =
-    (selectedUsers.length && 1) + (selectedActionTypes.length && 1);
+  const filtersSelected = selectedUsers.length + selectedActionTypes.length;
 
   const filterButton = (
     <IconButton

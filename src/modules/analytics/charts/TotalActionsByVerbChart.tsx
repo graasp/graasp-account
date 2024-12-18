@@ -1,6 +1,8 @@
 import { useContext } from 'react';
 import { useTranslation } from 'react-i18next';
 
+import { Typography } from '@mui/material';
+
 import {
   ActionTriggers,
   AggregateBy,
@@ -11,7 +13,7 @@ import {
 
 import { endOfDay } from 'date-fns/endOfDay';
 import { formatISO } from 'date-fns/formatISO';
-import { Cell, Pie, PieChart, Tooltip } from 'recharts';
+import { Cell, Pie, PieChart, PieLabel, Tooltip } from 'recharts';
 
 import { NS } from '@/config/constants';
 import { hooks } from '@/config/queryClient';
@@ -27,6 +29,8 @@ import {
   getColorForActionTriggerType,
 } from '../constants';
 import { EmptyChart } from './EmptyChart';
+
+const PieLabelComp: PieLabel = (props) => <ActionChartLabel {...props} />;
 
 const TotalActionsByVerbChart = (): JSX.Element | null => {
   const { t } = useTranslation(NS.Analytics);
@@ -51,69 +55,68 @@ const TotalActionsByVerbChart = (): JSX.Element | null => {
     endDate: formatISO(endOfDay(dateRange.endDate)),
   });
 
+  const title = t('TOTAL_ACTIONS_DISTRIBUTIONS');
+
+  if (aggregateData) {
+    const totalActions = aggregateData.reduce(
+      (acc, { aggregateResult }) => acc + aggregateResult,
+      0,
+    );
+    const formattedAggregateData = aggregateData.map((d) => ({
+      actionCount: (d.aggregateResult / totalActions) * 100,
+      type: d.actionType,
+    }));
+
+    // formattedAggregateData.forEach((d) => {
+    //   d.actionCount = parseFloat(
+    //     ((d.actionCount / totalActions) * 100).toFixed(2),
+    //   );
+    // });
+
+    const formattedAggregateDataSorted = formattedAggregateData.toSorted(
+      (a, b) => (a.type ?? 'Unknown').localeCompare(b.type ?? 'Unknown'),
+    );
+
+    return (
+      <>
+        <ChartTitle title={title} />
+        <ChartContainer>
+          <PieChart>
+            {formattedAggregateDataSorted.length ? (
+              <Pie
+                data={formattedAggregateDataSorted}
+                dataKey="actionCount"
+                nameKey="type"
+                label={PieLabelComp}
+                labelLine={false}
+              >
+                {formattedAggregateDataSorted.map((entry) => (
+                  <Cell
+                    key={entry.type}
+                    fill={getColorForActionTriggerType(entry.type)}
+                  />
+                ))}
+              </Pie>
+            ) : (
+              <Typography>Nothing to see here</Typography>
+            )}
+            <Tooltip
+              formatter={(
+                value,
+                name: (typeof ActionTriggers)[keyof typeof ActionTriggers],
+              ) => [`${value}%`, translateActions(name)]}
+            />
+          </PieChart>
+        </ChartContainer>
+      </>
+    );
+  }
+
   if (isLoading) {
     return null;
   }
 
-  const title = t('TOTAL_ACTIONS_DISTRIBUTIONS');
-  if (!aggregateData?.length) {
-    return <EmptyChart chartTitle={title} isError={isError} />;
-  }
-
-  const formattedAggregateData = aggregateData.map((d) => ({
-    actionCount: d.aggregateResult,
-    type: d.actionType,
-  }));
-
-  const totalActions = formattedAggregateData.reduce(
-    (sum, cur) => sum + cur.actionCount,
-    0,
-  );
-
-  formattedAggregateData.forEach((d) => {
-    d.actionCount = parseFloat(
-      ((d.actionCount / totalActions) * 100).toFixed(2),
-    );
-  });
-  formattedAggregateData.push({
-    actionCount: 0.0,
-    type: t('OTHER_ACTION_TYPE'),
-  });
-
-  const formattedAggregateDataSorted = [...formattedAggregateData];
-  formattedAggregateDataSorted.sort((a, b) =>
-    (a?.type ?? 'Unknown').localeCompare(b.type ?? 'Unknown'),
-  );
-
-  return (
-    <>
-      <ChartTitle title={title} />
-      <ChartContainer>
-        <PieChart>
-          <Pie
-            data={formattedAggregateDataSorted}
-            dataKey="actionCount"
-            nameKey="type"
-            label={ActionChartLabel}
-            labelLine={false}
-          >
-            {formattedAggregateDataSorted.map((entry) => (
-              <Cell
-                key={entry.type}
-                fill={getColorForActionTriggerType(entry.type)}
-              />
-            ))}
-          </Pie>
-          <Tooltip
-            formatter={(
-              value,
-              name: (typeof ActionTriggers)[keyof typeof ActionTriggers],
-            ) => [`${value}%`, translateActions(name)]}
-          />
-        </PieChart>
-      </ChartContainer>
-    </>
-  );
+  return <EmptyChart chartTitle={title} isError={isError} />;
 };
 
 export default TotalActionsByVerbChart;

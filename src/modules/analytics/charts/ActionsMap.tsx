@@ -37,12 +37,9 @@ const ActionsMap = (): JSX.Element | null => {
   const [zoom, setZoom] = useState(DEFAULT_ZOOM);
   const { actions, selectedUsers } = useContext(DataContext);
 
-  let actionsToChart;
-  if (!selectedUsers) {
-    actionsToChart = actions;
-  } else {
-    actionsToChart = filterActionsByUsers(actions, selectedUsers);
-  }
+  const actionsToChart = selectedUsers
+    ? filterActionsByUsers(actions, selectedUsers)
+    : actions;
 
   // GeoJSON Feature objects
   const points = mapActionsToGeoJsonFeatureObjects(actionsToChart);

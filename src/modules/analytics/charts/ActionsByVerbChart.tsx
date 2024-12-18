@@ -6,7 +6,7 @@ import { styled } from '@mui/material/styles';
 
 import { ActionTriggers } from '@graasp/sdk';
 
-import { Cell, Pie, PieChart, Tooltip } from 'recharts';
+import { Cell, Pie, PieChart, PieLabel, Tooltip } from 'recharts';
 
 import { NS } from '@/config/constants';
 
@@ -25,7 +25,7 @@ const EmptyChartAlert = styled('div')({
   alignItems: 'center',
   height: `${CONTAINER_HEIGHT}px`,
 });
-
+const PieLabelComp: PieLabel = (props) => <ActionChartLabel {...props} />;
 const ActionsByVerbChart = (): JSX.Element => {
   const { t } = useTranslation(NS.Analytics);
   const { t: translateActions } = useTranslation(NS.Enums);
@@ -75,7 +75,7 @@ const ActionsByVerbChart = (): JSX.Element => {
             data={formattedActionsByVerbSorted}
             dataKey="percentage"
             nameKey="type"
-            label={ActionChartLabel}
+            label={PieLabelComp}
             labelLine={false}
           >
             {formattedActionsByVerbSorted.map((entry) => (
