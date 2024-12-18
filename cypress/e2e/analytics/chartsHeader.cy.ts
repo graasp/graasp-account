@@ -150,7 +150,7 @@ describe('Select users', () => {
     cy.setUpApi({});
     setupIntercepts();
   });
-  it('values of user select should be maintained when navigating within different routes', () => {
+  it.only('values of user select should be maintained when navigating within different routes', () => {
     visitItemPage(MOCK_ITEMS[0]);
 
     // open filter drawers

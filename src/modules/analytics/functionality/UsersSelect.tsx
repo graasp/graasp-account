@@ -50,14 +50,18 @@ const UsersSelect = (): JSX.Element | null => {
           limitTags={2}
           id={SELECT_USER_ID}
           renderTags={(value, getTagProps) =>
-            value.map((option, index) => (
-              <Chip
-                variant="outlined"
-                label={option.name}
-                {...getTagProps({ index })}
-                id={buildSelectedUserChipId(option.name)}
-              />
-            ))
+            value.map((option, index) => {
+              const { key, ...props } = getTagProps({ index });
+              return (
+                <Chip
+                  key={key}
+                  variant="outlined"
+                  label={option.name}
+                  {...props}
+                  id={buildSelectedUserChipId(option.name)}
+                />
+              );
+            })
           }
         />
       </FormControl>

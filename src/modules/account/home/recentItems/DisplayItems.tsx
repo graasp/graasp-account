@@ -14,6 +14,15 @@ const GridWrapper = ({ children }: { children: ReactNode }): JSX.Element => (
   <Grid size={{ xs: 12, sm: 6, md: 4, xl: 2 }}>{children}</Grid>
 );
 
+const placeholderItems = [
+  { id: '6a704d93-3f00-4ff6-a142-77bf4192aef6' },
+  { id: '8507cea8-a95f-4650-8cdd-d4065488f1dc' },
+  { id: 'dbb1a033-c056-4753-8fd4-a4691581f3ad' },
+  { id: '8d8ad96d-a7b5-40d9-9a51-1472a126e35e' },
+  { id: '9858060a-0a22-457e-9f64-0d0f61360a0a' },
+  { id: '652fa7f0-1653-4baf-8a00-e533dafc6655' },
+];
+
 export function DisplayItems({
   items,
   isLoading,
@@ -34,14 +43,14 @@ export function DisplayItems({
 
     return items.map((item) => (
       <GridWrapper key={item.id}>
-        <ItemCard item={item} />
+        <ItemCard key={item.id} item={item} />
       </GridWrapper>
     ));
   }
 
   if (isLoading) {
-    return Array.from(Array(6)).map((i) => (
-      <GridWrapper key={i}>
+    return placeholderItems.map(({ id }) => (
+      <GridWrapper key={id}>
         <LoadingItemsIndicator />
       </GridWrapper>
     ));
