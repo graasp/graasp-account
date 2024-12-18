@@ -70,7 +70,7 @@ function TeamMembers() {
       image: 'francois.webp',
       role: 'STATUSES.TITLE_PEDAGOGICAL_ENGINEER',
     },
-  ];
+  ] as const;
 
   return (
     <Stack
@@ -82,13 +82,18 @@ function TeamMembers() {
       <Typography variant="h2" color="primary">
         {t('TITLE')}
       </Typography>
-      <Grid container justifyContent="center" alignItems="center">
+      <Grid
+        container
+        justifyContent="center"
+        alignItems="flex-start"
+        spacing={3}
+      >
         {TEAM.map(({ name, image, role }) => (
-          <Grid size={{ xs: 6, sm: 4, lg: 3 }} mb={3}>
+          <Grid key={name} size={{ xs: 6, sm: 4, lg: 3 }}>
             <Box
               margin="auto"
-              borderRadius={50}
-              height={'150px'}
+              borderRadius="50%"
+              height="150px"
               width="150px"
               sx={{ overflow: 'hidden' }}
               mb={2}
@@ -99,7 +104,7 @@ function TeamMembers() {
                   height: '100%',
                   objectFit: 'cover',
                 }}
-                src={`/team/` + image}
+                src={`/team/${image}`}
                 alt={name}
               />
             </Box>
@@ -109,11 +114,10 @@ function TeamMembers() {
             </Typography>
             <Typography
               textTransform="uppercase"
-              variant="body1"
+              variant="note"
+              color="textSecondary"
               textAlign="center"
             >
-              {/* eslint-disable-next-line @typescript-eslint/ban-ts-comment */}
-              {/* @ts-expect-error */}
               {t(role)}
             </Typography>
           </Grid>
