@@ -38,7 +38,7 @@ function PresentationVideoSection() {
           {t('JOIN_BUTTON_TEXT')}
         </ButtonLink>
         <a href={GRAASP_LIBRARY_HOST}>
-          <Button>{t('LIBRARY_BUTTON_TEXT')}</Button>
+          <Button color="secondary">{t('LIBRARY_BUTTON_TEXT')}</Button>
         </a>
       </Stack>
     </Stack>
