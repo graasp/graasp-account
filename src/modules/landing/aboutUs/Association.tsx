@@ -22,7 +22,7 @@ function Association() {
         {t('TITLE')}
       </Typography>
 
-      <p>{t('DESCRIPTION')}</p>
+      <Typography variant="body1">{t('DESCRIPTION')}</Typography>
 
       <Typography variant="h4" color="primary">
         {t('PROJECTS.TITLE')}
