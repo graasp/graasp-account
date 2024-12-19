@@ -352,6 +352,49 @@
       "BUTTON_TEXT": "Visit our Blog"
     }
   },
+  "ABOUT_US": {
+    "TITLE": "Meet the people behind Graasp",
+    "DESCRIPTION_1": "Founded by a dedicated team of professionals, our mission is to bridge the gap between cutting-edge technology and education, empowering educators and researchers globally.",
+    "DESCRIPTION_2": "We aim to bridge the gap between research environments and traditional educational settings such as schools. We envision a future where Graasp empowers educators and students in traditional educational setups and more, revolutionizing teaching methodologies and fostering engaging learning experiences.",
+
+    "ASSOCIATION": {
+      "TITLE": "Graasp Association",
+      "DESCRIPTION": "Graasp is more than a Learning Experience Platform. It is a product behind which there is a Swiss Non-Profit Organization dedicated to advancing digital education. Our primary goal is to support educators and researchers every step of the way, providing help and training to achieve their objectives effectively.",
+      "PROJECTS": {
+        "TITLE": "Other projects",
+        "HELVETAS": {
+          "TITLE": "Helvetas",
+          "DESCRIPTION": "Collaborative digital platform for training young people on migration routes"
+        },
+        "CLIMATE": {
+          "TITLE": "Climate",
+          "DESCRIPTION": "Active learning simulations for investigating the science of global warming"
+        }
+      }
+    },
+    "TEAM": {
+      "TITLE": "Meet the team!",
+      "STATUSES": {
+        "TITLE_PRESIDENT": "President",
+        "TITLE_MANAGING_DIRECTOR": "Managing Director",
+        "TITLE_VP_RESEARCH": "VP Research",
+        "TITLE_VP_PRODUCT": "VP Product",
+        "TITLE_VP_ENGINEERING": "VP Engineering",
+        "TITLE_VP_OUTREACH": "VP Outreach",
+        "TITLE_VP_INNOVATION": "VP Innovation",
+        "TITLE_VP_TECHNOLOGY": "VP Technology",
+        "TITLE_VP_EDUCATION_AND_CONTENT": "VP Education and Content",
+        "TITLE_SOFTWARE_ENGINEER": "Software Engineer",
+        "TITLE_AMBASSADOR": "Ambassador",
+        "TITLE_PEDAGOGICAL_ENGINEER": "Pedagogical Engineer"
+      }
+    },
+    "PRESENTATION_VIDEO": {
+      "TITLE": "Take a look at our presentation video",
+      "JOIN_BUTTON_TEXT": "Join our Community",
+      "LIBRARY_BUTTON_TEXT": "Explore the Library"
+    }
+  },
   "NEWSLETTER": {
     "LEAD_SENTENCE": "Do you want to be updated?",
     "TITLE": "Subscribe to our newsletter!",
