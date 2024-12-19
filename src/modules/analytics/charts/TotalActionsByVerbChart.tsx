@@ -67,12 +67,6 @@ const TotalActionsByVerbChart = (): JSX.Element | null => {
       type: d.actionType,
     }));
 
-    // formattedAggregateData.forEach((d) => {
-    //   d.actionCount = parseFloat(
-    //     ((d.actionCount / totalActions) * 100).toFixed(2),
-    //   );
-    // });
-
     const formattedAggregateDataSorted = formattedAggregateData.toSorted(
       (a, b) => (a.type ?? 'Unknown').localeCompare(b.type ?? 'Unknown'),
     );

@@ -1,5 +1,4 @@
-import { Stack } from '@mui/material';
-import Grid from '@mui/material/Grid';
+import { Grid2, Stack } from '@mui/material';
 
 import { GOOGLE_KEY } from '@/config/env';
 
@@ -17,23 +16,25 @@ const ChartsArea = (): JSX.Element => (
       <ActionsCard />
       <ActionsByDayChart />
     </Stack>
-    <Grid container>
-      <Grid item xs={12} sm={12} md={12} lg={6} xl={6}>
+    <Grid2 container>
+      <Grid2 size={{ xs: 12, lg: 6 }}>
         <ActionsByTimeOfDayChart />
-      </Grid>
-      <Grid item xs={12} sm={12} md={12} lg={6} xl={6}>
+      </Grid2>
+      <Grid2 size={{ xs: 12, lg: 6 }}>
         <ActionsByWeekdayChart />
-      </Grid>
-      <Grid item xs={12} sm={12} md={12} lg={12} xl={12}>
-        {GOOGLE_KEY ? <ActionsMap /> : null}
-      </Grid>
-      <Grid item xs={12} sm={12} md={6} lg={6} xl={6}>
+      </Grid2>
+      {GOOGLE_KEY ? (
+        <Grid2 size={{ xs: 12, lg: 6 }}>
+          <ActionsMap />
+        </Grid2>
+      ) : null}
+      <Grid2 size={{ xs: 12, lg: 6 }}>
         <ActionsByVerbChart />
-      </Grid>
-      <Grid item xs={12} sm={12} md={6} lg={6} xl={6}>
+      </Grid2>
+      <Grid2 size={{ xs: 12, lg: 6 }}>
         <TotalActionsByVerbChart />
-      </Grid>
-    </Grid>
+      </Grid2>
+    </Grid2>
   </>
 );
 
