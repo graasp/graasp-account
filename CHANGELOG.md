@@ -1,5 +1,20 @@
 # Changelog
 
+## [2.19.0](https://github.com/graasp/client/compare/v2.18.0...v2.19.0) (2024-12-19)
+
+
+### Features
+
+* analytics works ([3ef7fe8](https://github.com/graasp/client/commit/3ef7fe87f04bf340e5f92077398a926fb021b685))
+* implement about us page ([#567](https://github.com/graasp/client/issues/567)) ([8555c61](https://github.com/graasp/client/commit/8555c61593baa03ade86a6fef7e0d3f8d6e740ad))
+
+
+### Bug Fixes
+
+* add translations and rename umami script ([5ed782e](https://github.com/graasp/client/commit/5ed782eb0129f40272171bfa63ea4e58ae5f1959))
+* analytics test ([#556](https://github.com/graasp/client/issues/556)) ([529d027](https://github.com/graasp/client/commit/529d02713517ceddf61c6cfc65883469987cd782))
+* issues with date-fns and cypress ([4862b65](https://github.com/graasp/client/commit/4862b65c6cb783c01740bbbf11bb5262f3fdfdc9))
+
 ## [2.18.0](https://github.com/graasp/client/compare/v2.16.0...v2.18.0) (2024-12-13)
 
 
