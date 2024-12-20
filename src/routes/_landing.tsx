@@ -113,6 +113,12 @@ function RouteComponent() {
               </ButtonLink>
               <ButtonLink
                 activeProps={() => ({ fontStyle: 'bold' })}
+                to="/support"
+              >
+                Tutorials
+              </ButtonLink>
+              <ButtonLink
+                activeProps={() => ({ fontStyle: 'bold' })}
                 to={GRAASP_LIBRARY_HOST}
               >
                 Library
