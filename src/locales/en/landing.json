@@ -395,6 +395,47 @@
       "LIBRARY_BUTTON_TEXT": "Explore the Library"
     }
   },
+  "SUPPORT": {
+    "TITLE": "Get Started",
+    "DESCRIPTION": "Explore our support resources access the support you need. We're committed to ensuring your success with our platform.",
+    "FAQ": {
+      "TITLE": "FAQ",
+      "DESCRIPTION_1": "Here are our most Frequently Asked Questions for you to find quick solutions to commonly shared doubts and challenges within the community.",
+      "DESCRIPTION_2": "For any additional or specific question, please fill the contact form and we will answer to you."
+    },
+    "TUTORIALS": {
+      "TITLE": "Tutorials",
+      "DESCRIPTION": "Master the Platform's Functionality: here’s a collection of our detailed tutorials and guides, designed to help you get the most out of Graasp's functionalities.",
+      "GENERAL_TUTORIALS": {
+        "QUICK_GET_STARTED": {
+          "TITLE": "Quick Get Started",
+          "DESCRIPTION": "Quick get started tutorial of the platform",
+          "LINK": "https://player.graasp.org/9d80d81f-ec9d-4bfb-836a-1c6b125aef2f/84518f10-3174-4216-98e9-aede34ee108e"
+        }
+      },
+      "BUILDER": { "TITLE": "Builder Tutorials" },
+      "PLAYER": { "TITLE": "Player Tutorials" },
+      "LIBRARY": { "TITLE": "Library Tutorials" },
+      "ACCOUNT": { "TITLE": "Account Tutorials" },
+      "READ_BUTTON": "Read"
+    },
+    "DEVELOPERS": {
+      "TITLE": "Developers",
+      "SUBTITLE": "Are you interested in developing? Embrace Open Education with Graasp!",
+      "DESCRIPTION": "At Graasp, we believe in the power of free software as much as we believe in open education. For this reason, we share the code of our services on GitHub, and invite developers to join us in our mission to shape the landscape of digital education",
+      "GITHUB": {
+        "TITLE": "Open Learning",
+        "SUBTITLE": "Want to collaborate?",
+        "BUTTON_TEXT": "Visit Repository",
+        "DESCRIPTION": "Visit our repository on GitHub where we actively collaborate and share code, fostering a community-driven approach to education. Connect with the team if you want to start collaborating!"
+      }
+    },
+    "HELP": {
+      "TITLE": "Need help? Contact us",
+      "DESCRIPTION": "Do not hesitate to contact us for any need or issue that you might be having! We are happy to answer your doubts and curiosities.",
+      "CONTACT_FORM_BUTTON": "Go to the Contact Form"
+    }
+  },
   "NEWSLETTER": {
     "LEAD_SENTENCE": "Do you want to be updated?",
     "TITLE": "Subscribe to our newsletter!",

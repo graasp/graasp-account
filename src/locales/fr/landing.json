@@ -389,6 +389,47 @@
       "LIBRARY_BUTTON_TEXT": "Explore la Bibliothèque"
     }
   },
+  "SUPPORT": {
+    "TITLE": "Prise en main",
+    "DESCRIPTION": "Explorez nos ressources pour mieux comprendre l'utilisation de Graasp. Cela nous tient à coeur de vous accompagner dans ton aventure avec notre plateforme.",
+    "FAQ": {
+      "TITLE": "FAQ",
+      "DESCRIPTION_1": "Vous pouvez trouver ci-dessous les réponses aux questions les plus souvent posées pour trouver des solutions aux doutes et défis partagés par la communauté.",
+      "DESCRIPTION_2": "Pour toute question supplémentaire ou spécifique, remplis le formulaire de contact et nous te répondrons."
+    },
+    "TUTORIALS": {
+      "TITLE": "Tutorials",
+      "DESCRIPTION": "Maîtriser les fonctionnalités de la plateforme : voici une collection de nos tutoriels et guides détaillés, conçus pour vous aider à tirer le meilleur parti des fonctionnalités de Graasp.",
+      "GENERAL_TUTORIALS": {
+        "QUICK_GET_STARTED": {
+          "TITLE": "Prise en main rapide",
+          "DESCRIPTION": "Tutoriel de prise en main rapide de la plateforme",
+          "LINK": "https://player.graasp.org/9d80d81f-ec9d-4bfb-836a-1c6b125aef2f/84518f10-3174-4216-98e9-aede34ee108e"
+        }
+      },
+      "BUILDER": { "TITLE": "Builder Tutorials" },
+      "PLAYER": { "TITLE": "Player Tutorials" },
+      "LIBRARY": { "TITLE": "Library Tutorials" },
+      "ACCOUNT": { "TITLE": "Account Tutorials" },
+      "READ_BUTTON": "Read"
+    },
+    "DEVELOPERS": {
+      "TITLE": "Développeurs",
+      "SUBTITLE": "Le développement vous intéresse ? Adoptez l'éducation ouverte avec Graasp !",
+      "DESCRIPTION": "Chez Graasp, nous croyons au pouvoir du logiciel libre autant qu'à l'éducation ouverte. C'est pourquoi nous partageons le code de nos services sur GitHub et invitons les développeurs à nous rejoindre dans notre mission de façonner le paysage de l'éducation numérique.",
+      "GITHUB": {
+        "TITLE": "Education ouverte",
+        "SUBTITLE": "Envie de collaborer ?",
+        "BUTTON_TEXT": "Visiter le Dépôt",
+        "DESCRIPTION": "Visitez notre dépôt sur GitHub où nous collaborons activement et partageons du code, favorisant une approche de l'éducation axée sur la communauté. Contactez l'équipe si vous souhaitez commencer à collaborer !"
+      }
+    },
+    "HELP": {
+      "TITLE": "Besoin d'aide ? Contactez-nous",
+      "DESCRIPTION": "N'hésitez pas à nous contacter pour tout besoin ou question que vous pourriez avoir ! Nous nous ferons un plaisir de répondre à vos doutes et à vos curiosités.",
+      "CONTACT_FORM_BUTTON": "Aller au formulaire de contact"
+    }
+  },
   "NEWSLETTER": {
     "LEAD_SENTENCE": "Voulez-vous rester informé ?",
     "TITLE": "Abonnez-vous à notre newsletter !",
